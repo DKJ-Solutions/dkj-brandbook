@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**31 minor entries** <!-- pending-tally -->
+**32 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/46-filter-chips · 20261013-145406Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book has `FilterChips`: a wrapping row of toggle chips where several can be on at once, each optionally with a colour dot, a check mark on what is on, and a clear action. The music library preview filters colour, density and tempo with it, and the recipes preview its tags.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+FilterChips: a multi-select filter group with optional colour dots
+
+[PR #60](https://github.com/DKJ-Solutions/dkj-brandbook/pull/60)
+
+---
 
 ### DEPLOY: feat/44-disclosure-summary · 20261013-144756Z
 
