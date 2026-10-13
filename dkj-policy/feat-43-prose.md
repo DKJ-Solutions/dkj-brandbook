@@ -62,7 +62,7 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 - [x] Victor reviewed the diff: nothing blocking. Applied: `sources.ts` records Prose as a brand-book original (`Prose: []`, documented in its header) instead of naming the previews as its origin; task items named by `aria-labelledby` rather than a duplicate `aria-label`; the duplicate `hr` rule gone, the first child truly margin-free, a nested list in a task item wrapped onto its own line.
 - [x] Link contrast (`--dkj-accent` = `--primary`) measured in all twelve themes against `--page` and `--surface`: lowest 4.69:1 (teal, rust), highest 11.60:1 (yellow), so every theme passes 4.5:1; links are also underlined.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the Prose section and the four previews that now use it (`npm run dev`) and approved it.
+- [x] An owner has looked at the Prose section and the four previews that now use it (`npm run dev`) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/43-prose
 
