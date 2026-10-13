@@ -100,7 +100,8 @@
   }
   /* The settings button: a round toggle that opens a panel with the picker and a reset.
      settings(el, { label, title, theme, reset, light, dark }) -- every text is optional (Dutch by
-     default, like the picker). Returns the panel's .theme-settings__extra element, where an app
+     default, like the picker) and goes in as HTML, like the picker's labels: pass the app's own
+     texts, never user input. Returns the panel's .theme-settings__extra element, where an app
      adds controls of its own. The panel closes on the toggle, Escape (focus goes back to the
      toggle), a click outside it and focus leaving it -- never on a click inside it. Drawing the
      same element twice returns the existing slot. */
@@ -131,11 +132,23 @@
     function show(open) { panel.hidden = !open; toggle.setAttribute('aria-expanded', String(open)); }
     toggle.addEventListener('click', function () { show(panel.hidden); });
     el.querySelector('.theme-settings__reset').addEventListener('click', reset);
-    document.addEventListener('keydown', function (e) {
-      if (!panel.hidden && (e.key === 'Escape' || e.key === 'Esc')) { show(false); toggle.focus(); }
-    });
+    /* the document listeners remove themselves once el has left the page, so a redraw leaks nothing */
+    function gone() {
+      if (document.documentElement.contains(el)) return false;
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onPointer);
+      return true;
+    }
+    function onKey(e) {
+      if (gone() || panel.hidden || (e.key !== 'Escape' && e.key !== 'Esc')) return;
+      var inside = el.contains(document.activeElement);
+      show(false);
+      if (inside) toggle.focus();   /* focus elsewhere on the page stays where it is */
+    }
     /* a click outside closes it; a click inside, on a control or not, never does */
-    document.addEventListener('pointerdown', function (e) { if (!panel.hidden && !el.contains(e.target)) show(false); });
+    function onPointer(e) { if (!gone() && !panel.hidden && !el.contains(e.target)) show(false); }
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onPointer);
     /* focus moving to an element outside closes it; a null relatedTarget is a click, decided above */
     el.addEventListener('focusout', function (e) { if (e.relatedTarget && !el.contains(e.relatedTarget)) show(false); });
     picker(el.querySelector('.theme-settings__picker'), { light: opts.light, dark: opts.dark });
