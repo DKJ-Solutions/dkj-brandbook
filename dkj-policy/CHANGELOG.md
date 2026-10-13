@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**19 minor entries** <!-- pending-tally -->
+**20 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/repo-previews · 20261013-124029Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The DKJ-Solutions repo list in the showcase navigation no longer links to GitHub: a click opens a recreated preview of
+that app inside the brand book, built from the brand-book components, so it follows the theme and the width toggle.
+Mesowise and the ETF tracker have one; the other repos show a "preview follows" card until theirs is recreated. The brand book itself is no longer in the list.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal to the brand book's maintainers; nothing changes for management or the commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing service is involved.
+
+**Score:** N/A
+
+#### Pull Request
+
+Recreated app previews behind the DKJ-Solutions repo list
+
+[PR #40](https://github.com/DKJ-Solutions/dkj-brandbook/pull/40)
+
+---
 
 ### DEPLOY: feat/nav-repo-list · 20261013-120956Z
 
