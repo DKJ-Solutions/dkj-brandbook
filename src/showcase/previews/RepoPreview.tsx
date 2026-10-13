@@ -4,11 +4,13 @@ import { Card } from '../../components/Card'
 import { Message } from '../../components/Feedback'
 import { EtfPreview } from './EtfPreview'
 import { MesowisePreview } from './MesowisePreview'
+import { PluginsPreview } from './PluginsPreview'
 
 /** The recreated previews, keyed by repo name; a repo not in here shows a "preview follows" card. */
 const PREVIEWS: Partial<Record<string, ComponentType>> = {
   'dkj-maplestory-classic-mesowise': MesowisePreview,
   'dkj-etf-tracker': EtfPreview,
+  'dkj-claude-plugins': PluginsPreview,
 }
 
 /** A repo's page behind the navigation list: its links, then the recreated app in a frame, or a placeholder. */
