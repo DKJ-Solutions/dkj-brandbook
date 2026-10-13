@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**17 minor entries** <!-- pending-tally -->
+**18 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/dev-server-link · 20261013-113814Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Every session in this repo now starts with the showcase running and its `localhost` link printed, ready to ctrl+click in the VS Code terminal or open in Simple Browser. A server this checkout already runs is reused, so `/clear` or a second session never starts a second one.
+
+**Score:** 3
+
+##### Tier 1
+
+Developer tooling only; nothing reaches management or the commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber sees a session hook.
+
+**Score:** N/A
+
+#### Pull Request
+
+SessionStart hook starts the showcase and prints its localhost link
+
+[PR #31](https://github.com/DKJ-Solutions/dkj-brandbook/pull/31)
+
+---
 
 ### DEPLOY: docs/28-one-owner-look · 20261013-112834Z
 
