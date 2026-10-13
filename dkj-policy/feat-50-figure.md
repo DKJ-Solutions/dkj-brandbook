@@ -61,7 +61,7 @@ This branch is #50 and ships with `-Resolves 50`: a `Figure` component, a framed
 
 - [x] Victor reviewed the diff: nothing blocking; a cached broken image still reaches `onError`, and the prose image rule is outranked inside a figure. Applied: a changed `src` always retries (the frame is keyed by `src`), an empty `src` counts as none, and a decorative image that fails stays hidden from assistive technology instead of announcing "Image unavailable".
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the Figure section and the thumbnail preview's contact sheet (`npm run dev`) and approved it.
+- [x] An owner has looked at the Figure section and the thumbnail preview's contact sheet (`npm run dev`) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/50-figure
 
