@@ -50,7 +50,11 @@ Step 3 of #20, the last one, so this branch ships with `-Resolves 20`: `LineChar
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/components/Chart.tsx` (`LineChart`, `LinePoint`, `LineSeries`, on the shared `useChartFrame`, `ChartTip`, `ChartTable` and `ticks()`) and `src/components/charts.css` (brand-layer names only).
+- [x] Showcase: a `LineChart` section after `BarChart` (value, deposits as a step and a signed result going below zero, quarter guides, 360px demo) and its nav entry in `src/App.tsx`.
+- [x] `src/showcase/previews/EtfPreview.tsx`: the Value over time card, on figures that match the summary (deposits € 12,500, result +€ 1,150).
+- [x] `src/components/sources.ts` (`LineChart`) and `src/apps/registry.ts` (the `timeline` view lists `LineChart`; all three charts are mirrored).
+- [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
 
