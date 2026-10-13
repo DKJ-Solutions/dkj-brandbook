@@ -45,7 +45,7 @@ A click in the nav repo list opens a recreated preview of the app in the main ar
 
 ### TEST
 
-- [ ] An owner has looked at the Mesowise and ETF tracker previews and a "preview follows" repo, in light and dark and at phone width, and approved it
+- [x] An owner has looked at the Mesowise and ETF tracker previews and a "preview follows" repo, in light and dark and at phone width, and approved it
 
 ### DEPLOY: feat/repo-previews
 
