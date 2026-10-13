@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**12 minor entries** <!-- pending-tally -->
+**13 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/19-house-focus-and-targets · 20261013-105512Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Keyboard focus is now visible on every interactive house class (`.seg`, `.info-button`, `.more`,
+`.chart .bar`), the small house controls have a 44px hit area (`.info-button`, the `.table` header's
+`.sort`, `.moretoggle`), and the house `.tooltip` has an open state, `.tooltip--open`, that a pointer can
+move onto. An app that opens tooltips its own way can switch to the modifier and drop its rule.
+
+**Score:** 3
+
+##### Tier 1
+
+Not relevant to management on its own: an accessibility fix in the shared style.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change until an app takes the new copy.
+
+**Score:** N/A
+
+#### Pull Request
+
+House style: visible focus rings and 44px targets on .seg, .info-button, .more, .chart .bar, .sort, .moretoggle; a tooltip open state
+
+[PR #25](https://github.com/DKJ-Solutions/dkj-brandbook/pull/25)
+
+---
 
 ### DEPLOY: feat/18-house-app-components · 20261013-104408Z
 
