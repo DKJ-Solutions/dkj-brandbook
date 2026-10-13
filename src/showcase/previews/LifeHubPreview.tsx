@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Button, SegmentedChoice } from '../../components/Button'
 import { Card, CardBody } from '../../components/Card'
+import { Prose } from '../../components/Prose'
 import { FooterNote, GroupHeading } from '../../components/Content'
 import { Message, TitleTag } from '../../components/Feedback'
-import { Checkbox } from '../../components/Field'
 import { Badge, BadgeRow, Meter, StatTile, StatTiles, type StatusTone } from '../../components/Metrics'
 import { PageHeader } from '../../components/Navigation'
 
@@ -205,14 +205,28 @@ function DossierDetail({ dossier, onBack, onOpen }: { dossier: Dossier; onBack: 
 
       <Card variant="data">
         <CardBody>
-          <p>{shown.intro}</p>
+          <Prose>
+            <p>{shown.intro}</p>
+          </Prose>
           {shown.sections.map((s) => (
             <div key={s.heading} className="bb-preview-gap">
               <GroupHeading>{s.heading}</GroupHeading>
-              <p>{s.text}</p>
-              {s.tasks.map((t) => (
-                <Checkbox key={t.label} label={t.label} checked={t.done} disabled readOnly />
-              ))}
+              <Prose>
+                <p>{s.text}</p>
+                {s.tasks.length > 0 && (
+                  <ul>
+                    {s.tasks.map((t) => {
+                      const id = `task-${s.heading}-${t.label}`.replace(/\W+/g, '-')
+                      return (
+                        <li key={t.label}>
+                          <input type="checkbox" checked={t.done} disabled aria-labelledby={id} />
+                          <span id={id}>{t.label}</span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                )}
+              </Prose>
             </div>
           ))}
         </CardBody>

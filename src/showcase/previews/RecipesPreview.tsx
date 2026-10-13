@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button, SegmentedChoice } from '../../components/Button'
 import { Card, CardBody } from '../../components/Card'
 import { FooterNote, GroupHeading } from '../../components/Content'
+import { Prose } from '../../components/Prose'
 import { Message, TitleTag } from '../../components/Feedback'
 import { Checkbox, Stepper, TextField } from '../../components/Field'
 import { PageHeader } from '../../components/Navigation'
@@ -182,11 +183,13 @@ function RecipePage({ recipe, onBack, onList, onToggleList }: { recipe: Recipe; 
       <Card variant="data">
         <CardBody>
           <GroupHeading>Method</GroupHeading>
-          <ol>
-            {recipe.method.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ol>
+          <Prose>
+            <ol>
+              {recipe.method.map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ol>
+          </Prose>
           <Message>Source: {recipe.source}</Message>
         </CardBody>
       </Card>

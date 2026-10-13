@@ -29,6 +29,8 @@
   --dkj-lh-none: 1;
   --dkj-lh-tight: 1.2;
   --dkj-lh-snug: 1.35;
+  --dkj-lh-prose: 1.55;          /* long text: looser than the house body 1.45 */
+  --dkj-font-mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace; /* code */
   --dkj-tracking-caps: 0.03em;   /* compact uppercase buttons */
   --dkj-tracking-label: 0.04em;  /* uppercase section and column labels */
   --dkj-tracking-tag: 0.06em;    /* pill tags */
