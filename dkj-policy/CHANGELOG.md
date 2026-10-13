@@ -2,7 +2,42 @@
 
 ## [Unreleased]
 
-**11 minor entries** <!-- pending-tally -->
+**12 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/18-house-app-components · 20261013-104408Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house style now carries the generic app shell that MesoWise built: four app-shell tokens
+(`--control-h`, `--tap`, `--topbar-h`, `--column-narrow`), a narrow column, a form field with its error
+line, touch and block buttons, icon buttons in an action row, a native dialog with close, save, cancel
+and back, a side drawer, a sticky top bar, a menu list and `.sr-only`. Additions only, but an app that
+defines its own `.field`, `.dialog`, `.topbar`, `.menu-row`, `.icon-btn` or `.sr-only` now collides
+with a house name. It reaches the apps with the next `house-style-v<N>` tag.
+
+**Score:** 3
+
+##### Tier 1
+
+Not relevant to management on its own: shared building blocks for DKJ-Solutions apps.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change until an app takes the new copy and uses the classes.
+
+**Score:** N/A
+
+#### Pull Request
+
+House style: port the MesoWise app components (field, dialog, drawer, top bar, menu)
+
+[PR #23](https://github.com/DKJ-Solutions/dkj-brandbook/pull/23)
+
+---
 
 ### DEPLOY: feat/etf-dashboard-overview · 20261013-101346Z
 
