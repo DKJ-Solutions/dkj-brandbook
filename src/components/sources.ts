@@ -81,6 +81,7 @@ export const SOURCES = {
   // Brand-book original, no source repo.
   Prose: [],
   FilterChips: [],
+  Figure: [],
 } as const satisfies Record<string, SourceRef[]>
 
 export type ComponentId = keyof typeof SOURCES

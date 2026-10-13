@@ -97,6 +97,7 @@
 .bb-row { display: flex; flex-wrap: wrap; gap: var(--spacing-2); align-items: center; }
 .bb-column { max-width: var(--dkj-column-w); }
 .bb-narrow { max-width: 320px; }
+.bb-figure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: var(--spacing-3); align-items: start; }
 
 .bb-source {
   margin-top: var(--spacing-3);
@@ -166,5 +167,6 @@
 .bb-preview-column--wide { max-width: none; padding: var(--spacing-4) 0 0; }
 .bb-preview-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-3); }
 .bb-preview-card-actions { padding: 0 var(--spacing-4) var(--spacing-4); }
+.bb-preview-candidates { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--spacing-3); }
 .bb-preview-gap { margin-top: var(--spacing-4); }
 .bb-preview-done { text-decoration: line-through; }
