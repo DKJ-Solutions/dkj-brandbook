@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**34 minor entries** <!-- pending-tally -->
+**35 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/54-date-row · 20261013-155115Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book has `DateList` and `DateRow`: a list of dated items with a fixed date column so titles align, a muted second line, an optional trailing label, a highlighted near or today state (a tint, a bar and a tag, not colour alone) and an invalid state with its reason. The life hub preview's "Coming up" list uses it.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+DateRow: a list row with a date column, muted detail and a near/today state
+
+[PR #63](https://github.com/DKJ-Solutions/dkj-brandbook/pull/63)
+
+---
 
 ### DEPLOY: feat/50-figure · 20261013-151441Z
 
