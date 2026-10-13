@@ -36,8 +36,8 @@ This branch is #37: a recreated preview for `DKJ-Solutions/dkj-thumbnail-generat
 
 #### What the preview shows
 
-- **Yardstick report (first screen):** a muted "Generated on" line and a "generated, do not edit" note, a short introduction, "Where the series stands" as `StatTile`s, then five numbered sections (placement, candidates, cutout, guideline, cost), each a `DataTable` with one row per invented round (Round A to D). Verdicts are text with a tone ("yes", "no", "outside the margin", "no verdict" with a reason); a dash means not measured. A "Disclosure per round" block ends the report, one `Disclosure` per round.
-- **Contact sheet:** three candidate tiles side by side in a `TintedPanel`, each a `MiniCard` with an "Image placeholder" value and a `Chip` verdict, then "Discard" and "Retain" rows as a `DefinitionList`.
+- **Yardstick report (first screen):** a muted "Generated on" line and a "generated report" note, a short introduction, a "Series summary" as `StatTile`s, then five numbered sections with neutral invented names, each a `DataTable` with one row per invented round (Round A to D). Verdicts are text with a tone ("yes", "no", "outside the margin", "no verdict" with a reason); a dash means not measured. A "Notes per round" block ends the report, one `Disclosure` per round.
+- **Contact sheet:** four candidate tiles side by side in a `TintedPanel`, each a `MiniCard` with an "Image placeholder" value and a `Chip` verdict, then "Discard" and "Retain" rows as a `DefinitionList`.
 - **Footer** says everything is invented and the real repo has no interface.
 - **Gaps (no component, rendered as closely as possible):** the long report text (a plain paragraph; Prose: #43); the per-round summary with a date and a verdict (a `Disclosure` with only the round name as summary; structured Disclosure summary: #44); the section headings, which are h2 in the report (`GroupHeading`, always an h3; GroupHeading level: #48); an image or figure placeholder (a `MiniCard` with text instead of an image); the dark panel of the contact sheet (a neutral `TintedPanel`, no dark surface component); inline code in the report (left out).
 
@@ -50,13 +50,19 @@ This branch is #37: a recreated preview for `DKJ-Solutions/dkj-thumbnail-generat
 
 ### TEST
 
+- [x] Rebecca researched the outputs read-only in `dkj-thumbnail-generator` (a private repo with no UI); Victor reviewed the diff against it for confidentiality: no measured value, id, cost, prompt or service name copied. Applied: neutral headings and section names instead of the source's, invented offsets away from the real tolerance, four candidates instead of the real three, no dependency names in the stack line. Filed the image-frame gap as #50.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the dkj-thumbnail-generator preview (`npm run dev`, the repo list in the navigation) and approved it.
+
 ### DEPLOY: feat/37-thumbnail-preview
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The repo list in the showcase navigation now opens a recreated preview of `dkj-thumbnail-generator`. That repo has no interface, so the preview shows its two outputs, a measurement report and a contact sheet of candidates, built from brand-book components with neutral invented content.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -65,7 +71,9 @@ This branch is #37: a recreated preview for `DKJ-Solutions/dkj-thumbnail-generat
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -74,7 +82,9 @@ This branch is #37: a recreated preview for `DKJ-Solutions/dkj-thumbnail-generat
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
