@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**36 minor entries** <!-- pending-tally -->
+**37 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/66-toolbar-toggle · 20261013-195046Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book's preview settings (theme picker, reset, width) no longer take a full-width bar at the top of the page: a round sticky button at the top right opens them as a floating panel over the page, and Escape or a click outside closes it.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+A round sticky button that collapses and expands the preview toolbar
+
+[PR #67](https://github.com/DKJ-Solutions/dkj-brandbook/pull/67)
+
+---
 
 ### DEPLOY: feat/64-overlap-section · 20261013-193652Z
 
