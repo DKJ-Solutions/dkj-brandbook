@@ -59,7 +59,7 @@ This branch is #44 and ships with `-Resolves 44`. `Disclosure` takes `summary: s
 
 - [x] Victor reviewed the diff: nothing blocking; a plain-string `Disclosure` renders the same markup as before at all eight call sites. Applied: the thumbnail notes' chips agree with their text (no verdict, planned), the structured row takes the full width so its inline-size containment cannot collapse it in a shrink-to-fit parent, and the doc comment says only the decorative chevron may move at narrow widths.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the Disclosure section (structured summary, wide and at 320px) and the plugins and thumbnail previews (`npm run dev`) and approved it.
+- [x] An owner has looked at the Disclosure section (structured summary, wide and at 320px) and the plugins and thumbnail previews (`npm run dev`) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/44-disclosure-summary
 
