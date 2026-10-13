@@ -37,6 +37,7 @@ Add a DKJ-Solutions group at the bottom of the showcase's left navigation, listi
 ### CREATE
 
 - [x] `src/App.tsx`: a `REPOS` list and a DKJ-Solutions nav group rendered after the component groups
+- [x] `src/showcase/showcase.css`: every nav link stays on one line; a name too long for the column ends in an ellipsis, with the full name as its title
 
 ### TEST
 

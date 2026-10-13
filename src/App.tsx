@@ -60,7 +60,9 @@ export default function App() {
         <ul>
           {REPOS.map((r) => (
             <li key={r}>
-              <a href={`https://github.com/DKJ-Solutions/${r}`}>{r}</a>
+              <a href={`https://github.com/DKJ-Solutions/${r}`} title={r}>
+                {r}
+              </a>
             </li>
           ))}
         </ul>
