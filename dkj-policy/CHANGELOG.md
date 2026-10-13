@@ -2,7 +2,38 @@
 
 ## [Unreleased]
 
-**9 minor entries** <!-- pending-tally -->
+**10 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/btn-disabled-entry-ladder · 20261013-091636Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The changelog entry for the disabled `.btn` state now carries a tier 1 row, so the next release cut
+can read its reach.
+
+**Score:** 1
+
+##### Tier 1
+
+Not relevant to management: a correction to the changelog itself.
+
+**Score:** N/A
+
+##### Tier 2
+
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+Settle the tier ladder of the disabled-.btn changelog entry
+
+[PR #17](https://github.com/DKJ-Solutions/dkj-brandbook/pull/17)
+
+---
 
 ### DEPLOY: feat/12-btn-disabled · 20261013-091441Z
 
