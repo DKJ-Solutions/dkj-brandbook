@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**22 minor entries** <!-- pending-tally -->
+**23 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/34-plugins-preview · 20261013-132527Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The repo list in the showcase navigation now opens a recreated preview of `dkj-claude-plugins` as well. That repo has no app, so the preview shows the two pages it generates, the issue dashboard and the release notes page, built from brand-book components with placeholder content.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Recreated preview for dkj-claude-plugins
+
+[PR #45](https://github.com/DKJ-Solutions/dkj-brandbook/pull/45)
+
+---
 
 ### DEPLOY: feat/20-line-chart · 20261013-131717Z
 
