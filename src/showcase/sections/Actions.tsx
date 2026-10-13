@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button, CardActions, IconButton, RoundToggle, SaveButton, SegmentedChoice } from '../../components/Button'
 import { Demo, Section } from '../Showcase'
+import { HouseButtonsDemo } from './HouseApp'
 
 const OPTIONS = [
   { value: 'a', label: 'Option A' },
@@ -56,6 +57,9 @@ export function Actions() {
             <button type="button" className="btn btn--primary">Rest</button>
             <button type="button" className="btn btn--primary" disabled>Disabled</button>
           </div>
+        </Demo>
+        <Demo label="House .btn--touch / .btn--block / .icon-btn in an .action-row">
+          <HouseButtonsDemo />
         </Demo>
       </Section>
 

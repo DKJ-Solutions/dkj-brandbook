@@ -32,11 +32,36 @@
 
 ### PLAN
 
+Issue #18: port the generic MesoWise app components into `house-style/house-style.css`, from
+`DKJ-Solutions/dkj-claude-plugins` commit `655cbfe2` (branch `feat/house-style-app-components`), whose
+copy of the house style no longer exists there since the move to this repo.
+
+#### Checked against what changed since that branch (Gwen)
+
+- **`.btn:disabled` (#12).** `.btn--touch` and `.btn--block` are modifiers on `.btn` and set neither
+  `opacity` nor `cursor`, so `.btn:disabled` (0,2,0) covers them, `.btn--touch.btn--primary` included.
+  No change to the ported block was needed; the README says so.
+- **Name collisions in this repo.** The showcase and the brand layer use only `dkj-`/`bb-` names and
+  `--dkj-` tokens, so none of the new house classes or tokens collides here.
+- The CSS is copied byte for byte from `655cbfe2` (the token block after the type scale, the
+  "App components" group at the end), not retyped.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/house-style.css`: the four app-shell tokens and the "App components" group.
+- [x] `house-style/README.md`: the App shell token row, the new reserved names, an "App components
+      (from MesoWise)" section with the notes from the source branch's `SKILL.md`, the collision note
+      and the `.btn:disabled` note.
+- [x] The showcase gets demos of the house classes next to the brand-book versions
+      (`src/showcase/sections/HouseApp.tsx`): Field, Button, Dialog (plain, cancel/save, drawer),
+      TopBar and MenuRow sections.
 
 ### TEST
+
+- [x] Eslint and `tsc -b` pass on the showcase; the full gate runs below.
+- [ ] The gates (`open-pr -GatesOnly`) are green.
+- [ ] The owners have looked at the Field, Button, Dialog, TopBar and MenuRow sections of the showcase
+      (`npm run dev`) in a light and a dark theme, and approved them.
 
 ### DEPLOY: feat/18-house-app-components
 
@@ -44,7 +69,14 @@
 
 ##### Tier 0
 
-**Score:**
+The house style now carries the generic app shell that MesoWise built: four app-shell tokens
+(`--control-h`, `--tap`, `--topbar-h`, `--column-narrow`), a narrow column, a form field with its error
+line, touch and block buttons, icon buttons in an action row, a native dialog with close, save, cancel
+and back, a side drawer, a sticky top bar, a menu list and `.sr-only`. Additions only, but an app that
+defines its own `.field`, `.dialog`, `.topbar`, `.menu-row`, `.icon-btn` or `.sr-only` now collides
+with a house name. It reaches the apps with the next `house-style-v<N>` tag.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +85,9 @@
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management on its own: shared building blocks for DKJ-Solutions apps.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +96,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change until an app takes the new copy and uses the classes.
+
+**Score:** N/A
 
 #### Pull Request
 

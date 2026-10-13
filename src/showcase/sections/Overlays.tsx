@@ -6,6 +6,7 @@ import { Stepper } from '../../components/Field'
 import { DownloadButton, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, StepHeader, TopBar } from '../../components/Navigation'
 import { RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
+import { HouseDialogsDemo, HouseMenuDemo, HouseTopBarDemo } from './HouseApp'
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
@@ -86,6 +87,10 @@ export function Overlays() {
             </p>
           ))}
         </Dialog>
+
+        <Demo label="House .dialog / .dialog--drawer (native dialog, showModal)">
+          <HouseDialogsDemo />
+        </Demo>
       </Section>
 
       <Section
@@ -134,6 +139,9 @@ export function Overlays() {
             <div style={{ height: '6rem' }} />
           </div>
         </Demo>
+        <Demo label="House .topbar with a .icon-btn--ghost" wide surface={false}>
+          <HouseTopBarDemo />
+        </Demo>
       </Section>
 
       <Section id="PageHeader" title="PageHeader" intro="The page title as the house serif h1, and on its right a controls row: a muted as-of line and the page's controls. The row wraps under the title on a narrow screen.">
@@ -159,6 +167,9 @@ export function Overlays() {
             <MenuRow label="Label" value="Value A" />
             <MenuRow label="Another label" value="A longer value that wraps when needed" />
           </MenuList>
+        </Demo>
+        <Demo label="House .menu-list / .menu-row / .menu-item">
+          <HouseMenuDemo />
         </Demo>
       </Section>
 
