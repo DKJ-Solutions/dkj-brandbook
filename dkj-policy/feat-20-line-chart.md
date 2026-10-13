@@ -60,7 +60,7 @@ Step 3 of #20, the last one, so this branch ships with `-Resolves 20`: `LineChar
 
 - [x] Victor reviewed the diff: nothing blocking. Applied: end labels kept inside the plot, `thinGuides` and `rovingKeys` shared by all three charts, an empty `series` guarded in the tooltip anchor, end labels computed only when drawn.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the LineChart section and the ETF preview (`npm run dev`) and approved it.
+- [x] An owner has looked at the LineChart section and the ETF preview (`npm run dev`) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/20-line-chart
 
