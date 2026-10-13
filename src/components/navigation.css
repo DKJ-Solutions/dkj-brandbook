@@ -1,0 +1,124 @@
+/* Top bar, menu rows, download button, step header, info rows. Origin: see src/components/sources.ts. */
+
+/* ---------- TopBar ---------- */
+.dkj-topbar { position: sticky; top: 0; z-index: 2; background: var(--color-surface); box-shadow: 0 var(--border-w) 0 var(--color-border); }
+.dkj-topbar-inner {
+  max-width: var(--column-w);
+  height: var(--topbar-h);
+  margin: 0 auto;
+  padding: 0 var(--space-1) 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dkj-topbar-brand { display: flex; align-items: center; gap: var(--space-3); min-width: 0; }
+.dkj-topbar-name { flex: none; font-size: 1.125rem; font-weight: var(--fw-bold); }
+.dkj-topbar-tagline { min-width: 0; font-size: var(--fs-2xs); line-height: 1.25; color: var(--color-text-muted); }
+
+/* ---------- Menu ---------- */
+.dkj-drawer-content { display: flex; flex-direction: column; flex: 1; }
+.dkj-menu-list { margin: 0; padding: 0; list-style: none; }
+.dkj-menu-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--space-3);
+  min-height: var(--tap);
+  padding: var(--space-2);
+}
+.dkj-menu-row + .dkj-menu-row { border-top: var(--border-w) solid var(--color-border); }
+.dkj-menu-label { font-size: var(--fs-base); font-weight: var(--fw-semibold); }
+.dkj-menu-value { min-width: 0; font-size: var(--fs-base); text-align: right; overflow-wrap: anywhere; }
+/* The pencils sit centred under the close button (44px tap area). */
+.dkj-menu-row .dkj-iconbtn { margin-right: calc((var(--tap) - var(--control-h)) / 2); }
+
+.dkj-drawer-footer { margin-top: auto; padding-top: var(--space-6); }
+.dkj-drawer-footer > .dkj-msg { margin-top: var(--space-3); }
+
+.dkj-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2-5);
+  width: 100%;
+  min-height: var(--tap);
+  padding: var(--space-3);
+  font: inherit;
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: var(--border-w) solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color var(--duration-base) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+.dkj-download svg { flex: none; }
+.dkj-download:focus-visible, .dkj-download[data-demo-state='focus'] { outline: var(--focus-w) solid var(--color-accent); outline-offset: var(--focus-offset); }
+.dkj-download:active, .dkj-download[data-demo-state='active'] { transform: translateY(1px); border-color: var(--color-accent); }
+.dkj-download[data-demo-state='hover'] { border-color: var(--color-accent); }
+@media (hover: hover) {
+  .dkj-download:hover { border-color: var(--color-accent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dkj-download { transition: none; }
+  .dkj-download:active { transform: none; }
+}
+
+/* ---------- StepHeader ---------- */
+.dkj-stephead { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) 5.5rem; align-items: center; gap: var(--space-2); }
+.dkj-stephead .dkj-btn { width: 100%; margin: 0; }
+/* Large, and trimmed to the cap height so the box's centre is the letters' centre. */
+.dkj-stephead-value {
+  margin: 0;
+  padding: var(--space-3) 0;
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-none);
+  text-align: center;
+  text-box: trim-both cap alphabetic;
+}
+
+/* ---------- InfoRows ---------- */
+.dkj-inforows { --box: var(--color-surface-accent-box); }
+.dkj-inforows--info { --box: var(--color-surface-info-box); }
+.dkj-inforows-head { margin: 0 0 var(--space-1-5); font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--color-text-muted); }
+.dkj-inforows-list { display: flex; flex-direction: column; gap: var(--space-1-5); }
+.dkj-inforow { display: flex; align-items: center; gap: var(--space-1-5); }
+.dkj-inforow-box {
+  --info-glyph: var(--box);
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: calc(1.5rem + 2 * var(--space-2));
+  display: flex;
+  align-items: center;
+  padding: var(--space-2);
+  background: var(--box);
+  border-radius: var(--radius-md);
+}
+.dkj-inforow-box .dkj-round-toggle { --info-glyph: var(--box); margin: calc(-1 * var(--space-2-5)) calc(-1 * var(--space-2-5)) calc(-1 * var(--space-2-5)) auto; }
+.dkj-inforow-named {
+  flex: 0 1 auto;
+  min-width: 0;
+  min-height: var(--tap);
+  margin: calc(-1 * var(--space-2-5)) calc(-1 * var(--space-2));
+  padding: 0 var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font: inherit;
+  text-align: left;
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+.dkj-inforow-named > svg { flex: none; }
+.dkj-inforow-named:focus-visible { outline: var(--focus-w) solid var(--color-accent); outline-offset: var(--focus-offset-inset); }
+.dkj-inforow-value { min-width: 0; font-size: var(--fs-base); line-height: 1.5rem; font-weight: var(--fw-semibold); color: var(--color-text); overflow-wrap: anywhere; }
+.dkj-inforow-value--placeholder { font-weight: var(--fw-regular); color: var(--color-text-muted); }

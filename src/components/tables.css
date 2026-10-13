@@ -1,0 +1,141 @@
+/* Definition list, bill, comparison and calculation tables. Origin: see src/components/sources.ts. */
+
+.dkj-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dkj-tone-negative { color: var(--color-negative); }
+.dkj-tone-positive { color: var(--color-positive); }
+.dkj-muted { color: var(--color-text-muted); }
+
+/* ---------- DefinitionList ---------- */
+.dkj-dl { margin: 0; font-variant-numeric: tabular-nums; }
+.dkj-dl > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-1-5) 0;
+  border-bottom: var(--border-w) solid var(--color-border);
+}
+.dkj-dl dt { min-width: 0; }
+.dkj-dl dd { margin: 0; white-space: nowrap; font-weight: var(--fw-semibold); text-align: right; }
+.dkj-dl-detail { display: block; margin-top: var(--space-0-5); font-size: var(--fs-2xs); color: var(--color-text-muted); }
+.dkj-dl > .dkj-dl-total { border-bottom: 0; font-weight: var(--fw-bold); }
+.dkj-dl--facts dt { color: var(--color-text-muted); }
+
+/* ---------- BillTable ---------- */
+.dkj-bill { width: 100%; table-layout: fixed; border-collapse: collapse; }
+.dkj-bill th, .dkj-bill td { height: 2.25rem; padding: var(--space-0-5) 0 var(--space-0-5) var(--space-1); vertical-align: middle; text-align: left; }
+.dkj-bill tr > :first-child { padding-left: 0; }
+.dkj-bill .dkj-num { text-align: right; }
+.dkj-bill thead tr { border-bottom: var(--border-w) solid var(--color-border); }
+.dkj-bill .dkj-bill-head > * {
+  height: auto;
+  padding-top: 0;
+  padding-bottom: var(--space-1);
+  vertical-align: bottom;
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.dkj-bill-head > :nth-child(1) { width: 4.75rem; }
+.dkj-bill-head > :nth-last-child(2) { width: 5rem; }
+.dkj-bill-head > :last-child { width: calc(var(--control-h) + var(--space-1)); }
+.dkj-bill--qty .dkj-bill-head > :nth-child(3) { width: 2.5rem; }
+.dkj-bill tbody tr { border-bottom: var(--border-w) solid var(--color-border); }
+.dkj-bill tbody:last-of-type tr:last-child { border-bottom: 0; }
+.dkj-bill-slot { font-size: var(--fs-md); font-weight: var(--fw-semibold); color: var(--color-text); }
+.dkj-bill-name {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--fs-md);
+  line-height: 1.3;
+}
+.dkj-bill-row--empty .dkj-bill-name { color: var(--color-text-muted); }
+.dkj-bill-qty { font-size: var(--fs-sm); color: var(--color-text-muted); }
+.dkj-bill-price { font-size: var(--fs-sm); font-weight: var(--fw-semibold); }
+.dkj-bill-row--buy .dkj-bill-price { color: var(--color-accent); }
+.dkj-bill-action { text-align: right; }
+.dkj-bill-action .dkj-iconbtn { margin-left: auto; }
+.dkj-bill-action .dkj-round-toggle { margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-2)) calc(-1 * var(--space-2)) auto; }
+/* A group closes with its subtotal, between rules slightly stronger than the row rules. */
+.dkj-bill .dkj-bill-subtotal {
+  border-top: var(--border-w-strong) solid color-mix(in srgb, var(--color-text-muted) 50%, var(--color-border));
+  border-bottom: var(--border-w-strong) solid color-mix(in srgb, var(--color-text-muted) 50%, var(--color-border));
+}
+.dkj-bill .dkj-bill-subtotal > * { height: auto; padding-top: var(--space-1-5); padding-bottom: var(--space-1-5); vertical-align: baseline; }
+.dkj-bill-subtotal th, .dkj-bill-total th { padding-right: var(--space-4); font-size: var(--fs-sm); font-weight: var(--fw-semibold); text-align: right; }
+.dkj-bill-subtotal strong, .dkj-bill-total strong { font-size: var(--fs-sm); font-variant-numeric: tabular-nums; }
+.dkj-bill tfoot tr { border-top: var(--border-w) solid var(--color-text-muted); }
+.dkj-bill .dkj-bill-total > * { height: auto; padding-top: var(--space-2); padding-bottom: var(--space-2); vertical-align: baseline; }
+.dkj-bill-total strong { color: var(--color-accent); }
+
+/* ---------- ComparisonTable ---------- */
+.dkj-compare { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.dkj-compare th, .dkj-compare td { padding: var(--space-2) 0; border-bottom: var(--border-w) solid var(--color-border); vertical-align: baseline; }
+.dkj-compare tbody th { text-align: left; font-weight: var(--fw-regular); overflow-wrap: anywhere; }
+.dkj-compare td.dkj-num { padding-left: var(--space-2); }
+.dkj-compare thead th {
+  padding: 0 0 var(--space-2) var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--color-text-muted);
+  text-align: right;
+  vertical-align: bottom;
+}
+.dkj-compare thead td { padding: 0; }
+.dkj-compare tbody tr:last-child > * { padding-bottom: var(--space-3); border-bottom: 0; }
+.dkj-compare tfoot th, .dkj-compare tfoot td {
+  padding-top: var(--space-3-5);
+  border-bottom: 0;
+  border-top: var(--border-w-strong) solid color-mix(in srgb, var(--color-text-muted) 50%, var(--color-border));
+  font-weight: var(--fw-bold);
+  font-size: 1.125rem;
+  text-align: left;
+}
+.dkj-compare tfoot td { text-align: right; }
+
+/* ---------- CalcTable ---------- */
+.dkj-calc { display: grid; grid-template-columns: [what] minmax(0, 1fr) [op] auto [num] auto; font-variant-numeric: tabular-nums; }
+.dkj-calc-row, .dkj-calc-box { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
+.dkj-calc-row { align-items: baseline; border-bottom: var(--border-w) solid var(--color-border); line-height: var(--lh-snug); }
+.dkj-calc-row > * { padding: var(--space-2) 0; }
+.dkj-calc-row:has(+ .dkj-calc-result) { margin-bottom: var(--space-2); border-bottom: 0; }
+.dkj-calc-what { grid-column: what; padding-left: var(--space-3); font-size: var(--fs-md); overflow-wrap: anywhere; }
+.dkj-calc-sub { display: block; font-size: var(--fs-2xs); color: var(--color-text-muted); }
+.dkj-calc-op { grid-column: op; min-width: 1rem; padding-inline: var(--space-2); font-size: var(--fs-md); text-align: center; color: var(--color-text-muted); }
+.dkj-calc-num { grid-column: num; padding-inline: var(--space-3); text-align: right; font-size: var(--fs-sm); font-weight: var(--fw-semibold); white-space: nowrap; }
+.dkj-calc--boxed { --gutter: var(--space-1-5); grid-template-columns: [edge-l] var(--gutter) [what] minmax(0, 1fr) [op] auto [num] auto [edge-r] var(--gutter); }
+.dkj-calc--boxed .dkj-calc-what { padding-left: var(--space-2); }
+.dkj-calc--boxed .dkj-calc-op { padding-inline: var(--space-1); }
+.dkj-calc--boxed .dkj-calc-num { padding-inline: var(--space-2); }
+.dkj-calc-box {
+  margin: 0;
+  padding: var(--gutter, var(--space-1-5)) 0;
+  border: 1.5px solid color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
+  border-radius: var(--radius-md-plus);
+}
+/* Boxes only exist in a boxed calculation, whose edge columns they span inside. */
+.dkj-calc--boxed .dkj-calc-box > .dkj-calc-row, .dkj-calc--boxed .dkj-calc-box > .dkj-calc-box { grid-column: 2 / -2; }
+.dkj-calc-box > .dkj-calc-row:last-child { border-bottom: 0; }
+.dkj-calc-result { border-bottom: 0; }
+.dkj-calc-result .dkj-calc-num { font-size: var(--fs-xl); font-weight: var(--fw-bold); color: var(--color-accent); }
+
+/* ---------- AnswerBox and sections ---------- */
+.dkj-answer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md-plus);
+  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface));
+}
+.dkj-answer-label { flex: 1; font-weight: var(--fw-semibold); }
+.dkj-answer-value { font-size: 1.125rem; font-weight: var(--fw-bold); color: var(--color-accent); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dkj-calc-section + .dkj-calc-section { margin-top: var(--space-6); }
+.dkj-calc-question { margin: 0 0 var(--space-0-5); font-size: var(--fs-base); font-weight: var(--fw-bold); color: var(--color-text); }

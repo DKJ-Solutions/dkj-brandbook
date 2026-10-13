@@ -1,0 +1,95 @@
+/*
+ * DKJ-Solutions brand -- BASE layer.
+ *
+ * Shared by every DKJ-Solutions repo and theme: typography, spacing, radius, control sizes, layout, focus and
+ * motion. NO colours live here -- those belong to a theme (tokens/themes/<theme>.css). A theme may override a
+ * colour; it never overrides a base token.
+ *
+ * Origin: lifted from dkj-maplestory-classic-mesowise, src/style.css (:root and the values the components repeat).
+ */
+:root {
+  /* Typography */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --fs-3xs: 0.6875rem; /* tag / pill label */
+  --fs-2xs: 0.75rem;   /* column heads, source line, unit label */
+  --fs-xs: 0.8125rem;  /* compact uppercase button, meta line */
+  --fs-sm: 0.875rem;   /* hint, chip, field label */
+  --fs-md: 0.9375rem;  /* row label, picked value */
+  --fs-base: 1rem;     /* body, inputs (16px: iOS does not zoom on focus) */
+  --fs-lg: 1.0625rem;  /* banner, emphasised total */
+  --fs-xl: 1.25rem;    /* stepper value, part heading */
+  --fs-h4: 0.9375rem;
+  --fs-h3: 1.125rem;
+  --fs-h2: 1.5rem;
+  --fs-h1: 1.75rem;
+  --fs-display: clamp(2rem, 8.5vw, 3rem);
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-none: 1;
+  --lh-tight: 1.2;
+  --lh-snug: 1.35;
+  --lh-normal: 1.5;
+
+  --tracking-caps: 0.03em;  /* compact uppercase buttons */
+  --tracking-label: 0.04em; /* uppercase section and column labels */
+  --tracking-tag: 0.06em;   /* pill tags */
+
+  /* Spacing (rem steps the source uses) */
+  --space-0-5: 0.125rem;
+  --space-1: 0.25rem;
+  --space-1-5: 0.375rem;
+  --space-2: 0.5rem;
+  --space-2-5: 0.625rem;
+  --space-3: 0.75rem;
+  --space-3-5: 0.875rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* Radius */
+  --radius-xs: 0.25rem;    /* compact buttons */
+  --radius-sm: 0.375rem;   /* list items, inner squares */
+  --radius-md: 0.5rem;     /* controls: inputs, buttons, boxes */
+  --radius-md-plus: 0.625rem; /* calculation boxes, answer box */
+  --radius-lg: 0.75rem;    /* cards, panels, banners */
+  --radius-xl: 1rem;       /* dialogs, drawer */
+  --radius-pill: 999px;    /* chips, tags, round toggles */
+
+  /* Borders */
+  --border-w: 1px;
+  --border-w-strong: 2px;
+
+  /* Controls and tap targets */
+  --control-h: 38px;    /* a value box and the pencil beside it: one height */
+  --tap: 44px;          /* minimum tap target, also where the visual is smaller */
+  --control-lg: 52px;   /* stepper in a dialog */
+  --control-compact: 36px; /* compact uppercase buttons (tap area stays 44px) */
+  --icon-sm: 20px;
+  --icon-md: 24px;
+
+  /* Layout */
+  --column-w: 32rem;    /* the app column, phone-first */
+  --topbar-h: 3.5rem;
+  --drawer-w: 22rem;
+  --popup-scale: 0.95;  /* first dialog: 95% of the column */
+  --popup-step: 0.93;   /* each stacked dialog: 93% of the one below */
+
+  /* Focus */
+  --focus-w: 2px;
+  --focus-offset: 2px;
+  --focus-offset-inset: -4px; /* round toggles: the ring sits inside the 44px tap area */
+
+  /* Motion */
+  --duration-fast: 100ms;  /* press */
+  --duration-base: 150ms;  /* hover border */
+  --duration-slow: 200ms;  /* card border */
+  --duration-panel: 220ms; /* drawer and backdrop in */
+  --duration-flash: 1.2s;  /* value changed by the app */
+  --ease-out: ease-out;
+}

@@ -1,0 +1,182 @@
+import { useState } from 'react'
+import { Button, SegmentedChoice } from '../../components/Button'
+import { Dialog, DialogActions, DialogLabel } from '../../components/Dialog'
+import { Disclosure, Message } from '../../components/Feedback'
+import { Stepper } from '../../components/Field'
+import { DownloadButton, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, StepHeader, TopBar } from '../../components/Navigation'
+import { RowList, StatRow, ValueBox } from '../../components/Row'
+import { Demo, Section } from '../Showcase'
+
+const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+
+type Which = null | 'plain' | 'edit' | 'accent' | 'info' | 'long'
+
+export function Overlays() {
+  const [open, setOpen] = useState<Which>(null)
+  const [value, setValue] = useState(12)
+  const [draft, setDraft] = useState(12)
+  const [step, setStep] = useState(7)
+  const close = () => setOpen(null)
+  return (
+    <>
+      <Section
+        id="Dialog"
+        title="Dialog"
+        intro="The browser's own modal dialog: focus stays inside, Escape and a tap on the backdrop close it, the page behind stops scrolling. A dialog opened from a dialog is 93% of the one below. With a change to save, the close cross becomes a check, and a red undo arrow cancels."
+      >
+        <Demo label="Open a variant">
+          <div className="bb-row">
+            <Button onClick={() => setOpen('plain')}>Plain</Button>
+            <Button
+              onClick={() => {
+                setDraft(value)
+                setOpen('edit')
+              }}
+            >
+              Edit (save / cancel)
+            </Button>
+            <Button onClick={() => setOpen('accent')}>Accent-tinted</Button>
+            <Button onClick={() => setOpen('info')}>Info-tinted</Button>
+            <Button onClick={() => setOpen('long')}>Long content</Button>
+          </div>
+          <Message>Saved value: {value}</Message>
+        </Demo>
+
+        <Dialog open={open === 'plain'} onClose={close} title="Dialog title" subtitle="A muted subtitle" info={LOREM}>
+          <RowList>
+            <StatRow name="Label one">
+              <ValueBox value="1,234" />
+            </StatRow>
+            <StatRow name="Label two">
+              <ValueBox value="56" />
+            </StatRow>
+          </RowList>
+          <Message tone="note">Tap the “i” after the title: it opens a stacked dialog.</Message>
+        </Dialog>
+
+        <Dialog open={open === 'edit'} onClose={close} title="Label one" heading="plain" onSave={draft !== value ? () => setValue(draft) : undefined}>
+          <DialogLabel>Value</DialogLabel>
+          <Stepper label="Value" size="lg" value={draft} onChange={setDraft} />
+          <Message tone="note">Change the value: the cross turns into a check (save) next to a red undo (cancel).</Message>
+        </Dialog>
+
+        <Dialog open={open === 'accent'} onClose={close} tone="accent" title="Dialog title" tag="Expected" subtitle="Step 12 · Variant A">
+          <InfoRows head="Based on:">
+            <InfoRow value="Profile alpha" onInfo={() => undefined} />
+            <InfoRow value="Target bravo" onInfo={() => undefined} onHelp={() => undefined} />
+          </InfoRows>
+          <Message>{LOREM}</Message>
+        </Dialog>
+
+        <Dialog open={open === 'info'} onClose={close} tone="info" title="Dialog title" tag="Edit profile">
+          <InfoRows head="Based on:" tone="info">
+            <InfoRow value="Profile alpha" onInfo={() => undefined} onEdit={() => undefined} />
+            <InfoRow value={null} onEdit={() => undefined} />
+          </InfoRows>
+          <DialogActions>
+            <Button variant="primary">Primary action</Button>
+          </DialogActions>
+        </Dialog>
+
+        <Dialog open={open === 'long'} onClose={close} title="Long content">
+          {Array.from({ length: 14 }, (_, i) => (
+            <p key={i} className="dkj-msg" style={{ marginBottom: 'var(--space-3)' }}>
+              {LOREM}
+            </p>
+          ))}
+        </Dialog>
+      </Section>
+
+      <Section id="Drawer" title="Drawer" intro="The menu: a full-height panel sliding in from the right; a swipe to the right closes it. Its head is as tall as the top bar. Open it with the menu button in the TopBar demo below.">
+        <Demo label="See TopBar">
+          <Message>The drawer is opened from the top bar.</Message>
+        </Demo>
+      </Section>
+
+      <Section id="TopBar" title="TopBar" intro="Sticky, in the surface colour, aligned with the app column. The menu opens a Drawer with menu rows, a list choice, a disclosure and a download button pinned to the bottom.">
+        <Demo label="TopBar + drawer" wide surface={false}>
+          <div style={{ border: 'var(--border-w) solid var(--color-border)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', background: 'var(--color-bg)' }}>
+            <TopBar name="Appname" tagline="A short tagline that says what the app does." menu={<DrawerMenu />} />
+            <div style={{ height: '6rem' }} />
+          </div>
+        </Demo>
+      </Section>
+
+      <Section id="MenuRow" title="MenuRow" intro="A label, the chosen value right-aligned, and a pencil centred under the drawer's close button.">
+        <Demo label="Menu list">
+          <MenuList>
+            <MenuRow label="Label" value="Value A" />
+            <MenuRow label="Another label" value="A longer value that wraps when needed" />
+          </MenuList>
+        </Demo>
+      </Section>
+
+      <Section id="DownloadButton" title="DownloadButton" intro="A soft full-width link button. Its border turns accent on hover and while pressed.">
+        <Demo label="Rest / hover / focus / active">
+          <DownloadButton href="#DownloadButton">Download offline version</DownloadButton>
+          <a className="dkj-download" data-demo-state="hover" href="#DownloadButton">Hover</a>
+          <a className="dkj-download" data-demo-state="focus" href="#DownloadButton">Focus</a>
+          <a className="dkj-download" data-demo-state="active" href="#DownloadButton">Active</a>
+        </Demo>
+      </Section>
+
+      <Section id="StepHeader" title="StepHeader" intro="Back, a large value exactly centred between two equal side columns, and forward. Both buttons are identical in size.">
+        <Demo label="Interactive (1 to 10)">
+          <StepHeader value={step} onBack={() => setStep(step - 1)} onForward={() => setStep(step + 1)} canBack={step > 1} canForward={step < 10} />
+        </Demo>
+        <Demo label="At the start (back disabled)">
+          <StepHeader value={1} canBack={false} />
+        </Demo>
+      </Section>
+
+      <Section id="InfoRow" title="InfoRow" intro="A tinted box per row: the value behind an info button that fills the box, an optional “?”, and an optional pencil outside the box. Empty rows show a muted placeholder.">
+        <Demo label="Accent">
+          <InfoRows head="Based on:">
+            <InfoRow value="Profile alpha" onInfo={() => undefined} />
+            <InfoRow value="Target bravo" onInfo={() => undefined} onHelp={() => undefined} />
+          </InfoRows>
+        </Demo>
+        <Demo label="Info, with pencils and an empty row">
+          <InfoRows head="Based on:" tone="info">
+            <InfoRow value="Profile alpha" onInfo={() => undefined} onEdit={() => undefined} />
+            <InfoRow value={null} onEdit={() => undefined} />
+          </InfoRows>
+        </Demo>
+      </Section>
+    </>
+  )
+}
+
+function DrawerMenu() {
+  const [choice, setChoice] = useState<'a' | 'b' | 'c'>('a')
+  return (
+    <>
+      <MenuList>
+        <MenuRow label="Label" value="Value A" />
+        <MenuRow label="Another" value="Value B" />
+      </MenuList>
+      <div style={{ marginTop: 'var(--space-4)' }}>
+        <SegmentedChoice
+          label="Choose"
+          layout="list"
+          value={choice}
+          onChange={setChoice}
+          options={[
+            { value: 'a', label: 'Option A' },
+            { value: 'b', label: 'Option B' },
+            { value: 'c', label: 'Option C' },
+          ]}
+        />
+      </div>
+      <div style={{ marginTop: 'var(--space-5)' }}>
+        <Disclosure summary="Help">
+          <Message>{LOREM}</Message>
+        </Disclosure>
+      </div>
+      <DrawerFooter>
+        <DownloadButton href="#TopBar">Download offline version</DownloadButton>
+        <Message>One file you open in your browser, without internet.</Message>
+      </DrawerFooter>
+    </>
+  )
+}
