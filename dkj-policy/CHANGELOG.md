@@ -2,7 +2,43 @@
 
 ## [Unreleased]
 
-**10 minor entries** <!-- pending-tally -->
+**11 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/etf-dashboard-overview · 20261013-101346Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The overview now covers the ETF tracker dashboard next to Mesowise, as one set: where both apps had the
+same component the brand-book version leads on mechanics (44px targets, focus ring, states) and the
+dashboard's denser look became a variant (joined segmented choice, inline info toggle, data card,
+toned definition list, warn tag and banner, disclosure marker). New: DataTable, Alert, StatTile,
+HeroValue and Delta, Tooltip, Legend, MiniCard with Meter and Badge, ReadMoreToggle, PageHeader and
+FooterNote, plus the ETF tracker app and its views in the apps register (with a new Tooltips view kind).
+The SVG charts follow in #20; house-style gaps found on the way are #19 and #21.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing service changes; the apps themselves render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Add the ETF tracker dashboard to the component overview
+
+[PR #22](https://github.com/DKJ-Solutions/dkj-brandbook/pull/22)
+
+---
 
 ### DEPLOY: docs/btn-disabled-entry-ladder · 20261013-091636Z
 
