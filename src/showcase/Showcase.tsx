@@ -69,6 +69,7 @@ export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> })
   const { width, setWidth } = controls
   const pickerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
+    // The house API has no destroy, and picker() is idempotent per element (StrictMode runs this twice safely).
     window.DKJTheme.picker(pickerRef.current, { light: 'Light', dark: 'Dark' })
   }, [])
   return (

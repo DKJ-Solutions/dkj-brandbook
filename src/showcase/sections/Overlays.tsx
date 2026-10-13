@@ -80,7 +80,7 @@ export function Overlays() {
 
         <Dialog open={open === 'long'} onClose={close} title="Long content">
           {Array.from({ length: 14 }, (_, i) => (
-            <p key={i} className="dkj-msg" style={{ marginBottom: 'var(--space-3)' }}>
+            <p key={i} className="dkj-msg" style={{ marginBottom: 'var(--spacing-3)' }}>
               {LOREM}
             </p>
           ))}
@@ -95,7 +95,7 @@ export function Overlays() {
 
       <Section id="TopBar" title="TopBar" intro="Sticky, in the surface colour, aligned with the app column. The menu opens a Drawer with menu rows, a list choice, a disclosure and a download button pinned to the bottom.">
         <Demo label="TopBar + drawer" wide surface={false}>
-          <div style={{ border: 'var(--border-w) solid var(--color-border)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', background: 'var(--color-bg)' }}>
+          <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--dkj-radius-lg)', overflow: 'hidden', background: 'var(--page)' }}>
             <TopBar name="Appname" tagline="A short tagline that says what the app does." menu={<DrawerMenu />} />
             <div style={{ height: '6rem' }} />
           </div>
@@ -155,7 +155,7 @@ function DrawerMenu() {
         <MenuRow label="Label" value="Value A" />
         <MenuRow label="Another" value="Value B" />
       </MenuList>
-      <div style={{ marginTop: 'var(--space-4)' }}>
+      <div style={{ marginTop: 'var(--spacing-4)' }}>
         <SegmentedChoice
           label="Choose"
           layout="list"
@@ -168,7 +168,7 @@ function DrawerMenu() {
           ]}
         />
       </div>
-      <div style={{ marginTop: 'var(--space-5)' }}>
+      <div style={{ marginTop: 'var(--spacing-5)' }}>
         <Disclosure summary="Help">
           <Message>{LOREM}</Message>
         </Disclosure>

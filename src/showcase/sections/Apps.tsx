@@ -38,7 +38,7 @@ export function Apps() {
                 <ul className="bb-views">
                   {views.map((v) => (
                     <li key={v.id} className="bb-view">
-                      <h4>{v.name}</h4>
+                      <h5>{v.name}</h5>
                       <p>{v.description}</p>
                       <div className="bb-view-components">
                         {v.components.map((c) => (

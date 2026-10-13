@@ -47,19 +47,13 @@ export function Foundations() {
   const theme = useThemeId()
   const [values, setValues] = useState<Record<string, string>>({})
   useEffect(() => {
-    // Read after the theme attribute has been applied, and again when the OS scheme flips.
-    const readAll = () => {
-      const cs = getComputedStyle(document.documentElement)
-      const names = [
-        ...Object.values(HOUSE_COLORS).flat().map((c) => `--${c}`),
-        ...LAYER_COLORS.map((c) => `--dkj-${c}`),
-      ]
-      setValues(Object.fromEntries(names.map((n) => [n, cs.getPropertyValue(n).trim()])))
-    }
-    readAll()
-    const mq = window.matchMedia('(prefers-color-scheme: dark)')
-    mq.addEventListener('change', readAll)
-    return () => mq.removeEventListener('change', readAll)
+    // Re-read when the house theme changes (useThemeId also fires when the OS scheme moves the default theme).
+    const cs = getComputedStyle(document.documentElement)
+    const names = [
+      ...Object.values(HOUSE_COLORS).flat().map((c) => `--${c}`),
+      ...LAYER_COLORS.map((c) => `--dkj-${c}`),
+    ]
+    setValues(Object.fromEntries(names.map((n) => [n, cs.getPropertyValue(n).trim()])))
   }, [theme])
 
   return (

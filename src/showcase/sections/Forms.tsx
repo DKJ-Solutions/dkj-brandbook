@@ -116,7 +116,7 @@ export function Forms() {
         </Demo>
         <Demo label="Flash (app changed the value)">
           <div className="bb-row">
-            <span className="dkj-flash" style={{ display: 'inline-block', padding: 'var(--space-1) var(--space-2)', borderRadius: 'var(--radius-md)' }} key={flash}>
+            <span className="dkj-flash" style={{ display: 'inline-block', padding: 'var(--spacing-1) var(--spacing-2)', borderRadius: 'var(--dkj-radius-md)' }} key={flash}>
               25
             </span>
             <ResetButton onClick={() => setFlash(flash + 1)}>Replay</ResetButton>

@@ -45,8 +45,8 @@ starting with Mesowise.
 
 ### TEST
 
-- [ ] Gate green (lint-web.ps1)
-- [ ] Victor's review handled
+- [x] Gate green (lint-web.ps1)
+- [x] Victor's review handled (old token names in demo tsx, Icon fallback, redundant listener, heading levels); a gate check for undefined CSS vars filed as #9
 
 ### DEPLOY: feat/7-house-style-source
 
