@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**13 minor entries** <!-- pending-tally -->
+**14 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/24-feature-label · 20261013-105734Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `feat/` pull request and a feature issue are labelled `feature` instead of `enhancement`, as on the plugin source's tracker; the existing items moved with the renamed label.
+
+**Score:** 1
+
+##### Tier 1
+
+Not relevant to management: a tracker label name.
+
+**Score:** N/A
+
+##### Tier 2
+
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+Label feat/ work 'feature' instead of 'enhancement'
+
+[PR #26](https://github.com/DKJ-Solutions/dkj-brandbook/pull/26)
+
+---
 
 ### DEPLOY: feat/19-house-focus-and-targets · 20261013-105512Z
 
