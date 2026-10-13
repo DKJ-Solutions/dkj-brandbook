@@ -48,7 +48,9 @@ This branch is #46 and ships with `-Resolves 46`. It adds `FilterChips`, a multi
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `FilterChips<T extends string>` in `src/components/Button.tsx` beside `SegmentedChoice`, with its `dkj-filter-chip*` CSS in `src/components/buttons.css`.
+- [x] Registered in `src/components/sources.ts` (`FilterChips: []`), listed in `src/App.tsx` and demoed in the Actions section (text tags, colour dots, mixed, long wrapping set).
+- [x] `MusicLibraryPreview` (Colour, Density, BPM tier) and `RecipesPreview` (Tags) switched to `FilterChips`; `src/apps/registry.ts` updated for playlist-manager and recipe-list.
 
 ### TEST
 
