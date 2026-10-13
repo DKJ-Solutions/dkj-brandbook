@@ -6,13 +6,27 @@ import './surfaces.css'
 /**
  * GroupHeading -- an uppercase, muted section label (h4 size), optionally with a counter on the right
  * that turns danger when it is over its limit.
+ *
+ * `level` is the heading element (2, 3 or 4; default 3) and only sets the document outline, never the
+ * look: pick the level below the page or section heading it sits under (h2 under a page h1, h3 under an h2).
  */
-export function GroupHeading({ children, count, over }: { children: ReactNode; count?: ReactNode; over?: boolean }) {
+export function GroupHeading({
+  children,
+  count,
+  over,
+  level = 3,
+}: {
+  children: ReactNode
+  count?: ReactNode
+  over?: boolean
+  level?: 2 | 3 | 4
+}) {
+  const Tag = `h${level}` as const
   return (
-    <h3 className="dkj-group-heading">
+    <Tag className="dkj-group-heading">
       <span>{children}</span>
       {count !== undefined && <span className={cx('dkj-group-count', over && 'dkj-group-count--over')}>{count}</span>}
-    </h3>
+    </Tag>
   )
 }
 

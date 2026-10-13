@@ -101,7 +101,7 @@ function ReleaseNotes() {
             >
               {r.sections.map((sec) => (
                 <div key={sec.heading}>
-                  <GroupHeading count={sec.items.length}>{sec.heading}</GroupHeading>
+                  <GroupHeading level={2} count={sec.items.length}>{sec.heading}</GroupHeading>
                   <Prose size="sm">
                     <ul>
                       {sec.items.map((item) => (

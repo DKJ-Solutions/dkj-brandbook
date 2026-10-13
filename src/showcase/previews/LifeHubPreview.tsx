@@ -120,7 +120,7 @@ function Hub({ onOpen }: { onOpen: (id: string) => void }) {
       </StatTiles>
 
       <div>
-        <GroupHeading>Coming up</GroupHeading>
+        <GroupHeading level={2}>Coming up</GroupHeading>
         <div className="bb-preview-column bb-preview-column--wide">
           {COMING_UP.map((c) => (
             <Card key={c.title}>
@@ -141,7 +141,7 @@ function Hub({ onOpen }: { onOpen: (id: string) => void }) {
       </div>
 
       <div>
-        <GroupHeading>Available apps</GroupHeading>
+        <GroupHeading level={2}>Available apps</GroupHeading>
         <div className="bb-preview-tiles">
           {APPS_LIST.map((a) => (
             <Card key={a.title}>
@@ -156,14 +156,14 @@ function Hub({ onOpen }: { onOpen: (id: string) => void }) {
       </div>
 
       <div>
-        <GroupHeading>My dossiers</GroupHeading>
+        <GroupHeading level={2}>My dossiers</GroupHeading>
         <Message>Everything in one place, grouped by category.</Message>
       </div>
       {CATEGORIES.map((cat) => {
         const items = TOP.filter((d) => d.category === cat)
         return (
           <div key={cat}>
-            <GroupHeading count={items.length}>{cat}</GroupHeading>
+            <GroupHeading level={3} count={items.length}>{cat}</GroupHeading>
             <DossierCards items={items} onOpen={onOpen} />
           </div>
         )
@@ -210,7 +210,7 @@ function DossierDetail({ dossier, onBack, onOpen }: { dossier: Dossier; onBack: 
           </Prose>
           {shown.sections.map((s) => (
             <div key={s.heading} className="bb-preview-gap">
-              <GroupHeading>{s.heading}</GroupHeading>
+              <GroupHeading level={2}>{s.heading}</GroupHeading>
               <Prose>
                 <p>{s.text}</p>
                 {s.tasks.length > 0 && (
@@ -234,7 +234,7 @@ function DossierDetail({ dossier, onBack, onOpen }: { dossier: Dossier; onBack: 
 
       {children.length > 0 && (
         <div>
-          <GroupHeading count={children.length}>Subfolders</GroupHeading>
+          <GroupHeading level={2} count={children.length}>Subfolders</GroupHeading>
           <DossierCards items={children} onOpen={onOpen} />
         </div>
       )}

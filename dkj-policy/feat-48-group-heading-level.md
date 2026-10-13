@@ -47,13 +47,19 @@ Visible-result rule: the look must not change at any level, and the owner checks
 
 ### TEST
 
+- [x] Victor reviewed the diff: nothing blocking. The default renders the same `h3` as before; every house `h2` element rule is overridden by `.dkj-group-heading`, and `font-family: inherit` gives the body face an `h3` already had. The previews' outlines run in order with no skipped level (the thumbnail report sections moved to level 2, as siblings of the series summary).
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the GroupHeading section (level 2 and 3 side by side) and the previews (`npm run dev`) and approved that nothing changed visually.
+
 ### DEPLOY: feat/48-group-heading-level
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+`GroupHeading` takes an optional `level` (2 to 4, default 3) without changing its look, so a page can give its sections their place in the outline. The previews now run h1, h2, h3 in order, which a screen reader's heading list follows.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -62,7 +68,9 @@ Visible-result rule: the look must not change at any level, and the owner checks
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -71,7 +79,9 @@ Visible-result rule: the look must not change at any level, and the owner checks
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
