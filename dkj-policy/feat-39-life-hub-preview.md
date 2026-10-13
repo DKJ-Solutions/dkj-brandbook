@@ -50,13 +50,19 @@ This branch is #39: a recreated preview for `DKJ-Solutions/life-hub`, a private,
 
 ### TEST
 
+- [x] Rebecca researched the app code read-only in `life-hub` (a private repo; its personal data was not opened); Victor reviewed the diff against that code for confidentiality: nothing real or personal copied. Applied: the phase as a `BadgeRow` with a glyph and its word as text (a word inside a `Badge` overflowed the disc), a "Progress:" label on the meter, the registry lists completed. Filed the dated-row gap as #54.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [x] An owner approved merging this preview without looking first, as a one-off exception for the next two previews (#38 and #39), on October 13, 2026.
+
 ### DEPLOY: feat/39-life-hub-preview
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The repo list in the showcase navigation now opens a recreated preview of `life-hub`: the hub with key figures, coming-up dates, app cards and dossier cards with progress, and a dossier page with its document and subfolders, built from brand-book components with invented content. With it every DKJ-Solutions repo in the list has a preview.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -65,7 +71,9 @@ This branch is #39: a recreated preview for `DKJ-Solutions/life-hub`, a private,
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -74,7 +82,9 @@ This branch is #39: a recreated preview for `DKJ-Solutions/life-hub`, a private,
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

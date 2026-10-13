@@ -4,6 +4,7 @@ import { Card } from '../../components/Card'
 import { Message } from '../../components/Feedback'
 import { DjCylowPreview } from './DjCylowPreview'
 import { EtfPreview } from './EtfPreview'
+import { LifeHubPreview } from './LifeHubPreview'
 import { MesowisePreview } from './MesowisePreview'
 import { MusicLibraryPreview } from './MusicLibraryPreview'
 import { PluginsPreview } from './PluginsPreview'
@@ -19,6 +20,7 @@ const PREVIEWS: Partial<Record<string, ComponentType>> = {
   'dkj-recipes': RecipesPreview,
   'dkj-thumbnail-generator': ThumbnailPreview,
   'djcylow-react': DjCylowPreview,
+  'life-hub': LifeHubPreview,
 }
 
 /** A repo's page behind the navigation list: its links, then the recreated app in a frame, or a placeholder. */
