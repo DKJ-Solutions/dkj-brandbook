@@ -46,7 +46,7 @@ Issue #56: DJ Cylow has its own brand and is not part of the DKJ brand (owner, O
 
 - [x] The diff read back: only the DJ Cylow entries left `registry.ts`, `App.tsx` and `RepoPreview.tsx`; no other reference remains in `src/` or `README.md`.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the showcase without DJ Cylow (`npm run dev`, the repo list in the navigation) and approved it.
+- [x] An owner has looked at the showcase without DJ Cylow (`npm run dev`, the repo list in the navigation) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/56-remove-djcylow
 
