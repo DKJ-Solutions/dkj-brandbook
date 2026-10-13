@@ -32,11 +32,18 @@
 
 ### PLAN
 
+Let the preview settings bar be hidden: a round sticky button opens and closes it, and the choice is remembered on this device (#66).
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/theme.ts`: `useToolbarOpen`, open by default, stored as `bb-toolbar` in localStorage
+- [x] `src/showcase/Showcase.tsx`: a sticky `.bb-settings` wrapper with a round toggle (gear when closed, close icon when open, `aria-expanded`); the bar is hidden rather than unmounted, because the house script draws the theme picker into it once
+- [x] `src/showcase/showcase.css`: the wrapper takes over the sticky bleed; the 44px round toggle on house tokens (surface, border, pill radius, `--shadow-pop`)
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has looked at the toggle in the showcase (open, closed, scrolled, phone width) and approved it
 
 ### DEPLOY: feat/66-toolbar-toggle
 
@@ -44,7 +51,9 @@
 
 ##### Tier 0
 
-**Score:**
+The brand book's preview settings bar can be hidden: a round sticky button at the top right opens and closes it, and the choice is remembered on this device. It is open by default, so a first visit looks as before.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +62,9 @@
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +73,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

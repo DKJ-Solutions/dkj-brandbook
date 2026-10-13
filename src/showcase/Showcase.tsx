@@ -2,7 +2,7 @@ import { useEffect, useRef, type ReactNode } from 'react'
 import { SOURCES, type ComponentId } from '../components/sources'
 import { cx } from '../components/cx'
 import { usagesOf } from '../apps/registry'
-import type { useWidth } from './theme'
+import { useToolbarOpen, type useWidth } from './theme'
 import './showcase.css'
 
 /** A labelled group of demos for one component, with its origin printed underneath. */
@@ -64,27 +64,62 @@ export function Demo({ label, children, wide, surface = true }: { label: string;
   )
 }
 
-/** The preview settings: the house theme picker (twelve swatches, the one-click reskin), a reset, and the width toggle. */
+/**
+ * The preview settings: the house theme picker (twelve swatches, the one-click reskin), a reset, and the width toggle.
+ * A round sticky button opens and closes the bar; closed, only the button stays.
+ */
 export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> }) {
   const { width, setWidth } = controls
+  const { open, setOpen } = useToolbarOpen()
   const pickerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     // The house API has no destroy, and picker() is idempotent per element (StrictMode runs this twice safely).
     window.DKJTheme.picker(pickerRef.current, { light: 'Light', dark: 'Dark' })
   }, [])
   return (
-    <div className="bb-toolbar" role="group" aria-label="Preview settings">
-      <div className="bb-control">
-        <span>Theme</span>
-        <div className="bb-theme-row">
-          <div ref={pickerRef} />
-          <button type="button" className="btn" onClick={() => window.DKJTheme.reset()}>
-            Reset
-          </button>
+    <div className={cx('bb-settings', !open && 'bb-settings--closed')}>
+      <button
+        type="button"
+        className="bb-settings-toggle"
+        aria-expanded={open}
+        aria-controls="bb-toolbar"
+        aria-label={open ? 'Hide preview settings' : 'Show preview settings'}
+        title={open ? 'Hide preview settings' : 'Show preview settings'}
+        onClick={() => setOpen(!open)}
+      >
+        {open ? <CloseIcon /> : <GearIcon />}
+      </button>
+      {/* hidden, not unmounted: the house script draws the picker into this element once. */}
+      <div className="bb-toolbar" id="bb-toolbar" role="group" aria-label="Preview settings" hidden={!open}>
+        <div className="bb-control">
+          <span>Theme</span>
+          <div className="bb-theme-row">
+            <div ref={pickerRef} />
+            <button type="button" className="btn" onClick={() => window.DKJTheme.reset()}>
+              Reset
+            </button>
+          </div>
         </div>
+        <Toggle label="Width" value={width} onChange={setWidth} options={['fluid', 'phone']} />
       </div>
-      <Toggle label="Width" value={width} onChange={setWidth} options={['fluid', 'phone']} />
     </div>
+  )
+}
+
+function GearIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+  )
+}
+
+function CloseIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+      <path d="M18 6 6 18M6 6l12 12" />
+    </svg>
   )
 }
 

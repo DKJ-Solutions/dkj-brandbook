@@ -21,6 +21,25 @@ export function useWidth() {
   return { width, setWidth }
 }
 
+/** Whether the preview settings bar is open, remembered on this device. Open by default. */
+export function useToolbarOpen() {
+  const [open, setOpen] = useState(() => {
+    try {
+      return localStorage.getItem('bb-toolbar') !== 'closed'
+    } catch {
+      return true
+    }
+  })
+  useEffect(() => {
+    try {
+      localStorage.setItem('bb-toolbar', open ? 'open' : 'closed')
+    } catch {
+      /* storage unavailable: the choice simply is not remembered */
+    }
+  }, [open])
+  return { open, setOpen }
+}
+
 /** The active house theme id (e.g. "blue"), kept in sync with data-theme so token readouts can re-read on a change. */
 export function useThemeId() {
   const [id, setId] = useState(() => document.documentElement.dataset.theme ?? '')
