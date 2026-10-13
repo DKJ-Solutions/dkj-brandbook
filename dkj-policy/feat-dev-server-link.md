@@ -34,14 +34,15 @@
 
 ### CREATE
 
-- [x] `.claude/hooks/dev-server-link.ps1`: reuse a showcase already serving on 5173-5180, else start `npm run dev` hidden on the first free port, and return the link as hook JSON
+- [x] `.claude/hooks/dev-server-link.ps1`: reuse a showcase this checkout already runs on 5173-5180 (the listening process's command line runs Vite from this checkout's `node_modules`), else start `npm run dev` hidden on the first free port, and return the link as hook JSON
 - [x] `.claude/settings.json`: register it as a `SessionStart` hook (30 s timeout)
 
 ### TEST
 
-- [x] Reuse path: with the showcase already on 5173 the hook answers `already running: http://localhost:5173/` in ~0.3 s
-- [x] Start path: on a spare port range the hook starts the server, waits until it answers, and a second run reuses it instead of starting another
-- [x] Code review (Victor) and security review (Sebastian)
+- [x] Reuse path: with the showcase already on 5173 the hook answers `already running: http://localhost:5173/` in ~1.7 s
+- [x] Start path: on a spare port range the hook starts the server, waits until it listens (~3.4 s), and a second run reuses it instead of starting another
+- [x] Foreign checkout: run with another project dir, the same server is not taken as ours
+- [x] Code review (Victor) and security review (Sebastian); applied: ownership by process command line instead of the page title (other worktrees, spoofing), and no HTTP probes, so the 30 s hook timeout cannot be exceeded by hung ports
 
 ### DEPLOY: feat/dev-server-link
 
@@ -49,7 +50,7 @@
 
 ##### Tier 0
 
-Every session in this repo now starts with the showcase running and its `localhost` link printed, ready to ctrl+click in the VS Code terminal or open in Simple Browser. A server that is already up is reused, so `/clear` or a second session never starts a second one.
+Every session in this repo now starts with the showcase running and its `localhost` link printed, ready to ctrl+click in the VS Code terminal or open in Simple Browser. A server this checkout already runs is reused, so `/clear` or a second session never starts a second one.
 
 **Score:** 3
 
