@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { RoundToggle, SegmentedChoice } from '../../components/Button'
 import { Card, CardBody, CardHead } from '../../components/Card'
-import { BarChart, ColumnChart, type BarDatum, type ColumnDatum } from '../../components/Chart'
+import { BarChart, ColumnChart, LineChart, type BarDatum, type ColumnDatum, type LinePoint, type LineSeries } from '../../components/Chart'
 import { FooterNote } from '../../components/Content'
 import { Banner } from '../../components/Feedback'
 import { Badge, BadgeRow, Delta, HeroRow, HeroValue, Legend, LegendItem, Meter, MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
@@ -33,6 +33,27 @@ const UNREALISED: BarDatum[] = [
   { key: 'world', label: 'World fund', value: 910, detail: 'Cost € 7,330 · Value € 8,240' },
   { key: 'em', label: 'Emerging markets fund', short: 'Emerging markets', value: 260, detail: 'Cost € 2,860 · Value € 3,120' },
   { key: 'small', label: 'Small caps fund', value: -20, detail: 'Cost € 1,990 · Value € 1,970' },
+]
+
+/** Placeholder month ends, November 2025 to October 2026: deposits step up, the result dips below zero for a few months and ends at +€ 1,150 on € 12,500 deposited. */
+const DEPOSITS = Array.from({ length: 12 }, (_, i) => 7000 + 500 * i)
+const GAINS = [90, 160, -60, -180, -90, 120, 260, 410, 380, 640, 890, 1150]
+const TIMELINE: LinePoint[] = GAINS.map((gain, i) => {
+  const m = (10 + i) % 12
+  const year = 2025 + Math.floor((10 + i) / 12)
+  return {
+    key: `${year}-${m + 1}`,
+    label: `${MONTH_NAMES[m]} ${year}`,
+    short: m === 0 || i === 0 ? `${MONTH_NAMES[m]} ${year}` : MONTH_NAMES[m],
+    detail: i === GAINS.length - 1 ? 'up to 13 Oct' : undefined,
+    guide: m % 3 === 0 ? `Q${m / 3 + 1} ${year}` : undefined,
+    values: { value: DEPOSITS[i] + gain, deposits: DEPOSITS[i], result: gain },
+  }
+})
+const TIMELINE_SERIES: LineSeries[] = [
+  { key: 'value', label: 'Total value', slot: 1 },
+  { key: 'deposits', label: 'Deposits', slot: 2, step: true },
+  { key: 'result', label: 'Result', slot: 3, signed: true },
 ]
 
 /** A recreation of the ETF tracker's dashboard (src/apps/registry.ts, ETF_VIEWS), with placeholder figures. */
@@ -83,6 +104,23 @@ export function EtfPreview() {
               <LegendItem color="loss">Loss</LegendItem>
             </Legend>
             <ColumnChart label="Result per month" data={MONTHS} format={eur} periodHeading="Month" />
+          </CardBody>
+        </Card>
+        <Card variant="data">
+          <CardHead title="Value over time" info={info('Value over time')} />
+          <CardBody>
+            <Legend>
+              <LegendItem color="cat-1" line>
+                Total value
+              </LegendItem>
+              <LegendItem color="cat-2" line>
+                Deposits
+              </LegendItem>
+              <LegendItem color="cat-3" line>
+                Result
+              </LegendItem>
+            </Legend>
+            <LineChart label="Value over time" points={TIMELINE} series={TIMELINE_SERIES} format={eur0} periodHeading="Month" />
           </CardBody>
         </Card>
         <Card variant="data">

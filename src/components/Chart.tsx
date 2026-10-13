@@ -80,6 +80,37 @@ function useChartFrame(n: number) {
   return { wrap, tip, width, active, setActive, focusIndex, setFocusIndex, show }
 }
 
+/** The guide lines of a chart, each with its text only where it clears the previous text by GUIDE_GAP and fits in `width`. */
+function thinGuides(items: readonly { key: string; guide?: string }[], band: number, width: number) {
+  let lastGuideX = -Infinity
+  return items.flatMap((d, i) => {
+    if (!d.guide || i === 0) return []
+    const x = M.left + band * i
+    const showText = x - lastGuideX >= GUIDE_GAP && x + GUIDE_GAP / 2 <= width
+    if (showText) lastGuideX = x
+    return [{ key: d.key, x, text: showText ? d.guide : null }]
+  })
+}
+
+/** The roving-stop key handler of a chart: `prev`/`next` (arrows), Home and End move the focus over the .bar hit areas, Escape hides the tooltip. */
+function rovingKeys(
+  frame: Pick<ReturnType<typeof useChartFrame>, 'wrap' | 'focusIndex' | 'setFocusIndex' | 'setActive'>,
+  n: number,
+  prev: string,
+  next: string,
+) {
+  const { wrap, focusIndex, setFocusIndex, setActive } = frame
+  return (e: KeyboardEvent<SVGSVGElement>) => {
+    const to = { [next]: focusIndex + 1, [prev]: focusIndex - 1, Home: 0, End: n - 1 }[e.key]
+    if (e.key === 'Escape') return setActive(null)
+    if (to === undefined) return
+    e.preventDefault()
+    const i = Math.max(0, Math.min(n - 1, to))
+    setFocusIndex(i)
+    wrap.current?.querySelectorAll<SVGRectElement>('.bar')[i]?.focus()
+  }
+}
+
 /** A chart tooltip follows the pointer, so it stays click-through: shown inline, never .tooltip--open. */
 function ChartTip({ tipRef, children }: { tipRef: RefObject<HTMLDivElement | null>; children: ReactNode }) {
   return createPortal(
@@ -137,7 +168,8 @@ export function ColumnChart({
   periodHeading?: string
   valueHeading?: string
 }) {
-  const { wrap, tip, width, active, setActive, focusIndex, setFocusIndex, show } = useChartFrame(data.length)
+  const frame = useChartFrame(data.length)
+  const { wrap, tip, width, active, setActive, focusIndex, setFocusIndex, show } = frame
 
   const pw = Math.max(0, width - M.left - M.right)
   const ph = H - M.top - M.bottom
@@ -153,14 +185,7 @@ export function ColumnChart({
   const bw = Math.max(2, Math.min(24, band - 2)) // at least a 2px gap between columns
   const every = Math.max(1, Math.ceil(LABEL_GAP / (band || 1)))
 
-  let lastGuideX = -Infinity
-  const guides = data.flatMap((d, i) => {
-    if (!d.guide || i === 0) return []
-    const x = M.left + band * i
-    const showText = x - lastGuideX >= GUIDE_GAP && x + GUIDE_GAP / 2 <= width
-    if (showText) lastGuideX = x
-    return [{ key: d.key, x, text: showText ? d.guide : null }]
-  })
+  const guides = thinGuides(data, band, width)
 
   const showAtColumn = (i: number) => {
     const svg = wrap.current?.querySelector('svg')
@@ -168,15 +193,7 @@ export function ColumnChart({
     const b = svg.getBoundingClientRect()
     show(i, { x: b.left + M.left + band * (i + 0.5), y: b.top + Math.min(y(data[i].value), y0) - 8 })
   }
-  const onKey = (e: KeyboardEvent<SVGSVGElement>) => {
-    const next = { ArrowRight: focusIndex + 1, ArrowLeft: focusIndex - 1, Home: 0, End: data.length - 1 }[e.key]
-    if (e.key === 'Escape') return setActive(null)
-    if (next === undefined) return
-    e.preventDefault()
-    const i = Math.max(0, Math.min(data.length - 1, next))
-    setFocusIndex(i)
-    wrap.current?.querySelectorAll<SVGRectElement>('.bar')[i]?.focus()
-  }
+  const onKey = rovingKeys(frame, data.length, 'ArrowLeft', 'ArrowRight')
 
   const d = active === null ? null : data[active]
   return (
@@ -335,7 +352,8 @@ export function BarChart({
   valueHeading?: string
   shareHeading?: string
 } & BarColor) {
-  const { wrap, tip, width, active, setActive, focusIndex, setFocusIndex, show } = useChartFrame(data.length)
+  const frame = useChartFrame(data.length)
+  const { wrap, tip, width, active, setActive, focusIndex, setFocusIndex, show } = frame
 
   const wide = width >= WIDE
   const rowH = wide ? 30 : 48
@@ -365,15 +383,7 @@ export function BarChart({
     const b = svg.getBoundingClientRect()
     show(i, { x: b.left + x(data[i].value), y: b.top + i * rowH + barY })
   }
-  const onKey = (e: KeyboardEvent<SVGSVGElement>) => {
-    const next = { ArrowDown: focusIndex + 1, ArrowUp: focusIndex - 1, Home: 0, End: data.length - 1 }[e.key]
-    if (e.key === 'Escape') return setActive(null)
-    if (next === undefined) return
-    e.preventDefault()
-    const i = Math.max(0, Math.min(data.length - 1, next))
-    setFocusIndex(i)
-    wrap.current?.querySelectorAll<SVGRectElement>('.bar')[i]?.focus()
-  }
+  const onKey = rovingKeys(frame, data.length, 'ArrowUp', 'ArrowDown')
 
   const h = data.length * rowH
   const d = active === null ? null : data[active]
@@ -446,6 +456,217 @@ export function BarChart({
             </td>
             <td className={sign(c.value)}>{format(c.value)}</td>
             {showShare && <td>{share(c.value / total)}</td>}
+          </tr>
+        ))}
+      </ChartTable>
+    </div>
+  )
+}
+
+/** One point of a line chart: `label` is the full name (tooltip, table, accessible name), `short` goes under the axis. */
+export type LinePoint = {
+  key: string
+  label: string
+  short: string
+  /** The figure of every series at this point, by `LineSeries.key`. */
+  values: Record<string, number>
+  /** A muted line under the label in the tooltip and the table. */
+  detail?: string
+  /** A vertical guide before this point, with this text at its top (e.g. "Q2 2026"). */
+  guide?: string
+}
+
+/** One line: it takes the house --cat-<slot> and keeps it, so identity is never the colour alone (a `step` line is a different shape). */
+export type LineSeries = {
+  key: string
+  label: string
+  slot: 1 | 2 | 3
+  /** Draw as a step: flat to the new point, then up or down, for a figure that changes on a date and stays (deposits). */
+  step?: boolean
+  /** The figure wears the up/down colour in the tooltip and the table; the line stays its slot colour. */
+  signed?: boolean
+}
+
+const LINE_WIDE = 560 // from this width every line gets a direct end label; below it the right margin is the 8px of M
+const END_W = 84 // the right margin that holds the end labels
+const END_GAP = 14 // the least room between two end labels, in px
+const DOT_R = 4
+
+/**
+ * LineChart -- several series over evenly spaced points (month ends), on the house .chart. Each series takes its
+ * house --cat-<slot>; a `step` series is drawn as a step. The axis encloses 0 and every value, so a series can go
+ * negative. It draws at its real width, so 12px stays 12px on a phone; from 560px each line is named at its end.
+ * Hover, or tab to it and use Left, Right, Home and End, for a crosshair marking every series and the house .tooltip
+ * with all figures; the same figures are always a table away. Put a Legend (line items) above it.
+ */
+export function LineChart({
+  label,
+  points,
+  series,
+  format,
+  tableLabel = 'Show as table',
+  periodHeading = 'Period',
+}: {
+  /** Names the chart for a screen reader and the table, e.g. "Value over time". */
+  label: string
+  points: readonly LinePoint[]
+  series: readonly LineSeries[]
+  format: (v: number) => string
+  tableLabel?: string
+  periodHeading?: string
+}) {
+  const frame = useChartFrame(points.length)
+  const { wrap, tip, width, active, setActive, focusIndex, setFocusIndex, show } = frame
+
+  const endLabels = width >= LINE_WIDE
+  const right = endLabels ? END_W : M.right
+  const pw = Math.max(0, width - M.left - right)
+  const ph = H - M.top - M.bottom
+  const all = points.flatMap((p) => series.map((s) => p.values[s.key]))
+  const lo = Math.min(0, ...all)
+  const hi = Math.max(0, ...all)
+  const tk = ticks(lo, hi, 4)
+  const yMin = Math.min(lo, tk[0])
+  const yMax = Math.max(hi, tk[tk.length - 1])
+  const y = (v: number) => M.top + ((yMax - v) / (yMax - yMin || 1)) * ph
+  const band = points.length ? pw / points.length : 0
+  const px = (i: number) => M.left + band * (i + 0.5)
+  const every = Math.max(1, Math.ceil(LABEL_GAP / (band || 1)))
+  const color = (s: LineSeries) => `var(--cat-${s.slot})`
+  const tone = (s: LineSeries, v: number) => (s.signed ? (v >= 0 ? 'delta--up' : 'delta--down') : undefined)
+
+  const guides = thinGuides(points, band, width)
+
+  const path = (s: LineSeries) =>
+    points
+      .map((p, i) => {
+        const v = p.values[s.key]
+        return i === 0 ? `M${px(0)},${y(v)}` : s.step ? `H${px(i)}V${y(v)}` : `L${px(i)},${y(v)}`
+      })
+      .join('')
+  // Draw order: the step lines first, then the plain ones, the first series on top.
+  const drawn = [...series.filter((s) => s.step), ...series.filter((s) => !s.step).reverse()]
+
+  // End labels, top to bottom, nudged apart by END_GAP and kept inside the plot: pushed down first, then walked back up from the bottom.
+  const last = points[points.length - 1]
+  const ends: { s: LineSeries; v: number; y: number }[] = []
+  if (last && endLabels) {
+    const sorted = series.map((s) => ({ s, v: last.values[s.key], y: y(last.values[s.key]) + 4 })).sort((p, q) => p.y - q.y)
+    sorted.forEach((e, i) => (e.y = i ? Math.max(e.y, sorted[i - 1].y + END_GAP) : e.y))
+    const floor = M.top + ph
+    for (let i = sorted.length - 1; i >= 0; i--) sorted[i].y = Math.min(sorted[i].y, i === sorted.length - 1 ? floor : sorted[i + 1].y - END_GAP)
+    ends.push(...sorted)
+  }
+
+  const showAtPoint = (i: number) => {
+    const svg = wrap.current?.querySelector('svg')
+    if (!svg) return
+    const b = svg.getBoundingClientRect()
+    show(i, { x: b.left + px(i), y: b.top + (series.length ? Math.min(...series.map((s) => y(points[i].values[s.key]))) : M.top) - 8 })
+  }
+  const onKey = rovingKeys(frame, points.length, 'ArrowLeft', 'ArrowRight')
+
+  const a = active === null ? null : points[active]
+  return (
+    <div className="dkj-chart">
+      <div ref={wrap} className="chart">
+        {width > 0 && (
+          <svg width={width} height={H} viewBox={`0 0 ${width} ${H}`} role="group" aria-label={label} onKeyDown={onKey}>
+            {tk.map((v) => (
+              <g key={v}>
+                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--axis)' : 'var(--grid)'} strokeWidth={1} />
+                <text x={M.left - 8} y={y(v) + 4} textAnchor="end">
+                  {format(v)}
+                </text>
+              </g>
+            ))}
+            {guides.map((g) => (
+              <g key={g.key}>
+                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--grid)" strokeWidth={1} />
+                {g.text && (
+                  <text className="axis-note" x={g.x + 4} y={M.top - 8}>
+                    {g.text}
+                  </text>
+                )}
+              </g>
+            ))}
+            {points.map((p, i) =>
+              i % every === 0 ? (
+                <text key={p.key} x={px(i)} y={H - 8} textAnchor="middle">
+                  {p.short}
+                </text>
+              ) : null,
+            )}
+            {drawn.map((s) => (
+              <path key={s.key} d={path(s)} fill="none" stroke={color(s)} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" aria-hidden="true" />
+            ))}
+            {last &&
+              series.map((s) => (
+                <circle key={s.key} cx={px(points.length - 1)} cy={y(last.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--surface)" strokeWidth={2} aria-hidden="true" />
+              ))}
+            {ends.map(({ s, v, y: ey }) => (
+              <text key={s.key} className={cx(s === series[0] && 'val')} x={M.left + pw + 8} y={ey} aria-hidden="true">
+                {format(v)}
+              </text>
+            ))}
+            {a && active !== null && (
+              <g aria-hidden="true" pointerEvents="none">
+                <line x1={px(active)} x2={px(active)} y1={M.top} y2={M.top + ph} stroke="var(--axis)" strokeWidth={1} />
+                {series.map((s) => (
+                  <circle key={s.key} cx={px(active)} cy={y(a.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--surface)" strokeWidth={2} />
+                ))}
+              </g>
+            )}
+            {/* The hit areas: the full band, so the pointer snaps to the nearest point, and the keyboard stops (one tab stop, arrows move). */}
+            {points.map((p, i) => (
+              <rect
+                key={p.key}
+                className="bar"
+                x={M.left + band * i}
+                y={M.top}
+                width={band}
+                height={ph}
+                fill="transparent"
+                role="img"
+                aria-label={`${p.label}${p.detail ? ` (${p.detail})` : ''}: ${series.map((s) => `${s.label} ${format(p.values[s.key])}`).join('; ')}`}
+                tabIndex={i === focusIndex ? 0 : -1}
+                onPointerMove={(e: ReactPointerEvent) => show(i, { x: e.clientX, y: e.clientY })}
+                onPointerLeave={() => setActive(null)}
+                onFocus={() => {
+                  setFocusIndex(i)
+                  showAtPoint(i)
+                }}
+                onBlur={() => setActive(null)}
+              />
+            ))}
+          </svg>
+        )}
+      </div>
+      {a && (
+        <ChartTip tipRef={tip}>
+          <b>{a.label}</b>
+          {a.detail && <span className="dkj-chart-detail">{a.detail}</span>}
+          {series.map((s) => (
+            <span key={s.key} className="dkj-chart-row">
+              <span className="dkj-chart-swatch" style={{ background: color(s) }} />
+              {s.label}
+              <span className={cx('num', 'dkj-chart-figure', tone(s, a.values[s.key]))}>{format(a.values[s.key])}</span>
+            </span>
+          ))}
+        </ChartTip>
+      )}
+      <ChartTable summary={tableLabel} caption={label} headings={[periodHeading, ...series.map((s) => s.label)]}>
+        {points.map((p) => (
+          <tr key={p.key}>
+            <td>
+              {p.label}
+              {p.detail && <span className="dkj-chart-detail">{p.detail}</span>}
+            </td>
+            {series.map((s) => (
+              <td key={s.key} className={tone(s, p.values[s.key])}>
+                {format(p.values[s.key])}
+              </td>
+            ))}
           </tr>
         ))}
       </ChartTable>

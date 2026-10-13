@@ -18,7 +18,7 @@ const NAV = [
   { group: 'Foundations', items: ['tokens'] },
   { group: 'Actions', items: ['Button', 'SaveButton', 'SegmentedChoice', 'IconButton', 'RoundToggle'] },
   { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Alert', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'ReadMoreToggle', 'GroupHeading', 'QuestionBlock', 'Amount', 'FooterNote'] },
-  { group: 'Metrics', items: ['StatTile', 'HeroValue', 'Delta', 'Legend', 'ColumnChart', 'BarChart', 'MiniCard', 'Meter', 'Badge'] },
+  { group: 'Metrics', items: ['StatTile', 'HeroValue', 'Delta', 'Legend', 'ColumnChart', 'BarChart', 'LineChart', 'MiniCard', 'Meter', 'Badge'] },
   { group: 'Forms & rows', items: ['Field', 'Checkbox', 'Stepper', 'SearchCombobox', 'ValueBox', 'StatRow', 'FormulaRow'] },
   { group: 'Overlays & navigation', items: ['Dialog', 'Tooltip', 'Drawer', 'TopBar', 'PageHeader', 'MenuRow', 'DownloadButton', 'StepHeader', 'InfoRow'] },
   { group: 'Data', items: ['DefinitionList', 'DataTable', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },

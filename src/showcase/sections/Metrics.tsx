@@ -2,7 +2,7 @@ import { RoundToggle } from '../../components/Button'
 import { Card, CardHead } from '../../components/Card'
 import { Badge, BadgeRow, Delta, HeroRow, HeroValue, Legend, LegendItem, Meter, MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
 import { Demo, Section } from '../Showcase'
-import { BarChart, ColumnChart, type BarDatum, type ColumnDatum } from '../../components/Chart'
+import { BarChart, ColumnChart, LineChart, type BarDatum, type ColumnDatum, type LinePoint, type LineSeries } from '../../components/Chart'
 
 const eur = (v: number) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0, signDisplay: 'exceptZero' }).format(v)
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -37,6 +37,36 @@ const UNREALISED: BarDatum[] = [
   { key: 'bond', label: 'Bond fund', value: -45, detail: 'Cost € 1,525 · Value € 1,480' },
   { key: 'small', label: 'Small caps fund', value: -120, detail: 'Cost € 2,090 · Value € 1,970' },
 ]
+
+const DEPOSITS = Array.from({ length: 18 }, (_, i) => 4000 + 500 * i)
+const GAINS = [60, 120, -80, -210, -340, -120, 40, 210, 380, 260, 150, 420, 610, 520, 780, 990, 880, 1150]
+/** The same eighteen month ends: money in as a step, the result going below zero for a few months, the value their sum; the last month still running. */
+const TIMELINE: LinePoint[] = MONTHS.map((c, i) => ({
+  key: c.key,
+  label: c.label,
+  short: c.short,
+  detail: c.detail,
+  guide: c.guide,
+  values: { value: DEPOSITS[i] + GAINS[i], deposits: DEPOSITS[i], result: GAINS[i] },
+}))
+const TIMELINE_SERIES: LineSeries[] = [
+  { key: 'value', label: 'Total value', slot: 1 },
+  { key: 'deposits', label: 'Deposits', slot: 2, step: true },
+  { key: 'result', label: 'Result', slot: 3, signed: true },
+]
+const timelineLegend = (
+  <Legend>
+    <LegendItem color="cat-1" line>
+      Total value
+    </LegendItem>
+    <LegendItem color="cat-2" line>
+      Deposits
+    </LegendItem>
+    <LegendItem color="cat-3" line>
+      Result
+    </LegendItem>
+  </Legend>
+)
 
 const info = (what: string) => <RoundToggle size="inline" label={`Explain: ${what}`} />
 
@@ -158,6 +188,19 @@ export function Metrics() {
             </Legend>
             <BarChart colorBy="series" label="Allocation" data={ALLOCATION} format={eur0} share={share} itemHeading="Holding" />
             <BarChart colorBy="direction" label="Unrealised result per holding" data={UNREALISED} format={eur} itemHeading="Holding" valueHeading="Result" />
+          </div>
+        </Demo>
+      </Section>
+
+      <Section id="LineChart" title="LineChart" intro="Several series over evenly spaced points, each in its own --cat colour; a step series, like deposits, changes on a date and stays. The axis always takes in zero, so a series can go below it. It draws at its real width, so its labels stay 12px on a phone, and from 560px each line is named at its end. Hover, or tab to it and use the arrow keys, for a crosshair marking every series; the same figures are always a table away.">
+        <Demo label="Value, deposits and result per month end, with quarter guides" wide>
+          {timelineLegend}
+          <LineChart label="Value over time" points={TIMELINE} series={TIMELINE_SERIES} format={eur0} periodHeading="Month" />
+        </Demo>
+        <Demo label="At phone width (360px)">
+          <div style={{ maxWidth: '360px' }}>
+            {timelineLegend}
+            <LineChart label="Value over time" points={TIMELINE} series={TIMELINE_SERIES} format={eur0} periodHeading="Month" />
           </div>
         </Demo>
       </Section>

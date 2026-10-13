@@ -57,8 +57,7 @@ const MESOWISE_VIEWS: readonly View[] = [
   { id: 'why-dialog', name: 'Bill line explanation', kind: 'dialog', description: 'Small modal opened from the question-mark toggle on a bill row, showing a worked multiplication/answer breakdown.', components: ['Dialog', 'RoundToggle', 'AnswerBox', 'CalcTable'] },
 ]
 
-// ETF tracker: researched read-only from etf_tracker/dashboard.py. The column and bar charts are mirrored (ColumnChart, BarChart, #20);
-// the line chart view lists only the non-chart components it uses, as that chart is not mirrored yet.
+// ETF tracker: researched read-only from etf_tracker/dashboard.py. All three charts are mirrored (ColumnChart, BarChart, LineChart, #20).
 const ETF_VIEWS: readonly View[] = [
   { id: 'dashboard', name: 'Dashboard', kind: 'screen', description: 'One page: a header, then a column of cards (some in a two-up grid on a wide screen), a footer note, and a tooltip layer behind every explanation mark. A switch in the header toggles between a primary and a secondary set of cards.', components: ['PageHeader', 'Card', 'FooterNote', 'Tooltip'] },
   { id: 'page-header', name: 'Page header', kind: 'menu', description: 'The page title in a serif h1, a muted as-of date, and a joined two-option switch that changes which set of cards shows.', components: ['PageHeader', 'SegmentedChoice'] },
@@ -72,7 +71,7 @@ const ETF_VIEWS: readonly View[] = [
   { id: 'unrealised', name: 'Unrealised result', kind: 'card', description: 'A horizontal bar chart of gain and loss per holding with a gain/loss legend.', components: ['Card', 'Legend', 'BarChart', 'Tooltip', 'RoundToggle'] },
   { id: 'breakdown', name: 'Result breakdown', kind: 'card', description: 'Where the result comes from: a list of sources with a signed, coloured figure each and an explanation mark after the label, and a bold total.', components: ['Card', 'DefinitionList', 'Tooltip', 'RoundToggle'] },
   { id: 'closed-positions', name: 'Closed positions', kind: 'card', description: 'A table of what was fully sold, with the realised result in colour; an empty state is one muted row.', components: ['Card', 'DataTable', 'RoundToggle'] },
-  { id: 'timeline', name: 'Value over time', kind: 'card', description: 'A line chart of value, deposits and result at each month end with a legend of three line series. The chart itself is not mirrored yet.', components: ['Card', 'Legend', 'Tooltip', 'RoundToggle'] },
+  { id: 'timeline', name: 'Value over time', kind: 'card', description: 'A line chart of value, deposits and result at each month end with a legend of three line series.', components: ['Card', 'Legend', 'LineChart', 'Tooltip', 'RoundToggle'] },
   { id: 'quarters', name: 'Quarterly deposits', kind: 'card', description: 'A grid of small cards, one per quarter: the amount, a progress bar towards the target, a status badge with its label and a muted note; the quarter still open has a warning border.', components: ['Card', 'MiniCard', 'Meter', 'Badge', 'RoundToggle'] },
   { id: 'market-report', name: 'Market report', kind: 'card', description: 'A long written report in a grid of tiles that is cut off with a fade until a full-width read-more button opens it, with a collapsible list of sources and an outdated note.', components: ['Card', 'ReadMoreToggle', 'Disclosure', 'RoundToggle'] },
   { id: 'footer-note', name: 'Footer note', kind: 'card', description: 'A small muted note at the foot of the page saying what the explanations and the figures are and are not.', components: ['FooterNote'] },
