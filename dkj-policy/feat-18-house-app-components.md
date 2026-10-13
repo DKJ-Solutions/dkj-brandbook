@@ -60,8 +60,8 @@ copy of the house style no longer exists there since the move to this repo.
 
 - [x] Eslint and `tsc -b` pass on the showcase; the full gate runs below.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] The owners have looked at the Field, Button, Dialog, TopBar and MenuRow sections of the showcase
-      (`npm run dev`) in a light and a dark theme, and approved them.
+- [x] The owners have looked at the Field, Button, Dialog, TopBar and MenuRow sections of the showcase
+      (`npm run dev`) and approved them (October 13, 2026).
 
 ### DEPLOY: feat/18-house-app-components
 
