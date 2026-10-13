@@ -59,7 +59,7 @@ copy of the house style no longer exists there since the move to this repo.
 ### TEST
 
 - [x] Eslint and `tsc -b` pass on the showcase; the full gate runs below.
-- [ ] The gates (`open-pr -GatesOnly`) are green.
+- [x] The gates (`open-pr -GatesOnly`) are green.
 - [ ] The owners have looked at the Field, Button, Dialog, TopBar and MenuRow sections of the showcase
       (`npm run dev`) in a light and a dark theme, and approved them.
 
