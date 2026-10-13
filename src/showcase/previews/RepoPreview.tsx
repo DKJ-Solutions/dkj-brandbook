@@ -2,7 +2,6 @@ import type { ComponentType } from 'react'
 import { APPS } from '../../apps/registry'
 import { Card } from '../../components/Card'
 import { Message } from '../../components/Feedback'
-import { DjCylowPreview } from './DjCylowPreview'
 import { EtfPreview } from './EtfPreview'
 import { LifeHubPreview } from './LifeHubPreview'
 import { MesowisePreview } from './MesowisePreview'
@@ -19,7 +18,6 @@ const PREVIEWS: Partial<Record<string, ComponentType>> = {
   'dkj-music-library': MusicLibraryPreview,
   'dkj-recipes': RecipesPreview,
   'dkj-thumbnail-generator': ThumbnailPreview,
-  'djcylow-react': DjCylowPreview,
   'life-hub': LifeHubPreview,
 }
 
