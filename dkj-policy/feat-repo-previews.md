@@ -36,9 +36,16 @@ A click in the nav repo list opens a recreated preview of the app in the main ar
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/App.tsx`: the repo list links to `#preview/<repo>`; the hash swaps the sections for the preview, the current repo is marked, and leaving a preview for a section scrolls to it
+- [x] `src/showcase/previews/RepoPreview.tsx`: the preview page -- back link, repo/live/views links, the recreated app in a frame, or a "preview follows" card
+- [x] `src/showcase/previews/MesowisePreview.tsx`: top bar with settings drawer, level stepper, question banner, cost tiles and the six cards
+- [x] `src/showcase/previews/EtfPreview.tsx`: page header, ledger warning, summary, monthly column chart, positions table, quarterly deposits, footer note -- placeholder figures
+- [x] `src/showcase/showcase.css`: the preview frame and layout, from house tokens only
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
+
+- [ ] An owner has looked at the Mesowise and ETF tracker previews and a "preview follows" repo, in light and dark and at phone width, and approved it
 
 ### DEPLOY: feat/repo-previews
 
@@ -46,7 +53,11 @@ A click in the nav repo list opens a recreated preview of the app in the main ar
 
 ##### Tier 0
 
-**Score:**
+The DKJ-Solutions repo list in the showcase navigation no longer links to GitHub: a click opens a recreated preview of
+that app inside the brand book, built from the brand-book components, so it follows the theme and the width toggle.
+Mesowise and the ETF tracker have one; the other repos show a "preview follows" card until theirs is recreated.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -55,7 +66,9 @@ A click in the nav repo list opens a recreated preview of the app in the main ar
 
 ##### Tier 1
 
-**Score:**
+Internal to the brand book's maintainers; nothing changes for management or the commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -64,7 +77,9 @@ A click in the nav repo list opens a recreated preview of the app in the main ar
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing service is involved.
+
+**Score:** N/A
 
 #### Pull Request
 

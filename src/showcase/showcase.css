@@ -153,3 +153,16 @@
 .bb-view-components a { padding: var(--spacing-0-5) var(--spacing-2); font-size: var(--text-sm); color: var(--ink); text-decoration: none; border: 1px solid var(--border); border-radius: var(--dkj-radius-pill); background: var(--surface); }
 .bb-view-components a:hover { background: var(--primary-soft); }
 .bb-view-components a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset); }
+
+/* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */
+.bb-nav a[aria-current='page'] { background: color-mix(in srgb, var(--primary) 16%, var(--surface)); font-weight: var(--dkj-fw-semibold); }
+.bb-preview-back { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); }
+.bb-preview-back a { color: var(--primary); }
+.bb-preview-meta { margin-bottom: var(--spacing-4); }
+.bb-preview-frame { border: 1px solid var(--border); border-radius: var(--dkj-radius-lg); overflow: hidden; background: var(--page); }
+.bb-preview-app--padded { padding: var(--spacing-5) var(--spacing-4) var(--spacing-6); }
+.bb-preview-column { display: grid; gap: var(--spacing-4); max-width: 34rem; margin: 0 auto; padding: var(--spacing-4); }
+.bb-preview-column--wide { max-width: none; padding: var(--spacing-4) 0 0; }
+.bb-preview-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-3); }
+.bb-preview-card-actions { padding: 0 var(--spacing-4) var(--spacing-4); }
+.bb-preview-gap { margin-top: var(--spacing-4); }

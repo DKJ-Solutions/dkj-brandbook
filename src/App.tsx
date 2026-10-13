@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react'
 import { cx } from './components/cx'
 import { Toolbar } from './showcase/Showcase'
+import { RepoPreview } from './showcase/previews/RepoPreview'
 import { useWidth } from './showcase/theme'
 import { Apps } from './showcase/sections/Apps'
 import { Actions } from './showcase/sections/Actions'
@@ -24,7 +26,7 @@ const NAV = [
 
 const LABELS: Record<string, string> = { apps: 'Overview', tokens: 'Tokens' }
 
-/** The repos in the DKJ-Solutions GitHub organisation as of October 13, 2026; each links to the repo itself. */
+/** The repos in the DKJ-Solutions GitHub organisation as of October 13, 2026; each opens its recreated preview (#preview/<repo>). */
 const REPOS = [
   'dkj-brandbook',
   'dkj-claude-plugins',
@@ -37,8 +39,34 @@ const REPOS = [
   'life-hub',
 ] as const
 
+/** The repo whose preview the hash asks for, or null for the brand book itself. */
+function usePreviewRepo() {
+  const read = () => {
+    const m = /^#preview\/(.+)$/.exec(window.location.hash)
+    const repo = m ? decodeURIComponent(m[1]) : null
+    return repo && (REPOS as readonly string[]).includes(repo) ? repo : null
+  }
+  const [repo, setRepo] = useState(read)
+  useEffect(() => {
+    // Leaving a preview for a section: that section only exists after the next render, so scroll to it then.
+    const onHash = () => {
+      const next = read()
+      setRepo(next)
+      requestAnimationFrame(() => {
+        const target = next ? null : document.getElementById(decodeURIComponent(window.location.hash.slice(1)))
+        if (target) target.scrollIntoView()
+        else window.scrollTo(0, 0)
+      })
+    }
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+  return repo
+}
+
 export default function App() {
   const controls = useWidth()
+  const previewRepo = usePreviewRepo()
   return (
     <div className="bb-shell">
       <nav className="bb-nav" aria-label="Brand book">
@@ -60,7 +88,7 @@ export default function App() {
         <ul>
           {REPOS.map((r) => (
             <li key={r}>
-              <a href={`https://github.com/DKJ-Solutions/${r}`} title={r}>
+              <a href={`#preview/${r}`} title={r} aria-current={r === previewRepo ? 'page' : undefined}>
                 {r}
               </a>
             </li>
@@ -70,14 +98,20 @@ export default function App() {
       <main className="bb-main">
         <Toolbar controls={controls} />
         <div className={cx('bb-content', controls.width === 'phone' && 'bb-content--phone')}>
-          <Apps />
-          <Foundations />
-          <Actions />
-          <Surfaces />
-          <Metrics />
-          <Forms />
-          <Overlays />
-          <Data />
+          {previewRepo ? (
+            <RepoPreview repo={previewRepo} />
+          ) : (
+            <>
+              <Apps />
+              <Foundations />
+              <Actions />
+              <Surfaces />
+              <Metrics />
+              <Forms />
+              <Overlays />
+              <Data />
+            </>
+          )}
         </div>
       </main>
     </div>
