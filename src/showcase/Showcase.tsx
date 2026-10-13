@@ -101,8 +101,10 @@ export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> })
       className="bb-settings"
       ref={rootRef}
       onBlur={(e) => {
-        // Tabbing out of the panel closes it, like a click outside does.
-        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(false)
+        // Tabbing out of the panel closes it. A null relatedTarget is a click on a non-focusable spot
+        // (inside or outside); the pointerdown handler already decides those, so it is left alone here.
+        const next = e.relatedTarget as Node | null
+        if (next && !e.currentTarget.contains(next)) setOpen(false)
       }}
     >
       <button
