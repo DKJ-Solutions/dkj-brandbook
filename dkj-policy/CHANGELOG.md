@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**38 minor entries** <!-- pending-tally -->
+**39 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/70-house-settings-button · 20261013-203427Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house style has a settings button: `DKJTheme.settings(el)` draws a round toggle that opens a panel with the theme picker, a reset and a slot for the app's own settings, inline (e.g. in a `.topbar`) or floating top right with `.theme-settings--floating`. The script owns opening and closing. The brand book's preview settings now use it, and the TopBar section shows it inline.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal design system; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change until an app adopts it after a house-style release.
+
+**Score:** N/A
+
+#### Pull Request
+
+A settings button in the house style: a round toggle with the theme picker in a panel
+
+[PR #71](https://github.com/DKJ-Solutions/dkj-brandbook/pull/71)
+
+---
 
 ### DEPLOY: fix/68-panel-inside-click · 20261013-195827Z
 
