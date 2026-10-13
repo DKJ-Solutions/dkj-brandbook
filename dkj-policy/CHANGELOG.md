@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**37 minor entries** <!-- pending-tally -->
+**38 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/68-panel-inside-click · 20261013-195827Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book's preview settings panel stays open on a click inside it; only a click outside it, Escape, the round button or tabbing out closes it.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+The settings panel stays open on a click inside it
+
+[PR #69](https://github.com/DKJ-Solutions/dkj-brandbook/pull/69)
+
+---
 
 ### DEPLOY: feat/66-toolbar-toggle · 20261013-195046Z
 
