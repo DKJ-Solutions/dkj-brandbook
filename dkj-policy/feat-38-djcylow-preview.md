@@ -32,9 +32,21 @@
 
 ### PLAN
 
+This branch is #38: a recreated preview for `DKJ-Solutions/djcylow-react`, a Next.js static export on Netlify (live site `https://djcylow.com`). Its two screens are shown in the page header with a joined `SegmentedChoice`, the way `RecipesPreview` and `ThumbnailPreview` do. Only existing brand-book components are used; nothing lifted into the brand book, so `sources.ts` is untouched. Every mix, date and track is invented, and only the structure of the real screens is described.
+
+#### What the preview shows
+
+- **Listen (first screen):** a filter panel with a single-choice list of moods ("All", then eight invented colours each with mood words), and genre and power selects; then a grid of mix cards, each with a play control and progress meter, a title of colour, subgenre and volume, a muted date and an "Open mix" button. Ten are shown at a time with a "Load more" button; filters, load more and the empty line "No mixes found" work on 14 invented mixes.
+- **Mix detail:** a back button, the title, a large player stand-in with a volume stepper, the date and a description, a four-item key-facts list (Colour, Shade, Subgenre, Tracks), a tracklist table (track, time; an empty-row state for a mix without one) and a rights notice. Opening a card goes to its detail.
+- **Footer** says everything is invented and nothing plays.
+- **Gaps (no component, rendered as closely as possible):** the audio player (a "Play" `Button` and a labelled `Meter` stand in; no seek, time or sound; the AudioPlayer issue, #52); the mix covers (left out; Figure: #50); the description text (a plain paragraph; Prose: #43); the mood pills with a colour dot (single-select, so `SegmentedChoice` in its list layout suffices except for the dot, which is left out, as the eight colours exceed the five series colours; FilterChips: #46); the page headings, which are h2 sections in the source (`GroupHeading`, always an h3; GroupHeading level: #48).
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/previews/DjCylowPreview.tsx`: the Listen page (working filters, load more, empty state) and the mix detail, switched with a `SegmentedChoice` in the `PageHeader`, built from existing components only.
+- [x] `src/showcase/previews/RepoPreview.tsx`: `djcylow-react` registered in `PREVIEWS`.
+- [x] `src/apps/registry.ts`: the `djcylow` entry (live URL `https://djcylow.com`) and its two screen views (`DJCYLOW_VIEWS`).
+- [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
 
