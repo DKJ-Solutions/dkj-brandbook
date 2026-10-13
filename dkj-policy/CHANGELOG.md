@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**18 minor entries** <!-- pending-tally -->
+**19 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/nav-repo-list · 20261013-120956Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The showcase's left navigation gets a DKJ-Solutions group listing every repo in the organisation, each linking to its GitHub page, so the repos the brand covers are one click away from the brand book.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A -- an internal navigation aid for the brand book's own readers.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A -- no subscriber-facing service is involved.
+
+**Score:** N/A
+
+#### Pull Request
+
+DKJ-Solutions repo list in the showcase navigation
+
+[PR #32](https://github.com/DKJ-Solutions/dkj-brandbook/pull/32)
+
+---
 
 ### DEPLOY: feat/dev-server-link · 20261013-113814Z
 
