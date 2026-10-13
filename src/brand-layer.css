@@ -73,11 +73,6 @@
   --dkj-positive-lo: var(--up);     /* ... bottom: darker on light, lighter on dark; text on it is --status-mark */
   --dkj-warn-text: color-mix(in srgb, var(--warn) 70%, var(--ink)); /* --warn is a fill; this reads as text */
   --dkj-backdrop: rgb(0 0 0 / 0.45);                                /* dialog::backdrop, same in both modes */
-  /* Text on a --warn fill. --warn is orange or yellow in every theme, so the text must be dark in both modes;
-     no house token is (--ink and --status-mark flip to white / near-white on one side). #0b0b0b is the house's
-     own dark ink. Measured against the fill: 6.3:1 (light #e0761a), 6.3:1 (Roest #b88a00), 12.5:1 (dark
-     #ffc61a), 7.8:1 (Geel #f08a24). White would be 3.1:1 on the light fill. */
-  --dkj-on-warn: #0b0b0b;
 
   /* An accent-tinted dialog and a box inside it (the primary on the surface). */
   --dkj-tint-accent: color-mix(in srgb, var(--primary) 7%, var(--surface));

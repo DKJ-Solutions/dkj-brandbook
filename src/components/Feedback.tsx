@@ -61,7 +61,7 @@ export function Chip({ tone, children }: { tone: 'yes' | 'no' | 'todo' | 'unknow
 
 /**
  * TitleTag -- a small uppercase pill label on its own line above a title. info: the info-accent.
- * warn: the warning fill with dark text (--dkj-on-warn; brand-layer.css says why no house token does the job).
+ * warn: the warning fill with the house --on-warn text on it.
  */
 export function TitleTag({ tone = 'accent', children }: { tone?: 'accent' | 'info' | 'warn'; children: ReactNode }) {
   return <span className={cx('dkj-tag', tone !== 'accent' && `dkj-tag--${tone}`)}>{children}</span>
