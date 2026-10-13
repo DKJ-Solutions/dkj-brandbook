@@ -83,12 +83,14 @@ const tableRows = (s: Section): DataRow[] =>
     return { id: round, cells, tones }
   })
 
-const NOTES: readonly { round: string; text: string }[] = [
-  { round: 'Round A', text: 'Example note: one candidate kept, placed inside the margin.' },
-  { round: 'Round B', text: 'Example note: every candidate discarded; the placement was outside the margin.' },
-  { round: 'Round C', text: 'Example note: two candidates kept; the cutout has no verdict, for an example reason.' },
-  { round: 'Round D', text: 'Example note: planned, nothing measured yet.' },
+const NOTES: readonly { round: string; date: string; verdict: 'yes' | 'no' | 'unknown' | 'todo'; text: string }[] = [
+  { round: 'Round A', date: '1 Jan 2026', verdict: 'yes', text: 'Example note: one candidate kept, placed inside the margin.' },
+  { round: 'Round B', date: '8 Jan 2026', verdict: 'no', text: 'Example note: every candidate discarded; the placement was outside the margin.' },
+  { round: 'Round C', date: '15 Jan 2026', verdict: 'unknown', text: 'Example note: two candidates kept; the cutout has no verdict, for an example reason.' },
+  { round: 'Round D', date: '22 Jan 2026', verdict: 'todo', text: 'Example note: planned, nothing measured yet.' },
 ]
+
+const VERDICT_LABEL = { yes: 'Within the margin', no: 'Outside the margin', unknown: 'No verdict', todo: 'Planned' } as const
 
 function YardstickReport() {
   return (
@@ -120,7 +122,12 @@ function YardstickReport() {
         <CardBody>
           <GroupHeading>Notes per round</GroupHeading>
           {NOTES.map((n) => (
-            <Disclosure key={n.round} summary={n.round}>
+            <Disclosure
+              key={n.round}
+              summary={n.round}
+              meta={n.date}
+              trailing={<Chip tone={n.verdict}>{VERDICT_LABEL[n.verdict]}</Chip>}
+            >
               <Prose size="sm">
                 <p>{n.text}</p>
               </Prose>

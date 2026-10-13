@@ -271,7 +271,7 @@ export function Surfaces() {
         </Demo>
       </Section>
 
-      <Section id="Disclosure" title="Disclosure" intro="A native details/summary with a ▾ / ▴ marker after the summary.">
+      <Section id="Disclosure" title="Disclosure" intro="A native details/summary with a ▾ / ▴ marker after the summary. A plain string is the title; the optional meta and trailing slots add a date and a chip on the right, and the row wraps instead of truncating.">
         <Demo label="Closed / open">
           <Disclosure summary="Help">
             <Message>{LOREM}</Message>
@@ -279,6 +279,34 @@ export function Surfaces() {
           <Disclosure summary="Help" defaultOpen>
             <Message>{LOREM}</Message>
           </Disclosure>
+        </Demo>
+        <Demo label="Structured summary">
+          <Disclosure
+            summary={
+              <>
+                <span className="dkj-disclosure-version">v2.1.0</span> Example release title
+              </>
+            }
+            meta="13 Oct 2026"
+            trailing={<Chip tone="yes">Latest</Chip>}
+          >
+            <Message>{LOREM}</Message>
+          </Disclosure>
+        </Demo>
+        <Demo label="Structured summary, 320px wide">
+          <div className="bb-narrow">
+            <Disclosure
+              summary={
+                <>
+                  <span className="dkj-disclosure-version">v2.1.0</span> Example release title
+                </>
+              }
+              meta="13 Oct 2026"
+              trailing={<Chip tone="yes">Latest</Chip>}
+            >
+              <Message>{LOREM}</Message>
+            </Disclosure>
+          </div>
         </Demo>
       </Section>
 

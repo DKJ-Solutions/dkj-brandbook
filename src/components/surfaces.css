@@ -161,6 +161,31 @@
 }
 .dkj-disclosure > .dkj-msg { margin-top: var(--spacing-2); }
 
+/* Structured summary (title, meta, trailing): a wrapping row with the marker last. */
+/* Inline-size containment collapses a shrink-to-fit box to 0, so the row takes the full width. */
+.dkj-disclosure--structured { container-type: inline-size; width: 100%; }
+.dkj-disclosure--structured > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-content: center;
+  column-gap: var(--spacing-2);
+  row-gap: var(--spacing-0-5);
+  min-height: var(--tap);
+}
+.dkj-disclosure--structured > summary::after { flex: none; order: 1; }
+.dkj-disclosure-title { flex: 1 1 12ch; min-width: 0; overflow-wrap: anywhere; font-weight: var(--dkj-fw-bold); color: var(--ink); }
+.dkj-disclosure-meta,
+.dkj-disclosure-trailing { margin-inline-start: auto; white-space: nowrap; }
+.dkj-disclosure-meta + .dkj-disclosure-trailing { margin-inline-start: 0; }
+.dkj-disclosure-meta { font-size: var(--text-sm); font-weight: normal; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.dkj-disclosure-version { color: var(--dkj-accent); font-weight: var(--dkj-fw-bold); }
+/* Narrow row: the marker stays on the first line, meta and trailing drop under the title and left-align. */
+@container (max-width: 24rem) {
+  .dkj-disclosure-meta,
+  .dkj-disclosure-trailing { order: 2; margin-inline-start: 0; }
+}
+
 /* ---------- GroupHeading ---------- */
 .dkj-group-heading {
   display: flex;

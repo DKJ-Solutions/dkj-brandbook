@@ -89,7 +89,16 @@ function ReleaseNotes() {
       <Card variant="data">
         <CardBody>
           {RELEASES.map((r) => (
-            <Disclosure key={r.version} summary={`${r.version} · ${r.title} · ${r.date}`}>
+            <Disclosure
+              key={r.version}
+              summary={
+                <>
+                  <span className="dkj-disclosure-version">{r.version}</span> {r.title}
+                </>
+              }
+              meta={r.date}
+              trailing={r === RELEASES[0] ? <TitleTag>Latest</TitleTag> : undefined}
+            >
               {r.sections.map((sec) => (
                 <div key={sec.heading}>
                   <GroupHeading count={sec.items.length}>{sec.heading}</GroupHeading>
