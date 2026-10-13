@@ -48,7 +48,11 @@ This branch is step 2 of #20: `BarChart`, the brand-book mirror of the ETF dashb
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/components/Chart.tsx` (`BarChart`, `BarDatum`; the width, tooltip placement, scroll-hide and table disclosure shared with `ColumnChart` as `useChartFrame`, `ChartTip` and `ChartTable`) and `src/components/charts.css` (brand-layer names only).
+- [x] Showcase: a `BarChart` section after `ColumnChart` (Allocation by series with share, gain/loss by direction, 360px demo) and its nav entry in `src/App.tsx`.
+- [x] `src/showcase/previews/EtfPreview.tsx`: the Allocation and Unrealised result cards, on the Positions placeholder holdings.
+- [x] `src/components/sources.ts` (`BarChart`) and `src/apps/registry.ts` (the `allocation` and `unrealised` views list `BarChart`).
+- [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
 
