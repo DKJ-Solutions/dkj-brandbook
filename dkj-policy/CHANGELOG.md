@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**32 minor entries** <!-- pending-tally -->
+**33 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/48-group-heading-level · 20261013-145855Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+`GroupHeading` takes an optional `level` (2 to 4, default 3) without changing its look, so a page can give its sections their place in the outline. The previews now run h1, h2, h3 in order, which a screen reader's heading list follows.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+GroupHeading: an optional heading level
+
+[PR #61](https://github.com/DKJ-Solutions/dkj-brandbook/pull/61)
+
+---
 
 ### DEPLOY: feat/46-filter-chips · 20261013-145406Z
 
