@@ -66,7 +66,7 @@ export function Demo({ label, children, wide, surface = true }: { label: string;
 
 /**
  * The preview settings: the house theme picker (twelve swatches, the one-click reskin), a reset, and the width toggle.
- * A round sticky button opens them as a floating panel; Escape or a click outside closes it again.
+ * A round sticky button opens them as a floating panel; Escape, a click outside or tabbing out closes it again.
  */
 export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> }) {
   const { width, setWidth } = controls
@@ -97,15 +97,22 @@ export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> })
     }
   }, [open])
   return (
-    <div className="bb-settings" ref={rootRef}>
+    <div
+      className="bb-settings"
+      ref={rootRef}
+      onBlur={(e) => {
+        // Tabbing out of the panel closes it, like a click outside does.
+        if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpen(false)
+      }}
+    >
       <button
         ref={toggleRef}
         type="button"
         className="bb-settings-toggle"
         aria-expanded={open}
         aria-controls="bb-settings-panel"
-        aria-label={open ? 'Close preview settings' : 'Open preview settings'}
-        title={open ? 'Close preview settings' : 'Open preview settings'}
+        aria-label="Preview settings"
+        title="Preview settings"
         onClick={() => setOpen(!open)}
       >
         {open ? <CloseIcon /> : <GearIcon />}
