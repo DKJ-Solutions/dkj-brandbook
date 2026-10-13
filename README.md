@@ -11,7 +11,7 @@ Claude Artifact, it follows the same rules.
 
 [`house-style/`](house-style/README.md) holds the stylesheet, the twelve themes and the theme script
 every DKJ-Solutions app renders with, and the rules for using them. It is the single copy; the
-`house-style` skill in the `dkj-solutions` plugin points here.
+`house-style` skill in the `dkj-solutions` plugin points here, at a tagged `house-style-v<N>` release.
 
 ## Run it
 

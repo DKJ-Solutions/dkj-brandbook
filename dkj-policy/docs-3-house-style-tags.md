@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Issue #3, decided by the owner on October 13, 2026: option 2 -- the house style is released as a tag here
+and the `house-style` skill is pinned to that tag instead of `main`. This branch writes the convention down;
+the first tag is set after the merge, and the skill's repoint is an inbound issue on dkj-claude-plugins.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/README.md`: the raw URLs take `<tag>` instead of `main`, with the reason, and
+      "Changing the house style" names the `house-style-v<N>` release and the plugin repoint.
+- [x] Gwen's lens: a merged house-style change is not yet a released one.
+- [x] Root `README.md`: the skill points at a tagged release.
 
 ### TEST
+
+- [x] Copy edit by Edith (#17) on the diff.
 
 ### DEPLOY: docs/3-house-style-tags
 
@@ -44,7 +53,13 @@
 
 ##### Tier 0
 
-**Score:**
+The house style is now released as a `house-style-v<N>` tag, and DKJ-Solutions apps are to fetch that
+tag instead of `main` once the plugin's `house-style` skill is repointed, so a direct push to `main` no
+longer reaches every app's next copy. The README and
+Gwen's lens say how a house-style change gets released: a tag here on the owner's request, then the plugin
+skill repointed to it.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +68,9 @@
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management: a release step for one shared stylesheet.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +79,9 @@
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber.
+
+**Score:** N/A
 
 #### Pull Request
 
