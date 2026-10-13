@@ -80,7 +80,7 @@ const ETF_VIEWS: readonly View[] = [
 
 // DKJ Claude plugins: researched read-only from the repo's issue-dashboard worker and release-notes page generator. Two generated pages, no app.
 const PLUGINS_VIEWS: readonly View[] = [
-  { id: 'issue-dashboard', name: 'Issue dashboard', kind: 'screen', description: 'A generated page served by a worker: a heading with the repo, a muted generated-at and count line, count chips for sweepable and skipped issues, an optional "read with care" warning with a list, then one row per open issue (number, title, labels, a muted detail line); skipped rows say why, and an empty list says "No open issues".', components: ['PageHeader', 'SegmentedChoice', 'Message', 'Badge', 'Banner', 'Card', 'DataTable', 'FooterNote'] },
+  { id: 'issue-dashboard', name: 'Issue dashboard', kind: 'screen', description: 'A generated page served by a worker: a heading with the repo, a muted generated-at and count line, count chips for sweepable and skipped issues, an optional "read with care" warning with a list, then one row per open issue (number, title, labels, a muted detail line); skipped rows say why, and an empty list says "No open issues".', components: ['PageHeader', 'Message', 'Badge', 'Banner', 'Card', 'DataTable', 'FooterNote'] },
   { id: 'release-notes', name: 'Release notes', kind: 'screen', description: 'A generated page: a masthead with the product name, a heading and a muted subtitle, then a bordered panel with one closed disclosure per release (version, optional chip, date) whose body is the rendered release note, and a snapshot note at the foot.', components: ['PageHeader', 'TitleTag', 'Message', 'Card', 'Disclosure', 'GroupHeading', 'FooterNote'] },
 ]
 
@@ -99,8 +99,14 @@ const RECIPES_VIEWS: readonly View[] = [
 
 // DKJ Thumbnail generator: researched read-only from the repo. No interface; two generated outputs.
 const THUMBNAIL_VIEWS: readonly View[] = [
-  { id: 'yardstick-report', name: 'Yardstick report', kind: 'screen', description: 'A generated report: a heading with a muted generated-on date and a "generated report" note, a short introduction, a series summary as key-figure tiles, numbered sections, each a table with one row per round and verdicts as text, then a collapsible note per round. A dash means not measured.', components: ['PageHeader', 'SegmentedChoice', 'Message', 'GroupHeading', 'StatTile', 'Card', 'DataTable', 'Disclosure', 'FooterNote'] },
-  { id: 'contact-sheet', name: 'Contact sheet', kind: 'screen', description: 'A generated image: four candidate tiles side by side on a dark panel, each an image with its verdict, then a "discard" row and a "retain" row below.', components: ['PageHeader', 'SegmentedChoice', 'Message', 'TintedPanel', 'MiniCard', 'Chip', 'Card', 'DefinitionList', 'FooterNote'] },
+  { id: 'yardstick-report', name: 'Yardstick report', kind: 'screen', description: 'A generated report: a heading with a muted generated-on date and a "generated report" note, a short introduction, a series summary as key-figure tiles, numbered sections, each a table with one row per round and verdicts as text, then a collapsible note per round. A dash means not measured.', components: ['PageHeader', 'Message', 'GroupHeading', 'StatTile', 'Card', 'DataTable', 'Disclosure', 'FooterNote'] },
+  { id: 'contact-sheet', name: 'Contact sheet', kind: 'screen', description: 'A generated image: four candidate tiles side by side on a dark panel, each an image with its verdict, then a "discard" row and a "retain" row below.', components: ['PageHeader', 'Message', 'TintedPanel', 'MiniCard', 'Chip', 'Card', 'DefinitionList', 'FooterNote'] },
+]
+
+// DJ Cylow: researched read-only from the repo. Two screens; content here is invented.
+const DJCYLOW_VIEWS: readonly View[] = [
+  { id: 'listen', name: 'Listen', kind: 'screen', description: 'A heading, a filter panel with a single-choice list of moods (all, then one per colour with its mood words) and genre and power selects, then a grid of mix cards (a play control with progress, a title of colour, subgenre and volume, a muted date), ten at a time with a "Load more" button; no match says "No mixes found".', components: ['PageHeader', 'SegmentedChoice', 'Card', 'GroupHeading', 'Field', 'Message', 'Button', 'Meter', 'FooterNote'] },
+  { id: 'mix-detail', name: 'Mix detail', kind: 'screen', description: 'A back button, the mix title, a large player with a volume control, the date and a description, a key-facts list (colour, shade, subgenre, tracks), a tracklist table of track and time with an empty state, and a rights notice.', components: ['PageHeader', 'Button', 'Card', 'Meter', 'Stepper', 'Message', 'GroupHeading', 'DefinitionList', 'DataTable', 'FooterNote'] },
 ]
 
 export const APPS: readonly App[] = [
@@ -159,6 +165,16 @@ export const APPS: readonly App[] = [
       'Scripts that run a thumbnail round at an image-generation service, measure the result against a yardstick and place it in a design file. It has no interface; its two outputs are a generated measurement report and a contact sheet of the candidates.',
     stack: 'Node scripts; local only, no deployment',
     views: THUMBNAIL_VIEWS,
+  },
+  {
+    id: 'djcylow',
+    name: 'DJ Cylow',
+    repo: 'DKJ-Solutions/djcylow-react',
+    description:
+      'The website of a DJ: a Listen page where mixes are filtered by mood, genre and power and played from cards, and a page per mix with its player, key facts and tracklist.',
+    url: 'https://djcylow.com',
+    stack: 'Next.js static export; Netlify',
+    views: DJCYLOW_VIEWS,
   },
 ]
 

@@ -46,9 +46,14 @@ This branch is #38: a recreated preview for `DKJ-Solutions/djcylow-react`, a Nex
 - [x] `src/showcase/previews/DjCylowPreview.tsx`: the Listen page (working filters, load more, empty state) and the mix detail, switched with a `SegmentedChoice` in the `PageHeader`, built from existing components only.
 - [x] `src/showcase/previews/RepoPreview.tsx`: `djcylow-react` registered in `PREVIEWS`.
 - [x] `src/apps/registry.ts`: the `djcylow` entry (live URL `https://djcylow.com`) and its two screen views (`DJCYLOW_VIEWS`).
+- [x] `src/apps/registry.ts`: `SegmentedChoice` removed from the `issue-dashboard`, `yardstick-report` and `contact-sheet` views, which listed it only for the preview's own screen switcher or for static count chips; a view's components describe the source app's screen.
 - [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
+
+- [x] Rebecca researched the screens read-only in `djcylow-react` (public); Victor reviewed the diff: nothing blocking, the eight moods confirmed against the source. Applied: dates newest-first, a fixed play label with `aria-pressed`, and the registry rule that a view lists the source app's components, not the preview's switcher. Filed the player gap as #52.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [x] An owner approved merging this preview without looking first, as a one-off exception for the next two previews (#38 and #39), on October 13, 2026.
 
 ### DEPLOY: feat/38-djcylow-preview
 
@@ -56,7 +61,9 @@ This branch is #38: a recreated preview for `DKJ-Solutions/djcylow-react`, a Nex
 
 ##### Tier 0
 
-**Score:**
+The repo list in the showcase navigation now opens a recreated preview of `djcylow-react`: the listen page with mood, genre and power filters and load more, and a mix page with key facts and a tracklist, built from brand-book components with invented mixes. The overview's view lists no longer name the preview's own screen switcher as a component of the plugins and thumbnail-generator apps.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -65,7 +72,9 @@ This branch is #38: a recreated preview for `DKJ-Solutions/djcylow-react`, a Nex
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -74,7 +83,9 @@ This branch is #38: a recreated preview for `DKJ-Solutions/djcylow-react`, a Nex
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 import { APPS } from '../../apps/registry'
 import { Card } from '../../components/Card'
 import { Message } from '../../components/Feedback'
+import { DjCylowPreview } from './DjCylowPreview'
 import { EtfPreview } from './EtfPreview'
 import { MesowisePreview } from './MesowisePreview'
 import { MusicLibraryPreview } from './MusicLibraryPreview'
@@ -17,6 +18,7 @@ const PREVIEWS: Partial<Record<string, ComponentType>> = {
   'dkj-music-library': MusicLibraryPreview,
   'dkj-recipes': RecipesPreview,
   'dkj-thumbnail-generator': ThumbnailPreview,
+  'djcylow-react': DjCylowPreview,
 }
 
 /** A repo's page behind the navigation list: its links, then the recreated app in a frame, or a placeholder. */
