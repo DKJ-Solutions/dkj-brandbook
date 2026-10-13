@@ -193,6 +193,8 @@
   align-items: baseline;
   gap: var(--spacing-2);
   margin: 0 0 var(--spacing-1);
+  /* Same look at every level: the house h2 rule sets a serif face, which an h3 does not have. */
+  font-family: inherit;
   font-size: var(--text-base);
   font-weight: var(--dkj-fw-semibold);
   letter-spacing: var(--dkj-tracking-label);

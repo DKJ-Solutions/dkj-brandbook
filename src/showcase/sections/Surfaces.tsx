@@ -316,13 +316,17 @@ export function Surfaces() {
         </Demo>
       </Section>
 
-      <Section id="GroupHeading" title="GroupHeading" intro="An uppercase muted section label, with an optional counter that turns danger when over its limit.">
+      <Section id="GroupHeading" title="GroupHeading" intro="An uppercase muted section label, with an optional counter that turns danger when over its limit. The level prop (2, 3 or 4; default 3) sets the heading element for the page outline and never changes the look.">
         <Demo label="Plain / with counter / over">
           <GroupHeading>Group label</GroupHeading>
           <GroupHeading count="12 / 20">Group label</GroupHeading>
           <GroupHeading count="23 / 20" over>
             Group label
           </GroupHeading>
+        </Demo>
+        <Demo label="level 2 / level 3 (same look)">
+          <GroupHeading level={2}>Group label (h2)</GroupHeading>
+          <GroupHeading level={3}>Group label (h3)</GroupHeading>
         </Demo>
       </Section>
 

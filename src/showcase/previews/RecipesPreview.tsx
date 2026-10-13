@@ -106,7 +106,7 @@ function RecipeList({ list, onOpen }: { list: readonly string[]; onOpen: (id: st
     <>
       <TextField label="Search" type="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search recipes" />
       <div>
-        <GroupHeading>Tags</GroupHeading>
+        <GroupHeading level={2}>Tags</GroupHeading>
         <FilterChips label="Tags" options={ALL_TAGS.map((t) => ({ value: t, label: t }))} value={tags} onChange={setTags} />
       </div>
       {visible.length === 0 && <Message>No recipe found.</Message>}
@@ -151,20 +151,20 @@ function RecipePage({ recipe, onBack, onList, onToggleList }: { recipe: Recipe; 
 
       <Card variant="data">
         <CardBody>
-          <GroupHeading>Portions</GroupHeading>
+          <GroupHeading level={2}>Portions</GroupHeading>
           <Stepper label="Portions" value={n} min={1} max={20} onChange={setN} />
         </CardBody>
       </Card>
 
       <Card variant="data">
         <CardBody>
-          <GroupHeading>Ingredients</GroupHeading>
+          <GroupHeading level={2}>Ingredients</GroupHeading>
           <Button variant="outline" size="compact" onClick={reset}>
             Reset
           </Button>
           {departments.map((d) => (
             <div key={d} className="bb-preview-gap">
-              <GroupHeading>{d}</GroupHeading>
+              <GroupHeading level={3}>{d}</GroupHeading>
               {recipe.ingredients
                 .filter((i) => i.department === d)
                 .map((i) => (
@@ -179,7 +179,7 @@ function RecipePage({ recipe, onBack, onList, onToggleList }: { recipe: Recipe; 
 
       <Card variant="data">
         <CardBody>
-          <GroupHeading>Method</GroupHeading>
+          <GroupHeading level={2}>Method</GroupHeading>
           <Prose>
             <ol>
               {recipe.method.map((s) => (

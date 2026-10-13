@@ -101,7 +101,7 @@ function YardstickReport() {
         <p>A short introduction: each round below is measured against the same yardstick, and a dash means the value was not measured.</p>
       </Prose>
 
-      <GroupHeading>Series summary</GroupHeading>
+      <GroupHeading level={2}>Series summary</GroupHeading>
       <StatTiles>
         <StatTile label="Rounds" value="4" />
         <StatTile label="Measured" value="3" />
@@ -112,7 +112,7 @@ function YardstickReport() {
       {SECTIONS.map((s) => (
         <Card key={s.title} variant="data">
           <CardBody>
-            <GroupHeading>{s.title}</GroupHeading>
+            <GroupHeading level={2}>{s.title}</GroupHeading>
             <DataTable label={s.title} columns={s.columns} rows={tableRows(s)} />
           </CardBody>
         </Card>
@@ -120,7 +120,7 @@ function YardstickReport() {
 
       <Card variant="data">
         <CardBody>
-          <GroupHeading>Notes per round</GroupHeading>
+          <GroupHeading level={2}>Notes per round</GroupHeading>
           {NOTES.map((n) => (
             <Disclosure
               key={n.round}

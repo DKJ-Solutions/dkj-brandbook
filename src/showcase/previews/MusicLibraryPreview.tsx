@@ -151,15 +151,15 @@ function PlaylistManager() {
             <SelectField label="Genre" options={[ALL, 'Genre one', 'Genre two', 'Genre three']} value={genre} onChange={(e) => setGenre(e.target.value)} />
           </div>
           <div className="bb-preview-gap">
-            <GroupHeading>Colour</GroupHeading>
+            <GroupHeading level={3}>Colour</GroupHeading>
             <FilterChips label="Colour" options={COLOURS} value={colours} onChange={setColours} />
           </div>
           <div className="bb-preview-gap">
-            <GroupHeading>Density</GroupHeading>
+            <GroupHeading level={3}>Density</GroupHeading>
             <FilterChips label="Density" options={DENSITIES} value={densities} onChange={setDensities} />
           </div>
           <div className="bb-preview-gap">
-            <GroupHeading>BPM tier</GroupHeading>
+            <GroupHeading level={3}>BPM tier</GroupHeading>
             <FilterChips label="BPM tier" options={BPM_TIERS} value={bpmTiers} onChange={setBpmTiers} />
           </div>
           <div className="bb-preview-gap">
@@ -254,7 +254,7 @@ function DataDashboard() {
       <Card variant="data">
         <CardHead title="Duplicates" subtitle="Tracks that sit in more than one playlist" />
         <CardBody>
-          <GroupHeading count={DUPLICATES.length}>Duplicate tracks</GroupHeading>
+          <GroupHeading level={3} count={DUPLICATES.length}>Duplicate tracks</GroupHeading>
           <DataTable
             label="Duplicate tracks"
             columns={[
@@ -278,14 +278,14 @@ function DataDashboard() {
       <Card variant="data">
         <CardHead title="Distributions" />
         <CardBody>
-          <GroupHeading>Worlds</GroupHeading>
+          <GroupHeading level={3}>Worlds</GroupHeading>
           <StatTiles>
             {WORLDS.map((w) => (
               <StatTile key={w.label} label={`${w.emoji} ${w.label}`} value={w.count} />
             ))}
           </StatTiles>
           <div className="bb-preview-gap">
-            <GroupHeading>Colours</GroupHeading>
+            <GroupHeading level={3}>Colours</GroupHeading>
             <Legend>
               {COLOUR_COUNTS.map((c) => (
                 <LegendItem key={c.key} color={c.series === 1 ? 'cat-1' : c.series === 2 ? 'cat-2' : 'cat-3'}>
@@ -296,7 +296,7 @@ function DataDashboard() {
             <BarChart colorBy="series" label="Playlists per colour" data={COLOUR_COUNTS} format={(n) => `${n} playlists`} itemHeading="Colour" valueHeading="Playlists" />
           </div>
           <div className="bb-preview-gap">
-            <GroupHeading>BPM tiers</GroupHeading>
+            <GroupHeading level={3}>BPM tiers</GroupHeading>
             <StatTiles>
               <StatTile label="Slow" value={2} />
               <StatTile label="Medium" value={2} />
