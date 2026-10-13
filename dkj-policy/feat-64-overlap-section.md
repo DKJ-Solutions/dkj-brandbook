@@ -42,7 +42,7 @@ Record the overlap review of #64 in the showcase as its own section under Apps, 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the Overlap section in the showcase and approved it
+- [x] An owner has looked at the Overlap section in the showcase and approved it (October 13, 2026).
 
 ### DEPLOY: feat/64-overlap-section
 
