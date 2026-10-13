@@ -70,6 +70,7 @@ export const SOURCES = {
   Tooltip: e(['showTip', 'hideTip', 'openInfo', 'closeInfo', 'explainHtml'], ['.tip', '.tip b', '.tip.explain', '.tip.explain p']),
   ColumnChart: e(['columnChart', 'ticks', 'wire', 'showTip'], ['.chart svg', '.chart .bar', '.chart svg text', '.q', '.tip']),
   BarChart: e(['hbar', 'wire', 'showTip'], ['.chart svg', '.chart .bar', '.chart svg text', '.chart svg .val', '.tip']),
+  LineChart: e(['lineChart', 'niceStep', 'wire', 'showTip'], ['.chart svg', '.chart svg text', '.chart svg .val', '.q', '#xhair', '#xdot', '#xhit', '.tip']),
   Legend: e(['chart legends'], ['.legend', '.legend span::before', '.legend span.line::before', '.series']),
   MiniCard: e(['quarter cards'], ['.quarters', '.qcard', '.qcard.open', '.qcard .ql', '.qcard .qa', '.qnote']),
   Meter: e(['quarter cards (progress)'], ['.meter', '.meter span', '.st-gehaald', '.st-gemist', '.st-open', '.st-gedekt']),

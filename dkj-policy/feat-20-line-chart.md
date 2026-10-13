@@ -50,7 +50,7 @@ Step 3 of #20, the last one, so this branch ships with `-Resolves 20`: `LineChar
 
 ### CREATE
 
-- [x] `src/components/Chart.tsx` (`LineChart`, `LinePoint`, `LineSeries`, on the shared `useChartFrame`, `ChartTip`, `ChartTable` and `ticks()`) and `src/components/charts.css` (brand-layer names only).
+- [x] `src/components/Chart.tsx` (`LineChart`, `LinePoint`, `LineSeries`, on the shared `useChartFrame`, `ChartTip`, `ChartTable` and `ticks()`, plus `thinGuides` and `rovingKeys` extracted from the guide and key code that `ColumnChart` and `BarChart` also use) and `src/components/charts.css` (brand-layer names only).
 - [x] Showcase: a `LineChart` section after `BarChart` (value, deposits as a step and a signed result going below zero, quarter guides, 360px demo) and its nav entry in `src/App.tsx`.
 - [x] `src/showcase/previews/EtfPreview.tsx`: the Value over time card, on figures that match the summary (deposits € 12,500, result +€ 1,150).
 - [x] `src/components/sources.ts` (`LineChart`) and `src/apps/registry.ts` (the `timeline` view lists `LineChart`; all three charts are mirrored).
@@ -58,13 +58,19 @@ Step 3 of #20, the last one, so this branch ships with `-Resolves 20`: `LineChar
 
 ### TEST
 
+- [x] Victor reviewed the diff: nothing blocking. Applied: end labels kept inside the plot, `thinGuides` and `rovingKeys` shared by all three charts, an empty `series` guarded in the tooltip anchor, end labels computed only when drawn.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the LineChart section and the ETF preview (`npm run dev`) and approved it.
+
 ### DEPLOY: feat/20-line-chart
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The overview has its third and last chart from the ETF dashboard: `LineChart`, value, deposits as a step line and result at each month end, with a crosshair that marks every series and a legend of line items. Like `ColumnChart` and `BarChart` it stays legible at phone width, is reachable by keyboard and always offers the figures as a table. With it, #20 is done.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -73,7 +79,9 @@ Step 3 of #20, the last one, so this branch ships with `-Resolves 20`: `LineChar
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -82,7 +90,9 @@ Step 3 of #20, the last one, so this branch ships with `-Resolves 20`: `LineChar
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
