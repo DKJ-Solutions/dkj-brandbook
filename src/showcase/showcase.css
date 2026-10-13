@@ -39,19 +39,65 @@
 
 /* <main>: the house style gives it a centred 1080px column; the showcase fills the space beside the nav. */
 .bb-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
-.bb-toolbar {
+/* The preview settings: a round sticky button and the panel it opens, both laid over the page.
+   The wrapper has no height, so nothing in the flow moves when the panel opens. */
+.bb-settings {
   position: sticky;
   top: 0;
   z-index: 3;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-3) var(--spacing-6);
-  align-items: end;
-  margin: calc(-1 * var(--spacing-5)) calc(-1 * var(--spacing-6)) var(--spacing-6);
-  padding: var(--spacing-3) var(--spacing-6);
-  background: var(--page);
-  border-bottom: 1px solid var(--border);
+  height: 0;
+  margin: 0 calc(-1 * var(--spacing-6));
 }
+.bb-settings-toggle {
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-6);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--dkj-tap);
+  height: var(--dkj-tap);
+  padding: 0;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--dkj-radius-pill);
+  box-shadow: var(--shadow-pop);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.bb-settings-toggle:hover { background: var(--primary-soft); }
+.bb-settings-toggle[aria-expanded='true'] { color: var(--primary); border-color: var(--primary); }
+.bb-settings-toggle:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset); }
+.bb-settings-panel {
+  position: absolute;
+  top: calc(var(--spacing-3) + var(--dkj-tap) + var(--spacing-2));
+  right: var(--spacing-6);
+  display: grid;
+  gap: var(--spacing-4);
+  width: max-content;
+  max-width: calc(100vw - 2 * var(--spacing-4));
+  max-height: calc(100dvh - var(--dkj-tap) - 2 * var(--spacing-5));
+  overflow-y: auto;
+  padding: var(--spacing-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--dkj-radius-lg);
+  box-shadow: var(--shadow-pop);
+}
+.bb-settings-panel[hidden] { display: none; }
+.bb-settings-title { margin: 0; font-size: var(--text-lg); font-weight: var(--dkj-fw-semibold); color: var(--ink); }
+.bb-settings-group { display: grid; gap: var(--spacing-2); padding-top: var(--spacing-4); border-top: 1px solid var(--border); }
+.bb-settings-label, .bb-settings-group .bb-control > span {
+  font-size: var(--text-sm);
+  font-weight: var(--dkj-fw-semibold);
+  letter-spacing: var(--dkj-tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.bb-settings-foot { grid-template-columns: auto auto; justify-content: space-between; align-items: end; gap: var(--spacing-4); }
 .bb-control { display: flex; flex-direction: column; gap: var(--spacing-1); font-size: var(--text-sm); color: var(--ink-2); }
 .bb-control select {
   min-height: var(--dkj-control-compact);
@@ -127,11 +173,9 @@
   .bb-nav { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--border); }
   .bb-nav ul { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
   .bb-main { padding: var(--spacing-4) var(--spacing-4) var(--spacing-8); }
-  .bb-toolbar { margin: calc(-1 * var(--spacing-4)) calc(-1 * var(--spacing-4)) var(--spacing-5); padding: var(--spacing-3) var(--spacing-4); }
+  .bb-settings { margin: 0 calc(-1 * var(--spacing-4)); }
+  .bb-settings-toggle, .bb-settings-panel { right: var(--spacing-4); }
 }
-
-/* Theme picker row in the toolbar: the house script draws the swatches, the brand book only places them. */
-.bb-theme-row { display: flex; flex-wrap: wrap; gap: var(--spacing-3); align-items: center; }
 
 /* A tooltip drawn in place, to show how it looks open: the house .tooltip is fixed and hidden until a script shows it. */
 .tooltip.bb-tooltip-static { position: static; display: block; max-width: 320px; }
