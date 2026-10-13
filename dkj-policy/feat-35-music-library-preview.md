@@ -54,7 +54,7 @@ This branch is #35: a recreated preview for `DKJ-Solutions/dkj-music-library`, a
 
 - [x] Rebecca researched the screens read-only in `dkj-music-library`; Victor reviewed the diff: nothing blocking. Applied: no "placeholder content" banner (its accent tone dropped the lead, and the page intro already says it), `FooterNote` in the registry, the filter fieldset no longer the grid itself, search with a separator, app ids without the `dkj-` prefix. Filed the filter-chips gap as #46.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the dkj-music-library preview (`npm run dev`, the repo list in the navigation) and approved it.
+- [x] An owner has looked at the dkj-music-library preview (`npm run dev`, the repo list in the navigation) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/35-music-library-preview
 
