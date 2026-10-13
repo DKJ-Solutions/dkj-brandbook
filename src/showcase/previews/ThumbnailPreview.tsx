@@ -4,7 +4,8 @@ import { Card, CardBody, TintedPanel } from '../../components/Card'
 import { FooterNote, GroupHeading } from '../../components/Content'
 import { Prose } from '../../components/Prose'
 import { Chip, Disclosure, Message } from '../../components/Feedback'
-import { MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
+import { Figure } from '../../components/Figure'
+import { StatTile, StatTiles } from '../../components/Metrics'
 import { PageHeader } from '../../components/Navigation'
 import { DataTable, DefinitionList, type DataColumn, type DataRow } from '../../components/Table'
 
@@ -151,13 +152,21 @@ function ContactSheet() {
     <>
       <Message>A generated image: four candidates side by side, then the ones to discard and to retain. The images below are placeholders.</Message>
       <TintedPanel>
-        <MiniCards>
+        <div className="bb-preview-candidates">
           {CANDIDATES.map((c) => (
-            <MiniCard key={c.label} label={c.label} value="Image placeholder">
-              <Chip tone={c.verdict}>{c.text}</Chip>
-            </MiniCard>
+            <Figure
+              key={c.label}
+              placeholder
+              ratio="16/9"
+              placeholderLabel={c.label}
+              caption={
+                <>
+                  {c.label} <Chip tone={c.verdict}>{c.text}</Chip>
+                </>
+              }
+            />
           ))}
-        </MiniCards>
+        </div>
       </TintedPanel>
       <Card variant="data">
         <CardBody>

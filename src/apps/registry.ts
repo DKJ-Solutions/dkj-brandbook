@@ -100,7 +100,7 @@ const RECIPES_VIEWS: readonly View[] = [
 // DKJ Thumbnail generator: researched read-only from the repo. No interface; two generated outputs.
 const THUMBNAIL_VIEWS: readonly View[] = [
   { id: 'yardstick-report', name: 'Yardstick report', kind: 'screen', description: 'A generated report: a heading with a muted generated-on date and a "generated report" note, a short introduction, a series summary as key-figure tiles, numbered sections, each a table with one row per round and verdicts as text, then a collapsible note per round. A dash means not measured.', components: ['PageHeader', 'Message', 'GroupHeading', 'StatTile', 'Card', 'DataTable', 'Disclosure', 'FooterNote', 'Prose'] },
-  { id: 'contact-sheet', name: 'Contact sheet', kind: 'screen', description: 'A generated image: four candidate tiles side by side on a dark panel, each an image with its verdict, then a "discard" row and a "retain" row below.', components: ['PageHeader', 'Message', 'TintedPanel', 'MiniCard', 'Chip', 'Card', 'DefinitionList', 'FooterNote'] },
+  { id: 'contact-sheet', name: 'Contact sheet', kind: 'screen', description: 'A generated image: four candidate tiles side by side on a dark panel, each an image with its verdict, then a "discard" row and a "retain" row below.', components: ['PageHeader', 'Message', 'TintedPanel', 'Figure', 'Chip', 'Card', 'DefinitionList', 'FooterNote'] },
 ]
 
 // Life hub: researched read-only from the app code (a private repo); a local app, no deployment. Content here is invented.

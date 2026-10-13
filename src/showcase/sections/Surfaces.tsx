@@ -3,11 +3,19 @@ import { CardActions, IconButton, RoundToggle } from '../../components/Button'
 import { Card, CardBody, CardHead, TintedPanel } from '../../components/Card'
 import { Amount, FooterNote, GroupHeading, QuestionBlock } from '../../components/Content'
 import { Alert, Banner, Chip, Disclosure, Help, Message, ReadMoreToggle, TitleTag } from '../../components/Feedback'
+import { Figure } from '../../components/Figure'
 import { Prose } from '../../components/Prose'
 import { Icon } from '../../components/Icon'
 import { StatRow, RowList, ValueBox } from '../../components/Row'
 import { DefinitionList } from '../../components/Table'
 import { Demo, Section } from '../Showcase'
+
+/** A neutral two-tone 4:3 picture as a data: URI, so the demos need no network and no asset. */
+const SAMPLE_IMAGE =
+  'data:image/svg+xml,' +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#8a97a6"/><path d="M0 300V210l110-80 90 70 70-50 130 90v60z" fill="#5d6b7b"/><circle cx="300" cy="80" r="32" fill="#d5dbe2"/></svg>',
+  )
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.'
 
@@ -383,6 +391,48 @@ export function Surfaces() {
                 </tr>
               </tbody>
             </table>
+          </Prose>
+        </Demo>
+      </Section>
+
+      <Section id="Figure" title="Figure" intro="A framed image with a fixed aspect ratio, an optional caption and a placeholder state: shown when there is no src, when placeholder is set (the src is then not rendered at all) or when the image fails to load. The frame fills its column; the parent sets the width. alt is required whenever a src is given; alt=&quot;&quot; marks a decorative image. For a bare markdown image, Prose styles the img itself; use a Figure for one that needs a ratio, a caption or a placeholder.">
+        <Demo label="Ratios (placeholder): 16/9, 4/3, 1/1, 9/16" wide>
+          <div className="bb-figure-grid">
+            <Figure ratio="16/9" caption="16/9" />
+            <Figure ratio="4/3" caption="4/3" />
+            <Figure ratio="1/1" caption="1/1" />
+            <Figure ratio="9/16" caption="9/16" />
+          </div>
+        </Demo>
+        <Demo label="Real image: cover / contain (a 4:3 image in a 1/1 frame)">
+          <div className="bb-figure-grid">
+            <Figure src={SAMPLE_IMAGE} alt="A grey landscape with a pale sun" ratio="1/1" caption="cover" />
+            <Figure src={SAMPLE_IMAGE} alt="A grey landscape with a pale sun" ratio="1/1" fit="contain" caption="contain" />
+          </div>
+        </Demo>
+        <Demo label="Caption with a Chip">
+          <Figure
+            src={SAMPLE_IMAGE}
+            alt="A grey landscape with a pale sun"
+            ratio="16/9"
+            caption={
+              <>
+                Candidate 1 <Chip tone="yes">Within the margin</Chip>
+              </>
+            }
+          />
+        </Demo>
+        <Demo label="placeholder on a given src (the image is not revealed)">
+          <Figure src={SAMPLE_IMAGE} alt="A grey landscape with a pale sun" placeholder placeholderLabel="Preview hidden" caption="src given, placeholder set" />
+        </Demo>
+        <Demo label="Broken image (the src cannot load)">
+          <Figure src="/figure-demo-missing.png" alt="A picture that cannot be loaded" caption="Falls back to the placeholder" />
+        </Demo>
+        <Demo label="Inside Prose" wide>
+          <Prose>
+            <p>A figure sits in a prose body as a block child.</p>
+            <Figure src={SAMPLE_IMAGE} alt="A grey landscape with a pale sun" ratio="3/2" caption="A captioned image between two paragraphs." />
+            <p>{LOREM}</p>
           </Prose>
         </Demo>
       </Section>

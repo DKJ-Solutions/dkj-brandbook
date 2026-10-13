@@ -59,13 +59,19 @@ This branch is #50 and ships with `-Resolves 50`: a `Figure` component, a framed
 
 ### TEST
 
+- [x] Victor reviewed the diff: nothing blocking; a cached broken image still reaches `onError`, and the prose image rule is outranked inside a figure. Applied: a changed `src` always retries (the frame is keyed by `src`), an empty `src` counts as none, and a decorative image that fails stays hidden from assistive technology instead of announcing "Image unavailable".
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the Figure section and the thumbnail preview's contact sheet (`npm run dev`) and approved it.
+
 ### DEPLOY: feat/50-figure
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The brand book has a `Figure`: an image in a frame with a fixed aspect ratio, cover or contain, an optional caption, and a placeholder for when there is no image, it must not be shown, or it fails to load. The thumbnail preview's contact sheet shows its candidates with it.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -74,7 +80,9 @@ This branch is #50 and ships with `-Resolves 50`: a `Figure` component, a framed
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -83,7 +91,9 @@ This branch is #50 and ships with `-Resolves 50`: a `Figure` component, a framed
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
