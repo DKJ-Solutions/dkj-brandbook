@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**20 minor entries** <!-- pending-tally -->
+**21 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/20-bar-chart · 20261013-130655Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The overview has its second chart: `BarChart`, the ETF dashboard's horizontal bar chart, for a value per holding coloured by type (with a share of the total) or a gain/loss per holding around a zero line. Like `ColumnChart` it stays legible at phone width (stacked rows below 480px), is reachable by keyboard and always offers the figures as a table. The line chart follows on #20.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+BarChart: the ETF dashboard's horizontal bar chart
+
+[PR #41](https://github.com/DKJ-Solutions/dkj-brandbook/pull/41)
+
+---
 
 ### DEPLOY: feat/repo-previews · 20261013-124029Z
 
