@@ -2,7 +2,41 @@
 
 ## [Unreleased]
 
-**3 minor entries** <!-- pending-tally -->
+**4 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/3-house-style-tags · 20261013-082429Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house style is now released as a `house-style-v<N>` tag, and DKJ-Solutions apps are to fetch that
+tag instead of `main` once the plugin's `house-style` skill is repointed, so a direct push to `main` no
+longer reaches every app's next copy. The README and
+Gwen's lens say how a house-style change gets released: a tag here on the owner's request, then the plugin
+skill repointed to it.
+
+**Score:** 3
+
+##### Tier 1
+
+Not relevant to management: a release step for one shared stylesheet.
+
+**Score:** N/A
+
+##### Tier 2
+
+Not relevant to a subscriber.
+
+**Score:** N/A
+
+#### Pull Request
+
+Pin the house style to a release tag
+
+[PR #6](https://github.com/DKJ-Solutions/dkj-brandbook/pull/6)
+
+---
 
 ### DEPLOY: feat/mesowise-components · 20261013-080032Z
 
