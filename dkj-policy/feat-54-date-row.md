@@ -61,13 +61,20 @@ This branch is #54 and ships with `-Resolves 54`: a list row for dated items (a 
 
 ### TEST
 
+- [x] Victor reviewed the diff: nothing blocking. Applied: the invalid reason as plain visible text (no `aria-describedby` on a non-interactive `li`), the focus ring on the whole stretched row, a hover state and pointer for a linked row, a `flag` prop instead of matching the `when` text, and the caveats in the doc comment.
+- [x] Contrast measured in all twelve themes: `--ink` on the near/today tint at least 12.85:1, `--ink-2` on it at least 6.23:1, `--bad` on `--surface` at least 4.68:1, the Today/Soon tag at least 4.94:1, the accent bar at least 4.82:1 (non-text, 3:1 needed).
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the DateRow section (Forms & rows) and the life hub preview's "Coming up" (`npm run dev`) and approved it.
+
 ### DEPLOY: feat/54-date-row
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The brand book has `DateList` and `DateRow`: a list of dated items with a fixed date column so titles align, a muted second line, an optional trailing label, a highlighted near or today state (a tint, a bar and a tag, not colour alone) and an invalid state with its reason. The life hub preview's "Coming up" list uses it.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -76,7 +83,9 @@ This branch is #54 and ships with `-Resolves 54`: a list row for dated items (a 
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -85,7 +94,9 @@ This branch is #54 and ships with `-Resolves 54`: a list row for dated items (a 
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

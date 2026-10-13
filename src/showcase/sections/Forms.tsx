@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { RoundToggle } from '../../components/Button'
+import { DateList, DateRow } from '../../components/DateRow'
 import { Checkbox, FixedField, ResetButton, SearchCombobox, SelectField, Stepper, TextField } from '../../components/Field'
 import { FormulaHead, FormulaRow, RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
@@ -106,6 +107,48 @@ export function Forms() {
               <ValueBox value="1,240" changed expected="1,234" />
             </StatRow>
           </RowList>
+        </Demo>
+      </Section>
+
+      <Section id="DateRow" title="DateRow" intro="A list row for dated items: a fixed left column for a date, time range or distance, a title with a muted second line and an optional trailing label. The caller sets the state; near and today carry a bar, a tint, bold text and a word, invalid carries an icon and its reason.">
+        <Demo label="Plain list">
+          <DateList label="Plain list">
+            <DateRow when="Oct 14" date="2026-10-14" title="Example appointment" />
+            <DateRow when="09:00-10:30" title="Example meeting" />
+            <DateRow when="all day" title="Example holiday" />
+            <DateRow when="3 km" title="Example route" />
+          </DateList>
+        </Demo>
+        <Demo label="With a second line and a trailing label">
+          <DateList label="With detail">
+            <DateRow when="in 6 days" title="Example deadline" sub="2026-10-19" trailing="Calendar one" />
+            <DateRow when="in 3 weeks" title="Example renewal" sub="2026-11-03" trailing="Calendar two" />
+          </DateList>
+        </Demo>
+        <Demo label="Near and today">
+          <DateList label="Highlighted">
+            <DateRow when="Today" title="Example call" sub="14:00-15:00" state="today" flag={false} />
+            <DateRow when="tomorrow" date="2026-10-14" title="Example appointment" sub="2026-10-14" state="near" />
+            <DateRow when="in 6 days" title="Example deadline" sub="2026-10-19" />
+          </DateList>
+        </Demo>
+        <Demo label="Invalid, with a reason">
+          <DateList label="Invalid">
+            <DateRow title="Example item with an unreadable date" state="invalid" reason="This item could not be placed: the date is not valid." />
+          </DateList>
+        </Demo>
+        <Demo label="Linked row (the whole row is the target)">
+          <DateList label="Linked">
+            <DateRow when="in 2 days" title="Example event" sub="2026-10-15" href="#DateRow" />
+          </DateList>
+        </Demo>
+        <Demo label="Narrow (the trailing label drops under the title)">
+          <div className="bb-narrow">
+            <DateList label="Narrow">
+              <DateRow when="09:00-10:30" title="An example item with a rather long title that has to wrap" sub="A muted second line" trailing="Calendar one" />
+              <DateRow when="tomorrow" title="Example appointment" trailing="Calendar two" state="near" />
+            </DateList>
+          </div>
         </Demo>
       </Section>
 

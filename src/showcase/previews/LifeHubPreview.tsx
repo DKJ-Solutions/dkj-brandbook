@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Button, SegmentedChoice } from '../../components/Button'
 import { Card, CardBody } from '../../components/Card'
+import { DateList, DateRow } from '../../components/DateRow'
 import { Prose } from '../../components/Prose'
 import { FooterNote, GroupHeading } from '../../components/Content'
 import { Message, TitleTag } from '../../components/Feedback'
@@ -121,23 +122,12 @@ function Hub({ onOpen }: { onOpen: (id: string) => void }) {
 
       <div>
         <GroupHeading level={2}>Coming up</GroupHeading>
-        <div className="bb-preview-column bb-preview-column--wide">
+        <DateList label="Coming up">
           {COMING_UP.map((c) => (
-            <Card key={c.title}>
-              <CardBody>
-                {c.near ? <TitleTag>{c.distance}</TitleTag> : <Message>{c.distance}</Message>}
-                <strong>{c.title}</strong>
-                <Message>{c.date}</Message>
-              </CardBody>
-            </Card>
+            <DateRow key={c.title} when={c.distance} date={c.date} title={c.title} sub={c.date} state={c.near ? 'near' : 'default'} />
           ))}
-          <Card invalid>
-            <CardBody>
-              <strong>Example item with an unreadable date</strong>
-              <Message tone="error">This item could not be placed: the date is not valid.</Message>
-            </CardBody>
-          </Card>
-        </div>
+          <DateRow title="Example item with an unreadable date" state="invalid" reason="This item could not be placed: the date is not valid." />
+        </DateList>
       </div>
 
       <div>
