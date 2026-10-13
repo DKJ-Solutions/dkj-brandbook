@@ -53,7 +53,11 @@ This branch is #54 and ships with `-Resolves 54`: a list row for dated items (a 
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Build `DateList` and `DateRow` in `src/components/DateRow.tsx` with `daterow.css`, and add the `--dkj-datecol` domain token to `src/brand-layer.css`.
+- [x] Register `DateRow` as a brand-book original in `src/components/sources.ts` and add its nav entry in `src/App.tsx`.
+- [x] Add the DateRow showcase section (plain, detail and trailing, near and today, invalid, linked, narrow) next to StatRow and FormulaRow.
+- [x] Replace the "Coming up" cards in `LifeHubPreview` with one `DateList` and update the life-hub hub view components in `src/apps/registry.ts`.
+- [x] Measure the contrast of the near/today text and of `--ink-2` on the `--primary-soft` tint in all twelve themes; `npx eslint src` and `npx tsc -b` run clean.
 
 ### TEST
 
