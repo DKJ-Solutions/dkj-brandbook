@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**6 minor entries** <!-- pending-tally -->
+**7 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/8-inlinable-theme-script · 20261013-090722Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Any DKJ-Solutions app can now inline `house-style/house-theme.js` straight into a `<script>` element in
+its `<head>`, as the house-style README allows. Its header comment no longer contains a closing script
+tag, which used to end the inlined script early and leave the page without `window.DKJTheme`.
+
+**Score:** 2
+
+##### Tier 1
+
+Not relevant to management: an internal fix to a shared file.
+
+**Score:** N/A
+
+##### Tier 2
+
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+house-theme.js can be inlined verbatim
+
+[PR #14](https://github.com/DKJ-Solutions/dkj-brandbook/pull/14)
+
+---
 
 ### DEPLOY: feat/7-house-style-source · 20261013-085942Z
 
