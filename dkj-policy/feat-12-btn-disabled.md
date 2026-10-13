@@ -53,8 +53,8 @@ one-word change if the owners prefer the issue's version.
 ### TEST
 
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] The owners have looked at the Button section of the showcase (`npm run dev`) in a light and a
-      dark theme.
+- [x] The owners have looked at the Button section of the showcase (`npm run dev`) in a light and a
+      dark theme, and approved it (October 13, 2026).
 
 ### DEPLOY: feat/12-btn-disabled
 
