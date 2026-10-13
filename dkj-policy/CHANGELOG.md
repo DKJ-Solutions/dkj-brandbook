@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-**2 minor entries** <!-- pending-tally -->
+**3 minor entries** <!-- pending-tally -->
 
 ### DEPLOY: feat/mesowise-components · 20261013-080032Z
 
@@ -35,6 +35,38 @@ tokens.
 Mesowise components and tokens mirrored into the brand book
 
 [PR #5](https://github.com/DKJ-Solutions/dkj-brandbook/pull/5)
+
+---
+
+### DEPLOY: docs/gwen-house-style-lens · 20261013-075456Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Gwen's lens here carries the house-style rules: the values are the owner's, a house-style change is a
+visible result, the scales come from Figma, the README's tables move with the stylesheet, and a collected
+component builds on the house tokens.
+
+**Score:** 2
+
+##### Tier 1
+
+Not relevant to management: a working rule for one specialist.
+
+**Score:** N/A
+
+##### Tier 2
+
+Not relevant to a subscriber.
+
+**Score:** N/A
+
+#### Pull Request
+
+Gwen's lens: the house style rules
+
+[PR #2](https://github.com/DKJ-Solutions/dkj-brandbook/pull/2)
 
 ---
 
