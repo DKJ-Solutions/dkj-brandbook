@@ -41,7 +41,7 @@ The settings panel closed on a click inside it, off its controls (#68): the focu
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has clicked inside the open panel (title, labels, padding) and it stays open; a click outside still closes it
+- [x] An owner has clicked inside the open panel (title, labels, padding) and it stays open; a click outside still closes it
 
 ### DEPLOY: fix/68-panel-inside-click
 
