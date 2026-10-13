@@ -16,10 +16,12 @@ $script:BranchTypeOrder = @('Feat', 'Fix', 'Docs')
 
 # Prefix -> GitHub label (PR) + branch type (changelog entry). $null = no PR label (#2783).
 # No 'chore/': chore work lands on the trunk under a named exception, so a chore branch is a contradiction.
+# feat/ is 'feature', not GitHub's default 'enhancement': the name the plugin source renamed to (#2764), chosen by
+# the owner for this repo too (October 13, 2026, #24); the tracker's label was renamed, so old items moved with it.
 $script:BranchPrefixTable = @{
-    feat = @{ Label = 'enhancement'; Type = 'Feat' }
-    fix  = @{ Label = 'bug';         Type = 'Fix' }
-    docs = @{ Label = $null;         Type = 'Docs' }
+    feat = @{ Label = 'feature'; Type = 'Feat' }
+    fix  = @{ Label = 'bug';     Type = 'Fix' }
+    docs = @{ Label = $null;     Type = 'Docs' }
 }
 
 function Get-BranchTypes {

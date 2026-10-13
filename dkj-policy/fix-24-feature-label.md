@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Issue #24: `feat/` work was labelled `enhancement`, from the specialists-init scaffold's example (filed
+upstream as DKJ-Solutions/dkj-claude-plugins#2961); the owner chose `feature`, the name upstream renamed to
+in #2764.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] On the tracker: `enhancement` renamed to `feature` (`gh label edit`), so #18, #20, #21 and the
+      earlier PRs carry `feature` now, without a second label beside the old one.
+- [x] `scripts/lib/branch-info.ps1`: `feat` maps to `feature`, with the reason beside the table.
 
 ### TEST
+
+- [x] Nothing else in the repo names `enhancement`; `ship-pr` labels this repo's next `feat/` PR from the
+      table, which the tracker's label now matches.
 
 ### DEPLOY: fix/24-feature-label
 
@@ -44,7 +53,9 @@
 
 ##### Tier 0
 
-**Score:**
+A `feat/` pull request and a feature issue are labelled `feature` instead of `enhancement`, as on the plugin source's tracker; the existing items moved with the renamed label.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management: a tracker label name.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
 
 #### Pull Request
 
