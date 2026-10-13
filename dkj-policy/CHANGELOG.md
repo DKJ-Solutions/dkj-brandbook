@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**28 minor entries** <!-- pending-tally -->
+**29 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/43-prose · 20261013-143104Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book has a `Prose` component for long-form text: headings, paragraphs, lists and task lists, code, a table, a blockquote and links, with one rhythm from the house tokens and a readable line length. The previews of the plugins, thumbnail generator, life hub and recipes apps now render their documents with it.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Prose: a component for a rendered markdown body
+
+[PR #57](https://github.com/DKJ-Solutions/dkj-brandbook/pull/57)
+
+---
 
 ### DEPLOY: feat/39-life-hub-preview · 20261013-140042Z
 
