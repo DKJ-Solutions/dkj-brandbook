@@ -57,8 +57,8 @@ const MESOWISE_VIEWS: readonly View[] = [
   { id: 'why-dialog', name: 'Bill line explanation', kind: 'dialog', description: 'Small modal opened from the question-mark toggle on a bill row, showing a worked multiplication/answer breakdown.', components: ['Dialog', 'RoundToggle', 'AnswerBox', 'CalcTable'] },
 ]
 
-// ETF tracker: researched read-only from etf_tracker/dashboard.py. The column chart is mirrored (ColumnChart, #20); the
-// other chart views list only the non-chart components they use, as their bar and line charts are not mirrored yet.
+// ETF tracker: researched read-only from etf_tracker/dashboard.py. The column and bar charts are mirrored (ColumnChart, BarChart, #20);
+// the line chart view lists only the non-chart components it uses, as that chart is not mirrored yet.
 const ETF_VIEWS: readonly View[] = [
   { id: 'dashboard', name: 'Dashboard', kind: 'screen', description: 'One page: a header, then a column of cards (some in a two-up grid on a wide screen), a footer note, and a tooltip layer behind every explanation mark. A switch in the header toggles between a primary and a secondary set of cards.', components: ['PageHeader', 'Card', 'FooterNote', 'Tooltip'] },
   { id: 'page-header', name: 'Page header', kind: 'menu', description: 'The page title in a serif h1, a muted as-of date, and a joined two-option switch that changes which set of cards shows.', components: ['PageHeader', 'SegmentedChoice'] },
@@ -68,8 +68,8 @@ const ETF_VIEWS: readonly View[] = [
   { id: 'positions', name: 'Positions', kind: 'card', description: 'A sortable table of everything held, one row per holding with its code as a muted line under the name, signed figures in colour and a bold total row; it scrolls sideways on a phone.', components: ['Card', 'DataTable', 'Tooltip', 'RoundToggle'] },
   { id: 'insights', name: 'Insights', kind: 'card', description: 'Observations grouped by kind, each group with a status badge and a count in its heading and its items in a responsive grid.', components: ['Card', 'Badge', 'RoundToggle'] },
   { id: 'danger-zone', name: 'Danger zone', kind: 'card', description: 'A framed, high-visibility zone for the one part of the page that gives concrete advice: a warning title, an acknowledgement, an action tag per advice, a read-more per advice and a collapsible list of sources. Here it is the generic danger alert; the hazard stripes and the advice layout stay in the app.', components: ['Alert', 'TitleTag', 'ReadMoreToggle', 'Disclosure', 'RoundToggle'] },
-  { id: 'allocation', name: 'Allocation', kind: 'card', description: 'A horizontal bar chart of value per holding with a legend in three series colours, each with an explanation mark. The chart itself is not mirrored yet.', components: ['Card', 'Legend', 'Tooltip', 'RoundToggle'] },
-  { id: 'unrealised', name: 'Unrealised result', kind: 'card', description: 'A horizontal bar chart of gain and loss per holding with a gain/loss legend. The chart itself is not mirrored yet.', components: ['Card', 'Legend', 'Tooltip', 'RoundToggle'] },
+  { id: 'allocation', name: 'Allocation', kind: 'card', description: 'A horizontal bar chart of value per holding with a legend of holding types (series colours), each with an explanation mark.', components: ['Card', 'Legend', 'BarChart', 'Tooltip', 'RoundToggle'] },
+  { id: 'unrealised', name: 'Unrealised result', kind: 'card', description: 'A horizontal bar chart of gain and loss per holding with a gain/loss legend.', components: ['Card', 'Legend', 'BarChart', 'Tooltip', 'RoundToggle'] },
   { id: 'breakdown', name: 'Result breakdown', kind: 'card', description: 'Where the result comes from: a list of sources with a signed, coloured figure each and an explanation mark after the label, and a bold total.', components: ['Card', 'DefinitionList', 'Tooltip', 'RoundToggle'] },
   { id: 'closed-positions', name: 'Closed positions', kind: 'card', description: 'A table of what was fully sold, with the realised result in colour; an empty state is one muted row.', components: ['Card', 'DataTable', 'RoundToggle'] },
   { id: 'timeline', name: 'Value over time', kind: 'card', description: 'A line chart of value, deposits and result at each month end with a legend of three line series. The chart itself is not mirrored yet.', components: ['Card', 'Legend', 'Tooltip', 'RoundToggle'] },

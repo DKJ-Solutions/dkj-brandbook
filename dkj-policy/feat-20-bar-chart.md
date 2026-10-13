@@ -56,13 +56,19 @@ This branch is step 2 of #20: `BarChart`, the brand-book mirror of the ETF dashb
 
 ### TEST
 
+- [x] Victor reviewed the diff: nothing blocking. Applied: share only for a part-of-whole (no negatives, total > 0), the focus index clamped to the data (fixes `ColumnChart` too), the stacked zero line inside the SVG edge, named text-width constants, the `allocation` registry text. Left: one shared showcase data module (the preview keeps its own placeholders, as `MONTHS` does in step 1).
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the BarChart section and the ETF preview (`npm run dev`) and approved it.
+
 ### DEPLOY: feat/20-bar-chart
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The overview has its second chart: `BarChart`, the ETF dashboard's horizontal bar chart, for a value per holding coloured by type (with a share of the total) or a gain/loss per holding around a zero line. Like `ColumnChart` it stays legible at phone width (stacked rows below 480px), is reachable by keyboard and always offers the figures as a table. The line chart follows on #20.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -71,7 +77,9 @@ This branch is step 2 of #20: `BarChart`, the brand-book mirror of the ETF dashb
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -80,7 +88,9 @@ This branch is step 2 of #20: `BarChart`, the brand-book mirror of the ETF dashb
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

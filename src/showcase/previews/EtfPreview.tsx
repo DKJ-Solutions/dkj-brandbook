@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { RoundToggle, SegmentedChoice } from '../../components/Button'
 import { Card, CardBody, CardHead } from '../../components/Card'
-import { ColumnChart, type ColumnDatum } from '../../components/Chart'
+import { BarChart, ColumnChart, type BarDatum, type ColumnDatum } from '../../components/Chart'
 import { FooterNote } from '../../components/Content'
 import { Banner } from '../../components/Feedback'
 import { Badge, BadgeRow, Delta, HeroRow, HeroValue, Legend, LegendItem, Meter, MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
@@ -20,6 +20,20 @@ const MONTHS: ColumnDatum[] = [140, -60, 220, -310, 180, 90, 260, -120, 310, 150
   value,
   guide: m % 3 === 0 ? `Q${m / 3 + 1} 2026` : undefined,
 }))
+
+const eur0 = (v: number) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v)
+/** Placeholder holdings as in the Positions table below (series is the holding type: 1 fund, 3 cash; this portfolio holds no share). */
+const ALLOCATION: BarDatum[] = [
+  { key: 'world', label: 'World fund', value: 8240, detail: 'Fund · 210 units', series: 1 },
+  { key: 'em', label: 'Emerging markets fund', short: 'Emerging markets', value: 3120, detail: 'Fund · 95 units', series: 1 },
+  { key: 'small', label: 'Small caps fund', value: 1970, detail: 'Fund · 40 units', series: 1 },
+  { key: 'cash', label: 'Cash', value: 320, series: 3 },
+]
+const UNREALISED: BarDatum[] = [
+  { key: 'world', label: 'World fund', value: 910, detail: 'Cost € 7,330 · Value € 8,240' },
+  { key: 'em', label: 'Emerging markets fund', short: 'Emerging markets', value: 260, detail: 'Cost € 2,860 · Value € 3,120' },
+  { key: 'small', label: 'Small caps fund', value: -20, detail: 'Cost € 1,990 · Value € 1,970' },
+]
 
 /** A recreation of the ETF tracker's dashboard (src/apps/registry.ts, ETF_VIEWS), with placeholder figures. */
 export function EtfPreview() {
@@ -88,6 +102,35 @@ export function EtfPreview() {
               ]}
               total={{ label: 'Total', cells: { value: '€ 13,330', result: '+€ 1,150' }, tones: { result: 'positive' } }}
             />
+          </CardBody>
+        </Card>
+        <Card variant="data">
+          <CardHead title="Allocation" info={info('Allocation')} />
+          <CardBody>
+            <Legend>
+              <LegendItem color="cat-1">
+                Fund
+                {info('Fund')}
+              </LegendItem>
+              <LegendItem color="cat-3">
+                Cash
+                {info('Cash')}
+              </LegendItem>
+            </Legend>
+            <BarChart
+              colorBy="series"
+              label="Allocation of the portfolio"
+              data={ALLOCATION}
+              format={eur0}
+              share={(f) => `${Math.round(f * 100)}% of total`}
+              itemHeading="Holding"
+            />
+          </CardBody>
+        </Card>
+        <Card variant="data">
+          <CardHead title="Unrealised result" info={info('Unrealised result')} />
+          <CardBody>
+            <BarChart colorBy="direction" label="Unrealised result per holding" data={UNREALISED} format={eur} itemHeading="Holding" valueHeading="Result" />
           </CardBody>
         </Card>
         <Card variant="data">
