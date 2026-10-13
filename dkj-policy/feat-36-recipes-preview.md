@@ -50,13 +50,19 @@ This branch is #36: a recreated preview for `DKJ-Solutions/dkj-recipes`, an Astr
 
 ### TEST
 
+- [x] Rebecca researched the screens read-only in `dkj-recipes`; Victor reviewed the diff: nothing blocking. Applied: the strike-through as a showcase class instead of an inline style, search over title, tags and ingredients as the app does. Filed the flat heading outline (`GroupHeading` is always an `h3`) as #48.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the dkj-recipes preview (`npm run dev`, the repo list in the navigation) and approved it.
+
 ### DEPLOY: feat/36-recipes-preview
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The repo list in the showcase navigation now opens a recreated preview of `dkj-recipes`: the recipe list with search and tag filters, and a recipe page with a portions stepper and ingredients to tick off, built from brand-book components with invented recipes.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -65,7 +71,9 @@ This branch is #36: a recreated preview for `DKJ-Solutions/dkj-recipes`, an Astr
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -74,7 +82,9 @@ This branch is #36: a recreated preview for `DKJ-Solutions/dkj-recipes`, an Astr
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

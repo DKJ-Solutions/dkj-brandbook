@@ -6,6 +6,7 @@ import { EtfPreview } from './EtfPreview'
 import { MesowisePreview } from './MesowisePreview'
 import { MusicLibraryPreview } from './MusicLibraryPreview'
 import { PluginsPreview } from './PluginsPreview'
+import { RecipesPreview } from './RecipesPreview'
 
 /** The recreated previews, keyed by repo name; a repo not in here shows a "preview follows" card. */
 const PREVIEWS: Partial<Record<string, ComponentType>> = {
@@ -13,6 +14,7 @@ const PREVIEWS: Partial<Record<string, ComponentType>> = {
   'dkj-etf-tracker': EtfPreview,
   'dkj-claude-plugins': PluginsPreview,
   'dkj-music-library': MusicLibraryPreview,
+  'dkj-recipes': RecipesPreview,
 }
 
 /** A repo's page behind the navigation list: its links, then the recreated app in a frame, or a placeholder. */
