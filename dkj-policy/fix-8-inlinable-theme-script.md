@@ -32,11 +32,18 @@
 
 ### PLAN
 
+Issue #8: the header comment of `house-style/house-theme.js` carried a literal closing script tag, so
+inlining the file verbatim in a `<script>` element ended the script early. Reword that comment.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Reword the usage line in the header comment of `house-style/house-theme.js`, so the file contains
+      no `</script` at all. The escape in `vite.config.ts` stays as a second line of defence.
 
 ### TEST
+
+- [x] `grep -c "</script" house-style/house-theme.js` reads 0.
+- [x] The lint gate runs inside `ship-pr`.
 
 ### DEPLOY: fix/8-inlinable-theme-script
 
@@ -44,27 +51,24 @@
 
 ##### Tier 0
 
-**Score:**
+Any DKJ-Solutions app can now inline `house-style/house-theme.js` straight into a `<script>` element in
+its `<head>`, as the house-style README allows. Its header comment no longer contains a closing script
+tag, which used to end the inlined script early and leave the page without `window.DKJTheme`.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management: an internal fix to a shared file.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
 
 #### Pull Request
 
 house-theme.js can be inlined verbatim
-

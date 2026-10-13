@@ -15,7 +15,8 @@
    keeps that mode: the script then picks that mode's default, not the OS's.
 
    Use:
-     <script src="house-theme.js"></script>         (in <head>, so nothing flashes)
+     a script element with src="house-theme.js"     (in <head>, so nothing flashes;
+                                                     inlining this file verbatim is fine too)
      DKJTheme.picker(document.getElementById('theme'))   (draws the picker)
      DKJTheme.picker(el, { light: 'Light', dark: 'Dark' }) (row labels for an app in another language)
      DKJTheme.set('ochre') / DKJTheme.reset() / DKJTheme.current()
