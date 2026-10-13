@@ -2,7 +2,42 @@
 
 ## [Unreleased]
 
-**5 minor entries** <!-- pending-tally -->
+**6 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/7-house-style-source · 20261013-085942Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book runs on the house style alone: `tokens/` is gone, the mirrored Mesowise components use
+the house tokens plus a small `--dkj-*` layer, and the showcase's swatch picker reskins every component
+in all twelve house themes with one click. A new Apps overview lists each DKJ-Solutions app with its
+views and the components they are built from, starting with Mesowise, and every component shows where
+it is used.
+
+**Score:** 4
+
+##### Tier 1
+
+One overview of every app's components, all on one style, is what lets the owners check and change
+the DKJ-Solutions look in one place.
+
+**Score:** 3
+
+##### Tier 2
+
+Not relevant to a subscriber: no DKJ-Solutions app changes yet.
+
+**Score:** N/A
+
+#### Pull Request
+
+Mesowise components on the house style, plus an apps overview
+
+[PR #10](https://github.com/DKJ-Solutions/dkj-brandbook/pull/10)
+
+---
 
 ### DEPLOY: feat/enable-dkj-solutions · 20261013-084922Z
 
