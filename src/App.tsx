@@ -34,7 +34,6 @@ const REPOS = [
   'dkj-music-library',
   'dkj-recipes',
   'dkj-thumbnail-generator',
-  'djcylow-react',
   'life-hub',
 ] as const
 

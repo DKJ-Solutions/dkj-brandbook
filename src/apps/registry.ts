@@ -103,12 +103,6 @@ const THUMBNAIL_VIEWS: readonly View[] = [
   { id: 'contact-sheet', name: 'Contact sheet', kind: 'screen', description: 'A generated image: four candidate tiles side by side on a dark panel, each an image with its verdict, then a "discard" row and a "retain" row below.', components: ['PageHeader', 'Message', 'TintedPanel', 'MiniCard', 'Chip', 'Card', 'DefinitionList', 'FooterNote'] },
 ]
 
-// DJ Cylow: researched read-only from the repo. Two screens; content here is invented.
-const DJCYLOW_VIEWS: readonly View[] = [
-  { id: 'listen', name: 'Listen', kind: 'screen', description: 'A heading, a filter panel with a single-choice list of moods (all, then one per colour with its mood words) and genre and power selects, then a grid of mix cards (a play control with progress, a title of colour, subgenre and volume, a muted date), ten at a time with a "Load more" button; no match says "No mixes found".', components: ['PageHeader', 'SegmentedChoice', 'Card', 'GroupHeading', 'Field', 'Message', 'Button', 'Meter', 'FooterNote'] },
-  { id: 'mix-detail', name: 'Mix detail', kind: 'screen', description: 'A back button, the mix title, a large player with a volume control, the date and a description, a key-facts list (colour, shade, subgenre, tracks), a tracklist table of track and time with an empty state, and a rights notice.', components: ['PageHeader', 'Button', 'Card', 'Meter', 'Stepper', 'Message', 'GroupHeading', 'DefinitionList', 'DataTable', 'FooterNote'] },
-]
-
 // Life hub: researched read-only from the app code (a private repo); a local app, no deployment. Content here is invented.
 const LIFE_HUB_VIEWS: readonly View[] = [
   { id: 'hub', name: 'Hub', kind: 'screen', description: 'A masthead with three key figures (apps, dossiers, open actions); a "Coming up" list of dated rows, each with a distance label, a title and a muted date, near ones highlighted and an invalid one with its reason; a grid of link cards to the available apps; then "My dossiers" grouped by category with a count, each dossier a card with a subpath, title, phase as text, a muted status date, a summary and an "N open of M" progress bar; and a footer note.', components: ['PageHeader', 'StatTile', 'GroupHeading', 'Card', 'TitleTag', 'Message', 'Badge', 'Meter', 'Button', 'FooterNote'] },
@@ -171,16 +165,6 @@ export const APPS: readonly App[] = [
       'Scripts that run a thumbnail round at an image-generation service, measure the result against a yardstick and place it in a design file. It has no interface; its two outputs are a generated measurement report and a contact sheet of the candidates.',
     stack: 'Node scripts; local only, no deployment',
     views: THUMBNAIL_VIEWS,
-  },
-  {
-    id: 'djcylow',
-    name: 'DJ Cylow',
-    repo: 'DKJ-Solutions/djcylow-react',
-    description:
-      'The website of a DJ: a Listen page where mixes are filtered by mood, genre and power and played from cards, and a page per mix with its player, key facts and tracklist.',
-    url: 'https://djcylow.com',
-    stack: 'Next.js static export; Netlify',
-    views: DJCYLOW_VIEWS,
   },
   {
     id: 'life-hub',

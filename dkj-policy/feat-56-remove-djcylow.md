@@ -32,11 +32,21 @@
 
 ### PLAN
 
+Issue #56: DJ Cylow has its own brand and is not part of the DKJ brand (owner, October 13, 2026); its site repo has moved out of DKJ-Solutions to `DaveKJohn/djcylow-react`. The brand book drops its preview, its registry entry and its place in the repo list, and the repo's own rules record the exception so it is not added back. The house-style side is on the plugin tracker (DKJ-Solutions/dkj-claude-plugins#2973); #52 (AudioPlayer), which existed only for this preview, is closed as not planned.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.claude/rules/this-repo.md` (Tessa): DJ Cylow is named under what the repo is for, as outside the brand book and the house style.
+- [x] Dropped `djcylow-react` from the navigation list in `src/App.tsx`.
+- [x] Removed the `DjCylowPreview` import and entry from `src/showcase/previews/RepoPreview.tsx` and deleted `src/showcase/previews/DjCylowPreview.tsx`.
+- [x] Removed `DJCYLOW_VIEWS` and the `djcylow` entry from `src/apps/registry.ts`.
+- [x] Searched `src/`, `README.md` and `dkj-policy/` for remaining mentions; only history in `CHANGELOG.md` remains.
 
 ### TEST
+
+- [x] The diff read back: only the DJ Cylow entries left `registry.ts`, `App.tsx` and `RepoPreview.tsx`; no other reference remains in `src/` or `README.md`.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the showcase without DJ Cylow (`npm run dev`, the repo list in the navigation) and approved it.
 
 ### DEPLOY: feat/56-remove-djcylow
 
@@ -44,7 +54,9 @@
 
 ##### Tier 0
 
-**Score:**
+DJ Cylow has its own brand and is not part of the DKJ brand, so the brand book no longer lists or previews `djcylow-react`, and the repo's rules say so. Its site repo now lives outside DKJ-Solutions.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +65,9 @@
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +76,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
