@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**21 minor entries** <!-- pending-tally -->
+**22 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/20-line-chart · 20261013-131717Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The overview has its third and last chart from the ETF dashboard: `LineChart`, value, deposits as a step line and result at each month end, with a crosshair that marks every series and a legend of line items. Like `ColumnChart` and `BarChart` it stays legible at phone width, is reachable by keyboard and always offers the figures as a table. With it, #20 is done.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+LineChart: the ETF dashboard's value-over-time chart
+
+[PR #42](https://github.com/DKJ-Solutions/dkj-brandbook/pull/42)
+
+---
 
 ### DEPLOY: feat/20-bar-chart · 20261013-130655Z
 
