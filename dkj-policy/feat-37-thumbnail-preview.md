@@ -32,9 +32,21 @@
 
 ### PLAN
 
+This branch is #37: a recreated preview for `DKJ-Solutions/dkj-thumbnail-generator`, a set of local Node scripts with no interface and no deployment. Its two generated outputs are shown as two screens, switched in the page header with a joined `SegmentedChoice`, the way `RecipesPreview` and `MusicLibraryPreview` do. Only existing brand-book components are used; nothing lifted into the brand book, so `sources.ts` is untouched. Every round, value and image is invented, and only the structure of the real outputs is described.
+
+#### What the preview shows
+
+- **Yardstick report (first screen):** a muted "Generated on" line and a "generated, do not edit" note, a short introduction, "Where the series stands" as `StatTile`s, then five numbered sections (placement, candidates, cutout, guideline, cost), each a `DataTable` with one row per invented round (Round A to D). Verdicts are text with a tone ("yes", "no", "outside the margin", "no verdict" with a reason); a dash means not measured. A "Disclosure per round" block ends the report, one `Disclosure` per round.
+- **Contact sheet:** three candidate tiles side by side in a `TintedPanel`, each a `MiniCard` with an "Image placeholder" value and a `Chip` verdict, then "Discard" and "Retain" rows as a `DefinitionList`.
+- **Footer** says everything is invented and the real repo has no interface.
+- **Gaps (no component, rendered as closely as possible):** the long report text (a plain paragraph; Prose: #43); the per-round summary with a date and a verdict (a `Disclosure` with only the round name as summary; structured Disclosure summary: #44); the section headings, which are h2 in the report (`GroupHeading`, always an h3; GroupHeading level: #48); an image or figure placeholder (a `MiniCard` with text instead of an image); the dark panel of the contact sheet (a neutral `TintedPanel`, no dark surface component); inline code in the report (left out).
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/previews/ThumbnailPreview.tsx`: the report and the contact sheet, switched with a `SegmentedChoice` in the `PageHeader`, built from existing components only.
+- [x] `src/showcase/previews/RepoPreview.tsx`: `dkj-thumbnail-generator` registered in `PREVIEWS`.
+- [x] `src/apps/registry.ts`: the `thumbnail-generator` entry (no live URL) and its two screen views (`THUMBNAIL_VIEWS`).
+- [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
 
