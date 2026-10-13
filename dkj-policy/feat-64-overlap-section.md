@@ -32,11 +32,17 @@
 
 ### PLAN
 
+Record the overlap review of #64 in the showcase as its own section under Apps, reusing the overview's view cards so every pair links to its components.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/sections/Overlap.tsx`: the findings in three groups (strong, borderline, not a duplicate), each with its components as links
+- [x] Wired into the nav (Apps > Overlap), `App.tsx` and the `Section` id type; a `bb-view-title` style for the h4
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has looked at the Overlap section in the showcase and approved it
 
 ### DEPLOY: feat/64-overlap-section
 
@@ -44,7 +50,9 @@
 
 ##### Tier 0
 
-**Score:**
+The brand book has an Overlap section under Apps: the review of which components duplicate or closely resemble each other (five strong candidates for a merge, five borderline pairs, four that only look alike), each with a proposal and links to the components, so a merge can be decided per pair.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +61,9 @@
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +72,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

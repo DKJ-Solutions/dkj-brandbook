@@ -149,7 +149,8 @@
 .bb-kind { margin: 0 0 var(--spacing-2); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--ink-2); }
 .bb-views { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: var(--spacing-3); margin: 0; padding: 0; list-style: none; }
 .bb-view { display: grid; gap: var(--spacing-1-5); align-content: start; padding: var(--spacing-3); border: 1px solid var(--border); border-radius: var(--dkj-radius-md); background: var(--page); }
-.bb-view h5 { margin: 0; font-size: var(--text-lg); }
+.bb-view h5, .bb-view-title { margin: 0; font-size: var(--text-lg); }
+.bb-view p strong { color: var(--ink); }
 .bb-view p { margin: 0; font-size: var(--text-sm); color: var(--ink-2); }
 .bb-view-components { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
 .bb-view-components a { padding: var(--spacing-0-5) var(--spacing-2); font-size: var(--text-sm); color: var(--ink); text-decoration: none; border: 1px solid var(--border); border-radius: var(--dkj-radius-pill); background: var(--surface); }
