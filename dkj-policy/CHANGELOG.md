@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**15 minor entries** <!-- pending-tally -->
+**16 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/20-column-chart · 20261013-112630Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The overview has its first chart: `ColumnChart`, the ETF dashboard's monthly result around a zero line, with quarter guides, a gain/loss legend and a tooltip. Unlike the source it stays legible at phone width, is reachable by keyboard and always offers the figures as a table. The bar and line charts follow on #20.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Overview: the ETF dashboard's column chart, with legend and tooltip
+
+[PR #29](https://github.com/DKJ-Solutions/dkj-brandbook/pull/29)
+
+---
 
 ### DEPLOY: feat/21-on-warn-token · 20261013-110037Z
 
