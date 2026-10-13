@@ -201,14 +201,9 @@
 .dkj-amount svg { flex: none; width: 0.75rem; height: 0.75rem; }
 
 /* ---------- Tooltip ---------- */
-/* On the house .tooltip (fixed, hidden, shadow). It opens by a modifier; Tooltip sets left and top when it opens. */
+/* On the house .tooltip (fixed, hidden, shadow), opened by the house .tooltip--open; Tooltip sets left and top when it opens. */
 .dkj-tooltip-anchor { display: inline-flex; align-items: center; }
-.tooltip.dkj-tooltip--open { display: block; }
 .dkj-tooltip-p { display: block; margin-top: var(--spacing-1-5); }
-
-/* ---------- ReadMoreToggle ---------- */
-/* The house .moretoggle is about 33px high; a minimum height (a property the house leaves free) brings the tap area to 44px. */
-.dkj-readmore { min-height: var(--dkj-tap); }
 
 @media (prefers-reduced-motion: reduce) {
   .dkj-card { transition: none; }

@@ -113,7 +113,7 @@ export function ReadMoreToggle({
   lessLabel?: string
 }) {
   return (
-    <button type="button" className="moretoggle dkj-readmore" aria-expanded={expanded} aria-controls={controls} onClick={onToggle}>
+    <button type="button" className="moretoggle" aria-expanded={expanded} aria-controls={controls} onClick={onToggle}>
       {expanded ? lessLabel : moreLabel}
     </button>
   )
@@ -122,7 +122,8 @@ export function ReadMoreToggle({
 /**
  * Tooltip -- a non-modal explanation on the house .tooltip. `trigger` draws the element that opens it and receives the
  * aria-describedby that links it to the text. Hover or focus opens it; a click or tap pins it (so it works where there
- * is no hover); Escape, a click elsewhere, a scroll or a resize close it. explain: the wider variant for paragraphs.
+ * is no hover); the pointer can move from the trigger onto the text without closing it (WCAG 1.4.13, hoverable);
+ * Escape, a click elsewhere, a scroll or a resize close it. explain: the wider variant for paragraphs.
  * The text is always in the page, so the description is reachable while it is hidden. It is drawn in the page body
  * (or in the open <dialog> the trigger sits in), so no ancestor's font, clipping or stacking reaches it.
  */
@@ -141,9 +142,20 @@ export function Tooltip({
   const anchor = useRef<HTMLSpanElement>(null)
   const tip = useRef<HTMLSpanElement>(null)
   const [host, setHost] = useState<Element | null>(null)
-  const [hovered, setHovered] = useState(false) // pointer over, or keyboard focus on, the trigger
+  const [hovered, setHovered] = useState(false) // pointer over the trigger or the text, or keyboard focus on the trigger
+  const leave = useRef<number | undefined>(undefined)
   const [pinned, setPinned] = useState(false) // clicked or tapped
   const open = hovered || pinned
+  // Leaving the trigger or the text closes after a beat, so the pointer can cross the gap between them.
+  const enter = () => {
+    window.clearTimeout(leave.current)
+    setHovered(true)
+  }
+  const exit = () => {
+    window.clearTimeout(leave.current)
+    leave.current = window.setTimeout(() => setHovered(false), 150)
+  }
+  useEffect(() => () => window.clearTimeout(leave.current), [])
 
   useLayoutEffect(() => setHost(anchor.current?.closest('dialog') ?? document.body), [])
 
@@ -170,7 +182,8 @@ export function Tooltip({
       e.stopPropagation()
       close()
     }
-    const onPointer = (e: PointerEvent) => !anchor.current?.contains(e.target as Node) && close()
+    const onPointer = (e: PointerEvent) =>
+      !anchor.current?.contains(e.target as Node) && !tip.current?.contains(e.target as Node) && close()
     document.addEventListener('keydown', onKey, true)
     document.addEventListener('pointerdown', onPointer)
     window.addEventListener('scroll', close, true)
@@ -187,8 +200,8 @@ export function Tooltip({
     <span
       ref={anchor}
       className="dkj-tooltip-anchor"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={enter}
+      onMouseLeave={exit}
       onFocus={() => setHovered(true)}
       onBlur={() => {
         setHovered(false)
@@ -202,7 +215,15 @@ export function Tooltip({
       {trigger({ 'aria-describedby': id })}
       {host &&
         createPortal(
-          <span ref={tip} id={id} role="tooltip" className={cx('tooltip', explain && 'tooltip--explain', open && 'dkj-tooltip--open')}>
+          <span
+            ref={tip}
+            id={id}
+            role="tooltip"
+            className={cx('tooltip', explain && 'tooltip--explain', open && 'tooltip--open')}
+            onMouseEnter={enter}
+            onMouseLeave={exit}
+            onClick={(e) => e.stopPropagation()} // a portal still bubbles React events to the anchor, whose click would unpin it
+          >
             {title && <b>{title}</b>}
             {paragraphs?.map((p, i) => (
               <span key={i} className="dkj-tooltip-p">

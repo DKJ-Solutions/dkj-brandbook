@@ -218,7 +218,7 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
    width: it hangs in the cell's padding, so the header text lines up with the figures below it.
    Idle: two faint chevrons, brighter on hover. Active: only the current direction, in full ink. */
 .table th .sort { position: relative; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; border-radius: 3px; }
-.table th .sort::before { content: ""; position: absolute; inset: -8px -4px; }
+.table th .sort::before { content: ""; position: absolute; left: -4px; right: -4px; top: 50%; height: var(--tap); transform: translateY(-50%); }   /* a 44px-high hit area around the label */
 .table th .sort::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 2px; border-radius: 1px; background: var(--ink); opacity: 0; transition: opacity .15s; }
 .table th .sort:hover, .table th .sort:focus-visible { color: var(--ink); }
 .table th .sort:hover::after, .table th .sort:focus-visible::after { opacity: .3; }
@@ -246,7 +246,9 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .chart svg text { fill: var(--ink-2); font-size: var(--text-sm); }
 .chart svg .axis-note { fill: var(--muted); font-size: var(--text-xs); }
 .chart svg .val { fill: var(--ink); font-variant-numeric: tabular-nums; }
-.chart .bar:hover, .chart .bar:focus { opacity: 0.8; outline: none; }
+.chart .bar:hover, .chart .bar:focus-visible { opacity: 0.8; }
+.chart .bar:focus { outline: none; }
+.chart .bar:focus-visible { stroke: var(--ink); stroke-width: 2px; }   /* an SVG shape takes no reliable outline, so focus is a stroke */
 
 /* ---- Meter ---------------------------------------------------------------- */
 /* Fill colour via --m: <span style="--m: var(--good)"> or a .meter--* class on the meter. */
@@ -274,12 +276,14 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .seg button { background: none; border: 0; color: var(--ink-2); padding: 0 var(--spacing-2-5); height: 100%; font: inherit; font-size: var(--text-sm); cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--border); }
 .seg button[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); }
+.seg button:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }   /* inset: .seg clips its overflow; ink shows on the page and on the primary */
 /* The round "?" button that opens an explanation tooltip. */
 .info-button { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px;
   margin-left: 5px; padding: 0; border-radius: 50%; border: 1px solid var(--axis); background: none;
   color: var(--ink-2); font: 600 var(--text-xs)/1 system-ui, sans-serif; cursor: help; vertical-align: 1px; position: relative; }
-.info-button::after { content: ""; position: absolute; inset: -8px; }  /* hit target larger than the mark */
-.info-button:hover, .info-button:focus-visible, .info-button[aria-expanded="true"] { border-color: var(--ink-2); color: var(--ink); outline: none; }
+.info-button::after { content: ""; position: absolute; inset: -14px; }  /* a 44px hit target around the 16px mark */
+.info-button:hover, .info-button:focus-visible, .info-button[aria-expanded="true"] { border-color: var(--ink-2); color: var(--ink); }
+.info-button:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
 /* ---- Tooltip -------------------------------------------------------------- */
 .tooltip { position: fixed; pointer-events: none; background: var(--surface); color: var(--ink);
@@ -288,6 +292,9 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .tooltip b { display: block; margin-bottom: var(--spacing-0-5); }
 .tooltip--explain { max-width: 320px; line-height: 1.45; }
 .tooltip--explain p { margin: var(--spacing-1-5) 0 0; }
+/* Open, anchored to a trigger: shown, and hoverable, so the pointer can move onto the text (WCAG 1.4.13).
+   A tooltip that follows the pointer (a chart's) is shown by its own script and stays click-through. */
+.tooltip--open { display: block; pointer-events: auto; }
 
 /* ---- Disclosure (details/summary) ------------------------------------------ */
 .more { margin-top: var(--spacing-2); }
@@ -296,9 +303,10 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .more summary::after { content: " \25BE"; }
 .more[open] summary::after { content: " \25B4"; }
 .more[open] summary { margin-bottom: var(--spacing-1); }
+.more summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
 /* A full-width "read more" button under a block; the extra detail opens ABOVE it, so the toggle
    moves down with the text it reveals. Set aria-expanded from the script. */
-.moretoggle { display: flex; justify-content: center; align-items: center; gap: var(--spacing-1); width: 100%; cursor: pointer; text-align: center; padding: var(--spacing-2) var(--spacing-4); background: none; border: 0;
+.moretoggle { display: flex; justify-content: center; align-items: center; gap: var(--spacing-1); width: 100%; min-height: var(--tap); cursor: pointer; text-align: center; padding: var(--spacing-2) var(--spacing-4); background: none; border: 0;
   border-top: 1px solid var(--border); font: 600 var(--text-sm)/1.4 system-ui, sans-serif; color: var(--ink-2); }
 .moretoggle::after { content: " \25BE"; }
 .moretoggle[aria-expanded="true"]::after { content: " \25B4"; }

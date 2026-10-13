@@ -213,3 +213,57 @@ export function HouseMenuDemo() {
     </>
   )
 }
+
+/** The house controls with their focus rings and 44px hit areas: tab through them to judge the rings. */
+export function HouseFocusDemo() {
+  return (
+    <>
+      <div className="bb-row">
+        <span className="seg" role="group" aria-label="View" style={{ height: '30px' }}>
+          <button type="button" aria-pressed="true">
+            Primary
+          </button>
+          <button type="button" aria-pressed="false">
+            Secondary
+          </button>
+        </span>
+        <span>
+          Label
+          <button type="button" className="info-button" aria-label="Explain">
+            ?
+          </button>
+        </span>
+      </div>
+      <details className="more">
+        <summary>More detail</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </details>
+      <table className="table">
+        <thead>
+          <tr>
+            <th aria-sort="descending">
+              <button type="button" className="sort">
+                Value
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1,234</td>
+          </tr>
+        </tbody>
+      </table>
+      <div className="chart">
+        <svg viewBox="0 0 120 40" role="img" aria-label="Three bars">
+          {[30, 18, 24].map((h, i) => (
+            <rect key={i} className="bar" tabIndex={0} x={8 + i * 38} y={40 - h} width={28} height={h} fill="var(--cat-1)" aria-label={`Bar ${i + 1}: ${h}`} />
+          ))}
+        </svg>
+      </div>
+      <button type="button" className="moretoggle" aria-expanded="false">
+        Read more
+      </button>
+    </>
+  )
+}
