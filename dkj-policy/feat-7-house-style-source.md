@@ -32,11 +32,21 @@
 
 ### PLAN
 
+Owner's choice on #7 (Maikel, October 13, 2026): the house style becomes the brand book's one token
+source, and the brand book gains an overview of apps, their views and the components each uses,
+starting with Mesowise.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Gwen: map tokens/ onto house tokens, add the --dkj-* layer (src/brand-layer.css), rewrite the component CSS
+- [x] Rebecca: inventory Mesowise's views and the components each uses
+- [x] Cody: load house-style.css + inline house-theme.js, swatch picker in the toolbar, live Foundations, Apps section and "Used in"
+- [x] Remove tokens/
 
 ### TEST
+
+- [ ] Gate green (lint-web.ps1)
+- [ ] Victor's review handled
 
 ### DEPLOY: feat/7-house-style-source
 
@@ -44,7 +54,13 @@
 
 ##### Tier 0
 
-**Score:**
+The brand book runs on the house style alone: `tokens/` is gone, the mirrored Mesowise components use
+the house tokens plus a small `--dkj-*` layer, and the showcase's swatch picker reskins every component
+in all twelve house themes with one click. A new Apps overview lists each DKJ-Solutions app with its
+views and the components they are built from, starting with Mesowise, and every component shows where
+it is used.
+
+**Score:** 4
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +69,10 @@
 
 ##### Tier 1
 
-**Score:**
+One overview of every app's components, all on one style, is what lets the owners check and change
+the DKJ-Solutions look in one place.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +81,9 @@
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber: no DKJ-Solutions app changes yet.
+
+**Score:** N/A
 
 #### Pull Request
 
