@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**14 minor entries** <!-- pending-tally -->
+**15 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/21-on-warn-token · 20261013-110037Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house style has a `--on-warn` token for text and icons on a `--warn` fill, dark in every theme. An app that wrote its own dark literal on a warning fill can point at it instead; the brand book's warn tag already does, and renders as before.
+
+**Score:** 2
+
+##### Tier 1
+
+Not relevant to management: one shared colour token.
+
+**Score:** N/A
+
+##### Tier 2
+
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+House style: an --on-warn token for content on a --warn fill
+
+[PR #27](https://github.com/DKJ-Solutions/dkj-brandbook/pull/27)
+
+---
 
 ### DEPLOY: fix/24-feature-label · 20261013-105734Z
 
