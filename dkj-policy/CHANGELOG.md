@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**7 minor entries** <!-- pending-tally -->
+**8 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/9-undefined-var-gate · 20261013-091122Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The lint gate now fails on a `var(--x)` that no loaded stylesheet defines. Such a reference is valid
+CSS and silently resolves to nothing, so it passed eslint, the type-check and the build before; it is
+how stale `tokens/` names survived the move to the house style until a review found them by hand.
+
+**Score:** 2
+
+##### Tier 1
+
+Not relevant to management: an internal check on the brand book's own code.
+
+**Score:** N/A
+
+##### Tier 2
+
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+The gate catches a var(--x) nothing defines
+
+[PR #15](https://github.com/DKJ-Solutions/dkj-brandbook/pull/15)
+
+---
 
 ### DEPLOY: fix/8-inlinable-theme-script · 20261013-090722Z
 
