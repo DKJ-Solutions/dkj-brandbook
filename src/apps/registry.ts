@@ -97,6 +97,12 @@ const RECIPES_VIEWS: readonly View[] = [
   { id: 'recipe-page', name: 'Recipe page', kind: 'screen', description: 'A back link, the recipe title and a muted meta line, an add-to-shopping-list toggle, a portions stepper that scales the amounts, "Ingredients" with a reset action, a checkbox per ingredient under department headings that strikes through when checked, and a numbered "Method" with a muted source line.', components: ['PageHeader', 'Button', 'Message', 'Card', 'Stepper', 'GroupHeading', 'Checkbox', 'FooterNote'] },
 ]
 
+// DKJ Thumbnail generator: researched read-only from the repo. No interface; two generated outputs.
+const THUMBNAIL_VIEWS: readonly View[] = [
+  { id: 'yardstick-report', name: 'Yardstick report', kind: 'screen', description: 'A generated report: a heading with a muted generated-on date and a "generated report" note, a short introduction, a series summary as key-figure tiles, numbered sections, each a table with one row per round and verdicts as text, then a collapsible note per round. A dash means not measured.', components: ['PageHeader', 'SegmentedChoice', 'Message', 'GroupHeading', 'StatTile', 'Card', 'DataTable', 'Disclosure', 'FooterNote'] },
+  { id: 'contact-sheet', name: 'Contact sheet', kind: 'screen', description: 'A generated image: four candidate tiles side by side on a dark panel, each an image with its verdict, then a "discard" row and a "retain" row below.', components: ['PageHeader', 'SegmentedChoice', 'Message', 'TintedPanel', 'MiniCard', 'Chip', 'Card', 'DefinitionList', 'FooterNote'] },
+]
+
 export const APPS: readonly App[] = [
   {
     id: 'mesowise',
@@ -144,6 +150,15 @@ export const APPS: readonly App[] = [
     url: 'https://dkj-solutions.github.io/dkj-recipes/',
     stack: 'Astro static site; installable PWA; GitHub Pages',
     views: RECIPES_VIEWS,
+  },
+  {
+    id: 'thumbnail-generator',
+    name: 'DKJ Thumbnail generator',
+    repo: 'DKJ-Solutions/dkj-thumbnail-generator',
+    description:
+      'Scripts that run a thumbnail round at an image-generation service, measure the result against a yardstick and place it in a design file. It has no interface; its two outputs are a generated measurement report and a contact sheet of the candidates.',
+    stack: 'Node scripts; local only, no deployment',
+    views: THUMBNAIL_VIEWS,
   },
 ]
 

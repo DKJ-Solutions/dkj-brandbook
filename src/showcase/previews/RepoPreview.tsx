@@ -7,6 +7,7 @@ import { MesowisePreview } from './MesowisePreview'
 import { MusicLibraryPreview } from './MusicLibraryPreview'
 import { PluginsPreview } from './PluginsPreview'
 import { RecipesPreview } from './RecipesPreview'
+import { ThumbnailPreview } from './ThumbnailPreview'
 
 /** The recreated previews, keyed by repo name; a repo not in here shows a "preview follows" card. */
 const PREVIEWS: Partial<Record<string, ComponentType>> = {
@@ -15,6 +16,7 @@ const PREVIEWS: Partial<Record<string, ComponentType>> = {
   'dkj-claude-plugins': PluginsPreview,
   'dkj-music-library': MusicLibraryPreview,
   'dkj-recipes': RecipesPreview,
+  'dkj-thumbnail-generator': ThumbnailPreview,
 }
 
 /** A repo's page behind the navigation list: its links, then the recreated app in a frame, or a placeholder. */
