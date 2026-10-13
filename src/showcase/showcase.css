@@ -29,6 +29,10 @@
   font-size: var(--text-base);
   color: var(--ink);
   text-decoration: none;
+  /* One line per link: a name too long for the column is cut off with an ellipsis (the full name is its title). */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .bb-nav a:hover { background: color-mix(in srgb, var(--primary) 10%, var(--surface)); }
 .bb-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset-inset); }
