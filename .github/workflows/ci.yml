@@ -1,0 +1,27 @@
+# The required check for this repo: the same gate open-pr runs locally (scripts/lint/lint-web.ps1).
+# merge_group is inert until a merge queue exists, and keeps one from becoming a merge outage (#1325).
+name: CI
+
+permissions:
+  contents: read
+
+on:
+  pull_request:
+  merge_group:
+
+jobs:
+  ci:
+    name: "ci"
+    runs-on: ubuntu-latest
+    # A wedged required check reads as "still running" forever (#2296); the gate takes well under a minute.
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - run: npm ci
+      - name: Gate (scripts/lint/lint-web.ps1 -- eslint + tsc -b + vite build)
+        shell: pwsh
+        run: ./scripts/lint/lint-web.ps1
