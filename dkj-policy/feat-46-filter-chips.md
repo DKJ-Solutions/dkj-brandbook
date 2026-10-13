@@ -56,7 +56,7 @@ This branch is #46 and ships with `-Resolves 46`. It adds `FilterChips`, a multi
 
 - [x] Victor reviewed the diff: nothing blocking; focus moves to the first chip before Clear unmounts, so it never falls to the page. Applied: the colour dot's ring is visible on the on fill (`--dkj-on-accent`) and on the off chip (`--ink-2`), a missing attribute space in the Actions section, a comment on the clear focus move.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the FilterChips section and the music library and recipes previews (`npm run dev`) and approved it.
+- [x] An owner has looked at the FilterChips section and the music library and recipes previews (`npm run dev`) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/46-filter-chips
 
