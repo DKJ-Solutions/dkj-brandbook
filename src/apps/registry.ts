@@ -91,6 +91,12 @@ const MUSIC_LIBRARY_VIEWS: readonly View[] = [
   { id: 'track-register', name: 'Track register', kind: 'screen', description: 'A stats row, a filter fieldset (search, BPM, genre, album and group selects, clear), a sortable track table with an empty row, and a player strip under the table.', components: ['StatTile', 'Card', 'Field', 'Button', 'DataTable', 'TintedPanel', 'Message', 'FooterNote'] },
 ]
 
+// DKJ Recipes: researched read-only from the app's repo. Two screens.
+const RECIPES_VIEWS: readonly View[] = [
+  { id: 'recipe-list', name: 'Recipe list', kind: 'screen', description: 'A header with the title and a shopping-list link with a count, a search field, a scrolling row of multi-select tag chips (all must match), then one tappable card per recipe with a bold title and a muted line of time, ingredient count and tags; no match says "No recipe found.".', components: ['PageHeader', 'Button', 'Field', 'Checkbox', 'Card', 'TitleTag', 'Message', 'GroupHeading', 'FooterNote'] },
+  { id: 'recipe-page', name: 'Recipe page', kind: 'screen', description: 'A back link, the recipe title and a muted meta line, an add-to-shopping-list toggle, a portions stepper that scales the amounts, "Ingredients" with a reset action, a checkbox per ingredient under department headings that strikes through when checked, and a numbered "Method" with a muted source line.', components: ['PageHeader', 'Button', 'Message', 'Card', 'Stepper', 'GroupHeading', 'Checkbox', 'FooterNote'] },
+]
+
 export const APPS: readonly App[] = [
   {
     id: 'mesowise',
@@ -128,6 +134,16 @@ export const APPS: readonly App[] = [
       'A local app for managing a music library: sync playlists from a music service, sort them into worlds, filter and annotate them, and look at the library through a data dashboard and a track register.',
     stack: 'Next.js (React) + TypeScript; runs locally, no deployment',
     views: MUSIC_LIBRARY_VIEWS,
+  },
+  {
+    id: 'recipes',
+    name: 'DKJ Recipes',
+    repo: 'DKJ-Solutions/dkj-recipes',
+    description:
+      'A recipe collection you can search and filter by tag, with a recipe page that scales the amounts to the number of portions, lets you tick ingredients off by department and collects recipes on a shopping list.',
+    url: 'https://dkj-solutions.github.io/dkj-recipes/',
+    stack: 'Astro static site; installable PWA; GitHub Pages',
+    views: RECIPES_VIEWS,
   },
 ]
 
