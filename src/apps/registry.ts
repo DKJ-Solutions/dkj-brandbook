@@ -109,6 +109,12 @@ const DJCYLOW_VIEWS: readonly View[] = [
   { id: 'mix-detail', name: 'Mix detail', kind: 'screen', description: 'A back button, the mix title, a large player with a volume control, the date and a description, a key-facts list (colour, shade, subgenre, tracks), a tracklist table of track and time with an empty state, and a rights notice.', components: ['PageHeader', 'Button', 'Card', 'Meter', 'Stepper', 'Message', 'GroupHeading', 'DefinitionList', 'DataTable', 'FooterNote'] },
 ]
 
+// Life hub: researched read-only from the app code (a private repo); a local app, no deployment. Content here is invented.
+const LIFE_HUB_VIEWS: readonly View[] = [
+  { id: 'hub', name: 'Hub', kind: 'screen', description: 'A masthead with three key figures (apps, dossiers, open actions); a "Coming up" list of dated rows, each with a distance label, a title and a muted date, near ones highlighted and an invalid one with its reason; a grid of link cards to the available apps; then "My dossiers" grouped by category with a count, each dossier a card with a subpath, title, phase as text, a muted status date, a summary and an "N open of M" progress bar; and a footer note.', components: ['PageHeader', 'StatTile', 'GroupHeading', 'Card', 'TitleTag', 'Message', 'Badge', 'Meter', 'Button', 'FooterNote'] },
+  { id: 'dossier-detail', name: 'Dossier detail', kind: 'screen', description: 'Opening a dossier card replaces the hub: a back button naming the parent, a "Dossier" label with the slug, a two-option toggle when the dossier has a second document, a "Save as PDF" button, the document as a rendered article (headings, paragraphs, a list with checkboxes) and, when it has children, a "Subfolders" grid of the same cards.', components: ['PageHeader', 'Button', 'Message', 'SegmentedChoice', 'Card', 'GroupHeading', 'Checkbox', 'Badge', 'Meter'] },
+]
+
 export const APPS: readonly App[] = [
   {
     id: 'mesowise',
@@ -175,6 +181,15 @@ export const APPS: readonly App[] = [
     url: 'https://djcylow.com',
     stack: 'Next.js static export; Netlify',
     views: DJCYLOW_VIEWS,
+  },
+  {
+    id: 'life-hub',
+    name: 'Life hub',
+    repo: 'DKJ-Solutions/life-hub',
+    description:
+      'A start page: key figures, what is coming up, links to the other local apps and a set of dossiers, each opening as a rendered document with subfolders.',
+    stack: 'Next.js (React) + TypeScript; runs locally, no deployment',
+    views: LIFE_HUB_VIEWS,
   },
 ]
 
