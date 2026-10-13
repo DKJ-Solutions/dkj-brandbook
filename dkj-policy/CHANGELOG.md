@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**24 minor entries** <!-- pending-tally -->
+**25 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/36-recipes-preview · 20261013-134122Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The repo list in the showcase navigation now opens a recreated preview of `dkj-recipes`: the recipe list with search and tag filters, and a recipe page with a portions stepper and ingredients to tick off, built from brand-book components with invented recipes.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Recreated preview for dkj-recipes
+
+[PR #49](https://github.com/DKJ-Solutions/dkj-brandbook/pull/49)
+
+---
 
 ### DEPLOY: feat/35-music-library-preview · 20261013-133414Z
 
