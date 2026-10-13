@@ -32,11 +32,17 @@
 
 ### PLAN
 
+The folded entry of `feat/12-btn-disabled` (PR #16) scored tier 2 but left tier 1 at N/A, so the
+impact ladder is broken and the release cut would refuse it. Give tier 1 its row and score.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `CHANGELOG.md`: the `feat/12-btn-disabled` entry's tier 1 says what colleagues get out of it,
+      with score 1.
 
 ### TEST
+
+- [x] The entry now has a row and a score for every tier up to tier 2.
 
 ### DEPLOY: docs/btn-disabled-entry-ladder
 
@@ -44,7 +50,10 @@
 
 ##### Tier 0
 
-**Score:**
+The changelog entry for the disabled `.btn` state now carries a tier 1 row, so the next release cut
+can read its reach.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +62,9 @@
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management: a correction to the changelog itself.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +73,9 @@
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
 
 #### Pull Request
 
