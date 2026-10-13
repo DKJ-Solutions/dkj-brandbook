@@ -36,9 +36,12 @@ Enable the dkj-solutions extension so every session here starts from the DKJ-Sol
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.claude/settings.json` enables `dkj-solutions@dkj-claude-plugins`
+- [x] `CLAUDE.md` imports the extension on the line directly below the `dkj-policy` import
 
 ### TEST
+
+- [x] the settings file still parses as JSON, and the import names the extension's real path in the marketplace clone
 
 ### DEPLOY: feat/enable-dkj-solutions
 
@@ -46,7 +49,9 @@ Enable the dkj-solutions extension so every session here starts from the DKJ-Sol
 
 ##### Tier 0
 
-**Score:**
+This repo enables the `dkj-solutions` extension. Every session here now reads the DKJ-Solutions house style rules: visual work starts from the stylesheet in [DKJ-Solutions/dkj-brandbook](https://github.com/DKJ-Solutions/dkj-brandbook), and a change to the house style itself is filed as an issue there instead of being made in this repo. Nothing renders differently yet.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -55,7 +60,9 @@ Enable the dkj-solutions extension so every session here starts from the DKJ-Sol
 
 ##### Tier 1
 
-**Score:**
+This app now follows the same look as every other DKJ-Solutions app, and a styling fix to the shared house style lands once, in the brand book, instead of drifting into a local variant.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -64,7 +71,9 @@ Enable the dkj-solutions extension so every session here starts from the DKJ-Sol
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a user of the app: nothing they see changes.
+
+**Score:** N/A
 
 #### Pull Request
 
