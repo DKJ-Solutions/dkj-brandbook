@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**26 minor entries** <!-- pending-tally -->
+**27 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/38-djcylow-preview · 20261013-135559Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The repo list in the showcase navigation now opens a recreated preview of `djcylow-react`: the listen page with mood, genre and power filters and load more, and a mix page with key facts and a tracklist, built from brand-book components with invented mixes. The overview's view lists no longer name the preview's own screen switcher as a component of the plugins and thumbnail-generator apps.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Recreated preview for djcylow-react
+
+[PR #53](https://github.com/DKJ-Solutions/dkj-brandbook/pull/53)
+
+---
 
 ### DEPLOY: feat/37-thumbnail-preview · 20261013-134845Z
 
