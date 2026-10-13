@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**30 minor entries** <!-- pending-tally -->
+**31 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/44-disclosure-summary · 20261013-144756Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `Disclosure` summary can now carry structure: a title (with an accent-bold version where it fits), a muted meta such as a date, and a trailing chip or tag, wrapping under the title on a narrow width. A plain text summary renders as before. The release notes in the plugins preview and the notes per round in the thumbnail preview use it.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Disclosure: allow a structured summary (title, meta, trailing)
+
+[PR #59](https://github.com/DKJ-Solutions/dkj-brandbook/pull/59)
+
+---
 
 ### DEPLOY: feat/56-remove-djcylow · 20261013-143601Z
 
