@@ -32,11 +32,22 @@
 
 ### PLAN
 
+Issue #9: an inline `style` or stylesheet that reads a custom property nothing defines stays green
+through eslint, `tsc -b` and the build, because it is valid CSS. Add a gate step that catches it.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `scripts/lint/check-css-vars.mjs`: every `var(--name` in `src/**/*.{ts,tsx,css}`, minus what
+      `house-style/house-style.css`, any stylesheet under `src/` or a `'--name':` key in TS/TSX
+      defines. A reference with a fallback and a name built in a template string are allowed.
+- [x] Step 2/3 of `scripts/lint/lint-web.ps1`; the CI step name, `README.md` and
+      `.claude/rules/this-repo.md` name it.
 
 ### TEST
+
+- [x] On `main` the check passes (139 custom properties defined).
+- [x] A probe stylesheet reading `var(--no-such-token)` fails it with exit 1, naming file and line.
+- [x] The full gate runs inside `ship-pr`.
 
 ### DEPLOY: feat/9-undefined-var-gate
 
@@ -44,7 +55,11 @@
 
 ##### Tier 0
 
-**Score:**
+The lint gate now fails on a `var(--x)` that no loaded stylesheet defines. Such a reference is valid
+CSS and silently resolves to nothing, so it passed eslint, the type-check and the build before; it is
+how stale `tokens/` names survived the move to the house style until a review found them by hand.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +68,9 @@
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management: an internal check on the brand book's own code.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +79,9 @@
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
 
 #### Pull Request
 
