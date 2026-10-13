@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**25 minor entries** <!-- pending-tally -->
+**26 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/37-thumbnail-preview · 20261013-134845Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The repo list in the showcase navigation now opens a recreated preview of `dkj-thumbnail-generator`. That repo has no interface, so the preview shows its two outputs, a measurement report and a contact sheet of candidates, built from brand-book components with neutral invented content.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Recreated preview for dkj-thumbnail-generator
+
+[PR #51](https://github.com/DKJ-Solutions/dkj-brandbook/pull/51)
+
+---
 
 ### DEPLOY: feat/36-recipes-preview · 20261013-134122Z
 
