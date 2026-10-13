@@ -1,8 +1,8 @@
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { SOURCES, type ComponentId } from '../components/sources'
 import { cx } from '../components/cx'
 import { usagesOf } from '../apps/registry'
-import { useToolbarOpen, type useWidth } from './theme'
+import type { useWidth } from './theme'
 import './showcase.css'
 
 /** A labelled group of demos for one component, with its origin printed underneath. */
@@ -66,41 +66,65 @@ export function Demo({ label, children, wide, surface = true }: { label: string;
 
 /**
  * The preview settings: the house theme picker (twelve swatches, the one-click reskin), a reset, and the width toggle.
- * A round sticky button opens and closes the bar; closed, only the button stays.
+ * A round sticky button opens them as a floating panel; Escape or a click outside closes it again.
  */
 export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> }) {
   const { width, setWidth } = controls
-  const { open, setOpen } = useToolbarOpen()
+  const [open, setOpen] = useState(false)
+  const rootRef = useRef<HTMLDivElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
   const pickerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     // The house API has no destroy, and picker() is idempotent per element (StrictMode runs this twice safely).
     window.DKJTheme.picker(pickerRef.current, { light: 'Light', dark: 'Dark' })
   }, [])
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false)
+        toggleRef.current?.focus()
+      }
+    }
+    const onPointer = (e: PointerEvent) => {
+      if (!rootRef.current?.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('pointerdown', onPointer)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('pointerdown', onPointer)
+    }
+  }, [open])
   return (
-    <div className={cx('bb-settings', !open && 'bb-settings--closed')}>
+    <div className="bb-settings" ref={rootRef}>
       <button
+        ref={toggleRef}
         type="button"
         className="bb-settings-toggle"
         aria-expanded={open}
-        aria-controls="bb-toolbar"
-        aria-label={open ? 'Hide preview settings' : 'Show preview settings'}
-        title={open ? 'Hide preview settings' : 'Show preview settings'}
+        aria-controls="bb-settings-panel"
+        aria-label={open ? 'Close preview settings' : 'Open preview settings'}
+        title={open ? 'Close preview settings' : 'Open preview settings'}
         onClick={() => setOpen(!open)}
       >
         {open ? <CloseIcon /> : <GearIcon />}
       </button>
       {/* hidden, not unmounted: the house script draws the picker into this element once. */}
-      <div className="bb-toolbar" id="bb-toolbar" role="group" aria-label="Preview settings" hidden={!open}>
-        <div className="bb-control">
-          <span>Theme</span>
-          <div className="bb-theme-row">
-            <div ref={pickerRef} />
-            <button type="button" className="btn" onClick={() => window.DKJTheme.reset()}>
-              Reset
-            </button>
-          </div>
+      <div className="bb-settings-panel" id="bb-settings-panel" role="group" aria-labelledby="bb-settings-title" hidden={!open}>
+        <p className="bb-settings-title" id="bb-settings-title">
+          Preview settings
+        </p>
+        <div className="bb-settings-group">
+          <span className="bb-settings-label">Theme</span>
+          <div ref={pickerRef} />
         </div>
-        <Toggle label="Width" value={width} onChange={setWidth} options={['fluid', 'phone']} />
+        <div className="bb-settings-group bb-settings-foot">
+          <Toggle label="Width" value={width} onChange={setWidth} options={['fluid', 'phone']} />
+          <button type="button" className="btn" onClick={() => window.DKJTheme.reset()}>
+            Reset theme
+          </button>
+        </div>
       </div>
     </div>
   )

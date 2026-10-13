@@ -32,18 +32,18 @@
 
 ### PLAN
 
-Let the preview settings bar be hidden: a round sticky button opens and closes it, and the choice is remembered on this device (#66).
+Let the preview settings be hidden (#66): a round sticky button opens them as a floating panel laid over the page, so nothing shifts down when it opens (owner's follow-up: "make it nicer", "an overlay is fine").
 
 ### CREATE
 
-- [x] `src/showcase/theme.ts`: `useToolbarOpen`, open by default, stored as `bb-toolbar` in localStorage
-- [x] `src/showcase/Showcase.tsx`: a sticky `.bb-settings` wrapper with a round toggle (gear when closed, close icon when open, `aria-expanded`); the bar is hidden rather than unmounted, because the house script draws the theme picker into it once
-- [x] `src/showcase/showcase.css`: the wrapper takes over the sticky bleed; the 44px round toggle on house tokens (surface, border, pill radius, `--shadow-pop`)
+- [x] `src/showcase/Showcase.tsx`: a zero-height sticky `.bb-settings` wrapper with a round toggle (gear when closed, close icon when open, `aria-expanded`) and a panel; Escape (focus back on the toggle) or a click outside closes it. The panel is hidden rather than unmounted, because the house script draws the theme picker into it once
+- [x] `src/showcase/showcase.css`: the 44px round toggle and the panel as a card on house tokens (surface, border, `--dkj-radius-lg`, `--shadow-pop`), a "Preview settings" title, Theme and Width/Reset groups divided by a rule; the full-width `.bb-toolbar` bar and `.bb-theme-row` are gone
+- [~] Remember open/closed per device: dropped, a popover that reopens on load would sit over the content
 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the toggle in the showcase (open, closed, scrolled, phone width) and approved it
+- [ ] An owner has looked at the settings panel in the showcase (closed, open, scrolled, phone width) and approved it
 
 ### DEPLOY: feat/66-toolbar-toggle
 
@@ -51,7 +51,7 @@ Let the preview settings bar be hidden: a round sticky button opens and closes i
 
 ##### Tier 0
 
-The brand book's preview settings bar can be hidden: a round sticky button at the top right opens and closes it, and the choice is remembered on this device. It is open by default, so a first visit looks as before.
+The brand book's preview settings (theme picker, reset, width) no longer take a full-width bar at the top of the page: a round sticky button at the top right opens them as a floating panel over the page, and Escape or a click outside closes it.
 
 **Score:** 2
 
