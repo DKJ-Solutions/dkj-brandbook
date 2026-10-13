@@ -2,6 +2,24 @@ import { RoundToggle } from '../../components/Button'
 import { Card, CardHead } from '../../components/Card'
 import { Badge, BadgeRow, Delta, HeroRow, HeroValue, Legend, LegendItem, Meter, MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
 import { Demo, Section } from '../Showcase'
+import { ColumnChart, type ColumnDatum } from '../../components/Chart'
+
+const eur = (v: number) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0, signDisplay: 'exceptZero' }).format(v)
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const RESULTS = [120, -80, 310, -420, 180, 260, 90, -150, 340, 410, -60, 220, 150, -310, 280, 190, -90, 130]
+/** Eighteen months from January 2025, a quarter guide before every January, April, July and October; the last one still running. */
+const MONTHS: ColumnDatum[] = RESULTS.map((value, i) => {
+  const m = i % 12
+  const year = 2025 + Math.floor(i / 12)
+  return {
+    key: `${year}-${m + 1}`,
+    label: `${MONTH_NAMES[m]} ${year}`,
+    short: m === 0 || i === 0 ? `${MONTH_NAMES[m]} ${year}` : MONTH_NAMES[m],
+    value,
+    detail: i === RESULTS.length - 1 ? 'up to 13 Jun' : undefined,
+    guide: m % 3 === 0 ? `Q${m / 3 + 1} ${year}` : undefined,
+  }
+})
 
 const info = (what: string) => <RoundToggle size="inline" label={`Explain: ${what}`} />
 
@@ -80,6 +98,25 @@ export function Metrics() {
               Result
             </LegendItem>
           </Legend>
+        </Demo>
+      </Section>
+
+      <Section id="ColumnChart" title="ColumnChart" intro="A result per period around a zero line: gain up in --gain, loss down in --loss, quarter guides, a legend above. It draws at its real width, so its labels stay 12px on a phone and thin out to what fits. Hover, or tab to it and use the arrow keys, for a value; the same figures are always a table away.">
+        <Demo label="Result per month, with quarter guides" wide>
+          <Legend>
+            <LegendItem color="gain">Gain</LegendItem>
+            <LegendItem color="loss">Loss</LegendItem>
+          </Legend>
+          <ColumnChart label="Result per month" data={MONTHS} format={eur} periodHeading="Month" />
+        </Demo>
+        <Demo label="At phone width (360px)">
+          <div style={{ maxWidth: '360px' }}>
+            <Legend>
+              <LegendItem color="gain">Gain</LegendItem>
+              <LegendItem color="loss">Loss</LegendItem>
+            </Legend>
+            <ColumnChart label="Result per month" data={MONTHS} format={eur} periodHeading="Month" />
+          </div>
         </Demo>
       </Section>
 

@@ -57,14 +57,14 @@ const MESOWISE_VIEWS: readonly View[] = [
   { id: 'why-dialog', name: 'Bill line explanation', kind: 'dialog', description: 'Small modal opened from the question-mark toggle on a bill row, showing a worked multiplication/answer breakdown.', components: ['Dialog', 'RoundToggle', 'AnswerBox', 'CalcTable'] },
 ]
 
-// ETF tracker: researched read-only from etf_tracker/dashboard.py. Chart views list only the non-chart components
-// they use; the SVG charts themselves are not mirrored yet.
+// ETF tracker: researched read-only from etf_tracker/dashboard.py. The column chart is mirrored (ColumnChart, #20); the
+// other chart views list only the non-chart components they use, as their bar and line charts are not mirrored yet.
 const ETF_VIEWS: readonly View[] = [
   { id: 'dashboard', name: 'Dashboard', kind: 'screen', description: 'One page: a header, then a column of cards (some in a two-up grid on a wide screen), a footer note, and a tooltip layer behind every explanation mark. A switch in the header toggles between a primary and a secondary set of cards.', components: ['PageHeader', 'Card', 'FooterNote', 'Tooltip'] },
   { id: 'page-header', name: 'Page header', kind: 'menu', description: 'The page title in a serif h1, a muted as-of date, and a joined two-option switch that changes which set of cards shows.', components: ['PageHeader', 'SegmentedChoice'] },
   { id: 'ledger-warning', name: 'Ledger warning', kind: 'card', description: 'A warm notice above the cards when the data does not add up: a bold lead line with a warning mark, then a list of the discrepancies.', components: ['Banner'] },
   { id: 'summary', name: 'Summary', kind: 'card', description: 'The key figures as a grid of tiles, then the total value as one large figure beside the result as a coloured up or down change; every label has an explanation mark.', components: ['Card', 'StatTile', 'HeroValue', 'Delta', 'RoundToggle'] },
-  { id: 'monthly-result', name: 'Monthly result', kind: 'card', description: 'A column chart of the result per month with a gain/loss legend and an explanation mark beside the title. The chart itself is not mirrored yet.', components: ['Card', 'Legend', 'Tooltip', 'RoundToggle'] },
+  { id: 'monthly-result', name: 'Monthly result', kind: 'card', description: 'A column chart of the result per month around a zero line, with quarter guides, a gain/loss legend and an explanation mark beside the title.', components: ['Card', 'Legend', 'ColumnChart', 'Tooltip', 'RoundToggle'] },
   { id: 'positions', name: 'Positions', kind: 'card', description: 'A sortable table of everything held, one row per holding with its code as a muted line under the name, signed figures in colour and a bold total row; it scrolls sideways on a phone.', components: ['Card', 'DataTable', 'Tooltip', 'RoundToggle'] },
   { id: 'insights', name: 'Insights', kind: 'card', description: 'Observations grouped by kind, each group with a status badge and a count in its heading and its items in a responsive grid.', components: ['Card', 'Badge', 'RoundToggle'] },
   { id: 'danger-zone', name: 'Danger zone', kind: 'card', description: 'A framed, high-visibility zone for the one part of the page that gives concrete advice: a warning title, an acknowledgement, an action tag per advice, a read-more per advice and a collapsible list of sources. Here it is the generic danger alert; the hazard stripes and the advice layout stay in the app.', components: ['Alert', 'TitleTag', 'ReadMoreToggle', 'Disclosure', 'RoundToggle'] },
