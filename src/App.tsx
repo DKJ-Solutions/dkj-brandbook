@@ -6,6 +6,7 @@ import { Actions } from './showcase/sections/Actions'
 import { Data } from './showcase/sections/Data'
 import { Forms } from './showcase/sections/Forms'
 import { Foundations } from './showcase/sections/Foundations'
+import { Metrics } from './showcase/sections/Metrics'
 import { Overlays } from './showcase/sections/Overlays'
 import { Surfaces } from './showcase/sections/Surfaces'
 
@@ -14,10 +15,11 @@ const NAV = [
   { group: 'Apps', items: ['apps'] },
   { group: 'Foundations', items: ['tokens'] },
   { group: 'Actions', items: ['Button', 'SaveButton', 'SegmentedChoice', 'IconButton', 'RoundToggle'] },
-  { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'GroupHeading', 'QuestionBlock', 'Amount'] },
+  { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Alert', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'ReadMoreToggle', 'GroupHeading', 'QuestionBlock', 'Amount', 'FooterNote'] },
+  { group: 'Metrics', items: ['StatTile', 'HeroValue', 'Delta', 'Legend', 'MiniCard', 'Meter', 'Badge'] },
   { group: 'Forms & rows', items: ['Field', 'Checkbox', 'Stepper', 'SearchCombobox', 'ValueBox', 'StatRow', 'FormulaRow'] },
-  { group: 'Overlays & navigation', items: ['Dialog', 'Drawer', 'TopBar', 'MenuRow', 'DownloadButton', 'StepHeader', 'InfoRow'] },
-  { group: 'Data', items: ['DefinitionList', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },
+  { group: 'Overlays & navigation', items: ['Dialog', 'Tooltip', 'Drawer', 'TopBar', 'PageHeader', 'MenuRow', 'DownloadButton', 'StepHeader', 'InfoRow'] },
+  { group: 'Data', items: ['DefinitionList', 'DataTable', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },
 ] as const
 
 const LABELS: Record<string, string> = { apps: 'Overview', tokens: 'Tokens' }
@@ -49,6 +51,7 @@ export default function App() {
           <Foundations />
           <Actions />
           <Surfaces />
+          <Metrics />
           <Forms />
           <Overlays />
           <Data />

@@ -127,6 +127,9 @@
 /* Theme picker row in the toolbar: the house script draws the swatches, the brand book only places them. */
 .bb-theme-row { display: flex; flex-wrap: wrap; gap: var(--spacing-3); align-items: center; }
 
+/* A tooltip drawn in place, to show how it looks open: the house .tooltip is fixed and hidden until a script shows it. */
+.tooltip.bb-tooltip-static { position: static; display: block; max-width: 320px; }
+
 /* "Used in" line under a component */
 .bb-used-in { margin: 0 0 var(--spacing-1-5); }
 .bb-used-in a { color: var(--primary); }
