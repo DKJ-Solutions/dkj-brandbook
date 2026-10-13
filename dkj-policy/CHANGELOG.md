@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**8 minor entries** <!-- pending-tally -->
+**9 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/12-btn-disabled · 20261013-091441Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house style now has a disabled state for `.btn` and `.btn--primary`: half opacity and a
+not-allowed cursor, the same as the brand book's own buttons and inputs. A disabled button no longer
+looks clickable, and an app no longer needs its own rule on the reserved `.btn` class (MesoWise can
+drop its `.btn:disabled` once it takes the new copy).
+
+**Score:** 2
+
+##### Tier 1
+
+Not relevant to management on its own: a consistency fix in the shared button style.
+
+**Score:** N/A
+
+##### Tier 2
+
+A disabled button in a DKJ-Solutions app now looks disabled once that app takes the new house style.
+
+**Score:** 1
+
+#### Pull Request
+
+House style: a disabled .btn looks disabled
+
+[PR #16](https://github.com/DKJ-Solutions/dkj-brandbook/pull/16)
+
+---
 
 ### DEPLOY: feat/9-undefined-var-gate · 20261013-091122Z
 
