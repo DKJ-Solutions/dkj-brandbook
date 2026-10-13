@@ -6,7 +6,7 @@ import { Stepper } from '../../components/Field'
 import { DownloadButton, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, StepHeader, TopBar } from '../../components/Navigation'
 import { RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
-import { HouseDialogsDemo, HouseMenuDemo, HouseTopBarDemo } from './HouseApp'
+import { HouseDialogsDemo, HouseMenuDemo, HouseSettingsDemo, HouseTopBarDemo } from './HouseApp'
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
@@ -141,6 +141,9 @@ export function Overlays() {
         </Demo>
         <Demo label="House .topbar with a .icon-btn--ghost" wide surface={false}>
           <HouseTopBarDemo />
+        </Demo>
+        <Demo label="House .topbar with the settings button (DKJTheme.settings, Dutch defaults)" wide surface={false}>
+          <HouseSettingsDemo />
         </Demo>
       </Section>
 

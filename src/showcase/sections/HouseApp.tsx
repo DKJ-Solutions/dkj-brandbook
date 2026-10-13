@@ -1,4 +1,4 @@
-import { useRef, type MouseEvent } from 'react'
+import { useEffect, useRef, type MouseEvent } from 'react'
 import { Icon } from '../../components/Icon'
 
 /**
@@ -159,6 +159,27 @@ export function HouseTopBarDemo() {
         </div>
       </header>
       <div style={{ height: '6rem' }} />
+    </div>
+  )
+}
+
+/** The house settings button inline in a .topbar, with the Dutch default texts. The panel lies over the room below it. */
+export function HouseSettingsDemo() {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    window.DKJTheme.settings(ref.current)
+  }, [])
+  return (
+    <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--dkj-radius-lg)', background: 'var(--page)' }}>
+      <header className="topbar">
+        <div className="topbar__inner">
+          <div className="topbar__brand">
+            <span className="topbar__name">Appname</span>
+          </div>
+          <div ref={ref} />
+        </div>
+      </header>
+      <div style={{ height: '22rem' }} />
     </div>
   )
 }

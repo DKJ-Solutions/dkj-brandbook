@@ -6,6 +6,11 @@ interface DKJThemeApi {
   set(id: string): void
   reset(): void
   picker(el: HTMLElement | null, labels?: { light?: string; dark?: string }): void
+  /** Draws the settings button into el and returns the panel's slot for the app's own controls. */
+  settings(
+    el: HTMLElement | null,
+    options?: { label?: string; title?: string; theme?: string; reset?: string; light?: string; dark?: string },
+  ): HTMLElement | null
   current(): string | null
 }
 interface Window {
