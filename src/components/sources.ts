@@ -68,6 +68,7 @@ export const SOURCES = {
   HeroValue: e(['summary hero'], ['.hero', '.hero .value', '.summary .hero']),
   Delta: e(['result line'], ['.delta', '.delta.up', '.delta.down', '.pos', '.neg']),
   Tooltip: e(['showTip', 'hideTip', 'openInfo', 'closeInfo', 'explainHtml'], ['.tip', '.tip b', '.tip.explain', '.tip.explain p']),
+  ColumnChart: e(['columnChart', 'ticks', 'wire', 'showTip'], ['.chart svg', '.chart .bar', '.chart svg text', '.q', '.tip']),
   Legend: e(['chart legends'], ['.legend', '.legend span::before', '.legend span.line::before', '.series']),
   MiniCard: e(['quarter cards'], ['.quarters', '.qcard', '.qcard.open', '.qcard .ql', '.qcard .qa', '.qnote']),
   Meter: e(['quarter cards (progress)'], ['.meter', '.meter span', '.st-gehaald', '.st-gemist', '.st-open', '.st-gedekt']),
