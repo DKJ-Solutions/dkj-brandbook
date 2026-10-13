@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**27 minor entries** <!-- pending-tally -->
+**28 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/39-life-hub-preview · 20261013-140042Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The repo list in the showcase navigation now opens a recreated preview of `life-hub`: the hub with key figures, coming-up dates, app cards and dossier cards with progress, and a dossier page with its document and subfolders, built from brand-book components with invented content. With it every DKJ-Solutions repo in the list has a preview.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Recreated preview for life-hub
+
+[PR #55](https://github.com/DKJ-Solutions/dkj-brandbook/pull/55)
+
+---
 
 ### DEPLOY: feat/38-djcylow-preview · 20261013-135559Z
 
