@@ -52,7 +52,10 @@ This branch is #50 and ships with `-Resolves 50`: a `Figure` component, a framed
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `Figure.tsx` and `figure.css` built per the design (required `alt` with a `src`, placeholder, `onError` fallback, ratio and fit as classes).
+- [x] Registered `Figure: []` in `sources.ts`; added the Figure showcase section in `Surfaces.tsx` (with its demos) and its nav entry in `App.tsx`.
+- [x] ThumbnailPreview: the four `MiniCard`s became placeholder 16/9 `Figure`s in an auto-fit grid, with the verdict `Chip` in the caption; `registry.ts` lists `Figure` instead of `MiniCard` for the contact sheet.
+- [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
 
