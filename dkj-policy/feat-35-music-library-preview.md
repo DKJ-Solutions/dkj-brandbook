@@ -32,9 +32,22 @@
 
 ### PLAN
 
+This branch is #35: a recreated preview for `DKJ-Solutions/dkj-music-library`, a local Next.js app with no deployment (so no live link). It has three screens, so the preview recreates all three with placeholder content and switches between them in the page header with a joined `SegmentedChoice`, the way `EtfPreview` and `PluginsPreview` do. Only existing brand-book components are used; nothing lifted into the brand book, so `sources.ts` is untouched. Every name, artist, track and id is invented.
+
+#### What the preview shows
+
+- **Playlist manager (first screen):** a kicker (`TitleTag`) and lede; a "Connection" card with a status line, a connect/disconnect button and a sync button; a "Worlds" card of `StatTile`s (emoji, label, count) with the total as its subtitle; a stats row (playlists, artists, with ID, in the DJ world, sync); a toolbar with a search field, type and genre selects, colour `Checkbox`es, joined `SegmentedChoice`s for density and BPM tier and for "ID filled", and a clear-filters button; a sortable playlist table (world, type, BPM tier, name, colour, mix id, genre, density, tracks, a done checkbox) with a "No playlists match these filters" empty row. Search, filters, sort and the done checkboxes work on the placeholder data.
+- **Data dashboard:** a duplicates table with the count as text ("3×"), ranked top-artist bars (`BarChart`, "N tracks"), and distributions: world tiles, a colour bar list with a `Legend`, and BPM tier tiles.
+- **Track register:** a stats row, a filter fieldset (search, BPM, genre, album and group selects, clear), a sortable table with an empty row, and a player strip under the table.
+- **Footer** says the app is local with no deployment; a banner says the content is invented.
+- **Gaps (no component, rendered as closely as possible):** multi-select colour chips with a colour dot (plain `Checkbox`es with the colour as text, and the colour as a text cell in the table); pill toggles that are really multi-select (a joined `SegmentedChoice` is single choice, so "All" is an option); inline selects and the inline editable cell per table row (plain text cells); the emoji navigation tiles of the Worlds section (`StatTile`s that do not navigate); a bar list with a per-bar colour dot (single-colour `BarChart`, rank in the label); the player strip (a `TintedPanel` with a note, no embed); the bulk-progress line of the sync (left out); a native `fieldset` for the track filters, since no component wraps one.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/previews/MusicLibraryPreview.tsx`: the playlist manager, the data dashboard and the track register, switched with a `SegmentedChoice` in the `PageHeader`, built from existing components only.
+- [x] `src/showcase/previews/RepoPreview.tsx`: `dkj-music-library` registered in `PREVIEWS`.
+- [x] `src/apps/registry.ts`: the `dkj-music-library` entry with its three screen views (`MUSIC_LIBRARY_VIEWS`).
+- [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
 
