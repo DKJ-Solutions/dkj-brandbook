@@ -96,6 +96,7 @@
 .bb-demo-stage--surface { background: var(--surface); border-style: solid; }
 .bb-row { display: flex; flex-wrap: wrap; gap: var(--spacing-2); align-items: center; }
 .bb-column { max-width: var(--dkj-column-w); }
+.bb-narrow { max-width: 320px; }
 
 .bb-source {
   margin-top: var(--spacing-3);

@@ -84,11 +84,37 @@ export function Help({ children, defaultOpen = false }: { children: ReactNode; d
   )
 }
 
-/** Disclosure -- a native <details> with a bold summary and a ▾ / ▴ marker after it. */
-export function Disclosure({ summary, children, defaultOpen }: { summary: string; children: ReactNode; defaultOpen?: boolean }) {
+/**
+ * Disclosure -- a native <details> with a bold summary and a ▾ / ▴ marker after it. `summary` is the title; a plain
+ * string renders exactly as before. `meta` (a date, a count) and `trailing` (a Chip or TitleTag) are optional slots on
+ * the right of the row: the component owns the wrapping and the marker stays last. Slots hold non-interactive content
+ * only -- no button, link or input inside a <summary>. Keep the slots in DOM order equal to visual order; at narrow widths only the decorative marker may move before meta and trailing. A structured row is a size container (`width: 100%`), so it fills its parent and does not shrink to fit.
+ */
+export function Disclosure({
+  summary,
+  meta,
+  trailing,
+  children,
+  defaultOpen,
+}: {
+  summary: ReactNode
+  meta?: ReactNode
+  trailing?: ReactNode
+  children: ReactNode
+  defaultOpen?: boolean
+}) {
+  const structured = meta != null || trailing != null
   return (
-    <details className="dkj-disclosure" open={defaultOpen}>
-      <summary>{summary}</summary>
+    <details className={cx('dkj-disclosure', structured && 'dkj-disclosure--structured')} open={defaultOpen}>
+      {structured ? (
+        <summary>
+          <span className="dkj-disclosure-title">{summary}</span>
+          {meta != null && <span className="dkj-disclosure-meta">{meta}</span>}
+          {trailing != null && <span className="dkj-disclosure-trailing">{trailing}</span>}
+        </summary>
+      ) : (
+        <summary>{summary}</summary>
+      )}
       {children}
     </details>
   )
