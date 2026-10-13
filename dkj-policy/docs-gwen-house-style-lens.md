@@ -36,9 +36,11 @@ Give Gwen's lens the house-style rules that left the dkj-claude-plugins lens wit
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Gwen's lens carries the house-style rules from her dkj-claude-plugins lens, adapted to this repo, plus one for collected components
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green
 
 ### DEPLOY: docs/gwen-house-style-lens
 
@@ -46,7 +48,11 @@ Give Gwen's lens the house-style rules that left the dkj-claude-plugins lens wit
 
 ##### Tier 0
 
-**Score:**
+Gwen's lens here carries the house-style rules: the values are the owner's, a house-style change is a
+visible result, the scales come from Figma, the README's tables move with the stylesheet, and a collected
+component builds on the house tokens.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -55,7 +61,9 @@ Give Gwen's lens the house-style rules that left the dkj-claude-plugins lens wit
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management: a working rule for one specialist.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -64,7 +72,9 @@ Give Gwen's lens the house-style rules that left the dkj-claude-plugins lens wit
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber.
+
+**Score:** N/A
 
 #### Pull Request
 
