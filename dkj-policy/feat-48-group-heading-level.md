@@ -49,7 +49,7 @@ Visible-result rule: the look must not change at any level, and the owner checks
 
 - [x] Victor reviewed the diff: nothing blocking. The default renders the same `h3` as before; every house `h2` element rule is overridden by `.dkj-group-heading`, and `font-family: inherit` gives the body face an `h3` already had. The previews' outlines run in order with no skipped level (the thumbnail report sections moved to level 2, as siblings of the series summary).
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the GroupHeading section (level 2 and 3 side by side) and the previews (`npm run dev`) and approved that nothing changed visually.
+- [x] An owner has looked at the GroupHeading section (level 2 and 3 side by side) and the previews (`npm run dev`) and approved that nothing changed visually (October 13, 2026).
 
 ### DEPLOY: feat/48-group-heading-level
 
