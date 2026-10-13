@@ -42,7 +42,7 @@ Add a DKJ-Solutions group at the bottom of the showcase's left navigation, listi
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the new DKJ-Solutions group in the showcase navigation and approved it
+- [x] An owner has looked at the new DKJ-Solutions group in the showcase navigation and approved it
 
 ### DEPLOY: feat/nav-repo-list
 

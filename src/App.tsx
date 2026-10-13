@@ -24,7 +24,7 @@ const NAV = [
 
 const LABELS: Record<string, string> = { apps: 'Overview', tokens: 'Tokens' }
 
-/** Every repo in the DKJ-Solutions GitHub organisation; each links to the repo itself. */
+/** The repos in the DKJ-Solutions GitHub organisation as of October 13, 2026; each links to the repo itself. */
 const REPOS = [
   'dkj-brandbook',
   'dkj-claude-plugins',
@@ -41,7 +41,7 @@ export default function App() {
   const controls = useWidth()
   return (
     <div className="bb-shell">
-      <nav className="bb-nav" aria-label="Components">
+      <nav className="bb-nav" aria-label="Brand book">
         <p className="bb-brand">DKJ Brand Book</p>
         <p className="bb-brand-sub">One brand, several themes</p>
         {NAV.map((g) => (
