@@ -84,6 +84,13 @@ const PLUGINS_VIEWS: readonly View[] = [
   { id: 'release-notes', name: 'Release notes', kind: 'screen', description: 'A generated page: a masthead with the product name, a heading and a muted subtitle, then a bordered panel with one closed disclosure per release (version, optional chip, date) whose body is the rendered release note, and a snapshot note at the foot.', components: ['PageHeader', 'TitleTag', 'Message', 'Card', 'Disclosure', 'GroupHeading', 'FooterNote'] },
 ]
 
+// DKJ Music library: researched read-only from the app's repo; a local app, no deployment. Three screens.
+const MUSIC_LIBRARY_VIEWS: readonly View[] = [
+  { id: 'playlist-manager', name: 'Playlist manager', kind: 'screen', description: 'A masthead, a connection section with status, connect and sync buttons, tiles per world with a total, a stats row, a filter toolbar (search, colour choices, density and BPM pill toggles, type and genre selects, an "ID filled" switch, clear filters) and a sortable playlist table with a done checkbox per row.', components: ['PageHeader', 'SegmentedChoice', 'TitleTag', 'Message', 'Card', 'Button', 'GroupHeading', 'StatTile', 'Field', 'Checkbox', 'DataTable'] },
+  { id: 'data-dashboard', name: 'Data dashboard', kind: 'screen', description: 'A table of duplicate tracks with a count, ranked top-artist bars ("N tracks"), and distributions: tiles per world, a colour bar list with a legend, and tiles per BPM tier.', components: ['Card', 'GroupHeading', 'DataTable', 'BarChart', 'Legend', 'StatTile'] },
+  { id: 'track-register', name: 'Track register', kind: 'screen', description: 'A stats row, a filter fieldset (search, BPM, genre, album and group selects, clear), a sortable track table with an empty row, and a player strip under the table.', components: ['StatTile', 'Card', 'Field', 'Button', 'DataTable', 'TintedPanel', 'Message', 'FooterNote'] },
+]
+
 export const APPS: readonly App[] = [
   {
     id: 'mesowise',
@@ -105,13 +112,22 @@ export const APPS: readonly App[] = [
     views: ETF_VIEWS,
   },
   {
-    id: 'dkj-claude-plugins',
+    id: 'claude-plugins',
     name: 'DKJ Claude plugins',
     repo: 'DKJ-Solutions/dkj-claude-plugins',
     description:
       'The shared Claude Code plugins behind the DKJ-Solutions way of working: policy, skills and specialists. Its only screens are two generated pages, a release-notes page and an issue dashboard, each served by a Cloudflare Worker.',
     stack: 'PowerShell scripts + Cloudflare Workers (vanilla JS, inline CSS); no framework',
     views: PLUGINS_VIEWS,
+  },
+  {
+    id: 'music-library',
+    name: 'DKJ Music library',
+    repo: 'DKJ-Solutions/dkj-music-library',
+    description:
+      'A local app for managing a music library: sync playlists from a music service, sort them into worlds, filter and annotate them, and look at the library through a data dashboard and a track register.',
+    stack: 'Next.js (React) + TypeScript; runs locally, no deployment',
+    views: MUSIC_LIBRARY_VIEWS,
   },
 ]
 
