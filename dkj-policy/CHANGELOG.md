@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**29 minor entries** <!-- pending-tally -->
+**30 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/56-remove-djcylow · 20261013-143601Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+DJ Cylow has its own brand and is not part of the DKJ brand, so the brand book no longer lists or previews `djcylow-react`, and the repo's rules say so. Its site repo now lives outside DKJ-Solutions.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Remove djcylow-react from the brand book: DJ Cylow has its own brand
+
+[PR #58](https://github.com/DKJ-Solutions/dkj-brandbook/pull/58)
+
+---
 
 ### DEPLOY: feat/43-prose · 20261013-143104Z
 
