@@ -65,7 +65,7 @@ in the portal from reaching the anchor. `ReadMoreToggle` drops `.dkj-readmore`, 
 ### TEST
 
 - [x] Eslint and `tsc -b` pass; the full gate runs below.
-- [ ] The gates (`open-pr -GatesOnly`) are green.
+- [x] The gates (`open-pr -GatesOnly`) are green.
 - [ ] The owners have tabbed through the new demo in the Button section and hovered a Tooltip onto its
       text (`npm run dev`), in a light and a dark theme, and approved it.
 
