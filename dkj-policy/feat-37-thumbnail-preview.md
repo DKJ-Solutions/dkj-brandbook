@@ -52,7 +52,7 @@ This branch is #37: a recreated preview for `DKJ-Solutions/dkj-thumbnail-generat
 
 - [x] Rebecca researched the outputs read-only in `dkj-thumbnail-generator` (a private repo with no UI); Victor reviewed the diff against it for confidentiality: no measured value, id, cost, prompt or service name copied. Applied: neutral headings and section names instead of the source's, invented offsets away from the real tolerance, four candidates instead of the real three, no dependency names in the stack line. Filed the image-frame gap as #50.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the dkj-thumbnail-generator preview (`npm run dev`, the repo list in the navigation) and approved it.
+- [x] An owner has looked at the dkj-thumbnail-generator preview (`npm run dev`, the repo list in the navigation) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/37-thumbnail-preview
 
