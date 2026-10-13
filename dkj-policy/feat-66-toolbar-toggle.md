@@ -43,7 +43,7 @@ Let the preview settings be hidden (#66): a round sticky button opens them as a 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the settings panel in the showcase (closed, open, scrolled, phone width) and approved it
+- [x] An owner has looked at the settings panel in the showcase (closed, open, scrolled, phone width) and approved it
 
 ### DEPLOY: feat/66-toolbar-toggle
 
