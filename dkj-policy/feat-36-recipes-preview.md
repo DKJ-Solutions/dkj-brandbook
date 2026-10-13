@@ -32,9 +32,21 @@
 
 ### PLAN
 
+This branch is #36: a recreated preview for `DKJ-Solutions/dkj-recipes`, an Astro static PWA served at https://dkj-solutions.github.io/dkj-recipes/. It has two screens, so the preview recreates both with placeholder content and switches between them in the page header with a joined `SegmentedChoice`, the way `MusicLibraryPreview` and `PluginsPreview` do. Only existing brand-book components are used; nothing lifted into the brand book, so `sources.ts` is untouched. Every recipe, amount and step is invented.
+
+#### What the preview shows
+
+- **Recipe list (first screen):** a header with the title and a shopping-list button with a count that follows the recipes added on the recipe page; a search field; the tags as multi-select checkboxes (a recipe must carry all chosen tags); one card per recipe with a bold title, a muted line of time, ingredient count and tags, the tags as `TitleTag`s and an "Open recipe" button; "No recipe found." when nothing matches. Search and the tag filter work on the placeholder data.
+- **Recipe page:** a back button, the title as the page heading, a muted meta line, an add-to-shopping-list toggle, a portions `Stepper` that scales every amount, "Ingredients" with a reset button and the ingredients under department headings (`GroupHeading`), a `Checkbox` per ingredient that is struck through when checked, and a numbered "Method" with a muted "Source:" line. The stepper, the checkboxes, reset and the toggle work.
+- **Footer** says every recipe is invented and the real app is an installable static site.
+- **Gaps (no component, rendered as closely as possible):** the scrolling row of multi-select tag chips (plain `Checkbox`es; FilterChips: #46); the method body, a numbered list (a plain `ol`; Prose: #43); the tappable list-row card (a `Card` with an "Open recipe" button instead of one tappable card); the back link and the shopping-list link (outline `Button`s); the strike-through of a checked ingredient (an inline `text-decoration` on a wrapper, since the checkbox has no such state); the update snackbar of the PWA (left out).
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/previews/RecipesPreview.tsx`: the recipe list and the recipe page, switched with a `SegmentedChoice` in the `PageHeader`, built from existing components only.
+- [x] `src/showcase/previews/RepoPreview.tsx`: `dkj-recipes` registered in `PREVIEWS`.
+- [x] `src/apps/registry.ts`: the `recipes` entry with its live URL and two screen views (`RECIPES_VIEWS`).
+- [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
 
