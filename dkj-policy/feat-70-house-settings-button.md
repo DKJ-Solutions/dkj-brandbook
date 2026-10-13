@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Lift the showcase's round settings button (#66, #68) into the house style, so every DKJ-Solutions app adopts it in one call (#70). It reaches the apps only after a `house-style-v<N>` release and the skill repoint, both on the owner's request.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/house-theme.js`: `DKJTheme.settings(el, options)` draws a round toggle and a panel with the picker and a reset, returns the `.theme-settings__extra` slot, and owns open/close (toggle, Escape with focus back, click outside, focus leaving; never a click inside). Idempotent per element; texts Dutch by default
+- [x] `house-style/house-style.css`: `.theme-settings` (inline) and `--floating` (fixed top right), with `__toggle`, `__open`/`__close` icons, `__panel`, `__title`, `__group`, `__label`, `__foot`, `__extra`, `__reset`, on house tokens only
+- [x] `house-style/README.md`: how to use it, and the new reserved names
+- [x] Showcase: the preview settings use the house component, the width toggle portaled into its slot; the brand book's own toggle and panel styles are gone. `src/vite-env.d.ts` types `settings()`
+- [x] Showcase TopBar section: a demo of the house `.topbar` with the settings button inline, with the Dutch defaults
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has looked at the preview settings (unchanged look and behaviour) and the inline demo in the TopBar section, and approved them
 
 ### DEPLOY: feat/70-house-settings-button
 
@@ -44,7 +53,9 @@
 
 ##### Tier 0
 
-**Score:**
+The house style has a settings button: `DKJTheme.settings(el)` draws a round toggle that opens a panel with the theme picker, a reset and a slot for the app's own settings, inline (e.g. in a `.topbar`) or floating top right with `.theme-settings--floating`. The script owns opening and closing. The brand book's preview settings now use it, and the TopBar section shows it inline.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+Internal design system; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change until an app adopts it after a house-style release.
+
+**Score:** N/A
 
 #### Pull Request
 

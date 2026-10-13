@@ -91,6 +91,16 @@ Load it in `<head>` so nothing flashes, and call `DKJTheme.picker(element)` wher
 draws the twelve swatches in two rows, light and dark. `DKJTheme.set(id)`, `DKJTheme.reset()` and
 `DKJTheme.current()` cover everything else. Copy it unchanged, like the stylesheet.
 
+**Or give the app the settings button, and the setting is done** ([#70](https://github.com/DKJ-Solutions/dkj-brandbook/issues/70)).
+`DKJTheme.settings(element)` draws a round toggle that opens a panel with the picker and a reset, and
+returns the panel's slot (`.theme-settings__extra`), where the app puts settings of its own: the brand book
+puts its width toggle there. The script owns the behaviour, so an app writes none of it: the toggle opens
+and closes the panel, Escape closes it and puts focus back on the toggle, and a click outside it or focus
+leaving it closes it. A click inside never does. The element is inline by default, for a place such as a
+`.topbar`. Give it `theme-settings--floating` and it is fixed at the top right of the screen instead.
+The panel lies over the page, so nothing moves when it opens. Every text is optional and Dutch by default:
+`DKJTheme.settings(el, { label: 'Settings', title: 'Settings', theme: 'Theme', reset: 'Reset theme', light: 'Light', dark: 'Dark' })`.
+
 **The theme names and the picker's row labels are Dutch on purpose**: DKJ-Solutions apps are
 Dutch-language, and the names are the ones their users read. An app in another language passes its own
 row labels, `DKJTheme.picker(el, { light: 'Light', dark: 'Dark' })`. A page that ships
@@ -124,8 +134,9 @@ sortable headers via `.sort`/`.arrow` on `aria-sort`), `.seg` (a segmented switc
 `--highlight`), `.item-grid`/`.item`, `.notice`, `.note`, `.meta`, `.muted`, `.sub`, `.num` (tabular
 numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with `--primary`, and a `:disabled` state for both), `.info-button`, `.tooltip`
 (with `--explain`, and `--open` for one anchored to a trigger), `.more` (a disclosure), `.moretoggle` (a full-width read-more button), `.chart` (the SVG chart scope),
-`.theme-picker` (with `__row`, `__label`, `__swatches`) and `.theme-swatch` (with `--light`, `--dark`), which
-`house-theme.js` draws, and `.footer-note`. The app components
+`.theme-picker` (with `__row`, `__label`, `__swatches`), `.theme-swatch` (with `--light`, `--dark`) and
+`.theme-settings` (with `--floating`, `__toggle`, `__open`, `__close`, `__panel`, `__title`, `__group`,
+`__label`, `__picker`, `__foot`, `__extra`, `__reset`), which `house-theme.js` draws, and `.footer-note`. The app components
 ([below](#app-components-from-mesowise)) reserve these too: `.container--narrow`/`main.narrow`, `.field`
 (with `__error`), `.btn--touch`, `.btn--block`, `.icon-btn` (with `--ghost`), `.action-row`, `.dialog`
 (with `__body`, `__head` (with `--two`, `--back`), `__title`, `__sub`, `__close` (with `--save`,
