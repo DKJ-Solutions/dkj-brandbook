@@ -51,7 +51,11 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/components/Prose.tsx` (`Prose`: `size`, `measure`, `className`) and `src/components/prose.css` (`.dkj-prose`, brand-layer names only), with `--dkj-font-mono` and `--dkj-lh-prose` added to `src/brand-layer.css`.
+- [x] Showcase: a `Prose` section in the Surfaces & content group (every element at `base`, the same sample at `sm` in a card, a `measure="none"` wide table) and its nav entry in `src/App.tsx`.
+- [x] The five previews switch to `Prose`: `PluginsPreview` (release-note lists), `ThumbnailPreview` (introduction and per-round notes), `LifeHubPreview` (dossier document with native read-only task items), `RecipesPreview` (the method), `DjCylowPreview` (the mix description).
+- [x] `src/components/sources.ts` (`Prose`) and `src/apps/registry.ts` (`release-notes`, `recipe-page`, `yardstick-report`, `mix-detail` and `dossier-detail` list `Prose`).
+- [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
 
