@@ -32,11 +32,16 @@
 
 ### PLAN
 
+Add a DKJ-Solutions group at the bottom of the showcase's left navigation, listing every repo in the organisation (from `gh repo list DKJ-Solutions`), each linking to its GitHub page.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/App.tsx`: a `REPOS` list and a DKJ-Solutions nav group rendered after the component groups
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at the new DKJ-Solutions group in the showcase navigation and approved it
 
 ### DEPLOY: feat/nav-repo-list
 
@@ -44,7 +49,9 @@
 
 ##### Tier 0
 
-**Score:**
+The showcase's left navigation gets a DKJ-Solutions group listing every repo in the organisation, each linking to its GitHub page, so the repos the brand covers are one click away from the brand book.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +60,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A -- an internal navigation aid for the brand book's own readers.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +71,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A -- no subscriber-facing service is involved.
+
+**Score:** N/A
 
 #### Pull Request
 

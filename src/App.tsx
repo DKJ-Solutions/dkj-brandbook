@@ -24,6 +24,19 @@ const NAV = [
 
 const LABELS: Record<string, string> = { apps: 'Overview', tokens: 'Tokens' }
 
+/** Every repo in the DKJ-Solutions GitHub organisation; each links to the repo itself. */
+const REPOS = [
+  'dkj-brandbook',
+  'dkj-claude-plugins',
+  'dkj-etf-tracker',
+  'dkj-maplestory-classic-mesowise',
+  'dkj-music-library',
+  'dkj-recipes',
+  'dkj-thumbnail-generator',
+  'djcylow-react',
+  'life-hub',
+] as const
+
 export default function App() {
   const controls = useWidth()
   return (
@@ -43,6 +56,14 @@ export default function App() {
             </ul>
           </div>
         ))}
+        <p className="bb-nav-group">DKJ-Solutions</p>
+        <ul>
+          {REPOS.map((r) => (
+            <li key={r}>
+              <a href={`https://github.com/DKJ-Solutions/${r}`}>{r}</a>
+            </li>
+          ))}
+        </ul>
       </nav>
       <main className="bb-main">
         <Toolbar controls={controls} />
