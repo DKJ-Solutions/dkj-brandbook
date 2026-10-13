@@ -44,6 +44,6 @@ tokens so it follows every theme; a house token or class is never redefined ther
 ## Working on it
 
 Changes go via a `feat/`, `fix/` or `docs/` branch and a pull request. The gate
-(`scripts/lint/lint-web.ps1`: eslint + type-check + build) runs locally before a PR and in CI as the
-`ci` check. The workflow comes from the `dkj-policy` and `dkj-subagents-alpha` plugins of
+(`scripts/lint/lint-web.ps1`: eslint + a check that every `var(--x)` is defined + type-check + build)
+runs locally before a PR and in CI as the `ci` check. The workflow comes from the `dkj-policy` and `dkj-subagents-alpha` plugins of
 [DKJ-Solutions/dkj-claude-plugins](https://github.com/DKJ-Solutions/dkj-claude-plugins).

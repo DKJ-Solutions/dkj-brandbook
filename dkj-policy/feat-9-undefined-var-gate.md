@@ -45,8 +45,10 @@ through eslint, `tsc -b` and the build, because it is valid CSS. Add a gate step
 
 ### TEST
 
-- [x] On `main` the check passes (139 custom properties defined).
-- [x] A probe stylesheet reading `var(--no-such-token)` fails it with exit 1, naming file and line.
+- [x] On `main` the check passes (138 custom properties defined, block comments blanked first).
+- [x] A probe stylesheet reading `var(--no-such-token)` across a line break fails it with exit 1,
+      naming file and line; a commented-out `var(--commented-out)` in the same probe is ignored.
+- [x] Victor reviewed: no blockers; the line-break and comment edges he named are fixed here.
 - [x] The full gate runs inside `ship-pr`.
 
 ### DEPLOY: feat/9-undefined-var-gate
