@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**16 minor entries** <!-- pending-tally -->
+**17 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/28-one-owner-look · 20261013-112834Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A session now asks the one owner in the conversation to look at a visible result, and writes "An owner has looked" in the branch document, instead of asking for both owners.
+
+**Score:** 1
+
+##### Tier 1
+
+Not relevant to management: how a session phrases a hand-over.
+
+**Score:** N/A
+
+##### Tier 2
+
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+Chris's lens: one owner's look approves a visible result, not both
+
+[PR #30](https://github.com/DKJ-Solutions/dkj-brandbook/pull/30)
+
+---
 
 ### DEPLOY: feat/20-column-chart · 20261013-112630Z
 
