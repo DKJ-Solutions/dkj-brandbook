@@ -10,7 +10,7 @@ const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do e
 
 function Actions2() {
   return (
-    <div style={{ padding: '0 var(--space-4) var(--space-4)' }}>
+    <div style={{ padding: '0 var(--spacing-4) var(--spacing-4)' }}>
       <CardActions>
         <IconButton variant="filled" icon="eye" label="View A">View A</IconButton>
         <IconButton variant="filled" icon="eye" label="View B">View B</IconButton>
@@ -58,7 +58,7 @@ export function Surfaces() {
         <Demo label="Invalid" surface={false}>
           <Card flush invalid>
             <CardHead title="Card title" icon="target" />
-            <p className="dkj-msg dkj-msg--error" style={{ padding: '0 var(--space-4) var(--space-3)' }}>
+            <p className="dkj-msg dkj-msg--error" style={{ padding: '0 var(--spacing-4) var(--spacing-3)' }}>
               This value is out of range.
             </p>
           </Card>

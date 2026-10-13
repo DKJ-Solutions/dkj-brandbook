@@ -34,14 +34,14 @@ export function Icon({ name, size = 20, ...rest }: IconProps) {
     return (
       <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false" {...rest}>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
-        <circle cx="12" cy="7.6" r="1.4" style={{ fill: 'var(--info-glyph, var(--color-surface))' }} />
+        <circle cx="12" cy="7.6" r="1.4" style={{ fill: 'var(--info-glyph, var(--dkj-surface))' }} />
         <path
           d="M10.4 10.8H12.4V16.6M10.2 16.6H14"
           fill="none"
           strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{ stroke: 'var(--info-glyph, var(--color-surface))' }}
+          style={{ stroke: 'var(--info-glyph, var(--dkj-surface))' }}
         />
       </svg>
     )

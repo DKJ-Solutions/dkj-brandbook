@@ -1,12 +1,15 @@
-import type { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import { SOURCES, type ComponentId } from '../components/sources'
 import { cx } from '../components/cx'
-import { THEMES, type ThemeId, type useThemeControls } from './theme'
+import { usagesOf } from '../apps/registry'
+import type { useWidth } from './theme'
 import './showcase.css'
 
 /** A labelled group of demos for one component, with its origin printed underneath. */
-export function Section({ id, title, intro, children }: { id: ComponentId | 'tokens'; title: string; intro?: string; children: ReactNode }) {
-  const sources = id === 'tokens' ? null : SOURCES[id]
+export function Section({ id, title, intro, children }: { id: ComponentId | 'tokens' | 'apps'; title: string; intro?: string; children: ReactNode }) {
+  const isComponent = id !== 'tokens' && id !== 'apps'
+  const sources = isComponent ? SOURCES[id] : null
+  const usages = isComponent ? usagesOf(id) : []
   return (
     <section className="bb-section" id={id} aria-labelledby={`${id}-title`}>
       <h2 className="bb-section-title" id={`${id}-title`}>
@@ -16,6 +19,17 @@ export function Section({ id, title, intro, children }: { id: ComponentId | 'tok
       <div className="bb-demos">{children}</div>
       {sources && (
         <footer className="bb-source">
+          {usages.length > 0 && (
+            <p className="bb-used-in">
+              <strong>Used in:</strong>{' '}
+              {usages.map(({ app, view }, i) => (
+                <span key={`${app.id}/${view.id}`}>
+                  {i > 0 && ', '}
+                  <a href={`#app-${app.id}`}>{app.name}</a> &rsaquo; {view.name}
+                </span>
+              ))}
+            </p>
+          )}
           {sources.map((s) => (
             <dl key={s.repo}>
               <div>
@@ -50,21 +64,25 @@ export function Demo({ label, children, wide, surface = true }: { label: string;
   )
 }
 
-export function Toolbar({ controls }: { controls: ReturnType<typeof useThemeControls> }) {
-  const { theme, setTheme, mode, setMode, width, setWidth } = controls
+/** The preview settings: the house theme picker (twelve swatches, the one-click reskin), a reset, and the width toggle. */
+export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> }) {
+  const { width, setWidth } = controls
+  const pickerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    // The house API has no destroy, and picker() is idempotent per element (StrictMode runs this twice safely).
+    window.DKJTheme.picker(pickerRef.current, { light: 'Light', dark: 'Dark' })
+  }, [])
   return (
     <div className="bb-toolbar" role="group" aria-label="Preview settings">
-      <label className="bb-control">
+      <div className="bb-control">
         <span>Theme</span>
-        <select value={theme} onChange={(e) => setTheme(e.target.value as ThemeId)}>
-          {THEMES.map((t) => (
-            <option key={t.id} value={t.id}>
-              {t.label}
-            </option>
-          ))}
-        </select>
-      </label>
-      <Toggle label="Mode" value={mode} onChange={setMode} options={['auto', 'light', 'dark']} />
+        <div className="bb-theme-row">
+          <div ref={pickerRef} />
+          <button type="button" className="btn" onClick={() => window.DKJTheme.reset()}>
+            Reset
+          </button>
+        </div>
+      </div>
       <Toggle label="Width" value={width} onChange={setWidth} options={['fluid', 'phone']} />
     </div>
   )

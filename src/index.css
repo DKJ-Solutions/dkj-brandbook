@@ -1,17 +1,9 @@
-/* Global base for anything built on the brand tokens: the page uses the theme's surface and text colours. */
+/* Global base. The page's background, text colour and font come from the house style (its `body` rule),
+   which main.tsx loads first; nothing here restates them. */
 *, *::before, *::after { box-sizing: border-box; }
 
 /* Double-tap never zooms; pinch zoom keeps working. */
 html { touch-action: manipulation; }
-
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-size: var(--fs-base);
-  line-height: var(--lh-normal);
-  background: var(--color-bg);
-  color: var(--color-text);
-}
 
 .sr-only {
   position: absolute;
