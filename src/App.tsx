@@ -41,25 +41,30 @@ const REPOS = [
 
 /** The repo whose preview the hash asks for, or null for the brand book itself. */
 function usePreviewRepo() {
+  // Repo names are plain ASCII, so the raw hash is compared as-is: no decode that a malformed hash could make throw.
   const read = () => {
     const m = /^#preview\/(.+)$/.exec(window.location.hash)
-    const repo = m ? decodeURIComponent(m[1]) : null
-    return repo && (REPOS as readonly string[]).includes(repo) ? repo : null
+    return m && (REPOS as readonly string[]).includes(m[1]) ? m[1] : null
   }
   const [repo, setRepo] = useState(read)
   useEffect(() => {
+    let frame = 0
     // Leaving a preview for a section: that section only exists after the next render, so scroll to it then.
     const onHash = () => {
       const next = read()
       setRepo(next)
-      requestAnimationFrame(() => {
-        const target = next ? null : document.getElementById(decodeURIComponent(window.location.hash.slice(1)))
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const target = next ? null : document.getElementById(window.location.hash.slice(1))
         if (target) target.scrollIntoView()
         else window.scrollTo(0, 0)
       })
     }
     window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
+    return () => {
+      window.removeEventListener('hashchange', onHash)
+      cancelAnimationFrame(frame)
+    }
   }, [])
   return repo
 }
