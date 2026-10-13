@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, SegmentedChoice } from '../../components/Button'
+import { Button, FilterChips, SegmentedChoice } from '../../components/Button'
 import { Card, CardBody } from '../../components/Card'
 import { FooterNote, GroupHeading } from '../../components/Content'
 import { Prose } from '../../components/Prose'
@@ -99,8 +99,7 @@ function scaled(i: Ingredient, base: number, portions: number) {
 
 function RecipeList({ list, onOpen }: { list: readonly string[]; onOpen: (id: string) => void }) {
   const [search, setSearch] = useState('')
-  const [tags, setTags] = useState<readonly string[]>([])
-  const toggleTag = (t: string) => setTags((ts) => (ts.includes(t) ? ts.filter((x) => x !== t) : [...ts, t]))
+  const [tags, setTags] = useState<string[]>([])
   const q = search.trim().toLowerCase()
   const visible = RECIPES.filter((r) => [r.title, ...r.tags, ...r.ingredients.map((i) => i.name)].some((x) => x.toLowerCase().includes(q)) && tags.every((t) => r.tags.includes(t)))
   return (
@@ -108,9 +107,7 @@ function RecipeList({ list, onOpen }: { list: readonly string[]; onOpen: (id: st
       <TextField label="Search" type="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search recipes" />
       <div>
         <GroupHeading>Tags</GroupHeading>
-        {ALL_TAGS.map((t) => (
-          <Checkbox key={t} label={t} checked={tags.includes(t)} onChange={() => toggleTag(t)} />
-        ))}
+        <FilterChips label="Tags" options={ALL_TAGS.map((t) => ({ value: t, label: t }))} value={tags} onChange={setTags} />
       </div>
       {visible.length === 0 && <Message>No recipe found.</Message>}
       {visible.map((r) => (

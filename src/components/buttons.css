@@ -256,3 +256,59 @@
 .dkj-choices--joined .dkj-choice:hover:not([aria-pressed='true']) { background: var(--primary-soft); color: var(--ink); }
 /* The ring sits above the neighbouring button, which would otherwise paint over half of it. */
 .dkj-choices--joined .dkj-choice:focus-visible { z-index: 1; }
+
+/* ---------- FilterChips ---------- */
+/* Wraps instead of scrolling: a scrolling row hides chips and their pressed state off-screen at 360px. */
+.dkj-filter-chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-2); }
+.dkj-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1-5);
+  min-height: var(--dkj-tap);
+  padding: 0 var(--spacing-3);
+  border: 1px solid var(--border);
+  border-radius: var(--dkj-radius-pill);
+  background: var(--dkj-surface);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.dkj-filter-chip:hover:not([aria-pressed='true']) { border-color: var(--ink-2); color: var(--ink); }
+.dkj-filter-chip[aria-pressed='true'] {
+  background: var(--dkj-accent);
+  border-color: var(--dkj-accent);
+  color: var(--dkj-on-accent);
+  font-weight: var(--dkj-fw-semibold);
+}
+.dkj-filter-chip__check { flex: none; }
+/* The dot colour arrives as --c (a free CSS colour set on the element); the ring keeps a pale or dark colour visible on the surface. */
+.dkj-filter-chip__dot {
+  flex: none;
+  width: var(--spacing-3);
+  height: var(--spacing-3);
+  border: 1px solid var(--ink-2);
+  border-radius: 50%;
+  background: var(--c);
+}
+.dkj-filter-chip[aria-pressed='true'] .dkj-filter-chip__dot { border-color: var(--dkj-on-accent); }
+.dkj-filter-chips__clear {
+  min-height: var(--dkj-tap);
+  padding: 0 var(--spacing-2);
+  border: 0;
+  background: none;
+  color: var(--dkj-accent);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--dkj-fw-semibold);
+  text-decoration: underline;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.dkj-filter-chip:focus-visible, .dkj-filter-chips__clear:focus-visible {
+  outline: var(--dkj-focus-w) solid var(--dkj-accent);
+  outline-offset: var(--dkj-focus-offset);
+}

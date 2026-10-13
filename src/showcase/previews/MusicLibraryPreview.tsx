@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, SegmentedChoice } from '../../components/Button'
+import { Button, FilterChips, SegmentedChoice } from '../../components/Button'
 import { Card, CardBody, CardHead, TintedPanel } from '../../components/Card'
 import { BarChart, type BarDatum } from '../../components/Chart'
 import { FooterNote, GroupHeading } from '../../components/Content'
@@ -12,10 +12,14 @@ import { DataTable, type DataSort } from '../../components/Table'
 type View = 'playlists' | 'dashboard' | 'tracks'
 
 const ALL = 'All'
-const COLOURS = ['Red', 'Green', 'Blue'] as const
-type Colour = (typeof COLOURS)[number]
-const DENSITIES = [ALL, 'Low', 'Mid', 'High'] as const
-const BPM_TIERS = [ALL, 'Slow', 'Medium', 'Fast'] as const
+const COLOURS = [
+  { value: 'Red', label: 'Red', color: 'var(--cat-1)' },
+  { value: 'Green', label: 'Green', color: 'var(--cat-2)' },
+  { value: 'Blue', label: 'Blue', color: 'var(--cat-3)' },
+] as const
+type Colour = (typeof COLOURS)[number]['value']
+const DENSITIES = ['Low', 'Mid', 'High'].map((d) => ({ value: d, label: d }))
+const BPM_TIERS = ['Slow', 'Medium', 'Fast'].map((b) => ({ value: b, label: b }))
 
 type Playlist = {
   id: string
@@ -68,9 +72,9 @@ function useSort(initial: DataSort) {
 function PlaylistManager() {
   const [connected, setConnected] = useState(true)
   const [search, setSearch] = useState('')
-  const [colours, setColours] = useState<readonly Colour[]>([])
-  const [density, setDensity] = useState<(typeof DENSITIES)[number]>(ALL)
-  const [bpm, setBpm] = useState<(typeof BPM_TIERS)[number]>(ALL)
+  const [colours, setColours] = useState<Colour[]>([])
+  const [densities, setDensities] = useState<string[]>([])
+  const [bpmTiers, setBpmTiers] = useState<string[]>([])
   const [type, setType] = useState(ALL)
   const [genre, setGenre] = useState(ALL)
   const [idFilled, setIdFilled] = useState<'all' | 'yes' | 'no'>('all')
@@ -80,20 +84,19 @@ function PlaylistManager() {
   const clear = () => {
     setSearch('')
     setColours([])
-    setDensity(ALL)
-    setBpm(ALL)
+    setDensities([])
+    setBpmTiers([])
     setType(ALL)
     setGenre(ALL)
     setIdFilled('all')
   }
-  const toggleColour = (c: Colour) => setColours((cs) => (cs.includes(c) ? cs.filter((x) => x !== c) : [...cs, c]))
 
   const visible = PLAYLISTS.filter(
     (p) =>
       p.name.toLowerCase().includes(search.trim().toLowerCase()) &&
       (colours.length === 0 || colours.includes(p.colour)) &&
-      (density === ALL || p.density === density) &&
-      (bpm === ALL || p.bpm === bpm) &&
+      (densities.length === 0 || densities.includes(p.density)) &&
+      (bpmTiers.length === 0 || bpmTiers.includes(p.bpm)) &&
       (type === ALL || p.type === type) &&
       (genre === ALL || p.genre === genre) &&
       (idFilled === 'all' || (idFilled === 'yes') === (p.mixId !== '')),
@@ -149,15 +152,15 @@ function PlaylistManager() {
           </div>
           <div className="bb-preview-gap">
             <GroupHeading>Colour</GroupHeading>
-            {COLOURS.map((c) => (
-              <Checkbox key={c} label={c} checked={colours.includes(c)} onChange={() => toggleColour(c)} />
-            ))}
+            <FilterChips label="Colour" options={COLOURS} value={colours} onChange={setColours} />
           </div>
           <div className="bb-preview-gap">
-            <SegmentedChoice label="Density" layout="joined" value={density} onChange={setDensity} options={DENSITIES.map((d) => ({ value: d, label: d === ALL ? 'Density: all' : d }))} />
+            <GroupHeading>Density</GroupHeading>
+            <FilterChips label="Density" options={DENSITIES} value={densities} onChange={setDensities} />
           </div>
           <div className="bb-preview-gap">
-            <SegmentedChoice label="BPM tier" layout="joined" value={bpm} onChange={setBpm} options={BPM_TIERS.map((b) => ({ value: b, label: b === ALL ? 'BPM: all' : b }))} />
+            <GroupHeading>BPM tier</GroupHeading>
+            <FilterChips label="BPM tier" options={BPM_TIERS} value={bpmTiers} onChange={setBpmTiers} />
           </div>
           <div className="bb-preview-gap">
             <SegmentedChoice

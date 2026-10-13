@@ -80,6 +80,7 @@ export const SOURCES = {
   FooterNote: e(['page footer'], ['.foot']),
   // Brand-book original, no source repo.
   Prose: [],
+  FilterChips: [],
 } as const satisfies Record<string, SourceRef[]>
 
 export type ComponentId = keyof typeof SOURCES

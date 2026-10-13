@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, CardActions, IconButton, RoundToggle, SaveButton, SegmentedChoice } from '../../components/Button'
+import { Button, CardActions, FilterChips, IconButton, RoundToggle, SaveButton, SegmentedChoice } from '../../components/Button'
 import { Demo, Section } from '../Showcase'
 import { HouseButtonsDemo, HouseFocusDemo } from './HouseApp'
 
@@ -13,8 +13,30 @@ const VIEWS = [
   { value: 'primary', label: 'Primary' },
   { value: 'secondary', label: 'Secondary' },
 ] as const
+const TAGS = [
+  { value: 'pasta', label: 'pasta' },
+  { value: 'soup', label: 'soup' },
+  { value: 'quick', label: 'quick' },
+  { value: 'vegetarian', label: 'vegetarian' },
+] as const
+const DOTS = [
+  { value: 'red', label: 'Red', color: 'var(--cat-1)' },
+  { value: 'green', label: 'Green', color: 'var(--cat-2)' },
+  { value: 'blue', label: 'Blue', color: 'var(--cat-3)' },
+] as const
+const MIXED = [
+  { value: 'all-day', label: 'All day' },
+  { value: 'morning', label: 'Morning', color: 'var(--cat-1)' },
+  { value: 'evening', label: 'Evening', color: 'var(--cat-3)' },
+  { value: 'night', label: 'Night' },
+] as const
+const LONG = ['Ambient', 'Breakbeat', 'Dub techno', 'Electro', 'Funk', 'Garage', 'House', 'Jungle', 'Minimal', 'Progressive', 'Synthwave', 'Trance'].map((l) => ({ value: l, label: l }))
 
 export function Actions() {
+  const [tags, setTags] = useState<string[]>(['quick'])
+  const [dots, setDots] = useState<string[]>([])
+  const [mixed, setMixed] = useState<string[]>(['morning'])
+  const [long, setLong] = useState<string[]>(['House', 'Trance'])
   const [choice, setChoice] = useState<'a' | 'b' | 'c' | 'd'>('b')
   const [listChoice, setListChoice] = useState<'a' | 'b' | 'c' | 'd'>('a')
   const [view, setView] = useState<'primary' | 'secondary'>('primary')
@@ -91,6 +113,21 @@ export function Actions() {
             <SegmentedChoice label="View" layout="joined" options={VIEWS} value={view} onChange={setView} />
             <SegmentedChoice label="Choose an option" layout="joined" options={OPTIONS.slice(0, 3)} value={undefined} onChange={setChoice} />
           </div>
+        </Demo>
+      </Section>
+
+      <Section id="FilterChips" title="FilterChips" intro="A multi-select filter: several chips on at once, empty means no filter. An on chip shows a check mark as well as the fill. The row wraps, so every chip stays visible on a 360px phone; Clear appears while anything is chosen.">
+        <Demo label="Text tags -- one preset on">
+          <FilterChips label="Tags" options={TAGS} value={tags} onChange={setTags} />
+        </Demo>
+        <Demo label="Colour dots -- house tokens, nothing on">
+          <FilterChips label="Colour" options={DOTS} value={dots} onChange={setDots} />
+        </Demo>
+        <Demo label="Mixed -- only some options have a dot">
+          <FilterChips label="Time of day" options={MIXED} value={mixed} onChange={setMixed} />
+        </Demo>
+        <Demo label="Long set -- wraps instead of scrolling">
+          <FilterChips label="Genre" options={LONG} value={long} onChange={setLong} />
         </Demo>
       </Section>
 

@@ -54,13 +54,19 @@ This branch is #46 and ships with `-Resolves 46`. It adds `FilterChips`, a multi
 
 ### TEST
 
+- [x] Victor reviewed the diff: nothing blocking; focus moves to the first chip before Clear unmounts, so it never falls to the page. Applied: the colour dot's ring is visible on the on fill (`--dkj-on-accent`) and on the off chip (`--ink-2`), a missing attribute space in the Actions section, a comment on the clear focus move.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the FilterChips section and the music library and recipes previews (`npm run dev`) and approved it.
+
 ### DEPLOY: feat/46-filter-chips
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The brand book has `FilterChips`: a wrapping row of toggle chips where several can be on at once, each optionally with a colour dot, a check mark on what is on, and a clear action. The music library preview filters colour, density and tempo with it, and the recipes preview its tags.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -69,7 +75,9 @@ This branch is #46 and ships with `-Resolves 46`. It adds `FilterChips`, a multi
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -78,7 +86,9 @@ This branch is #46 and ships with `-Resolves 46`. It adds `FilterChips`, a multi
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

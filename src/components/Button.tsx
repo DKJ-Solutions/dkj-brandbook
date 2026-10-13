@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode, Ref } from 'react'
+import { useRef, type ButtonHTMLAttributes, type CSSProperties, type ReactNode, type Ref } from 'react'
 import { cx } from './cx'
 import { Icon, type IconName } from './Icon'
 import './buttons.css'
@@ -151,6 +151,64 @@ export function SegmentedChoice<T extends string>({
           {o.label}
         </button>
       ))}
+    </div>
+  )
+}
+
+/**
+ * FilterChips -- a multi-select filter group: a wrapping row of toggle chips, several on at once.
+ * value: the chosen options; empty means "no filter", so there is no "All" option.
+ * color (optional, per option): a free CSS colour for a leading dot, a house token (var(--cat-1)) where the colour is brand,
+ * a literal where it is the user's content. The dot is decorative: the label carries the meaning. It is the one inline style here.
+ * An on chip also shows a check mark, so the state is not colour alone.
+ * label: the group name (required). A Clear button follows the chips while anything is chosen; clearLabel is its text.
+ */
+export function FilterChips<T extends string>({
+  options,
+  value,
+  onChange,
+  label,
+  clearLabel = 'Clear',
+}: {
+  options: readonly { value: T; label: string; color?: string }[]
+  value: readonly T[]
+  onChange: (value: T[]) => void
+  label: string
+  clearLabel?: string
+}) {
+  const group = useRef<HTMLDivElement>(null)
+  const toggle = (v: T) => onChange(value.includes(v) ? value.filter((x) => x !== v) : [...value, v])
+  const clear = () => {
+    onChange([])
+    // Focus moves synchronously, before Clear unmounts, to the first chip (a no-op when there are no options).
+    group.current?.querySelector<HTMLButtonElement>('.dkj-filter-chip')?.focus()
+  }
+  return (
+    <div ref={group} className="dkj-filter-chips" role="group" aria-label={label}>
+      {options.map((o) => {
+        const on = value.includes(o.value)
+        return (
+          <button key={o.value} type="button" className="dkj-filter-chip" aria-pressed={on} onClick={() => toggle(o.value)}>
+            {on && (
+              <svg className="dkj-filter-chip__check" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+                <path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            )}
+            {o.color && <span className="dkj-filter-chip__dot" style={{ '--c': o.color } as CSSProperties} aria-hidden="true" />}
+            {o.label}
+          </button>
+        )
+      })}
+      {value.length > 0 && (
+        <button
+          type="button"
+          className="dkj-filter-chips__clear"
+          aria-label={clearLabel.toLowerCase().includes(label.toLowerCase()) ? undefined : `${clearLabel} ${label}`}
+          onClick={clear}
+        >
+          {clearLabel}
+        </button>
+      )}
     </div>
   )
 }
