@@ -32,9 +32,18 @@
 
 ### PLAN
 
+This branch is #48 and ships with -Resolves 48. `GroupHeading` always rendered an h3, which broke the
+heading outline on pages where a PageHeader h1 is followed by top-level sections. It gets an optional
+`level` prop (2, 3 or 4; default 3, so today's output is unchanged), and the previews use the right level.
+Visible-result rule: the look must not change at any level, and the owner checks that.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Add `level?: 2 | 3 | 4` (default 3) to `GroupHeading` in `src/components/Content.tsx` and update its doc comment.
+- [x] Neutralise the one house element rule that would change the look at h2 (the serif `font-family`) inside `.dkj-group-heading` in `src/components/surfaces.css`.
+- [x] Set the right level in the previews: top-level sections `level={2}`, nested groups `level={3}` (inside a CardHead card, which is an h2, also 3).
+- [x] Show the prop in the GroupHeading showcase section: a line in its intro and a level 2 / level 3 demo.
+- [x] Run `npx eslint src` and `npx tsc -b`, both clean.
 
 ### TEST
 
