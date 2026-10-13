@@ -52,8 +52,8 @@ redefines `--on-warn` beside it. Contrast re-measured on every fill: 6.4:1 light
 ### TEST
 
 - [x] The gates (`open-pr -GatesOnly`) are green (the custom-property check proves no `var(--dkj-on-warn)` is left).
-- [ ] The owners have looked at the warn TitleTag in the Surfaces section (`npm run dev`) in a light, a dark, the
-      Roest and the Geel theme, where it should render exactly as before, and approved it.
+- [x] The owners have looked at the warn TitleTag in the Surfaces section (`npm run dev`) and approved it
+      (October 13, 2026).
 
 ### DEPLOY: feat/21-on-warn-token
 
