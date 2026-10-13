@@ -1,9 +1,11 @@
-import { CardActions, IconButton } from '../../components/Button'
+import { useId, useState } from 'react'
+import { CardActions, IconButton, RoundToggle } from '../../components/Button'
 import { Card, CardBody, CardHead, TintedPanel } from '../../components/Card'
-import { Amount, GroupHeading, QuestionBlock } from '../../components/Content'
-import { Banner, Chip, Disclosure, Help, Message, TitleTag } from '../../components/Feedback'
+import { Amount, FooterNote, GroupHeading, QuestionBlock } from '../../components/Content'
+import { Alert, Banner, Chip, Disclosure, Help, Message, ReadMoreToggle, TitleTag } from '../../components/Feedback'
 import { Icon } from '../../components/Icon'
 import { StatRow, RowList, ValueBox } from '../../components/Row'
+import { DefinitionList } from '../../components/Table'
 import { Demo, Section } from '../Showcase'
 
 const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.'
@@ -15,6 +17,23 @@ function Actions2() {
         <IconButton variant="filled" icon="eye" label="View A">View A</IconButton>
         <IconButton variant="filled" icon="eye" label="View B">View B</IconButton>
       </CardActions>
+    </div>
+  )
+}
+
+/** A read-more block: the extra text opens above the full-width toggle. */
+function ReadMoreDemo() {
+  const [open, setOpen] = useState(false)
+  const id = useId()
+  return (
+    <div>
+      <p className="dkj-msg" id={id} hidden={!open} style={{ marginBottom: 'var(--spacing-3)' }}>
+        {LOREM} {LOREM}
+      </p>
+      <p className="dkj-msg" style={{ marginBottom: 'var(--spacing-3)' }}>
+        {LOREM}
+      </p>
+      <ReadMoreToggle expanded={open} controls={id} onToggle={() => setOpen(!open)} />
     </div>
   )
 }
@@ -63,6 +82,27 @@ export function Surfaces() {
             </p>
           </Card>
         </Demo>
+        <Demo label="Data -- serif title, subline, info" surface={false}>
+          <Card variant="data">
+            <CardHead title="Card title" subtitle="A muted line saying what the figures are, in euro" info={<RoundToggle size="inline" label="Explain: Card title" />} />
+            <CardBody>
+              <DefinitionList
+                items={[
+                  { term: 'Label one', value: '1,234' },
+                  { term: 'Label two', value: '56' },
+                ]}
+              />
+            </CardBody>
+          </Card>
+        </Demo>
+        <Demo label="Data -- open / invalid" surface={false}>
+          <Card variant="data" open>
+            <CardHead title="Open" subtitle="Its dialog is open" />
+          </Card>
+          <Card variant="data" invalid>
+            <CardHead title="Invalid" subtitle="This value is out of range" />
+          </Card>
+        </Demo>
       </Section>
 
       <Section id="TintedPanel" title="TintedPanel" intro="Parts of one card, each in its own tint mixed from a colour token, so they follow the theme and the mode on their own. As a button it becomes a large tile.">
@@ -92,11 +132,31 @@ export function Surfaces() {
         </Demo>
       </Section>
 
-      <Section id="Banner" title="Banner" intro="A soft accent-tinted callout; strong words in it turn accent.">
-        <Demo label="Banner" surface={false}>
+      <Section id="Banner" title="Banner" intro="A callout. Accent is a soft tinted line whose strong words turn accent; warn is the notice look: a warm background, a bold lead line with a warning mark, then text and an optional list.">
+        <Demo label="Accent" surface={false}>
           <Banner>
             What does it take to reach <strong>step 12</strong>?
           </Banner>
+        </Demo>
+        <Demo label="Warn -- lead and list" surface={false}>
+          <Banner tone="warn" lead="The ledger does not match the export">
+            -- figures may differ.
+            <ul>
+              <li>Difference one: 12 units</li>
+              <li>Difference two: a missing line</li>
+            </ul>
+          </Banner>
+        </Demo>
+        <Demo label="Warn -- lead only" surface={false}>
+          <Banner tone="warn" lead="Check this before you go on" />
+        </Demo>
+      </Section>
+
+      <Section id="Alert" title="Alert" intro="A generic danger callout: a danger border, a tint of --bad built from house tokens, a title in the danger text colour. No hazard stripes: a layout that is one app's own stays in that app.">
+        <Demo label="Danger" surface={false}>
+          <Alert title="Danger zone">
+            <p className="dkj-msg">{LOREM}</p>
+          </Alert>
         </Demo>
       </Section>
 
@@ -121,11 +181,12 @@ export function Surfaces() {
         </Demo>
       </Section>
 
-      <Section id="TitleTag" title="TitleTag" intro="A small uppercase pill on its own line above a title.">
-        <Demo label="Accent / info">
+      <Section id="TitleTag" title="TitleTag" intro="A small uppercase pill on its own line above a title. Warn is the warning fill with dark text in both modes.">
+        <Demo label="Accent / info / warn">
           <div className="bb-row">
             <TitleTag>Expected</TitleTag>
             <TitleTag tone="info">Edit</TitleTag>
+            <TitleTag tone="warn">Sell</TitleTag>
           </div>
         </Demo>
       </Section>
@@ -139,7 +200,7 @@ export function Surfaces() {
         </Demo>
       </Section>
 
-      <Section id="Disclosure" title="Disclosure" intro="A native details/summary.">
+      <Section id="Disclosure" title="Disclosure" intro="A native details/summary with a ▾ / ▴ marker after the summary.">
         <Demo label="Closed / open">
           <Disclosure summary="Help">
             <Message>{LOREM}</Message>
@@ -147,6 +208,12 @@ export function Surfaces() {
           <Disclosure summary="Help" defaultOpen>
             <Message>{LOREM}</Message>
           </Disclosure>
+        </Demo>
+      </Section>
+
+      <Section id="ReadMoreToggle" title="ReadMoreToggle" intro="A full-width read-more button under a block. The extra text opens above it, so the button moves down with what it reveals; aria-expanded and aria-controls tell a screen reader.">
+        <Demo label="Closed, then open">
+          <ReadMoreDemo />
         </Demo>
       </Section>
 
@@ -179,6 +246,12 @@ export function Surfaces() {
             <Amount value="1,234" icon={<Icon name="coin" />} />
             <Amount value="98,765" icon={<Icon name="coin" />} />
           </div>
+        </Demo>
+      </Section>
+
+      <Section id="FooterNote" title="FooterNote" intro="The small muted note at the foot of a page: what the figures and the explanations are, and are not.">
+        <Demo label="Footer note" surface={false}>
+          <FooterNote>The explanations are general information to help read the figures. Prices are closing prices; the page does not refresh by itself.</FooterNote>
         </Demo>
       </Section>
     </>

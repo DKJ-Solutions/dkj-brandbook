@@ -1,11 +1,64 @@
+import { useState } from 'react'
 import { IconButton, RoundToggle } from '../../components/Button'
-import { AnswerBox, BillTable, CalcSection, CalcTable, ComparisonTable, DefinitionList } from '../../components/Table'
+import { AnswerBox, BillTable, CalcSection, CalcTable, ComparisonTable, DataTable, DefinitionList, type DataColumn, type DataSort } from '../../components/Table'
 import { Demo, Section } from '../Showcase'
+
+const COLUMNS: readonly DataColumn[] = [
+  { key: 'name', label: 'Product', sortable: true },
+  { key: 'type', label: 'Type', sortable: true },
+  { key: 'qty', label: 'Quantity', sortable: true },
+  { key: 'value', label: 'Value', sortable: true },
+  { key: 'result', label: 'Result', sortable: true },
+]
+
+/** Placeholder rows; result is the number the sort uses, and the tone follows its sign. */
+const HOLDINGS = [
+  { id: 'a', name: 'Product alpha', code: 'XX0000000001', type: 'Fund', qty: 12, value: 1234.5, result: 120.25 },
+  { id: 'b', name: 'Product bravo', code: 'XX0000000002', type: 'Share', qty: 3, value: 560, result: -42.1 },
+  { id: 'c', name: 'Product charlie with a longer name', code: 'XX0000000003', type: 'Fund', qty: 40.5, value: 2210.8, result: 0 },
+] as const
+
+const money = (v: number) => v.toLocaleString('en', { style: 'currency', currency: 'EUR' })
+const signed = (v: number) => (v > 0 ? '+' : '') + money(v)
+const tone = (v: number) => (v > 0 ? 'positive' : v < 0 ? 'negative' : undefined)
+
+function DataTableDemo() {
+  const [sort, setSort] = useState<DataSort>({ key: 'value', direction: 'descending' })
+  // A new column starts ascending for text and descending for figures; the same column flips.
+  const onSort = (key: string) =>
+    setSort((s) =>
+      s.key === key
+        ? { key, direction: s.direction === 'ascending' ? 'descending' : 'ascending' }
+        : { key, direction: key === 'name' || key === 'type' ? 'ascending' : 'descending' },
+    )
+  const sorted = [...HOLDINGS].sort((a, b) => {
+    const x = a[sort.key as keyof typeof a]
+    const y = b[sort.key as keyof typeof b]
+    const d = typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y))
+    return sort.direction === 'ascending' ? d : -d
+  })
+  const sum = (k: 'value' | 'result') => HOLDINGS.reduce((t, h) => t + h[k], 0)
+  return (
+    <DataTable
+      label="Holdings"
+      columns={COLUMNS}
+      sort={sort}
+      onSort={onSort}
+      rows={sorted.map((h) => ({
+        id: h.id,
+        sub: h.code,
+        cells: { name: h.name, type: h.type, qty: h.qty, value: money(h.value), result: signed(h.result) },
+        tones: { result: tone(h.result) },
+      }))}
+      total={{ label: 'Total', cells: { value: money(sum('value')), result: signed(sum('result')) }, tones: { result: tone(sum('result')) } }}
+    />
+  )
+}
 
 export function Data() {
   return (
     <>
-      <Section id="DefinitionList" title="DefinitionList" intro="Label left, a bold tabular value right, a rule between; a detail line under a label; a bold total. The facts variant mutes the labels.">
+      <Section id="DefinitionList" title="DefinitionList" intro="Label left, a bold tabular value right, a rule between; a detail line under a label; a bold total. The facts variant mutes the labels. A value can take a tone and a weight (the ValueBox props), and a label an info slot.">
         <Demo label="Breakdown with total">
           <DefinitionList
             items={[
@@ -16,6 +69,16 @@ export function Data() {
             total={{ term: 'Total', value: '100' }}
           />
         </Demo>
+        <Demo label="Tone, weight and info slot">
+          <DefinitionList
+            items={[
+              { term: 'A gain', value: '+120.00', tone: 'positive', info: <RoundToggle size="inline" label="Explain: A gain" /> },
+              { term: 'A loss', value: '−42.10', tone: 'negative', info: <RoundToggle size="inline" label="Explain: A loss" /> },
+              { term: 'A secondary figure', value: '8.00', weight: 'regular' },
+            ]}
+            total={{ term: 'Total result', value: '+85.90', tone: 'positive' }}
+          />
+        </Demo>
         <Demo label="Facts">
           <DefinitionList
             variant="facts"
@@ -24,6 +87,24 @@ export function Data() {
               { term: 'Another label', value: '1,234' },
               { term: 'Third', value: 'Yes' },
             ]}
+          />
+        </Demo>
+      </Section>
+
+      <Section id="DataTable" title="DataTable" intro="The house table in a sideways-scrolling wrapper: text first column, right-aligned tabular figures, sortable headers (tap one: aria-sort and the arrow follow), a muted sub-line under the first cell, toned figures and a bold total row. ComparisonTable stays the comparison variant.">
+        <Demo label="Sortable, with sub-line, tones and total" wide>
+          <DataTableDemo />
+        </Demo>
+        <Demo label="Plain headers, empty state" wide>
+          <DataTable
+            label="Closed positions"
+            columns={[
+              { key: 'name', label: 'Product' },
+              { key: 'bought', label: 'Bought' },
+              { key: 'sold', label: 'Sold' },
+            ]}
+            rows={[]}
+            empty="No closed positions"
           />
         </Demo>
       </Section>

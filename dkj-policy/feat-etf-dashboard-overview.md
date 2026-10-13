@@ -54,16 +54,16 @@ version leads per overlap; the owner chose (October 13, 2026):
 
 ### CREATE
 
-- [ ] Overlap variants on the existing components (list above)
-- [ ] New components, styled on house classes/tokens plus `--dkj-*` where needed
-- [ ] `sources.ts`: ETF entries (file and css both `etf_tracker/dashboard.py`)
-- [ ] `registry.ts`: the ETF tracker app and its views (tooltip kind decided)
-- [ ] Showcase sections show every new component and variant
+- [x] Overlap variants on the existing components (list above)
+- [x] New components, styled on house classes/tokens plus `--dkj-*` where needed
+- [x] `sources.ts`: ETF entries (file and css both `etf_tracker/dashboard.py`)
+- [x] `registry.ts`: the ETF tracker app and its views (tooltip kind decided)
+- [x] Showcase sections show every new component and variant
 
 ### TEST
 
-- [ ] `scripts/lint/lint-web.ps1` green
-- [ ] Showcase checked at 360px and desktop, light and dark
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] Showcase checked at 360px and desktop, light and dark (the owner's look; reviewed by Victor, review fixes in)
 
 ### DEPLOY: feat/etf-dashboard-overview
 
@@ -71,7 +71,15 @@ version leads per overlap; the owner chose (October 13, 2026):
 
 ##### Tier 0
 
-**Score:**
+The overview now covers the ETF tracker dashboard next to Mesowise, as one set: where both apps had the
+same component the brand-book version leads on mechanics (44px targets, focus ring, states) and the
+dashboard's denser look became a variant (joined segmented choice, inline info toggle, data card,
+toned definition list, warn tag and banner, disclosure marker). New: DataTable, Alert, StatTile,
+HeroValue and Delta, Tooltip, Legend, MiniCard with Meter and Badge, ReadMoreToggle, PageHeader and
+FooterNote, plus the ETF tracker app and its views in the apps register (with a new Tooltips view kind).
+The SVG charts follow in #20; house-style gaps found on the way are #19 and #21.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -80,7 +88,9 @@ version leads per overlap; the owner chose (October 13, 2026):
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -89,7 +99,9 @@ version leads per overlap; the owner chose (October 13, 2026):
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing service changes; the apps themselves render as before.
+
+**Score:** N/A
 
 #### Pull Request
 

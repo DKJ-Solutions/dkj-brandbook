@@ -38,6 +38,8 @@
   --dkj-control-h: 38px;       /* a value box and the pencil beside it: one height */
   --dkj-control-lg: 52px;      /* stepper in a dialog */
   --dkj-control-compact: 36px; /* compact uppercase buttons (tap area stays 44px) */
+  --dkj-control-dense: 30px;   /* the joined segmented capsule: the house .controls row height (tap area stays 44px) */
+  --dkj-inline-toggle: 16px;   /* the inline "?" circle inside a label or heading (tap area stays 44px) */
 
   /* ---- Layout ---- */
   --dkj-column-w: 32rem;       /* the app column, phone-first */
@@ -71,6 +73,11 @@
   --dkj-positive-lo: var(--up);     /* ... bottom: darker on light, lighter on dark; text on it is --status-mark */
   --dkj-warn-text: color-mix(in srgb, var(--warn) 70%, var(--ink)); /* --warn is a fill; this reads as text */
   --dkj-backdrop: rgb(0 0 0 / 0.45);                                /* dialog::backdrop, same in both modes */
+  /* Text on a --warn fill. --warn is orange or yellow in every theme, so the text must be dark in both modes;
+     no house token is (--ink and --status-mark flip to white / near-white on one side). #0b0b0b is the house's
+     own dark ink. Measured against the fill: 6.3:1 (light #e0761a), 6.3:1 (Roest #b88a00), 12.5:1 (dark
+     #ffc61a), 7.8:1 (Geel #f08a24). White would be 3.1:1 on the light fill. */
+  --dkj-on-warn: #0b0b0b;
 
   /* An accent-tinted dialog and a box inside it (the primary on the surface). */
   --dkj-tint-accent: color-mix(in srgb, var(--primary) 7%, var(--surface));
@@ -80,4 +87,6 @@
   --dkj-tint-info: color-mix(in srgb, var(--cat-1) 7%, var(--surface));
   --dkj-tint-info-border: color-mix(in srgb, var(--cat-1) 30%, var(--surface));
   --dkj-tint-info-box: color-mix(in srgb, var(--cat-1) 14%, var(--surface));
+  /* A danger alert: --bad tints the surface (the border is --bad itself, the text --down). */
+  --dkj-tint-danger: color-mix(in srgb, var(--bad) 8%, var(--surface));
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Button, SegmentedChoice } from '../../components/Button'
+import { Button, RoundToggle, SegmentedChoice } from '../../components/Button'
 import { Dialog, DialogActions, DialogLabel } from '../../components/Dialog'
-import { Disclosure, Message } from '../../components/Feedback'
+import { Disclosure, Message, Tooltip } from '../../components/Feedback'
 import { Stepper } from '../../components/Field'
-import { DownloadButton, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, StepHeader, TopBar } from '../../components/Navigation'
+import { DownloadButton, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, StepHeader, TopBar } from '../../components/Navigation'
 import { RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
 
@@ -16,6 +16,7 @@ export function Overlays() {
   const [value, setValue] = useState(12)
   const [draft, setDraft] = useState(12)
   const [step, setStep] = useState(7)
+  const [view, setView] = useState<'primary' | 'secondary'>('primary')
   const close = () => setOpen(null)
   return (
     <>
@@ -87,6 +88,39 @@ export function Overlays() {
         </Dialog>
       </Section>
 
+      <Section
+        id="Tooltip"
+        title="Tooltip"
+        intro="A non-modal explanation. Hover or focus the mark: it opens under it; click or tap pins it (no hover on a phone); Escape, a click elsewhere or a scroll closes it. The text is linked to the mark with aria-describedby and sits in the page while hidden. It is the house .tooltip (fixed, with a shadow)."
+      >
+        <Demo label="Live -- on an inline mark in a label">
+          <span>
+            Total value
+            <Tooltip
+              explain
+              trigger={(a11y) => <RoundToggle size="inline" label="Explain: Total value" {...a11y} />}
+              title="Total value"
+              paragraphs={[
+                'What everything together is worth now: the holdings plus the money that is not invested.',
+                'It moves with the prices every trading day.',
+              ]}
+            />
+          </span>
+        </Demo>
+        <Demo label="Live -- short, on a text button">
+          <div className="bb-row">
+            <Tooltip trigger={(a11y) => <Button size="compact" {...a11y}>Hover or focus me</Button>} title="A short title" paragraphs={['One line of detail.']} />
+          </div>
+        </Demo>
+        <Demo label="How it looks open (static)">
+          <div className="tooltip tooltip--explain bb-tooltip-static">
+            <b>Total value</b>
+            <p>What everything together is worth now: the holdings plus the money that is not invested.</p>
+            <p>It moves with the prices every trading day.</p>
+          </div>
+        </Demo>
+      </Section>
+
       <Section id="Drawer" title="Drawer" intro="The menu: a full-height panel sliding in from the right; a swipe to the right closes it. Its head is as tall as the top bar. Open it with the menu button in the TopBar demo below.">
         <Demo label="See TopBar">
           <Message>The drawer is opened from the top bar.</Message>
@@ -99,6 +133,23 @@ export function Overlays() {
             <TopBar name="Appname" tagline="A short tagline that says what the app does." menu={<DrawerMenu />} />
             <div style={{ height: '6rem' }} />
           </div>
+        </Demo>
+      </Section>
+
+      <Section id="PageHeader" title="PageHeader" intro="The page title as the house serif h1, and on its right a controls row: a muted as-of line and the page's controls. The row wraps under the title on a narrow screen.">
+        <Demo label="Title, as-of and a joined switch" wide>
+          <PageHeader title="Page title" asOf="As of 1 January 2026">
+            <SegmentedChoice
+              label="View"
+              layout="joined"
+              value={view}
+              onChange={setView}
+              options={[
+                { value: 'primary', label: 'Primary' },
+                { value: 'secondary', label: 'Secondary' },
+              ]}
+            />
+          </PageHeader>
         </Demo>
       </Section>
 

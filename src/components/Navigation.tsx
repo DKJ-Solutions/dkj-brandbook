@@ -153,3 +153,20 @@ export function InfoRow({
     </div>
   )
 }
+
+/**
+ * PageHeader -- the page title as the house serif h1, and on its right a controls row: a muted "as of" line, then
+ * whatever controls the page has (a joined SegmentedChoice, buttons). The row wraps under the title on a narrow screen.
+ * It carries its own flex layout, so it also works where the header is not a direct child of <main>.
+ */
+export function PageHeader({ title, asOf, children }: { title: string; asOf?: string; children?: ReactNode }) {
+  return (
+    <header className="dkj-page-header">
+      <h1>{title}</h1>
+      <div className="controls">
+        {asOf && <span className="muted">{asOf}</span>}
+        {children}
+      </div>
+    </header>
+  )
+}

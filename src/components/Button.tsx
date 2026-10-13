@@ -79,6 +79,8 @@ export function CardActions({ children, className }: { children: ReactNode; clas
  * RoundToggle -- the round "?" (help) or "i" (info) button.
  * size="tap": a 24px glyph in a 44px tap area that does not make its row taller (negative margin).
  * size="badge": a small bordered circle with a "?" text glyph, e.g. after a number in a table.
+ * size="inline": a 16px muted ring with a "?" or "i" in the text, for inside a label or heading; the tap area is 44px high.
+ * Its label is required (e.g. "Explain: Total value"), so a page of them is not a row of identical buttons.
  * expanded: the glyph turns accent.
  */
 export function RoundToggle({
@@ -89,7 +91,20 @@ export function RoundToggle({
   className,
   type = 'button',
   ...rest
-}: Native & { kind?: 'help' | 'info'; size?: 'tap' | 'badge'; expanded?: boolean; label?: string }) {
+}: Native & { kind?: 'help' | 'info'; expanded?: boolean } & ({ size?: 'tap' | 'badge'; label?: string } | { size: 'inline'; label: string })) {
+  if (size === 'inline') {
+    return (
+      <button
+        type={type}
+        className={cx('dkj-inline-toggle', className)}
+        aria-label={label ?? (kind === 'help' ? 'Explain' : 'Info')}
+        aria-expanded={expanded}
+        {...rest}
+      >
+        {kind === 'help' ? '?' : 'i'}
+      </button>
+    )
+  }
   if (size === 'badge') {
     return (
       <button type={type} className={cx('dkj-badge-toggle', className)} aria-label={label ?? 'Explain'} aria-expanded={expanded} {...rest}>
@@ -114,6 +129,7 @@ export function RoundToggle({
  * SegmentedChoice -- a single choice from a few options.
  * layout="row": equal buttons side by side that scale their text down to a 360px phone; the pressed one is accent.
  * layout="list": a borderless list, one row per option with a rule between; the chosen one accent and bold, the rest muted.
+ * layout="joined": one bordered capsule with dividers, 30px to the eye with a 44px tap area; the pressed one is an accent fill.
  */
 export function SegmentedChoice<T extends string>({
   options,
@@ -125,7 +141,7 @@ export function SegmentedChoice<T extends string>({
   options: readonly { value: T; label: string }[]
   value: T | undefined
   onChange: (value: T) => void
-  layout?: 'row' | 'list'
+  layout?: 'row' | 'list' | 'joined'
   label: string
 }) {
   return (

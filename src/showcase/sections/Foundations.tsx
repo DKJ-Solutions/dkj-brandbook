@@ -14,14 +14,14 @@ const HOUSE_COLORS = {
 
 /** Brand-layer colours (src/brand-layer.css), all built from house tokens. */
 const LAYER_COLORS = [
-  'surface', 'accent', 'on-accent', 'positive-hi', 'positive-lo', 'warn-text', 'backdrop',
-  'tint-accent', 'tint-accent-border', 'tint-accent-box', 'tint-info', 'tint-info-border', 'tint-info-box',
+  'surface', 'accent', 'on-accent', 'positive-hi', 'positive-lo', 'warn-text', 'on-warn', 'backdrop',
+  'tint-accent', 'tint-accent-border', 'tint-accent-box', 'tint-info', 'tint-info-border', 'tint-info-box', 'tint-danger',
 ] as const
 
 const TEXT_SIZES = ['h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'lg', 'base', 'sm', 'xs'] as const
 const SPACES = ['0-5', '1', '1-5', '2', '2-5', '3', '3-5', '4', '5', '6', '8', '12', '16'] as const
 const RADII = ['xs', 'sm', 'md', 'md-plus', 'lg', 'xl', 'pill'] as const
-const CONTROLS = ['control-compact', 'control-h', 'tap', 'control-lg'] as const
+const CONTROLS = ['inline-toggle', 'control-dense', 'control-compact', 'control-h', 'tap', 'control-lg'] as const
 
 type Swatch = { name: string; value: string | undefined }
 

@@ -8,12 +8,18 @@ const OPTIONS = [
   { value: 'c', label: 'Option C' },
   { value: 'd', label: 'Option D' },
 ] as const
+const VIEWS = [
+  { value: 'primary', label: 'Primary' },
+  { value: 'secondary', label: 'Secondary' },
+] as const
 
 export function Actions() {
   const [choice, setChoice] = useState<'a' | 'b' | 'c' | 'd'>('b')
   const [listChoice, setListChoice] = useState<'a' | 'b' | 'c' | 'd'>('a')
+  const [view, setView] = useState<'primary' | 'secondary'>('primary')
   const [pressed, setPressed] = useState(false)
   const [help, setHelp] = useState(false)
+  const [inline, setInline] = useState(false)
   return (
     <>
       <Section id="Button" title="Button" intro="One text button with four variants and a compact size. The compact size keeps a 44px tap area around its 36px face.">
@@ -63,7 +69,7 @@ export function Actions() {
         </Demo>
       </Section>
 
-      <Section id="SegmentedChoice" title="SegmentedChoice" intro="A single choice. As a row it holds four options on a 360px phone; in a drawer it becomes a list.">
+      <Section id="SegmentedChoice" title="SegmentedChoice" intro="A single choice. As a row it holds four options on a 360px phone; in a drawer it becomes a list; joined is the dense capsule for a page header, 30px to the eye with a 44px tap area.">
         <Demo label="Row">
           <SegmentedChoice label="Choose an option" options={OPTIONS} value={choice} onChange={setChoice} />
         </Demo>
@@ -72,6 +78,12 @@ export function Actions() {
         </Demo>
         <Demo label="List (in a drawer)">
           <SegmentedChoice label="Choose an option" layout="list" options={OPTIONS} value={listChoice} onChange={setListChoice} />
+        </Demo>
+        <Demo label="Joined -- two options / nothing chosen">
+          <div className="bb-row">
+            <SegmentedChoice label="View" layout="joined" options={VIEWS} value={view} onChange={setView} />
+            <SegmentedChoice label="Choose an option" layout="joined" options={OPTIONS.slice(0, 3)} value={undefined} onChange={setChoice} />
+          </div>
         </Demo>
       </Section>
 
@@ -103,7 +115,7 @@ export function Actions() {
         </Demo>
       </Section>
 
-      <Section id="RoundToggle" title="RoundToggle" intro="A round “?” or “i”: a small glyph with a 44px tap area that does not make its row taller. The badge size sits after a number in a table.">
+      <Section id="RoundToggle" title="RoundToggle" intro="A round “?” or “i”: a small glyph with a 44px tap area that does not make its row taller. The badge size sits after a number in a table; the inline size is a 16px muted ring for inside a label or heading.">
         <Demo label="Help -- closed / open">
           <div className="bb-row">
             <RoundToggle />
@@ -116,6 +128,30 @@ export function Actions() {
             <RoundToggle kind="info" />
             <RoundToggle kind="info" expanded />
           </div>
+        </Demo>
+        <Demo label="Inline -- in a label and a heading / open / focus">
+          <div className="bb-row">
+            <span>
+              Net deposits
+              <RoundToggle size="inline" label="Explain: Net deposits" expanded={inline} onClick={() => setInline(!inline)} />
+            </span>
+            <span>
+              Open
+              <RoundToggle size="inline" label="Explain: Open" expanded />
+            </span>
+            <span>
+              Focus
+              <RoundToggle size="inline" label="Explain: Focus" data-demo-state="focus" />
+            </span>
+            <span>
+              Info
+              <RoundToggle size="inline" label="Info: Info" kind="info" />
+            </span>
+          </div>
+          <h3 style={{ margin: 0, display: 'flex', alignItems: 'center' }}>
+            A heading
+            <RoundToggle size="inline" label="Explain: A heading" />
+          </h3>
         </Demo>
         <Demo label="Badge -- after a number">
           <div className="bb-row" style={{ fontVariantNumeric: 'tabular-nums' }}>

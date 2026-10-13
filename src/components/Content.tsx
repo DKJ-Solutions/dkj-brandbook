@@ -54,3 +54,8 @@ export function Amount({ value, icon }: { value: string; icon?: ReactNode }) {
     </span>
   )
 }
+
+/** FooterNote -- the small muted note at the foot of a page: what the figures are and are not (the house .footer-note). */
+export function FooterNote({ children }: { children: ReactNode }) {
+  return <p className="footer-note">{children}</p>
+}

@@ -1,4 +1,4 @@
-/* Definition list, bill, comparison and calculation tables. Origin: see src/components/sources.ts. */
+/* Definition list, data, bill, comparison and calculation tables. Origin: see src/components/sources.ts. */
 
 .dkj-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dkj-tone-negative { color: var(--down); }
@@ -20,6 +20,12 @@
 .dkj-dl-detail { display: block; margin-top: var(--spacing-0-5); font-size: var(--text-sm); color: var(--ink-2); }
 .dkj-dl > .dkj-dl-total { border-bottom: 0; font-weight: var(--dkj-fw-bold); }
 .dkj-dl--facts dt { color: var(--ink-2); }
+.dkj-dl dd.dkj-dl-regular { font-weight: var(--dkj-fw-regular); }
+
+/* ---------- DataTable ---------- */
+/* The house .table does the layout, the sort buttons and the total row. The wrapper scrolls, so it is focusable (a
+   keyboard can scroll it) and needs the ring. Cell tones are the shared .dkj-tone-* above. */
+.dkj-table-wrap:focus-visible { outline: var(--dkj-focus-w) solid var(--dkj-accent); outline-offset: var(--dkj-focus-offset); border-radius: var(--dkj-radius-xs); }
 
 /* ---------- BillTable ---------- */
 .dkj-bill { width: 100%; table-layout: fixed; border-collapse: collapse; }

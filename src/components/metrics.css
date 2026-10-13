@@ -1,0 +1,12 @@
+/* Stat tiles, hero figure, legend, mini cards, meters and badges. Origin: see src/components/sources.ts.
+   Most of the look is the house classes (.tile, .hero, .delta, .legend, .mini-card, .meter, .badge); this file only
+   adds what they do not hold, under --dkj-* / .dkj-* names. */
+
+/* ---------- HeroValue ---------- */
+.dkj-hero-value { font-size: var(--dkj-text-display); font-weight: var(--dkj-fw-semibold); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.dkj-hero-value--lg { font-size: var(--text-h4); line-height: var(--dkj-lh-snug); }
+
+/* ---------- Meter and Badge: the first categorical colour as a status ("covered") ---------- */
+/* The house .meter span / .badge read --m / --b; the glyph stays --status-mark (4.4:1 on the light --cat-1, 5.4:1 on dark). */
+.dkj-meter--series { --m: var(--cat-1); }
+.dkj-badge--series { --b: var(--cat-1); }
