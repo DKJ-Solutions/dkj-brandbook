@@ -2,7 +2,7 @@ import { RoundToggle } from '../../components/Button'
 import { Card, CardHead } from '../../components/Card'
 import { Badge, BadgeRow, Delta, HeroRow, HeroValue, Legend, LegendItem, Meter, MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
 import { Demo, Section } from '../Showcase'
-import { ColumnChart, type ColumnDatum } from '../../components/Chart'
+import { BarChart, ColumnChart, type BarDatum, type ColumnDatum } from '../../components/Chart'
 
 const eur = (v: number) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0, signDisplay: 'exceptZero' }).format(v)
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -20,6 +20,23 @@ const MONTHS: ColumnDatum[] = RESULTS.map((value, i) => {
     guide: m % 3 === 0 ? `Q${m / 3 + 1} ${year}` : undefined,
   }
 })
+
+const eur0 = (v: number) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v)
+const share = (f: number) => `${Math.round(f * 100)}% of total`
+/** Placeholder holdings, already sorted by value, as the app would; the series is the holding type: 1 fund, 2 share, 3 cash. */
+const ALLOCATION: BarDatum[] = [
+  { key: 'world', label: 'World fund', value: 8240, detail: 'Fund · 210 units', series: 1 },
+  { key: 'em', label: 'Emerging markets fund', short: 'Emerging markets', value: 3120, detail: 'Fund · 95 units', series: 1 },
+  { key: 'bond', label: 'Bond fund', value: 1480, detail: 'Fund · 30 units', series: 1 },
+  { key: 'corp', label: 'Example Corp', value: 940, detail: 'Share · 12 units', series: 2 },
+  { key: 'cash', label: 'Cash', value: 320, series: 3 },
+]
+const UNREALISED: BarDatum[] = [
+  { key: 'world', label: 'World fund', value: 910, detail: 'Cost € 7,330 · Value € 8,240' },
+  { key: 'em', label: 'Emerging markets fund', short: 'Emerging markets', value: 260, detail: 'Cost € 2,860 · Value € 3,120' },
+  { key: 'bond', label: 'Bond fund', value: -45, detail: 'Cost € 1,525 · Value € 1,480' },
+  { key: 'small', label: 'Small caps fund', value: -120, detail: 'Cost € 2,090 · Value € 1,970' },
+]
 
 const info = (what: string) => <RoundToggle size="inline" label={`Explain: ${what}`} />
 
@@ -116,6 +133,31 @@ export function Metrics() {
               <LegendItem color="loss">Loss</LegendItem>
             </Legend>
             <ColumnChart label="Result per month" data={MONTHS} format={eur} periodHeading="Month" />
+          </div>
+        </Demo>
+      </Section>
+
+      <Section id="BarChart" title="BarChart" intro="A value per row as a horizontal bar, in the order you give it. Coloured by series, each bar takes its --cat colour and a legend above is the key; coloured by direction, a gain runs right in --gain and a loss left in --loss from the zero line. It draws at its real width, so on a phone the rows stack and the labels stay 12px. Hover, or tab to it and use the arrow keys, for a value; the same figures are always a table away.">
+        <Demo label="Allocation, by series, with share of the total" wide>
+          <Legend>
+            <LegendItem color="cat-1">Fund</LegendItem>
+            <LegendItem color="cat-2">Share</LegendItem>
+            <LegendItem color="cat-3">Cash</LegendItem>
+          </Legend>
+          <BarChart colorBy="series" label="Allocation" data={ALLOCATION} format={eur0} share={share} itemHeading="Holding" />
+        </Demo>
+        <Demo label="Unrealised result, by direction" wide>
+          <BarChart colorBy="direction" label="Unrealised result per holding" data={UNREALISED} format={eur} itemHeading="Holding" valueHeading="Result" />
+        </Demo>
+        <Demo label="At phone width (360px)">
+          <div style={{ maxWidth: '360px' }}>
+            <Legend>
+              <LegendItem color="cat-1">Fund</LegendItem>
+              <LegendItem color="cat-2">Share</LegendItem>
+              <LegendItem color="cat-3">Cash</LegendItem>
+            </Legend>
+            <BarChart colorBy="series" label="Allocation" data={ALLOCATION} format={eur0} share={share} itemHeading="Holding" />
+            <BarChart colorBy="direction" label="Unrealised result per holding" data={UNREALISED} format={eur} itemHeading="Holding" valueHeading="Result" />
           </div>
         </Demo>
       </Section>
