@@ -19,9 +19,10 @@ drop its `.btn:disabled` once it takes the new copy).
 
 ##### Tier 1
 
-Not relevant to management on its own: a consistency fix in the shared button style.
+Every DKJ-Solutions app's disabled buttons now look the same from one shared rule, instead of each app
+keeping a local one that drifts.
 
-**Score:** N/A
+**Score:** 1
 
 ##### Tier 2
 
