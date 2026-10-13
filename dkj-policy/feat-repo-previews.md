@@ -55,7 +55,7 @@ A click in the nav repo list opens a recreated preview of the app in the main ar
 
 The DKJ-Solutions repo list in the showcase navigation no longer links to GitHub: a click opens a recreated preview of
 that app inside the brand book, built from the brand-book components, so it follows the theme and the width toggle.
-Mesowise and the ETF tracker have one; the other repos show a "preview follows" card until theirs is recreated.
+Mesowise and the ETF tracker have one; the other repos show a "preview follows" card until theirs is recreated. The brand book itself is no longer in the list.
 
 **Score:** 3
 

@@ -26,9 +26,8 @@ const NAV = [
 
 const LABELS: Record<string, string> = { apps: 'Overview', tokens: 'Tokens' }
 
-/** The repos in the DKJ-Solutions GitHub organisation as of October 13, 2026; each opens its recreated preview (#preview/<repo>). */
+/** The repos in the DKJ-Solutions GitHub organisation as of October 13, 2026, except this brand book itself; each opens its recreated preview (#preview/<repo>). */
 const REPOS = [
-  'dkj-brandbook',
   'dkj-claude-plugins',
   'dkj-etf-tracker',
   'dkj-maplestory-classic-mesowise',
