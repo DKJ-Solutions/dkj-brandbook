@@ -123,7 +123,7 @@ sortable headers via `.sort`/`.arrow` on `aria-sort`), `.seg` (a segmented switc
 `.badge-row`, `.meter` (with `--good`, `--warn`, `--bad`, `--info`), `.mini-cards`/`.mini-card` (with
 `--highlight`), `.item-grid`/`.item`, `.notice`, `.note`, `.meta`, `.muted`, `.sub`, `.num` (tabular
 numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with `--primary`, and a `:disabled` state for both), `.info-button`, `.tooltip`
-(with `--explain`), `.more` (a disclosure), `.moretoggle` (a full-width read-more button), `.chart` (the SVG chart scope),
+(with `--explain`, and `--open` for one anchored to a trigger), `.more` (a disclosure), `.moretoggle` (a full-width read-more button), `.chart` (the SVG chart scope),
 `.theme-picker` (with `__row`, `__label`, `__swatches`) and `.theme-swatch` (with `--light`, `--dark`), which
 `house-theme.js` draws, and `.footer-note`. The app components
 ([below](#app-components-from-mesowise)) reserve these too: `.container--narrow`/`main.narrow`, `.field`
@@ -132,6 +132,13 @@ numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with 
 `--cancel`, `--back`), and `--drawer`), `.topbar` (with `__inner`, `__brand`, `__name`), `.menu-list`,
 `.menu-row` (with `__label`, `__value`), `.menu-item` (with `__icon`, `__label`, `__chevron`) and
 `.sr-only`. Each is commented in the file.
+
+**Focus and targets.** Every interactive house class shows a visible focus ring on keyboard focus (an SVG
+`.chart .bar` shows a stroke instead), and its hit area is at least 44px (`--tap`) high where the mark is
+smaller: the `.info-button`'s 16px mark, the `.table` header's `.sort` and the `.moretoggle`
+([#19](https://github.com/DKJ-Solutions/dkj-brandbook/issues/19)). A tooltip opened from a trigger takes
+`.tooltip--open`, which shows it and lets the pointer move onto its text; a chart tooltip that follows the
+pointer is shown by its own script and stays click-through.
 
 ## App components (from MesoWise)
 

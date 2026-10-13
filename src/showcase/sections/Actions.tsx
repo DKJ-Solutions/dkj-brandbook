@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button, CardActions, IconButton, RoundToggle, SaveButton, SegmentedChoice } from '../../components/Button'
 import { Demo, Section } from '../Showcase'
-import { HouseButtonsDemo } from './HouseApp'
+import { HouseButtonsDemo, HouseFocusDemo } from './HouseApp'
 
 const OPTIONS = [
   { value: 'a', label: 'Option A' },
@@ -60,6 +60,9 @@ export function Actions() {
         </Demo>
         <Demo label="House .btn--touch / .btn--block / .icon-btn in an .action-row">
           <HouseButtonsDemo />
+        </Demo>
+        <Demo label="House .seg / .info-button / .more / .sort / .chart .bar / .moretoggle -- tab through for the focus rings">
+          <HouseFocusDemo />
         </Demo>
       </Section>
 
