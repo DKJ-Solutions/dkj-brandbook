@@ -63,7 +63,7 @@ version leads per overlap; the owner chose (October 13, 2026):
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] Showcase checked at 360px and desktop, light and dark (the owner's look; reviewed by Victor, review fixes in)
+- [x] Showcase checked at 360px and desktop, light and dark (the owner looked and approved, October 13, 2026)
 
 ### DEPLOY: feat/etf-dashboard-overview
 
