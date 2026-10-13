@@ -34,9 +34,14 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.claude/hooks/dev-server-link.ps1`: reuse a showcase already serving on 5173-5180, else start `npm run dev` hidden on the first free port, and return the link as hook JSON
+- [x] `.claude/settings.json`: register it as a `SessionStart` hook (30 s timeout)
 
 ### TEST
+
+- [x] Reuse path: with the showcase already on 5173 the hook answers `already running: http://localhost:5173/` in ~0.3 s
+- [x] Start path: on a spare port range the hook starts the server, waits until it answers, and a second run reuses it instead of starting another
+- [x] Code review (Victor) and security review (Sebastian)
 
 ### DEPLOY: feat/dev-server-link
 
@@ -44,7 +49,9 @@
 
 ##### Tier 0
 
-**Score:**
+Every session in this repo now starts with the showcase running and its `localhost` link printed, ready to ctrl+click in the VS Code terminal or open in Simple Browser. A server that is already up is reused, so `/clear` or a second session never starts a second one.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +60,9 @@
 
 ##### Tier 1
 
-**Score:**
+Developer tooling only; nothing reaches management or the commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +71,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber sees a session hook.
+
+**Score:** N/A
 
 #### Pull Request
 
