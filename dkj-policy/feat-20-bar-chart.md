@@ -58,7 +58,7 @@ This branch is step 2 of #20: `BarChart`, the brand-book mirror of the ETF dashb
 
 - [x] Victor reviewed the diff: nothing blocking. Applied: share only for a part-of-whole (no negatives, total > 0), the focus index clamped to the data (fixes `ColumnChart` too), the stacked zero line inside the SVG edge, named text-width constants, the `allocation` registry text. Left: one shared showcase data module (the preview keeps its own placeholders, as `MONTHS` does in step 1).
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the BarChart section and the ETF preview (`npm run dev`) and approved it.
+- [x] An owner has looked at the BarChart section and the ETF preview (`npm run dev`) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/20-bar-chart
 
