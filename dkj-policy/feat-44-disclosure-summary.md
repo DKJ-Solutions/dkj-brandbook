@@ -49,7 +49,11 @@ This branch is #44 and ships with `-Resolves 44`. `Disclosure` takes `summary: s
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `Disclosure` (`src/components/Feedback.tsx`): `summary` widened to `ReactNode`, optional `meta` and `trailing` slots; a plain string renders as before.
+- [x] Brand-layer CSS in `src/components/surfaces.css`: `dkj-disclosure-title`, `-meta`, `-trailing`, `-version`, the wrapping flex row with the chevron last.
+- [x] Showcase (`Surfaces.tsx`): the third "Structured summary" demo plus a 320px wrapper (`.bb-narrow` in `showcase.css`), and the section intro.
+- [x] Previews: `PluginsPreview` release rows and `ThumbnailPreview` "Notes per round" use the slots; `MesowisePreview` and `Overlays` stay on plain strings.
+- [x] `npx eslint src` and `npx tsc -b` run clean.
 
 ### TEST
 
