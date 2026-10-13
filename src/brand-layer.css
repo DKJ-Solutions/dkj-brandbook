@@ -49,6 +49,7 @@
   --dkj-drawer-w: 22rem;
   --dkj-popup-scale: 0.95;     /* first dialog: 95% of the column */
   --dkj-popup-step: 0.93;      /* each stacked dialog: 93% of the one below */
+  --dkj-datecol: 10ch;         /* DateRow: the fixed date column (fits "09:00-10:30" at 12px), so titles align down the list */
 
   /* ---- Focus ring (colour: --dkj-accent) ---- */
   --dkj-focus-w: 2px;

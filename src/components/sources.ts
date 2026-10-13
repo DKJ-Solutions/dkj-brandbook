@@ -82,6 +82,7 @@ export const SOURCES = {
   Prose: [],
   FilterChips: [],
   Figure: [],
+  DateRow: [],
 } as const satisfies Record<string, SourceRef[]>
 
 export type ComponentId = keyof typeof SOURCES
