@@ -9,11 +9,17 @@ library's scales, below), and the copy in this folder is the only one:
 [`house-style.css`](house-style.css) and [`house-theme.js`](house-theme.js).
 
 **It moved here from the `dkj-solutions` plugin on October 13, 2026.** The plugin's `house-style` skill
-still loads in every DKJ-Solutions session, and it now points here instead of carrying a copy. Raw URLs
-for a session or a build to fetch:
+still loads in every DKJ-Solutions session, and it now points here instead of carrying a copy. **It
+fetches a tagged release, never `main`** (owner's decision on
+[#3](https://github.com/DKJ-Solutions/dkj-brandbook/issues/3), October 13, 2026): `house-theme.js` is
+executable and runs with the origin of every page it is inlined into, and `main` is a moving ref that an
+admin can push to past the review. A tag is a version somebody chose to release. Raw URLs for a session or
+a build to fetch, with `<tag>` the `house-style-v<N>` release the skill is pinned to:
 
-- `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/main/house-style/house-style.css`
-- `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/main/house-style/house-theme.js`
+- `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/<tag>/house-style/house-style.css`
+- `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/<tag>/house-style/house-theme.js`
+
+Until the first tag is set and the skill is repointed to it, the skill still fetches `main`.
 
 **It reaches DKJ-Solutions and nothing else.** BWJ-Development has its own styling.
 
@@ -136,3 +142,12 @@ the advice zone.
 A change here reaches every DKJ-Solutions app the next time it takes a copy, so it is a **visible
 result**: the branch stops for the owner's look instead of merging. Bring a consumer's improvement here
 as an issue on this repo. Don't make a local edit and hope it travels.
+
+**A merged change reaches nobody until it is released.** A release is a tag on `main`, named
+`house-style-v<N>` with `N` counting up from 1 (`house-style-v1`, `house-style-v2`, ...), and it is set only
+on the owner's explicit request, like any tag. The tag is never moved or reused: a fix is the next number.
+Then the `house-style` skill in the `dkj-solutions` plugin
+([DKJ-Solutions/dkj-claude-plugins](https://github.com/DKJ-Solutions/dkj-claude-plugins)) is repointed to
+the new tag, through an inbound issue there, and the apps get it with that plugin release. So one house-style
+change costs one tag here and one pointer update there, and that second step is the point: nothing reaches
+the apps that has not been released.
