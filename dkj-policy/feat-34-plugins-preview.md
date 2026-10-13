@@ -52,7 +52,7 @@ This branch is #34: a recreated preview for `DKJ-Solutions/dkj-claude-plugins`, 
 
 - [x] Rebecca researched the two screens read-only in `dkj-claude-plugins`; Victor reviewed the diff: nothing blocking. Applied: no badge-only cells (badges are `aria-hidden`), so the skip reason is text in the detail line and the counts are `BadgeRow`s; no invented status column; the repo in the page title; release rows as version · title · date, with no invented table. Filed the two component gaps as #43 and #44.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the dkj-claude-plugins preview (`npm run dev`, the repo list in the navigation) and approved it.
+- [x] An owner has looked at the dkj-claude-plugins preview (`npm run dev`, the repo list in the navigation) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/34-plugins-preview
 
