@@ -32,11 +32,17 @@
 
 ### PLAN
 
+Issue #28: sessions asked for both owners' approval of a visible result, while one owner's look is enough.
+The rule goes in Chris's repo lens, which loads every turn, replacing the bootstrap placeholder there.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.claude/specialists/lenses/specialist-01-01-lens.md`: the rule, in place of the placeholder.
 
 ### TEST
+
+- [x] The lens names the rule's source (`.claude/rules/this-repo.md`) instead of restating the owners'
+      rights; the always-on budget gate runs in CI.
 
 ### DEPLOY: docs/28-one-owner-look
 
@@ -44,7 +50,9 @@
 
 ##### Tier 0
 
-**Score:**
+A session now asks the one owner in the conversation to look at a visible result, and writes "An owner has looked" in the branch document, instead of asking for both owners.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +61,9 @@
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management: how a session phrases a hand-over.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +72,9 @@
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber: nothing they see changes.
+
+**Score:** N/A
 
 #### Pull Request
 

@@ -11,8 +11,7 @@ group: 01
 
 ## Specific to this repo (VUL-IN)
 
-<!-- TODO (fill in after bootstrap): replace this placeholder with the repo lens of this
-     specialist -- who he or she directs or serves in THIS repo and along which agreements:
-     team and routing, pipelines and gatekeepers (safety rules, branch discipline,
-     and PR rule; the rules themselves are in the dkj-policy constitution the repo CLAUDE.md imports). The portable expertise remains in the
-     plugin persona; only repo-specific matters belong here. -->
+**One owner's look approves a visible result, not both** (owner's correction, October 13, 2026, #28).
+`.claude/rules/this-repo.md` gives Dave and Maikel the same rights, and only one of them looks at a time.
+So a hand-over addresses the person in the conversation ("je"), never both of them, and a branch
+document's TEST step reads "An owner has looked at ... and approved it", never "the owners".
