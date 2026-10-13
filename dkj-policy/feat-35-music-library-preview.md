@@ -40,16 +40,21 @@ This branch is #35: a recreated preview for `DKJ-Solutions/dkj-music-library`, a
 - **Data dashboard:** a duplicates table with the count as text ("3×"), ranked top-artist bars (`BarChart`, "N tracks"), and distributions: world tiles, a colour bar list with a `Legend`, and BPM tier tiles.
 - **Track register:** a stats row, a filter fieldset (search, BPM, genre, album and group selects, clear), a sortable table with an empty row, and a player strip under the table.
 - **Footer** says the app is local with no deployment; a banner says the content is invented.
-- **Gaps (no component, rendered as closely as possible):** multi-select colour chips with a colour dot (plain `Checkbox`es with the colour as text, and the colour as a text cell in the table); pill toggles that are really multi-select (a joined `SegmentedChoice` is single choice, so "All" is an option); inline selects and the inline editable cell per table row (plain text cells); the emoji navigation tiles of the Worlds section (`StatTile`s that do not navigate); a bar list with a per-bar colour dot (single-colour `BarChart`, rank in the label); the player strip (a `TintedPanel` with a note, no embed); the bulk-progress line of the sync (left out); a native `fieldset` for the track filters, since no component wraps one.
+- **Gaps (no component, rendered as closely as possible):** multi-select colour chips with a colour dot (plain `Checkbox`es with the colour as text, and the colour as a text cell in the table; FilterChips: #46); pill toggles that are really multi-select (a joined `SegmentedChoice` is single choice, so "All" is an option; also #46); inline selects and the inline editable cell per table row (plain text cells); the emoji navigation tiles of the Worlds section (`StatTile`s that do not navigate); a bar list with a per-bar colour dot (single-colour `BarChart`, rank in the label); the player strip (a `TintedPanel` with a note, no embed); the bulk-progress line of the sync (left out); a native `fieldset` for the track filters, since no component wraps one.
 
 ### CREATE
 
 - [x] `src/showcase/previews/MusicLibraryPreview.tsx`: the playlist manager, the data dashboard and the track register, switched with a `SegmentedChoice` in the `PageHeader`, built from existing components only.
 - [x] `src/showcase/previews/RepoPreview.tsx`: `dkj-music-library` registered in `PREVIEWS`.
 - [x] `src/apps/registry.ts`: the `dkj-music-library` entry with its three screen views (`MUSIC_LIBRARY_VIEWS`).
+- [x] `src/apps/registry.ts`: app ids follow the short-name convention (`mesowise`, `etf-tracker`): the new entry is `music-library` and the plugins entry is renamed `dkj-claude-plugins` to `claude-plugins`; ids are only used through `app.id` (anchors, lookups), and `RepoPreview` matches by `repo`.
 - [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
+
+- [x] Rebecca researched the screens read-only in `dkj-music-library`; Victor reviewed the diff: nothing blocking. Applied: no "placeholder content" banner (its accent tone dropped the lead, and the page intro already says it), `FooterNote` in the registry, the filter fieldset no longer the grid itself, search with a separator, app ids without the `dkj-` prefix. Filed the filter-chips gap as #46.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the dkj-music-library preview (`npm run dev`, the repo list in the navigation) and approved it.
 
 ### DEPLOY: feat/35-music-library-preview
 
@@ -57,7 +62,9 @@ This branch is #35: a recreated preview for `DKJ-Solutions/dkj-music-library`, a
 
 ##### Tier 0
 
-**Score:**
+The repo list in the showcase navigation now opens a recreated preview of `dkj-music-library`: the playlist manager, the data dashboard and the track register, built from brand-book components with invented content. The app ids in the overview now all go without the `dkj-` prefix (`claude-plugins`, `music-library`).
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -66,7 +73,9 @@ This branch is #35: a recreated preview for `DKJ-Solutions/dkj-music-library`, a
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -75,7 +84,9 @@ This branch is #35: a recreated preview for `DKJ-Solutions/dkj-music-library`, a
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
