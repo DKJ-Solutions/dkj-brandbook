@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**23 minor entries** <!-- pending-tally -->
+**24 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/35-music-library-preview · 20261013-133414Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The repo list in the showcase navigation now opens a recreated preview of `dkj-music-library`: the playlist manager, the data dashboard and the track register, built from brand-book components with invented content. The app ids in the overview now all go without the `dkj-` prefix (`claude-plugins`, `music-library`).
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Recreated preview for dkj-music-library
+
+[PR #47](https://github.com/DKJ-Solutions/dkj-brandbook/pull/47)
+
+---
 
 ### DEPLOY: feat/34-plugins-preview · 20261013-132527Z
 
