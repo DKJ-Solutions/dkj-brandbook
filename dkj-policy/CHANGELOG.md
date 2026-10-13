@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**35 minor entries** <!-- pending-tally -->
+**36 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/64-overlap-section · 20261013-193652Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book has an Overlap section under Apps: the review of which components duplicate or closely resemble each other (five strong candidates for a merge, five borderline pairs, four that only look alike), each with a proposal and links to the components, so a merge can be decided per pair.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+An Overlap section: components that duplicate or closely resemble each other
+
+[PR #65](https://github.com/DKJ-Solutions/dkj-brandbook/pull/65)
+
+---
 
 ### DEPLOY: feat/54-date-row · 20261013-155115Z
 
