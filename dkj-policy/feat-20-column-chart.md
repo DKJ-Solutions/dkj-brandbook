@@ -68,7 +68,7 @@ chart stay on #20, so this branch ships with `-NoResolves` and a comment on the 
 
 - [x] Eslint and `tsc -b` pass; the full gate runs below.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] The owners have looked at the ColumnChart section (`npm run dev`), wide and at 360px, in a light and
+- [ ] An owner has looked at the ColumnChart section (`npm run dev`), wide and at 360px, in a light and
       a dark theme: hover, tab plus arrow keys, and the table, and approved it.
 
 ### DEPLOY: feat/20-column-chart
