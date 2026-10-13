@@ -32,19 +32,36 @@
 
 ### PLAN
 
+Mirror the UI/UX design of the first DKJ-Solutions app (dkj-maplestory-classic-mesowise) into the brand
+book. Only the design, never the content. The inventory was approved on October 13, 2026 (36 patterns
+grouped from the ~76 components in its `src/app.tsx` and `src/style.css`).
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Tokens: `tokens/base.css` (shared) and `tokens/themes/mesowise.css` (colour, light + dark, `data-theme` / `data-mode`)
+- [x] Components in `src/components/`, presentational and styled only on tokens
+- [x] Source register `src/components/sources.ts` (repo, source components, source CSS per component)
+- [x] Showcase: every component with its variants and states, theme/mode switcher, 360px phone width
+- [x] README and `tokens/README.md` (how React and Artifacts consume the tokens)
 
 ### TEST
+
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`: eslint + tsc + vite build)
+- [x] Whole showcase server-rendered without a runtime error (36 sections)
+- [~] Automated component tests -- dropped: purely presentational CSS components whose correctness is visual; the owner's look in the browser is the check, and the repo has no test runner yet
+- [x] Code review by Victor
 
 ### DEPLOY: feat/mesowise-components
 
 #### What does the change on this branch deploy to main?
 
-##### Tier 0
+The brand book gets its first content. The design tokens are split into a shared base layer and a
+colour-only `mesowise` theme, and both are usable from React and from a Claude Artifact. Around them
+sit 35 presentational React components, mirrored from the Mesowise app's UI without its content, and
+a showcase that shows every variant and state with a theme and mode switcher. Every component records
+its source repo and its source component and CSS in `src/components/sources.ts`.
 
-**Score:**
+**Score:** 4
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +70,10 @@
 
 ##### Tier 1
 
-**Score:**
+There is now one place where the owners can see the DKJ-Solutions look and check whether apps stay
+consistent with it.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,9 +82,11 @@
 
 ##### Tier 2
 
-**Score:**
+The brand book has no subscribers. The end users of the apps see nothing until an app adopts these
+tokens.
+
+**Score:** N/A
 
 #### Pull Request
 
 Mesowise components and tokens mirrored into the brand book
-
