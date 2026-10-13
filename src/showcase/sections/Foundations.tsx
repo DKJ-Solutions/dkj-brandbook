@@ -1,97 +1,125 @@
 import { useEffect, useState } from 'react'
 import { Icon, ICON_NAMES } from '../../components/Icon'
 import { Demo, Section } from '../Showcase'
+import { useThemeId } from '../theme'
 
-const COLORS = [
-  'bg', 'surface', 'text', 'text-muted', 'border', 'accent', 'on-accent', 'fill-strong', 'on-fill-strong',
-  'positive-hi', 'positive-lo', 'on-positive', 'negative', 'positive', 'danger', 'warning',
-  'surface-accent', 'surface-accent-border', 'surface-accent-box',
-  'surface-info', 'surface-info-border', 'surface-info-box', 'info-accent', 'on-info-accent', 'backdrop',
+/** House tokens (house-style/house-style.css), grouped as in house-style/README.md. */
+const HOUSE_COLORS = {
+  'Surfaces and ink': ['page', 'surface', 'ink', 'ink-2', 'muted', 'grid', 'axis', 'border'],
+  Primary: ['primary', 'on-primary', 'primary-soft'],
+  Status: ['good', 'warn', 'bad', 'warn-bg', 'status-mark'],
+  Direction: ['gain', 'loss', 'up', 'down'],
+  Categorical: ['cat-1', 'cat-2', 'cat-3'],
+} as const
+
+/** Brand-layer colours (src/brand-layer.css), all built from house tokens. */
+const LAYER_COLORS = [
+  'surface', 'accent', 'on-accent', 'positive-hi', 'positive-lo', 'warn-text', 'backdrop',
+  'tint-accent', 'tint-accent-border', 'tint-accent-box', 'tint-info', 'tint-info-border', 'tint-info-box',
 ] as const
 
-const FONT_SIZES = ['3xs', '2xs', 'xs', 'sm', 'md', 'base', 'lg', 'xl', 'h4', 'h3', 'h2', 'h1', 'display'] as const
-const SPACES = ['0-5', '1', '1-5', '2', '2-5', '3', '3-5', '4', '5', '6', '8'] as const
+const TEXT_SIZES = ['h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'lg', 'base', 'sm', 'xs'] as const
+const SPACES = ['0-5', '1', '1-5', '2', '2-5', '3', '3-5', '4', '5', '6', '8', '12', '16'] as const
 const RADII = ['xs', 'sm', 'md', 'md-plus', 'lg', 'xl', 'pill'] as const
+const CONTROLS = ['control-compact', 'control-h', 'tap', 'control-lg'] as const
 
-/** Colour swatches with the value the active theme and mode resolve to. `stamp` changes when theme or mode does. */
-export function Foundations({ stamp }: { stamp: string }) {
+type Swatch = { name: string; value: string | undefined }
+
+function SwatchGrid({ items }: { items: Swatch[] }) {
+  return (
+    <div className="bb-swatches">
+      {items.map(({ name, value }) => (
+        <div key={name} className="bb-swatch">
+          <span className="bb-swatch-chip" style={{ background: `var(${name})` }} />
+          <span>
+            <code>{name}</code>
+            <br />
+            {value}
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+/** Live token readouts: every value is read from the computed style, so a theme click changes them. */
+export function Foundations() {
+  const theme = useThemeId()
   const [values, setValues] = useState<Record<string, string>>({})
   useEffect(() => {
-    // Read after the theme attributes have been applied, and again when the OS scheme flips.
+    // Read after the theme attribute has been applied, and again when the OS scheme flips.
     const readAll = () => {
       const cs = getComputedStyle(document.documentElement)
-      setValues(Object.fromEntries(COLORS.map((c) => [c, cs.getPropertyValue(`--color-${c}`).trim()])))
+      const names = [
+        ...Object.values(HOUSE_COLORS).flat().map((c) => `--${c}`),
+        ...LAYER_COLORS.map((c) => `--dkj-${c}`),
+      ]
+      setValues(Object.fromEntries(names.map((n) => [n, cs.getPropertyValue(n).trim()])))
     }
     readAll()
     const mq = window.matchMedia('(prefers-color-scheme: dark)')
     mq.addEventListener('change', readAll)
     return () => mq.removeEventListener('change', readAll)
-  }, [stamp])
+  }, [theme])
 
   return (
     <Section
       id="tokens"
       title="Tokens"
-      intro="tokens/base.css holds everything shared by every DKJ-Solutions repo; tokens/themes/<theme>.css holds only colour. Switch theme and mode above: the swatches show what the active combination resolves to."
+      intro="house-style/house-style.css is the one token source for every DKJ-Solutions app; src/brand-layer.css adds only what the house style does not have (--dkj-*), built from house tokens. Click a theme swatch above: every value below is read live and follows."
     >
-      <Demo label="Colour -- theme layer" wide>
-        <div className="bb-swatches">
-          {COLORS.map((c) => (
-            <div key={c} className="bb-swatch">
-              <span className="bb-swatch-chip" style={{ background: `var(--color-${c})` }} />
-              <span>
-                <code>--color-{c}</code>
-                <br />
-                {values[c]}
-              </span>
-            </div>
-          ))}
-        </div>
+      {Object.entries(HOUSE_COLORS).map(([group, names]) => (
+        <Demo key={group} label={`House colour -- ${group}`} wide>
+          <SwatchGrid items={names.map((n) => ({ name: `--${n}`, value: values[`--${n}`] }))} />
+        </Demo>
+      ))}
+      <Demo label="Brand layer colour (--dkj-*)" wide>
+        <SwatchGrid items={LAYER_COLORS.map((n) => ({ name: `--dkj-${n}`, value: values[`--dkj-${n}`] }))} />
       </Demo>
-      <Demo label="Type scale -- base layer" wide>
+      <Demo label="Type scale -- house" wide>
         <div className="bb-scale">
-          {FONT_SIZES.map((f) => (
+          {TEXT_SIZES.map((f) => (
             <div key={f} className="bb-scale-row">
-              <code>--fs-{f}</code>
-              <span style={{ fontSize: `var(--fs-${f})`, color: 'var(--color-text)', lineHeight: 'var(--lh-tight)' }}>The quick label 1,234</span>
+              <code>--text-{f}</code>
+              <span style={{ fontSize: `var(--text-${f})`, color: 'var(--ink)', lineHeight: 'var(--dkj-lh-tight)' }}>The quick label 1,234</span>
             </div>
           ))}
         </div>
       </Demo>
-      <Demo label="Spacing">
+      <Demo label="Spacing -- house">
         <div className="bb-scale">
           {SPACES.map((s) => (
             <div key={s} className="bb-scale-row">
-              <code>--space-{s}</code>
-              <span className="bb-bar" style={{ width: `var(--space-${s})` }} />
+              <code>--spacing-{s}</code>
+              <span className="bb-bar" style={{ width: `var(--spacing-${s})` }} />
             </div>
           ))}
         </div>
       </Demo>
-      <Demo label="Radius">
+      <Demo label="Radius (--dkj-radius-*)">
         <div className="bb-row">
           {RADII.map((r) => (
-            <div key={r} style={{ display: 'grid', justifyItems: 'center', gap: 'var(--space-1)', fontSize: 'var(--fs-2xs)' }}>
-              <span className="bb-radius" style={{ borderRadius: `var(--radius-${r})` }} />
+            <div key={r} style={{ display: 'grid', justifyItems: 'center', gap: 'var(--spacing-1)', fontSize: 'var(--text-xs)' }}>
+              <span className="bb-radius" style={{ borderRadius: `var(--dkj-radius-${r})` }} />
               <code>{r}</code>
             </div>
           ))}
         </div>
       </Demo>
-      <Demo label="Controls and tap targets">
+      <Demo label="Controls and tap targets (--dkj-*)">
         <div className="bb-scale">
-          {(['control-compact', 'control-h', 'tap', 'control-lg'] as const).map((s) => (
+          {CONTROLS.map((s) => (
             <div key={s} className="bb-scale-row">
-              <code>--{s}</code>
-              <span className="bb-bar" style={{ width: `var(--${s})`, height: `var(--${s})`, opacity: 0.35 }} />
+              <code>--dkj-{s}</code>
+              <span className="bb-bar" style={{ width: `var(--dkj-${s})`, height: `var(--dkj-${s})`, opacity: 0.35 }} />
             </div>
           ))}
         </div>
       </Demo>
       <Demo label="Icons (stroke set, currentColor)">
-        <div className="bb-row" style={{ color: 'var(--color-text)' }}>
+        <div className="bb-row" style={{ color: 'var(--ink)' }}>
           {ICON_NAMES.map((n) => (
-            <span key={n} title={n} style={{ display: 'grid', justifyItems: 'center', gap: 'var(--space-1)', width: '4rem', fontSize: 'var(--fs-3xs)' }}>
+            <span key={n} title={n} style={{ display: 'grid', justifyItems: 'center', gap: 'var(--spacing-1)', width: '4rem', fontSize: 'var(--text-xs)' }}>
               <Icon name={n} size={24} />
               {n}
             </span>

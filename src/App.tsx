@@ -1,6 +1,7 @@
 import { cx } from './components/cx'
 import { Toolbar } from './showcase/Showcase'
-import { useThemeControls } from './showcase/theme'
+import { useWidth } from './showcase/theme'
+import { Apps } from './showcase/sections/Apps'
 import { Actions } from './showcase/sections/Actions'
 import { Data } from './showcase/sections/Data'
 import { Forms } from './showcase/sections/Forms'
@@ -10,6 +11,7 @@ import { Surfaces } from './showcase/sections/Surfaces'
 
 /** The navigation mirrors the section order below; each id is a component id in src/components/sources.ts. */
 const NAV = [
+  { group: 'Apps', items: ['apps'] },
   { group: 'Foundations', items: ['tokens'] },
   { group: 'Actions', items: ['Button', 'SaveButton', 'SegmentedChoice', 'IconButton', 'RoundToggle'] },
   { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'GroupHeading', 'QuestionBlock', 'Amount'] },
@@ -18,8 +20,10 @@ const NAV = [
   { group: 'Data', items: ['DefinitionList', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },
 ] as const
 
+const LABELS: Record<string, string> = { apps: 'Overview', tokens: 'Tokens' }
+
 export default function App() {
-  const controls = useThemeControls()
+  const controls = useWidth()
   return (
     <div className="bb-shell">
       <nav className="bb-nav" aria-label="Components">
@@ -31,7 +35,7 @@ export default function App() {
             <ul>
               {g.items.map((i) => (
                 <li key={i}>
-                  <a href={`#${i}`}>{i === 'tokens' ? 'Tokens' : i}</a>
+                  <a href={`#${i}`}>{LABELS[i] ?? i}</a>
                 </li>
               ))}
             </ul>
@@ -41,7 +45,8 @@ export default function App() {
       <main className="bb-main">
         <Toolbar controls={controls} />
         <div className={cx('bb-content', controls.width === 'phone' && 'bb-content--phone')}>
-          <Foundations stamp={`${controls.theme}-${controls.mode}`} />
+          <Apps />
+          <Foundations />
           <Actions />
           <Surfaces />
           <Forms />

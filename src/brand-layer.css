@@ -1,0 +1,83 @@
+/*
+ * DKJ-Solutions brand book -- the repo layer on top of the house style.
+ *
+ * Load AFTER house-style/house-style.css. The house file is the one token source: every colour, every
+ * spacing step and the type scale come from it. This file only adds what the house style has no
+ * equivalent for (radius, weights, control sizes, focus ring, motion, layout) and a few colours the
+ * components need, built FROM house tokens so they follow all twelve themes in light and dark.
+ *
+ * Rule (house-style/README.md): extend, never override. Every name here starts with --dkj-, a prefix
+ * the house file does not use, and no house token or house class is redefined.
+ */
+:root {
+  /* ---- Radius (the house file writes radii as literals; the components share these) ---- */
+  --dkj-radius-xs: 0.25rem;       /* compact buttons */
+  --dkj-radius-sm: 0.375rem;      /* list items, inner squares */
+  --dkj-radius-md: 0.5rem;        /* controls: inputs, buttons, boxes */
+  --dkj-radius-md-plus: 0.625rem; /* calculation boxes, answer box */
+  --dkj-radius-lg: 0.75rem;       /* cards, panels, banners */
+  --dkj-radius-xl: 1rem;          /* dialogs, drawer */
+  --dkj-radius-pill: 999px;       /* chips, tags, round toggles */
+
+  /* ---- Type: only what the house scale (--text-*) cannot express ---- */
+  --dkj-text-input: 16px;                          /* inputs: 16px so iOS does not zoom in on focus */
+  --dkj-text-display: clamp(2rem, 8.5vw, var(--text-h0)); /* the big step value: fluid, capped at the house h0 */
+  --dkj-fw-regular: 400;
+  --dkj-fw-medium: 500;
+  --dkj-fw-semibold: 600;
+  --dkj-fw-bold: 700;
+  --dkj-lh-none: 1;
+  --dkj-lh-tight: 1.2;
+  --dkj-lh-snug: 1.35;
+  --dkj-tracking-caps: 0.03em;   /* compact uppercase buttons */
+  --dkj-tracking-label: 0.04em;  /* uppercase section and column labels */
+  --dkj-tracking-tag: 0.06em;    /* pill tags */
+
+  /* ---- Controls and tap targets ---- */
+  --dkj-tap: 44px;             /* minimum tap target, also where the visual is smaller */
+  --dkj-control-h: 38px;       /* a value box and the pencil beside it: one height */
+  --dkj-control-lg: 52px;      /* stepper in a dialog */
+  --dkj-control-compact: 36px; /* compact uppercase buttons (tap area stays 44px) */
+
+  /* ---- Layout ---- */
+  --dkj-column-w: 32rem;       /* the app column, phone-first */
+  --dkj-topbar-h: 3.5rem;
+  --dkj-drawer-w: 22rem;
+  --dkj-popup-scale: 0.95;     /* first dialog: 95% of the column */
+  --dkj-popup-step: 0.93;      /* each stacked dialog: 93% of the one below */
+
+  /* ---- Focus ring (colour: --dkj-accent) ---- */
+  --dkj-focus-w: 2px;
+  --dkj-focus-offset: 2px;
+  --dkj-focus-offset-inset: -4px; /* round toggles: the ring sits inside the 44px tap area */
+
+  /* ---- Motion ---- */
+  --dkj-duration-fast: 100ms;   /* press */
+  --dkj-duration-base: 150ms;   /* hover border */
+  --dkj-duration-slow: 200ms;   /* card border */
+  --dkj-duration-panel: 220ms;  /* drawer and backdrop in */
+  --dkj-duration-flash: 1.2s;   /* value changed by the app */
+  --dkj-ease-out: ease-out;
+
+  /* ---- Colour: scoped aliases ----
+     A tinted dialog re-declares these three, so every component inside follows the tint. The house
+     tokens themselves are never redefined, so the components use these where a tint can apply. */
+  --dkj-surface: var(--surface);
+  --dkj-accent: var(--primary);
+  --dkj-on-accent: var(--on-primary);
+
+  /* ---- Colour: built from house tokens ---- */
+  --dkj-positive-hi: var(--good);   /* gradient button: top ... */
+  --dkj-positive-lo: var(--up);     /* ... bottom: darker on light, lighter on dark; text on it is --status-mark */
+  --dkj-warn-text: color-mix(in srgb, var(--warn) 70%, var(--ink)); /* --warn is a fill; this reads as text */
+  --dkj-backdrop: rgb(0 0 0 / 0.45);                                /* dialog::backdrop, same in both modes */
+
+  /* An accent-tinted dialog and a box inside it (the primary on the surface). */
+  --dkj-tint-accent: color-mix(in srgb, var(--primary) 7%, var(--surface));
+  --dkj-tint-accent-border: color-mix(in srgb, var(--primary) 30%, var(--surface));
+  --dkj-tint-accent-box: var(--primary-soft);
+  /* An info-tinted dialog: the first categorical colour stands for "information", apart from the primary. */
+  --dkj-tint-info: color-mix(in srgb, var(--cat-1) 7%, var(--surface));
+  --dkj-tint-info-border: color-mix(in srgb, var(--cat-1) 30%, var(--surface));
+  --dkj-tint-info-box: color-mix(in srgb, var(--cat-1) 14%, var(--surface));
+}

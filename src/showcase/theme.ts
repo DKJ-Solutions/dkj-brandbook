@@ -1,39 +1,33 @@
 import { useEffect, useState } from 'react'
 
-/** The themes the brand book ships. A new theme: add its file under tokens/themes/ and list it here. */
-export const THEMES = [{ id: 'mesowise', label: 'Mesowise' }] as const
-export type ThemeId = (typeof THEMES)[number]['id']
-type Mode = 'auto' | 'light' | 'dark'
 type Width = 'fluid' | 'phone'
 
-function read<T extends string>(key: string, fallback: T): T {
-  try {
-    return (localStorage.getItem(key) as T | null) ?? fallback
-  } catch {
-    return fallback
-  }
-}
-function write(key: string, value: string) {
-  try {
-    localStorage.setItem(key, value)
-  } catch {
-    /* storage unavailable: the choice simply is not remembered */
-  }
+/** Preview width, remembered on this device. The colour theme itself is owned by the house script (window.DKJTheme). */
+export function useWidth() {
+  const [width, setWidth] = useState<Width>(() => {
+    try {
+      return (localStorage.getItem('bb-width') as Width | null) ?? 'fluid'
+    } catch {
+      return 'fluid'
+    }
+  })
+  useEffect(() => {
+    try {
+      localStorage.setItem('bb-width', width)
+    } catch {
+      /* storage unavailable: the choice simply is not remembered */
+    }
+  }, [width])
+  return { width, setWidth }
 }
 
-/** The theme switcher: theme x mode, written to <html data-theme data-mode>, the same hooks a consuming repo uses. */
-export function useThemeControls() {
-  const [theme, setTheme] = useState<ThemeId>(() => read('bb-theme', 'mesowise'))
-  const [mode, setMode] = useState<Mode>(() => read('bb-mode', 'auto'))
-  const [width, setWidth] = useState<Width>(() => read('bb-width', 'fluid'))
+/** The active house theme id (e.g. "blue"), kept in sync with data-theme so token readouts can re-read on a change. */
+export function useThemeId() {
+  const [id, setId] = useState(() => document.documentElement.dataset.theme ?? '')
   useEffect(() => {
-    const root = document.documentElement
-    root.dataset.theme = theme
-    if (mode === 'auto') delete root.dataset.mode
-    else root.dataset.mode = mode
-    write('bb-theme', theme)
-    write('bb-mode', mode)
-  }, [theme, mode])
-  useEffect(() => write('bb-width', width), [width])
-  return { theme, setTheme, mode, setMode, width, setWidth }
+    const obs = new MutationObserver(() => setId(document.documentElement.dataset.theme ?? ''))
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => obs.disconnect()
+  }, [])
+  return id
 }
