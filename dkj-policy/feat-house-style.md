@@ -36,9 +36,14 @@ Make dkj-brandbook the single source of the DKJ-Solutions house style: the style
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/house-style.css` and `house-style/house-theme.js` copied from
+  `dkj-claude-plugins/plugins/dkj-policy/dkj-solutions/skills/house-style/`, byte-identical (`cmp`)
+- [x] `house-style/README.md`: the skill page's rules, with the intro and the change route rewritten for this repo
+- [x] root `README.md` points at the folder
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (the showcase does not load the house style yet, so nothing renders differently)
 
 ### DEPLOY: feat/house-style
 
@@ -46,7 +51,11 @@ Make dkj-brandbook the single source of the DKJ-Solutions house style: the style
 
 ##### Tier 0
 
-**Score:**
+The DKJ-Solutions house style now lives here: `house-style/house-style.css`, `house-style/house-theme.js`
+and the rules in [`house-style/README.md`](../house-style/README.md), moved unchanged from the
+`dkj-solutions` plugin in dkj-claude-plugins. This repo is now its single copy.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -55,7 +64,9 @@ Make dkj-brandbook the single source of the DKJ-Solutions house style: the style
 
 ##### Tier 1
 
-**Score:**
+Every DKJ-Solutions app takes its look from one place that also holds the component overview.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -64,7 +75,9 @@ Make dkj-brandbook the single source of the DKJ-Solutions house style: the style
 
 ##### Tier 2
 
-**Score:**
+Not relevant to a subscriber: no app's look changes.
+
+**Score:** N/A
 
 #### Pull Request
 
