@@ -3,6 +3,7 @@ import { RoundToggle } from '../../components/Button'
 import { Checkbox, FixedField, ResetButton, SearchCombobox, SelectField, Stepper, TextField } from '../../components/Field'
 import { FormulaHead, FormulaRow, RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
+import { HouseFieldDemo } from './HouseApp'
 
 const ITEMS = [
   { value: 'Item alpha', meta: 'lv 10 / 12' },
@@ -29,6 +30,9 @@ export function Forms() {
         <Demo label="Select / fixed value">
           <SelectField label="Label" options={['Option one', 'Option two', 'Option three with a long name that truncates']} />
           <FixedField label="Label">Fixed value (read-only)</FixedField>
+        </Demo>
+        <Demo label="House .field -- input / select / error">
+          <HouseFieldDemo />
         </Demo>
       </Section>
 

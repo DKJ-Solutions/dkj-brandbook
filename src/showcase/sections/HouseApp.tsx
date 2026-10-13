@@ -1,0 +1,215 @@
+import { useRef, type MouseEvent } from 'react'
+import { Icon } from '../../components/Icon'
+
+/**
+ * Demos of the house app components (house-style/house-style.css, "App components"), in plain house
+ * classes and native elements, so the house layer itself can be judged next to the brand-book versions.
+ */
+
+/** A tap on the backdrop is a click on the dialog element itself; the padding sits in .dialog__body. */
+function closeOnBackdrop(e: MouseEvent<HTMLDialogElement>) {
+  if (e.target === e.currentTarget) e.currentTarget.close()
+}
+
+export function HouseFieldDemo() {
+  return (
+    <>
+      <label className="field">
+        <span>Label</span>
+        <input placeholder="Placeholder" />
+      </label>
+      <label className="field">
+        <span>Label</span>
+        <select defaultValue="b">
+          <option value="a">Option one</option>
+          <option value="b">Option two</option>
+          <option value="c">Option three with a long name that truncates</option>
+        </select>
+      </label>
+      <label className="field">
+        <span>Label</span>
+        <input defaultValue="12,5" aria-invalid="true" />
+        <p className="field__error" role="alert">
+          Enter a whole number.
+        </p>
+      </label>
+    </>
+  )
+}
+
+export function HouseButtonsDemo() {
+  return (
+    <>
+      <div className="bb-row">
+        <button type="button" className="btn btn--touch">
+          Touch
+        </button>
+        <button type="button" className="btn btn--touch btn--primary">
+          Primary
+        </button>
+        <button type="button" className="btn btn--touch btn--primary" disabled>
+          Disabled
+        </button>
+      </div>
+      <button type="button" className="btn btn--touch btn--primary btn--block">
+        Block
+      </button>
+      <div className="action-row">
+        <button type="button" className="icon-btn">
+          <Icon name="pencil" />
+          <span className="sr-only">Edit</span>
+        </button>
+        <button type="button" className="icon-btn">
+          <Icon name="search" />
+          <span className="sr-only">Search</span>
+        </button>
+        <button type="button" className="icon-btn">
+          <Icon name="download" />
+          <span className="sr-only">Download</span>
+        </button>
+      </div>
+    </>
+  )
+}
+
+export function HouseDialogsDemo() {
+  const plain = useRef<HTMLDialogElement>(null)
+  const edit = useRef<HTMLDialogElement>(null)
+  const drawer = useRef<HTMLDialogElement>(null)
+  return (
+    <>
+      <div className="bb-row">
+        <button type="button" className="btn btn--touch" onClick={() => plain.current?.showModal()}>
+          .dialog
+        </button>
+        <button type="button" className="btn btn--touch" onClick={() => edit.current?.showModal()}>
+          .dialog (cancel / save)
+        </button>
+        <button type="button" className="btn btn--touch" onClick={() => drawer.current?.showModal()}>
+          .dialog--drawer
+        </button>
+      </div>
+
+      <dialog ref={plain} className="dialog" aria-labelledby="house-dialog-plain" onClick={closeOnBackdrop}>
+        <div className="dialog__body">
+          <div className="dialog__head">
+            <div>
+              <h3 className="dialog__title" id="house-dialog-plain">
+                Dialog title
+              </h3>
+              <p className="dialog__sub">A subtitle in --ink-2</p>
+            </div>
+          </div>
+          <button type="button" className="dialog__close" aria-label="Close" onClick={() => plain.current?.close()}>
+            <Icon name="close" />
+          </button>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </dialog>
+
+      <dialog ref={edit} className="dialog" aria-labelledby="house-dialog-edit" onClick={closeOnBackdrop}>
+        <div className="dialog__body">
+          <div className="dialog__head dialog__head--two">
+            <h3 className="dialog__title" id="house-dialog-edit">
+              Edit a value
+            </h3>
+          </div>
+          <button type="button" className="dialog__close dialog__close--cancel" aria-label="Cancel" onClick={() => edit.current?.close()}>
+            <Icon name="undo" />
+          </button>
+          <button type="button" className="dialog__close dialog__close--save" aria-label="Save" onClick={() => edit.current?.close()}>
+            <Icon name="check" />
+          </button>
+          <label className="field">
+            <span>Label</span>
+            <input defaultValue="12" />
+          </label>
+        </div>
+      </dialog>
+
+      <dialog ref={drawer} className="dialog dialog--drawer" aria-labelledby="house-dialog-drawer" onClick={closeOnBackdrop}>
+        <div className="dialog__body">
+          <div className="dialog__head">
+            <h3 className="dialog__title" id="house-dialog-drawer">
+              Menu
+            </h3>
+          </div>
+          <button type="button" className="dialog__close" aria-label="Close" onClick={() => drawer.current?.close()}>
+            <Icon name="close" />
+          </button>
+          <HouseMenuItems />
+        </div>
+      </dialog>
+    </>
+  )
+}
+
+export function HouseTopBarDemo() {
+  return (
+    <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--dkj-radius-lg)', overflow: 'hidden', background: 'var(--page)' }}>
+      <header className="topbar">
+        <div className="topbar__inner">
+          <div className="topbar__brand">
+            <span className="topbar__name">Appname</span>
+          </div>
+          <button type="button" className="icon-btn icon-btn--ghost">
+            <Icon name="menu" />
+            <span className="sr-only">Menu</span>
+          </button>
+        </div>
+      </header>
+      <div style={{ height: '6rem' }} />
+    </div>
+  )
+}
+
+function Chevron() {
+  return (
+    <svg className="menu-item__chevron" viewBox="0 0 24 24" width={20} height={20} aria-hidden="true" focusable="false">
+      <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+function HouseMenuItems() {
+  return (
+    <div>
+      <button type="button" className="menu-item">
+        <Icon name="person" className="menu-item__icon" />
+        <span className="menu-item__label">Profile</span>
+        <Chevron />
+      </button>
+      <button type="button" className="menu-item">
+        <Icon name="book" className="menu-item__icon" />
+        <span className="menu-item__label">Guide</span>
+        <Chevron />
+      </button>
+    </div>
+  )
+}
+
+export function HouseMenuDemo() {
+  return (
+    <>
+      <ul className="menu-list">
+        <li className="menu-row">
+          <span className="menu-row__label">Label</span>
+          <span className="menu-row__value">Value A</span>
+          <button type="button" className="icon-btn">
+            <Icon name="pencil" />
+            <span className="sr-only">Edit</span>
+          </button>
+        </li>
+        <li className="menu-row">
+          <span className="menu-row__label">Another label</span>
+          <span className="menu-row__value">A longer value that wraps when needed</span>
+          <button type="button" className="icon-btn">
+            <Icon name="pencil" />
+            <span className="sr-only">Edit</span>
+          </button>
+        </li>
+      </ul>
+      <HouseMenuItems />
+    </>
+  )
+}

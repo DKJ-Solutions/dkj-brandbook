@@ -51,6 +51,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h3` take the token of their own level, body text is `--text-base` |
+| App shell | `--control-h`, `--tap`, `--topbar-h`, `--column-narrow` | sizes for a mobile-first app, same in both modes: 38px for a value field and the button beside it, 44px as the smallest touch target, 56px for the top bar, 512px for the narrow app column |
 
 **The spacing and type scales have a source: the Figma library** *Shopify Theme - LIBRARY*, variable
 collection "Collection", groups `spacing/` and `text/`. Their names and values are copied exactly, so a
@@ -124,8 +125,43 @@ sortable headers via `.sort`/`.arrow` on `aria-sort`), `.seg` (a segmented switc
 numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with `--primary`, and a `:disabled` state for both), `.info-button`, `.tooltip`
 (with `--explain`), `.more` (a disclosure), `.moretoggle` (a full-width read-more button), `.chart` (the SVG chart scope),
 `.theme-picker` (with `__row`, `__label`, `__swatches`) and `.theme-swatch` (with `--light`, `--dark`), which
-`house-theme.js` draws, and `.footer-note`. Each is
-commented in the file.
+`house-theme.js` draws, and `.footer-note`. The app components
+([below](#app-components-from-mesowise)) reserve these too: `.container--narrow`/`main.narrow`, `.field`
+(with `__error`), `.btn--touch`, `.btn--block`, `.icon-btn` (with `--ghost`), `.action-row`, `.dialog`
+(with `__body`, `__head` (with `--two`, `--back`), `__title`, `__sub`, `__close` (with `--save`,
+`--cancel`, `--back`), and `--drawer`), `.topbar` (with `__inner`, `__brand`, `__name`), `.menu-list`,
+`.menu-row` (with `__label`, `__value`), `.menu-item` (with `__icon`, `__label`, `__chevron`) and
+`.sr-only`. Each is commented in the file.
+
+## App components (from MesoWise)
+
+**The house style is extended with the MesoWise app** (Maikel, October 12, 2026; ported here on
+October 13, 2026 by [#18](https://github.com/DKJ-Solutions/dkj-brandbook/issues/18), after the owner's
+choice on [dkj-claude-plugins#2955](https://github.com/DKJ-Solutions/dkj-claude-plugins/issues/2955)):
+the components that app had and the house style lacked were lifted into the same stylesheet. They are
+the generic, mobile-first parts of an app shell: a narrow column, a form field, touch buttons, a dialog
+and a side drawer, a top bar and a menu list. The group sits at the end of
+[`house-style.css`](house-style.css), under "App components".
+
+- **Sizes.** Touch targets are at least `--tap` (44px) high. The column is `--column-narrow` (512px), a
+  phone and, on a computer, the same width.
+- **Buttons.** `.btn--touch` and `.btn--block` are modifiers of `.btn`, so the `.btn:disabled` state
+  covers them too, `.btn--touch.btn--primary` included.
+- **Dialog.** A native `<dialog>` opened with `showModal`. Put `.dialog__title` on an `h3` or a `p`,
+  not an `h2`: the house `h2` is serif and flex. The page stands still behind a modal
+  (`html:has(dialog:modal)`), and `html:has(.topbar)` adds the scroll padding for the top bar.
+  `.dialog--drawer` slides in from the side. A dialog on top of a dialog sets `--dialog-scale` (default
+  0.95) smaller on itself: a hook the app sets, not a house token.
+- **Contrast.** Field labels and the dialog subtitle use `--ink-2`, because `--muted` on `--surface` is
+  about 3.5:1. `--muted` is for icons only, which need 3:1.
+- **Input font.** The input's 16px is a literal, not a type step: iOS zooms in on focus below 16px.
+
+**What this changes for an app that takes the update:** nothing that exists, only additions. But an app
+that defines its own `.field`, `.dialog`, `.topbar`, `.menu-row`, `.icon-btn` or `.sr-only` now collides
+with a house name, and renames its class or adopts the house one.
+
+**What stayed in the app, because it is domain:** MesoWise's tinted "advised" and "profile" dialogs, the
+level-up colours, the equipment lists, the stat lines, the chips and the download button.
 
 ## What was deliberately left out
 
