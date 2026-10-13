@@ -32,11 +32,16 @@
 
 ### PLAN
 
+The settings panel closed on a click inside it, off its controls (#68): the focus-out close from the #66 review read a null `relatedTarget` (focus moving to `body` on a click on a non-focusable spot) as focus leaving the panel.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/Showcase.tsx`: the focus-out close acts only when focus moves to an element outside the panel; clicks stay with the document pointerdown handler, which already tells inside from outside
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has clicked inside the open panel (title, labels, padding) and it stays open; a click outside still closes it
 
 ### DEPLOY: fix/68-panel-inside-click
 
@@ -44,7 +49,9 @@
 
 ##### Tier 0
 
-**Score:**
+The brand book's preview settings panel stays open on a click inside it; only a click outside it, Escape, the round button or tabbing out closes it.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +60,9 @@
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +71,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
