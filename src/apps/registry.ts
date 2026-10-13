@@ -78,6 +78,12 @@ const ETF_VIEWS: readonly View[] = [
   { id: 'explain-tooltip', name: 'Explanation tooltip', kind: 'tooltip', description: 'A bold title and a few short paragraphs in a floating panel, opened by hover or keyboard focus on an explanation mark (or a sortable column header), pinned by a click, closed by Escape or a click elsewhere.', components: ['Tooltip', 'RoundToggle'] },
 ]
 
+// DKJ Claude plugins: researched read-only from the repo's issue-dashboard worker and release-notes page generator. Two generated pages, no app.
+const PLUGINS_VIEWS: readonly View[] = [
+  { id: 'issue-dashboard', name: 'Issue dashboard', kind: 'screen', description: 'A generated page served by a worker: a heading with the repo, a muted generated-at and count line, count chips for sweepable and skipped issues, an optional "read with care" warning with a list, then one row per open issue (number, title, labels, a muted detail line); skipped rows say why, and an empty list says "No open issues".', components: ['PageHeader', 'SegmentedChoice', 'Message', 'Badge', 'Banner', 'Card', 'DataTable', 'FooterNote'] },
+  { id: 'release-notes', name: 'Release notes', kind: 'screen', description: 'A generated page: a masthead with the product name, a heading and a muted subtitle, then a bordered panel with one closed disclosure per release (version, optional chip, date) whose body is the rendered release note, and a snapshot note at the foot.', components: ['PageHeader', 'TitleTag', 'Message', 'Card', 'Disclosure', 'GroupHeading', 'FooterNote'] },
+]
+
 export const APPS: readonly App[] = [
   {
     id: 'mesowise',
@@ -97,6 +103,15 @@ export const APPS: readonly App[] = [
       'A personal investment dashboard: one generated page with the portfolio value, the result against deposits, the holdings, charts over time, quarterly deposit goals and a written market report, every figure with a short explanation.',
     stack: 'Python-generated static HTML dashboard (inline CSS + JS)',
     views: ETF_VIEWS,
+  },
+  {
+    id: 'dkj-claude-plugins',
+    name: 'DKJ Claude plugins',
+    repo: 'DKJ-Solutions/dkj-claude-plugins',
+    description:
+      'The shared Claude Code plugins behind the DKJ-Solutions way of working: policy, skills and specialists. Its only screens are two generated pages, a release-notes page and an issue dashboard, each served by a Cloudflare Worker.',
+    stack: 'PowerShell scripts + Cloudflare Workers (vanilla JS, inline CSS); no framework',
+    views: PLUGINS_VIEWS,
   },
 ]
 

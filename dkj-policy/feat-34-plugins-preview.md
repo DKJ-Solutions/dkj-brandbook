@@ -36,10 +36,10 @@ This branch is #34: a recreated preview for `DKJ-Solutions/dkj-claude-plugins`, 
 
 #### What the preview shows
 
-- **Issue dashboard (first screen):** a muted generated-at and count line, count badges "Sweepable n" and "Skip n", a "Read with care" warning banner with a bullet list, then a table of open issues: number and title, label badges, a status badge, and the muted detail line (assigned, blocked by, unblocks, PR) under the title. Skipped rows carry the reason in their badge and a negative tone on the issue cell. The empty state "No open issues" is the table's `empty` row.
-- **Release notes:** an eyebrow tag with the product name, the heading, a muted subtitle, a card with one closed disclosure per release (version, optional "latest", date) whose body has group headings, lists and a small table, and a snapshot note.
+- **Issue dashboard (first screen):** a muted generated-at and count line, count rows (`BadgeRow`) "Sweepable n" and "Skip n", a "Read with care" warning banner with a bullet list, then a table of open issues: number and title, the labels as text, and the muted detail line (assigned, blocked by, unblocks, PR) under the title. Skipped rows carry the reason in that detail line and a negative tone on the issue cell. The repo is in the page title, as in the worker's heading. The empty state "No open issues" is the table's `empty` row.
+- **Release notes:** an eyebrow tag with the product name, the heading, a muted subtitle, a card with one closed disclosure per release (version · title · date) whose body has group headings, lists and code, and a snapshot note.
 - **Footer note** says the real product of the repo is a plugin (policy, skills, scripts), not an app.
-- **Gaps (no component, rendered as closely as possible):** the whole-row red tint of a skipped issue (only the issue text goes red); the `#number` as its own left column (it is bold text in the first cell); the repo name above each issue title; a disclosure summary with an accent-coloured version, a chip and a chevron-side date (the summary is plain text, so it reads "v2.1.0 · latest · date"); rendered markdown prose (headings, lists and code are plain elements and `GroupHeading`, with no prose component); the page masthead eyebrow, which is a `TitleTag`.
+- **Gaps (no component, rendered as closely as possible):** the whole-row red tint of a skipped issue (only the issue text goes red); the `#number` as its own left column (it is bold text in the first cell); the repo name above each issue title; a disclosure summary with an accent-coloured version, a chip and a date (the summary is plain text, so it reads "v2.1.0 · title · date"; structured summary: #44); rendered markdown prose (headings, lists and code are plain elements and `GroupHeading`, with no prose component; Prose: #43); the page masthead eyebrow, which is a `TitleTag`.
 
 ### CREATE
 
@@ -50,13 +50,19 @@ This branch is #34: a recreated preview for `DKJ-Solutions/dkj-claude-plugins`, 
 
 ### TEST
 
+- [x] Rebecca researched the two screens read-only in `dkj-claude-plugins`; Victor reviewed the diff: nothing blocking. Applied: no badge-only cells (badges are `aria-hidden`), so the skip reason is text in the detail line and the counts are `BadgeRow`s; no invented status column; the repo in the page title; release rows as version · title · date, with no invented table. Filed the two component gaps as #43 and #44.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the dkj-claude-plugins preview (`npm run dev`, the repo list in the navigation) and approved it.
+
 ### DEPLOY: feat/34-plugins-preview
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The repo list in the showcase navigation now opens a recreated preview of `dkj-claude-plugins` as well. That repo has no app, so the preview shows the two pages it generates, the issue dashboard and the release notes page, built from brand-book components with placeholder content.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -65,7 +71,9 @@ This branch is #34: a recreated preview for `DKJ-Solutions/dkj-claude-plugins`, 
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -74,7 +82,9 @@ This branch is #34: a recreated preview for `DKJ-Solutions/dkj-claude-plugins`, 
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
