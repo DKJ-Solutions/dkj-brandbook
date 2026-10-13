@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { SegmentedChoice } from '../../components/Button'
 import { Card, CardBody, CardHead } from '../../components/Card'
 import { FooterNote, GroupHeading } from '../../components/Content'
+import { Prose } from '../../components/Prose'
 import { Banner, Disclosure, Message, TitleTag } from '../../components/Feedback'
 import { Badge, BadgeRow } from '../../components/Metrics'
 import { PageHeader } from '../../components/Navigation'
@@ -92,11 +93,13 @@ function ReleaseNotes() {
               {r.sections.map((sec) => (
                 <div key={sec.heading}>
                   <GroupHeading count={sec.items.length}>{sec.heading}</GroupHeading>
-                  <ul>
-                    {sec.items.map((item) => (
-                      <li key={item}>{sec.code ? <code>{item}</code> : item}</li>
-                    ))}
-                  </ul>
+                  <Prose size="sm">
+                    <ul>
+                      {sec.items.map((item) => (
+                        <li key={item}>{sec.code ? <code>{item}</code> : item}</li>
+                      ))}
+                    </ul>
+                  </Prose>
                 </div>
               ))}
             </Disclosure>

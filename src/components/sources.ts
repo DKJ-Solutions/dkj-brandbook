@@ -1,7 +1,7 @@
 /**
  * Where each brand-book component comes from: the source repo, the component(s) in that repo, and the CSS it was
  * lifted from. This register is how we later see which repo delivers which component; the showcase prints it under
- * every component. Only the UI/UX design was taken over -- no content, data or logic.
+ * every component. Only the UI/UX design was taken over -- no content, data or logic. An empty array means a brand-book original: no source repo.
  */
 export type SourceRef = {
   repo: string
@@ -78,6 +78,8 @@ export const SOURCES = {
   ReadMoreToggle: e(['market report tiles', 'advice pairmore'], ['.moretoggle', '.moretoggle::after', '.moretoggle[aria-expanded]', '.pairmore']),
   PageHeader: e(['header (title, as-of, controls)'], ['header', 'h1', '.controls', '.muted']),
   FooterNote: e(['page footer'], ['.foot']),
+  // Brand-book original, no source repo.
+  Prose: [],
 } as const satisfies Record<string, SourceRef[]>
 
 export type ComponentId = keyof typeof SOURCES

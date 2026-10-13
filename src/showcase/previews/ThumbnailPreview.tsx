@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { SegmentedChoice } from '../../components/Button'
 import { Card, CardBody, TintedPanel } from '../../components/Card'
 import { FooterNote, GroupHeading } from '../../components/Content'
+import { Prose } from '../../components/Prose'
 import { Chip, Disclosure, Message } from '../../components/Feedback'
 import { MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
 import { PageHeader } from '../../components/Navigation'
@@ -94,7 +95,9 @@ function YardstickReport() {
     <>
       <Message>Generated on 2026-01-01</Message>
       <Message tone="note">Generated report; edit the data, not this page.</Message>
-      <p>A short introduction: each round below is measured against the same yardstick, and a dash means the value was not measured.</p>
+      <Prose>
+        <p>A short introduction: each round below is measured against the same yardstick, and a dash means the value was not measured.</p>
+      </Prose>
 
       <GroupHeading>Series summary</GroupHeading>
       <StatTiles>
@@ -118,7 +121,9 @@ function YardstickReport() {
           <GroupHeading>Notes per round</GroupHeading>
           {NOTES.map((n) => (
             <Disclosure key={n.round} summary={n.round}>
-              <Message>{n.text}</Message>
+              <Prose size="sm">
+                <p>{n.text}</p>
+              </Prose>
             </Disclosure>
           ))}
         </CardBody>

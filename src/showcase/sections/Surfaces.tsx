@@ -3,6 +3,7 @@ import { CardActions, IconButton, RoundToggle } from '../../components/Button'
 import { Card, CardBody, CardHead, TintedPanel } from '../../components/Card'
 import { Amount, FooterNote, GroupHeading, QuestionBlock } from '../../components/Content'
 import { Alert, Banner, Chip, Disclosure, Help, Message, ReadMoreToggle, TitleTag } from '../../components/Feedback'
+import { Prose } from '../../components/Prose'
 import { Icon } from '../../components/Icon'
 import { StatRow, RowList, ValueBox } from '../../components/Row'
 import { DefinitionList } from '../../components/Table'
@@ -35,6 +36,76 @@ function ReadMoreDemo() {
       </p>
       <ReadMoreToggle expanded={open} controls={id} onToggle={() => setOpen(!open)} />
     </div>
+  )
+}
+
+function ProseSample() {
+  return (
+    <>
+      <h1>A document title</h1>
+      <p>
+        A first paragraph with a <a href="#Prose">link</a>, some <strong>bold</strong> and <em>italic</em> text and <code>inline code</code>. {LOREM}
+      </p>
+      <h2>A second-level heading</h2>
+      <p>{LOREM}</p>
+      <h3>Lists</h3>
+      <ul>
+        <li>An unordered item</li>
+        <li>
+          Another item with a nested list
+          <ul>
+            <li>A nested item</li>
+            <li>Another nested item</li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>A first step</li>
+        <li>A second step</li>
+      </ol>
+      <h4>A task list</h4>
+      <ul>
+        <li>
+          <input type="checkbox" checked disabled aria-labelledby="prose-task-done" />
+          <span id="prose-task-done">A done task</span>
+        </li>
+        <li>
+          <input type="checkbox" disabled aria-labelledby="prose-task-open" />
+          <span id="prose-task-open">An open task</span>
+        </li>
+      </ul>
+      <table tabIndex={0}>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Kind</th>
+            <th scope="col" align="right">
+              Count
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First row</td>
+            <td>Text</td>
+            <td align="right">12</td>
+          </tr>
+          <tr>
+            <td>Second row</td>
+            <td>Text</td>
+            <td align="right">1,204</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre tabIndex={0}>
+        <code>{'const longLine = "a line of code that is longer than the column, so the block scrolls sideways instead of wrapping"\nconst short = 1'}</code>
+      </pre>
+      <blockquote>
+        <p>A quotation that sets a passage apart from the text around it.</p>
+      </blockquote>
+      <hr />
+      <p>A closing paragraph after the rule.</p>
+    </>
   )
 }
 
@@ -246,6 +317,41 @@ export function Surfaces() {
             <Amount value="1,234" icon={<Icon name="coin" />} />
             <Amount value="98,765" icon={<Icon name="coin" />} />
           </div>
+        </Demo>
+      </Section>
+
+      <Section id="Prose" title="Prose" intro="A rendered long-form body (markdown output): plain headings, paragraphs, lists, task lists, a table, code, a quotation, links and a rule, styled without a class on any child. The headings sit one step below the house scale.">
+        <Demo label="Base -- every element" surface={false} wide>
+          <Prose>
+            <ProseSample />
+          </Prose>
+        </Demo>
+        <Demo label="Small -- inside a card" surface={false}>
+          <Card>
+            <Prose size="sm">
+              <ProseSample />
+            </Prose>
+          </Card>
+        </Demo>
+        <Demo label="Measure none -- a wide table" wide>
+          <Prose measure="none">
+            <table tabIndex={0}>
+              <thead>
+                <tr>
+                  <th scope="col">Column</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>First</td>
+                  <td>{LOREM}</td>
+                  <td>{LOREM}</td>
+                </tr>
+              </tbody>
+            </table>
+          </Prose>
         </Demo>
       </Section>
 

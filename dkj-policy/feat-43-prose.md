@@ -45,7 +45,7 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 - **Table.** The house `.table` is built for figures (right-aligned, `nowrap`, first column 180px minimum) and a markdown table is text, so it is not reused verbatim and no class is required. `.dkj-prose table` takes the same visual language by descendant selector: `--text-sm`, `th` in `--ink-2` weight 600, `border-bottom: 1px solid var(--grid)`, cell padding `--spacing-2 --spacing-2-5`, left-aligned and wrapping, `font-variant-numeric: tabular-nums`; an `align`/`style="text-align"` from the renderer wins, so a number column right-aligns where the author says so. `display: block; max-width: 100%; overflow-x: auto` lets a wide table scroll inside the measure instead of breaking the layout, with the same `tabindex="0"` + focus-ring rule as `pre`. Zebra and hover are left out (the house table has none).
 - **Blockquote, links, rule, images.** Blockquote: `margin-inline: 0`, `border-left: 3px solid var(--axis)`, `padding-left: var(--spacing-4)`, `--ink-2`, not italic; paragraphs inside follow the normal rhythm. Links: `--dkj-accent` (the theme primary), always underlined (`text-underline-offset: 0.2em`, thickness 1px, 2px on hover) so colour is never the only cue, `:focus-visible` the shared 2px ring; no visited colour; inline links are exempt from the 44px target rule (WCAG 2.5.8 inline exception), and the house rule that a standalone control gets one stays with `.btn`. The primary-on-page contrast is measured in TEST across all twelve themes, not assumed; any theme under 4.5:1 is reported rather than patched here. `hr`: `border: 0; border-top: 1px solid var(--grid)`, `margin-block: var(--spacing-6)` (replaces the rhythm margin on both sides). `strong` 600 `--ink`, `em` italic. Images: only `max-width: 100%; height: auto; border-radius: var(--dkj-radius-sm)`; captions, framing and sizing are the Figure component (#50), which Prose does not pre-empt.
 - **Accessibility and dark mode.** Everything is a token pair that already holds 4.5:1 (`--ink` and `--ink-2` on `--page` or `--surface`, `--dkj-accent` on both for links); nothing is a literal colour, so there is no dark-mode block in `prose.css`. Semantics are the author's plain HTML (real headings, lists, `th` with scope, `blockquote`), which is why the component is a styling wrapper and not a renderer. `prefers-reduced-motion` needs nothing: Prose has no transitions or animation. The new `var(--x)` names are defined in `brand-layer.css`, which the repo's lint check (every `var(--x)` is defined) covers.
-- **Showcase.** A new section `Prose` in the Content group (`src/App.tsx` nav list and the matching section file): (1) the full sample at `base`, every element once (h1-h4, two paragraphs with a link, bold and inline code, an unordered and an ordered list with a nested level, a task list with done and open items, a three-column table with one right-aligned number column, a `pre` block that overflows to show the scroll and focus ring, a blockquote, an `hr`, a closing paragraph); (2) the same sample at `size="sm"` inside a `.card`, to show the card use; (3) a `measure="none"` row with a wide table. The theme picker already switches all twelve themes, so light and dark are checked by switching, not by extra panels. The `sources.ts` entry names the five previews as the origin.
+- **Showcase.** A new section `Prose` in the Content group (`src/App.tsx` nav list and the matching section file): (1) the full sample at `base`, every element once (h1-h4, two paragraphs with a link, bold and inline code, an unordered and an ordered list with a nested level, a task list with done and open items, a three-column table with one right-aligned number column, a `pre` block that overflows to show the scroll and focus ring, a blockquote, an `hr`, a closing paragraph); (2) the same sample at `size="sm"` inside a `.card`, to show the card use; (3) a `measure="none"` row with a wide table. The theme picker already switches all twelve themes, so light and dark are checked by switching, not by extra panels. The `sources.ts` entry is `Prose: []` (a brand-book original, no source repo).
 - **Previews that switch in this branch (all five, stand-ins removed):** `PluginsPreview` (release-note bodies: the hand-rolled `ul` with `code` items becomes `Prose size="sm"`), `ThumbnailPreview` (report intro and notes), `LifeHubPreview` (dossier document, including its task items: the disabled `Checkbox` rows become native read-only task-list items inside Prose), `RecipesPreview` (the method: the `ol`, keeping the numbered steps and the source line outside Prose), `DjCylowPreview` (mix description). Each keeps its own data and layout; only the body markup moves into `<Prose>`. A preview that cannot be expressed in Prose without a new element rule reports it back rather than adding a one-off class.
 - **Out of scope here:** a markdown parser or renderer, syntax highlighting, the Figure/caption component (#50), footnotes, definition lists (`DefinitionList` exists), print styles, and any edit to `house-style/`.
 
@@ -59,13 +59,20 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 
 ### TEST
 
+- [x] Victor reviewed the diff: nothing blocking. Applied: `sources.ts` records Prose as a brand-book original (`Prose: []`, documented in its header) instead of naming the previews as its origin; task items named by `aria-labelledby` rather than a duplicate `aria-label`; the duplicate `hr` rule gone, the first child truly margin-free, a nested list in a task item wrapped onto its own line.
+- [x] Link contrast (`--dkj-accent` = `--primary`) measured in all twelve themes against `--page` and `--surface`: lowest 4.69:1 (teal, rust), highest 11.60:1 (yellow), so every theme passes 4.5:1; links are also underlined.
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] An owner has looked at the Prose section and the five previews that now use it (`npm run dev`) and approved it.
+
 ### DEPLOY: feat/43-prose
 
 #### What does the change on this branch deploy to main?
 
 ##### Tier 0
 
-**Score:**
+The brand book has a `Prose` component for long-form text: headings, paragraphs, lists and task lists, code, a table, a blockquote and links, with one rhythm from the house tokens and a readable line length. The previews of the plugins, thumbnail generator, life hub, recipes and DJ Cylow apps now render their documents and descriptions with it.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -74,7 +81,9 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 
 ##### Tier 1
 
-**Score:**
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -83,7 +92,9 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
 
 #### Pull Request
 
