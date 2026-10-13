@@ -52,7 +52,7 @@ This branch is #36: a recreated preview for `DKJ-Solutions/dkj-recipes`, an Astr
 
 - [x] Rebecca researched the screens read-only in `dkj-recipes`; Victor reviewed the diff: nothing blocking. Applied: the strike-through as a showcase class instead of an inline style, search over title, tags and ingredients as the app does. Filed the flat heading outline (`GroupHeading` is always an `h3`) as #48.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the dkj-recipes preview (`npm run dev`, the repo list in the navigation) and approved it.
+- [x] An owner has looked at the dkj-recipes preview (`npm run dev`, the repo list in the navigation) and approved it (October 13, 2026).
 
 ### DEPLOY: feat/36-recipes-preview
 
