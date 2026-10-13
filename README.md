@@ -7,6 +7,12 @@ and themes, plus an overview of the components built across DKJ-Solutions repos.
 tone) is shared by every repo; the colour theme may differ per repo. Whether it is a React site or a
 Claude Artifact, it follows the same rules.
 
+## The house style
+
+[`house-style/`](house-style/README.md) holds the stylesheet, the twelve themes and the theme script
+every DKJ-Solutions app renders with, and the rules for using them. It is the single copy; the
+`house-style` skill in the `dkj-solutions` plugin points here.
+
 ## Run it
 
 ```bash
