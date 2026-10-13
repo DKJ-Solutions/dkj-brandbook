@@ -45,7 +45,7 @@ Lift the showcase's round settings button (#66, #68) into the house style, so ev
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the preview settings (unchanged look and behaviour) and the inline demo in the TopBar section, and approved them
+- [x] An owner has looked at the preview settings (unchanged look and behaviour) and the inline demo in the TopBar section, and approved them
 
 ### DEPLOY: feat/70-house-settings-button
 
