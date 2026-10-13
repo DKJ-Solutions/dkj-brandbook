@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**33 minor entries** <!-- pending-tally -->
+**34 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/50-figure · 20261013-151441Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book has a `Figure`: an image in a frame with a fixed aspect ratio, cover or contain, an optional caption, and a placeholder for when there is no image, it must not be shown, or it fails to load. The thumbnail preview's contact sheet shows its candidates with it.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal design reference; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change; the apps render as before.
+
+**Score:** N/A
+
+#### Pull Request
+
+Figure: an image frame with aspect ratio, caption and a placeholder state
+
+[PR #62](https://github.com/DKJ-Solutions/dkj-brandbook/pull/62)
+
+---
 
 ### DEPLOY: feat/48-group-heading-level · 20261013-145855Z
 
