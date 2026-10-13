@@ -9,12 +9,13 @@ import { Data } from './showcase/sections/Data'
 import { Forms } from './showcase/sections/Forms'
 import { Foundations } from './showcase/sections/Foundations'
 import { Metrics } from './showcase/sections/Metrics'
+import { Overlap } from './showcase/sections/Overlap'
 import { Overlays } from './showcase/sections/Overlays'
 import { Surfaces } from './showcase/sections/Surfaces'
 
 /** The navigation mirrors the section order below; each id is a component id in src/components/sources.ts. */
 const NAV = [
-  { group: 'Apps', items: ['apps'] },
+  { group: 'Apps', items: ['apps', 'overlap'] },
   { group: 'Foundations', items: ['tokens'] },
   { group: 'Actions', items: ['Button', 'SaveButton', 'SegmentedChoice', 'FilterChips', 'IconButton', 'RoundToggle'] },
   { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Alert', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'ReadMoreToggle', 'GroupHeading', 'QuestionBlock', 'Amount', 'Prose', 'Figure', 'FooterNote'] },
@@ -24,7 +25,7 @@ const NAV = [
   { group: 'Data', items: ['DefinitionList', 'DataTable', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },
 ] as const
 
-const LABELS: Record<string, string> = { apps: 'Overview', tokens: 'Tokens' }
+const LABELS: Record<string, string> = { apps: 'Overview', overlap: 'Overlap', tokens: 'Tokens' }
 
 /** The repos in the DKJ-Solutions GitHub organisation as of October 13, 2026, except this brand book itself; each opens its recreated preview (#preview/<repo>). */
 const REPOS = [
@@ -106,6 +107,7 @@ export default function App() {
           ) : (
             <>
               <Apps />
+              <Overlap />
               <Foundations />
               <Actions />
               <Surfaces />

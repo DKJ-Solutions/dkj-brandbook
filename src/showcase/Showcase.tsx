@@ -6,8 +6,8 @@ import type { useWidth } from './theme'
 import './showcase.css'
 
 /** A labelled group of demos for one component, with its origin printed underneath. */
-export function Section({ id, title, intro, children }: { id: ComponentId | 'tokens' | 'apps'; title: string; intro?: string; children: ReactNode }) {
-  const isComponent = id !== 'tokens' && id !== 'apps'
+export function Section({ id, title, intro, children }: { id: ComponentId | 'tokens' | 'apps' | 'overlap'; title: string; intro?: string; children: ReactNode }) {
+  const isComponent = id !== 'tokens' && id !== 'apps' && id !== 'overlap'
   const sources = isComponent ? SOURCES[id] : null
   const usages = isComponent ? usagesOf(id) : []
   return (
