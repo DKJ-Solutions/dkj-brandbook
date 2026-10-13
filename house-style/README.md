@@ -121,7 +121,7 @@ sortable headers via `.sort`/`.arrow` on `aria-sort`), `.seg` (a segmented switc
 `--line`), `.swatch`, `.badge` (with `--good`, `--warn`, `--bad`, `--info`, `--neutral`, `--sm`),
 `.badge-row`, `.meter` (with `--good`, `--warn`, `--bad`, `--info`), `.mini-cards`/`.mini-card` (with
 `--highlight`), `.item-grid`/`.item`, `.notice`, `.note`, `.meta`, `.muted`, `.sub`, `.num` (tabular
-numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with `--primary`), `.info-button`, `.tooltip`
+numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with `--primary`, and a `:disabled` state for both), `.info-button`, `.tooltip`
 (with `--explain`), `.more` (a disclosure), `.moretoggle` (a full-width read-more button), `.chart` (the SVG chart scope),
 `.theme-picker` (with `__row`, `__label`, `__swatches`) and `.theme-swatch` (with `--light`, `--dark`), which
 `house-theme.js` draws, and `.footer-note`. Each is

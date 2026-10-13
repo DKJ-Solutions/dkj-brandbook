@@ -299,6 +299,8 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 /* ---- Primary button -------------------------------------------------------- */
 .btn--primary { background: var(--primary); border-color: var(--primary); color: var(--on-primary); font-weight: 600; }
 .btn--primary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+/* Disabled: one rule for every .btn variant, so an app never adds its own on this reserved class. */
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ---- Theme picker (drawn by house-theme.js: DKJTheme.picker(el)) ------------ */
 /* Two rows of round swatches, light and dark; each swatch is the theme's page colour with its

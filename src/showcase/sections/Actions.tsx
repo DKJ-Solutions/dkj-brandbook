@@ -43,6 +43,14 @@ export function Actions() {
           <Button variant="primary" data-demo-state="focus">Focus</Button>
           <Button variant="primary" disabled>Disabled</Button>
         </Demo>
+        <Demo label="House .btn / .btn--primary -- rest / disabled">
+          <div className="bb-row">
+            <button type="button" className="btn">Rest</button>
+            <button type="button" className="btn" disabled>Disabled</button>
+            <button type="button" className="btn btn--primary">Rest</button>
+            <button type="button" className="btn btn--primary" disabled>Disabled</button>
+          </div>
+        </Demo>
       </Section>
 
       <Section id="SaveButton" title="SaveButton" intro="The most prominent button in a box. It only becomes active once there is something to save.">
