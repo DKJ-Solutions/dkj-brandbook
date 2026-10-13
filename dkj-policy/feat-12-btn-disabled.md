@@ -32,11 +32,29 @@
 
 ### PLAN
 
+Issue #12: `house-style.css` defines `.btn` and `.btn--primary` but no `:disabled` rule, so a disabled
+button looks enabled and every app adds its own rule on a reserved class.
+
+#### Design choice (Gwen)
+
+The issue proposes reduced opacity and a default cursor. This branch uses `opacity: 0.5;
+cursor: not-allowed`, the same pair the brand book's own `.dkj-btn`, `.dkj-iconbtn` and `.dkj-input`
+already use for `:disabled`, so the house reads as one system. Swapping to `cursor: default` is a
+one-word change if the owners prefer the issue's version.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/house-style.css`: `.btn:disabled { opacity: 0.5; cursor: not-allowed; }`, which
+      covers `.btn--primary` too (higher specificity than the variant's own rule).
+- [x] `house-style/README.md` names the state in its class list.
+- [x] The showcase's Button section gets a demo of house `.btn` and `.btn--primary`, rest and
+      disabled, so the state can be judged by eye.
 
 ### TEST
+
+- [x] The gates (`open-pr -GatesOnly`) are green.
+- [ ] The owners have looked at the Button section of the showcase (`npm run dev`) in a light and a
+      dark theme.
 
 ### DEPLOY: feat/12-btn-disabled
 
@@ -44,7 +62,12 @@
 
 ##### Tier 0
 
-**Score:**
+The house style now has a disabled state for `.btn` and `.btn--primary`: half opacity and a
+not-allowed cursor, the same as the brand book's own buttons and inputs. A disabled button no longer
+looks clickable, and an app no longer needs its own rule on the reserved `.btn` class (MesoWise can
+drop its `.btn:disabled` once it takes the new copy).
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +76,9 @@
 
 ##### Tier 1
 
-**Score:**
+Not relevant to management on its own: a consistency fix in the shared button style.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +87,9 @@
 
 ##### Tier 2
 
-**Score:**
+A disabled button in a DKJ-Solutions app now looks disabled once that app takes the new house style.
+
+**Score:** 1
 
 #### Pull Request
 
