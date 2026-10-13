@@ -53,8 +53,8 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 
 - [x] `src/components/Prose.tsx` (`Prose`: `size`, `measure`, `className`) and `src/components/prose.css` (`.dkj-prose`, brand-layer names only), with `--dkj-font-mono` and `--dkj-lh-prose` added to `src/brand-layer.css`.
 - [x] Showcase: a `Prose` section in the Surfaces & content group (every element at `base`, the same sample at `sm` in a card, a `measure="none"` wide table) and its nav entry in `src/App.tsx`.
-- [x] The five previews switch to `Prose`: `PluginsPreview` (release-note lists), `ThumbnailPreview` (introduction and per-round notes), `LifeHubPreview` (dossier document with native read-only task items), `RecipesPreview` (the method), `DjCylowPreview` (the mix description).
-- [x] `src/components/sources.ts` (`Prose`) and `src/apps/registry.ts` (`release-notes`, `recipe-page`, `yardstick-report`, `mix-detail` and `dossier-detail` list `Prose`).
+- [x] Four previews switch to `Prose`: `PluginsPreview` (release-note lists), `ThumbnailPreview` (introduction and per-round notes), `LifeHubPreview` (dossier document with native read-only task items), `RecipesPreview` (the method). `DjCylowPreview` is left as it is on main: DJ Cylow has its own brand and its preview leaves the brand book (#56).
+- [x] `src/components/sources.ts` (`Prose`) and `src/apps/registry.ts` (`release-notes`, `recipe-page`, `yardstick-report` and `dossier-detail` list `Prose`).
 - [x] `npx eslint src` and `npx tsc -b` are clean.
 
 ### TEST
@@ -62,7 +62,7 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 - [x] Victor reviewed the diff: nothing blocking. Applied: `sources.ts` records Prose as a brand-book original (`Prose: []`, documented in its header) instead of naming the previews as its origin; task items named by `aria-labelledby` rather than a duplicate `aria-label`; the duplicate `hr` rule gone, the first child truly margin-free, a nested list in a task item wrapped onto its own line.
 - [x] Link contrast (`--dkj-accent` = `--primary`) measured in all twelve themes against `--page` and `--surface`: lowest 4.69:1 (teal, rust), highest 11.60:1 (yellow), so every theme passes 4.5:1; links are also underlined.
 - [x] The gates (`open-pr -GatesOnly`) are green.
-- [ ] An owner has looked at the Prose section and the five previews that now use it (`npm run dev`) and approved it.
+- [ ] An owner has looked at the Prose section and the four previews that now use it (`npm run dev`) and approved it.
 
 ### DEPLOY: feat/43-prose
 
@@ -70,7 +70,7 @@ This branch is #43 and ships with `-Resolves 43`. It adds `Prose`, the component
 
 ##### Tier 0
 
-The brand book has a `Prose` component for long-form text: headings, paragraphs, lists and task lists, code, a table, a blockquote and links, with one rhythm from the house tokens and a readable line length. The previews of the plugins, thumbnail generator, life hub, recipes and DJ Cylow apps now render their documents and descriptions with it.
+The brand book has a `Prose` component for long-form text: headings, paragraphs, lists and task lists, code, a table, a blockquote and links, with one rhythm from the house tokens and a readable line length. The previews of the plugins, thumbnail generator, life hub and recipes apps now render their documents with it.
 
 **Score:** 3
 

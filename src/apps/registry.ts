@@ -106,7 +106,7 @@ const THUMBNAIL_VIEWS: readonly View[] = [
 // DJ Cylow: researched read-only from the repo. Two screens; content here is invented.
 const DJCYLOW_VIEWS: readonly View[] = [
   { id: 'listen', name: 'Listen', kind: 'screen', description: 'A heading, a filter panel with a single-choice list of moods (all, then one per colour with its mood words) and genre and power selects, then a grid of mix cards (a play control with progress, a title of colour, subgenre and volume, a muted date), ten at a time with a "Load more" button; no match says "No mixes found".', components: ['PageHeader', 'SegmentedChoice', 'Card', 'GroupHeading', 'Field', 'Message', 'Button', 'Meter', 'FooterNote'] },
-  { id: 'mix-detail', name: 'Mix detail', kind: 'screen', description: 'A back button, the mix title, a large player with a volume control, the date and a description, a key-facts list (colour, shade, subgenre, tracks), a tracklist table of track and time with an empty state, and a rights notice.', components: ['PageHeader', 'Button', 'Card', 'Meter', 'Stepper', 'Message', 'GroupHeading', 'DefinitionList', 'DataTable', 'FooterNote', 'Prose'] },
+  { id: 'mix-detail', name: 'Mix detail', kind: 'screen', description: 'A back button, the mix title, a large player with a volume control, the date and a description, a key-facts list (colour, shade, subgenre, tracks), a tracklist table of track and time with an empty state, and a rights notice.', components: ['PageHeader', 'Button', 'Card', 'Meter', 'Stepper', 'Message', 'GroupHeading', 'DefinitionList', 'DataTable', 'FooterNote'] },
 ]
 
 // Life hub: researched read-only from the app code (a private repo); a local app, no deployment. Content here is invented.

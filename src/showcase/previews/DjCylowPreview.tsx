@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Button, SegmentedChoice } from '../../components/Button'
 import { Card, CardBody } from '../../components/Card'
 import { FooterNote, GroupHeading } from '../../components/Content'
-import { Prose } from '../../components/Prose'
 import { Message } from '../../components/Feedback'
 import { SelectField, Stepper } from '../../components/Field'
 import { Meter } from '../../components/Metrics'
@@ -151,9 +150,7 @@ function MixDetail({ mix, onBack }: { mix: Mix; onBack: () => void }) {
             <Stepper label="Volume" value={volume} min={0} max={10} onChange={setVolume} />
           </div>
           <Message>{mix.date}</Message>
-          <Prose>
-            <p>An invented description of the mix: a few sentences on the mood and the build, as the real page shows above the facts.</p>
-          </Prose>
+          <p>An invented description of the mix: a few sentences on the mood and the build, as the real page shows above the facts.</p>
         </CardBody>
       </Card>
 
