@@ -67,7 +67,8 @@
 
   /* status colours (badges, meters): fills */
   --positive-good: #0ca30c;
-  --warn: #e0761a;        /* the warning icon; amber-yellow on the dark themes */
+  --warning-bad: #e0761a;        /* the warning icon; amber-yellow on the dark themes */
+  --warning-down: #8a4400;        /* a warning in text: a step darker than --warning-bad, so it reads as text */
   --negative-bad: #d03b3b;
   --status-mark: #ffffff; /* the mark inside a status icon (check, cross, "!"): white on light, near-black on dark */
 
@@ -132,7 +133,7 @@
     --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
     --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-    --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warning-bg: #3a2a10; --negative-bg: #3a1414; --positive-bg: #133a13;
+    --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warning-bad: #ffc61a; --warning-down: #ffd75e; --warning-bg: #3a2a10; --negative-bg: #3a1414; --positive-bg: #133a13;
     --status-mark: #0b0b0b;
     --primary: #2fc8d8; --on-primary: #0b0b0b;
   }
@@ -147,7 +148,7 @@
   --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
   --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-  --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warning-bg: #3a2a10; --negative-bg: #3a1414; --positive-bg: #133a13;
+  --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warning-bad: #ffc61a; --warning-down: #ffd75e; --warning-bg: #3a2a10; --negative-bg: #3a1414; --positive-bg: #133a13;
   --status-mark: #0b0b0b;
   --primary: #2fc8d8; --on-primary: #0b0b0b;
 }
@@ -163,12 +164,12 @@
 :root[data-theme="blue"]    { --primary: #2563d0; }
 :root[data-theme="teal"]    { --primary: #0f7c86; }
 :root[data-theme="ochre"]   { --primary: #7a6b00; }
-:root[data-theme="rust"]    { --primary: #ad5a0a; --warn: #b88a00; }
+:root[data-theme="rust"]    { --primary: #ad5a0a; --warning-bad: #b88a00; }
 :root[data-theme="pink"]    { --primary: #ff7ac8; }
 :root[data-theme="lilac"]   { --primary: #b69cff; }
 :root[data-theme="sky"]     { --primary: #5cb3ff; }
 :root[data-theme="cyan"]    { --primary: #2fc8d8; }
-:root[data-theme="yellow"]  { --primary: #f2c230; --warn: #f08a24; }
+:root[data-theme="yellow"]  { --primary: #f2c230; --warning-bad: #f08a24; }
 :root[data-theme="orange"]  { --primary: #f5873a; }
 
 /* ---- Base ---------------------------------------------------------------- */
@@ -237,7 +238,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .tile .label { color: var(--ink-2); font-size: var(--text-sm); }
 .tile .v { font-size: var(--text-h4); font-weight: 600; margin-top: var(--spacing-0-5); }
 .mini-card { border: 1px solid var(--border); border-radius: 10px; padding: var(--spacing-3) var(--spacing-3-5); }
-.mini-card--highlight { border-color: var(--warn); }
+.mini-card--highlight { border-color: var(--warning-bad); }
 .mini-card__label { font-size: var(--text-sm); color: var(--ink-2); }
 .mini-card__value { font-size: var(--text-lg); font-weight: 600; margin: var(--spacing-0-5) 0 var(--spacing-2); font-variant-numeric: tabular-nums; }
 .notice { background: var(--warning-bg); border: 1px solid var(--border); border-radius: 12px; padding: var(--spacing-3) var(--spacing-4); margin-top: var(--spacing-4); }
@@ -296,14 +297,14 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 /* Fill colour via --m: <span style="--m: var(--positive-good)"> or a .meter--* class on the meter. */
 .meter { height: 6px; border-radius: 3px; background: var(--grid); overflow: hidden; }
 .meter span { display: block; height: 100%; border-radius: 3px; background: var(--m); }
-.meter--good { --m: var(--positive-good); } .meter--warn { --m: var(--warn); }
+.meter--good { --m: var(--positive-good); } .meter--warn { --m: var(--warning-bad); }
 .meter--bad { --m: var(--negative-bad); }   .meter--info { --m: var(--primary); }
 
 /* ---- Badge ---------------------------------------------------------------- */
 .badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%;
   font: 700 var(--text-sm)/1 system-ui, sans-serif; color: var(--status-mark); background: var(--b); flex: none; }
 .badge--good    { --b: var(--positive-good); }
-.badge--warn    { --b: var(--warn); }
+.badge--warn    { --b: var(--warning-bad); }
 .badge--bad     { --b: var(--negative-bad); }
 .badge--info    { --b: var(--primary); color: var(--on-primary); }
 .badge--neutral { --b: var(--axis); color: var(--ink); }

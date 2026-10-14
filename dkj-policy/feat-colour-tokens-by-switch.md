@@ -52,6 +52,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] The tokens in each group sorted alphabetically, in the showcase and the README (owner's follow-up)
 - [x] `--negative-loss` removed; chart losses and the `LegendItem` colour take `--negative-bad` (owner's follow-up). Same value on dark; on light the loss goes from `#e34948` to `#d03b3b`
 - [x] `--warn-bg` renamed to `--warning-bg`; `--negative-bg` (`#fde8e8` light, `#3a1414` dark) and `--positive-bg` (`#e6f6e6` light, `#133a13` dark) added beside it (owner's follow-up)
+- [x] `--warn` renamed to `--warning-bad`; `--warning-down` added (`#8a4400` light, 6.9:1 on the page; `#ffd75e` dark, 10.4:1); class modifiers keep their names (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST
