@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**42 minor entries** <!-- pending-tally -->
+**43 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/every-token-shown · 20261014-100914Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book now opens with an intro: the page's one `<h1>` at `--text-h1` (the navigation now opens with its own `<h2>` "Contents" instead of repeating the name), a hero card at the house display size (h0) and a type specimen with every heading level and the running-text styles. Its Tokens section now draws every token the house style and the brand layer define: the whole spacing scale, the theme tint percentages, the app-shell and layout sizes, the dialog scale, type weights, line heights, tracking and the mono stack, the focus ring and shadow, and every motion duration, animated. Every heading in the brand book now takes its own level's token -- section titles are the full h2 size -- and the house style gives `h4`, `h5` and `h6` their `--text-h4`/`-h5`/`-h6` tokens (#76). The Apps overview and the Overlap review now come last, after the components. The brand layer drops `--dkj-text-display` and `--dkj-text-input`: the hero and step values are set at the house h0 and inputs at `--text-lg`. A blank swatch that named a non-existent `--dkj-on-warn` is gone; `--on-warn` shows under the house status colours.
+
+**Score:** 2
+
+##### Tier 1
+
+The brand book's own showcase; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change until an app takes the house h4-h6 rule after a house-style release.
+
+**Score:** N/A
+
+#### Pull Request
+
+The brand book shows every token
+
+[PR #78](https://github.com/DKJ-Solutions/dkj-brandbook/pull/78)
+
+---
 
 ### DEPLOY: feat/dark-nav-on-light · 20261014-091348Z
 
