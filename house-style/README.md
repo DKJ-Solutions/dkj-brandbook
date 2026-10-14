@@ -36,7 +36,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
    app is fixed here, through an issue on this repo, so that every app gets the fix. A value that is wrong
    for one app is a new domain token in that app, not an override. Same rule as the constitution:
    extend, never override. One narrow exception: a component subtree may re-declare a house colour token
-   (`--primary-5`, `--primary-2`) so its contents follow a tint, as the info and accent dialogs do;
+   (`--primary-3`, `--primary-2`) so its contents follow a tint, as the info and accent dialogs do;
    the token is never changed for the page. Everything inside such a subtree inherits the re-declared value,
    so a tinted dialog nested inside an info dialog would tint from `--cat-1`; do not nest them.
 
@@ -51,7 +51,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-5`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-5`/`--negative-5` are the text versions of `--positive-3`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
 | Status | `--positive-3`, `--warning-3`, `--negative-3`, `--warning-5`, `--warning-1`, `--negative-1`, `--positive-1` | badges, meters, notices. `--warning-1`, `--negative-1` and `--positive-1` are the backgrounds of a warning, negative or positive message. The mark inside a status icon (check, cross, "!") is `--primary-1` |
-| Primary | `--primary-3`, `--primary-5`, `--primary-6`, `--on-primary-3` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--primary-1` is text on it, `--primary-3` a tint for a background and the theme's anchor (text on it is `--on-primary-3`), `--primary-6` the primary as text (links, `h1`, `h2`). Never a status or a number |
+| Primary | `--primary-3`, `--primary-4`, `--primary-5` | `--primary-3` is the theme's own colour and the anchor of its scale: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, focus rings, links, `h1` and `h2`, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)); `--primary-1` is the text on it. `--primary-4` is also the tinted surface (an accent table head, a hover, the accent dialog), and `--primary-5` the ink, the text on that surface. Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs`, `--font-serif` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h6` each take the token of their own level, body text is `--text-base`. `--font-serif` is the face of `h1` and `h2`, for a title that keeps it at another level |
@@ -82,9 +82,14 @@ name says which side it is on, and the black, white and grey ones merged into on
 | old `--neutral-3` (lines) | `--neutral-2`, same value |
 | old `--neutral-4` (secondary text) | `--neutral-3`, same value |
 | old `--neutral-5` (primary text, focus outlines, the inverted button, the 7% tints), **last** | `--neutral-3`. **Primary text changed value**: `#0b0b0b` / `#ffffff` became `#52514e` / `#c3c2b7`, so primary text has lower contrast and the 7% tints are weaker |
-| `--page`, `--surface`, `--primary-soft` | `--primary-1`, `--primary-2`, `--primary-3` |
+| `--page`, `--surface`, `--primary-soft` | `--primary-1`, `--primary-2`, `--primary-4` |
 | `--border`, `--grid` | `--primary-4`, one line colour for both |
-| `--primary`, `--primary-ink` | `--primary-5`, `--primary-6` |
+| `--primary`, `--primary-ink` | `--primary-3`, `--primary-3` |
+| the six-step primary scale (October 14, 2026) | cut to **five steps with the theme's colour in the middle** (owner's decision: `--primary-3` is the anchor). **`--primary-3` is live again with a new meaning.** Mapping, old → new, in the order to apply it so nothing is renamed twice: |
+| old `--primary-3` (the tinted background) | `--primary-4`, with its text `--primary-5` |
+| old `--primary-5` (the colour: fills, switches, focus rings) | `--primary-3` |
+| old `--primary-6` (the colour as text: links, `h1`, `h2`), **last** | `--primary-3`. On dark the fill and the links change value: they were near-white and are now the theme's colour itself (Oranje `#f5873a`) |
+| `--primary-4`, `--primary-1`, `--primary-2` | unchanged; `--primary-5` is new (the ink) |
 
 **Check after migrating:** an undefined `var(--neutral-4)` or `var(--neutral-5)` fails silently (text inherits its colour, an SVG fill or stroke goes black). Find leftovers with `grep -rn "neutral-[45]" src`.
 
@@ -94,9 +99,9 @@ The class modifiers keep their names: `.badge--good`, `.badge--bad`, `.badge--wa
 **A number in a colour token is a step on the ground-to-text scale** (owner's decision, October 14, 2026):
 `-1` is light on the light themes and dark on the dark themes (the ground end) and the highest number is the
 opposite (the text end). `--negative-*`, `--positive-*` and `--warning-*` follow it with `-1`, `-3`, `-5`, and
-`--primary-1` … `--primary-6` is the one family with six steps. The neutrals are a separate three-step ramp:
-`--neutral-1` the next plane, `--neutral-2` lines, `--neutral-3` text (the text end). The primary steps are (page, cards, tinted
-background, line, the theme colour, the theme colour as text). For the status families:
+`--primary-1` … `--primary-5` is a five-step family too, with the theme's colour as `-3`. The neutrals are a separate three-step ramp:
+`--neutral-1` the next plane, `--neutral-2` lines, `--neutral-3` text (the text end). The primary steps are (page, cards, the theme colour, lines and
+tinted surfaces, the ink on them). For the status families:
 `-1` is the background of a message, `-3` the fill (icon, badge, meter, a
 loss in a chart), `-5` the text.
 
@@ -105,7 +110,7 @@ uses):
 
 | A switch … | Tokens | Why |
 |---|---|---|
-| to any other theme changes them | `--primary-1` … `--primary-6` | each theme sets all six as fixed values, tinted towards its own `--primary-5` |
+| to any other theme changes them | `--primary-1` … `--primary-5` | each theme sets all five as fixed values, around its own `--primary-3` |
 | changes them only between light and dark: black, white and grey | `--neutral-1`, `--neutral-2`, `--neutral-3` | a ramp from the next plane to the text, set once in the light block and once in the dark block, where it flips |
 | changes them only between light and dark: categories | `--cat-1`, `--cat-2`, `--cat-3` | series slots, set once in the light block and once in the dark block, a shade apart |
 | changes them only between light and dark: status colours | `--negative-1`, `--negative-3`, `--negative-5`, `--positive-1`, `--positive-3`, `--positive-5`, `--warning-1`, `--warning-3`, `--warning-5` | set once in the light block and once in the dark block, a shade apart. One exception: `--warning-3` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
@@ -125,7 +130,7 @@ primary colour:
 
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
-| Light | `magenta` Magenta `#c0258f`, `purple` Paars `#7a3fd6`, `blue` Blauw `#2563d0`, `teal` Petrol `#0f7c86`, `ochre` Oker `#7a6b00`, `rust` Roest `#ad5a0a` |
+| Light | `magenta` Magenta `#c0258f`, `purple` Paars `#7a3fd6`, `blue` Blauw `#2563d0`, `teal` Petrol `#087983`, `ochre` Oker `#7a6b00`, `rust` Roest `#aa5703` |
 | Dark | `pink` Roze `#ff7ac8`, `lilac` Lila `#b69cff`, `sky` Hemelsblauw `#5cb3ff`, `cyan` Cyaan `#2fc8d8`, `yellow` Geel `#f2c230`, `orange` Oranje `#f5873a` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
@@ -187,17 +192,16 @@ the mark colour, now `--primary-1`.
 and only the primary controls and the focus rings used it. Plain links kept the browser's blue in
 every theme. Now:
 
-- **By default**, with nothing for the app to do: every link takes the primary as text (`--primary-6`), visited or not, with
+- **By default**, with nothing for the app to do: every link takes the primary as text (`--primary-3`), visited or not, with
   a thicker underline on hover and a primary focus ring. Native checkboxes, radios, sliders and
   progress bars take it through `accent-color`, the text caret through `caret-color`, and selected
   text gets a primary tint. The link rules sit in `:where()`, so they weigh nothing: any class on an
   `<a>` (a `.btn`, a `.menu-item`, an app's own) wins without an override. An `<a>` without an `href`
   is not a link and is left alone. `accent-color` and `caret-color` are set once on the root, so a
-  subtree that sets its own `--primary-5` keeps the page's theme on its native controls, as it does for
-  `--primary-3`.
+  subtree that sets its own `--primary-3` keeps the page's theme on its native controls.
 - **Opt-in**, one modifier on a house element: `.header--accent` puts a primary rule under the page
   header, `.card--accent` and `.tile--accent` a primary rule across the top, and `.table--accent` a
-  `--primary-3` table head, its text `--on-primary-3` (the `-3` rule below). Other text stays `--neutral-3`. They are modifiers rather than defaults, so an app
+  `--primary-4` table head, its text the ink, `--primary-5`. Other text stays `--neutral-3`. They are modifiers rather than defaults, so an app
   that takes the update keeps its layout until it adds one.
 
 **What this changes for an app that takes the update:** its unstyled links, checkboxes, radios and
@@ -206,26 +210,24 @@ sliders turn the theme's colour. Links an app already styles through a class kee
 **The theme now colours the ground too** (owner's request: the themes were visible but did not stand
 out). Three more things follow it by default, in light and in dark (and a measurement):
 
-- **Every theme writes out its own six values.** `--primary-1` … `--primary-6` are fixed hex values in each
-  theme's block, not mixes (owner's decision, October 14, 2026: the percentages were too hard to follow). A
-  new theme computes them once, the way the existing ones were, from these recipe constants (not tokens;
-  they are not the current `--neutral-*` values): page base `#fcfcfb` (light) or `#0d0d0d` (dark) plus 2% or 10%
-  of the theme's colour; card base `#f9f9f7` or `#1a1a19` plus 6% or 14%; the tinted background 14% over the
-  card; the line `#d1d1d1` or `#333333` plus 15% or 8% (6% on light read as warm); the text colour is the
-  theme's colour with 20% of `#0b0b0b` (light) or `#ffffff` (dark). **The dark themes then carry about twice
-  that colour** (owner's decision, October 14, 2026: they read grey): each step keeps its OKLCH lightness and
-  hue and multiplies its chroma by 2.18, 2.13, 2.08, 2.14, 2.00 and 2.89 for `-1` to `-6`, clipped to sRGB.
-- **`--primary-3` is the anchor** (owner's decision, October 14, 2026). A theme is set around its `-3`:
-  it is chosen first, by eye, and the other five steps and everything drawn on it follow it, never the
-  other way round. So **text on a `--primary-3` surface is `--on-primary-3`**, not `--neutral-3`. It is
-  `--primary-6` by default; Geel sets it to `--primary-1`, because its `-3` is a true yellow (`#f2c230`, its
-  identity colour) and yellow only exists light, so near-white text cannot sit on it (9.8:1 with `-1`). The
-  `.table--accent` head, the hover of a joined choice, the settings toggle and the showcase's chips, a
-  near or today date row, a date row's hover, the accent dialog and an InfoRows box. A surface whose text
-  is read through `--neutral-3` re-declares `--neutral-3: var(--on-primary-3)` on itself, the way the accent
-  dialog re-declares `--primary-2`. Each `-3` takes its identity colour's hue and chroma (capped by sRGB) at
-  the lightness where its text reaches 5.7:1 on dark (Oranje's `#a54600`, chosen by eye, set that bar) and
-  4.6:1 on light, where the darker `-6` allows no more. Geel is the exception above.
+- **Every theme writes out its own five values.** `--primary-1` … `--primary-5` are fixed hex values in each
+  theme's block, not mixes (owner's decision, October 14, 2026: the percentages were too hard to follow).
+- **`--primary-3` is the anchor** (owner's decision, October 14, 2026): it is the theme's own colour, the dot
+  the picker draws, and the scale is set around it, two steps to the ground (`-1` page, `-2` card) and two to
+  the ink (`-4` lines and tinted surfaces, `-5` the ink). It carries the fills, focus rings, links and `h1`/`h2`
+  in both modes, with `--primary-1` as text on a fill. On light it is held where it reaches 4.5:1 as link text
+  on the card, which moved Petrol and Roest a fraction darker (`#0f7c86` → `#087983`, `#ad5a0a` → `#aa5703`).
+- **A tinted surface takes the ink.** `--primary-4` is also the surface of the `.table--accent` head, the hover
+  of a joined choice and of the settings toggle, a near or today date row, a date row's hover, the accent
+  dialog and an InfoRows box, and the text on it is `--primary-5`, not `--neutral-3` and not the colour (the
+  colour is too close to `-4` on light to read). A surface whose text is read through `--neutral-3`
+  re-declares `--neutral-3: var(--primary-5)` on itself, the way the accent dialog re-declares `--primary-2`.
+- **How the values were made.** `-1`, `-2` and `-4` from these recipe constants (not tokens): page base
+  `#fcfcfb` (light) or `#0d0d0d` (dark) plus 2% or 10% of the theme's colour; card base `#f9f9f7` or `#1a1a19`
+  plus 6% or 14%; the line `#d1d1d1` or `#333333` plus 15% or 8% (6% on light read as warm). The dark themes
+  then carry about twice that colour (owner's decision, October 14, 2026: they read grey): each step keeps its
+  OKLCH lightness and hue and multiplies its chroma by about 2.1, clipped to sRGB. `-5` is near-white in the
+  theme's hue on dark, and on light the colour's hue at OKLCH lightness 0.36 with three quarters of its chroma.
 - **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
   on dark the card is a shade lighter than the page. Either way the page is the ground end (owner's decision,
   October 14, 2026: it used to be the other way round on light).
@@ -233,18 +235,11 @@ out). Three more things follow it by default, in light and in dark (and a measur
   (a separate grid colour was dropped on October 14, 2026: it was too close to the border to tell apart).
   `--neutral-2` itself stays neutral.
 - **The theme picker previews it:** each swatch shows its own theme's page, with the primary as the dot.
-- **`h1` and `h2` are the theme's colour**, as `--primary-6`: darker than the colour itself on light and
-  lighter on dark. Links use it too.
-- **On dark the top of the scale mirrors the bottom of light** (owner's decision, October 14, 2026):
-  `--primary-6` has the lightness of a light theme's `--primary-1`, and `--primary-5` that of its
-  `--primary-2`, each in the dark theme's own hue (Roze mirrors Magenta, Lila Paars, Hemelsblauw Blauw, Cyaan
-  Petrol, Geel Oker, Oranje Roest). Both are near-white, so a primary button, a pressed switch or an info badge
-  on dark is a near-white fill with `--primary-1`, near-black, as text (14:1 or better). The hex in the theme table above is
-  the theme's identity colour, the dot the picker draws, and no longer a token value on dark. It exists because the tinted page is
-  darker than the old one, and a bare Petrol or Oker link would drop to 4.0:1 on it.
+- **`h1` and `h2` are the theme's colour**, as `--primary-3`, and so are links.
 - **Measured:** `--neutral-3` stays at 6.2:1 or better on the tinted light page (worst: Magenta, Paars) and
-  6.8:1 or better on the tinted dark surface (worst: Geel); `--primary-6` reaches 5.4:1 or better on the
-  light page (worst: Petrol, Roest, Oker, Magenta) and more on dark. Status, direction and categorical
+  6.8:1 or better on the tinted dark surface (worst: Geel); `--primary-3` reaches 4.5:1 or better on the card
+  (worst: Petrol, Roest) and `--primary-1` on `--primary-3` 4.88:1 on light (Petrol) and 6.91:1 on dark
+  (Oranje); `--primary-5` on `--primary-4` 5.88:1 or better (Petrol). Status, direction and categorical
   colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never tinted.
 
 **What this changes for an app that takes the update:** every page turns a light shade of its theme, and

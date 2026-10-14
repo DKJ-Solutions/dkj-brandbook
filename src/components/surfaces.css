@@ -10,7 +10,7 @@
   transition: border-color var(--dkj-duration-slow) var(--dkj-ease-out);
 }
 .dkj-card--flush { padding: 0; overflow: hidden; }
-.dkj-card--open { border-color: color-mix(in srgb, var(--primary-5) 60%, var(--primary-4)); }
+.dkj-card--open { border-color: color-mix(in srgb, var(--primary-3) 60%, var(--primary-4)); }
 .dkj-card--invalid { border-color: var(--negative-3); }
 /* Data variant: the head is left-aligned, its title an <h2> at --text-h2,
    with a muted subline, and there is no rule between head and body. */
@@ -31,9 +31,9 @@
   text-align: center;
 }
 /* The title is an <h6> (an <h2> in a data card), in the house serif and colour of h1 and h2; a plain title stays a block. */
-.dkj-card-title { display: block; margin: 0; font-family: var(--font-serif); font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); letter-spacing: -0.01em; color: var(--primary-6); }
+.dkj-card-title { display: block; margin: 0; font-family: var(--font-serif); font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); letter-spacing: -0.01em; color: var(--primary-3); }
 .dkj-card-title--icon { display: flex; align-items: center; justify-content: center; gap: var(--spacing-2); }
-.dkj-card-icon { flex-shrink: 0; color: var(--primary-5); }
+.dkj-card-icon { flex-shrink: 0; color: var(--primary-3); }
 .dkj-card-body { padding: var(--spacing-1) var(--spacing-4) var(--spacing-4); border-top: 1px solid var(--primary-4); }
 .dkj-card-body > :first-child { margin-top: var(--spacing-3-5); }
 
@@ -46,7 +46,7 @@
   background: color-mix(in srgb, var(--part) 7%, var(--primary-2));
   color: var(--neutral-3);
 }
-.dkj-panel--accent { --part: var(--primary-5); }
+.dkj-panel--accent { --part: var(--primary-3); }
 .dkj-panel--positive { --part: var(--positive-5); }
 .dkj-panel--button {
   display: flex;
@@ -62,7 +62,7 @@
   font-weight: var(--dkj-fw-semibold);
   cursor: pointer;
 }
-.dkj-panel--button:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
+.dkj-panel--button:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-3); outline-offset: var(--dkj-focus-offset); }
 .dkj-panel-label {
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-bold);
@@ -84,10 +84,10 @@
 .dkj-banner--accent {
   font-size: var(--text-lg);
   text-align: center;
-  background: color-mix(in srgb, var(--primary-5) 10%, var(--primary-2));
-  border-color: color-mix(in srgb, var(--primary-5) 35%, var(--primary-4));
+  background: color-mix(in srgb, var(--primary-3) 10%, var(--primary-2));
+  border-color: color-mix(in srgb, var(--primary-3) 35%, var(--primary-4));
 }
-.dkj-banner--accent strong { color: var(--primary-5); white-space: nowrap; }
+.dkj-banner--accent strong { color: var(--primary-3); white-space: nowrap; }
 /* Warn: the look of the house .notice (--warning-1, --primary-4, radius lg), built on tokens so it needs no reserved class. */
 .dkj-banner--warn { font-size: var(--text-base); background: var(--warning-1); }
 .dkj-banner-lead { display: inline-flex; align-items: center; gap: var(--spacing-1-5); font-weight: var(--dkj-fw-bold); }
@@ -111,7 +111,7 @@
   color: var(--negative-5);
   font-size: var(--text-sm);
 }
-.dkj-msg a { color: var(--primary-5); }
+.dkj-msg a { color: var(--primary-3); }
 .dkj-msg[hidden] { display: none; }
 
 /* ---------- Chip ---------- */
@@ -125,7 +125,7 @@
   font-weight: var(--dkj-fw-bold);
   overflow-wrap: anywhere;
 }
-.dkj-chip--yes { background: var(--primary-5); border-color: var(--primary-5); color: var(--primary-1); }
+.dkj-chip--yes { background: var(--primary-3); border-color: var(--primary-3); color: var(--primary-1); }
 .dkj-chip--no { background: var(--primary-1); }
 .dkj-chip--todo, .dkj-chip--unknown { color: var(--neutral-3); border-style: dashed; }
 
@@ -139,7 +139,7 @@
   letter-spacing: var(--dkj-tracking-tag);
   text-transform: uppercase;
   color: var(--primary-1);
-  background: var(--primary-5);
+  background: var(--primary-3);
   border-radius: var(--dkj-radius-pill);
 }
 .dkj-tag--info { color: var(--primary-1); background: var(--cat-1); }
@@ -155,7 +155,7 @@
 .dkj-disclosure summary::after { content: ' \25BE'; content: ' \25BE' / ''; }
 .dkj-disclosure[open] > summary::after { content: ' \25B4'; content: ' \25B4' / ''; }
 .dkj-disclosure summary:focus-visible {
-  outline: var(--dkj-focus-w) solid var(--primary-5);
+  outline: var(--dkj-focus-w) solid var(--primary-3);
   outline-offset: var(--dkj-focus-offset);
   border-radius: var(--dkj-radius-xs);
 }
@@ -179,7 +179,7 @@
 .dkj-disclosure-trailing { margin-inline-start: auto; white-space: nowrap; }
 .dkj-disclosure-meta + .dkj-disclosure-trailing { margin-inline-start: 0; }
 .dkj-disclosure-meta { font-size: var(--text-sm); font-weight: normal; color: var(--neutral-3); font-variant-numeric: tabular-nums; }
-.dkj-disclosure-version { color: var(--primary-5); font-weight: var(--dkj-fw-bold); }
+.dkj-disclosure-version { color: var(--primary-3); font-weight: var(--dkj-fw-bold); }
 /* Narrow row: the marker stays on the first line, meta and trailing drop under the title and left-align. */
 @container (max-width: 24rem) {
   .dkj-disclosure-meta,

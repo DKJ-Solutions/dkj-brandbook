@@ -90,7 +90,20 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
       on `#f2c230`). Every text-on-`-3` site reads it now; the showcase nav brand takes `--primary-1` in Geel
       (yellow on its near-white nav was 1.59:1). README token table and the `-3` rule updated.
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at Geel and the rest of the trial and decided
+- [x] An owner asked for `h1`/`h2` in `--primary-3`; measured: unreadable in 11 themes (1.3-2.9:1), so it was
+      shown in the working copy only, never committed
+- [x] An owner chose a five-step scale with `--primary-3` as the theme's own colour (the anchor), two steps to
+      the ground and two to the ink. Rename, applied in this order: old `-3` (tinted surface) -> `-4`, old `-5`
+      (fill) -> `-3`, old `-6` (text colour) -> `-3`, `--on-primary-3` -> `-5` (new: the ink). `-1`, `-2`, `-4`
+      keep their values. `-3` is the identity colour, Petrol and Roest a fraction darker to reach 4.5:1 as link
+      text on the card (`#087983`, `#aa5703`; the picker's dots follow). `-5`: near-white on dark, OKLCH L 0.36
+      at three quarters of the colour's chroma on light. `h1`, `h2` and links are `-3`; the accent dialog's
+      title and links take `-5`. The showcase's dark nav is `-5` with a `-3` hover; Geel's exceptions are gone.
+- [x] Contrast, all twelve themes: `-3` on `-2` 4.51:1 or better (Petrol, Roest); `-1` on `-3` 4.88:1 on light
+      (Petrol), 6.91:1 on dark (Oranje); `-5` on `-4` 5.88:1 (Petrol); `-5` on `-1` 10.0:1 or better
+- [x] `house-style/README.md`: token table, migration rows (old -> new, in order), the anchor and the measurements
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at the five-step scale in a light and a dark theme and approved it
 
 ### DEPLOY: feat/lilac-more-purple
 
@@ -98,18 +111,15 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
 
 ##### Tier 0
 
-The six dark themes carry visibly more of their own colour: every `--primary-*` of Roze, Lila, Hemelsblauw,
-Cyaan, Geel and Oranje keeps its lightness and hue and roughly doubles its chroma, so the page, the cards, the
-lines and the near-white fills read as that colour rather than grey; Oranje's `--primary-3` is a real orange,
-`#a54600`. Cyaan is also the house dark default, so an app that sets no theme sees it too.
+The primary scale is cut from six steps to five, with the theme's own colour in the middle: `--primary-3` is
+the anchor (the colour of buttons, switches, focus rings, links, `h1` and `h2`, and the picker's dot),
+`-1` and `-2` the page and the card, `-4` the lines and the tinted surfaces, and `-5` the ink, the text on a
+tinted surface. `--primary-6` is gone and `--primary-3` changes meaning, so a consuming repo renames in the
+order the README's migration rows give (old `-3` -> `-4`, old `-5` -> `-3`, old `-6` -> `-3`). On the dark
+themes the fills and links turn from near-white to the theme's colour itself, and all six dark themes carry
+about twice the colour on their page, cards and lines. Petrol and Roest move a fraction darker.
 
-`--primary-3` becomes the theme's anchor: each theme's `-3` is a saturated tone of its own colour (Geel a
-true yellow), and text on a `--primary-3` surface is the new `--on-primary-3` (`--primary-6`, or `--primary-1`
-in Geel) instead of `--neutral-3` in every theme: the `.table--accent` head, the joined choice's hover, the settings toggle's
-hover, the near/today and hovered date rows, the accent dialog and the InfoRows box. On the light themes that
-text turns from grey to the theme's dark colour.
-
-**Score:** 3
+**Score:** 5
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -118,7 +128,7 @@ text turns from grey to the theme's dark colour.
 
 ##### Tier 1
 
-Every dark theme looks like its colour, as the light themes already did, and text on a tinted surface takes the theme's colour.
+Every app looks like its theme's colour: on dark the buttons, links and headings now carry the colour itself instead of near-white.
 
 **Score:** 2
 
@@ -129,11 +139,11 @@ Every dark theme looks like its colour, as the light themes already did, and tex
 
 ##### Tier 2
 
-A user on a dark theme sees a more colourful page and nothing else changes.
+A user sees buttons, links and headings in the theme's own colour, and a more colourful page on dark.
 
 **Score:** 2
 
 #### Pull Request
 
-The dark themes carry more of their own colour
+The primary scale has five steps, with the theme's colour as --primary-3
 
