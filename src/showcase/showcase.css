@@ -34,7 +34,7 @@
   --bb-nav-brand: var(--primary-3);
   --bb-nav-hover: var(--primary-5);
   --bb-nav-current: var(--primary-3);
-  --bb-nav-current-ink: var(--neutral-3);
+  --bb-nav-current-ink: var(--primary-6);
   --bb-nav-current-ring: var(--primary-6);
 }
 @media (prefers-color-scheme: dark) {
@@ -43,7 +43,7 @@
     --bb-nav-brand: var(--primary-3);
     --bb-nav-hover: var(--primary-5);
     --bb-nav-current: var(--primary-3);
-    --bb-nav-current-ink: var(--neutral-3);
+    --bb-nav-current-ink: var(--primary-6);
     --bb-nav-current-ring: var(--primary-6);
   }
 }
@@ -234,7 +234,7 @@
 .bb-view p { margin: 0; font-size: var(--text-sm); color: var(--neutral-3); }
 .bb-view-components { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
 .bb-view-components a { padding: var(--spacing-0-5) var(--spacing-2); font-size: var(--text-sm); color: var(--neutral-3); text-decoration: none; border: 1px solid var(--primary-4); border-radius: var(--dkj-radius-pill); background: var(--primary-2); }
-.bb-view-components a:hover { background: var(--primary-3); }
+.bb-view-components a:hover { background: var(--primary-3); color: var(--primary-6); }
 .bb-view-components a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
 
 /* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */

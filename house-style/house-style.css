@@ -155,7 +155,7 @@
 :root[data-theme="sky"] { --primary-1: #091f2e; --primary-2: #143046; --primary-3: #05416c; --primary-4: #2f3e4b; --primary-5: #e8f1fb; --primary-6: #f6f9fc; }
 :root[data-theme="cyan"] { --primary-1: #002225; --primary-2: #00353a; --primary-3: #004a50; --primary-4: #264244; --primary-5: #e6f2f4; --primary-6: #f4fafa; }
 :root[data-theme="yellow"] { --primary-1: #291e00; --primary-2: #3d3100; --primary-3: #574500; --primary-4: #463d25; --primary-5: #f5efe1; --primary-6: #fcf9f0; --warning-3: #f08a24; }
-:root[data-theme="orange"] { --primary-1: #311200; --primary-2: #4a1f02; --primary-3: #793300; --primary-4: #53321f; --primary-5: #feebe1; --primary-6: #fff7f4; }
+:root[data-theme="orange"] { --primary-1: #311200; --primary-2: #4a1f02; --primary-3: #a54600; --primary-4: #53321f; --primary-5: #feebe1; --primary-6: #fff7f4; }
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }
@@ -348,10 +348,11 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 
 /* ---- Theme accents (opt-in) ------------------------------------------------- */
 /* Carry the theme beyond the primary controls, on the surfaces a page is built from. Add one to a
-   house element; an app that does not keeps the base look. Text stays --neutral-3. */
+   house element; an app that does not keeps the base look. Text stays --neutral-3, except on a --primary-3
+   surface, where it is --primary-6 (the -3 rule, under the tokens). */
 .header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary-5); }   /* on the page header */
 .card--accent, .tile--accent { border-top: 3px solid var(--primary-5); }
-.table--accent th { background: var(--primary-3); color: var(--neutral-3); }
+.table--accent th { background: var(--primary-3); color: var(--primary-6); }
 
 /* ---- Theme picker (drawn by house-theme.js: DKJTheme.picker(el)) ------------ */
 /* Two rows of round swatches, light and dark; each swatch is the theme's page colour with its
@@ -378,7 +379,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .theme-settings__toggle { display: inline-flex; align-items: center; justify-content: center; width: var(--tap); height: var(--tap);
   padding: 0; color: var(--neutral-3); background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 50%;
   box-shadow: var(--shadow-pop); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-.theme-settings__toggle:hover { background: var(--primary-3); }
+.theme-settings__toggle:hover { background: var(--primary-3); color: var(--primary-6); }
 .theme-settings__toggle[aria-expanded="true"] { color: var(--primary-5); border-color: var(--primary-5); }
 .theme-settings__toggle:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .theme-settings__close, .theme-settings__toggle[aria-expanded="true"] .theme-settings__open { display: none; }

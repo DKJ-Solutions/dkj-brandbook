@@ -68,7 +68,16 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
 - [x] Oranje -3 `#642b00` -> `#793300`: it already sat at the sRGB maximum chroma, so the only way to more
       orange was lighter -- OKLCH L 0.363 -> 0.41, hue 48, maximum chroma (0.112). `--neutral-3` on it
       5.13:1 (was 6.21; L 0.45 would drop to 4.36), as text on -6 (the showcase nav) 8.69:1.
-- [ ] An owner has looked at Oranje -3 and approved it
+- [x] An owner has looked at Oranje -3: chose `#a54600` by hand
+- [x] Oranje -3 `#793300` -> `#a54600`, the owner's own value. `--neutral-3` on it falls to 3.37:1.
+- [x] The `-3` rule (owner's decision, October 14, 2026: "primary-3 staat centraal, alles staat daaromheen"):
+      text on a `--primary-3` surface is `--primary-6`, which reaches 4.94:1 or better on `-3` in all
+      twelve themes (worst Roest; Oranje 5.71:1). Applied to `.table--accent th`, `.theme-settings__toggle:hover`,
+      the joined choice's hover, `.dkj-daterow--near/--today` and `--link:hover`, `.dkj-dialog--accent`,
+      the InfoRows box (not `--info`), and the showcase's nav current item and chip hover. Written into
+      `house-style/README.md`, with the dark themes' chroma factors beside the recipe.
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at the `-3` surfaces in a light and a dark theme and approved them
 
 ### DEPLOY: feat/lilac-more-purple
 
@@ -78,8 +87,13 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
 
 The six dark themes carry visibly more of their own colour: every `--primary-*` of Roze, Lila, Hemelsblauw,
 Cyaan, Geel and Oranje keeps its lightness and hue and roughly doubles its chroma, so the page, the cards, the
-lines and the near-white fills read as that colour rather than grey. Cyaan is also the house dark default,
-so an app that sets no theme sees it too. Every contrast stays above the stated floors.
+lines and the near-white fills read as that colour rather than grey; Oranje's `--primary-3` is a real orange,
+`#a54600`. Cyaan is also the house dark default, so an app that sets no theme sees it too.
+
+`--primary-3` becomes the theme's anchor, and text on a `--primary-3` surface is `--primary-6` instead of
+`--neutral-3` in every theme: the `.table--accent` head, the joined choice's hover, the settings toggle's
+hover, the near/today and hovered date rows, the accent dialog and the InfoRows box. On the light themes that
+text turns from grey to the theme's dark colour.
 
 **Score:** 3
 
@@ -90,7 +104,7 @@ so an app that sets no theme sees it too. Every contrast stays above the stated 
 
 ##### Tier 1
 
-Every dark theme looks like its colour, as the light themes already did.
+Every dark theme looks like its colour, as the light themes already did, and text on a tinted surface takes the theme's colour.
 
 **Score:** 2
 
