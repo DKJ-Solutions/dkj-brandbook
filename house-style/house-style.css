@@ -40,7 +40,8 @@
   /* the theme's seven steps, fixed values per theme (owner's decision, October 14, 2026). On light --primary-4 is
      the most saturated step, the anchor. On dark -4 is a grey of the colour and the colour moves to -5 and -6
      (owner's decision, October 14, 2026, from the owner's example Geel: -4 #91804c, -5 #ffce3f, -6 #ffe4a3; the other dark
-     themes take the same OKLCH lightness, -4's chroma, and -5/-6 at the gamut's full chroma in their own hue). -1 and -2 are the ground end (lightest
+     themes take the same OKLCH lightness, -4's chroma, and -5/-6 at the gamut's full chroma in their own hue;
+     Lila, too pale that way, takes Geel's chroma itself at a lower lightness: -5 #ae8fff, -6 #cfc0ff). -1 and -2 are the ground end (lightest
      on light, darkest on dark), -6 and -7 the far end (darkest on light, whitest on dark). -3 is the
      greyest. On light -5 is the colour itself, -4's
      chroma and hue a step darker (the owner's example: Paars #6421b9), held at 4.5:1 on -3. Blauw here; each [data-theme]
@@ -51,8 +52,8 @@
      links and the picker's dot (on dark text in the colour reads light-dark(-4, -5), and the dot is -5); -5 all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end: every paragraph, and an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -4 on the card 4.52:1
      (Petrol, Roest), -1 on -4 4.88:1 on light (Petrol) and 4.61:1 on dark (Roze), -5 on -3 4.54:1 (Petrol);
-     -5, all text, on -1 and -2 at 6.9:1 or better on light (Oker) and 9.96:1 on dark (Geel), and 6.9:1 or better
-     on a status background (Petrol). */
+     -5, all text, on -1 and -2 at 6.9:1 or better on light (Oker) and 6.07:1 on dark (Lila), and 4.98:1 or better
+     on a status background (Lila on dark). */
   --primary-1: #f8f9fa; --primary-2: #eaf0f8; --primary-3: #b7c1d1; --primary-4: #2563d0;
   --primary-5: #0647b0; --primary-6: #193a75; --primary-7: #000d34;
 
@@ -149,7 +150,7 @@
 :root[data-theme="ochre"] { --primary-1: #f9f9f6; --primary-2: #f2f0e3; --primary-3: #c4c2b2; --primary-4: #7a6b00; --primary-5: #5b4f00; --primary-6: #453e0e; --primary-7: #161200; }
 :root[data-theme="rust"] { --primary-1: #faf9f6; --primary-2: #f7efe5; --primary-3: #ccbfb3; --primary-4: #aa5703; --primary-5: #7d3e01; --primary-6: #5c300b; --primary-7: #200b00; --warning-3: #b88a00; }
 :root[data-theme="pink"] { --primary-1: #23081b; --primary-2: #3b132d; --primary-3: #3f2b38; --primary-4: #a26f8a; --primary-5: #ffbee0; --primary-6: #ffdbed; --primary-7: #fff6f9; }
-:root[data-theme="lilac"] { --primary-1: #160f24; --primary-2: #281f3a; --primary-3: #342f3f; --primary-4: #8479a9; --primary-5: #d7ccff; --primary-6: #e8e2ff; --primary-7: #f9f7fd; }
+:root[data-theme="lilac"] { --primary-1: #160f24; --primary-2: #281f3a; --primary-3: #342f3f; --primary-4: #8479a9; --primary-5: #ae8fff; --primary-6: #cfc0ff; --primary-7: #f9f7fd; }
 :root[data-theme="sky"] { --primary-1: #021624; --primary-2: #09263b; --primary-3: #253440; --primary-4: #6782ae; --primary-5: #bdd6ff; --primary-6: #d9e8ff; --primary-7: #f6f9fc; }
 :root[data-theme="cyan"] { --primary-1: #00181a; --primary-2: #002a2e; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa; }
 :root[data-theme="yellow"] { --primary-1: #1e1500; --primary-2: #312700; --primary-3: #3b331b; --primary-4: #91804c; --primary-5: #ffce3f; --primary-6: #ffe4a3; --primary-7: #fcf9f0; --warning-3: #f08a24; }

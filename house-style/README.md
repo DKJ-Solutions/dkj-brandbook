@@ -134,7 +134,7 @@ primary colour (on light its `--primary-4`, on dark its `--primary-5`):
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
 | Light | `magenta` Magenta `#c0258f`, `purple` Paars `#7a3fd6`, `blue` Blauw `#2563d0`, `teal` Petrol `#087983`, `ochre` Oker `#7a6b00`, `rust` Roest `#aa5703` |
-| Dark | `pink` Roze `#ffbee0`, `lilac` Lila `#d7ccff`, `sky` Hemelsblauw `#bdd6ff`, `cyan` Cyaan `#4aedff`, `yellow` Geel `#ffce3f`, `orange` Oranje `#ffc7a6` |
+| Dark | `pink` Roze `#ffbee0`, `lilac` Lila `#ae8fff`, `sky` Hemelsblauw `#bdd6ff`, `cyan` Cyaan `#4aedff`, `yellow` Geel `#ffce3f`, `orange` Oranje `#ffc7a6` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
   makes the number disappear. The status colours are the same in every theme.
@@ -219,7 +219,8 @@ out). Three more things follow it by default, in light and in dark (and a measur
   the picker draws, and the most saturated step of the seven. **On dark `-4` is a grey of the colour and `-5`/`-6`
   carry it** (owner's decision, October 14, 2026, from the owner's example Geel: `-4` `#91804c`, `-5` `#ffce3f`, `-6`
   `#ffe4a3`; the other dark themes take the same OKLCH lightness, `-4`'s chroma, and `-5`/`-6` at the gamut's full
-  chroma in their own hue). Text in the theme's colour (links, card and dialog titles, values) reads
+  chroma in their own hue; Lila, too pale that way, takes Geel's chroma itself at a lower lightness: `-5` `#ae8fff`,
+  `-6` `#cfc0ff`). Text in the theme's colour (links, card and dialog titles, values) reads
   `light-dark(var(--primary-4), var(--primary-5))`, and the picker's dot on dark is `-5`. The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). **`-3` is
   the greyest step.** On light `-5` is the colour itself, `-4`'s chroma and hue a step darker. `-4` carries the fills
@@ -253,7 +254,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
 - **Links are the theme's colour**, as `--primary-4`. **`h1` and `h2` are `--primary-5` and `h3`–`h6` are `--primary-6`**;
   on a `--primary-7` surface `h1` and `h2` are `--primary-3` and `h3`–`h6` are `--primary-2` (owner's decision, October 14, 2026).
 - **Measured:** `--primary-5`, all text, reaches 6.9:1 or better on the page and card on light (Oker) and
-  9.96:1 on dark (Geel), and 6.9:1 or better on a warning, negative or positive background (Petrol); `--primary-4` reaches 4.5:1 or better on the card
+  6.07:1 on dark (Lila), and 4.98:1 or better on a warning, negative or positive background (Lila on dark); `--primary-4` reaches 4.5:1 or better on the card
   (worst: Petrol, Roest) and `--primary-1` on `--primary-4` 4.88:1 on light (Petrol) and 4.61:1 on dark
   (Roze); `--primary-5` on `--primary-3` 4.54:1 or better (Petrol). Status, direction and categorical
   colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never tinted.
