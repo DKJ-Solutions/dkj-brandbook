@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**46 minor entries** <!-- pending-tally -->
+**47 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/drop-gain-token · 20261014-113553Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house token `--gain` is gone: it was always the same colour as `--cat-1`, which a gain in a chart now
+uses. A repo that still reads `var(--gain)` gets no colour there until it replaces it with `var(--cat-1)`,
+which looks exactly the same in every theme, light and dark. The legend's `color="gain"` is now
+`color="cat-1"`.
+
+**Score:** 4
+
+##### Tier 1
+
+A token rename inside the house style; management sees no change.
+
+**Score:** N/A
+
+##### Tier 2
+
+The replacement colour is identical, so once a repo has swapped the name no user sees a difference.
+
+**Score:** N/A
+
+#### Pull Request
+
+Drop --gain; --cat-1 is the same colour
+
+[PR #83](https://github.com/DKJ-Solutions/dkj-brandbook/pull/83)
+
+---
 
 ### DEPLOY: feat/drop-dkj-colour-tokens · 20261014-113419Z
 
