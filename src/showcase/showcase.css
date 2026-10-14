@@ -1,25 +1,35 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
 .bb-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
+/* The sidebar contrasts with the page: on a light theme it is a dark panel (near-black with a touch of the
+   theme), on a dark theme it keeps the theme's own tint. light-dark() reads the color-scheme the theme sets. */
 .bb-nav {
+  --bb-nav-bg: light-dark(color-mix(in srgb, var(--primary) 18%, #141413), color-mix(in srgb, var(--primary) 10%, var(--surface)));
+  --bb-nav-line: light-dark(transparent, color-mix(in srgb, var(--primary) 28%, var(--surface)));
+  --bb-nav-ink: light-dark(#ffffff, var(--ink));
+  --bb-nav-ink-2: light-dark(#c3c2b7, var(--ink-2));
+  --bb-nav-brand: light-dark(color-mix(in srgb, var(--primary) 45%, #ffffff), var(--primary-ink));
+  --bb-nav-hover: light-dark(color-mix(in srgb, var(--primary) 35%, var(--bb-nav-bg)), color-mix(in srgb, var(--primary) 20%, var(--surface)));
+  --bb-nav-focus: light-dark(var(--bb-nav-brand), var(--primary));
   position: sticky;
   top: 0;
   align-self: start;
   max-height: 100dvh;
   overflow-y: auto;
   padding: var(--spacing-5) var(--spacing-4);
-  border-right: 1px solid color-mix(in srgb, var(--primary) 28%, var(--surface));
-  background: color-mix(in srgb, var(--primary) 10%, var(--surface));   /* the theme, as the sidebar's own tint */
+  border-right: 1px solid var(--bb-nav-line);
+  background: var(--bb-nav-bg);
+  color: var(--bb-nav-ink);
 }
-.bb-brand { margin: 0 0 var(--spacing-1); font-size: var(--text-lg); font-weight: var(--dkj-fw-bold); color: var(--primary-ink); }
-.bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--ink-2); }
+.bb-brand { margin: 0 0 var(--spacing-1); font-size: var(--text-lg); font-weight: var(--dkj-fw-bold); color: var(--bb-nav-brand); }
+.bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--bb-nav-ink-2); }
 .bb-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-semibold);
   letter-spacing: var(--dkj-tracking-label);
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--bb-nav-ink-2);
 }
 .bb-nav ul { margin: 0; padding: 0; list-style: none; }
 .bb-nav a {
@@ -27,15 +37,15 @@
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--dkj-radius-sm);
   font-size: var(--text-base);
-  color: var(--ink);
+  color: var(--bb-nav-ink);
   text-decoration: none;
   /* One line per link: a name too long for the column is cut off with an ellipsis (the full name is its title). */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.bb-nav a:hover { background: color-mix(in srgb, var(--primary) 20%, var(--surface)); }
-.bb-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset-inset); }
+.bb-nav a:hover { background: var(--bb-nav-hover); }
+.bb-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--bb-nav-focus); outline-offset: var(--dkj-focus-offset-inset); }
 
 /* <main>: the house style gives it a centred 1080px column; the showcase fills the space beside the nav. */
 .bb-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
@@ -121,7 +131,7 @@
 
 @media (max-width: 52rem) {
   .bb-shell { grid-template-columns: minmax(0, 1fr); }
-  .bb-nav { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--border); }
+  .bb-nav { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--bb-nav-line); }
   .bb-nav ul { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
   .bb-main { padding: var(--spacing-4) var(--spacing-4) var(--spacing-8); }
   .bb-settings { margin: 0 calc(-1 * var(--spacing-4)); }
@@ -154,7 +164,7 @@
 
 /* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */
 .bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--primary); color: var(--on-primary); font-weight: var(--dkj-fw-semibold); }
-.bb-nav a[aria-current='page']:focus-visible { outline-color: var(--ink); }   /* a primary ring would vanish on the primary fill */
+.bb-nav a[aria-current='page']:focus-visible { outline-color: var(--bb-nav-ink); }   /* a primary ring would vanish on the primary fill */
 .bb-preview-back { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); }
 .bb-preview-back a { color: var(--primary-ink); }
 .bb-preview-meta { margin-bottom: var(--spacing-4); }
