@@ -46,7 +46,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 
 | Group | Tokens | Meaning |
 |---|---|---|
-| Neutrals | `--neutral-1` … `--neutral-5`, `--muted` | a five-step ramp from the ground to the text, flipped on dark: `--neutral-1` the ground (the page base, text and icons on the primary, the mark inside a status icon), `--neutral-2` the raised plane (the surface base), `--neutral-3` lines (the grid and border base, axes), `--neutral-4` secondary text, `--neutral-5` text. `--muted` is tertiary text, the same in both modes |
+| Neutrals | `--neutral-1` … `--neutral-5` | a five-step ramp from the ground to the text, flipped on dark: `--neutral-1` the ground (the page base, text and icons on the primary, the mark inside a status icon), `--neutral-2` the raised plane (the surface base), `--neutral-3` lines (the grid and border base, axes), `--neutral-4` secondary text, `--neutral-5` text |
 | Surfaces and lines | `--primary-1`, `--primary-2`, `--primary-4`, `--primary-5` | background (`-1`), cards (`-2`), borders (`-4`), grid lines (`-5`): derived, the neutral `--neutral-1`, `--neutral-2` and `--neutral-3` with the theme's primary mixed in ([below](#how-far-a-theme-reaches)) |
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-5`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-5`/`--negative-5` are the text versions of `--positive-3`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
@@ -76,6 +76,7 @@ name says which side it is on, and the black, white and grey ones merged into on
 | `--grid-base`, `--border-base`, `--axis` | `--neutral-3`. `--primary-4` is now a solid line over it instead of a translucent one |
 | `--ink-2` | `--neutral-4` |
 | `--ink` | `--neutral-5` |
+| `--muted` | removed: notes, quiet icons and chevrons take `--neutral-4`; the `.muted` class keeps its name |
 | `--page`, `--surface`, `--primary-soft` | `--primary-1`, `--primary-2`, `--primary-3` |
 | `--border`, `--grid` | `--primary-4`, `--primary-5` |
 | `--primary`, `--primary-ink` | `--primary-6`, `--primary-7` |
@@ -98,8 +99,8 @@ uses):
 |---|---|---|
 | to any other theme changes them | `--primary-1` … `--primary-7` | each theme sets its own `--primary-6`, and the other six are mixed from it |
 | changes them only between light and dark: black, white and grey | `--neutral-1`, `--neutral-2`, `--neutral-3`, `--neutral-4`, `--neutral-5` | a ramp from the ground to the text, set once in the light block and once in the dark block, where it flips |
-| changes them only between light and dark: colours | `--cat-1`–`--cat-3`, `--negative-1`, `--negative-3`, `--negative-5`, `--positive-1`, `--positive-3`, `--positive-5`, `--warning-1`, `--warning-3`, `--warning-5` | set once in the light block and once in the dark block, a shade apart. One exception: `--warning-3` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
-| never changes them | `--muted` | the same value in light and dark |
+| changes them only between light and dark: categories | `--cat-1`, `--cat-2`, `--cat-3` | series slots, set once in the light block and once in the dark block, a shade apart |
+| changes them only between light and dark: status colours | `--negative-1`, `--negative-3`, `--negative-5`, `--positive-1`, `--positive-3`, `--positive-5`, `--warning-1`, `--warning-3`, `--warning-5` | set once in the light block and once in the dark block, a shade apart. One exception: `--warning-3` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
 
 **The spacing and type scales have a source: the Figma library** *Shopify Theme - LIBRARY*, variable
 collection "Collection", groups `spacing/` and `text/`. Their names and values are copied exactly, so a
@@ -266,8 +267,8 @@ and a side drawer, a top bar and a menu list. The group sits at the end of
   (`html:has(dialog:modal)`), and `html:has(.topbar)` adds the scroll padding for the top bar.
   `.dialog--drawer` slides in from the side. A dialog on top of a dialog sets `--dialog-scale` (default
   0.95) smaller on itself: a hook the app sets, not a house token.
-- **Contrast.** Field labels and the dialog subtitle use `--neutral-4`, because `--muted` on `--primary-2` is
-  about 3.5:1. `--muted` is for icons only, which need 3:1.
+- **Contrast.** Field labels, the dialog subtitle and the quiet icons use `--neutral-4`, which holds 4.5:1 on
+  `--primary-2`.
 - **Input font.** The input's 16px is a literal, not a type step: iOS zooms in on focus below 16px.
 
 **What this changes for an app that takes the update:** nothing that exists, only additions. But an app

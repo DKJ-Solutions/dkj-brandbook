@@ -60,6 +60,8 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] `--negative-bg`, `--negative-light` and `--negative-dark` renamed to `--negative-1`, `--negative-3` and `--negative-5`, by the owner's rule that -1 is the ground end (light on light, dark on dark) and -5 the text end; the rule written into the README (owner's follow-up)
 - [x] The positive and warning tokens on the same 1/3/5 scale: `-bg` → `-1`, `-light` → `-3`, `-up`/`-dark` → `-5` (owner's follow-up)
 - [x] The theme group on the same scale, ground to text: `--page`, `--surface`, `--primary-soft`, `--border`, `--grid`, `--primary`, `--primary-ink` → `--primary-1` … `--primary-7` (owner's follow-up)
+- [x] `--muted` removed; its uses (notes, quiet icons, chevrons, the select arrow) take `--neutral-4`, and the `.muted` class keeps its name (owner's follow-up)
+- [x] `--cat-1` .. `--cat-3` split off into a "categories" subgroup, beside "status colours", in the showcase and the README (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST

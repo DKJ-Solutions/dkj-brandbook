@@ -10,10 +10,10 @@ const HOUSE_COLORS = {
   'changes only between light and dark -- black, white and grey': [
     'neutral-1', 'neutral-2', 'neutral-3', 'neutral-4', 'neutral-5',
   ],
-  'changes only between light and dark -- colours': [
-    'cat-1', 'cat-2', 'cat-3', 'negative-1', 'negative-3', 'negative-5', 'positive-1', 'positive-3', 'positive-5', 'warning-1', 'warning-3', 'warning-5',
+  'changes only between light and dark -- categories': ['cat-1', 'cat-2', 'cat-3'],
+  'changes only between light and dark -- status colours': [
+    'negative-1', 'negative-3', 'negative-5', 'positive-1', 'positive-3', 'positive-5', 'warning-1', 'warning-3', 'warning-5',
   ],
-  'the same in every theme': ['muted'],
 } as const
 
 /** How much of the primary each house surface takes (set per mode). */

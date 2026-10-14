@@ -42,7 +42,7 @@ export function Intro() {
           <strong>a bold word</strong> and <code>inline code</code>.
         </p>
         <p className="sub">A .sub line under a heading (--text-sm, --neutral-4).</p>
-        <p className="muted">A .muted note (--text-sm, --muted).</p>
+        <p className="muted">A .muted note (--text-sm, --neutral-4).</p>
       </div>
     </header>
   )
