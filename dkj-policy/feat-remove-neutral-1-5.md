@@ -45,7 +45,7 @@ The owner asked to remove `--neutral-1` and `--neutral-5` and chose to renumber 
 ### TEST
 
 - [x] Lint gate green (eslint, var() check, colour-literal check, tsc + vite build)
-- [ ] Code review (Victor) and copy edit (Edith)
+- [x] Code review (Victor) and copy edit (Edith); their findings fixed (migration table, recomputed contrast figures, swatch base)
 - [ ] An owner has looked at the showcase in light and dark themes and approved it
 
 ### DEPLOY: feat/remove-neutral-1-5
@@ -55,9 +55,11 @@ The owner asked to remove `--neutral-1` and `--neutral-5` and chose to renumber 
 ##### Tier 0
 
 The neutral ramp drops its two ends. `--neutral-1` and `--neutral-5` are gone, and the old `--neutral-2`,
-`-3` and `-4` are renumbered `--neutral-1`, `-2` and `-3` with unchanged values. What read the old
+`-3` and `-4` are renumbered `--neutral-1`, `-2` and `-3`. The new `--neutral-1` is also a step darker
+(`#ebebe8` light, `#262625` dark) so the surface plane reads apart from the page. What read the old
 `--neutral-1` (the ground, text and icons on the primary, the status-icon mark, dialog backdrops) now reads
-`--primary-1`; the theme swatches take the new `--neutral-1` as their untinted base. What read the old
+`--primary-1`; the theme swatches mix their tint over `white` or `black`, so each previews its own page in
+either mode. What read the old
 `--neutral-5` (primary text, focus outlines, the inverted button) now reads `--neutral-3`, so primary and
 secondary text share one grey. `.dkj-msg--warn` reads `--warning-5`. A consuming repo renames in the order
 the README's migration rows give.

@@ -7,6 +7,6 @@
 .dkj-hero-value--lg { font-size: var(--text-h4); line-height: var(--dkj-lh-snug); }
 
 /* ---------- Meter and Badge: the first categorical colour as a status ("covered") ---------- */
-/* The house .meter span / .badge read --m / --b; the glyph stays --neutral-1 (4.4:1 on the light --cat-1, 5.4:1 on dark). */
+/* The house .meter span / .badge read --m / --b; the glyph stays --primary-1 (4.2:1 or better on the light --cat-1, worst Paars; 4.5:1 or better on dark, worst Geel; WCAG relative luminance). */
 .dkj-meter--series { --m: var(--cat-1); }
 .dkj-badge--series { --b: var(--cat-1); }

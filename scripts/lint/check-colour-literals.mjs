@@ -4,8 +4,8 @@
 // hsl(), hsla() -- is allowed only as the value of a custom-property declaration (--name: #abc), and
 // two things are reported:
 //   - a colour code anywhere else, e.g. `color: #fff` or inside a color-mix() in a rule;
-//   - a declaration under src/ whose code the house style already defines (`--bb-nav-ink: #0b0b0b`
-//     where --neutral-5 is #0b0b0b): read the house token instead of typing its value again.
+//   - a declaration under src/ whose code the house style already defines (`--bb-nav-ink: #52514e`
+//     where --neutral-3 is #52514e): read the house token instead of typing its value again.
 // Codes are compared case-insensitively with #abc expanded to #aabbcc. TS/TSX are not scanned: their
 // colour codes are data (the theme picker's swatch list, an inline SVG placeholder image), not styling.
 import { readFileSync, readdirSync } from 'node:fs'
