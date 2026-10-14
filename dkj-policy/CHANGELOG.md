@@ -2,7 +2,42 @@
 
 ## [Unreleased]
 
-**50 minor entries** <!-- pending-tally -->
+**51 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/no-colour-literals · 20261014-140409Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+No stylesheet types a colour where a house token already holds it. The navigation's text reads `--neutral-1`
+and `--neutral-3` directly (`--bb-nav-ink` and `--bb-nav-ink-2` are gone), the theme swatches and the dialog backdrops read `--neutral-1`, and a new gate step
+(`scripts/lint/check-colour-literals.mjs`) refuses a colour code outside a token declaration, or a repo token
+that retypes a house value.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal consistency of the brand book; management sees no change.
+
+**Score:** N/A
+
+##### Tier 2
+
+The navigation's secondary text is a touch lighter on a light theme and darker on a dark theme. The theme
+swatches take the current page's ground, so on a dark page the light themes' swatches are dark too. The page
+behind an open dialog fades towards white on a light theme instead of darkening.
+
+**Score:** 2
+
+#### Pull Request
+
+Every colour is a token: no duplicated colour codes, and a gate that keeps it so
+
+[PR #89](https://github.com/DKJ-Solutions/dkj-brandbook/pull/89)
+
+---
 
 ### DEPLOY: feat/86-button-family · 20261014-134935Z
 
