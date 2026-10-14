@@ -47,7 +47,7 @@
   color: var(--ink);
 }
 .dkj-panel--accent { --part: var(--primary); }
-.dkj-panel--positive { --part: var(--up); }
+.dkj-panel--positive { --part: var(--positive-up); }
 .dkj-panel--button {
   display: flex;
   flex-direction: column;

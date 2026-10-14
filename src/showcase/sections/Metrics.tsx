@@ -245,7 +245,7 @@ export function Metrics() {
         </Demo>
       </Section>
 
-      <Section id="Badge" title="Badge" intro="A small round status mark with a glyph. The colour is a status token (--good, --warn, --bad, the primary, --cat-1), the glyph is --status-mark, and the status is also written next to it: the glyph alone is decorative.">
+      <Section id="Badge" title="Badge" intro="A small round status mark with a glyph. The colour is a status token (--positive-good, --warn, --bad, the primary, --cat-1), the glyph is --status-mark, and the status is also written next to it: the glyph alone is decorative.">
         <Demo label="Tones, 20px">
           <div className="bb-row">
             <Badge tone="good">✓</Badge>
