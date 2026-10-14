@@ -11,7 +11,7 @@
 }
 .dkj-card--flush { padding: 0; overflow: hidden; }
 .dkj-card--open { border-color: color-mix(in srgb, var(--primary) 60%, var(--border)); }
-.dkj-card--invalid { border-color: var(--negative-bad); }
+.dkj-card--invalid { border-color: var(--negative-light); }
 /* Data variant: the head is left-aligned in the house serif (the h2 rule of house-style.css sets the family),
    with a muted subline, and there is no rule between head and body. */
 .dkj-card--data { padding: var(--spacing-5); }
@@ -94,7 +94,7 @@
 .dkj-banner--warn ul { margin: var(--spacing-1) 0 0; padding-left: var(--spacing-5); }
 
 /* ---------- Alert ---------- */
-.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-bad); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-bad) 8%, var(--surface)); color: var(--ink); }
+.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-light); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-light) 8%, var(--surface)); color: var(--ink); }
 .dkj-alert-title { display: flex; align-items: center; gap: var(--spacing-2); margin: 0 0 var(--spacing-1); font-size: var(--text-h5); color: var(--negative-down); }
 .dkj-alert-icon { flex: none; }
 .dkj-alert > :last-child { margin-bottom: 0; }
@@ -102,11 +102,11 @@
 /* ---------- Message ---------- */
 .dkj-msg { margin: 0; font-size: var(--text-base); color: var(--ink-2); }
 .dkj-msg--note { margin-top: var(--spacing-5); }
-.dkj-msg--warn { color: color-mix(in srgb, var(--warning-bad) 70%, var(--ink)); font-weight: var(--dkj-fw-semibold); }
+.dkj-msg--warn { color: color-mix(in srgb, var(--warning-light) 70%, var(--ink)); font-weight: var(--dkj-fw-semibold); }
 .dkj-msg--error { color: var(--negative-down); }
 .dkj-msg--debug {
   padding: var(--spacing-2) var(--spacing-3);
-  border: 1px dashed var(--negative-bad);
+  border: 1px dashed var(--negative-light);
   border-radius: var(--dkj-radius-md);
   color: var(--negative-down);
   font-size: var(--text-sm);
@@ -143,7 +143,7 @@
   border-radius: var(--dkj-radius-pill);
 }
 .dkj-tag--info { color: var(--status-mark); background: var(--cat-1); }
-.dkj-tag--warn { color: var(--ink); background: var(--warning-bad); }
+.dkj-tag--warn { color: var(--ink); background: var(--warning-light); }
 
 /* ---------- Help and Disclosure ---------- */
 .dkj-help { display: flex; flex-direction: column; align-items: flex-end; }

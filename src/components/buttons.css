@@ -30,7 +30,7 @@
 .dkj-btn--primary { width: 100%; background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
 .dkj-btn--positive {
   border-color: transparent;
-  background: linear-gradient(180deg, var(--positive-good), var(--positive-up)) border-box;
+  background: linear-gradient(180deg, var(--positive-light), var(--positive-up)) border-box;
   color: var(--status-mark);
 }
 .dkj-btn--outline {

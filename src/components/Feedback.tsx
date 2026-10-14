@@ -29,7 +29,7 @@ export function Banner({ tone = 'accent', lead, children }: { tone?: 'accent' | 
 }
 
 /**
- * Alert -- a generic danger callout: a danger border, a --negative-bad-tinted background built from house tokens, a title
+ * Alert -- a generic danger callout: a danger border, a --negative-light-tinted background built from house tokens, a title
  * with a warning icon in the danger text colour, and the content below. No hazard stripes.
  */
 export function Alert({ tone = 'danger', title, children }: { tone?: 'danger'; title: ReactNode; children?: ReactNode }) {

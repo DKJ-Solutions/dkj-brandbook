@@ -39,10 +39,10 @@
 .dkj-daterow--today .dkj-daterow-when { font-weight: var(--dkj-fw-bold); color: var(--ink); }
 
 /* invalid: red bar, warning icon, the reason in red text. */
-.dkj-daterow--invalid { box-shadow: inset 3px 0 0 var(--negative-bad); }
-.dkj-daterow--invalid .dkj-daterow-when { flex-direction: row; align-items: center; gap: var(--spacing-1); color: var(--negative-bad); }
+.dkj-daterow--invalid { box-shadow: inset 3px 0 0 var(--negative-light); }
+.dkj-daterow--invalid .dkj-daterow-when { flex-direction: row; align-items: center; gap: var(--spacing-1); color: var(--negative-light); }
 .dkj-daterow-icon { flex: none; }
-.dkj-daterow-reason { font-size: var(--text-sm); color: var(--negative-bad); overflow-wrap: anywhere; }
+.dkj-daterow-reason { font-size: var(--text-sm); color: var(--negative-light); overflow-wrap: anywhere; }
 
 /* href: the title link stretches over the whole row. */
 .dkj-daterow-title a { color: inherit; text-decoration: underline; text-underline-offset: 0.15em; }

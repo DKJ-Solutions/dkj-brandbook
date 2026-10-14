@@ -48,28 +48,31 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 |---|---|---|
 | Surfaces and ink | `--page`, `--surface`, `--ink`, `--ink-2`, `--muted`, `--grid`, `--axis`, `--border` | background, cards, three levels of text, lines. `--page`, `--surface`, `--grid` and `--border` are derived: the neutral `--page-base`, `--surface-base`, `--grid-base` and `--border-base` with the theme's primary mixed in ([below](#how-far-a-theme-reaches)) |
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
-| Direction | `--negative-bad` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-up`, `--negative-down` (numbers in text) | result and direction, never a category. `--positive-up`/`--negative-down` are the text versions of `--positive-good`/`--negative-bad`, a step more contrast so a number reads as text: darker on light, lighter on dark |
-| Status | `--positive-good`, `--warning-bad`, `--negative-bad`, `--warning-down`, `--warning-bg`, `--negative-bg`, `--positive-bg`, `--status-mark` | badges, meters, notices. `--warning-bg`, `--negative-bg` and `--positive-bg` are the backgrounds of a warning, negative or positive message. `--status-mark` is the mark inside a status icon (check, cross, "!"): white on light, near-black on dark |
+| Direction | `--negative-light` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-up`, `--negative-down` (numbers in text) | result and direction, never a category. `--positive-up`/`--negative-down` are the text versions of `--positive-light`/`--negative-light`, a step more contrast so a number reads as text: darker on light, lighter on dark |
+| Status | `--positive-light`, `--warning-light`, `--negative-light`, `--warning-down`, `--warning-bg`, `--negative-bg`, `--positive-bg`, `--status-mark` | badges, meters, notices. `--warning-bg`, `--negative-bg` and `--positive-bg` are the backgrounds of a warning, negative or positive message. `--status-mark` is the mark inside a status icon (check, cross, "!"): white on light, near-black on dark |
 | Primary | `--primary`, `--on-primary`, `--primary-soft` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--on-primary` is text on it, `--primary-soft` a tint for a background, `--primary-ink` the primary as text (links, `h1`, `h2`). Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h6` each take the token of their own level, body text is `--text-base` |
 | App shell | `--control-h`, `--tap`, `--topbar-h`, `--column-narrow` | sizes for a mobile-first app, same in both modes: 38px for a value field and the button beside it, 44px as the smallest touch target, 56px for the top bar, 512px for the narrow app column |
 
-`--gain` was removed (October 14, 2026): use `--cat-1`, the same colour. `--on-warn` was removed the same
-day (owner's decision): text on a `--warn` fill uses `--ink`, which turns white on the dark themes.
-`--good` and `--up` were renamed the same day (owner's decision): `--positive-good` and `--positive-up`. An app
-that takes this update renames them in its own layer; the class modifiers (`.badge--good`, `.delta--up`) keep their names.
-`--loss` and `--bad` were renamed the same day (owner's decision): `--negative-loss` and `--negative-bad`, with
-`LegendItem color="negative-loss"` in the brand book's components; `.badge--bad` and `.meter--bad` keep their names.
-`--down` was renamed the same day (owner's decision): `--negative-down`; `.delta--down` keeps its name.
-`--negative-loss` was then removed (owner's decision): a loss in a chart takes `--negative-bad`, and so does
-`LegendItem color="negative-bad"`.
-`--warn-bg` was renamed the same day (owner's decision): `--warning-bg`. Two backgrounds were added beside it:
-`--negative-bg` and `--positive-bg`.
-`--warn` was renamed the same day (owner's decision): `--warning-bad`, and `--warning-down` was added beside it: a
-warning in text, a step darker on light and lighter on dark, like `--negative-down`. `.badge--warn`, `.meter--warn` and
-`.dkj-tag--warn` keep their names.
+`--gain` was removed (October 14, 2026): use `--cat-1`, the same colour.
+
+**The status and direction colours were renamed the same day** (owner's decision), so each name says which side
+it is on. An app that takes this update renames them in its own layer:
+
+| Was | Now |
+|---|---|
+| `--good`, `--up` | `--positive-light`, `--positive-up` |
+| `--bad`, `--down` | `--negative-light`, `--negative-down` |
+| `--loss` | removed: a loss in a chart takes `--negative-light` (in the brand book, `LegendItem color="negative-light"`) |
+| `--warn`, `--warn-bg` | `--warning-light`, `--warning-bg` |
+| `--on-warn` | removed: text on a `--warning-light` fill takes `--ink`, which turns white on the dark themes |
+| (new) | `--warning-down`: a warning in text, a step darker on light and lighter on dark, like `--negative-down` |
+| (new) | `--negative-bg`, `--positive-bg`: the backgrounds of a negative or positive message, beside `--warning-bg` |
+
+The class modifiers keep their names: `.badge--good`, `.badge--bad`, `.badge--warn`, `.meter--good`,
+`.meter--bad`, `.meter--warn`, `.delta--up`, `.delta--down`.
 
 **The colour tokens grouped by what a theme switch changes** (the grouping the showcase's Tokens section
 uses):
@@ -78,7 +81,7 @@ uses):
 |---|---|---|
 | to any other theme changes them | `--border`, `--grid`, `--page`, `--primary`, `--primary-ink`, `--primary-soft`, `--surface` | each theme sets its own `--primary`, and the other six are mixed from it |
 | changes them only between light and dark: black, white and grey | `--axis`, `--border-base`, `--grid-base`, `--ink`, `--ink-2`, `--on-primary`, `--page-base`, `--status-mark`, `--surface-base` | set once in the light block and once in the dark block, where they flip between dark and light neutrals |
-| changes them only between light and dark: colours | `--cat-1`–`--cat-3`, `--negative-bad`, `--negative-bg`, `--negative-down`, `--positive-bg`, `--positive-good`, `--positive-up`, `--warning-bad`, `--warning-bg`, `--warning-down` | set once in the light block and once in the dark block, a shade apart. One exception: `--warning-bad` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
+| changes them only between light and dark: colours | `--cat-1`–`--cat-3`, `--negative-bg`, `--negative-down`, `--negative-light`, `--positive-bg`, `--positive-light`, `--positive-up`, `--warning-bg`, `--warning-down`, `--warning-light` | set once in the light block and once in the dark block, a shade apart. One exception: `--warning-light` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
 | never changes them | `--muted` | the same value in light and dark |
 
 **The spacing and type scales have a source: the Figma library** *Shopify Theme - LIBRARY*, variable
@@ -148,7 +151,7 @@ its own.
 **What this changed for an app that takes the update:** the pressed `.seg` button, `.badge--info` and
 `.meter--info` take the primary instead of ink and `--cat-1`; the light warning is dark orange instead
 of amber and the dark one a brighter yellow; `--negative-down` on light is a darker red (`#a32424`); on dark
-`--positive-up`/`--negative-down` are a step lighter and `--negative-bad` is the dark red it never had; status icons take
+`--positive-up`/`--negative-down` are a step lighter and `--negative-light` is the dark red it never had; status icons take
 `--status-mark`.
 
 ### How far a theme reaches
@@ -194,7 +197,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
 - **Measured:** `--ink-2` stays at 6.2:1 or better on the tinted light page (worst: Magenta, Paars) and
   6.8:1 or better on the tinted dark surface (worst: Geel); `--primary-ink` reaches 5.4:1 or better on the
   light page (worst: Petrol, Roest, Oker, Magenta) and more on dark. Status, direction and categorical
-  colours (`--positive-good`, `--negative-bad`, `--warning-bad`, `--cat-*`, `--positive-up`, `--negative-down`) are never tinted.
+  colours (`--positive-light`, `--negative-light`, `--warning-light`, `--cat-*`, `--positive-up`, `--negative-down`) are never tinted.
 
 **What this changes for an app that takes the update:** every page turns a light shade of its theme, and
 `h1`/`h2` take its colour (through `:where()`, so a heading inside a coloured container, or one the app colours itself, keeps that colour). An app that hard-codes a grey next to a house surface will show the seam, and
