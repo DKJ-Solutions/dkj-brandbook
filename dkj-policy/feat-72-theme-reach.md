@@ -43,7 +43,7 @@ Decide how far a house theme reaches (#72): links and native controls take `--pr
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the Theme reach demo across light and dark themes, and at the brand book's own links, and approved them
+- [x] An owner has looked at the Theme reach demo across light and dark themes, and at the brand book's own links, and approved them
 
 ### DEPLOY: feat/72-theme-reach
 
