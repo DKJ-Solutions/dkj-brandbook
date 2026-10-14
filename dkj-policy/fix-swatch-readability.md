@@ -39,9 +39,10 @@ size and colour, and a `color-mix(...)` value broke mid-word ("color-" / "mix").
 
 - [x] Swatch: name semibold in `--ink`, value mono `--text-xs` in `--ink-2`, chip aligned with the name
 - [x] Grid column 11rem -> 13rem
-- [x] A `color-mix()` value shows the colour it resolves to (one hex, read off a 1px canvas), with its
-  recipe beneath in words -- "7% #0f7c86 over 2% #0f7c86 over #fcfcfb" -- each step kept on one line;
-  the raw expression stays on hover
+- [x] A `color-mix()` token shows the colour it resolves to (one hex, read off a 1px canvas), with its
+  recipe beneath in token names read from the declaration as written -- "--surface + 7% --primary" --
+  because the computed value has every var() filled in and nests into unreadable hexes; an alias reads
+  "= --surface"; the declaration itself stays on hover
 - [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
@@ -55,9 +56,9 @@ size and colour, and a `color-mix(...)` value broke mid-word ("color-" / "mix").
 ##### Tier 0
 
 The colour swatches in the brand book's Tokens section read as a name over its value: the name is
-semibold in ink, the value smaller and monospaced in ink-2. A `color-mix()` token shows the one colour it
-resolves to, with its recipe in words beneath it ("7% #0f7c86 over 2% #0f7c86 over #fcfcfb") instead of
-the nested expression.
+semibold in ink, the value smaller and monospaced in ink-2. A mixed token shows the one colour it
+resolves to, with its recipe in token names beneath it ("--surface + 7% --primary"), and an alias names
+the token it stands for ("= --surface"), instead of a nested `color-mix()` of bare hexes.
 
 **Score:** 2
 
