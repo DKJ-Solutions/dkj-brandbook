@@ -35,7 +35,8 @@
 The owner asked to group the colour tokens by what a theme switch does to them: the ones that change
 with every theme, and the ones that change only between light and dark. Read off the token blocks in
 `house-style/house-style.css`, a third group is left over (the same in every theme), and `--warn` sits in
-the light/dark group with one exception (Roest and Geel move it). The house style's values do not change.
+the light/dark group with one exception (Roest and Geel move it). The owner then reshaped the tokens in a run of
+follow-ups, listed under CREATE: renames onto one ground-to-text scale, merges, removals and some new values.
 
 ### CREATE
 
