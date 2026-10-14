@@ -59,7 +59,7 @@ mirrors the bottom of light, `--primary-6` mirroring `--primary-1` and `--primar
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the navigation and the components in the dark themes and approved it
+- [x] An owner has looked at the navigation and the components in the dark themes and approved it ("ship it")
 
 ### DEPLOY: feat/dark-nav-contrast
 
