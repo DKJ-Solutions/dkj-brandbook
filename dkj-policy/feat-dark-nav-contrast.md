@@ -40,16 +40,16 @@ rather than add a separate nav colour, so headings and links on the dark themes 
 
 ### CREATE
 
-- [x] `house-style/house-style.css`: the six dark themes' `--primary-6` become 40% of their old value over
-  white (Roze `#ffd5ed`, Lila `#e8dfff`, Lucht `#cbe7ff`, Cyaan `#bdedf3`, Geel `#fbebbd`, Oranje `#fcd9c0`),
+- [x] `house-style/house-style.css`: the six dark themes' `--primary-6` become 20% of their old value over
+  white (Roze `#ffeaf6`, Lila `#f3efff`, Lucht `#e5f3ff`, Cyaan `#def6f9`, Geel `#fdf5de`, Oranje `#fdecdf`),
   including the default dark blocks; `house-style/README.md` says so
 - [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` is `--primary-6`, with black text
   (`#0b0b0b`) and dark grey labels (`#52514e`); the heading and focus ring take the theme colour darkened
   (30% over `#141413`), the current link fills with that darkened colour under white text, the hover darkens
   the panel by 10%, and the border line goes, as on light. The light themes are unchanged.
-- [x] Contrast measured in all six dark themes: `--primary-6` as text 12.9:1 or better on the page and
-  10.4:1 or better on a card; on the panel black text 14.8:1 or better, grey labels 5.9:1 or better, the
-  "Contents" heading 7.5:1 or better, black on hover 12.1:1 or better, white on the current link 8.9:1 or
+- [x] Contrast measured in all six dark themes: `--primary-6` as text 14.9:1 or better on the page and
+  11.7:1 or better on a card; on the panel black text 17:1 or better, grey labels 6.8:1 or better, the
+  "Contents" heading 8.2:1 or better, black on hover 13.9:1 or better, white on the current link 8.9:1 or
   better
 
 ### TEST
@@ -63,7 +63,7 @@ rather than add a separate nav colour, so headings and links on the dark themes 
 
 ##### Tier 0
 
-On the six dark themes `--primary-6` is now a light pastel of the theme colour (40% of its old value over
+On the six dark themes `--primary-6` is now a light pastel of the theme colour (20% of its old value over
 white), so headings and links read lighter, and the brand book's navigation panel takes it as its background
 with black text, the mirror image of the near-black panel with white text on the light themes. A repo that
 takes this house-style update needs no change of its own; its `h1`, `h2` and links on a dark theme simply

@@ -212,7 +212,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   `--neutral-3` itself stays neutral.
 - **The theme picker previews it:** each swatch shows its own theme's page, with the primary as the dot.
 - **`h1` and `h2` are the theme's colour**, as `--primary-6`: darker than the colour itself on light and
-  lighter on dark, where it is a light pastel (40% of the theme's text colour over white; owner's decision,
+  lighter on dark, where it is a light pastel (20% of the theme's former text colour over white; owner's decision,
   October 14, 2026), light enough to carry black text. Links use it too. It exists because the tinted page is
   darker than the old one, and a bare Petrol or Oker link would drop to 4.0:1 on it.
 - **Measured:** `--neutral-4` stays at 6.2:1 or better on the tinted light page (worst: Magenta, Paars) and
