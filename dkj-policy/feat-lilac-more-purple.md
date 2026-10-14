@@ -77,7 +77,14 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
       the InfoRows box (not `--info`), and the showcase's nav current item and chip hover. Written into
       `house-style/README.md`, with the dark themes' chroma factors beside the recipe.
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the `-3` surfaces in a light and a dark theme and approved them
+- [x] An owner asked to try the anchor on every theme
+- [x] Trial: every theme's `-3` takes the hue and chroma of its identity colour (the picker's dot), capped by
+      sRGB, at the lightness where `--primary-6` on it matches Oranje's 5.7:1 (dark) or 4.6:1 (light; the
+      light `-6` is too dark for more). Oranje keeps `#a54600`, which sits at its identity chroma already.
+      Magenta `#ffb9e0`, Paars `#cdbcff`, Blauw `#b0cdff`, Petrol `#88e4ee`, Oker `#e0d17a`, Roest `#ffcba9`;
+      Roze `#ad2d7f`, Lila `#6d51ad`, Hemelsblauw `#0066a9`, Cyaan `#026d77`, Geel `#7b5f01`. Blauw and Cyaan
+      are the house defaults, so `:root` and both dark blocks change with them.
+- [ ] An owner has looked at the trial in all twelve themes and decided
 
 ### DEPLOY: feat/lilac-more-purple
 
