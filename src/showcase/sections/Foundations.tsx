@@ -11,7 +11,7 @@ const HOUSE_COLORS = {
     'axis', 'border-base', 'grid-base', 'ink', 'ink-2', 'on-primary', 'page-base', 'status-mark', 'surface-base',
   ],
   'changes only between light and dark -- colours': [
-    'cat-1', 'cat-2', 'cat-3', 'negative-bad', 'negative-down', 'positive-good', 'positive-up', 'warn', 'warn-bg',
+    'cat-1', 'cat-2', 'cat-3', 'negative-bad', 'negative-bg', 'negative-down', 'positive-bg', 'positive-good', 'positive-up', 'warn', 'warning-bg',
   ],
   'the same in every theme': ['muted'],
 } as const

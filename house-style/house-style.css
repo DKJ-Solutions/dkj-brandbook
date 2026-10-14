@@ -81,7 +81,9 @@
      it; with this it is 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). */
   --primary-ink: color-mix(in srgb, var(--primary) 80%, var(--ink));
 
-  --warn-bg: #fff4e0;     /* notice background */
+  --warning-bg: #fff4e0;     /* notice background */
+  --negative-bg: #fde8e8;    /* a background for a negative message: the same lightness as --warning-bg, in red */
+  --positive-bg: #e6f6e6;    /* a background for a positive message, in green */
   --shadow-pop: 0 4px 16px rgba(0,0,0,0.15);  /* tooltips; same in both modes */
 
   /* spacing scale: the Figma library's spacing variables (Shopify Theme - LIBRARY, collection
@@ -130,7 +132,7 @@
     --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
     --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-    --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
+    --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warning-bg: #3a2a10; --negative-bg: #3a1414; --positive-bg: #133a13;
     --status-mark: #0b0b0b;
     --primary: #2fc8d8; --on-primary: #0b0b0b;
   }
@@ -145,7 +147,7 @@
   --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
   --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-  --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
+  --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warning-bg: #3a2a10; --negative-bg: #3a1414; --positive-bg: #133a13;
   --status-mark: #0b0b0b;
   --primary: #2fc8d8; --on-primary: #0b0b0b;
 }
@@ -238,7 +240,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .mini-card--highlight { border-color: var(--warn); }
 .mini-card__label { font-size: var(--text-sm); color: var(--ink-2); }
 .mini-card__value { font-size: var(--text-lg); font-weight: 600; margin: var(--spacing-0-5) 0 var(--spacing-2); font-variant-numeric: tabular-nums; }
-.notice { background: var(--warn-bg); border: 1px solid var(--border); border-radius: 12px; padding: var(--spacing-3) var(--spacing-4); margin-top: var(--spacing-4); }
+.notice { background: var(--warning-bg); border: 1px solid var(--border); border-radius: 12px; padding: var(--spacing-3) var(--spacing-4); margin-top: var(--spacing-4); }
 .item { border-top: 1px solid var(--grid); padding: var(--spacing-2-5) 0; }
 .item b { display: block; font-size: var(--text-sm); margin-bottom: var(--spacing-0-5); }
 .item p { margin: 0; font-size: var(--text-sm); color: var(--ink-2); }

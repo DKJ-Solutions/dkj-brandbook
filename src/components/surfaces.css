@@ -88,8 +88,8 @@
   border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
 }
 .dkj-banner--accent strong { color: var(--primary); white-space: nowrap; }
-/* Warn: the look of the house .notice (--warn-bg, --border, radius lg), built on tokens so it needs no reserved class. */
-.dkj-banner--warn { font-size: var(--text-base); background: var(--warn-bg); }
+/* Warn: the look of the house .notice (--warning-bg, --border, radius lg), built on tokens so it needs no reserved class. */
+.dkj-banner--warn { font-size: var(--text-base); background: var(--warning-bg); }
 .dkj-banner-lead { display: inline-flex; align-items: center; gap: var(--spacing-1-5); font-weight: var(--dkj-fw-bold); }
 .dkj-banner--warn ul { margin: var(--spacing-1) 0 0; padding-left: var(--spacing-5); }
 
