@@ -76,11 +76,6 @@
      Light default Blauw; each [data-theme] below sets its own. */
   --primary: #2563d0;
   --on-primary: #ffffff;  /* text and icons on the primary */
-  /* text and icons on a --warn fill. Same in every mode and theme: --warn is orange or yellow everywhere, so
-     the text is always dark (--ink and --status-mark flip to light on one side). Measured on the fill: 6.4:1
-     light, 6.3:1 Roest, 12.5:1 dark, 7.8:1 Geel; white would be 3.1:1 on the light one. A theme that moves
-     --warn to a dark colour redefines this beside it. */
-  --on-warn: #0b0b0b;
   --primary-soft: color-mix(in srgb, var(--primary) 14%, var(--surface));  /* a tint for backgrounds */
   /* the primary as TEXT (links, h1, h2): 20% of --ink mixed in, so it darkens on light and lightens on dark.
      The tinted page is darker than the neutral one, and a bare Petrol or Oker link would fall to 4.0:1 on

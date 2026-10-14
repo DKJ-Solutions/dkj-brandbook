@@ -49,14 +49,15 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Surfaces and ink | `--page`, `--surface`, `--ink`, `--ink-2`, `--muted`, `--grid`, `--axis`, `--border` | background, cards, three levels of text, lines. `--page`, `--surface`, `--grid` and `--border` are derived: the neutral `--page-base`, `--surface-base`, `--grid-base` and `--border-base` with the theme's primary mixed in ([below](#how-far-a-theme-reaches)) |
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--loss` (charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--up`, `--down` (numbers in text) | result and direction, never a category. `--up`/`--down` are the text versions of `--good`/`--bad`, a step more contrast so a number reads as text: darker on light, lighter on dark |
-| Status | `--good`, `--warn`, `--bad`, `--warn-bg`, `--status-mark`, `--on-warn` | badges, meters, notices. `--status-mark` is the mark inside a status icon (check, cross, "!"): white on light, near-black on dark. `--on-warn` is text on a `--warn` fill: dark in every theme, because `--warn` is orange or yellow in all of them |
+| Status | `--good`, `--warn`, `--bad`, `--warn-bg`, `--status-mark` | badges, meters, notices. `--status-mark` is the mark inside a status icon (check, cross, "!"): white on light, near-black on dark |
 | Primary | `--primary`, `--on-primary`, `--primary-soft` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--on-primary` is text on it, `--primary-soft` a tint for a background, `--primary-ink` the primary as text (links, `h1`, `h2`). Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h6` each take the token of their own level, body text is `--text-base` |
 | App shell | `--control-h`, `--tap`, `--topbar-h`, `--column-narrow` | sizes for a mobile-first app, same in both modes: 38px for a value field and the button beside it, 44px as the smallest touch target, 56px for the top bar, 512px for the narrow app column |
 
-`--gain` was removed (October 14, 2026): use `--cat-1`, the same colour.
+`--gain` was removed (October 14, 2026): use `--cat-1`, the same colour. `--on-warn` was removed the same
+day (owner's decision): text on a `--warn` fill uses `--ink`, which turns white on the dark themes.
 
 **The colour tokens grouped by what a theme switch changes** (the grouping the showcase's Tokens section
 uses):
@@ -66,7 +67,7 @@ uses):
 | to any other theme changes them | `--primary`, `--primary-soft`, `--primary-ink`, `--page`, `--surface`, `--grid`, `--border` | each theme sets its own `--primary`, and the other six are mixed from it |
 | changes them only between light and dark: black, white and grey | `--ink`, `--ink-2`, `--axis`, `--page-base`, `--surface-base`, `--grid-base`, `--border-base`, `--on-primary`, `--status-mark` | set once in the light block and once in the dark block, where they flip between dark and light neutrals |
 | changes them only between light and dark: colours | `--cat-1`–`--cat-3`, `--loss`, `--up`, `--down`, `--bad`, `--warn`, `--warn-bg` | set once in the light block and once in the dark block, a shade apart. One exception: `--warn` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
-| never changes them | `--muted`, `--good`, `--on-warn` | the same value in light and dark |
+| never changes them | `--muted`, `--good` | the same value in light and dark |
 
 **The spacing and type scales have a source: the Figma library** *Shopify Theme - LIBRARY*, variable
 collection "Collection", groups `spacing/` and `text/`. Their names and values are copied exactly, so a

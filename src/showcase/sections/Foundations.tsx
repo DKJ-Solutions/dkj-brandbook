@@ -13,7 +13,7 @@ const HOUSE_COLORS = {
   'changes only between light and dark -- colours': [
     'cat-1', 'cat-2', 'cat-3', 'loss', 'up', 'down', 'bad', 'warn', 'warn-bg',
   ],
-  'the same in every theme': ['muted', 'good', 'on-warn'],
+  'the same in every theme': ['muted', 'good'],
 } as const
 
 /** How much of the primary each house surface takes (set per mode). */

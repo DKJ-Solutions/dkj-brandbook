@@ -143,7 +143,7 @@
   border-radius: var(--dkj-radius-pill);
 }
 .dkj-tag--info { color: var(--status-mark); background: var(--cat-1); }
-.dkj-tag--warn { color: var(--on-warn); background: var(--warn); }
+.dkj-tag--warn { color: var(--ink); background: var(--warn); }
 
 /* ---------- Help and Disclosure ---------- */
 .dkj-help { display: flex; flex-direction: column; align-items: flex-end; }

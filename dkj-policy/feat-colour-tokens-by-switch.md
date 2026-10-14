@@ -43,6 +43,8 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
   theme, light and dark only, never
 - [x] `house-style/README.md`: a second table under "What it holds" with the same three groups
 - [x] The light/dark group split in two, in both places: black, white and grey, and colours (owner's follow-up)
+- [x] `--on-warn` removed from the house style (owner's follow-up); its one user, `.dkj-tag--warn`, now takes
+  `--ink`. Known effect: on the dark themes that is white text on the yellow warning fill
 - [x] Lint gate green
 
 ### TEST
