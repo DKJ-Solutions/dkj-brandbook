@@ -26,8 +26,7 @@ const e = (components: string[], selectors: string[]): SourceRef[] => [
 
 export const SOURCES = {
   Icon: m(['CardIcon', 'EyeIcon', 'PencilPath', 'INFO_ICON', 'QUESTION_ICON', 'PENCIL_ICON'], ['.card-icon']),
-  Button: m(['App (level row)', 'CheapestDetails', 'SkillQuestion'], ['.btn', '.btn.primary', '.btn.levelup', '.btn.level-down', '.level-row .btn', '.btn.auto-assign.ready']),
-  SaveButton: m(['ChoiceSave', 'StatEditor'], ['.equip-save', '.equip-save:disabled']),
+  Button: m(['App (level row)', 'CheapestDetails', 'SkillQuestion', 'ChoiceSave', 'StatEditor', 'TopBar (download)'], ['.btn', '.btn.primary', '.btn.levelup', '.btn.level-down', '.level-row .btn', '.btn.auto-assign.ready', '.equip-save', '.equip-save:disabled', '.menu-download .download-btn']),
   SegmentedChoice: [...m(['JobChoices', 'GenderChoices'], ['.job-choices', '.job-choice', '.menu-drawer .job-choice']), ...e(['view switch'], ['.seg', '.seg button', '.seg button[aria-pressed]', '.controls .seg'])],
   IconButton: m(['ViewButtons', 'StatLine', 'JobCard', 'TopBar'], ['.card-action', '.equip-edit', '.job-edit', '.topbar-menu']),
   RoundToggle: [...m(['HelpToggle', 'PopupButton', 'InvoiceTable'], ['.help-toggle', '.info-toggle', '.invoice-why']), ...e(['info() (the "?" button)', 'labelInfo'], ['.info', '.info::after', '.info[aria-expanded]'])],
@@ -53,7 +52,6 @@ export const SOURCES = {
   Drawer: m(['TopBar', 'StatDialog (drawer)'], ['.stat-dialog.menu-drawer', '.menu-drawer .stat-dialog-head']),
   TopBar: m(['TopBar'], ['.topbar', '.topbar-inner', '.topbar-brand', '.topbar-menu']),
   MenuRow: m(['SettingsList'], ['.menu-list', '.menu-row', '.menu-label', '.menu-value']),
-  DownloadButton: m(['TopBar (download)'], ['.menu-download .download-btn']),
   StepHeader: m(['App (level row)'], ['.level-row', '.current-level', '.btn.level-down', '.btn.levelup']),
   InfoRow: m(['BasedOn'], ['.based-on', '.based-on-row', '.based-on-label', '.based-on-value']),
   DefinitionList: [...m(['BreakdownList', 'BillRow (facts)'], ['.breakdown-list', '.item-facts']), ...e(['breakdown table (label, signed value, total)'], ['#breakdown', 'tr.total', '.pos', '.neg', '.info'])],

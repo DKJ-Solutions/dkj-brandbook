@@ -2,7 +2,6 @@
 
 /* Shared focus ring. [data-demo-state] lets the showcase pin a state; it is never set in real use. */
 .dkj-btn:focus-visible, .dkj-btn[data-demo-state='focus'],
-.dkj-save:focus-visible, .dkj-save[data-demo-state='focus'],
 .dkj-iconbtn:focus-visible, .dkj-iconbtn[data-demo-state='focus'],
 .dkj-badge-toggle:focus-visible, .dkj-badge-toggle[data-demo-state='focus'],
 .dkj-inline-toggle:focus-visible, .dkj-inline-toggle[data-demo-state='focus'] {
@@ -11,8 +10,15 @@
 }
 
 /* ---------- Button ---------- */
+/* One element, two forms: <button class="dkj-btn"> and <a class="dkj-btn" href> (a download or a link that looks like a button).
+   inline-flex + gap lets an icon sit beside the label; line-height is pinned so the face is exactly --dkj-tap high
+   (10px + 10px padding + 2px border + 19px text < 44px, so min-height decides). */
 .dkj-btn {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2-5);
   min-height: var(--dkj-tap);
   padding: var(--spacing-2-5) var(--spacing-4);
   border: 1px solid var(--primary-4);
@@ -21,13 +27,38 @@
   color: var(--neutral-5);
   font: inherit;
   font-weight: var(--dkj-fw-semibold);
+  line-height: var(--dkj-lh-tight);
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  transition: border-color var(--dkj-duration-base) var(--dkj-ease-out), transform var(--dkj-duration-fast) var(--dkj-ease-out);
 }
-.dkj-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.dkj-btn--block { width: 100%; }
-.dkj-btn--primary { width: 100%; background: var(--primary-5); border-color: var(--primary-5); color: var(--neutral-1); }
+.dkj-btn svg { flex: none; }
+.dkj-btn:disabled, .dkj-btn[aria-disabled='true'] { opacity: 0.5; cursor: not-allowed; }
+.dkj-btn--block { display: flex; width: 100%; }
+.dkj-btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--neutral-1); }
+/* Primary disabled: visible, colourless, inert -- "Save only becomes active when there is something to save". */
+.dkj-btn--primary:disabled, .dkj-btn--primary[aria-disabled='true'] {
+  opacity: 1;
+  cursor: default;
+  color: var(--neutral-4);
+  background: var(--primary-4);
+  border-color: var(--primary-4);
+}
+/* The default look answers a hover or a press with the accent border (the download button's behaviour, now every default button's).
+   Choices in a segmented row or list carry their own pressed state and are left out. */
+.dkj-btn--default:not(.dkj-choice):active:not(:disabled):not([aria-disabled='true']),
+.dkj-btn--default:not(.dkj-choice)[data-demo-state='active'] { transform: translateY(1px); border-color: var(--primary-5); }
+.dkj-btn--default:not(.dkj-choice)[data-demo-state='hover'] { border-color: var(--primary-5); }
+@media (hover: hover) {
+  .dkj-btn--default:not(.dkj-choice):hover:not(:disabled):not([aria-disabled='true']) { border-color: var(--primary-5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dkj-btn { transition: none; }
+  .dkj-btn--default:not(.dkj-choice):active { transform: none; }
+}
 .dkj-btn--positive {
   border-color: transparent;
   background: linear-gradient(180deg, var(--positive-3), var(--positive-5)) border-box;
@@ -38,6 +69,13 @@
   color: color-mix(in srgb, var(--neutral-4) 80%, var(--primary-1));
   border-color: currentColor;
   font-weight: var(--dkj-fw-medium);
+}
+/* Accent outline (Button tone="accent"): accent text, the border and press of the Stepper beside it. */
+.dkj-btn--outline.dkj-btn--accent { color: var(--primary-5); border-color: var(--primary-4); }
+.dkj-btn--outline.dkj-btn--accent:active:not(:disabled):not([aria-disabled='true']),
+.dkj-btn--outline.dkj-btn--accent[data-demo-state='active'] {
+  background: color-mix(in srgb, var(--primary-5) 16%, var(--primary-2));
+  border-color: var(--primary-5);
 }
 /* Compact: smaller to the eye, but the tap area stays 44px via ::after. */
 .dkj-btn--compact {
@@ -52,23 +90,7 @@
   white-space: nowrap;
 }
 .dkj-btn--compact::after { content: ''; position: absolute; inset: calc((var(--dkj-control-compact) - var(--dkj-tap)) / 2) 0; }
-.dkj-btn--compact:disabled { opacity: 0.45; }
-
-/* ---------- SaveButton ---------- */
-.dkj-save {
-  height: var(--dkj-tap);
-  padding: 0 var(--spacing-4);
-  font: inherit;
-  font-weight: var(--dkj-fw-semibold);
-  color: var(--neutral-1);
-  background: var(--primary-5);
-  border: 0;
-  border-radius: var(--dkj-radius-md);
-  cursor: pointer;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
-.dkj-save:disabled { color: var(--neutral-4); background: var(--primary-4); cursor: default; }
+.dkj-btn--compact:disabled, .dkj-btn--compact[aria-disabled='true'] { opacity: 0.45; }
 
 /* ---------- IconButton ---------- */
 .dkj-iconbtn {
@@ -214,6 +236,7 @@
 .dkj-choices--list .dkj-choice {
   display: flex;
   align-items: center;
+  justify-content: flex-start; /* .dkj-btn centres; a list row reads from the left */
   min-height: var(--dkj-tap);
   padding: var(--spacing-2);
   border: 0;

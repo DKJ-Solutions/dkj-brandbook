@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { RoundToggle } from '../../components/Button'
+import { Button, RoundToggle } from '../../components/Button'
 import { DateList, DateRow } from '../../components/DateRow'
-import { Checkbox, FixedField, ResetButton, SearchCombobox, SelectField, Stepper, TextField } from '../../components/Field'
+import { Checkbox, FixedField, SearchCombobox, SelectField, Stepper, TextField } from '../../components/Field'
 import { FormulaHead, FormulaRow, RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
 import { HouseFieldDemo } from './HouseApp'
@@ -48,7 +48,7 @@ export function Forms() {
         <Demo label="Medium (44px) + reset">
           <div className="bb-row">
             <Stepper label="Amount" value={n} onChange={setN} />
-            <ResetButton onClick={() => setN(12)} />
+            <Button variant="outline" tone="accent" onClick={() => setN(12)}>Reset</Button>
           </div>
         </Demo>
         <Demo label="Large (52px), at the minimum">
@@ -166,7 +166,7 @@ export function Forms() {
             <span className="dkj-flash" style={{ display: 'inline-block', padding: 'var(--spacing-1) var(--spacing-2)', borderRadius: 'var(--dkj-radius-md)' }} key={flash}>
               25
             </span>
-            <ResetButton onClick={() => setFlash(flash + 1)}>Replay</ResetButton>
+            <Button variant="outline" tone="accent" onClick={() => setFlash(flash + 1)}>Replay</Button>
           </div>
         </Demo>
       </Section>

@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { CardActions, IconButton, SegmentedChoice } from '../../components/Button'
+import { Button, CardActions, IconButton, SegmentedChoice } from '../../components/Button'
 import { Card, CardHead, TintedPanel } from '../../components/Card'
 import { Amount } from '../../components/Content'
 import { Banner, Disclosure, Message } from '../../components/Feedback'
 import { Icon, type IconName } from '../../components/Icon'
-import { DownloadButton, DrawerFooter, MenuList, MenuRow, StepHeader, TopBar } from '../../components/Navigation'
+import { DrawerFooter, MenuList, MenuRow, StepHeader, TopBar } from '../../components/Navigation'
 
 /** The cards of the main column, in the app's order, each with its two view buttons. */
 const CARDS: readonly { title: string; icon: IconName }[] = [
@@ -93,7 +93,7 @@ function SettingsMenu() {
         </Disclosure>
       </div>
       <DrawerFooter>
-        <DownloadButton href="#preview/dkj-maplestory-classic-mesowise">Download offline version</DownloadButton>
+        <Button href="#preview/dkj-maplestory-classic-mesowise" download icon="download" block>Download offline version</Button>
       </DrawerFooter>
     </>
   )

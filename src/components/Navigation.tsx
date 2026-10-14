@@ -60,16 +60,6 @@ export function MenuRow({ label, value, onEdit }: { label: string; value: ReactN
   )
 }
 
-/** DownloadButton -- a soft full-width link button (page fill, thin border); accent border on hover and press. */
-export function DownloadButton({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <a className="dkj-download" href={href} download>
-      <Icon name="download" />
-      {children}
-    </a>
-  )
-}
-
 /** DrawerFooter -- pinned to the bottom of a drawer, with free space above it. */
 export function DrawerFooter({ children }: { children: ReactNode }) {
   return <div className="dkj-drawer-footer">{children}</div>
