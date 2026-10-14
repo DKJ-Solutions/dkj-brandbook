@@ -29,8 +29,9 @@
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
-   Semantic colours (--gain/--loss/--up/--down) are for direction and result,
-   never for categories.
+   Semantic colours (--loss/--up/--down) are for direction and result, never
+   for categories. The one exception: --cat-1 doubles as the gain colour in a
+   chart (there is no --gain); --loss stays the loss colour.
    ========================================================================== */
 
 /* ---- Tokens: light (default) -------------------------------------------- */
@@ -61,7 +62,6 @@
   --cat-3: #1baf7a;
 
   /* direction and result semantics */
-  --gain: #2a78d6;        /* positive result in charts */
   --loss: #e34948;        /* negative result in charts */
   --up: #006300;          /* positive number in text: a step darker than --good, so it reads as text */
   --down: #a32424;        /* negative number in text: a step darker than --bad */
@@ -136,7 +136,7 @@
     --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
     --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-    --gain: #3987e5; --loss: #e66767;
+    --loss: #e66767;
     --up: #3fc23f; --down: #ff7a7a; --good: #0ca30c; --bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
     --status-mark: #0b0b0b;
     --primary: #2fc8d8; --on-primary: #0b0b0b;
@@ -152,7 +152,7 @@
   --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
   --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-  --gain: #3987e5; --loss: #e66767;
+  --loss: #e66767;
   --up: #3fc23f; --down: #ff7a7a; --good: #0ca30c; --bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
   --status-mark: #0b0b0b;
   --primary: #2fc8d8; --on-primary: #0b0b0b;
