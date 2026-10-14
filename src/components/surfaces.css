@@ -30,7 +30,7 @@
   padding: var(--spacing-4);
   text-align: center;
 }
-/* The title is an <h6> (an <h2> in a data card), in the house serif and colour of h1 and h2; a plain title stays a block. */
+/* The title is an <h6> (an <h2> in a data card), in the house serif and the colour of h1; a plain title stays a block. */
 .dkj-card-title { display: block; margin: 0; font-family: var(--font-serif); font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); letter-spacing: -0.01em; color: var(--primary-4); }
 .dkj-card-title--icon { display: flex; align-items: center; justify-content: center; gap: var(--spacing-2); }
 .dkj-card-icon { flex-shrink: 0; color: var(--primary-4); }
