@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**43 minor entries** <!-- pending-tally -->
+**44 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/swatch-readability · 20261014-102705Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The colour swatches in the brand book's Tokens section read as a name over its value: the name is
+semibold in ink, the value smaller and monospaced in ink-2. A mixed token shows the one colour it
+resolves to, with its recipe in token names beneath it ("--surface + 7% --primary"), and an alias names
+the token it stands for ("= --surface"), instead of a nested `color-mix()` of bare hexes.
+
+**Score:** 2
+
+##### Tier 1
+
+Only the brand book's own showcase changes; no app or house token is touched.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing surface changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+Token swatches read as name over value, and a mixed token shows its colour and its recipe in token names
+
+[PR #79](https://github.com/DKJ-Solutions/dkj-brandbook/pull/79)
+
+---
 
 ### DEPLOY: feat/every-token-shown · 20261014-100914Z
 
