@@ -21,9 +21,8 @@
   background: var(--bb-nav-bg);
   color: var(--bb-nav-ink);
 }
-/* The brand name: a link to the intro, like a logo -- not a heading; the page's one <h1> is the intro's title. */
-.bb-brand { display: block; margin: 0 0 var(--spacing-1); font-size: var(--text-lg); font-weight: var(--dkj-fw-bold); color: var(--bb-nav-brand); text-decoration: none; }
-.bb-brand:focus-visible { outline: var(--dkj-focus-w) solid var(--bb-nav-focus); outline-offset: var(--dkj-focus-offset); border-radius: var(--dkj-radius-xs); }
+/* The menu's own label ("Contents"), not a heading: the page's one <h1> is the intro's title. */
+.bb-brand { margin: 0 0 var(--spacing-1); font-size: var(--text-lg); font-weight: var(--dkj-fw-bold); color: var(--bb-nav-brand); }
 .bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--bb-nav-ink-2); }
 .bb-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);

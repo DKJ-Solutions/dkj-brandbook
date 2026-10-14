@@ -74,9 +74,9 @@ export default function App() {
   const previewRepo = usePreviewRepo()
   return (
     <div className="bb-shell">
-      <nav className="bb-nav" aria-label="Brand book">
-        <a className="bb-brand" href="#intro">DKJ Brand Book</a>
-        <p className="bb-brand-sub">One brand, several themes</p>
+      <nav className="bb-nav" aria-label="Contents">
+        <p className="bb-brand">Contents</p>
+        <p className="bb-brand-sub">Jump to a section or an app preview</p>
         {NAV.map((g) => (
           <div key={g.group}>
             <p className="bb-nav-group">{g.group}</p>
