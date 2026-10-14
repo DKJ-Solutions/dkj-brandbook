@@ -13,12 +13,6 @@ const HOUSE_COLORS = {
   Categorical: ['cat-1', 'cat-2', 'cat-3'],
 } as const
 
-/** Brand-layer colours (src/brand-layer.css), all built from house tokens. */
-const LAYER_COLORS = [
-  'surface', 'accent', 'on-accent', 'positive-hi', 'positive-lo', 'warn-text', 'backdrop',
-  'tint-accent', 'tint-accent-border', 'tint-accent-box', 'tint-info', 'tint-info-border', 'tint-info-box', 'tint-danger',
-] as const
-
 /** How much of the primary each house surface takes (set per mode). */
 const TINTS = ['--page-tint', '--surface-tint', '--grid-tint', '--border-tint'] as const
 
@@ -97,7 +91,7 @@ const unvar = (s: string) => s.replace(/var\((--[\w-]+)\)/g, '$1')
  * that is itself a token (--surface-tint) shows its value. undefined when it is neither a mix nor an alias.
  */
 function mixRecipe(declared: string): string[] | undefined {
-  // An alias (--dkj-surface: var(--surface)) names the token it stands for.
+  // An alias (--x: var(--surface)) names the token it stands for.
   const alias = /^var\((--[\w-]+)\)$/.exec(declared)
   if (alias) return [`= ${alias[1]}`]
   const m = /^color-mix\(in srgb,\s*(.+?)\s+([\d.]+%|var\(--[\w-]+\)),\s*(.+)\)$/.exec(declared)
@@ -162,7 +156,6 @@ export function Foundations() {
     const cs = getComputedStyle(document.documentElement)
     const names = [
       ...Object.values(HOUSE_COLORS).flat().map((c) => `--${c}`),
-      ...LAYER_COLORS.map((c) => `--dkj-${c}`),
       ...READOUTS,
     ]
     setValues(Object.fromEntries(names.map((n) => [n, cs.getPropertyValue(n).trim()])))
@@ -173,16 +166,13 @@ export function Foundations() {
     <Section
       id="tokens"
       title="Tokens"
-      intro="house-style/house-style.css is the one token source for every DKJ-Solutions app; src/brand-layer.css adds only what the house style does not have (--dkj-*), built from house tokens. Click a theme swatch above: every value below is read live and follows."
+      intro="house-style/house-style.css is the one token source for every DKJ-Solutions app; src/brand-layer.css adds only what the house style does not have (--dkj-*: radius, type, controls, focus, motion, layout), and no colour. Click a theme swatch above: every value below is read live and follows."
     >
       {Object.entries(HOUSE_COLORS).map(([group, names]) => (
         <Demo key={group} label={`House colour -- ${group}`} wide>
           <SwatchGrid items={names.map((n) => ({ name: `--${n}`, value: values[`--${n}`], declared: declared[`--${n}`] }))} />
         </Demo>
       ))}
-      <Demo label="Brand layer colour (--dkj-*)" wide>
-        <SwatchGrid items={LAYER_COLORS.map((n) => ({ name: `--dkj-${n}`, value: values[`--dkj-${n}`], declared: declared[`--dkj-${n}`] }))} />
-      </Demo>
       <Demo label="Theme reach -- links, native controls, selection, and the opt-in --accent modifiers" wide>
         <HouseThemeReachDemo />
       </Demo>

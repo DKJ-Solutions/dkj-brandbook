@@ -32,11 +32,28 @@
 
 ### PLAN
 
+Owner's request (Maikel, October 14, 2026): remove all DKJ colour tokens. Owner's choice of route:
+inline on house tokens -- every use reads the house token directly, and the tinted dialogs re-declare the
+house colour tokens in their own subtree instead of a `--dkj-*` alias.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] The 14 `--dkj-*` colour tokens removed from `src/brand-layer.css`; the layer adds no colour
+- [x] Every use reads the house token (`--primary`, `--surface`, `--on-primary`, `--good`, `--up`); the
+  single-use tints are written inline, the backdrop is `rgb(0 0 0 / 0.45)` at `.dkj-dialog::backdrop`
+- [x] Accent and info dialogs: the dialog's `--surface` and border mix the tint over the house surface
+  recipe; `.dkj-dialog--info > *` re-declares `--primary: var(--cat-1)` and `--on-primary`
+- [x] Showcase Foundations: the layer-colour swatch list removed
+- [x] README.md and house-style/README.md rule 3: the layer adds no colour; a component subtree may
+  re-declare a house colour token, and tinted dialogs are not nested (#81)
+- [x] Code review (Victor): no dangling refs, `> *` reaches everything in the dialog; nested tinted
+  dialog limit filed as #81
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
+
+- [ ] An owner has looked at the showcase (buttons, forms, the accent and info dialogs, alerts) in a few
+  themes, light and dark, and approved it
 
 ### DEPLOY: feat/drop-dkj-colour-tokens
 
@@ -44,7 +61,13 @@
 
 ##### Tier 0
 
-**Score:**
+The brand book's own layer (`src/brand-layer.css`) no longer defines any colour: the 14 `--dkj-*`
+colour tokens are gone and every component reads the house tokens directly. The info and accent dialogs
+re-declare `--primary` / `--surface` inside their own subtree to tint their contents, which
+house-style/README.md rule 3 now allows as its one narrow exception. Inside a tinted dialog, the info
+rows and alerts now mix over the dialog's tinted surface rather than the page's.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +76,9 @@
 
 ##### Tier 1
 
-**Score:**
+Internal to the brand book's own component layer; management sees nothing change.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,9 +87,10 @@
 
 ##### Tier 2
 
-**Score:**
+The house stylesheet every app loads is unchanged, so no user of a DKJ-Solutions app sees a difference.
+
+**Score:** N/A
 
 #### Pull Request
 
 Drop the --dkj-* colour tokens; components use house tokens directly
-

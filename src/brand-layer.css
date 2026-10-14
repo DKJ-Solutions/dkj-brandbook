@@ -3,8 +3,8 @@
  *
  * Load AFTER house-style/house-style.css. The house file is the one token source: every colour, every
  * spacing step and the type scale come from it. This file only adds what the house style has no
- * equivalent for (radius, weights, control sizes, focus ring, motion, layout) and a few colours the
- * components need, built FROM house tokens so they follow all twelve themes in light and dark.
+ * equivalent for (radius, weights, control sizes, focus ring, motion, layout). It adds no colour: the
+ * components use the house colour tokens directly, so they follow all twelve themes in light and dark.
  *
  * Rule (house-style/README.md): extend, never override. Every name here starts with --dkj-, a prefix
  * the house file does not use, and no house token or house class is redefined.
@@ -49,7 +49,7 @@
   --dkj-popup-step: 0.93;      /* each stacked dialog: 93% of the one below */
   --dkj-datecol: 10ch;         /* DateRow: the fixed date column (fits "09:00-10:30" at 12px), so titles align down the list */
 
-  /* ---- Focus ring (colour: --dkj-accent) ---- */
+  /* ---- Focus ring (colour: --primary) ---- */
   --dkj-focus-w: 2px;
   --dkj-focus-offset: 2px;
   --dkj-focus-offset-inset: -4px; /* round toggles: the ring sits inside the 44px tap area */
@@ -61,30 +61,4 @@
   --dkj-duration-panel: 220ms;  /* drawer and backdrop in */
   --dkj-duration-flash: 1.2s;   /* value changed by the app */
   --dkj-ease-out: ease-out;
-
-  /* ---- Colour: scoped aliases ----
-     Here they equal the house tokens; they exist to be re-declared in a subtree, since a house token
-     never is. .dkj-dialog--info (dialog.css) sets --dkj-accent to --cat-1 and --dkj-surface to its
-     tint, and every button, focus ring, checkbox and link inside follows without a variant of its own.
-     So a component uses the alias wherever a tint can reach it, and the house token elsewhere. */
-  --dkj-surface: var(--surface);
-  --dkj-accent: var(--primary);
-  --dkj-on-accent: var(--on-primary);
-
-  /* ---- Colour: built from house tokens ---- */
-  --dkj-positive-hi: var(--good);   /* gradient button: top ... */
-  --dkj-positive-lo: var(--up);     /* ... bottom: darker on light, lighter on dark; text on it is --status-mark */
-  --dkj-warn-text: color-mix(in srgb, var(--warn) 70%, var(--ink)); /* --warn is a fill; this reads as text */
-  --dkj-backdrop: rgb(0 0 0 / 0.45);                                /* dialog::backdrop, same in both modes */
-
-  /* An accent-tinted dialog and a box inside it (the primary on the surface). */
-  --dkj-tint-accent: color-mix(in srgb, var(--primary) 7%, var(--surface));
-  --dkj-tint-accent-border: color-mix(in srgb, var(--primary) 30%, var(--surface));
-  --dkj-tint-accent-box: var(--primary-soft);
-  /* An info-tinted dialog: the first categorical colour stands for "information", apart from the primary. */
-  --dkj-tint-info: color-mix(in srgb, var(--cat-1) 7%, var(--surface));
-  --dkj-tint-info-border: color-mix(in srgb, var(--cat-1) 30%, var(--surface));
-  --dkj-tint-info-box: color-mix(in srgb, var(--cat-1) 14%, var(--surface));
-  /* A danger alert: --bad tints the surface (the border is --bad itself, the text --down). */
-  --dkj-tint-danger: color-mix(in srgb, var(--bad) 8%, var(--surface));
 }

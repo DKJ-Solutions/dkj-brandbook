@@ -29,7 +29,7 @@ Node version: see `.nvmrc`.
 | Path | Holds |
 | --- | --- |
 | [`house-style/`](house-style/README.md) | The one token source: colours, spacing, type scale and the twelve themes, as CSS custom properties. React code and Claude Artifacts alike read it. |
-| [`src/brand-layer.css`](src/brand-layer.css) | The brand book's own layer on top of the house style: radius, weights, control sizes, focus ring, motion, layout, and a few colours built from house tokens. Every name starts with `--dkj-`. |
+| [`src/brand-layer.css`](src/brand-layer.css) | The brand book's own layer on top of the house style: radius, weights, control sizes, focus ring, motion and layout, and no colour. Every name starts with `--dkj-`. |
 | `src/components/` | Presentational React components, styled only on house-style tokens and `src/brand-layer.css`. |
 | [`src/components/sources.ts`](src/components/sources.ts) | Where each component comes from: the source repo, its components there, and the CSS it was lifted from. |
 | `src/showcase/` | The overview app: every component with its variants and states, a theme and mode switcher, and a 360px phone width. |
@@ -38,8 +38,8 @@ Node version: see `.nvmrc`.
 spacing, type, colour, radius, states, responsive behaviour and interaction. Content, data and logic
 stay behind, and placeholder text takes their place. Every component gets an entry in `sources.ts`.
 Components are styled on the house-style tokens, plus `src/brand-layer.css` for what the house style
-does not define. A colour specific to the source becomes a `--dkj-*` token in the layer, built from house
-tokens so it follows every theme; a house token or class is never redefined there (extend, never override).
+does not define. A colour specific to the source is written on the house colour tokens (no colour token in the layer), so
+it follows every theme; a house token or class is never redefined there (extend, never override), bar the dialog tint in `dialog.css`.
 
 ## Working on it
 
