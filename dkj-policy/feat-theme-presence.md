@@ -45,7 +45,7 @@ Make a chosen house theme stand out across the whole page, not only on the prima
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the page across the twelve themes (light and dark) and approved the tint strength
+- [x] An owner has looked at the page across the twelve themes (light and dark) and approved the tint strength (finer tuning may follow later)
 
 ### DEPLOY: feat/theme-presence
 
