@@ -45,7 +45,7 @@ it follows the mode.
 ### TEST
 
 - [x] Gate green (`lint-web.ps1`); the new check reports all 13 old codes on `main`'s files and none on this branch
-- [ ] An owner has looked at the navigation, the theme picker and an open dialog in light and dark and approved them
+- [x] An owner has looked at the navigation, the theme picker and an open dialog in light and dark and approved them
 
 ### DEPLOY: feat/no-colour-literals
 
