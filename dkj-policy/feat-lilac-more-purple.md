@@ -59,7 +59,12 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
       Oranje `#2d1504 #452306 #612e00 #4a372a #fcece4 #fff7f4`
 - [x] Contrast (WCAG) over all six dark themes: `--neutral-3` on -2 7.16:1 or better, -1 on -5 14.31:1 or
       better, worst Geel in both; the stylesheet's stated floors (6.8:1, 14.3:1, worst Geel) still hold.
-- [ ] An owner has looked at the five other dark themes and approved them
+- [x] An owner has looked at the five other dark themes: four approved, Oranje still read too brown
+- [x] Oranje, further: steps -1 to -3 and -5 move to hue 50 (from 54-56, away from brown-yellow) at 95-100%
+      of the sRGB maximum chroma for their lightness, -4 at 60%; lightness unchanged, -6 unchanged.
+      `#311200 #4a1f02 #642b00 #53321f #feebe1 #fff7f4`. Contrast: `--neutral-3` on -2 7.88:1, -1 on -5
+      14.94:1, -6 on -1 16.32:1.
+- [ ] An owner has looked at Oranje and approved it
 
 ### DEPLOY: feat/lilac-more-purple
 
