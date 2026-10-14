@@ -45,6 +45,7 @@ Owner's request (October 14, 2026): on the dark themes `--primary-1` to `-3` a l
 - [x] Headings by surface (owner's request, revised once): on the page `h2` is `--primary-5` (was `-4`) and `h3`–`h6` `--primary-6`; on `--primary-7` (the showcase nav) `h2` is `-3` and `h3`–`h6` `-2`; `h1` stays `-4`; role descriptions in the stylesheet and README updated
 - [x] Light themes: `--primary-2` at 1.6 times its OKLCH chroma, lightness and hue kept; `-4` on the card still 4.52:1 or better (owner's request)
 - [x] Light themes: `--primary-5` at twice its OKLCH chroma, lightness and hue kept; `-5` on `-3` 4.53:1 or better, on status backgrounds 6.9:1 or better (owner's request)
+- [x] `h1` follows `h2`: `--primary-5` on the page, `-3` on `--primary-7` (was `-4`); `-4` role lists, the README and the component title comments updated; the "same low chroma" statement for `-3`/`-5` corrected after `-5`'s chroma change (owner's request)
 - [x] Lint gate green
 
 ### TEST
@@ -65,7 +66,7 @@ On the six light themes `--primary-7`, the far end and the inverted surface, is 
 was 0.26).
 
 `h2` is now `--primary-5` (it was `--primary-4`, like `h1`) and `h3`–`h6` are `--primary-6`; on a `--primary-7`
-surface `h2` is `--primary-3` and `h3`–`h6` are `--primary-2`. `h1` keeps the theme's colour. On the light themes the cards (`--primary-2`) carry a little more colour, and all text (`--primary-5`) twice
+surface `h2` is `--primary-3` and `h3`–`h6` are `--primary-2`. `h1` follows `h2` (it was the theme's colour, `--primary-4`). On the light themes the cards (`--primary-2`) carry a little more colour, and all text (`--primary-5`) twice
 its colour.
 
 The brand book's own sidebar now reads the seven primaries directly in every theme, with no typed colour per light
