@@ -34,14 +34,18 @@
 
 On the dark themes the brand book's navigation (`.bb-nav`) sat only a shade lighter than the page beside it
 (`.bb-main`), so the two read as one plane. The light themes already set it apart with a near-black panel;
-the dark themes get the mirror image: a clearly lighter panel.
+the dark themes get the mirror image: a panel light enough to carry black text (owner's correction: a mid grey
+with white text was not light enough).
 
 ### CREATE
 
-- [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` becomes 18% of the theme colour over
-  `#333331` (the light half is 18% over `#141413`); the hover follows it, and the border line goes, as on light
-- [x] Contrast measured in all six dark themes: panel to page 1.82-1.95:1, white text 8.4:1 or better,
-  grey labels 4.7:1 or better, the "Contents" heading 4.5:1 or better, white on hover 4.8:1 or better
+- [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` becomes 14% of the theme colour over
+  `#fcfcfb`, with black text (`#0b0b0b`) and dark grey labels (`#52514e`); the heading and focus ring take the
+  theme colour darkened, the current link fills with that darkened colour under white text, and the border
+  line goes, as on light. The light themes are unchanged.
+- [x] Contrast measured in all six dark themes: panel to page 14.8:1 or more, black text 17:1 or better,
+  grey labels 6.8:1 or better, the "Contents" heading 5.3:1 or better, black on hover 13.5:1 or better,
+  white on the current link 5.9:1 or better
 
 ### TEST
 
@@ -54,8 +58,9 @@ the dark themes get the mirror image: a clearly lighter panel.
 
 ##### Tier 0
 
-The brand book's navigation panel on the dark themes is now a clearly lighter grey with a touch of the theme
-colour, so it stands apart from the page the way the near-black panel does on the light themes. Only the
+The brand book's navigation panel on the dark themes is now near-white with a touch of the theme colour and
+black text, the mirror image of the near-black panel with white text on the light themes, so it stands clearly
+apart from the page. Only the
 brand book's own chrome changes; no house token or component does.
 
 **Score:** 2
@@ -84,5 +89,5 @@ The brand book's own chrome, which no app or subscriber renders.
 
 #### Pull Request
 
-A lighter navigation panel on the dark themes
+A light navigation panel with black text on the dark themes
 

@@ -2,16 +2,21 @@
 
 .bb-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
 /* The sidebar contrasts with the page, mirrored per mode: on a light theme it is a dark panel (near-black with a
-   touch of the theme), on a dark theme a lighter one (a mid grey with the same touch), about 1.8:1 lighter than
-   the page in every dark theme. light-dark() reads the color-scheme the theme sets. */
+   touch of the theme) with white text, on a dark theme a light one (near-white with a touch of the theme) with
+   black text. The current link fills with the theme colour on dark ground, and with the theme colour darkened
+   (the brand colour) on light ground, where the bright theme colour would barely stand out. light-dark() reads
+   the color-scheme the theme sets. */
 .bb-nav {
-  --bb-nav-bg: light-dark(color-mix(in srgb, var(--primary-5) 18%, #141413), color-mix(in srgb, var(--primary-5) 18%, #333331));
+  --bb-nav-bg: light-dark(color-mix(in srgb, var(--primary-5) 18%, #141413), color-mix(in srgb, var(--primary-5) 14%, #fcfcfb));
   --bb-nav-line: transparent;
-  --bb-nav-ink: light-dark(#ffffff, var(--neutral-5));
-  --bb-nav-ink-2: light-dark(#c3c2b7, var(--neutral-4));
-  --bb-nav-brand: light-dark(color-mix(in srgb, var(--primary-5) 45%, #ffffff), var(--primary-6));
+  --bb-nav-ink: light-dark(#ffffff, #0b0b0b);
+  --bb-nav-ink-2: light-dark(#c3c2b7, #52514e);
+  --bb-nav-brand: light-dark(color-mix(in srgb, var(--primary-5) 45%, #ffffff), color-mix(in srgb, var(--primary-5) 45%, #141413));
   --bb-nav-hover: light-dark(color-mix(in srgb, var(--primary-5) 35%, var(--bb-nav-bg)), color-mix(in srgb, var(--primary-5) 30%, var(--bb-nav-bg)));
-  --bb-nav-focus: light-dark(var(--bb-nav-brand), var(--primary-5));
+  --bb-nav-focus: var(--bb-nav-brand);
+  --bb-nav-current: light-dark(var(--primary-5), var(--bb-nav-brand));
+  --bb-nav-current-ink: light-dark(var(--neutral-1), #ffffff);
+  --bb-nav-current-ring: light-dark(var(--bb-nav-ink), var(--bb-nav-bg));
   position: sticky;
   top: 0;
   align-self: start;
@@ -213,8 +218,8 @@
 .bb-view-components a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
 
 /* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */
-.bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--primary-5); color: var(--neutral-1); font-weight: var(--dkj-fw-semibold); }
-.bb-nav a[aria-current='page']:focus-visible { outline-color: var(--bb-nav-ink); }   /* a primary ring would vanish on the primary fill */
+.bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--bb-nav-current); color: var(--bb-nav-current-ink); font-weight: var(--dkj-fw-semibold); }
+.bb-nav a[aria-current='page']:focus-visible { outline-color: var(--bb-nav-current-ring); }   /* the usual ring would vanish on the current fill */
 .bb-preview-back { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); }
 .bb-preview-back a { color: var(--primary-6); }
 .bb-preview-meta { margin-bottom: var(--spacing-4); }
