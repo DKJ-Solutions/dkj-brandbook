@@ -49,8 +49,8 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Neutrals | `--neutral-1` … `--neutral-5`, `--muted` | a five-step ramp from the ground to the text, flipped on dark: `--neutral-1` the ground (the page base, text and icons on the primary, the mark inside a status icon), `--neutral-2` the raised plane (the surface base), `--neutral-3` lines (the grid and border base, axes), `--neutral-4` secondary text, `--neutral-5` text. `--muted` is tertiary text, the same in both modes |
 | Surfaces and lines | `--page`, `--surface`, `--grid`, `--border` | background, cards, lines: derived, the neutral `--neutral-1`, `--neutral-2` and `--neutral-3` with the theme's primary mixed in ([below](#how-far-a-theme-reaches)) |
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
-| Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-up`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-up`/`--negative-5` are the text versions of `--positive-light`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
-| Status | `--positive-light`, `--warning-light`, `--negative-3`, `--warning-dark`, `--warning-bg`, `--negative-1`, `--positive-bg` | badges, meters, notices. `--warning-bg`, `--negative-1` and `--positive-bg` are the backgrounds of a warning, negative or positive message. The mark inside a status icon (check, cross, "!") is `--neutral-1` |
+| Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-5`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-5`/`--negative-5` are the text versions of `--positive-3`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
+| Status | `--positive-3`, `--warning-3`, `--negative-3`, `--warning-5`, `--warning-1`, `--negative-1`, `--positive-1` | badges, meters, notices. `--warning-1`, `--negative-1` and `--positive-1` are the backgrounds of a warning, negative or positive message. The mark inside a status icon (check, cross, "!") is `--neutral-1` |
 | Primary | `--primary`, `--primary-soft`, `--primary-ink` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--neutral-1` is text on it, `--primary-soft` a tint for a background, `--primary-ink` the primary as text (links, `h1`, `h2`). Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
@@ -64,13 +64,13 @@ name says which side it is on, and the black, white and grey ones merged into on
 
 | Was | Now |
 |---|---|
-| `--good`, `--up` | `--positive-light`, `--positive-up` |
+| `--good`, `--up` | `--positive-3`, `--positive-5` |
 | `--bad`, `--down` | `--negative-3`, `--negative-5` |
 | `--loss` | removed: a loss in a chart takes `--negative-3` (in the brand book, `LegendItem color="negative-3"`) |
-| `--warn`, `--warn-bg` | `--warning-light`, `--warning-bg` |
-| `--on-warn` | removed: text on a `--warning-light` fill takes `--neutral-5`, which turns white on the dark themes |
-| (new) | `--warning-dark`: a warning in text, a step darker on light and lighter on dark, like `--negative-5` |
-| (new) | `--negative-1`, `--positive-bg`: the backgrounds of a negative or positive message, beside `--warning-bg` |
+| `--warn`, `--warn-bg` | `--warning-3`, `--warning-1` |
+| `--on-warn` | removed: text on a `--warning-3` fill takes `--neutral-5`, which turns white on the dark themes |
+| (new) | `--warning-5`: a warning in text, a step darker on light and lighter on dark, like `--negative-5` |
+| (new) | `--negative-1`, `--positive-1`: the backgrounds of a negative or positive message, beside `--warning-1` |
 | `--page-base`, `--on-primary`, `--status-mark` | `--neutral-1` |
 | `--surface-base` | `--neutral-2` |
 | `--grid-base`, `--border-base`, `--axis` | `--neutral-3`. `--border` is now a solid line over it instead of a translucent one |
@@ -82,9 +82,10 @@ The class modifiers keep their names: `.badge--good`, `.badge--bad`, `.badge--wa
 
 **A number in a colour token is a step on the ground-to-text scale** (owner's decision, October 14, 2026):
 `-1` is light on the light themes and dark on the dark themes (the ground end), `-5` is the opposite (the text
-end), and `-3` sits between them. `--neutral-1` … `--neutral-5` and `--negative-1`, `--negative-3`, `--negative-5`
-follow it: `--negative-1` is the background of a negative message, `--negative-3` the fill (icon, badge, meter, a
-loss in a chart), `--negative-5` the text.
+end), and `-3` sits between them. `--neutral-1` … `--neutral-5` follow it, and so do `--negative-*`, `--positive-*`
+and `--warning-*`:
+`-1` is the background of a message, `-3` the fill (icon, badge, meter, a
+loss in a chart), `-5` the text.
 
 **The colour tokens grouped by what a theme switch changes** (the grouping the showcase's Tokens section
 uses):
@@ -93,7 +94,7 @@ uses):
 |---|---|---|
 | to any other theme changes them | `--border`, `--grid`, `--page`, `--primary`, `--primary-ink`, `--primary-soft`, `--surface` | each theme sets its own `--primary`, and the other six are mixed from it |
 | changes them only between light and dark: black, white and grey | `--neutral-1`, `--neutral-2`, `--neutral-3`, `--neutral-4`, `--neutral-5` | a ramp from the ground to the text, set once in the light block and once in the dark block, where it flips |
-| changes them only between light and dark: colours | `--cat-1`–`--cat-3`, `--negative-1`, `--negative-3`, `--negative-5`, `--positive-bg`, `--positive-light`, `--positive-up`, `--warning-bg`, `--warning-dark`, `--warning-light` | set once in the light block and once in the dark block, a shade apart. One exception: `--warning-light` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
+| changes them only between light and dark: colours | `--cat-1`–`--cat-3`, `--negative-1`, `--negative-3`, `--negative-5`, `--positive-1`, `--positive-3`, `--positive-5`, `--warning-1`, `--warning-3`, `--warning-5` | set once in the light block and once in the dark block, a shade apart. One exception: `--warning-3` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
 | never changes them | `--muted` | the same value in light and dark |
 
 **The spacing and type scales have a source: the Figma library** *Shopify Theme - LIBRARY*, variable
@@ -163,7 +164,7 @@ its own.
 **What this changed for an app that takes the update:** the pressed `.seg` button, `.badge--info` and
 `.meter--info` take the primary instead of ink and `--cat-1`; the light warning is dark orange instead
 of amber and the dark one a brighter yellow; `--negative-5` on light is a darker red (`#a32424`); on dark
-`--positive-up`/`--negative-5` are a step lighter and `--negative-3` is the dark red it never had; status icons take
+`--positive-5`/`--negative-5` are a step lighter and `--negative-3` is the dark red it never had; status icons take
 the mark colour, now `--neutral-1`.
 
 ### How far a theme reaches
@@ -208,7 +209,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
 - **Measured:** `--neutral-4` stays at 6.2:1 or better on the tinted light page (worst: Magenta, Paars) and
   6.8:1 or better on the tinted dark surface (worst: Geel); `--primary-ink` reaches 5.4:1 or better on the
   light page (worst: Petrol, Roest, Oker, Magenta) and more on dark. Status, direction and categorical
-  colours (`--positive-light`, `--negative-3`, `--warning-light`, `--cat-*`, `--positive-up`, `--negative-5`) are never tinted.
+  colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never tinted.
 
 **What this changes for an app that takes the update:** every page turns a light shade of its theme, and
 `h1`/`h2` take its colour (through `:where()`, so a heading inside a coloured container, or one the app colours itself, keeps that colour). An app that hard-codes a grey next to a house surface will show the seam, and

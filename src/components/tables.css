@@ -2,7 +2,7 @@
 
 .dkj-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dkj-tone-negative { color: var(--negative-5); }
-.dkj-tone-positive { color: var(--positive-up); }
+.dkj-tone-positive { color: var(--positive-5); }
 .dkj-muted { color: var(--neutral-4); }
 
 /* ---------- DefinitionList ---------- */

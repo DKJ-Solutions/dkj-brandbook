@@ -11,7 +11,7 @@ const HOUSE_COLORS = {
     'neutral-1', 'neutral-2', 'neutral-3', 'neutral-4', 'neutral-5',
   ],
   'changes only between light and dark -- colours': [
-    'cat-1', 'cat-2', 'cat-3', 'negative-1', 'negative-3', 'negative-5', 'positive-bg', 'positive-light', 'positive-up', 'warning-bg', 'warning-dark', 'warning-light',
+    'cat-1', 'cat-2', 'cat-3', 'negative-1', 'negative-3', 'negative-5', 'positive-1', 'positive-3', 'positive-5', 'warning-1', 'warning-3', 'warning-5',
   ],
   'the same in every theme': ['muted'],
 } as const
