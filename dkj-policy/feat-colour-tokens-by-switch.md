@@ -55,6 +55,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] `--warn` renamed to `--warning-bad`; `--warning-down` added (`#8a4400` light, 6.9:1 on the page; `#ffd75e` dark, 10.4:1); class modifiers keep their names (owner's follow-up)
 - [x] `--negative-bad`, `--positive-good` and `--warning-bad` renamed to `--negative-light`, `--positive-light` and `--warning-light`; the README's rename notes collapsed into one table from the released names to the new ones (owner's follow-up)
 - [x] `--negative-down` and `--warning-down` renamed to `--negative-dark` and `--warning-dark` (owner's follow-up)
+- [x] `--warning-dark` on light moved from the brownish `#8a4400` to a more orange `#a84f00`, 4.8:1 on the lightest tinted page; `--warning-light` stays, since lighter would drop the white mark in a warning badge from 3.1:1 to 2.7:1 (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST
