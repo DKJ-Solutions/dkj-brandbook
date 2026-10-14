@@ -2,8 +2,8 @@ import type { CSSProperties, ReactNode } from 'react'
 import { cx } from './cx'
 import './metrics.css'
 
-/** The series colours: --cat-1 .. --cat-3 (one meaning per slot in a view); a gain in a direction chart is --cat-1, a loss --loss. */
-export type SeriesColor = 'cat-1' | 'cat-2' | 'cat-3' | 'loss'
+/** The series colours: --cat-1 .. --cat-3 (one meaning per slot in a view); a gain in a direction chart is --cat-1, a loss --negative-loss. */
+export type SeriesColor = 'cat-1' | 'cat-2' | 'cat-3' | 'negative-loss'
 const seriesStyle = (color: SeriesColor) => ({ '--c': `var(--${color})` }) as CSSProperties
 
 /** StatTiles -- the grid of StatTiles (the house .tiles): as many 160px columns as fit. */

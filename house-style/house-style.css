@@ -29,9 +29,9 @@
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
-   Semantic colours (--loss/--positive-up/--down) are for direction and result, never
+   Semantic colours (--negative-loss/--positive-up/--down) are for direction and result, never
    for categories. The one exception: --cat-1 doubles as the gain colour in a
-   chart (there is no --gain); --loss stays the loss colour.
+   chart (there is no --gain); --negative-loss stays the loss colour.
    ========================================================================== */
 
 /* ---- Tokens: light (default) -------------------------------------------- */
@@ -62,14 +62,14 @@
   --cat-3: #1baf7a;
 
   /* direction and result semantics */
-  --loss: #e34948;        /* negative result in charts */
+  --negative-loss: #e34948;        /* negative result in charts */
   --positive-up: #006300;          /* positive number in text: a step darker than --positive-good, so it reads as text */
-  --down: #a32424;        /* negative number in text: a step darker than --bad */
+  --down: #a32424;        /* negative number in text: a step darker than --negative-bad */
 
   /* status colours (badges, meters): fills */
   --positive-good: #0ca30c;
   --warn: #e0761a;        /* the warning icon; amber-yellow on the dark themes */
-  --bad: #d03b3b;
+  --negative-bad: #d03b3b;
   --status-mark: #ffffff; /* the mark inside a status icon (check, cross, "!"): white on light, near-black on dark */
 
   /* the theme's primary colour: switches, primary buttons, info badges and meters.
@@ -131,8 +131,8 @@
     --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
     --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-    --loss: #e66767;
-    --positive-up: #3fc23f; --down: #ff7a7a; --positive-good: #25b225; --bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
+    --negative-loss: #e66767;
+    --positive-up: #3fc23f; --down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
     --status-mark: #0b0b0b;
     --primary: #2fc8d8; --on-primary: #0b0b0b;
   }
@@ -147,8 +147,8 @@
   --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
   --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-  --loss: #e66767;
-  --positive-up: #3fc23f; --down: #ff7a7a; --positive-good: #25b225; --bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
+  --negative-loss: #e66767;
+  --positive-up: #3fc23f; --down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
   --status-mark: #0b0b0b;
   --primary: #2fc8d8; --on-primary: #0b0b0b;
 }
@@ -298,14 +298,14 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .meter { height: 6px; border-radius: 3px; background: var(--grid); overflow: hidden; }
 .meter span { display: block; height: 100%; border-radius: 3px; background: var(--m); }
 .meter--good { --m: var(--positive-good); } .meter--warn { --m: var(--warn); }
-.meter--bad { --m: var(--bad); }   .meter--info { --m: var(--primary); }
+.meter--bad { --m: var(--negative-bad); }   .meter--info { --m: var(--primary); }
 
 /* ---- Badge ---------------------------------------------------------------- */
 .badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%;
   font: 700 var(--text-sm)/1 system-ui, sans-serif; color: var(--status-mark); background: var(--b); flex: none; }
 .badge--good    { --b: var(--positive-good); }
 .badge--warn    { --b: var(--warn); }
-.badge--bad     { --b: var(--bad); }
+.badge--bad     { --b: var(--negative-bad); }
 .badge--info    { --b: var(--primary); color: var(--on-primary); }
 .badge--neutral { --b: var(--axis); color: var(--ink); }
 .badge--sm { width: 18px; height: 18px; font-size: var(--text-xs); }
