@@ -6,7 +6,7 @@
 .dkj-input {
   width: 100%;
   font: inherit;
-  font-size: var(--dkj-text-input); /* 16px: iOS does not zoom in on focus */
+  font-size: var(--text-lg); /* at least 16px, so iOS does not zoom in on focus */
   padding: var(--spacing-2-5) var(--spacing-3);
   border: 1px solid var(--border);
   border-radius: var(--dkj-radius-md);
@@ -84,7 +84,7 @@
   margin: 0;
   padding: 0 var(--spacing-1);
   font: inherit;
-  font-size: var(--dkj-text-input);
+  font-size: var(--text-lg);
   text-align: center;
   font-variant-numeric: tabular-nums;
   color: var(--ink);

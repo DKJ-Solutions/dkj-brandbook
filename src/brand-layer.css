@@ -20,8 +20,6 @@
   --dkj-radius-pill: 999px;       /* chips, tags, round toggles */
 
   /* ---- Type: only what the house scale (--text-*) cannot express ---- */
-  --dkj-text-input: 16px;                          /* inputs: 16px so iOS does not zoom in on focus */
-  --dkj-text-display: clamp(2rem, 8.5vw, var(--text-h0)); /* the big step value: fluid, capped at the house h0 */
   --dkj-fw-regular: 400;
   --dkj-fw-medium: 500;
   --dkj-fw-semibold: 600;

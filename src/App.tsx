@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { cx } from './components/cx'
 import { Toolbar } from './showcase/Showcase'
+import { Intro } from './showcase/sections/Intro'
 import { RepoPreview } from './showcase/previews/RepoPreview'
 import { useWidth } from './showcase/theme'
 import { Apps } from './showcase/sections/Apps'
@@ -15,7 +16,6 @@ import { Surfaces } from './showcase/sections/Surfaces'
 
 /** The navigation mirrors the section order below; each id is a component id in src/components/sources.ts. */
 const NAV = [
-  { group: 'Apps', items: ['apps', 'overlap'] },
   { group: 'Foundations', items: ['tokens'] },
   { group: 'Actions', items: ['Button', 'SaveButton', 'SegmentedChoice', 'FilterChips', 'IconButton', 'RoundToggle'] },
   { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Alert', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'ReadMoreToggle', 'GroupHeading', 'QuestionBlock', 'Amount', 'Prose', 'Figure', 'FooterNote'] },
@@ -23,6 +23,7 @@ const NAV = [
   { group: 'Forms & rows', items: ['Field', 'Checkbox', 'Stepper', 'SearchCombobox', 'ValueBox', 'StatRow', 'FormulaRow', 'DateRow'] },
   { group: 'Overlays & navigation', items: ['Dialog', 'Tooltip', 'Drawer', 'TopBar', 'PageHeader', 'MenuRow', 'DownloadButton', 'StepHeader', 'InfoRow'] },
   { group: 'Data', items: ['DefinitionList', 'DataTable', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },
+  { group: 'Apps', items: ['apps', 'overlap'] },
 ] as const
 
 const LABELS: Record<string, string> = { apps: 'Overview', overlap: 'Overlap', tokens: 'Tokens' }
@@ -73,13 +74,16 @@ export default function App() {
   const previewRepo = usePreviewRepo()
   return (
     <div className="bb-shell">
-      <nav className="bb-nav" aria-label="Brand book">
-        <p className="bb-brand">DKJ Brand Book</p>
-        <p className="bb-brand-sub">One brand, several themes</p>
-        {NAV.map((g) => (
+      <nav className="bb-nav" aria-labelledby="bb-nav-title">
+        <h2 className="bb-brand" id="bb-nav-title">Contents</h2>
+        <p className="bb-brand-sub">Jump to a section or an app preview</p>
+        {/* Group labels, not headings: each names its list (aria-labelledby), so the menu keeps its compact size. */}
+        {NAV.map((g, n) => (
           <div key={g.group}>
-            <p className="bb-nav-group">{g.group}</p>
-            <ul>
+            <p className="bb-nav-group" id={`bb-nav-group-${n}`}>
+              {g.group}
+            </p>
+            <ul aria-labelledby={`bb-nav-group-${n}`}>
               {g.items.map((i) => (
                 <li key={i}>
                   <a href={`#${i}`}>{LABELS[i] ?? i}</a>
@@ -88,8 +92,10 @@ export default function App() {
             </ul>
           </div>
         ))}
-        <p className="bb-nav-group">DKJ-Solutions</p>
-        <ul>
+        <p className="bb-nav-group" id="bb-nav-group-repos">
+          DKJ-Solutions
+        </p>
+        <ul aria-labelledby="bb-nav-group-repos">
           {REPOS.map((r) => (
             <li key={r}>
               <a href={`#preview/${r}`} title={r} aria-current={r === previewRepo ? 'page' : undefined}>
@@ -106,8 +112,7 @@ export default function App() {
             <RepoPreview repo={previewRepo} />
           ) : (
             <>
-              <Apps />
-              <Overlap />
+              <Intro />
               <Foundations />
               <Actions />
               <Surfaces />
@@ -115,6 +120,8 @@ export default function App() {
               <Forms />
               <Overlays />
               <Data />
+              <Apps />
+              <Overlap />
             </>
           )}
         </div>
