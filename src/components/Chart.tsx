@@ -147,7 +147,7 @@ function ChartTable({ summary, caption, headings, children }: { summary: string;
 
 /**
  * ColumnChart -- a result per period around a zero line, on the house .chart: gain columns up in --cat-1, loss columns
- * down in --negative-loss, so direction reads from position as well as colour. It draws at the width it is given, so its 12px
+ * down in --negative-bad, so direction reads from position as well as colour. It draws at the width it is given, so its 12px
  * labels stay 12px on a phone, and thins the axis labels to what fits. Hover or keyboard focus shows the house
  * .tooltip with the value; the columns are one tab stop, and the arrow keys, Home and End move through them. The same
  * figures are always reachable as a table under the chart. Put a Legend (gain, loss) above it.
@@ -228,7 +228,7 @@ export function ColumnChart({
                   key={c.key}
                   className={cx('dkj-chart-col', active === i && 'dkj-chart-col--active')}
                   d={columnPath(cx0 - bw / 2, bw, y0, h, up)}
-                  fill={up ? 'var(--cat-1)' : 'var(--negative-loss)'}
+                  fill={up ? 'var(--cat-1)' : 'var(--negative-bad)'}
                   aria-hidden="true"
                 />
               )
@@ -325,7 +325,7 @@ type BarColor = { colorBy: 'series' } | { colorBy: 'direction' }
 /**
  * BarChart -- a value per row as a horizontal bar, on the house .chart. `colorBy="series"` colours each bar with the
  * house --cat-N of its `series` (put a Legend above it); `colorBy="direction"` draws gains to the right of the zero line
- * in --cat-1 and losses to the left in --negative-loss, so the side says the same as the colour. The order of `data` is kept, so
+ * in --cat-1 and losses to the left in --negative-bad, so the side says the same as the colour. The order of `data` is kept, so
  * sort it first. It draws at its real width: one 30px line per row from 480px, stacked rows (label and value over the
  * bar) below it, so 12px text stays 12px on a phone. Hover, or tab to it and use Up, Down, Home and End, for the house
  * .tooltip; the same figures, and with `share` each row's share of the total, are always a table away.
@@ -374,7 +374,7 @@ export function BarChart({
   const x0 = x(0)
   const total = values.reduce((a, b) => a + b, 0)
   const showShare = !!share && lo >= 0 && total > 0 // a share is only meaningful for parts of a whole
-  const fill = (d: BarDatum) => (color.colorBy === 'series' ? `var(--cat-${d.series ?? 1})` : d.value >= 0 ? 'var(--cat-1)' : 'var(--negative-loss)')
+  const fill = (d: BarDatum) => (color.colorBy === 'series' ? `var(--cat-${d.series ?? 1})` : d.value >= 0 ? 'var(--cat-1)' : 'var(--negative-bad)')
   const sign = (v: number) => (color.colorBy === 'direction' ? (v >= 0 ? 'delta--up' : 'delta--down') : undefined)
 
   const showAtRow = (i: number) => {

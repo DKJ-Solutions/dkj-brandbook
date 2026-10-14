@@ -50,6 +50,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] `--loss` and `--bad` renamed to `--negative-loss` and `--negative-bad`, including the `LegendItem` colour `negative-loss`; `.badge--bad` and `.meter--bad` keep their names (owner's follow-up)
 - [x] `--down` renamed to `--negative-down`; `.delta--down` keeps its name (owner's follow-up)
 - [x] The tokens in each group sorted alphabetically, in the showcase and the README (owner's follow-up)
+- [x] `--negative-loss` removed; chart losses and the `LegendItem` colour take `--negative-bad` (owner's follow-up). Same value on dark; on light the loss goes from `#e34948` to `#d03b3b`
 - [x] Lint gate green
 
 ### TEST

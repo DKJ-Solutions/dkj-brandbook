@@ -29,9 +29,9 @@
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
-   Semantic colours (--negative-loss/--positive-up/--negative-down) are for direction and result, never
+   Semantic colours (--negative-bad/--positive-up/--negative-down) are for direction and result, never
    for categories. The one exception: --cat-1 doubles as the gain colour in a
-   chart (there is no --gain); --negative-loss stays the loss colour.
+   chart (there is no --gain); --negative-bad is the loss colour.
    ========================================================================== */
 
 /* ---- Tokens: light (default) -------------------------------------------- */
@@ -62,7 +62,6 @@
   --cat-3: #1baf7a;
 
   /* direction and result semantics */
-  --negative-loss: #e34948;        /* negative result in charts */
   --positive-up: #006300;          /* positive number in text: a step darker than --positive-good, so it reads as text */
   --negative-down: #a32424;        /* negative number in text: a step darker than --negative-bad */
 
@@ -131,7 +130,6 @@
     --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
     --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-    --negative-loss: #e66767;
     --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
     --status-mark: #0b0b0b;
     --primary: #2fc8d8; --on-primary: #0b0b0b;
@@ -147,7 +145,6 @@
   --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
   --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-  --negative-loss: #e66767;
   --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
   --status-mark: #0b0b0b;
   --primary: #2fc8d8; --on-primary: #0b0b0b;
