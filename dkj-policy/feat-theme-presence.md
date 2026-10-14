@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Make a chosen house theme stand out across the whole page, not only on the primary controls (owner's request, October 14, 2026). The owner picked all three levers: a tinted page and surfaces (house-wide), themed headings and borders (house-wide), and a themed sidebar in the brand book itself. It reaches the apps only after a `house-style-v<N>` release and the skill repoint, both on the owner's request.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/house-style.css`: neutral `--page-base`, `--surface-base`, `--grid-base`, `--border-base` plus per-mode `--page-tint`, `--surface-tint`, `--grid-tint`, `--border-tint`; `--page`, `--surface`, `--grid`, `--border` mix the primary into the base; a new `--primary-ink` (primary mixed with ink) for `:where(h1, h2)` and default links, so contrast holds on the tinted page; theme swatches preview their own tinted page
+- [x] `house-style/README.md`: how far a theme reaches, the tint tokens and percentages, and what changes for an adopting app
+- [x] `src/showcase/showcase.css`: the sidebar takes a theme tint, the brand name `--primary-ink`, the active link solid primary
+- [x] `src/showcase/sections/Foundations.tsx`: the token readouts list the base tokens and `--primary-ink`
+- [x] Code review (Victor): border strength, heading specificity, swatches and doc consistency fixed
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has looked at the page across the twelve themes (light and dark) and approved the tint strength
 
 ### DEPLOY: feat/theme-presence
 
@@ -44,25 +53,21 @@
 
 ##### Tier 0
 
-**Score:**
+A house theme now colours the whole page instead of a few controls: the page, cards, dividers and borders take a light tint of the theme's primary, h1/h2 and links take `--primary-ink` (the primary pulled towards the ink, so body-size contrast stays above AA on the tinted page), and the brand book's sidebar is themed with a solid-primary active link. Each tint is one per-mode token, so the strength is tuned in one place.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 4
 
 ##### Tier 1
 
-**Score:**
+Internal design system; no change for management or a commissioner.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change until an app adopts it after a house-style release.
+
+**Score:** N/A
 
 #### Pull Request
 
