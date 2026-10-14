@@ -48,8 +48,8 @@ and dark. A breaking change for consumers, accepted on that condition.
 
 ### TEST
 
-- [ ] An owner has looked at the Metrics section (legend, ColumnChart, BarChart) and the Tokens swatches
-  and approved it
+- [x] An owner has looked at the Metrics section (legend, ColumnChart, BarChart) and the Tokens swatches
+  and approved it (Maikel, October 14, 2026: "ziet er goed uit, ship beide")
 
 ### DEPLOY: feat/drop-gain-token
 
