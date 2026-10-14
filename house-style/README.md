@@ -212,7 +212,13 @@ out). Three more things follow it by default, in light and in dark (and a measur
   `--neutral-3` itself stays neutral.
 - **The theme picker previews it:** each swatch shows its own theme's page, with the primary as the dot.
 - **`h1` and `h2` are the theme's colour**, as `--primary-6`: darker than the colour itself on light and
-  lighter on dark. Links use it too. It exists because the tinted page is
+  lighter on dark. Links use it too.
+- **On dark the top of the scale mirrors the bottom of light** (owner's decision, October 14, 2026):
+  `--primary-6` has the lightness of a light theme's `--primary-1`, and `--primary-5` that of its
+  `--primary-2`, each in the dark theme's own hue (Roze mirrors Magenta, Lila Paars, Hemelsblauw Blauw, Cyaan
+  Petrol, Geel Oker, Oranje Roest). Both are near-white, so a primary button, a pressed switch or an info badge
+  on dark is a near-white fill with near-black text (16.8:1 or better). The hex in the theme table above is
+  the theme's identity colour, the dot the picker draws, and no longer a token value on dark. It exists because the tinted page is
   darker than the old one, and a bare Petrol or Oker link would drop to 4.0:1 on it.
 - **Measured:** `--neutral-4` stays at 6.2:1 or better on the tinted light page (worst: Magenta, Paars) and
   6.8:1 or better on the tinted dark surface (worst: Geel); `--primary-6` reaches 5.4:1 or better on the

@@ -49,7 +49,10 @@
      tints the page, the cards and the lines: page, cards (tiles, tooltips), a tinted background, lines
      (borders, row dividers, meter track, gridlines). -5 is the colour itself (switches, primary buttons, info
      badges and meters), -6 the colour as text (links, h1, h2), darker on light and lighter on dark, so a link
-     reaches 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). Measured worst case:
+     reaches 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). On dark the top of the
+     scale mirrors the bottom of light (owner's decision, October 14, 2026): -6 has the lightness of a light
+     theme's -1 and -5 that of its -2, each in the dark theme's own hue, so both are near-white and carry the
+     near-black --neutral-1 as text (16.8:1 or better). Measured worst case:
      --neutral-4 reaches at least 6.2:1 on the light page (worst: Magenta, Paars) and 6.8:1 on the dark card (worst: Geel). */
   --primary-1: #f8f9fa; --primary-2: #ecf0f5; --primary-3: #d0dcf0;
   --primary-4: #b7c1d1; --primary-5: #2563d0; --primary-6: #2051a9;
@@ -119,7 +122,7 @@
     --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333333; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-    --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #2fc8d8; --primary-6: #59d3e0;
+    --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #ebf1f2; --primary-6: #f7f9f9;
   }
 }
 
@@ -131,7 +134,7 @@
   --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333333; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-  --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #2fc8d8; --primary-6: #59d3e0;
+  --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #ebf1f2; --primary-6: #f7f9f9;
 }
 
 /* ---- Themes: the primary colour ------------------------------------------ */
@@ -146,12 +149,12 @@
 :root[data-theme="teal"] { --primary-1: #f7f9f9; --primary-2: #ebf1f0; --primary-3: #cce1e1; --primary-4: #b4c4c6; --primary-5: #0f7c86; --primary-6: #0e656d; }
 :root[data-theme="ochre"] { --primary-1: #f9f9f6; --primary-2: #f1f0e8; --primary-3: #e0ddc8; --primary-4: #c4c2b2; --primary-5: #7a6b00; --primary-6: #645802; }
 :root[data-theme="rust"] { --primary-1: #faf9f6; --primary-2: #f4efe9; --primary-3: #eadaca; --primary-4: #ccbfb3; --primary-5: #ad5a0a; --primary-6: #8d4a0a; --warning-3: #b88a00; }
-:root[data-theme="pink"] { --primary-1: #251820; --primary-2: #3a2732; --primary-3: #563347; --primary-4: #43393f; --primary-5: #ff7ac8; --primary-6: #ff95d3; }
-:root[data-theme="lilac"] { --primary-1: #1e1b25; --primary-2: #302c39; --primary-3: #433c55; --primary-4: #3d3b43; --primary-5: #b69cff; --primary-6: #c5b0ff; }
-:root[data-theme="sky"] { --primary-1: #151e25; --primary-2: #232f39; --primary-3: #2b4155; --primary-4: #363d43; --primary-5: #5cb3ff; --primary-6: #7dc2ff; }
-:root[data-theme="cyan"] { --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #2fc8d8; --primary-6: #59d3e0; }
-:root[data-theme="yellow"] { --primary-1: #241f11; --primary-2: #38321c; --primary-3: #52461f; --primary-4: #423e33; --primary-5: #f2c230; --primary-6: #f5ce59; --warning-3: #f08a24; }
-:root[data-theme="orange"] { --primary-1: #241912; --primary-2: #39291e; --primary-3: #533622; --primary-4: #433a34; --primary-5: #f5873a; --primary-6: #f79f61; }
+:root[data-theme="pink"] { --primary-1: #251820; --primary-2: #3a2732; --primary-3: #563347; --primary-4: #43393f; --primary-5: #f6ecf1; --primary-6: #fbf8f9; }
+:root[data-theme="lilac"] { --primary-1: #1e1b25; --primary-2: #302c39; --primary-3: #433c55; --primary-4: #3d3b43; --primary-5: #f0eef6; --primary-6: #f9f8fa; }
+:root[data-theme="sky"] { --primary-1: #151e25; --primary-2: #232f39; --primary-3: #2b4155; --primary-4: #363d43; --primary-5: #ecf0f5; --primary-6: #f8f9fa; }
+:root[data-theme="cyan"] { --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #ebf1f2; --primary-6: #f7f9f9; }
+:root[data-theme="yellow"] { --primary-1: #241f11; --primary-2: #38321c; --primary-3: #52461f; --primary-4: #423e33; --primary-5: #f2efe8; --primary-6: #faf9f6; --warning-3: #f08a24; }
+:root[data-theme="orange"] { --primary-1: #241912; --primary-2: #39291e; --primary-3: #533622; --primary-4: #433a34; --primary-5: #f6eeea; --primary-6: #fbf8f7; }
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }
