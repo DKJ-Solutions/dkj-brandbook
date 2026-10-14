@@ -53,7 +53,7 @@ Owner's request (October 14, 2026): on the dark themes `--primary-1` to `-3` a l
 
 ### TEST
 
-- [ ] An owner has looked at the six dark themes, the light themes' `--primary-7`, the `h2` colours, the light cards and the sidebar in the showcase and approved them
+- [x] An owner has looked at the six dark themes, the light themes' `--primary-7`, `--primary-2` and `--primary-5`, the heading and paragraph colours and the sidebar in the showcase and approved them ("ship it")
 
 ### DEPLOY: feat/dark-themes-deeper-ground
 
