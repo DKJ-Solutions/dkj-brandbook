@@ -32,11 +32,18 @@
 
 ### PLAN
 
+Owner's request (October 14, 2026): more contrast between `bb-nav` and `bb-main`. On a light theme the
+main area keeps its light tint and the navigation gets a dark background.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/showcase.css`: the nav's colours as `--bb-nav-*` variables, chosen per mode with `light-dark()` -- dark panel on light themes, unchanged tint on dark themes
+- [x] Brand name, group labels, links, hover, focus ring and the active-link focus ring read those variables
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has looked at the navigation across the six light themes (and checked the dark ones are unchanged) and approved it
 
 ### DEPLOY: feat/dark-nav-on-light
 
@@ -44,7 +51,9 @@
 
 ##### Tier 0
 
-**Score:**
+On a light theme the brand book's sidebar is now a dark panel -- near-black with 18% of the theme's primary, white links, light grey group labels and the brand name in a light tint of the primary -- so it stands apart from the light main area. Dark themes keep the tinted sidebar they had. The colours are showcase-only `--bb-nav-*` variables picked per mode with `light-dark()`; no house token changed.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +62,9 @@
 
 ##### Tier 1
 
-**Score:**
+The brand book's own chrome; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +73,9 @@
 
 ##### Tier 2
 
-**Score:**
+The house style is untouched, so no app and no subscriber sees a change.
+
+**Score:** N/A
 
 #### Pull Request
 
