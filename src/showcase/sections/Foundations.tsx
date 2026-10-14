@@ -4,13 +4,14 @@ import { Demo, Section } from '../Showcase'
 import { HouseThemeReachDemo } from './HouseApp'
 import { useThemeId } from '../theme'
 
-/** House tokens (house-style/house-style.css), grouped as in house-style/README.md. */
+/** House colour tokens (house-style/house-style.css), grouped by what a theme switch changes, as in house-style/README.md. */
 const HOUSE_COLORS = {
-  'Surfaces and ink': ['page', 'surface', 'ink', 'ink-2', 'muted', 'grid', 'axis', 'border', 'page-base', 'surface-base', 'grid-base', 'border-base'],
-  Primary: ['primary', 'on-primary', 'primary-soft', 'primary-ink'],
-  Status: ['good', 'warn', 'bad', 'warn-bg', 'status-mark', 'on-warn'],
-  Direction: ['loss', 'up', 'down'],
-  Categorical: ['cat-1', 'cat-2', 'cat-3'],
+  'changes with every theme': ['primary', 'primary-soft', 'primary-ink', 'page', 'surface', 'grid', 'border'],
+  'changes only between light and dark': [
+    'on-primary', 'ink', 'ink-2', 'axis', 'page-base', 'surface-base', 'grid-base', 'border-base',
+    'cat-1', 'cat-2', 'cat-3', 'loss', 'up', 'down', 'bad', 'warn', 'warn-bg', 'status-mark',
+  ],
+  'the same in every theme': ['muted', 'good', 'on-warn'],
 } as const
 
 /** How much of the primary each house surface takes (set per mode). */

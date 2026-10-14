@@ -58,6 +58,15 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 
 `--gain` was removed (October 14, 2026): use `--cat-1`, the same colour.
 
+**The colour tokens grouped by what a theme switch changes** (the grouping the showcase's Tokens section
+uses):
+
+| A switch … | Tokens | Why |
+|---|---|---|
+| to any other theme changes them | `--primary`, `--primary-soft`, `--primary-ink`, `--page`, `--surface`, `--grid`, `--border` | each theme sets its own `--primary`, and the other six are mixed from it |
+| changes them only between light and dark | `--on-primary`, `--ink`, `--ink-2`, `--axis`, `--page-base`, `--surface-base`, `--grid-base`, `--border-base`, `--cat-1`–`--cat-3`, `--loss`, `--up`, `--down`, `--bad`, `--warn`, `--warn-bg`, `--status-mark` | set once in the light block and once in the dark block. One exception: `--warn` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
+| never changes them | `--muted`, `--good`, `--on-warn` | the same value in light and dark |
+
 **The spacing and type scales have a source: the Figma library** *Shopify Theme - LIBRARY*, variable
 collection "Collection", groups `spacing/` and `text/`. Their names and values are copied exactly, so a
 design in Figma and a page built from this file share one set of numbers. A step added there is added
