@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Icon, ICON_NAMES } from '../../components/Icon'
 import { Demo, Section } from '../Showcase'
+import { HouseThemeReachDemo } from './HouseApp'
 import { useThemeId } from '../theme'
 
 /** House tokens (house-style/house-style.css), grouped as in house-style/README.md. */
@@ -69,6 +70,9 @@ export function Foundations() {
       ))}
       <Demo label="Brand layer colour (--dkj-*)" wide>
         <SwatchGrid items={LAYER_COLORS.map((n) => ({ name: `--dkj-${n}`, value: values[`--dkj-${n}`] }))} />
+      </Demo>
+      <Demo label="Theme reach -- links, native controls, selection, and the opt-in --accent modifiers" wide>
+        <HouseThemeReachDemo />
       </Demo>
       <Demo label="Type scale -- house" wide>
         <div className="bb-scale">

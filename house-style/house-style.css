@@ -18,6 +18,11 @@
        dark, both with those house defaults.
      The dark token block therefore appears twice; keep both in sync.
 
+   How far a theme reaches: every use of --primary (the pressed .seg, .btn--primary, .badge--info,
+   .meter--info, the settings toggle, focus rings), every link, native checkboxes, radios and
+   sliders (accent-color), the text caret and the selection. The --accent modifiers (header, card,
+   tile, table) carry it further where an app opts in.
+
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
    Semantic colours (--gain/--loss/--up/--down) are for direction and result,
@@ -99,6 +104,10 @@
   --tap: var(--spacing-11);
   --topbar-h: var(--spacing-14);
   --column-narrow: 512px;
+
+  /* native controls (checkbox, radio, range, progress) and the text caret take the theme */
+  accent-color: var(--primary);
+  caret-color: var(--primary);
 }
 
 /* ---- Tokens: dark, following the OS unless the page forces a theme -------- */
@@ -191,6 +200,15 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .delta { font-weight: 600; }
 .delta--up, .pos { color: var(--up); }
 .delta--down, .neg { color: var(--down); }
+
+/* ---- Links and selection ---------------------------------------------------- */
+/* A link (an <a> with an href) takes the theme's primary, visited or not: every primary reaches 4.5:1 on its page and
+   surface. :where() keeps each rule at zero specificity, so any class on an <a> (a .btn, a
+   .menu-item, an app's own) wins over it without an override. */
+:where(a:any-link) { color: var(--primary); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+:where(a:any-link:hover) { text-decoration-thickness: 2px; }
+:where(a:any-link:focus-visible) { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 2px; }
+::selection { background: color-mix(in srgb, var(--primary) 30%, transparent); }
 
 /* ---- Surfaces ------------------------------------------------------------- */
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: var(--spacing-5); margin-top: var(--spacing-4); }
@@ -322,6 +340,13 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .btn--primary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 /* Disabled: one rule for every .btn variant, so an app never adds its own on this reserved class. */
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---- Theme accents (opt-in) ------------------------------------------------- */
+/* Carry the theme beyond the primary controls, on the surfaces a page is built from. Add one to a
+   house element; an app that does not keeps the base look. Text stays --ink. */
+.header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary); }   /* on the page header */
+.card--accent, .tile--accent { border-top: 3px solid var(--primary); }
+.table--accent th { background: var(--primary-soft); color: var(--ink); }
 
 /* ---- Theme picker (drawn by house-theme.js: DKJTheme.picker(el)) ------------ */
 /* Two rows of round swatches, light and dark; each swatch is the theme's page colour with its

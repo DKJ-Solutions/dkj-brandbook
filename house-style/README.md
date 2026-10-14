@@ -47,7 +47,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--gain`, `--loss` (charts), `--up`, `--down` (numbers in text) | result and direction, never a category. `--up`/`--down` are the text versions of `--good`/`--bad`, a step more contrast so a number reads as text: darker on light, lighter on dark |
 | Status | `--good`, `--warn`, `--bad`, `--warn-bg`, `--status-mark`, `--on-warn` | badges, meters, notices. `--status-mark` is the mark inside a status icon (check, cross, "!"): white on light, near-black on dark. `--on-warn` is text on a `--warn` fill: dark in every theme, because `--warn` is orange or yellow in all of them |
-| Primary | `--primary`, `--on-primary`, `--primary-soft` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`. `--on-primary` is text on it, `--primary-soft` a tint for a background. Never a status or a number |
+| Primary | `--primary`, `--on-primary`, `--primary-soft` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--on-primary` is text on it, `--primary-soft` a tint for a background. Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h3` take the token of their own level, body text is `--text-base` |
@@ -123,11 +123,34 @@ of amber and the dark one a brighter yellow; `--down` on light is a darker red (
 `--up`/`--down` are a step lighter and `--bad` is the dark red it never had; status icons take
 `--status-mark`.
 
+### How far a theme reaches
+
+**A page built only from house classes shows the theme beyond its primary button**
+([#72](https://github.com/DKJ-Solutions/dkj-brandbook/issues/72)). Until then a theme set one token,
+and only the primary controls and the focus rings used it. Plain links kept the browser's blue in
+every theme. Now:
+
+- **By default**, with nothing for the app to do: every link takes `--primary`, visited or not, with
+  a thicker underline on hover and a primary focus ring. Native checkboxes, radios, sliders and
+  progress bars take it through `accent-color`, the text caret through `caret-color`, and selected
+  text gets a primary tint. The link rules sit in `:where()`, so they weigh nothing: any class on an
+  `<a>` (a `.btn`, a `.menu-item`, an app's own) wins without an override. An `<a>` without an `href`
+  is not a link and is left alone. `accent-color` and `caret-color` are set once on the root, so a
+  subtree that sets its own `--primary` keeps the page's theme on its native controls, as it does for
+  `--primary-soft`.
+- **Opt-in**, one modifier on a house element: `.header--accent` puts a primary rule under the page
+  header, `.card--accent` and `.tile--accent` a primary rule across the top, and `.table--accent` a
+  `--primary-soft` table head. Text stays `--ink`. They are modifiers rather than defaults, so an app
+  that takes the update keeps its layout until it adds one.
+
+**What this changes for an app that takes the update:** its unstyled links, checkboxes, radios and
+sliders turn the theme's colour. Links an app already styles through a class keep their look.
+
 ## Components
 
 **The complete list of reserved names**, so a repo layer knows what not to redefine:
-the page header (`body > header`, `main > header`) and its `.controls` row, `main`/`.container`,
-`.hero`, `.tiles`/`.tile`, `.card`, `.grid-2`, `.table-wrap`/`.table` (with `.row-total`, and
+the page header (`body > header`, `main > header`, with `.header--accent`) and its `.controls` row, `main`/`.container`,
+`.hero`, `.tiles`/`.tile` (with `--accent`), `.card` (with `--accent`), `.grid-2`, `.table-wrap`/`.table` (with `--accent`, `.row-total`, and
 sortable headers via `.sort`/`.arrow` on `aria-sort`), `.seg` (a segmented switch), `.legend`/`.legend__item` (with
 `--line`), `.swatch`, `.badge` (with `--good`, `--warn`, `--bad`, `--info`, `--neutral`, `--sm`),
 `.badge-row`, `.meter` (with `--good`, `--warn`, `--bad`, `--info`), `.mini-cards`/`.mini-card` (with
