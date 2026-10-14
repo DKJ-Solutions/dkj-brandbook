@@ -232,7 +232,9 @@ out). Three more things follow it by default, in light and in dark (and a measur
   plus 6% or 14%; the line `#d1d1d1` or `#333333` plus 15% or 8% (6% on light read as warm). The dark themes
   then carry about twice that colour (owner's decision, October 14, 2026: they read grey): each step keeps its
   OKLCH lightness and hue and multiplies its chroma by about 2.1, clipped to sRGB. `-5` takes `-3`'s hue and
-  chroma, at the first lightness on the far side where it reaches 4.5:1 on `-3`. `-6` and `-7` are in the
+  chroma, at the first lightness on the far side where it reaches 4.5:1 on `-3`. On dark `-1`, `-2` and `-3` then
+  move 0.04 OKLCH lightness darker and `-5` 0.12 lighter, hue and chroma kept (owner's decision, October 14,
+  2026: a deeper ground and brighter text). `-6` and `-7` are in the
   colour's hue: on dark OKLCH lightness 0.95 and 0.98, near-white; on light 0.36 and 0.26.
 - **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
   on dark the card is a shade lighter than the page. Either way the page is the ground end (owner's decision,
@@ -242,9 +244,9 @@ out). Three more things follow it by default, in light and in dark (and a measur
 - **The theme picker previews it:** each swatch shows its own theme's page, with the primary as the dot.
 - **`h1` and `h2` are the theme's colour**, as `--primary-4`, and so are links.
 - **Measured:** `--primary-5`, all text, reaches 6.9:1 or better on the page and card on light (Oker) and
-  5.5:1 on dark (Geel), and 5.1:1 or better on a warning, negative or positive background (Oranje); `--primary-4` reaches 4.5:1 or better on the card
-  (worst: Petrol, Roest) and `--primary-1` on `--primary-4` 4.88:1 on light (Petrol) and 6.91:1 on dark
-  (Oranje); `--primary-5` on `--primary-3` 4.51:1 or better (Lila). Status, direction and categorical
+  9.5:1 on dark (Geel), and 6.9:1 or better on a warning, negative or positive background (Oker); `--primary-4` reaches 4.5:1 or better on the card
+  (worst: Petrol, Roest) and `--primary-1` on `--primary-4` 4.88:1 on light (Petrol) and 7.2:1 on dark
+  (Hemelsblauw); `--primary-5` on `--primary-3` 4.52:1 or better (Oker). Status, direction and categorical
   colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never tinted.
 
 **What this changes for an app that takes the update:** every page turns a light shade of its theme, and

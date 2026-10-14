@@ -32,11 +32,17 @@
 
 ### PLAN
 
+Owner's request (October 14, 2026): on the dark themes `--primary-1` to `-3` a little darker, `--primary-5` a lot lighter.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Six dark themes plus the OS-dark default: `-1`, `-2`, `-3` 0.04 OKLCH lightness darker, `-5` 0.12 lighter, hue and chroma kept
+- [x] Stated contrasts in the stylesheet comment and the README remeasured; the derivation names the shift
+- [x] Lint gate green
 
 ### TEST
+
+- [ ] An owner has looked at the six dark themes in the showcase and approved them
 
 ### DEPLOY: feat/dark-themes-deeper-ground
 
@@ -44,7 +50,11 @@
 
 ##### Tier 0
 
-**Score:**
+On the six dark themes (and the OS-dark default) the page, the cards and the lines (`--primary-1` to `-3`) are a
+shade darker and all text (`--primary-5`) is clearly lighter, each in its own hue and chroma. Text on the page now
+reaches 9.5:1 or better on dark, up from 5.5:1. No token is added or renamed; a consuming repo only takes the new copy.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +63,9 @@
 
 ##### Tier 1
 
-**Score:**
+The dark themes read with more contrast; nothing to act on.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +74,9 @@
 
 ##### Tier 2
 
-**Score:**
+On a dark theme a user sees a deeper background and brighter, easier-to-read text.
+
+**Score:** 2
 
 #### Pull Request
 
