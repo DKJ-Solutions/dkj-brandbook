@@ -11,7 +11,7 @@
 }
 .dkj-card--flush { padding: 0; overflow: hidden; }
 .dkj-card--open { border-color: color-mix(in srgb, var(--primary) 60%, var(--border)); }
-.dkj-card--invalid { border-color: var(--negative-light); }
+.dkj-card--invalid { border-color: var(--negative-3); }
 /* Data variant: the head is left-aligned in the house serif (the h2 rule of house-style.css sets the family),
    with a muted subline, and there is no rule between head and body. */
 .dkj-card--data { padding: var(--spacing-5); }
@@ -94,8 +94,8 @@
 .dkj-banner--warn ul { margin: var(--spacing-1) 0 0; padding-left: var(--spacing-5); }
 
 /* ---------- Alert ---------- */
-.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-light); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-light) 8%, var(--surface)); color: var(--neutral-5); }
-.dkj-alert-title { display: flex; align-items: center; gap: var(--spacing-2); margin: 0 0 var(--spacing-1); font-size: var(--text-h5); color: var(--negative-dark); }
+.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-3); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-3) 8%, var(--surface)); color: var(--neutral-5); }
+.dkj-alert-title { display: flex; align-items: center; gap: var(--spacing-2); margin: 0 0 var(--spacing-1); font-size: var(--text-h5); color: var(--negative-5); }
 .dkj-alert-icon { flex: none; }
 .dkj-alert > :last-child { margin-bottom: 0; }
 
@@ -103,12 +103,12 @@
 .dkj-msg { margin: 0; font-size: var(--text-base); color: var(--neutral-4); }
 .dkj-msg--note { margin-top: var(--spacing-5); }
 .dkj-msg--warn { color: color-mix(in srgb, var(--warning-light) 70%, var(--neutral-5)); font-weight: var(--dkj-fw-semibold); }
-.dkj-msg--error { color: var(--negative-dark); }
+.dkj-msg--error { color: var(--negative-5); }
 .dkj-msg--debug {
   padding: var(--spacing-2) var(--spacing-3);
-  border: 1px dashed var(--negative-light);
+  border: 1px dashed var(--negative-3);
   border-radius: var(--dkj-radius-md);
-  color: var(--negative-dark);
+  color: var(--negative-5);
   font-size: var(--text-sm);
 }
 .dkj-msg a { color: var(--primary); }
@@ -202,7 +202,7 @@
   color: var(--neutral-4);
 }
 .dkj-group-count { font-variant-numeric: tabular-nums; letter-spacing: 0; text-transform: none; white-space: nowrap; }
-.dkj-group-count--over { color: var(--negative-dark); }
+.dkj-group-count--over { color: var(--negative-5); }
 
 /* ---------- QuestionBlock ---------- */
 .dkj-question-head {

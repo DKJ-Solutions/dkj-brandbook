@@ -28,9 +28,9 @@
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
-   Semantic colours (--negative-light/--positive-up/--negative-dark) are for direction and result, never
+   Semantic colours (--negative-3/--positive-up/--negative-5) are for direction and result, never
    for categories. The one exception: --cat-1 doubles as the gain colour in a
-   chart (there is no --gain); --negative-light is the loss colour.
+   chart (there is no --gain); --negative-3 is the loss colour.
    ========================================================================== */
 
 /* ---- Tokens: light (default) -------------------------------------------- */
@@ -61,13 +61,13 @@
 
   /* direction and result semantics */
   --positive-up: #006300;          /* positive number in text: a step darker than --positive-light, so it reads as text */
-  --negative-dark: #a32424;        /* negative number in text: a step darker than --negative-light */
+  --negative-5: #a32424;        /* negative number in text: a step darker than --negative-3 */
 
   /* status colours (badges, meters): fills */
   --positive-light: #0ca30c;
   --warning-light: #e0761a;        /* the warning icon; amber-yellow on the dark themes */
   --warning-dark: #a84f00;        /* a warning in text: a step darker than --warning-light, so it reads as text (4.8:1 on the lightest tinted page) */
-  --negative-light: #d03b3b;
+  --negative-3: #d03b3b;
 
   /* the theme's primary colour: switches, primary buttons, info badges and meters.
      Light default Blauw; each [data-theme] below sets its own. */
@@ -79,7 +79,7 @@
   --primary-ink: color-mix(in srgb, var(--primary) 80%, var(--neutral-5));
 
   --warning-bg: #fff4e0;     /* notice background */
-  --negative-bg: #fde8e8;    /* a background for a negative message: the same lightness as --warning-bg, in red */
+  --negative-1: #fde8e8;    /* a background for a negative message: the same lightness as --warning-bg, in red */
   --positive-bg: #e6f6e6;    /* a background for a positive message, in green */
   --shadow-pop: 0 4px 16px rgba(0,0,0,0.15);  /* tooltips; same in both modes */
 
@@ -128,7 +128,7 @@
     --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333331; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
     --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-    --positive-up: #3fc23f; --negative-dark: #ff7a7a; --positive-light: #25b225; --negative-light: #e66767; --warning-light: #ffc61a; --warning-dark: #ffd75e; --warning-bg: #3a2a10; --negative-bg: #3a1414; --positive-bg: #133a13;
+    --positive-up: #3fc23f; --negative-5: #ff7a7a; --positive-light: #25b225; --negative-3: #e66767; --warning-light: #ffc61a; --warning-dark: #ffd75e; --warning-bg: #3a2a10; --negative-1: #3a1414; --positive-bg: #133a13;
     --primary: #2fc8d8;
   }
 }
@@ -141,7 +141,7 @@
   --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333331; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
   --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
-  --positive-up: #3fc23f; --negative-dark: #ff7a7a; --positive-light: #25b225; --negative-light: #e66767; --warning-light: #ffc61a; --warning-dark: #ffd75e; --warning-bg: #3a2a10; --negative-bg: #3a1414; --positive-bg: #133a13;
+  --positive-up: #3fc23f; --negative-5: #ff7a7a; --positive-light: #25b225; --negative-3: #e66767; --warning-light: #ffc61a; --warning-dark: #ffd75e; --warning-bg: #3a2a10; --negative-1: #3a1414; --positive-bg: #133a13;
   --primary: #2fc8d8;
 }
 
@@ -211,7 +211,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .num { font-variant-numeric: tabular-nums; }                        /* aligned digits */
 .delta { font-weight: 600; }
 .delta--up, .pos { color: var(--positive-up); }
-.delta--down, .neg { color: var(--negative-dark); }
+.delta--down, .neg { color: var(--negative-5); }
 
 /* ---- Links and selection ---------------------------------------------------- */
 /* A link (an <a> with an href) takes the theme's primary as text (--primary-ink), visited or not: it reaches 4.5:1
@@ -290,14 +290,14 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .meter { height: 6px; border-radius: 3px; background: var(--grid); overflow: hidden; }
 .meter span { display: block; height: 100%; border-radius: 3px; background: var(--m); }
 .meter--good { --m: var(--positive-light); } .meter--warn { --m: var(--warning-light); }
-.meter--bad { --m: var(--negative-light); }   .meter--info { --m: var(--primary); }
+.meter--bad { --m: var(--negative-3); }   .meter--info { --m: var(--primary); }
 
 /* ---- Badge ---------------------------------------------------------------- */
 .badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%;
   font: 700 var(--text-sm)/1 system-ui, sans-serif; color: var(--neutral-1); background: var(--b); flex: none; }
 .badge--good    { --b: var(--positive-light); }
 .badge--warn    { --b: var(--warning-light); }
-.badge--bad     { --b: var(--negative-light); }
+.badge--bad     { --b: var(--negative-3); }
 .badge--info    { --b: var(--primary); color: var(--neutral-1); }
 .badge--neutral { --b: var(--neutral-3); color: var(--neutral-5); }
 .badge--sm { width: 18px; height: 18px; font-size: var(--text-xs); }
@@ -429,7 +429,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
   background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
   background-position: right 18px center, right 13px center; background-size: 5px 5px; background-repeat: no-repeat; }
 .field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-.field__error { margin: var(--spacing-1) 0 0; font-size: var(--text-base); color: var(--negative-dark); }
+.field__error { margin: var(--spacing-1) 0 0; font-size: var(--text-base); color: var(--negative-5); }
 .field__error:empty { display: none; }
 
 /* ---- Touch buttons ----------------------------------------------------------- */
@@ -480,8 +480,8 @@ html:has(dialog:modal) { overflow: hidden; }
 .dialog__close--save::before, .dialog__close--cancel::before { content: ""; position: absolute; inset: var(--spacing-1); border: 1px solid; border-radius: var(--spacing-1-5); }
 .dialog__close--save { color: var(--neutral-1); }
 .dialog__close--save::before { background: var(--primary); border-color: var(--primary); }
-.dialog__close--cancel { right: calc(var(--spacing-4) + var(--tap) - 2px); color: var(--negative-dark); }
-.dialog__close--cancel::before { border-color: var(--negative-dark); }
+.dialog__close--cancel { right: calc(var(--spacing-4) + var(--tap) - 2px); color: var(--negative-5); }
+.dialog__close--cancel::before { border-color: var(--negative-5); }
 .dialog__close--back { right: auto; left: var(--spacing-4); }
 /* Room for two buttons (cancel and save), or for the back button on the left. */
 .dialog__head--two { padding-right: calc(2 * var(--tap) + var(--spacing-2) - 2px); }

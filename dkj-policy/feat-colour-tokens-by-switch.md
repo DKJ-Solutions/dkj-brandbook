@@ -57,6 +57,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] `--negative-down` and `--warning-down` renamed to `--negative-dark` and `--warning-dark` (owner's follow-up)
 - [x] `--warning-dark` on light moved from the brownish `#8a4400` to a more orange `#a84f00`, 4.8:1 on the lightest tinted page; `--warning-light` stays, since lighter would drop the white mark in a warning badge from 3.1:1 to 2.7:1 (owner's follow-up)
 - [x] The nine black, white and grey tokens merged into a five-step ramp `--neutral-1` .. `--neutral-5` (ground, raised plane, lines, secondary text, text; flipped on dark), and every use renamed; `--border` is now solid over `--neutral-3` instead of translucent; the info dialog's `--on-primary` re-declaration dropped, since it would now be a self-reference (owner's follow-up)
+- [x] `--negative-bg`, `--negative-light` and `--negative-dark` renamed to `--negative-1`, `--negative-3` and `--negative-5`, by the owner's rule that -1 is the ground end (light on light, dark on dark) and -5 the text end; the rule written into the README (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST

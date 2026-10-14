@@ -209,7 +209,7 @@
 }
 .dkj-value-num--regular { font-weight: var(--dkj-fw-regular); }
 .dkj-value-num--lg { font-size: var(--text-h4); }
-.dkj-value-num--negative { color: var(--negative-dark); }
+.dkj-value-num--negative { color: var(--negative-5); }
 .dkj-value-num--positive { color: var(--positive-up); }
 .dkj-value-was { font-size: var(--text-sm); font-weight: var(--dkj-fw-regular); color: var(--neutral-4); }
 .dkj-value-unit { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); color: var(--neutral-4); }
