@@ -219,7 +219,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   picker draws, and the most saturated step of the seven. The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). **`-3` and
   `-5` are the greyest steps**, one on each side of the colour: `-5` is `-3` on the far side, with the same low
-  chroma on dark and twice it on light. `-4` carries the fills, focus rings and links in both modes, with `--primary-1` as text on a
+  chroma on dark and three times it on light. `-4` carries the fills, focus rings and links in both modes, with `--primary-1` as text on a
   fill. On light it is held where it reaches 4.5:1 as link text on the card, which moved Petrol and Roest a
   fraction darker (`#0f7c86` → `#087983`, `#ad5a0a` → `#aa5703`); Hemelsblauw moved to Blauw's hue
   (`#5cb3ff` → `#6aa2ff`) to stand apart from Cyaan.
@@ -235,7 +235,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   chroma, at the first lightness on the far side where it reaches 4.5:1 on `-3`. On dark `-1`, `-2` and `-3` then
   move 0.04 OKLCH lightness darker and `-5` 0.12 lighter, hue and chroma kept (owner's decision, October 14,
   2026: a deeper ground and brighter text). On light `-2` then carries 1.6 times its chroma at the same lightness (owner's
-  decision, October 14, 2026: a card with a little more colour), and `-5` twice its chroma, still 4.5:1 on `-3`. `-6` and `-7` are in the
+  decision, October 14, 2026: a card with a little more colour), and `-5` three times its chroma, still 4.5:1 on `-3`. `-6` and `-7` are in the
   colour's hue: on dark OKLCH lightness 0.95 and 0.98, near-white; on light 0.36 and 0.18 (`-7` was 0.26 until
   the owner asked for it a lot darker, October 14, 2026).
 - **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
@@ -249,7 +249,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
 - **Measured:** `--primary-5`, all text, reaches 6.9:1 or better on the page and card on light (Oker) and
   9.5:1 on dark (Geel), and 6.9:1 or better on a warning, negative or positive background (Oker); `--primary-4` reaches 4.5:1 or better on the card
   (worst: Petrol, Roest) and `--primary-1` on `--primary-4` 4.88:1 on light (Petrol) and 7.2:1 on dark
-  (Hemelsblauw); `--primary-5` on `--primary-3` 4.53:1 or better (Oker). Status, direction and categorical
+  (Hemelsblauw); `--primary-5` on `--primary-3` 4.52:1 or better (Oker). Status, direction and categorical
   colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never tinted.
 
 **What this changes for an app that takes the update:** every page turns a light shade of its theme, and

@@ -39,18 +39,18 @@
   /* the theme's seven steps, fixed values per theme, with the theme's colour in the middle (owner's decision,
      October 14, 2026): --primary-4 is the most saturated step, the anchor. -1 and -2 are the ground end (lightest
      on light, darkest on dark), -6 and -7 the far end (darkest on light, whitest on dark). -3 and -5 are the
-     greyest: -5 is -3 on the far side of the colour, with the same low chroma on dark and twice it on light. Blauw here; each [data-theme]
+     greyest: -5 is -3 on the far side of the colour, with the same low chroma on dark and three times it on light. Blauw here; each [data-theme]
      below sets its own seven.
      -1 the page, and the text on the colour; -2 the cards (tiles, tooltips); -3 every line (borders, row
      dividers, meter track, gridlines) and the tinted surfaces (an accent table head, a hover, a today row, the
      accent dialog); -4 THE COLOUR: primary buttons, switches, info badges and meters, focus rings, links,
      and the picker's dot; -5 all text (body, labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end, an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -4 on the card 4.52:1
-     (Petrol, Roest), -1 on -4 4.88:1 on light (Petrol) and 7.2:1 on dark (Hemelsblauw), -5 on -3 4.53:1 (Oker);
+     (Petrol, Roest), -1 on -4 4.88:1 on light (Petrol) and 7.2:1 on dark (Hemelsblauw), -5 on -3 4.52:1 (Oker);
      -5, all text, on -1 and -2 at 6.9:1 or better on light (Oker) and 9.5:1 on dark (Geel), and 6.9:1 or better
      on a status background (Oker). */
   --primary-1: #f8f9fa; --primary-2: #eaf0f8; --primary-3: #b7c1d1; --primary-4: #2563d0;
-  --primary-5: #3d4f6b; --primary-6: #193a75; --primary-7: #000d34;
+  --primary-5: #334e79; --primary-6: #193a75; --primary-7: #000d34;
 
   /* categorical palette (series slots) */
   --cat-1: #2a78d6;
@@ -138,12 +138,12 @@
    two whose primary sits next to the warning colour move the warning away from it. No red and
    no green theme: those hues mean bad and good. Order: magenta, purple, blue, teal, ochre, rust (light);
    pink, lilac, sky, cyan, yellow, orange (dark). */
-:root[data-theme="magenta"] { --primary-1: #fbf8f9; --primary-2: #faeaf2; --primary-3: #ceb7c7; --primary-4: #c0258f; --primary-5: #663f5c; --primary-6: #67174c; --primary-7: #26001a; }
-:root[data-theme="purple"] { --primary-1: #f9f8fa; --primary-2: #f2edf8; --primary-3: #c4bbd2; --primary-4: #7a3fd6; --primary-5: #56456d; --primary-6: #452878; --primary-7: #180036; }
-:root[data-theme="blue"] { --primary-1: #f8f9fa; --primary-2: #eaf0f8; --primary-3: #b7c1d1; --primary-4: #2563d0; --primary-5: #3d4f6b; --primary-6: #193a75; --primary-7: #000d34; }
-:root[data-theme="teal"] { --primary-1: #f7f9f9; --primary-2: #e8f2f0; --primary-3: #b4c4c6; --primary-4: #087983; --primary-5: #365458; --primary-6: #12454a; --primary-7: #001518; }
-:root[data-theme="ochre"] { --primary-1: #f9f9f6; --primary-2: #f2f0e3; --primary-3: #c4c2b2; --primary-4: #7a6b00; --primary-5: #555035; --primary-6: #453e0e; --primary-7: #161200; }
-:root[data-theme="rust"] { --primary-1: #faf9f6; --primary-2: #f7efe5; --primary-3: #ccbfb3; --primary-4: #aa5703; --primary-5: #5f4935; --primary-6: #5c300b; --primary-7: #200b00; --warning-3: #b88a00; }
+:root[data-theme="magenta"] { --primary-1: #fbf8f9; --primary-2: #faeaf2; --primary-3: #ceb7c7; --primary-4: #c0258f; --primary-5: #703563; --primary-6: #67174c; --primary-7: #26001a; }
+:root[data-theme="purple"] { --primary-1: #f9f8fa; --primary-2: #f2edf8; --primary-3: #c4bbd2; --primary-4: #7a3fd6; --primary-5: #5a3f7c; --primary-6: #452878; --primary-7: #180036; }
+:root[data-theme="blue"] { --primary-1: #f8f9fa; --primary-2: #eaf0f8; --primary-3: #b7c1d1; --primary-4: #2563d0; --primary-5: #334e79; --primary-6: #193a75; --primary-7: #000d34; }
+:root[data-theme="teal"] { --primary-1: #f7f9f9; --primary-2: #e8f2f0; --primary-3: #b4c4c6; --primary-4: #087983; --primary-5: #24565c; --primary-6: #12454a; --primary-7: #001518; }
+:root[data-theme="ochre"] { --primary-1: #f9f9f6; --primary-2: #f2f0e3; --primary-3: #c4c2b2; --primary-4: #7a6b00; --primary-5: #585025; --primary-6: #453e0e; --primary-7: #161200; }
+:root[data-theme="rust"] { --primary-1: #faf9f6; --primary-2: #f7efe5; --primary-3: #ccbfb3; --primary-4: #aa5703; --primary-5: #674626; --primary-6: #5c300b; --primary-7: #200b00; --warning-3: #b88a00; }
 :root[data-theme="pink"] { --primary-1: #23081b; --primary-2: #3b132d; --primary-3: #3f2b38; --primary-4: #ff7ac8; --primary-5: #dec4d3; --primary-6: #fbe8f2; --primary-7: #fff6f9; }
 :root[data-theme="lilac"] { --primary-1: #160f24; --primary-2: #281f3a; --primary-3: #342f3f; --primary-4: #b69cff; --primary-5: #cec8de; --primary-6: #efecfd; --primary-7: #f9f7fd; }
 :root[data-theme="sky"] { --primary-1: #021624; --primary-2: #09263b; --primary-3: #253440; --primary-4: #6aa2ff; --primary-5: #bccfdf; --primary-6: #e6effe; --primary-7: #f6f9fc; }
