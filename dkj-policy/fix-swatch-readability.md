@@ -86,5 +86,5 @@ No subscriber-facing surface changes.
 
 #### Pull Request
 
-Token swatches read as name over value, and a colour-mix value breaks only after a comma
+Token swatches read as name over value, and a mixed token shows its colour and its recipe in token names
 
