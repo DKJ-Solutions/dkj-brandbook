@@ -51,7 +51,7 @@ export function HeroValue({ label, info, size = 'display', children }: { label: 
 
 /**
  * Delta -- a change in direction: a ▲ or ▼, then the figure with its sign (the caller formats it, e.g. "+€ 1.200,00").
- * tone up is green, down is red (--positive-up / --down, the text versions). The arrow repeats what the sign says, so it is
+ * tone up is green, down is red (--positive-up / --negative-down, the text versions). The arrow repeats what the sign says, so it is
  * hidden from a screen reader.
  */
 export function Delta({ tone, children }: { tone: 'up' | 'down'; children: ReactNode }) {

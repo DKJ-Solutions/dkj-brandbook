@@ -29,7 +29,7 @@
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
-   Semantic colours (--negative-loss/--positive-up/--down) are for direction and result, never
+   Semantic colours (--negative-loss/--positive-up/--negative-down) are for direction and result, never
    for categories. The one exception: --cat-1 doubles as the gain colour in a
    chart (there is no --gain); --negative-loss stays the loss colour.
    ========================================================================== */
@@ -64,7 +64,7 @@
   /* direction and result semantics */
   --negative-loss: #e34948;        /* negative result in charts */
   --positive-up: #006300;          /* positive number in text: a step darker than --positive-good, so it reads as text */
-  --down: #a32424;        /* negative number in text: a step darker than --negative-bad */
+  --negative-down: #a32424;        /* negative number in text: a step darker than --negative-bad */
 
   /* status colours (badges, meters): fills */
   --positive-good: #0ca30c;
@@ -132,7 +132,7 @@
     --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --negative-loss: #e66767;
-    --positive-up: #3fc23f; --down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
+    --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
     --status-mark: #0b0b0b;
     --primary: #2fc8d8; --on-primary: #0b0b0b;
   }
@@ -148,7 +148,7 @@
   --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --negative-loss: #e66767;
-  --positive-up: #3fc23f; --down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
+  --positive-up: #3fc23f; --negative-down: #ff7a7a; --positive-good: #25b225; --negative-bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
   --status-mark: #0b0b0b;
   --primary: #2fc8d8; --on-primary: #0b0b0b;
 }
@@ -219,7 +219,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .num { font-variant-numeric: tabular-nums; }                        /* aligned digits */
 .delta { font-weight: 600; }
 .delta--up, .pos { color: var(--positive-up); }
-.delta--down, .neg { color: var(--down); }
+.delta--down, .neg { color: var(--negative-down); }
 
 /* ---- Links and selection ---------------------------------------------------- */
 /* A link (an <a> with an href) takes the theme's primary as text (--primary-ink), visited or not: it reaches 4.5:1
@@ -437,7 +437,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
   background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
   background-position: right 18px center, right 13px center; background-size: 5px 5px; background-repeat: no-repeat; }
 .field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-.field__error { margin: var(--spacing-1) 0 0; font-size: var(--text-base); color: var(--down); }
+.field__error { margin: var(--spacing-1) 0 0; font-size: var(--text-base); color: var(--negative-down); }
 .field__error:empty { display: none; }
 
 /* ---- Touch buttons ----------------------------------------------------------- */
@@ -488,8 +488,8 @@ html:has(dialog:modal) { overflow: hidden; }
 .dialog__close--save::before, .dialog__close--cancel::before { content: ""; position: absolute; inset: var(--spacing-1); border: 1px solid; border-radius: var(--spacing-1-5); }
 .dialog__close--save { color: var(--on-primary); }
 .dialog__close--save::before { background: var(--primary); border-color: var(--primary); }
-.dialog__close--cancel { right: calc(var(--spacing-4) + var(--tap) - 2px); color: var(--down); }
-.dialog__close--cancel::before { border-color: var(--down); }
+.dialog__close--cancel { right: calc(var(--spacing-4) + var(--tap) - 2px); color: var(--negative-down); }
+.dialog__close--cancel::before { border-color: var(--negative-down); }
 .dialog__close--back { right: auto; left: var(--spacing-4); }
 /* Room for two buttons (cancel and save), or for the back button on the left. */
 .dialog__head--two { padding-right: calc(2 * var(--tap) + var(--spacing-2) - 2px); }

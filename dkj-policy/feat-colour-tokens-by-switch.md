@@ -48,6 +48,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] `--good` gets a dark value of its own, `#25b225` (halfway to `--up`), so it lightens on dark like `--up` and `--bad`; it moves to the light/dark colours group (owner's follow-up)
 - [x] `--good` and `--up` renamed to `--positive-good` and `--positive-up` everywhere they are used as a token; class modifiers such as `.badge--good` and `.delta--up` keep their names (owner's follow-up)
 - [x] `--loss` and `--bad` renamed to `--negative-loss` and `--negative-bad`, including the `LegendItem` colour `negative-loss`; `.badge--bad` and `.meter--bad` keep their names (owner's follow-up)
+- [x] `--down` renamed to `--negative-down`; `.delta--down` keeps its name (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST
