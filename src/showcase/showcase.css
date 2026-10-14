@@ -91,6 +91,19 @@
 .bb-content--phone { max-width: 360px; }
 .bb-content--phone .bb-demos { grid-template-columns: minmax(0, 1fr); }
 
+/* The intro: page title, hero card and type specimen at the top of the content. */
+.bb-intro { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }
+.bb-eyebrow { margin: 0 0 var(--spacing-1); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--ink-2); }
+.bb-lead { max-width: 46rem; margin: var(--spacing-2) 0 0; font-size: var(--text-lg); line-height: var(--dkj-lh-snug); color: var(--ink-2); }
+.bb-specimen { display: grid; gap: var(--spacing-3); }
+.bb-specimen > * { margin: 0; }
+/* The house style sizes h1-h3 only; the specimen sets h4-h6 on their own tokens. */
+.bb-h4, .bb-h5, .bb-h6 { font-weight: var(--dkj-fw-semibold); color: var(--ink); }
+.bb-h4 { font-size: var(--text-h4); }
+.bb-h5 { font-size: var(--text-h5); }
+.bb-h6 { font-size: var(--text-h6); }
+.bb-specimen-lg { font-size: var(--text-lg); }
+
 .bb-section { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }
 /* An <h2>: the house style makes it a flex row; the showcase title stays a block. */
 .bb-section-title { display: block; margin: 0 0 var(--spacing-1); font-size: var(--text-h3); line-height: var(--dkj-lh-tight); }

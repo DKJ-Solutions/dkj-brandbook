@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { cx } from './components/cx'
 import { Toolbar } from './showcase/Showcase'
+import { Intro } from './showcase/sections/Intro'
 import { RepoPreview } from './showcase/previews/RepoPreview'
 import { useWidth } from './showcase/theme'
 import { Apps } from './showcase/sections/Apps'
@@ -106,6 +107,7 @@ export default function App() {
             <RepoPreview repo={previewRepo} />
           ) : (
             <>
+              <Intro />
               <Apps />
               <Overlap />
               <Foundations />
