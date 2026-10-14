@@ -2,7 +2,38 @@
 
 ## [Unreleased]
 
-**54 minor entries** <!-- pending-tally -->
+**55 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/gwen-no-new-tokens · 20261014-195123Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Gwen's lens states that a theme's colour is its seven `--primary-*` tokens and nothing else: she never adds a
+colour token, not even an alias, without the owner's decision.
+
+**Score:** 1
+
+##### Tier 1
+
+Internal working rule; nobody outside the repo notices it.
+
+**Score:** N/A
+
+##### Tier 2
+
+Internal working rule; no user notices it.
+
+**Score:** N/A
+
+#### Pull Request
+
+Gwen's lens: no colour token beyond the seven primaries
+
+[PR #97](https://github.com/DKJ-Solutions/dkj-brandbook/pull/97)
+
+---
 
 ### DEPLOY: feat/lilac-more-purple · 20261014-190840Z
 
