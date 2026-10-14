@@ -35,7 +35,10 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 3. **Never redefine a house token or a house class in the repo layer.** A value that is wrong for every
    app is fixed here, through an issue on this repo, so that every app gets the fix. A value that is wrong
    for one app is a new domain token in that app, not an override. Same rule as the constitution:
-   extend, never override.
+   extend, never override. One narrow exception: a component subtree may re-declare a house colour token
+   (`--primary`, `--on-primary`, `--surface`) so its contents follow a tint, as the info and accent dialogs do;
+   the token is never changed for the page. Everything inside such a subtree inherits the re-declared value,
+   so a tinted dialog nested inside an info dialog would tint from `--cat-1`; do not nest them.
 
 ## What it holds
 
