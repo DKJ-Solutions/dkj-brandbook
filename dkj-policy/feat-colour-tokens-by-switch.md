@@ -65,6 +65,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] Light flipped so the page is the ground end: `--neutral-1` #fcfcfb and `--neutral-2` #f9f9f7, page tint 2% and surface tint 6% (were the other way round), the light picker swatch to match (owner's decision)
 - [x] `--primary-5` (the grid line) merged into `--primary-4`, `--grid-tint` dropped, and `--primary-6`/`-7` renumbered to `-5`/`-6` (owner's follow-up)
 - [x] `--neutral-3` a pure grey: #d1d1d1 light, #333333 dark (owner's follow-up)
+- [x] `--primary-1` .. `--primary-6` fixed hex values per theme instead of mixes (computed once from the current mixes, so nothing changes visually); `--page-tint`, `--surface-tint` and `--border-tint` removed with the showcase's tint readout; the accent dialog takes `--primary-3` as its surface and the info dialog mixes `--cat-1` into `--neutral-2` (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST

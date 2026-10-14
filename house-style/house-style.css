@@ -44,13 +44,15 @@
   --neutral-4: #52514e;   /* secondary text, labels */
   --neutral-5: #0b0b0b;   /* primary text */
 
-  /* surfaces and lines: a neutral with the theme's primary mixed in, so every theme tints the page, the cards
-     and the lines with its own colour. Measured worst case: --neutral-4 reaches at least 6.2:1 on the tinted
-     light page (measured at the former 12% tint; worst: Magenta, Paars) and 6.8:1 on the tinted dark surface (worst: Geel). */
-  --page-tint: 2%; --surface-tint: 6%; --border-tint: 6%;
-  --primary-1: color-mix(in srgb, var(--primary-5) var(--page-tint), var(--neutral-1));        /* page background */
-  --primary-2: color-mix(in srgb, var(--primary-5) var(--surface-tint), var(--neutral-2));  /* cards, tiles, tooltips */
-  --primary-4: color-mix(in srgb, var(--primary-5) var(--border-tint), var(--neutral-3));      /* borders, row dividers, meter track, gridlines */
+  /* the theme's colour, a fixed value per theme, from the ground to the text (Blauw here; each [data-theme]
+     below sets its own six). -1 to -4 are the theme's neutrals with a light tint of its colour, so every theme
+     tints the page, the cards and the lines: page, cards (tiles, tooltips), a tinted background, lines
+     (borders, row dividers, meter track, gridlines). -5 is the colour itself (switches, primary buttons, info
+     badges and meters), -6 the colour as text (links, h1, h2), darker on light and lighter on dark, so a link
+     reaches 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). Measured worst case:
+     --neutral-4 reaches at least 6.2:1 on the light page (worst: Magenta, Paars) and 6.8:1 on the dark card (worst: Geel). */
+  --primary-1: #f8f9fa; --primary-2: #ecf0f5; --primary-3: #d0dcf0;
+  --primary-4: #c7cad1; --primary-5: #2563d0; --primary-6: #2051a9;
 
   /* categorical palette (series slots) */
   --cat-1: #2a78d6;
@@ -66,15 +68,6 @@
   --warning-3: #e0761a;        /* the warning icon; amber-yellow on the dark themes */
   --warning-5: #a84f00;        /* a warning in text: a step darker than --warning-3, so it reads as text (4.8:1 on the lightest tinted page) */
   --negative-3: #d03b3b;
-
-  /* the theme's primary colour: switches, primary buttons, info badges and meters.
-     Light default Blauw; each [data-theme] below sets its own. */
-  --primary-5: #2563d0;
-  --primary-3: color-mix(in srgb, var(--primary-5) 14%, var(--primary-2));  /* a tint for backgrounds */
-  /* the primary as TEXT (links, h1, h2): 20% of --neutral-5 mixed in, so it darkens on light and lightens on dark.
-     The tinted page is darker than the neutral one, and a bare Petrol or Oker link would fall to 4.0:1 on
-     it; with this it is 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). */
-  --primary-6: color-mix(in srgb, var(--primary-5) 80%, var(--neutral-5));
 
   --warning-1: #fff4e0;     /* notice background */
   --negative-1: #fde8e8;    /* a background for a negative message: the same lightness as --warning-1, in red */
@@ -124,10 +117,9 @@
   :root:not([data-theme]) {
     color-scheme: dark;
     --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333333; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
-    --page-tint: 10%; --surface-tint: 14%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-    --primary-5: #2fc8d8;
+    --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #2fc8d8; --primary-6: #59d3e0;
   }
 }
 
@@ -137,30 +129,29 @@
 :root[data-theme="cyan"], :root[data-theme="yellow"], :root[data-theme="orange"] {
   color-scheme: dark;
   --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333333; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
-  --page-tint: 10%; --surface-tint: 14%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-  --primary-5: #2fc8d8;
+  --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #2fc8d8; --primary-6: #59d3e0;
 }
 
 /* ---- Themes: the primary colour ------------------------------------------ */
 /* Twelve themes the user picks from (house-theme.js draws the picker). A light theme takes the
-   light tokens of :root, a dark theme the dark block above; each sets only its primary, and the
+   light tokens of :root, a dark theme the dark block above; each sets its own six --primary-*, and the
    two whose primary sits next to the warning colour move the warning away from it. No red and
    no green theme: those hues mean bad and good. Order: magenta, purple, blue, teal, ochre, rust (light);
    pink, lilac, sky, cyan, yellow, orange (dark). */
-:root[data-theme="magenta"] { --primary-5: #c0258f; }
-:root[data-theme="purple"]  { --primary-5: #7a3fd6; }
-:root[data-theme="blue"]    { --primary-5: #2563d0; }
-:root[data-theme="teal"]    { --primary-5: #0f7c86; }
-:root[data-theme="ochre"]   { --primary-5: #7a6b00; }
-:root[data-theme="rust"]    { --primary-5: #ad5a0a; --warning-3: #b88a00; }
-:root[data-theme="pink"]    { --primary-5: #ff7ac8; }
-:root[data-theme="lilac"]   { --primary-5: #b69cff; }
-:root[data-theme="sky"]     { --primary-5: #5cb3ff; }
-:root[data-theme="cyan"]    { --primary-5: #2fc8d8; }
-:root[data-theme="yellow"]  { --primary-5: #f2c230; --warning-3: #f08a24; }
-:root[data-theme="orange"]  { --primary-5: #f5873a; }
+:root[data-theme="magenta"] { --primary-1: #fbf8f9; --primary-2: #f6ecf1; --primary-3: #eed0e3; --primary-4: #d0c7cd; --primary-5: #c0258f; --primary-6: #9c2075; }
+:root[data-theme="purple"] { --primary-1: #f9f8fa; --primary-2: #f1eef5; --primary-3: #e0d6f1; --primary-4: #ccc8d1; --primary-5: #7a3fd6; --primary-6: #6435ad; }
+:root[data-theme="blue"] { --primary-1: #f8f9fa; --primary-2: #ecf0f5; --primary-3: #d0dcf0; --primary-4: #c7cad1; --primary-5: #2563d0; --primary-6: #2051a9; }
+:root[data-theme="teal"] { --primary-1: #f7f9f9; --primary-2: #ebf1f0; --primary-3: #cce1e1; --primary-4: #c5cccc; --primary-5: #0f7c86; --primary-6: #0e656d; }
+:root[data-theme="ochre"] { --primary-1: #f9f9f6; --primary-2: #f1f0e8; --primary-3: #e0ddc8; --primary-4: #cccbc4; --primary-5: #7a6b00; --primary-6: #645802; }
+:root[data-theme="rust"] { --primary-1: #faf9f6; --primary-2: #f4efe9; --primary-3: #eadaca; --primary-4: #cfcac5; --primary-5: #ad5a0a; --primary-6: #8d4a0a; --warning-3: #b88a00; }
+:root[data-theme="pink"] { --primary-1: #251820; --primary-2: #3a2732; --primary-3: #563347; --primary-4: #43393f; --primary-5: #ff7ac8; --primary-6: #ff95d3; }
+:root[data-theme="lilac"] { --primary-1: #1e1b25; --primary-2: #302c39; --primary-3: #433c55; --primary-4: #3d3b43; --primary-5: #b69cff; --primary-6: #c5b0ff; }
+:root[data-theme="sky"] { --primary-1: #151e25; --primary-2: #232f39; --primary-3: #2b4155; --primary-4: #363d43; --primary-5: #5cb3ff; --primary-6: #7dc2ff; }
+:root[data-theme="cyan"] { --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #2fc8d8; --primary-6: #59d3e0; }
+:root[data-theme="yellow"] { --primary-1: #241f11; --primary-2: #38321c; --primary-3: #52461f; --primary-4: #423e33; --primary-5: #f2c230; --primary-6: #f5ce59; --warning-3: #f08a24; }
+:root[data-theme="orange"] { --primary-1: #241912; --primary-2: #39291e; --primary-3: #533622; --primary-4: #433a34; --primary-5: #f5873a; --primary-6: #f79f61; }
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }
@@ -366,7 +357,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .theme-picker__label { font-size: var(--text-sm); font-weight: 600; color: var(--neutral-4); }
 .theme-picker__swatches { display: flex; gap: var(--spacing-2); flex-wrap: wrap; }
 .theme-swatch { width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid var(--primary-4); cursor: pointer; display: grid; place-items: center; }
-/* Each swatch previews its own theme's page: the page base with the same tint as --page-tint (2% light, 10% dark). */
+/* Each swatch previews its own theme's page: the page base with the same tint as that theme's --primary-1 (2% light, 10% dark). */
 .theme-swatch--light { background: color-mix(in srgb, var(--swatch) 2%, #fcfcfb); }
 .theme-swatch--dark { background: color-mix(in srgb, var(--swatch) 10%, #0d0d0d); }
 .theme-swatch i { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--swatch); }

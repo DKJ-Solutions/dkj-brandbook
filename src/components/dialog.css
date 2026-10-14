@@ -23,16 +23,16 @@ html:has(dialog:modal) { overflow: hidden; }
 
 /* Tints: the dialog takes the tint on its own surface and border, and the info dialog's children re-declare the
    house colour tokens (the exception in house-style/README.md rule 3), so every box inside follows.
-   --primary-2 cannot mix itself, so the tint mixes the house surface recipe (primary at --surface-tint over
-   --neutral-2) with the outer --primary-5. That is why --primary-5 is re-declared on the children, not on the
-   dialog. Derived tokens (--primary-3, --primary-6) stay as computed at :root. */
+   The accent dialog takes the theme's tinted background (--primary-3) as its surface; the info dialog mixes
+   --cat-1 into the untinted card (--neutral-2). --primary-5 is re-declared on the children, not on the dialog,
+   so the dialog's own border still takes the outer colour. */
 .dkj-dialog--accent {
-  --primary-2: color-mix(in srgb, var(--primary-5) 7%, color-mix(in srgb, var(--primary-5) var(--surface-tint), var(--neutral-2)));
-  border-color: color-mix(in srgb, var(--primary-5) 30%, color-mix(in srgb, var(--primary-5) var(--surface-tint), var(--neutral-2)));
+  --primary-2: var(--primary-3);
+  border-color: color-mix(in srgb, var(--primary-5) 30%, var(--primary-3));
 }
 .dkj-dialog--info {
-  --primary-2: color-mix(in srgb, var(--cat-1) 7%, color-mix(in srgb, var(--primary-5) var(--surface-tint), var(--neutral-2)));
-  border-color: color-mix(in srgb, var(--cat-1) 30%, color-mix(in srgb, var(--primary-5) var(--surface-tint), var(--neutral-2)));
+  --primary-2: color-mix(in srgb, var(--cat-1) 14%, var(--neutral-2));
+  border-color: color-mix(in srgb, var(--cat-1) 30%, var(--neutral-2));
 }
 .dkj-dialog--info > * { --primary-5: var(--cat-1); }
 

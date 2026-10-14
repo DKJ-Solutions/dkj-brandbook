@@ -16,8 +16,6 @@ const HOUSE_COLORS = {
   ],
 } as const
 
-/** How much of the primary each house surface takes (set per mode). */
-const TINTS = ['--page-tint', '--surface-tint', '--border-tint'] as const
 
 const TEXT_SIZES = [
   '--text-h0', '--text-h1', '--text-h2', '--text-h3', '--text-h4', '--text-h5', '--text-h6',
@@ -37,7 +35,7 @@ const DURATIONS = ['--dkj-duration-fast', '--dkj-duration-base', '--dkj-duration
 const FOCUS = ['--dkj-focus-w', '--dkj-focus-offset', '--dkj-focus-offset-inset', '--shadow-pop'] as const
 const MOTION = [...DURATIONS, '--dkj-ease-out', '--dkj-popup-scale', '--dkj-popup-step'] as const
 /** Read as text: tokens that are a number or a word rather than a colour to swatch. */
-const READOUTS = [...TINTS, ...FOCUS, ...MOTION, '--dkj-font-mono'] as const
+const READOUTS = [...FOCUS, ...MOTION, '--dkj-font-mono'] as const
 const RADII = ['xs', 'sm', 'md', 'md-plus', 'lg', 'xl', 'pill'] as const
 const CONTROLS = ['inline-toggle', 'control-dense', 'control-compact', 'control-h', 'tap', 'control-lg'] as const
 
@@ -216,9 +214,6 @@ export function Foundations() {
             <span style={{ fontFamily: 'var(--dkj-font-mono)', color: 'var(--neutral-5)' }}>const tap = '44px' -- 0123456789</span>
           </div>
         </div>
-      </Demo>
-      <Demo label="Theme tint -- how much of the primary each surface takes (per mode)">
-        <Readouts names={TINTS} values={values} />
       </Demo>
       <Demo label="Spacing -- house, every step" wide>
         <div className="bb-scale">

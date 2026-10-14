@@ -47,7 +47,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Group | Tokens | Meaning |
 |---|---|---|
 | Neutrals | `--neutral-1` … `--neutral-5` | a five-step ramp from the ground to the text, flipped on dark: `--neutral-1` the ground (the page base, text and icons on the primary, the mark inside a status icon), `--neutral-2` the next plane (the surface base), `--neutral-3` lines (the border base, axes; a pure grey), `--neutral-4` secondary text, `--neutral-5` text |
-| Surfaces and lines | `--primary-1`, `--primary-2`, `--primary-4` | background (`-1`), cards (`-2`), every line: borders, row dividers, grid lines, the meter track (`-4`): derived, the neutral `--neutral-1`, `--neutral-2` and `--neutral-3` with the theme's primary mixed in ([below](#how-far-a-theme-reaches)) |
+| Surfaces and lines | `--primary-1`, `--primary-2`, `--primary-4` | background (`-1`), cards (`-2`), every line: borders, row dividers, grid lines, the meter track (`-4`): a fixed value per theme, the neutral with a light tint of the theme's colour ([below](#how-far-a-theme-reaches)) |
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-5`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-5`/`--negative-5` are the text versions of `--positive-3`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
 | Status | `--positive-3`, `--warning-3`, `--negative-3`, `--warning-5`, `--warning-1`, `--negative-1`, `--positive-1` | badges, meters, notices. `--warning-1`, `--negative-1` and `--positive-1` are the backgrounds of a warning, negative or positive message. The mark inside a status icon (check, cross, "!") is `--neutral-1` |
@@ -97,7 +97,7 @@ uses):
 
 | A switch … | Tokens | Why |
 |---|---|---|
-| to any other theme changes them | `--primary-1` … `--primary-6` | each theme sets its own `--primary-5`, and the other five are mixed from it |
+| to any other theme changes them | `--primary-1` … `--primary-6` | each theme sets all six as fixed values, tinted towards its own `--primary-5` |
 | changes them only between light and dark: black, white and grey | `--neutral-1`, `--neutral-2`, `--neutral-3`, `--neutral-4`, `--neutral-5` | a ramp from the ground to the text, set once in the light block and once in the dark block, where it flips |
 | changes them only between light and dark: categories | `--cat-1`, `--cat-2`, `--cat-3` | series slots, set once in the light block and once in the dark block, a shade apart |
 | changes them only between light and dark: status colours | `--negative-1`, `--negative-3`, `--negative-5`, `--positive-1`, `--positive-3`, `--positive-5`, `--warning-1`, `--warning-3`, `--warning-5` | set once in the light block and once in the dark block, a shade apart. One exception: `--warning-3` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
@@ -198,21 +198,21 @@ sliders turn the theme's colour. Links an app already styles through a class kee
 **The theme now colours the ground too** (owner's request: the themes were visible but did not stand
 out). Three more things follow it by default, in light and in dark (and a measurement):
 
-- **The page and the surfaces are tinted.** `--primary-1` and `--primary-2` are no longer fixed greys: each is
-  `color-mix(in srgb, var(--primary-5) N%, <base>)`, with the untinted grey kept as `--neutral-1` and
-  `--neutral-2`. Light mixes 2% into the page and 6% into the cards, so the page is the whitest layer and a
-  card sits a shade off it; dark mixes 10% into the page and 14% into the cards, so the card is a shade lighter
-  than the page. Either way the page is the ground end (owner's decision, October 14, 2026: it used to be the
-  other way round on light). The percentages are the `--page-tint`, `--surface-tint` and `--border-tint` tokens,
-  set per mode.
-- **Lines are tinted.** `--primary-4` takes `--border-tint` (6% light, 8% dark) of the primary over
-  `--neutral-3`, for every line: borders, row dividers, grid lines and the meter track (a separate grid
-  colour was dropped on October 14, 2026: it was too close to the border to tell apart). `--neutral-3` itself
-  stays neutral.
-- **The theme picker previews it:** each swatch shows its own theme's page (the same 2% / 10% tint),
-  with the primary as the dot.
-- **`h1` and `h2` are the theme's colour**, as `--primary-6`: the primary with 20% of `--neutral-5` mixed in,
-  so it darkens on light and lightens on dark. Links use it too. It exists because the tinted page is
+- **Every theme writes out its own six values.** `--primary-1` … `--primary-6` are fixed hex values in each
+  theme's block, not mixes (owner's decision, October 14, 2026: the percentages were too hard to follow). A
+  new theme computes them once, the way the existing ones were: the page is the untinted ground with 2%
+  (light) or 10% (dark) of the theme's colour, a card the next neutral with 6% or 14%, the tinted background
+  14% over the card, a line the line grey with 6% or 8%, and the text colour the theme's colour with 20% of
+  the text neutral mixed in.
+- **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
+  on dark the card is a shade lighter than the page. Either way the page is the ground end (owner's decision,
+  October 14, 2026: it used to be the other way round on light).
+- **Lines are tinted.** `--primary-4` is every line: borders, row dividers, grid lines and the meter track
+  (a separate grid colour was dropped on October 14, 2026: it was too close to the border to tell apart).
+  `--neutral-3` itself stays neutral.
+- **The theme picker previews it:** each swatch shows its own theme's page, with the primary as the dot.
+- **`h1` and `h2` are the theme's colour**, as `--primary-6`: darker than the colour itself on light and
+  lighter on dark. Links use it too. It exists because the tinted page is
   darker than the old one, and a bare Petrol or Oker link would drop to 4.0:1 on it.
 - **Measured:** `--neutral-4` stays at 6.2:1 or better on the tinted light page (worst: Magenta, Paars) and
   6.8:1 or better on the tinted dark surface (worst: Geel); `--primary-6` reaches 5.4:1 or better on the
@@ -220,8 +220,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never tinted.
 
 **What this changes for an app that takes the update:** every page turns a light shade of its theme, and
-`h1`/`h2` take its colour (through `:where()`, so a heading inside a coloured container, or one the app colours itself, keeps that colour). An app that hard-codes a grey next to a house surface will show the seam, and
-one that sets `--primary-1` or `--primary-2` itself has to set `--neutral-1` and `--neutral-2` instead.
+`h1`/`h2` take its colour (through `:where()`, so a heading inside a coloured container, or one the app colours itself, keeps that colour). An app that hard-codes a grey next to a house surface will show the seam.
 
 ## Components
 
