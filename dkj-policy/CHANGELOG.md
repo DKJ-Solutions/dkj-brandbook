@@ -2,7 +2,46 @@
 
 ## [Unreleased]
 
-**52 minor entries** <!-- pending-tally -->
+**53 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/remove-neutral-1-5 · 20261014-151108Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The neutral ramp drops its two ends. `--neutral-1` and `--neutral-5` are gone, and the old `--neutral-2`,
+`-3` and `-4` are renumbered `--neutral-1`, `-2` and `-3`. The new `--neutral-1` is also a step darker
+(`#ebebe8` light, `#262625` dark) so the surface plane reads apart from the page. What read the old
+`--neutral-1` (the ground, text and icons on the primary, the status-icon mark, dialog backdrops) now reads
+`--primary-1`; the theme swatches mix their tint over `white` or `black`, so each previews its own page in
+either mode. What read the old
+`--neutral-5` (primary text, focus outlines, the inverted button) now reads `--neutral-3`, so primary and
+secondary text share one grey. `.dkj-msg--warn` reads `--warning-5`. A consuming repo renames in the order
+the README's migration rows give.
+
+**Score:** 5
+
+##### Tier 1
+
+Body text across every DKJ-Solutions app turns from near-black to the dark grey of secondary text; the brand
+looks softer.
+
+**Score:** 3
+
+##### Tier 2
+
+A user sees text a shade lighter (still at least 6.2:1) and nothing else changes.
+
+**Score:** 2
+
+#### Pull Request
+
+The neutral ramp drops its two ends: --neutral-1 to --neutral-3 remain
+
+[PR #95](https://github.com/DKJ-Solutions/dkj-brandbook/pull/95)
+
+---
 
 ### DEPLOY: feat/77-heading-levels-match-size · 20261014-142909Z
 
