@@ -32,11 +32,21 @@
 
 ### PLAN
 
+The owner asked to remove `--neutral-1` and `--neutral-5` and chose to renumber the ramp (old -2/-3/-4 become
+-1/-2/-3). The ground and the text on the primary go to `--primary-1`, and text goes to the new `--neutral-3`.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Token blocks (light + both dark) carry three neutrals; every use remapped (Gwen)
+- [x] README token tables, migration rows, comments and showcase text updated (Gwen)
+- [x] `.dkj-msg--warn` moved to `--warning-5`, since the grey mix fell under 4.5:1
+- [x] Warn tag contrast (worse on light after this branch) filed as #94
 
 ### TEST
+
+- [x] Lint gate green (eslint, var() check, colour-literal check, tsc + vite build)
+- [ ] Code review (Victor) and copy edit (Edith)
+- [ ] An owner has looked at the showcase in light and dark themes and approved it
 
 ### DEPLOY: feat/remove-neutral-1-5
 
@@ -44,25 +54,28 @@
 
 ##### Tier 0
 
-**Score:**
+The neutral ramp drops its two ends. `--neutral-1` and `--neutral-5` are gone, and the old `--neutral-2`,
+`-3` and `-4` are renumbered `--neutral-1`, `-2` and `-3` with unchanged values. What read the old
+`--neutral-1` (the ground, text and icons on the primary, the status-icon mark, dialog backdrops) now reads
+`--primary-1`; the theme swatches take the new `--neutral-1` as their untinted base. What read the old
+`--neutral-5` (primary text, focus outlines, the inverted button) now reads `--neutral-3`, so primary and
+secondary text share one grey. `.dkj-msg--warn` reads `--warning-5`. A consuming repo renames in the order
+the README's migration rows give.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 5
 
 ##### Tier 1
 
-**Score:**
+Body text across every DKJ-Solutions app turns from near-black to the dark grey of secondary text; the brand
+looks softer.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 3
 
 ##### Tier 2
 
-**Score:**
+A user sees text a shade lighter (still at least 6.2:1) and nothing else changes.
+
+**Score:** 2
 
 #### Pull Request
 
