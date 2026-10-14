@@ -2,7 +2,41 @@
 
 ## [Unreleased]
 
-**51 minor entries** <!-- pending-tally -->
+**52 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/77-heading-levels-match-size · 20261014-142909Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A component's heading element now takes the token of its own level. The card title is an `<h6>` (an `<h2>`
+in a data card), the dialog title an `<h6>`, `<h3>` as a card heading or `<h5>` in a drawer, the alert and
+QuestionBlock titles `<h5>` and the calculation question `<h6>`; the house `.dialog__title` goes on an `<h6>`
+(`<h5>` in a drawer, now `--text-h5`). The house style gains `--font-serif`, the face of `h1` and `h2`, so a
+title that moved off `<h2>` keeps it. Sizes, faces and colours are unchanged.
+
+**Score:** 2
+
+##### Tier 1
+
+Markup and outline only; management sees no change.
+
+**Score:** N/A
+
+##### Tier 2
+
+Nothing a user sees changes; a screen reader announces these titles at their new level.
+
+**Score:** N/A
+
+#### Pull Request
+
+Component headings take the level whose token they are sized at
+
+[PR #91](https://github.com/DKJ-Solutions/dkj-brandbook/pull/91)
+
+---
 
 ### DEPLOY: feat/no-colour-literals · 20261014-140409Z
 
