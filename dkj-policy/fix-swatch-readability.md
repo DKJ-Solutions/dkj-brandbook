@@ -47,7 +47,7 @@ size and colour, and a `color-mix(...)` value broke mid-word ("color-" / "mix").
 
 ### TEST
 
-- [ ] An owner has looked at the Tokens section and approved it
+- [x] An owner has looked at the Tokens section and approved it (Maikel, October 14, 2026: "ja dat is nu wel duidelijk. ship it")
 
 ### DEPLOY: fix/swatch-readability
 
