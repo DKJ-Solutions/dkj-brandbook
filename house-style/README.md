@@ -235,7 +235,8 @@ out). Three more things follow it by default, in light and in dark (and a measur
   chroma, at the first lightness on the far side where it reaches 4.5:1 on `-3`. On dark `-1`, `-2` and `-3` then
   move 0.04 OKLCH lightness darker and `-5` 0.12 lighter, hue and chroma kept (owner's decision, October 14,
   2026: a deeper ground and brighter text). `-6` and `-7` are in the
-  colour's hue: on dark OKLCH lightness 0.95 and 0.98, near-white; on light 0.36 and 0.26.
+  colour's hue: on dark OKLCH lightness 0.95 and 0.98, near-white; on light 0.36 and 0.18 (`-7` was 0.26 until
+  the owner asked for it a lot darker, October 14, 2026).
 - **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
   on dark the card is a shade lighter than the page. Either way the page is the ground end (owner's decision,
   October 14, 2026: it used to be the other way round on light).
