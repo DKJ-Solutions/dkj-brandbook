@@ -40,9 +40,11 @@ tokens the Tokens section never drew.
 
 - [x] Tokens section: the whole spacing scale (40 steps), `--on-warn`, the four `--*-tint` values, the house app-shell sizes and `--shadow-pop`
 - [x] Brand layer: `--dkj-text-display` and `--dkj-text-input` in the type scale; weights, line heights, tracking and mono; layout widths and dialog scale/step; focus ring; every duration and the easing, animated on hover
-- [x] `src/showcase/sections/Intro.tsx`: the content opens with the page title (`<h1>`), a lead, a house `.card.hero` at the h0 display size and a type specimen with h1-h6, large, body, link, code, `.sub` and `.muted` (owner's follow-up); h4-h6 use showcase classes until #76
+- [x] `src/showcase/sections/Intro.tsx`: the content opens with the page title (`<h1>`), a lead, a house `.card.hero` at the h0 display size and a type specimen with h1-h6, large, body, link, code, `.sub` and `.muted` (owner's follow-up); h4-h6 on the house rule below
 - [x] One `<h1>` per page, always at `--text-h1`: the intro's "DKJ Brand Book"; the nav no longer repeats the name: it opens with its own heading, an `<h2>` "Contents" at `--text-h2` that names the nav (`aria-labelledby`), over "Jump to a section or an app preview"; the specimen shows h1 as a real `<h1>` at the same size, like the component demos (owner's follow-ups; an h1 in the nav at `--text-lg` broke the one-size rule, and a second "DKJ Brand Book" as a link read oddly)
 - [x] The nav's group labels stay labels, not `<h3>` (designer's call, owner delegated): each names its list via `aria-labelledby`, so the menu keeps its compact size and the heading list stays the page's structure
+- [x] Every showcase heading at its own level's token (owner: "why is bb-section-title text-h3 while it is an h2?"): no size override on `.bb-section-title` (h2), `.bb-app-name` (h3), `.bb-kind` (h3/h4, no longer styled as a small label) and the view titles (h4/h5); components follow under #77
+- [x] `house-style/house-style.css` + `README.md`: `h4`, `h5` and `h6` take `--text-h4`/`-h5`/`-h6` (resolves #76); the specimen's `.bb-h4`-`.bb-h6` workaround is gone
 - [x] Fixed: the brand-layer swatch `--dkj-on-warn` named a token that does not exist (always blank); `on-warn` is a house token and now sits under Status
 
 ### TEST
@@ -56,7 +58,7 @@ tokens the Tokens section never drew.
 
 ##### Tier 0
 
-The brand book now opens with an intro: the page's one `<h1>` at `--text-h1` (the navigation now opens with its own `<h2>` "Contents" instead of repeating the name), a hero card at the house display size (h0) and a type specimen with every heading level and the running-text styles. Its Tokens section now draws every token the house style and the brand layer define: the whole spacing scale, the theme tint percentages, the app-shell and layout sizes, the dialog scale, type weights, line heights, tracking and the mono stack, the focus ring and shadow, and every motion duration, animated. A blank swatch that named a non-existent `--dkj-on-warn` is gone; `--on-warn` shows under the house status colours.
+The brand book now opens with an intro: the page's one `<h1>` at `--text-h1` (the navigation now opens with its own `<h2>` "Contents" instead of repeating the name), a hero card at the house display size (h0) and a type specimen with every heading level and the running-text styles. Its Tokens section now draws every token the house style and the brand layer define: the whole spacing scale, the theme tint percentages, the app-shell and layout sizes, the dialog scale, type weights, line heights, tracking and the mono stack, the focus ring and shadow, and every motion duration, animated. Every heading in the brand book now takes its own level's token -- section titles are the full h2 size -- and the house style gives `h4`, `h5` and `h6` their `--text-h4`/`-h5`/`-h6` tokens (#76). A blank swatch that named a non-existent `--dkj-on-warn` is gone; `--on-warn` shows under the house status colours.
 
 **Score:** 2
 
@@ -78,7 +80,7 @@ The brand book's own showcase; no change for management or a commissioner.
 
 ##### Tier 2
 
-No token or house style changed, so no app and no subscriber sees a change.
+No subscriber-facing change until an app takes the house h4-h6 rule after a house-style release.
 
 **Score:** N/A
 
