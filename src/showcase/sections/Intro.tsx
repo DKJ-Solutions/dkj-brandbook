@@ -30,7 +30,7 @@ export function Intro() {
 
       <div className="card bb-specimen">
         <p className="bb-eyebrow">Type specimen</p>
-        <p className="sub">Heading 1 is the page title above -- one per page, always at --text-h1.</p>
+        <h1>Heading 1 -- the page title</h1>
         <h2>Heading 2 -- a section</h2>
         <h3>Heading 3 -- a block inside a section</h3>
         <h4 className="bb-h4">Heading 4 -- a card title</h4>
