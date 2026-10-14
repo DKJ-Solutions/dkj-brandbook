@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Owner's request (October 14, 2026): every token we have must actually be shown in the brand book.
+An inventory against `house-style.css` and `src/brand-layer.css` found 43 house and 29 brand-layer
+tokens the Tokens section never drew.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Tokens section: the whole spacing scale (40 steps), `--on-warn`, the four `--*-tint` values, the house app-shell sizes and `--shadow-pop`
+- [x] Brand layer: `--dkj-text-display` and `--dkj-text-input` in the type scale; weights, line heights, tracking and mono; layout widths and dialog scale/step; focus ring; every duration and the easing, animated on hover
+- [x] Fixed: the brand-layer swatch `--dkj-on-warn` named a token that does not exist (always blank); `on-warn` is a house token and now sits under Status
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has looked at the Tokens section and approved it
 
 ### DEPLOY: feat/every-token-shown
 
@@ -44,7 +53,9 @@
 
 ##### Tier 0
 
-**Score:**
+The brand book's Tokens section now draws every token the house style and the brand layer define: the whole spacing scale, the theme tint percentages, the app-shell and layout sizes, the dialog scale, type weights, line heights, tracking and the mono stack, the focus ring and shadow, and every motion duration, animated. A blank swatch that named a non-existent `--dkj-on-warn` is gone; `--on-warn` shows under the house status colours.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+The brand book's own showcase; no change for management or a commissioner.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+No token or house style changed, so no app and no subscriber sees a change.
+
+**Score:** N/A
 
 #### Pull Request
 

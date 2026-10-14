@@ -8,19 +8,39 @@ import { useThemeId } from '../theme'
 const HOUSE_COLORS = {
   'Surfaces and ink': ['page', 'surface', 'ink', 'ink-2', 'muted', 'grid', 'axis', 'border', 'page-base', 'surface-base', 'grid-base', 'border-base'],
   Primary: ['primary', 'on-primary', 'primary-soft', 'primary-ink'],
-  Status: ['good', 'warn', 'bad', 'warn-bg', 'status-mark'],
+  Status: ['good', 'warn', 'bad', 'warn-bg', 'status-mark', 'on-warn'],
   Direction: ['gain', 'loss', 'up', 'down'],
   Categorical: ['cat-1', 'cat-2', 'cat-3'],
 } as const
 
 /** Brand-layer colours (src/brand-layer.css), all built from house tokens. */
 const LAYER_COLORS = [
-  'surface', 'accent', 'on-accent', 'positive-hi', 'positive-lo', 'warn-text', 'on-warn', 'backdrop',
+  'surface', 'accent', 'on-accent', 'positive-hi', 'positive-lo', 'warn-text', 'backdrop',
   'tint-accent', 'tint-accent-border', 'tint-accent-box', 'tint-info', 'tint-info-border', 'tint-info-box', 'tint-danger',
 ] as const
 
-const TEXT_SIZES = ['h0', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'lg', 'base', 'sm', 'xs'] as const
-const SPACES = ['0-5', '1', '1-5', '2', '2-5', '3', '3-5', '4', '5', '6', '8', '12', '16'] as const
+/** How much of the primary each house surface takes (set per mode). */
+const TINTS = ['--page-tint', '--surface-tint', '--grid-tint', '--border-tint'] as const
+
+const TEXT_SIZES = [
+  '--text-h0', '--text-h1', '--text-h2', '--text-h3', '--text-h4', '--text-h5', '--text-h6',
+  '--text-lg', '--text-base', '--text-sm', '--text-xs', '--dkj-text-display', '--dkj-text-input',
+] as const
+const WEIGHTS = ['regular', 'medium', 'semibold', 'bold'] as const
+const LINE_HEIGHTS = ['none', 'tight', 'snug', 'prose'] as const
+const TRACKING = ['caps', 'label', 'tag'] as const
+/** Every step of the house spacing scale. */
+const SPACES = [
+  '0-5', '1', '1-5', '2', '2-5', '3', '3-5', '4', '4-5', '5', '5-5', '6', '6-5', '7', '7-5', '8', '8-5', '9', '9-5', '10',
+  '11', '12', '14', '16', '18', '20', '24', '28', '32', '36', '40', '44', '48', '52', '56', '60', '64', '72', '80', '96',
+] as const
+/** Sizes: the house app shell, then the brand layer's layout widths. */
+const SIZES = ['--control-h', '--tap', '--topbar-h', '--column-narrow', '--dkj-column-w', '--dkj-topbar-h', '--dkj-drawer-w', '--dkj-datecol'] as const
+const DURATIONS = ['--dkj-duration-fast', '--dkj-duration-base', '--dkj-duration-slow', '--dkj-duration-panel', '--dkj-duration-flash'] as const
+const FOCUS = ['--dkj-focus-w', '--dkj-focus-offset', '--dkj-focus-offset-inset', '--shadow-pop'] as const
+const MOTION = [...DURATIONS, '--dkj-ease-out', '--dkj-popup-scale', '--dkj-popup-step'] as const
+/** Read as text: tokens that are a number or a word rather than a colour to swatch. */
+const READOUTS = [...TINTS, ...FOCUS, ...MOTION, '--dkj-font-mono'] as const
 const RADII = ['xs', 'sm', 'md', 'md-plus', 'lg', 'xl', 'pill'] as const
 const CONTROLS = ['inline-toggle', 'control-dense', 'control-compact', 'control-h', 'tap', 'control-lg'] as const
 
@@ -43,6 +63,21 @@ function SwatchGrid({ items }: { items: Swatch[] }) {
   )
 }
 
+function Readouts({ names, values }: { names: readonly string[]; values: Record<string, string> }) {
+  return (
+    <dl className="bb-readouts">
+      {names.map((n) => (
+        <div key={n}>
+          <dt>
+            <code>{n}</code>
+          </dt>
+          <dd>{values[n]}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
 /** Live token readouts: every value is read from the computed style, so a theme click changes them. */
 export function Foundations() {
   const theme = useThemeId()
@@ -53,6 +88,7 @@ export function Foundations() {
     const names = [
       ...Object.values(HOUSE_COLORS).flat().map((c) => `--${c}`),
       ...LAYER_COLORS.map((c) => `--dkj-${c}`),
+      ...READOUTS,
     ]
     setValues(Object.fromEntries(names.map((n) => [n, cs.getPropertyValue(n).trim()])))
   }, [theme])
@@ -78,13 +114,44 @@ export function Foundations() {
         <div className="bb-scale">
           {TEXT_SIZES.map((f) => (
             <div key={f} className="bb-scale-row">
-              <code>--text-{f}</code>
-              <span style={{ fontSize: `var(--text-${f})`, color: 'var(--ink)', lineHeight: 'var(--dkj-lh-tight)' }}>The quick label 1,234</span>
+              <code>{f}</code>
+              <span style={{ fontSize: `var(${f})`, color: 'var(--ink)', lineHeight: 'var(--dkj-lh-tight)' }}>The quick label 1,234</span>
             </div>
           ))}
         </div>
       </Demo>
-      <Demo label="Spacing -- house">
+      <Demo label="Type -- weights, line heights, tracking and mono (--dkj-*)" wide>
+        <div className="bb-scale">
+          {WEIGHTS.map((w) => (
+            <div key={w} className="bb-scale-row">
+              <code>--dkj-fw-{w}</code>
+              <span style={{ fontSize: 'var(--text-lg)', fontWeight: `var(--dkj-fw-${w})`, color: 'var(--ink)' }}>The quick label 1,234</span>
+            </div>
+          ))}
+          {LINE_HEIGHTS.map((l) => (
+            <div key={l} className="bb-scale-row">
+              <code>--dkj-lh-{l}</code>
+              <span className="bb-lh-sample" style={{ lineHeight: `var(--dkj-lh-${l})` }}>
+                Two lines of running text in a narrow column, so the space between them shows the line height.
+              </span>
+            </div>
+          ))}
+          {TRACKING.map((t) => (
+            <div key={t} className="bb-scale-row">
+              <code>--dkj-tracking-{t}</code>
+              <span className="bb-tracking-sample" style={{ letterSpacing: `var(--dkj-tracking-${t})` }}>Uppercase label</span>
+            </div>
+          ))}
+          <div className="bb-scale-row">
+            <code>--dkj-font-mono</code>
+            <span style={{ fontFamily: 'var(--dkj-font-mono)', color: 'var(--ink)' }}>const tap = '44px' -- 0123456789</span>
+          </div>
+        </div>
+      </Demo>
+      <Demo label="Theme tint -- how much of the primary each surface takes (per mode)">
+        <Readouts names={TINTS} values={values} />
+      </Demo>
+      <Demo label="Spacing -- house, every step" wide>
         <div className="bb-scale">
           {SPACES.map((s) => (
             <div key={s} className="bb-scale-row">
@@ -113,6 +180,45 @@ export function Foundations() {
             </div>
           ))}
         </div>
+      </Demo>
+      <Demo label="Sizes -- house app shell and brand layer layout" wide>
+        <div className="bb-scale">
+          {SIZES.map((s) => (
+            <div key={s} className="bb-scale-row">
+              <code>{s}</code>
+              <span className="bb-bar" style={{ width: `var(${s})` }} />
+            </div>
+          ))}
+          <div className="bb-scale-row">
+            <code>--dkj-popup-scale</code>
+            <span className="bb-bar" style={{ width: 'calc(var(--dkj-column-w) * var(--dkj-popup-scale))' }} />
+          </div>
+          <div className="bb-scale-row">
+            <code>--dkj-popup-step</code>
+            <span className="bb-bar" style={{ width: 'calc(var(--dkj-column-w) * var(--dkj-popup-scale) * var(--dkj-popup-step))' }} />
+          </div>
+        </div>
+      </Demo>
+      <Demo label="Focus ring and shadow">
+        <div className="bb-row bb-focus-row">
+          <span className="bb-focus-sample" style={{ outlineOffset: 'var(--dkj-focus-offset)' }}>offset</span>
+          <span className="bb-focus-sample" style={{ outlineOffset: 'var(--dkj-focus-offset-inset)' }}>inset</span>
+          <span className="bb-shadow-sample">shadow</span>
+        </div>
+        <Readouts names={FOCUS} values={values} />
+      </Demo>
+      <Demo label="Motion -- hover or focus the tracks to play each duration">
+        <div className="bb-scale bb-motion" tabIndex={0}>
+          {DURATIONS.map((d) => (
+            <div key={d} className="bb-scale-row">
+              <code>{d}</code>
+              <span className="bb-motion-track">
+                <span className="bb-motion-dot" style={{ transitionDuration: `var(${d})` }} />
+              </span>
+            </div>
+          ))}
+        </div>
+        <Readouts names={MOTION} values={values} />
       </Demo>
       <Demo label="Icons (stroke set, currentColor)">
         <div className="bb-row" style={{ color: 'var(--ink)' }}>

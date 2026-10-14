@@ -126,7 +126,41 @@
 .bb-swatch code { overflow-wrap: anywhere; }
 .bb-scale { display: grid; gap: var(--spacing-2); }
 .bb-scale-row { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--spacing-3); align-items: center; font-size: var(--text-sm); color: var(--ink-2); }
-.bb-bar { height: 0.75rem; background: var(--primary); border-radius: var(--dkj-radius-xs); }
+.bb-bar { max-width: 100%; height: 0.75rem; background: var(--primary); border-radius: var(--dkj-radius-xs); }
+.bb-lh-sample { max-width: 16rem; font-size: var(--text-base); color: var(--ink); }
+.bb-tracking-sample { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); text-transform: uppercase; color: var(--ink); }
+.bb-readouts { display: grid; gap: var(--spacing-0-5); margin: 0; font-size: var(--text-sm); color: var(--ink-2); }
+.bb-readouts > div { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: var(--spacing-2); }
+.bb-readouts dd { margin: 0; overflow-wrap: anywhere; }
+.bb-focus-row { gap: var(--spacing-6); padding: var(--spacing-2); }
+.bb-focus-sample, .bb-shadow-sample {
+  display: inline-grid;
+  place-items: center;
+  width: var(--dkj-tap);
+  height: var(--dkj-tap);
+  font-size: var(--text-xs);
+  color: var(--ink-2);
+  background: var(--page);
+  border-radius: var(--dkj-radius-md);
+}
+.bb-focus-sample { outline: var(--dkj-focus-w) solid var(--dkj-accent); }
+.bb-shadow-sample { background: var(--surface); box-shadow: var(--shadow-pop); }
+/* Motion: each dot crosses its track in its own duration when the panel is hovered or focused. */
+.bb-motion-track { position: relative; height: 0.75rem; max-width: 16rem; background: var(--grid); border-radius: var(--dkj-radius-pill); }
+.bb-motion-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--primary);
+  border-radius: var(--dkj-radius-pill);
+  transition-property: left;
+  transition-timing-function: var(--dkj-ease-out);
+}
+.bb-motion:hover .bb-motion-dot, .bb-motion:focus-visible .bb-motion-dot { left: calc(100% - 0.75rem); }
+.bb-motion:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset); }
+@media (prefers-reduced-motion: reduce) { .bb-motion-dot { transition: none; } }
 .bb-radius { width: 3rem; height: 3rem; background: color-mix(in srgb, var(--primary) 20%, var(--surface)); border: 1px solid var(--primary); }
 
 @media (max-width: 52rem) {
