@@ -2,7 +2,46 @@
 
 ## [Unreleased]
 
-**47 minor entries** <!-- pending-tally -->
+**48 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/colour-tokens-by-switch · 20261014-124156Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Every house colour token has a new name, on one scale: a number is a step from the ground (`-1`: light on the
+light themes, dark on the dark ones) to the text. The black, white and grey tokens are now `--neutral-1` …
+`--neutral-5`; the theme's own colours `--primary-1` … `--primary-6` (page, card, tinted background, line, the
+colour, the colour as text), each a fixed value per theme instead of a mix; and the status colours
+`--negative-1/3/5`, `--positive-1/3/5` and `--warning-1/3/5` (background, fill, text). `--on-warn`, `--loss`,
+`--muted` and the grid line are gone, folded into their nearest neighbour, and there are new message backgrounds
+and a warning text colour. A repo that takes this update renames every colour token it reads; the README has
+the table from each old name to its new one. Class names such as `.badge--good` keep theirs.
+
+**Score:** 4
+
+##### Tier 1
+
+A renaming of the house style's colour tokens; management sees no change.
+
+**Score:** N/A
+
+##### Tier 2
+
+On the light themes the page is now the whitest layer with the cards a shade off it, lines carry more of the
+theme's colour, a loss in a chart is a slightly darker red and `--positive-3` is a step lighter on dark. The
+warning tag's text turns white on the dark themes.
+
+**Score:** 2
+
+#### Pull Request
+
+Colour tokens on one ground-to-text scale
+
+[PR #84](https://github.com/DKJ-Solutions/dkj-brandbook/pull/84)
+
+---
 
 ### DEPLOY: feat/drop-gain-token · 20261014-113553Z
 
