@@ -46,7 +46,9 @@ mirrors the bottom of light, `--primary-6` mirroring `--primary-1` and `--primar
   Geel/Oker, Oranje/Roest); the token comment says so
 - [x] `house-style/README.md`: the mirror rule, and that the theme table's hex is now the theme's identity
   colour (the picker's dot) rather than a dark token value; `house-theme.js` keeps its identity colours
-- [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` is `--primary-6`, with black text
+- [x] `src/showcase/showcase.css`: the navigation's colours are fixed codes only, no `color-mix()` and no
+  `light-dark()` (owner's request): each light theme gets its own fixed panel, heading and hover code (the
+  values the earlier mixes resolved to, so the light look is unchanged), and on dark the panel is `--primary-6`, with black text
   (`#0b0b0b`) and grey labels (`#52514e`); the heading, focus ring and current-link fill take `--primary-3`
   (the current link with white text), the hover takes `--primary-5` (only fixed colour codes, no percentages, at the owner's request), and the border line goes, as on
   light. The light themes are unchanged.
