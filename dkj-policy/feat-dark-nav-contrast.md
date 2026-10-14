@@ -33,28 +33,29 @@
 ### PLAN
 
 On the dark themes the brand book's navigation (`.bb-nav`) sat only a shade lighter than the page beside it
-(`.bb-main`), so the two read as one plane. The light themes already set it apart with a near-black panel;
-the dark themes get the mirror image: a panel light enough to carry black text (owner's correction: a mid grey
-with white text was not light enough), tinted with the theme's `--primary-6` but lighter than
-`--primary-6` itself, which read as too dark (owner's corrections). The owner's reference is the light
-themes' `--primary-6` against `--primary-1`, which measures 6.4-7.5:1. `--primary-6` on a dark page already
-measures 8.3-10.8:1, so the ratio alone does not explain "too dark"; the panel is set as light as the light
-themes' page instead.
+(`.bb-main`), so the two read as one plane. The light themes already set it apart with a near-black panel
+with white text; the dark themes get the mirror image, a light panel with black text, and that panel is the
+theme's own `--primary-6`. The owner chose to make the dark themes' `--primary-6` token itself lighter
+rather than add a separate nav colour, so headings and links on the dark themes turn the same light pastel.
 
 ### CREATE
 
-- [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` becomes 20% `--primary-6` over white, with
-  black text (`#0b0b0b`) and dark grey labels (`#52514e`); the heading and focus ring take the theme colour
-  darkened (30% over `#141413`), the current link fills with that darkened colour under white text, the hover
-  adds 35% `--primary-6`, and the border line goes, as on light. The light themes are unchanged.
-- [x] Contrast measured in all six dark themes: panel to page 14.9:1 or more, black text 17:1 or better,
-  grey labels 6.8:1 or better, the "Contents" heading 8.2:1 or better, black on hover 13.9:1 or better,
-  white on the current link 8.9:1 or better
+- [x] `house-style/house-style.css`: the six dark themes' `--primary-6` become 40% of their old value over
+  white (Roze `#ffd5ed`, Lila `#e8dfff`, Lucht `#cbe7ff`, Cyaan `#bdedf3`, Geel `#fbebbd`, Oranje `#fcd9c0`),
+  including the default dark blocks; `house-style/README.md` says so
+- [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` is `--primary-6`, with black text
+  (`#0b0b0b`) and dark grey labels (`#52514e`); the heading and focus ring take the theme colour darkened
+  (30% over `#141413`), the current link fills with that darkened colour under white text, the hover darkens
+  the panel by 10%, and the border line goes, as on light. The light themes are unchanged.
+- [x] Contrast measured in all six dark themes: `--primary-6` as text 12.9:1 or better on the page and
+  10.4:1 or better on a card; on the panel black text 14.8:1 or better, grey labels 5.9:1 or better, the
+  "Contents" heading 7.5:1 or better, black on hover 12.1:1 or better, white on the current link 8.9:1 or
+  better
 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the navigation in the dark themes and approved it
+- [ ] An owner has looked at the navigation, headings and links in the dark themes and approved it
 
 ### DEPLOY: feat/dark-nav-contrast
 
@@ -62,12 +63,13 @@ themes' page instead.
 
 ##### Tier 0
 
-The brand book's navigation panel on the dark themes is now a light tint of the theme colour (20% `--primary-6`
-over white) with black text, the mirror image of the near-black panel with white text on the light themes, so it stands clearly
-apart from the page. Only the
-brand book's own chrome changes; no house token or component does.
+On the six dark themes `--primary-6` is now a light pastel of the theme colour (40% of its old value over
+white), so headings and links read lighter, and the brand book's navigation panel takes it as its background
+with black text, the mirror image of the near-black panel with white text on the light themes. A repo that
+takes this house-style update needs no change of its own; its `h1`, `h2` and links on a dark theme simply
+turn lighter.
 
-**Score:** 2
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -76,7 +78,7 @@ brand book's own chrome changes; no house token or component does.
 
 ##### Tier 1
 
-The brand book's own navigation only; management sees no change.
+A colour value in the house style; management sees no change.
 
 **Score:** N/A
 
@@ -87,11 +89,11 @@ The brand book's own navigation only; management sees no change.
 
 ##### Tier 2
 
-The brand book's own chrome, which no app or subscriber renders.
+On a dark theme, every DKJ-Solutions app shows its headings and links in a lighter pastel of the theme colour.
 
-**Score:** N/A
+**Score:** 2
 
 #### Pull Request
 
-A light navigation panel with black text on the dark themes
+A lighter --primary-6 on the dark themes, and the navigation panel takes it
 
