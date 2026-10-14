@@ -47,7 +47,7 @@ heading becomes the h-level whose token matches its current size and the look st
 ### TEST
 
 - [x] Lint gate green (`scripts/lint/lint-web.ps1`)
-- [ ] An owner has looked at the card, dialog (plain, card, drawer), alert, calculation and QuestionBlock titles and the house dialogs in the showcase and approved that they look as before
+- [x] An owner has looked at the card, dialog (plain, card, drawer), alert, calculation and QuestionBlock titles and the house dialogs in the showcase and approved that they look as before
 
 ### DEPLOY: feat/77-heading-levels-match-size
 
