@@ -180,7 +180,7 @@ body > header, main > header { display: flex; justify-content: space-between; al
 /* Headings set in a serif so they stand off from the sans body text. System fonts only (no
    external requests): Iowan Old Style (macOS/iOS), Palatino Linotype (Windows), Georgia,
    Noto Serif (Android/Linux). Their bold is heavier than the sans 600, so the tracking is
-   pulled in slightly. h3 stays in the body sans. */
+   pulled in slightly. h3-h6 stay in the body sans. */
 h1, h2 { font-family: var(--font-serif);
   font-weight: 600; letter-spacing: -0.01em; }
 /* The theme's colour, as text. :where() keeps it at zero specificity, so a heading inside a coloured container

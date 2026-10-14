@@ -16,7 +16,7 @@
    with a muted subline, and there is no rule between head and body. */
 .dkj-card--data { padding: var(--spacing-5); }
 .dkj-card--data .dkj-card-head { gap: 0; padding: 0; text-align: left; }
-.dkj-card--data .dkj-card-title { display: flex; align-items: center; justify-content: flex-start; font-size: var(--text-h2); }
+.dkj-card--data > .dkj-card-head > .dkj-card-title { display: flex; align-items: center; justify-content: flex-start; font-size: var(--text-h2); }
 .dkj-card-sub { margin: var(--spacing-1) 0 0; font-size: var(--text-sm); color: var(--neutral-4); }
 .dkj-card--data .dkj-card-head ~ * { margin-top: var(--spacing-4); }
 .dkj-card--data .dkj-card-body { padding: 0; border-top: 0; }
