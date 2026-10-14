@@ -42,6 +42,7 @@ tokens the Tokens section never drew.
 - [x] Brand layer: `--dkj-text-display` and `--dkj-text-input` in the type scale; weights, line heights, tracking and mono; layout widths and dialog scale/step; focus ring; every duration and the easing, animated on hover
 - [x] `src/showcase/sections/Intro.tsx`: the content opens with the page title (`<h1>`), a lead, a house `.card.hero` at the h0 display size and a type specimen with h1-h6, large, body, link, code, `.sub` and `.muted` (owner's follow-up); h4-h6 use showcase classes until #76
 - [x] One `<h1>` per page, always at `--text-h1`: the intro's "DKJ Brand Book"; the nav no longer repeats the name: it opens with its own heading, an `<h2>` "Contents" at `--text-h2` that names the nav (`aria-labelledby`), over "Jump to a section or an app preview"; the specimen shows h1 as a real `<h1>` at the same size, like the component demos (owner's follow-ups; an h1 in the nav at `--text-lg` broke the one-size rule, and a second "DKJ Brand Book" as a link read oddly)
+- [x] The nav's group labels stay labels, not `<h3>` (designer's call, owner delegated): each names its list via `aria-labelledby`, so the menu keeps its compact size and the heading list stays the page's structure
 - [x] Fixed: the brand-layer swatch `--dkj-on-warn` named a token that does not exist (always blank); `on-warn` is a house token and now sits under Status
 
 ### TEST

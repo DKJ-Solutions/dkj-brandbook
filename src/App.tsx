@@ -77,10 +77,13 @@ export default function App() {
       <nav className="bb-nav" aria-labelledby="bb-nav-title">
         <h2 className="bb-brand" id="bb-nav-title">Contents</h2>
         <p className="bb-brand-sub">Jump to a section or an app preview</p>
-        {NAV.map((g) => (
+        {/* Group labels, not headings: each names its list (aria-labelledby), so the menu keeps its compact size. */}
+        {NAV.map((g, n) => (
           <div key={g.group}>
-            <p className="bb-nav-group">{g.group}</p>
-            <ul>
+            <p className="bb-nav-group" id={`bb-nav-group-${n}`}>
+              {g.group}
+            </p>
+            <ul aria-labelledby={`bb-nav-group-${n}`}>
               {g.items.map((i) => (
                 <li key={i}>
                   <a href={`#${i}`}>{LABELS[i] ?? i}</a>
@@ -89,8 +92,10 @@ export default function App() {
             </ul>
           </div>
         ))}
-        <p className="bb-nav-group">DKJ-Solutions</p>
-        <ul>
+        <p className="bb-nav-group" id="bb-nav-group-repos">
+          DKJ-Solutions
+        </p>
+        <ul aria-labelledby="bb-nav-group-repos">
           {REPOS.map((r) => (
             <li key={r}>
               <a href={`#preview/${r}`} title={r} aria-current={r === previewRepo ? 'page' : undefined}>
