@@ -155,7 +155,7 @@
 :root[data-theme="sky"] { --primary-1: #091f2e; --primary-2: #143046; --primary-3: #05416c; --primary-4: #2f3e4b; --primary-5: #e8f1fb; --primary-6: #f6f9fc; }
 :root[data-theme="cyan"] { --primary-1: #002225; --primary-2: #00353a; --primary-3: #004a50; --primary-4: #264244; --primary-5: #e6f2f4; --primary-6: #f4fafa; }
 :root[data-theme="yellow"] { --primary-1: #291e00; --primary-2: #3d3100; --primary-3: #574500; --primary-4: #463d25; --primary-5: #f5efe1; --primary-6: #fcf9f0; --warning-3: #f08a24; }
-:root[data-theme="orange"] { --primary-1: #311200; --primary-2: #4a1f02; --primary-3: #642b00; --primary-4: #53321f; --primary-5: #feebe1; --primary-6: #fff7f4; }
+:root[data-theme="orange"] { --primary-1: #311200; --primary-2: #4a1f02; --primary-3: #793300; --primary-4: #53321f; --primary-5: #feebe1; --primary-6: #fff7f4; }
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }

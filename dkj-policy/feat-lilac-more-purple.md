@@ -64,7 +64,11 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
       of the sRGB maximum chroma for their lightness, -4 at 60%; lightness unchanged, -6 unchanged.
       `#311200 #4a1f02 #642b00 #53321f #feebe1 #fff7f4`. Contrast: `--neutral-3` on -2 7.88:1, -1 on -5
       14.94:1, -6 on -1 16.32:1.
-- [ ] An owner has looked at Oranje and approved it
+- [x] An owner has looked at Oranje: -3 still read brown
+- [x] Oranje -3 `#642b00` -> `#793300`: it already sat at the sRGB maximum chroma, so the only way to more
+      orange was lighter -- OKLCH L 0.363 -> 0.41, hue 48, maximum chroma (0.112). `--neutral-3` on it
+      5.13:1 (was 6.21; L 0.45 would drop to 4.36), as text on -6 (the showcase nav) 8.69:1.
+- [ ] An owner has looked at Oranje -3 and approved it
 
 ### DEPLOY: feat/lilac-more-purple
 
