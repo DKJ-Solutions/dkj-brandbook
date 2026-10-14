@@ -2,7 +2,50 @@
 
 ## [Unreleased]
 
-**53 minor entries** <!-- pending-tally -->
+**54 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/lilac-more-purple · 20261014-190840Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The primary scale grows from six steps to seven, with the theme's own colour in the middle: `--primary-4` is
+the most saturated step and the anchor (buttons, switches, focus rings, links, `h1` and `h2`, the picker's dot).
+`-1` and `-2` are the page and the card; `-3` the lines and the tinted surfaces; `-5` the text on a tinted
+surface, as grey as `-3` on the far side of the colour; `-6` has no role yet; `-7` is the far end, an inverted
+surface. `--primary-4` and `--primary-5` change meaning and `--primary-6` changes value, so a consuming repo
+renames in the order the README's migration rows give (old `-4` -> `-3` first, old `-5` -> `-4`, old `-6` ->
+`-4` last). On the dark themes the fills and links turn from near-white to the theme's colour itself, and all
+six dark themes carry about twice the colour on their page, cards and lines. Petrol and Roest move a fraction
+darker, Hemelsblauw to Blauw's hue.
+
+The untinted neutral ramp is removed: all text is `--primary-5` (the same lightness as `--neutral-3`, now in the
+theme's tint), grey lines are `--primary-3`, a chart's axis and zero line `--primary-5`, and the info dialog's
+base `--primary-2`. A consuming repo replaces every `--neutral-*` after the primary renames, as the README's
+migration rows give.
+
+**Score:** 5
+
+##### Tier 1
+
+Every app looks like its theme's colour: on dark the buttons, links and headings now carry the colour itself instead of near-white.
+
+**Score:** 2
+
+##### Tier 2
+
+A user sees buttons, links and headings in the theme's own colour, and a more colourful page on dark.
+
+**Score:** 2
+
+#### Pull Request
+
+The primary scale has seven steps, with the theme's colour as --primary-4
+
+[PR #96](https://github.com/DKJ-Solutions/dkj-brandbook/pull/96)
+
+---
 
 ### DEPLOY: feat/remove-neutral-1-5 · 20261014-151108Z
 
