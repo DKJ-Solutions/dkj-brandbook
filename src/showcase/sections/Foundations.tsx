@@ -8,7 +8,7 @@ import { useThemeId } from '../theme'
 const HOUSE_COLORS = {
   'changes with every theme': ['border', 'grid', 'page', 'primary', 'primary-ink', 'primary-soft', 'surface'],
   'changes only between light and dark -- black, white and grey': [
-    'axis', 'border-base', 'grid-base', 'ink', 'ink-2', 'on-primary', 'page-base', 'status-mark', 'surface-base',
+    'neutral-1', 'neutral-2', 'neutral-3', 'neutral-4', 'neutral-5',
   ],
   'changes only between light and dark -- colours': [
     'cat-1', 'cat-2', 'cat-3', 'negative-bg', 'negative-dark', 'negative-light', 'positive-bg', 'positive-light', 'positive-up', 'warning-bg', 'warning-dark', 'warning-light',
@@ -184,7 +184,7 @@ export function Foundations() {
           {TEXT_SIZES.map((f) => (
             <div key={f} className="bb-scale-row">
               <code>{f}</code>
-              <span style={{ fontSize: `var(${f})`, color: 'var(--ink)', lineHeight: 'var(--dkj-lh-tight)' }}>The quick label 1,234</span>
+              <span style={{ fontSize: `var(${f})`, color: 'var(--neutral-5)', lineHeight: 'var(--dkj-lh-tight)' }}>The quick label 1,234</span>
             </div>
           ))}
         </div>
@@ -194,7 +194,7 @@ export function Foundations() {
           {WEIGHTS.map((w) => (
             <div key={w} className="bb-scale-row">
               <code>--dkj-fw-{w}</code>
-              <span style={{ fontSize: 'var(--text-lg)', fontWeight: `var(--dkj-fw-${w})`, color: 'var(--ink)' }}>The quick label 1,234</span>
+              <span style={{ fontSize: 'var(--text-lg)', fontWeight: `var(--dkj-fw-${w})`, color: 'var(--neutral-5)' }}>The quick label 1,234</span>
             </div>
           ))}
           {LINE_HEIGHTS.map((l) => (
@@ -213,7 +213,7 @@ export function Foundations() {
           ))}
           <div className="bb-scale-row">
             <code>--dkj-font-mono</code>
-            <span style={{ fontFamily: 'var(--dkj-font-mono)', color: 'var(--ink)' }}>const tap = '44px' -- 0123456789</span>
+            <span style={{ fontFamily: 'var(--dkj-font-mono)', color: 'var(--neutral-5)' }}>const tap = '44px' -- 0123456789</span>
           </div>
         </div>
       </Demo>
@@ -290,7 +290,7 @@ export function Foundations() {
         <Readouts names={MOTION} values={values} />
       </Demo>
       <Demo label="Icons (stroke set, currentColor)">
-        <div className="bb-row" style={{ color: 'var(--ink)' }}>
+        <div className="bb-row" style={{ color: 'var(--neutral-5)' }}>
           {ICON_NAMES.map((n) => (
             <span key={n} title={n} style={{ display: 'grid', justifyItems: 'center', gap: 'var(--spacing-1)', width: '4rem', fontSize: 'var(--text-xs)' }}>
               <Icon name={n} size={24} />

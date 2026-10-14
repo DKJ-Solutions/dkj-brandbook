@@ -115,7 +115,7 @@ export function Meter({ value, tone, label }: { value: number; tone: StatusTone;
 
 /**
  * Badge -- a small round status mark with a glyph in it (✓, ✗, !, ?, i). The colour is a status token, never a hex; the
- * glyph is --status-mark (white on light, near-black on dark). neutral is a grey disc. The glyph is decorative: say the
+ * glyph is --neutral-1 (white on light, near-black on dark). neutral is a grey disc. The glyph is decorative: say the
  * status in text beside it (BadgeRow). size="sm" is 18px.
  */
 export function Badge({ tone, size = 'md', children }: { tone: StatusTone | 'neutral'; size?: 'md' | 'sm'; children: string }) {

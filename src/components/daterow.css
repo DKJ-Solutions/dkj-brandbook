@@ -24,19 +24,19 @@
   font-weight: var(--dkj-fw-semibold);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  color: var(--ink-2);
+  color: var(--neutral-4);
 }
 .dkj-daterow-main { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--spacing-1) var(--spacing-3); min-width: 0; }
 .dkj-daterow-body { display: flex; flex-direction: column; flex: 1 1 10rem; min-width: 0; }
-.dkj-daterow-title { font-size: var(--text-base); color: var(--ink); overflow-wrap: anywhere; }
-.dkj-daterow-sub { font-size: var(--text-sm); color: var(--ink-2); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
-.dkj-daterow-trailing { margin-left: auto; font-size: var(--text-sm); color: var(--ink-2); overflow-wrap: anywhere; }
+.dkj-daterow-title { font-size: var(--text-base); color: var(--neutral-5); overflow-wrap: anywhere; }
+.dkj-daterow-sub { font-size: var(--text-sm); color: var(--neutral-4); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.dkj-daterow-trailing { margin-left: auto; font-size: var(--text-sm); color: var(--neutral-4); overflow-wrap: anywhere; }
 
 /* near / today: bar + tint + bold, plus the word beside the date. */
 .dkj-daterow--near,
 .dkj-daterow--today { background: var(--primary-soft); box-shadow: inset 3px 0 0 var(--primary); }
 .dkj-daterow--near .dkj-daterow-when,
-.dkj-daterow--today .dkj-daterow-when { font-weight: var(--dkj-fw-bold); color: var(--ink); }
+.dkj-daterow--today .dkj-daterow-when { font-weight: var(--dkj-fw-bold); color: var(--neutral-5); }
 
 /* invalid: red bar, warning icon, the reason in red text. */
 .dkj-daterow--invalid { box-shadow: inset 3px 0 0 var(--negative-light); }

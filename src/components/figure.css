@@ -10,7 +10,7 @@
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--dkj-radius-lg);
-  background: color-mix(in srgb, var(--ink) 7%, var(--surface));
+  background: color-mix(in srgb, var(--neutral-5) 7%, var(--surface));
 }
 .dkj-figure--r-16-9 .dkj-figure__frame { aspect-ratio: 16 / 9; }
 .dkj-figure--r-4-3 .dkj-figure__frame { aspect-ratio: 4 / 3; }
@@ -42,13 +42,13 @@
   color: var(--muted);
 }
 .dkj-figure__glyph { flex: none; }
-.dkj-figure__label { font-size: var(--text-sm); color: var(--ink-2); overflow-wrap: break-word; }
+.dkj-figure__label { font-size: var(--text-sm); color: var(--neutral-4); overflow-wrap: break-word; }
 
 .dkj-figure__caption {
   margin-top: var(--spacing-2);
   font-size: var(--text-sm);
   line-height: var(--dkj-lh-snug);
-  color: var(--ink-2);
+  color: var(--neutral-4);
   text-align: left;
   overflow-wrap: break-word;
 }
