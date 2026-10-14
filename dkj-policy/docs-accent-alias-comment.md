@@ -34,9 +34,11 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Rewrite the comment above the scoped colour aliases in `src/brand-layer.css`
 
 ### TEST
+
+- [x] Comment only: no rule changed, so nothing renders differently
 
 ### DEPLOY: docs/accent-alias-comment
 
@@ -44,7 +46,9 @@
 
 ##### Tier 0
 
-**Score:**
+The comment above `--dkj-accent`, `--dkj-surface` and `--dkj-on-accent` now says why they exist when they equal the house tokens: a house token is never re-declared, so the alias is what `.dkj-dialog--info` re-declares to give everything inside it `--cat-1`. A reader who asked "isn't `--dkj-accent` just `--primary` twice?" finds the answer at the definition.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +57,9 @@
 
 ##### Tier 1
 
-**Score:**
+A code comment; management sees nothing of it.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +68,9 @@
 
 ##### Tier 2
 
-**Score:**
+A code comment; no user of a DKJ-Solutions app sees anything change.
+
+**Score:** N/A
 
 #### Pull Request
 
