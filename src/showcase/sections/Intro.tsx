@@ -7,9 +7,9 @@ export function Intro() {
   return (
     <header className="bb-intro" id="intro">
       <p className="bb-eyebrow">DKJ-Solutions</p>
-      <h1>One brand, several themes</h1>
+      <h1>DKJ Brand Book</h1>
       <p className="bb-lead">
-        The tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place
+        One brand, several themes. The tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place
         -- pick a theme in the settings and the whole page follows.
       </p>
 
@@ -30,7 +30,7 @@ export function Intro() {
 
       <div className="card bb-specimen">
         <p className="bb-eyebrow">Type specimen</p>
-        <h1>Heading 1 -- the page title</h1>
+        <p className="sub">Heading 1 is the page title above -- one per page, always at --text-h1.</p>
         <h2>Heading 2 -- a section</h2>
         <h3>Heading 3 -- a block inside a section</h3>
         <h4 className="bb-h4">Heading 4 -- a card title</h4>
