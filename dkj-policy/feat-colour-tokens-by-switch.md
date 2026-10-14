@@ -32,11 +32,21 @@
 
 ### PLAN
 
+The owner asked to group the colour tokens by what a theme switch does to them: the ones that change
+with every theme, and the ones that change only between light and dark. Read off the token blocks in
+`house-style/house-style.css`, a third group is left over (the same in every theme), and `--warn` sits in
+the light/dark group with one exception (Roest and Geel move it). The house style's values do not change.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/sections/Foundations.tsx`: `HOUSE_COLORS` regrouped into three groups -- every
+  theme, light and dark only, never
+- [x] `house-style/README.md`: a second table under "What it holds" with the same three groups
+- [x] Lint gate green
 
 ### TEST
+
+- [ ] An owner has looked at the Tokens section of the showcase and approved the grouping
 
 ### DEPLOY: feat/colour-tokens-by-switch
 
