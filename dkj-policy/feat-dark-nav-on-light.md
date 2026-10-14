@@ -45,7 +45,7 @@ main area keeps its light tint and the navigation gets a dark background.
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the navigation, the softer light tint and the apps overview across the six light themes (and checked the dark ones are unchanged) and approved it
+- [x] An owner has looked at the navigation, the softer light tint and the apps overview across the six light themes (and checked the dark ones are unchanged) and approved it
 
 ### DEPLOY: feat/dark-nav-on-light
 
