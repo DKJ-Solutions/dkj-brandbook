@@ -52,7 +52,7 @@ tokens the Tokens section never drew.
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the intro and the Tokens section and approved them
+- [x] An owner has looked at the intro and the Tokens section and approved them
 
 ### DEPLOY: feat/every-token-shown
 
