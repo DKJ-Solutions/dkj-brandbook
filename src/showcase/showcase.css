@@ -1,18 +1,17 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
 .bb-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
-/* The sidebar contrasts with the page, mirrored per mode, in fixed colour codes only: on a light theme a dark
-   panel (near-black in the theme's hue, one code per theme below) with white text, on a dark theme the theme's
-   near-white --primary-6 with black text. The default is the light default theme, Blauw. */
+/* The sidebar contrasts with the page, mirrored per mode, with no color-mix: on a light theme a dark panel
+   (near-black in the theme's hue, one code per theme below; the house has no token for it), on a dark theme
+   the theme's near-white --primary-6. The text is the opposite end of the neutral ramp in both modes:
+   --neutral-1 (the ground) as ink, --neutral-3 as the quieter ink. The default is the light default theme, Blauw. */
 .bb-nav {
   --bb-nav-bg: #172235;
-  --bb-nav-ink: #ffffff;
-  --bb-nav-ink-2: #c3c2b7;
   --bb-nav-brand: #9db9ea;
   --bb-nav-hover: #1c396b;
   --bb-nav-current: var(--primary-5);
   --bb-nav-current-ink: var(--neutral-1);
-  --bb-nav-current-ring: #ffffff;
+  --bb-nav-current-ring: var(--neutral-1);
   position: sticky;
   top: 0;
   align-self: start;
@@ -20,7 +19,7 @@
   overflow-y: auto;
   padding: var(--spacing-5) var(--spacing-4);
   background: var(--bb-nav-bg);
-  color: var(--bb-nav-ink);
+  color: var(--neutral-1);
 }
 :root[data-theme="magenta"] .bb-nav { --bb-nav-bg: #331729; --bb-nav-brand: #e39dcd; --bb-nav-hover: #641c4d; }
 :root[data-theme="purple"] .bb-nav { --bb-nav-bg: #261c36; --bb-nav-brand: #c3a9ed; --bb-nav-hover: #44286e; }
@@ -32,36 +31,32 @@
 :root[data-theme="pink"] .bb-nav, :root[data-theme="lilac"] .bb-nav, :root[data-theme="sky"] .bb-nav,
 :root[data-theme="cyan"] .bb-nav, :root[data-theme="yellow"] .bb-nav, :root[data-theme="orange"] .bb-nav {
   --bb-nav-bg: var(--primary-6);
-  --bb-nav-ink: #0b0b0b;
-  --bb-nav-ink-2: #52514e;
   --bb-nav-brand: var(--primary-3);
   --bb-nav-hover: var(--primary-5);
   --bb-nav-current: var(--primary-3);
-  --bb-nav-current-ink: #ffffff;
+  --bb-nav-current-ink: var(--neutral-5);
   --bb-nav-current-ring: var(--primary-6);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .bb-nav {
     --bb-nav-bg: var(--primary-6);
-    --bb-nav-ink: #0b0b0b;
-    --bb-nav-ink-2: #52514e;
     --bb-nav-brand: var(--primary-3);
     --bb-nav-hover: var(--primary-5);
     --bb-nav-current: var(--primary-3);
-    --bb-nav-current-ink: #ffffff;
+    --bb-nav-current-ink: var(--neutral-5);
     --bb-nav-current-ring: var(--primary-6);
   }
 }
 /* The menu's heading ("Contents"): an <h2>, so it keeps the house h2 size and face; only its colour follows the nav. */
 .bb-brand { color: var(--bb-nav-brand); }
-.bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--bb-nav-ink-2); }
+.bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--neutral-3); }
 .bb-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-semibold);
   letter-spacing: var(--dkj-tracking-label);
   text-transform: uppercase;
-  color: var(--bb-nav-ink-2);
+  color: var(--neutral-3);
 }
 .bb-nav ul { margin: 0; padding: 0; list-style: none; }
 .bb-nav a {
@@ -69,7 +64,7 @@
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--dkj-radius-sm);
   font-size: var(--text-base);
-  color: var(--bb-nav-ink);
+  color: var(--neutral-1);
   text-decoration: none;
   /* One line per link: a name too long for the column is cut off with an ellipsis (the full name is its title). */
   white-space: nowrap;
