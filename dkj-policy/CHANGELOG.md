@@ -2,7 +2,51 @@
 
 ## [Unreleased]
 
-**55 minor entries** <!-- pending-tally -->
+**56 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/dark-themes-deeper-ground · 20261014-203802Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The primary scale is retuned and the text roles move. On the six dark themes (and the OS-dark default) the page,
+the cards and the lines (`--primary-1` to `-3`) are a shade darker and `--primary-5` is clearly lighter (9.5:1 on
+the page, was 5.5:1). On the six light themes `--primary-7` is a lot darker (OKLCH lightness 0.18, was 0.26),
+`--primary-2` carries a little more colour, and `--primary-5` is the theme's colour a step darker (Paars `#6421b9`),
+still 4.5:1 or better on `--primary-3`.
+
+The roles: `h1` and `h2` are `--primary-5` (`h1` was the theme's colour, `--primary-4`) and `h3`–`h6` are
+`--primary-6`; on a `--primary-7` surface `h1`/`h2` take `--primary-3` and `h3`–`h6` `--primary-2`. Every
+paragraph is `--primary-7`, a quiet house class such as `.sub` or `.muted` on a `<p>` included; the same class on
+a span stays `--primary-5`. No token is added or renamed: a consuming repo takes the new copy, and one that
+coloured its own headings or paragraphs keeps its own colour there.
+
+The brand book's own sidebar reads the seven primaries directly, with no typed colour per light theme and no local
+alias, and the colour lint refuses any colour code under `src/`, also as a custom property's value: only the house
+style types a colour.
+
+**Score:** 4
+
+##### Tier 1
+
+Every app's headings and paragraphs change colour and the dark themes read with more contrast; nothing to act on.
+
+**Score:** 3
+
+##### Tier 2
+
+A user sees darker paragraph text and quieter headings on light, and a deeper background with brighter text on dark.
+
+**Score:** 3
+
+#### Pull Request
+
+Theme scale retuned: deeper dark ground, coloured text, headings and paragraphs by step
+
+[PR #99](https://github.com/DKJ-Solutions/dkj-brandbook/pull/99)
+
+---
 
 ### DEPLOY: docs/gwen-no-new-tokens · 20261014-195123Z
 
