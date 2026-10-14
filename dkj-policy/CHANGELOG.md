@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**39 minor entries** <!-- pending-tally -->
+**40 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/72-theme-reach · 20261014-071729Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A house theme now reaches beyond the primary button: links, checkboxes, radios, sliders, progress bars, the text caret and the selection take `--primary` by default, and `.header--accent`, `.card--accent`, `.tile--accent` and `.table--accent` carry it onto the page's surfaces where an app opts in. The link rules weigh nothing (`:where()`), so a class on an `<a>` keeps its own look. The Tokens section shows it all.
+
+**Score:** 3
+
+##### Tier 1
+
+Internal design system; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change until an app adopts it after a house-style release.
+
+**Score:** N/A
+
+#### Pull Request
+
+A theme reaches links, native controls and a small set of house accents
+
+[PR #73](https://github.com/DKJ-Solutions/dkj-brandbook/pull/73)
+
+---
 
 ### DEPLOY: feat/70-house-settings-button · 20261013-203427Z
 
