@@ -6,12 +6,12 @@ import { useThemeId } from '../theme'
 
 /** House colour tokens (house-style/house-style.css), grouped by what a theme switch changes, as in house-style/README.md. */
 const HOUSE_COLORS = {
-  'changes with every theme': ['primary', 'primary-soft', 'primary-ink', 'page', 'surface', 'grid', 'border'],
+  'changes with every theme': ['border', 'grid', 'page', 'primary', 'primary-ink', 'primary-soft', 'surface'],
   'changes only between light and dark -- black, white and grey': [
-    'ink', 'ink-2', 'axis', 'page-base', 'surface-base', 'grid-base', 'border-base', 'on-primary', 'status-mark',
+    'axis', 'border-base', 'grid-base', 'ink', 'ink-2', 'on-primary', 'page-base', 'status-mark', 'surface-base',
   ],
   'changes only between light and dark -- colours': [
-    'cat-1', 'cat-2', 'cat-3', 'negative-loss', 'positive-up', 'negative-down', 'positive-good', 'negative-bad', 'warn', 'warn-bg',
+    'cat-1', 'cat-2', 'cat-3', 'negative-bad', 'negative-down', 'negative-loss', 'positive-good', 'positive-up', 'warn', 'warn-bg',
   ],
   'the same in every theme': ['muted'],
 } as const
