@@ -32,11 +32,19 @@
 
 ### PLAN
 
+Owner's idea (October 14, 2026): `--primary-4` the greyest; example dark Geel `-4` `#91804c`, `-5` `#ffce3f`, `-6` `#ffe4a3`. Decided by menu: the six dark themes only, and text in the colour moves to `-5` on dark (`#91804c` reaches only 3.80:1 as a link on the card).
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Dark Geel takes the owner's three values; Roze, Lila, Hemelsblauw, Cyaan and Oranje (and the OS-dark default) take the same OKLCH lightness, `-4`'s chroma, and `-5`/`-6` at full gamut chroma in their own hue
+- [x] Every text use of `--primary-4` (25 rules, house and components) reads `light-dark(var(--primary-4), var(--primary-5))`; fills, borders and focus rings stay `-4`
+- [x] The picker's dark dots and the README theme table show the new `-5`
+- [x] Role descriptions and measured contrasts updated: `-1` on `-4` 4.61:1 or better on dark, `-5` on `-1`/`-2` 9.96:1, on status backgrounds 8.34:1
+- [x] Lint gate green
 
 ### TEST
+
+- [ ] An owner has looked at the six dark themes in the showcase and approved them
 
 ### DEPLOY: feat/dark-themes-grey-anchor
 
@@ -44,7 +52,13 @@
 
 ##### Tier 0
 
-**Score:**
+On the six dark themes `--primary-4` is a grey of the theme's colour and the colour itself moves to `--primary-5` and
+`-6` (Geel: `-4` `#91804c`, `-5` `#ffce3f`, `-6` `#ffe4a3`). Text that carried the colour (links, card and dialog
+titles, values, pressed toggles) reads `light-dark(var(--primary-4), var(--primary-5))`, so it keeps the colour on
+dark and is unchanged on light; fills, borders and focus rings stay `-4`. The theme picker's dark dots show `-5`.
+Light themes are unchanged. No token is added or renamed.
+
+**Score:** 4
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +67,9 @@
 
 ##### Tier 1
 
-**Score:**
+The dark themes change character: quieter buttons, with the colour in the text and headings.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +78,9 @@
 
 ##### Tier 2
 
-**Score:**
+On a dark theme a user sees greyer buttons and the theme's colour in links, headings and labels.
+
+**Score:** 3
 
 #### Pull Request
 
