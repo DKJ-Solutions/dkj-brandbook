@@ -44,7 +44,7 @@
      -1 the page, and the text on the colour; -2 the cards (tiles, tooltips); -3 every line (borders, row
      dividers, meter track, gridlines) and the tinted surfaces (an accent table head, a hover, a today row, the
      accent dialog); -4 THE COLOUR: primary buttons, switches, info badges and meters, focus rings, links, h1,
-     and the picker's dot; -5 all text (body, labels, focus outlines, and on a tinted surface); -6 the h2 (owner's decision, October 14, 2026: on -1 an h2 is -6, on -7 it is -2); -7 the far end, an inverted
+     and the picker's dot; -5 all text (body, labels, focus outlines, h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 an h2 is -3 and h3-h6 are -2); -7 the far end, an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -4 on the card 4.52:1
      (Petrol, Roest), -1 on -4 4.88:1 on light (Petrol) and 7.2:1 on dark (Hemelsblauw), -5 on -3 4.52:1 (Oker);
      -5, all text, on -1 and -2 at 6.9:1 or better on light (Oker) and 9.5:1 on dark (Geel), and 6.9:1 or better
@@ -176,11 +176,12 @@ body > header, main > header { display: flex; justify-content: space-between; al
    pulled in slightly. h3-h6 stay in the body sans. */
 h1, h2 { font-family: var(--font-serif);
   font-weight: 600; letter-spacing: -0.01em; }
-/* h1 is the theme's colour, as text; h2 is -6, a step past it towards the far end (owner's decision, October 14,
-   2026). An h2 on a --primary-7 surface takes -2 instead, set where that surface is. :where() keeps both at zero
-   specificity, so a heading inside a coloured container (or one an app colours itself) wins without an override. */
+/* h1 is the theme's colour, as text; h2 is -5, h3-h6 are -6 (owner's decision, October 14, 2026). On a
+   --primary-7 surface an h2 takes -3 and h3-h6 take -2 instead, set where that surface is. :where() keeps them at
+   zero specificity, so a heading inside a coloured container (or one an app colours itself) wins without an override. */
 :where(h1) { color: var(--primary-4); }
-:where(h2) { color: var(--primary-6); }
+:where(h2) { color: var(--primary-5); }
+:where(h3, h4, h5, h6) { color: var(--primary-6); }
 h1 { font-size: var(--text-h1); margin: 0; }
 h2 { font-size: var(--text-h2); margin: 0 0 var(--spacing-1); }
 /* Flex so an .info-button sits on the heading's vertical centre, not on its baseline; the serif's
