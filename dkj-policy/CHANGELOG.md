@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**41 minor entries** <!-- pending-tally -->
+**42 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/dark-nav-on-light · 20261014-091348Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+On a light theme the brand book's sidebar is now a dark panel -- near-black with 18% of the theme's primary, white links, light grey group labels and the brand name in a light tint of the primary -- so it stands apart from the light main area. Dark themes keep the tinted sidebar they had. The colours are showcase-only `--bb-nav-*` variables picked per mode with `light-dark()`. The light themes' tint is also halved in the house style -- page 6% (was 12%), cards 2% (was 4%), lines 8% (was 12%) -- so a light page reads whiter; dark themes are unchanged. The views in the apps overview get their own tint, a step deeper than the page and the card around them, instead of the page colour.
+
+**Score:** 2
+
+##### Tier 1
+
+The brand book's own chrome; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change until an app takes the softer tint after a house-style release.
+
+**Score:** N/A
+
+#### Pull Request
+
+A dark brand book navigation and a softer tint on the light themes
+
+[PR #75](https://github.com/DKJ-Solutions/dkj-brandbook/pull/75)
+
+---
 
 ### DEPLOY: feat/theme-presence · 20261014-075843Z
 
