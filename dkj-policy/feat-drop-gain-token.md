@@ -32,11 +32,24 @@
 
 ### PLAN
 
+Owner's decision (Maikel, October 14, 2026): `--gain` and `--cat-1` are always the same colour, so one goes.
+`--gain` is removed; a repo that meets it undefined replaces it 1:1 with `--cat-1`, the same value in light
+and dark. A breaking change for consumers, accepted on that condition.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `--gain` removed from `house-style.css` (light and both dark blocks); `--loss`, `--up`, `--down` stay
+- [x] Charts, the legend (`SeriesColor` loses `'gain'`), the ETF preview and the showcase texts use `--cat-1`
+- [x] Foundations: the Direction swatch list no longer shows `gain`
+- [x] house-style/README.md: the Direction row says a gain uses `--cat-1` and never shares a view with a
+  series in `--cat-1`; migration note under the token table
+- [x] Code review (Victor): the dynamically built `var(--gain)` in the legend, fixed
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
+
+- [ ] An owner has looked at the Metrics section (legend, ColumnChart, BarChart) and the Tokens swatches
+  and approved it
 
 ### DEPLOY: feat/drop-gain-token
 
@@ -44,7 +57,12 @@
 
 ##### Tier 0
 
-**Score:**
+The house token `--gain` is gone: it was always the same colour as `--cat-1`, which a gain in a chart now
+uses. A repo that still reads `var(--gain)` gets no colour there until it replaces it with `var(--cat-1)`,
+which looks exactly the same in every theme, light and dark. The legend's `color="gain"` is now
+`color="cat-1"`.
+
+**Score:** 4
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +71,9 @@
 
 ##### Tier 1
 
-**Score:**
+A token rename inside the house style; management sees no change.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +82,9 @@
 
 ##### Tier 2
 
-**Score:**
+The replacement colour is identical, so once a repo has swapped the name no user sees a difference.
+
+**Score:** N/A
 
 #### Pull Request
 
