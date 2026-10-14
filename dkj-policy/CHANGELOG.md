@@ -2,7 +2,41 @@
 
 ## [Unreleased]
 
-**45 minor entries** <!-- pending-tally -->
+**46 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/drop-dkj-colour-tokens · 20261014-113419Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The brand book's own layer (`src/brand-layer.css`) no longer defines any colour: the 14 `--dkj-*`
+colour tokens are gone and every component reads the house tokens directly. The info and accent dialogs
+re-declare `--primary` / `--surface` inside their own subtree to tint their contents, which
+house-style/README.md rule 3 now allows as its one narrow exception. Inside a tinted dialog, the info
+rows and alerts now mix over the dialog's tinted surface rather than the page's.
+
+**Score:** 2
+
+##### Tier 1
+
+Internal to the brand book's own component layer; management sees nothing change.
+
+**Score:** N/A
+
+##### Tier 2
+
+The house stylesheet every app loads is unchanged, so no user of a DKJ-Solutions app sees a difference.
+
+**Score:** N/A
+
+#### Pull Request
+
+Drop the --dkj-* colour tokens; components use house tokens directly
+
+[PR #82](https://github.com/DKJ-Solutions/dkj-brandbook/pull/82)
+
+---
 
 ### DEPLOY: docs/accent-alias-comment · 20261014-103112Z
 
