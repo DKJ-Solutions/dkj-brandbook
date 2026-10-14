@@ -64,7 +64,8 @@ uses):
 | A switch … | Tokens | Why |
 |---|---|---|
 | to any other theme changes them | `--primary`, `--primary-soft`, `--primary-ink`, `--page`, `--surface`, `--grid`, `--border` | each theme sets its own `--primary`, and the other six are mixed from it |
-| changes them only between light and dark | `--on-primary`, `--ink`, `--ink-2`, `--axis`, `--page-base`, `--surface-base`, `--grid-base`, `--border-base`, `--cat-1`–`--cat-3`, `--loss`, `--up`, `--down`, `--bad`, `--warn`, `--warn-bg`, `--status-mark` | set once in the light block and once in the dark block. One exception: `--warn` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
+| changes them only between light and dark: black, white and grey | `--ink`, `--ink-2`, `--axis`, `--page-base`, `--surface-base`, `--grid-base`, `--border-base`, `--on-primary`, `--status-mark` | set once in the light block and once in the dark block, where they flip between dark and light neutrals |
+| changes them only between light and dark: colours | `--cat-1`–`--cat-3`, `--loss`, `--up`, `--down`, `--bad`, `--warn`, `--warn-bg` | set once in the light block and once in the dark block, a shade apart. One exception: `--warn` also moves in Roest and Geel ([below](#themes-the-user-picks-the-colour)) |
 | never changes them | `--muted`, `--good`, `--on-warn` | the same value in light and dark |
 
 **The spacing and type scales have a source: the Figma library** *Shopify Theme - LIBRARY*, variable

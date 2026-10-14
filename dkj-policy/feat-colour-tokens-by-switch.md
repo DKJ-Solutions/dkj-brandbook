@@ -42,6 +42,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] `src/showcase/sections/Foundations.tsx`: `HOUSE_COLORS` regrouped into three groups -- every
   theme, light and dark only, never
 - [x] `house-style/README.md`: a second table under "What it holds" with the same three groups
+- [x] The light/dark group split in two, in both places: black, white and grey, and colours (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST
