@@ -75,8 +75,8 @@ export default function App() {
   return (
     <div className="bb-shell">
       <nav className="bb-nav" aria-label="Brand book">
-        <p className="bb-brand">DKJ Brand Book</p>
-        <p className="bb-brand-sub">One brand, several themes</p>
+        <h1 className="bb-brand">DKJ Brand Book</h1>
+        <p className="bb-brand-sub">Tokens, themes and components</p>
         {NAV.map((g) => (
           <div key={g.group}>
             <p className="bb-nav-group">{g.group}</p>

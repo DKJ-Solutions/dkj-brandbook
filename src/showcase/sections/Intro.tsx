@@ -7,9 +7,9 @@ export function Intro() {
   return (
     <header className="bb-intro" id="intro">
       <p className="bb-eyebrow">DKJ-Solutions</p>
-      <h1>DKJ Brand Book</h1>
+      <h1>One brand, several themes</h1>
       <p className="bb-lead">
-        One brand, several themes. The tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place
+        The tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place
         -- pick a theme in the settings and the whole page follows.
       </p>
 

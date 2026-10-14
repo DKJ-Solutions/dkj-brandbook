@@ -41,6 +41,7 @@ tokens the Tokens section never drew.
 - [x] Tokens section: the whole spacing scale (40 steps), `--on-warn`, the four `--*-tint` values, the house app-shell sizes and `--shadow-pop`
 - [x] Brand layer: `--dkj-text-display` and `--dkj-text-input` in the type scale; weights, line heights, tracking and mono; layout widths and dialog scale/step; focus ring; every duration and the easing, animated on hover
 - [x] `src/showcase/sections/Intro.tsx`: the content opens with the page title (`<h1>`), a lead, a house `.card.hero` at the h0 display size and a type specimen with h1-h6, large, body, link, code, `.sub` and `.muted` (owner's follow-up); h4-h6 use showcase classes until #76
+- [x] The nav's "DKJ Brand Book" is the page's `<h1>` (was a `<p>`); the intro is titled "One brand, several themes" and the nav subtitle no longer repeats it (owner's follow-up)
 - [x] Fixed: the brand-layer swatch `--dkj-on-warn` named a token that does not exist (always blank); `on-warn` is a house token and now sits under Status
 
 ### TEST
@@ -54,7 +55,7 @@ tokens the Tokens section never drew.
 
 ##### Tier 0
 
-The brand book now opens with an intro: the page title as a real `<h1>`, a hero card at the house display size (h0) and a type specimen with every heading level and the running-text styles. Its Tokens section now draws every token the house style and the brand layer define: the whole spacing scale, the theme tint percentages, the app-shell and layout sizes, the dialog scale, type weights, line heights, tracking and the mono stack, the focus ring and shadow, and every motion duration, animated. A blank swatch that named a non-existent `--dkj-on-warn` is gone; `--on-warn` shows under the house status colours.
+The brand book's name in the navigation is now the page's `<h1>`, and the content opens with an intro: a hero card at the house display size (h0) and a type specimen with every heading level and the running-text styles. Its Tokens section now draws every token the house style and the brand layer define: the whole spacing scale, the theme tint percentages, the app-shell and layout sizes, the dialog scale, type weights, line heights, tracking and the mono stack, the focus ring and shadow, and every motion duration, animated. A blank swatch that named a non-existent `--dkj-on-warn` is gone; `--on-warn` shows under the house status colours.
 
 **Score:** 2
 
