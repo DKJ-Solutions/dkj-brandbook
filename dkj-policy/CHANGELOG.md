@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**40 minor entries** <!-- pending-tally -->
+**41 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/theme-presence · 20261014-075843Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A house theme now colours the whole page instead of a few controls: the page, cards, dividers and borders take a light tint of the theme's primary, h1/h2 and links take `--primary-ink` (the primary pulled towards the ink, so body-size contrast stays above AA on the tinted page), and the brand book's sidebar is themed with a solid-primary active link. Each tint is one per-mode token, so the strength is tuned in one place.
+
+**Score:** 4
+
+##### Tier 1
+
+Internal design system; no change for management or a commissioner.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing change until an app adopts it after a house-style release.
+
+**Score:** N/A
+
+#### Pull Request
+
+A theme tints the page, the surfaces, the headings and the brand book's navigation
+
+[PR #74](https://github.com/DKJ-Solutions/dkj-brandbook/pull/74)
+
+---
 
 ### DEPLOY: feat/72-theme-reach · 20261014-071729Z
 
