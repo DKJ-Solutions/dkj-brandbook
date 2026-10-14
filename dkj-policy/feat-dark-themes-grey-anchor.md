@@ -42,6 +42,7 @@ Owner's idea (October 14, 2026): `--primary-4` the greyest; example dark Geel `-
 - [x] Role descriptions and measured contrasts updated: `-1` on `-4` 4.61:1 or better on dark
 - [x] Lila matched to Geel (owner: "de paarse sluit nog niet aan op geel"): at Geel's lightness purple reaches only chroma 0.071, so `-5`/`-6` take Geel's chroma (0.160, 0.087) at a lower lightness, `#ae8fff`/`#cfc0ff`; measured worst cases updated (6.07:1 on the card, 4.98:1 on a status background)
 - [x] Hemelsblauw matched to Cyaan (owner: the gap at `-5` was too large): `-5`/`-6` take Cyaan's chroma (0.132, 0.075) at a lower lightness, `#7aacff`/`#b1cfff`; contrasts 6.78:1 on the card, 5.59:1 on a status background
+- [x] Dark themes: `--primary-2` 0.05 OKLCH lightness darker, hue kept (owner's request); the card stays about 0.02 above the page and its `-3` border reads clearer (1.36:1 or better against it, was about 1.2)
 - [x] Lint gate green
 
 ### TEST
@@ -58,7 +59,7 @@ On the six dark themes `--primary-4` is a grey of the theme's colour and the col
 `-6` (Geel: `-4` `#91804c`, `-5` `#ffce3f`, `-6` `#ffe4a3`). Text that carried the colour (links, card and dialog
 titles, values, pressed toggles) reads `light-dark(var(--primary-4), var(--primary-5))`, so it keeps the colour on
 dark and is unchanged on light; fills, borders and focus rings stay `-4`. The theme picker's dark dots show `-5`.
-Light themes are unchanged. No token is added or renamed.
+The dark cards (`--primary-2`) are a lot darker, a shade above the page. Light themes are unchanged. No token is added or renamed.
 
 **Score:** 4
 

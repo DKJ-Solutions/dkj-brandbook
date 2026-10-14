@@ -124,7 +124,7 @@
     color-scheme: dark;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-    --primary-1: #00181a; --primary-2: #002a2e; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa;
+    --primary-1: #00181a; --primary-2: #001d20; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa;
   }
 }
 
@@ -135,7 +135,7 @@
   color-scheme: dark;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-  --primary-1: #00181a; --primary-2: #002a2e; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa;
+  --primary-1: #00181a; --primary-2: #001d20; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa;
 }
 
 /* ---- Themes: the primary colour ------------------------------------------ */
@@ -150,12 +150,12 @@
 :root[data-theme="teal"] { --primary-1: #f7f9f9; --primary-2: #e8f2f0; --primary-3: #b4c4c6; --primary-4: #087983; --primary-5: #025860; --primary-6: #12454a; --primary-7: #001518; }
 :root[data-theme="ochre"] { --primary-1: #f9f9f6; --primary-2: #f2f0e3; --primary-3: #c4c2b2; --primary-4: #7a6b00; --primary-5: #5b4f00; --primary-6: #453e0e; --primary-7: #161200; }
 :root[data-theme="rust"] { --primary-1: #faf9f6; --primary-2: #f7efe5; --primary-3: #ccbfb3; --primary-4: #aa5703; --primary-5: #7d3e01; --primary-6: #5c300b; --primary-7: #200b00; --warning-3: #b88a00; }
-:root[data-theme="pink"] { --primary-1: #23081b; --primary-2: #3b132d; --primary-3: #3f2b38; --primary-4: #a26f8a; --primary-5: #ffbee0; --primary-6: #ffdbed; --primary-7: #fff6f9; }
-:root[data-theme="lilac"] { --primary-1: #160f24; --primary-2: #281f3a; --primary-3: #342f3f; --primary-4: #8479a9; --primary-5: #ae8fff; --primary-6: #cfc0ff; --primary-7: #f9f7fd; }
-:root[data-theme="sky"] { --primary-1: #021624; --primary-2: #09263b; --primary-3: #253440; --primary-4: #6782ae; --primary-5: #7aacff; --primary-6: #b1cfff; --primary-7: #f6f9fc; }
-:root[data-theme="cyan"] { --primary-1: #00181a; --primary-2: #002a2e; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa; }
-:root[data-theme="yellow"] { --primary-1: #1e1500; --primary-2: #312700; --primary-3: #3b331b; --primary-4: #91804c; --primary-5: #ffce3f; --primary-6: #ffe4a3; --primary-7: #fcf9f0; --warning-3: #f08a24; }
-:root[data-theme="orange"] { --primary-1: #240b00; --primary-2: #3c1700; --primary-3: #482815; --primary-4: #a57558; --primary-5: #ffc7a6; --primary-6: #ffdfcd; --primary-7: #fff7f4; }
+:root[data-theme="pink"] { --primary-1: #23081b; --primary-2: #2d0621; --primary-3: #3f2b38; --primary-4: #a26f8a; --primary-5: #ffbee0; --primary-6: #ffdbed; --primary-7: #fff6f9; }
+:root[data-theme="lilac"] { --primary-1: #160f24; --primary-2: #1c132d; --primary-3: #342f3f; --primary-4: #8479a9; --primary-5: #ae8fff; --primary-6: #cfc0ff; --primary-7: #f9f7fd; }
+:root[data-theme="sky"] { --primary-1: #021624; --primary-2: #001a2e; --primary-3: #253440; --primary-4: #6782ae; --primary-5: #7aacff; --primary-6: #b1cfff; --primary-7: #f6f9fc; }
+:root[data-theme="cyan"] { --primary-1: #00181a; --primary-2: #001d20; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa; }
+:root[data-theme="yellow"] { --primary-1: #1e1500; --primary-2: #231b00; --primary-3: #3b331b; --primary-4: #91804c; --primary-5: #ffce3f; --primary-6: #ffe4a3; --primary-7: #fcf9f0; --warning-3: #f08a24; }
+:root[data-theme="orange"] { --primary-1: #240b00; --primary-2: #2b0e00; --primary-3: #482815; --primary-4: #a57558; --primary-5: #ffc7a6; --primary-6: #ffdfcd; --primary-7: #fff7f4; }
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }

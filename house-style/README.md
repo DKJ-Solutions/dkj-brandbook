@@ -238,7 +238,8 @@ out). Three more things follow it by default, in light and in dark (and a measur
   then carry about twice that colour (owner's decision, October 14, 2026: they read grey): each step keeps its
   OKLCH lightness and hue and multiplies its chroma by about 2.1, clipped to sRGB. `-5` takes `-3`'s hue and
   chroma, at the first lightness on the far side where it reaches 4.5:1 on `-3`. On dark `-1`, `-2` and `-3` then
-  move 0.04 OKLCH lightness darker and `-5` 0.12 lighter, hue and chroma kept (owner's decision, October 14,
+  move 0.04 OKLCH lightness darker (`-2` another 0.05, owner's request, October 14, 2026: the card a
+  shade above the page, no more) and `-5` 0.12 lighter, hue and chroma kept (owner's decision, October 14,
   2026: a deeper ground and brighter text). On light `-2` then carries 1.6 times its chroma at the same lightness (owner's
   decision, October 14, 2026: a card with a little more colour), and `-5` takes `-4`'s
   chroma and hue about 0.08 OKLCH lightness darker, further where it needs it to reach 4.5:1 on `-3` (owner's example,
