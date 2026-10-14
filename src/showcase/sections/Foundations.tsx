@@ -6,8 +6,8 @@ import { useThemeId } from '../theme'
 
 /** House tokens (house-style/house-style.css), grouped as in house-style/README.md. */
 const HOUSE_COLORS = {
-  'Surfaces and ink': ['page', 'surface', 'ink', 'ink-2', 'muted', 'grid', 'axis', 'border'],
-  Primary: ['primary', 'on-primary', 'primary-soft'],
+  'Surfaces and ink': ['page', 'surface', 'ink', 'ink-2', 'muted', 'grid', 'axis', 'border', 'page-base', 'surface-base', 'grid-base', 'border-base'],
+  Primary: ['primary', 'on-primary', 'primary-soft', 'primary-ink'],
   Status: ['good', 'warn', 'bad', 'warn-bg', 'status-mark'],
   Direction: ['gain', 'loss', 'up', 'down'],
   Categorical: ['cat-1', 'cat-2', 'cat-3'],

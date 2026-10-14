@@ -20,8 +20,12 @@
 
    How far a theme reaches: every use of --primary (the pressed .seg, .btn--primary, .badge--info,
    .meter--info, the settings toggle, focus rings), every link, native checkboxes, radios and
-   sliders (accent-color), the text caret and the selection. The --accent modifiers (header, card,
-   tile, table) carry it further where an app opts in.
+   sliders (accent-color), the text caret and the selection. Beyond that, by default: the page, the
+   cards and tiles carry a light tint of the primary (--page, --surface; 12% / 4% on light, 10% / 14%
+   on dark), the lines and borders a thinner one (--grid; --border, a line of about 15% opacity leaning to the primary), and h1 and h2 are set in the
+   primary as text (--primary-ink). The neutral values live on as --page-base, --surface-base,
+   --grid-base and --border-base. Status, direction and categorical colours are never tinted. The
+   --accent modifiers (header, card, tile, table) carry it further where an app opts in.
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
@@ -34,14 +38,22 @@
   color-scheme: light;
 
   /* surfaces and ink */
-  --page: #f9f9f7;        /* page background */
-  --surface: #fcfcfb;     /* cards, tiles, tooltips */
+  /* The neutral bases and how much of the theme's primary is mixed into each (the dark blocks set their
+     own values). --page, --surface, --grid and --border below are derived from them, so every theme
+     tints the page, the cards and the lines with its own colour. Measured worst case: --ink-2 reaches
+     6.2:1 on the tinted light page (worst: Magenta, Paars) and 6.8:1 on the tinted dark surface (worst: Geel). */
+  --page-base: #f9f9f7;   --page-tint: 12%;
+  --surface-base: #fcfcfb; --surface-tint: 4%;
+  --grid-base: #e1e0d9;   --grid-tint: 12%;
+  --border-base: rgba(11,11,11,0.10);  --border-tint: 6%;   /* --border-base is translucent and the mix is premultiplied: 6% gives a line of about 15% opacity, leaning to the primary, about as visible as the old one */
+  --page: color-mix(in srgb, var(--primary) var(--page-tint), var(--page-base));           /* page background */
+  --surface: color-mix(in srgb, var(--primary) var(--surface-tint), var(--surface-base));  /* cards, tiles, tooltips */
   --ink: #0b0b0b;         /* primary text */
   --ink-2: #52514e;       /* secondary text, labels */
   --muted: #898781;       /* tertiary text, notes */
-  --grid: #e1e0d9;        /* row dividers, meter track, gridlines */
+  --grid: color-mix(in srgb, var(--primary) var(--grid-tint), var(--grid-base));   /* row dividers, meter track, gridlines */
   --axis: #c3c2b7;        /* axes, info-button outline, neutral badge */
-  --border: rgba(11,11,11,0.10);
+  --border: color-mix(in srgb, var(--primary) var(--border-tint), var(--border-base));
 
   /* categorical palette (series slots) */
   --cat-1: #2a78d6;
@@ -70,6 +82,10 @@
      --warn to a dark colour redefines this beside it. */
   --on-warn: #0b0b0b;
   --primary-soft: color-mix(in srgb, var(--primary) 14%, var(--surface));  /* a tint for backgrounds */
+  /* the primary as TEXT (links, h1, h2): 20% of --ink mixed in, so it darkens on light and lightens on dark.
+     The tinted page is darker than the neutral one, and a bare Petrol or Oker link would fall to 4.0:1 on
+     it; with this it is 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). */
+  --primary-ink: color-mix(in srgb, var(--primary) 80%, var(--ink));
 
   --warn-bg: #fff4e0;     /* notice background */
   --shadow-pop: 0 4px 16px rgba(0,0,0,0.15);  /* tooltips; same in both modes */
@@ -116,8 +132,9 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
-    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
-    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --page-base: #0d0d0d; --surface-base: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
+    --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --gain: #3987e5; --loss: #e66767;
     --up: #3fc23f; --down: #ff7a7a; --good: #0ca30c; --bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
@@ -131,8 +148,9 @@
 :root[data-theme="pink"], :root[data-theme="lilac"], :root[data-theme="sky"],
 :root[data-theme="cyan"], :root[data-theme="yellow"], :root[data-theme="orange"] {
   color-scheme: dark;
-  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
-  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --page-base: #0d0d0d; --surface-base: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid-base: #2c2c2a; --axis: #383835; --border-base: rgba(255,255,255,0.10);
+  --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --gain: #3987e5; --loss: #e66767;
   --up: #3fc23f; --down: #ff7a7a; --good: #0ca30c; --bad: #e66767; --warn: #ffc61a; --warn-bg: #3a2a10;
@@ -184,6 +202,9 @@ body > header, main > header { display: flex; justify-content: space-between; al
    pulled in slightly. h3 stays in the body sans. */
 h1, h2 { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif", serif;
   font-weight: 600; letter-spacing: -0.01em; }
+/* The theme's colour, as text. :where() keeps it at zero specificity, so a heading inside a coloured container
+   (or one an app colours itself) wins without an override. */
+:where(h1, h2) { color: var(--primary-ink); }
 h1 { font-size: var(--text-h1); margin: 0; }
 h2 { font-size: var(--text-h2); margin: 0 0 var(--spacing-1); }
 /* Flex so an .info-button sits on the heading's vertical centre, not on its baseline; the serif's
@@ -202,10 +223,10 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .delta--down, .neg { color: var(--down); }
 
 /* ---- Links and selection ---------------------------------------------------- */
-/* A link (an <a> with an href) takes the theme's primary, visited or not: every primary reaches 4.5:1 on its page and
-   surface. :where() keeps each rule at zero specificity, so any class on an <a> (a .btn, a
-   .menu-item, an app's own) wins over it without an override. */
-:where(a:any-link) { color: var(--primary); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+/* A link (an <a> with an href) takes the theme's primary as text (--primary-ink), visited or not: it reaches 4.5:1
+   on the tinted page and surface in every theme. :where() keeps each rule at zero specificity, so any class on an
+   <a> (a .btn, a .menu-item, an app's own) wins over it without an override. */
+:where(a:any-link) { color: var(--primary-ink); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 :where(a:any-link:hover) { text-decoration-thickness: 2px; }
 :where(a:any-link:focus-visible) { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 2px; }
 ::selection { background: color-mix(in srgb, var(--primary) 30%, transparent); }
@@ -356,8 +377,9 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .theme-picker__label { font-size: var(--text-sm); font-weight: 600; color: var(--ink-2); }
 .theme-picker__swatches { display: flex; gap: var(--spacing-2); flex-wrap: wrap; }
 .theme-swatch { width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid var(--border); cursor: pointer; display: grid; place-items: center; }
-.theme-swatch--light { background: #f9f9f7; }
-.theme-swatch--dark { background: #0d0d0d; }
+/* Each swatch previews its own theme's page: the page base with the same tint as --page-tint (12% light, 10% dark). */
+.theme-swatch--light { background: color-mix(in srgb, var(--swatch) 12%, #f9f9f7); }
+.theme-swatch--dark { background: color-mix(in srgb, var(--swatch) 10%, #0d0d0d); }
 .theme-swatch i { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--swatch); }
 .theme-swatch[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 2px; }   /* the chosen theme */
 .theme-swatch:focus-visible { outline: 2px dashed var(--primary); outline-offset: 4px; }       /* keyboard focus: a different ring */

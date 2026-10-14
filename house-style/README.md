@@ -43,11 +43,11 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 
 | Group | Tokens | Meaning |
 |---|---|---|
-| Surfaces and ink | `--page`, `--surface`, `--ink`, `--ink-2`, `--muted`, `--grid`, `--axis`, `--border` | background, cards, three levels of text, lines |
+| Surfaces and ink | `--page`, `--surface`, `--ink`, `--ink-2`, `--muted`, `--grid`, `--axis`, `--border` | background, cards, three levels of text, lines. `--page`, `--surface`, `--grid` and `--border` are derived: the neutral `--page-base`, `--surface-base`, `--grid-base` and `--border-base` with the theme's primary mixed in ([below](#how-far-a-theme-reaches)) |
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--gain`, `--loss` (charts), `--up`, `--down` (numbers in text) | result and direction, never a category. `--up`/`--down` are the text versions of `--good`/`--bad`, a step more contrast so a number reads as text: darker on light, lighter on dark |
 | Status | `--good`, `--warn`, `--bad`, `--warn-bg`, `--status-mark`, `--on-warn` | badges, meters, notices. `--status-mark` is the mark inside a status icon (check, cross, "!"): white on light, near-black on dark. `--on-warn` is text on a `--warn` fill: dark in every theme, because `--warn` is orange or yellow in all of them |
-| Primary | `--primary`, `--on-primary`, `--primary-soft` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--on-primary` is text on it, `--primary-soft` a tint for a background. Never a status or a number |
+| Primary | `--primary`, `--on-primary`, `--primary-soft` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--on-primary` is text on it, `--primary-soft` a tint for a background, `--primary-ink` the primary as text (links, `h1`, `h2`). Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h3` take the token of their own level, body text is `--text-base` |
@@ -130,7 +130,7 @@ of amber and the dark one a brighter yellow; `--down` on light is a darker red (
 and only the primary controls and the focus rings used it. Plain links kept the browser's blue in
 every theme. Now:
 
-- **By default**, with nothing for the app to do: every link takes `--primary`, visited or not, with
+- **By default**, with nothing for the app to do: every link takes the primary as text (`--primary-ink`), visited or not, with
   a thicker underline on hover and a primary focus ring. Native checkboxes, radios, sliders and
   progress bars take it through `accent-color`, the text caret through `caret-color`, and selected
   text gets a primary tint. The link rules sit in `:where()`, so they weigh nothing: any class on an
@@ -145,6 +145,32 @@ every theme. Now:
 
 **What this changes for an app that takes the update:** its unstyled links, checkboxes, radios and
 sliders turn the theme's colour. Links an app already styles through a class keep their look.
+
+**The theme now colours the ground too** (owner's request: the themes were visible but did not stand
+out). Three more things follow it by default, in light and in dark (and a measurement):
+
+- **The page and the surfaces are tinted.** `--page` and `--surface` are no longer fixed greys: each is
+  `color-mix(in srgb, var(--primary) N%, <base>)`, with the old grey kept as `--page-base` and
+  `--surface-base`. Light mixes 12% into the page and 4% into the cards (the card stays lighter than
+  the page); dark mixes 10% into the page and 14% into the cards (the card stays lighter there too).
+  The percentages are the `--page-tint`, `--surface-tint`, `--grid-tint` and `--border-tint` tokens, set per mode.
+- **Lines and borders are tinted.** `--grid` takes 12% (light) or 20% (dark) of the primary over
+  `--grid-base`. `--border` takes `--border-tint` (6% light, 8% dark) over `--border-base`; because that
+  base is translucent and the mix is premultiplied, the visible result is a line of about 15% opacity
+  that leans to the primary, roughly as visible as the old neutral one. `--axis` stays neutral.
+- **The theme picker previews it:** each swatch shows its own theme's page (the same 12% / 10% tint),
+  with the primary as the dot.
+- **`h1` and `h2` are the theme's colour**, as `--primary-ink`: the primary with 20% of `--ink` mixed in,
+  so it darkens on light and lightens on dark. Links use it too. It exists because the tinted page is
+  darker than the old one, and a bare Petrol or Oker link would drop to 4.0:1 on it.
+- **Measured:** `--ink-2` stays at 6.2:1 or better on the tinted light page (worst: Magenta, Paars) and
+  6.8:1 or better on the tinted dark surface (worst: Geel); `--primary-ink` reaches 5.4:1 or better on the
+  light page (worst: Petrol, Roest, Oker, Magenta) and more on dark. Status, direction and categorical
+  colours (`--good`, `--bad`, `--warn`, `--cat-*`, `--gain`, `--loss`, `--up`, `--down`) are never tinted.
+
+**What this changes for an app that takes the update:** every page turns a light shade of its theme, and
+`h1`/`h2` take its colour (through `:where()`, so a heading inside a coloured container, or one the app colours itself, keeps that colour). An app that hard-codes a grey next to a house surface will show the seam, and
+one that sets `--page` or `--surface` itself has to set `--page-base` and `--surface-base` instead.
 
 ## Components
 
