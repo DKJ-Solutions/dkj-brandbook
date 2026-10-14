@@ -131,7 +131,7 @@ primary colour:
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
 | Light | `magenta` Magenta `#c0258f`, `purple` Paars `#7a3fd6`, `blue` Blauw `#2563d0`, `teal` Petrol `#087983`, `ochre` Oker `#7a6b00`, `rust` Roest `#aa5703` |
-| Dark | `pink` Roze `#ff7ac8`, `lilac` Lila `#b69cff`, `sky` Hemelsblauw `#5cb3ff`, `cyan` Cyaan `#2fc8d8`, `yellow` Geel `#f2c230`, `orange` Oranje `#f5873a` |
+| Dark | `pink` Roze `#ff7ac8`, `lilac` Lila `#b69cff`, `sky` Hemelsblauw `#6aa2ff`, `cyan` Cyaan `#2fc8d8`, `yellow` Geel `#f2c230`, `orange` Oranje `#f5873a` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
   makes the number disappear. The status colours are the same in every theme.

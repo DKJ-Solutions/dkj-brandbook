@@ -34,7 +34,7 @@
     { id: 'rust',    name: 'Roest',       mode: 'light', hex: '#aa5703' },
     { id: 'pink',    name: 'Roze',        mode: 'dark',  hex: '#ff7ac8' },
     { id: 'lilac',   name: 'Lila',        mode: 'dark',  hex: '#b69cff' },
-    { id: 'sky',     name: 'Hemelsblauw', mode: 'dark',  hex: '#5cb3ff' },
+    { id: 'sky',     name: 'Hemelsblauw', mode: 'dark',  hex: '#6aa2ff' },
     { id: 'cyan',    name: 'Cyaan',       mode: 'dark',  hex: '#2fc8d8' },
     { id: 'yellow',  name: 'Geel',        mode: 'dark',  hex: '#f2c230' },
     { id: 'orange',  name: 'Oranje',      mode: 'dark',  hex: '#f5873a' }

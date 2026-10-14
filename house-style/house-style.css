@@ -150,7 +150,7 @@
 :root[data-theme="rust"] { --primary-1: #faf9f6; --primary-2: #f4efe9; --primary-3: #aa5703; --primary-4: #ccbfb3; --primary-5: #602e00; --warning-3: #b88a00; }
 :root[data-theme="pink"] { --primary-1: #2d1124; --primary-2: #461d37; --primary-3: #ff7ac8; --primary-4: #4a3542; --primary-5: #fff6f9; }
 :root[data-theme="lilac"] { --primary-1: #1f182e; --primary-2: #322945; --primary-3: #b69cff; --primary-4: #3e394a; --primary-5: #f9f7fd; }
-:root[data-theme="sky"] { --primary-1: #091f2e; --primary-2: #143046; --primary-3: #5cb3ff; --primary-4: #2f3e4b; --primary-5: #f6f9fc; }
+:root[data-theme="sky"] { --primary-1: #091f2e; --primary-2: #143046; --primary-3: #6aa2ff; --primary-4: #2f3e4b; --primary-5: #f6f9fc; }
 :root[data-theme="cyan"] { --primary-1: #002225; --primary-2: #00353a; --primary-3: #2fc8d8; --primary-4: #264244; --primary-5: #f4fafa; }
 :root[data-theme="yellow"] { --primary-1: #291e00; --primary-2: #3d3100; --primary-3: #f2c230; --primary-4: #463d25; --primary-5: #fcf9f0; --warning-3: #f08a24; }
 :root[data-theme="orange"] { --primary-1: #311200; --primary-2: #4a1f02; --primary-3: #f5873a; --primary-4: #53321f; --primary-5: #fff7f4; }

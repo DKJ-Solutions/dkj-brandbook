@@ -103,6 +103,10 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
       (Petrol), 6.91:1 on dark (Oranje); `-5` on `-4` 5.88:1 (Petrol); `-5` on `-1` 10.0:1 or better
 - [x] `house-style/README.md`: token table, migration rows (old -> new, in order), the anchor and the measurements
 - [x] `scripts/lint/lint-web.ps1` green
+- [x] An owner found Hemelsblauw too close to Cyaan
+- [x] Hemelsblauw `-3` `#5cb3ff` -> `#6aa2ff` (and the picker's dot): OKLCH hue 247 -> 260, Blauw's own hue,
+      L 0.745 -> 0.715 at maximum chroma (0.148); 55 degrees from Cyaan, 35 from Lila. `-1` on it 6.60:1,
+      it on `-2` 5.34:1.
 - [ ] An owner has looked at the five-step scale in a light and a dark theme and approved it
 
 ### DEPLOY: feat/lilac-more-purple
