@@ -38,6 +38,8 @@ Owner's request (October 14, 2026): on the dark themes `--primary-1` to `-3` a l
 
 - [x] Six dark themes plus the OS-dark default: `-1`, `-2`, `-3` 0.04 OKLCH lightness darker, `-5` 0.12 lighter, hue and chroma kept
 - [x] Stated contrasts in the stylesheet comment and the README remeasured; the derivation names the shift
+- [x] Showcase nav reads the scale in every theme (`-7` panel, `-3` brand, `-6` hover on light, `-4` on dark); the fifteen per-theme colour codes are gone (owner's correction, while looking at this branch)
+- [x] `check-colour-literals.mjs` refuses any colour code under `src/`, a custom-property declaration included; proven against the old nav (18 reported)
 - [x] Lint gate green
 
 ### TEST
@@ -53,6 +55,10 @@ Owner's request (October 14, 2026): on the dark themes `--primary-1` to `-3` a l
 On the six dark themes (and the OS-dark default) the page, the cards and the lines (`--primary-1` to `-3`) are a
 shade darker and all text (`--primary-5`) is clearly lighter, each in its own hue and chroma. Text on the page now
 reaches 9.5:1 or better on dark, up from 5.5:1. No token is added or renamed; a consuming repo only takes the new copy.
+
+The brand book's own sidebar now reads the seven primaries in every theme instead of a typed colour per light theme,
+and the colour lint refuses any colour code under `src/`, also as a custom property's value: only the house style
+types a colour.
 
 **Score:** 2
 

@@ -1,12 +1,13 @@
 // Fails when a stylesheet types a colour instead of reading a token.
 //
 // Scans house-style/house-style.css and every .css under src/. A colour code -- #hex, rgb(), rgba(),
-// hsl(), hsla() -- is allowed only as the value of a custom-property declaration (--name: #abc), and
-// two things are reported:
-//   - a colour code anywhere else, e.g. `color: #fff` or inside a color-mix() in a rule;
-//   - a declaration under src/ whose code the house style already defines (`--bb-nav-ink: #52514e`
-//     where --neutral-3 is #52514e): read the house token instead of typing its value again.
-// Codes are compared case-insensitively with #abc expanded to #aabbcc. TS/TSX are not scanned: their
+// hsl(), hsla() -- is allowed only in house-style.css, as the value of a custom-property declaration
+// (--name: #abc). Two things are reported:
+//   - in house-style.css, a colour code anywhere else, e.g. `color: #fff` or inside a color-mix() in a rule;
+//   - under src/, ANY colour code, a custom-property declaration included (owner's correction, October 14,
+//     2026): every colour there reads a house token with var(). Allowing a declaration let a per-theme
+//     set of nav colours stand beside the seven primaries it should have read.
+// Codes are compared case-insensitively with #abc expanded to #aabbcc, to name the house token a code repeats. TS/TSX are not scanned: their
 // colour codes are data (the theme picker's swatch list, an inline SVG placeholder image), not styling.
 import { readFileSync, readdirSync } from 'node:fs'
 import { join, relative } from 'node:path'
@@ -49,10 +50,11 @@ for (const f of files) {
   for (const c of src.matchAll(colour)) {
     const line = src.slice(0, c.index).split('\n').length
     const decl = decls.find((d) => c.index >= d.from && c.index < d.to)
-    if (!decl) {
+    if (f !== house) {
+      const hint = houseCodes.has(norm(c[0])) ? `use var(${houseCodes.get(norm(c[0]))})` : 'read a house token with var()'
+      problems.push(`${rel}:${line}  ${decl ? decl.name + ': ' : ''}${c[0]} -- no colour code outside the house style; ${hint}`)
+    } else if (!decl) {
       problems.push(`${rel}:${line}  ${c[0]} outside a token declaration -- read a token with var()`)
-    } else if (f !== house && houseCodes.has(norm(c[0]))) {
-      problems.push(`${rel}:${line}  ${decl.name}: ${c[0]} repeats a house value -- use var(${houseCodes.get(norm(c[0]))})`)
     }
   }
 }

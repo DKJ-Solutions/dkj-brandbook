@@ -1,14 +1,14 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
 .bb-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
-/* The sidebar contrasts with the page, mirrored per mode, with no color-mix: on a light theme a dark panel
-   (near-black in the theme's hue, one code per theme below; the house has no token for it), on a dark theme
-   the theme's near-white --primary-7 (its hover the theme's colour, --primary-4). The text is the opposite end of the scale in both modes:
-   --primary-1 (the theme's page colour) as ink, --primary-3 (the line colour) as the quieter ink. The default is the light default theme, Blauw. */
+/* The sidebar contrasts with the page, mirrored per mode by the scale itself: its panel is --primary-7, the far
+   end (near-black in the theme's hue on light, near-white on dark). Its hover is --primary-6 on light and the
+   theme's colour, --primary-4, on dark. The text is the opposite end of the scale in both modes:
+   --primary-1 (the theme's page colour) as ink, --primary-3 (the line colour) as the quieter ink. */
 .bb-nav {
-  --bb-nav-bg: #172235;
-  --bb-nav-brand: #9db9ea;
-  --bb-nav-hover: #1c396b;
+  --bb-nav-bg: var(--primary-7);
+  --bb-nav-brand: var(--primary-3);
+  --bb-nav-hover: var(--primary-6);
   --bb-nav-current: var(--primary-4);
   --bb-nav-current-ink: var(--primary-1);
   --bb-nav-current-ring: var(--primary-1);
@@ -21,17 +21,10 @@
   background: var(--bb-nav-bg);
   color: var(--primary-1);
 }
-:root[data-theme="magenta"] .bb-nav { --bb-nav-bg: #331729; --bb-nav-brand: #e39dcd; --bb-nav-hover: #641c4d; }
-:root[data-theme="purple"] .bb-nav { --bb-nav-bg: #261c36; --bb-nav-brand: #c3a9ed; --bb-nav-hover: #44286e; }
-:root[data-theme="teal"] .bb-nav { --bb-nav-bg: #132728; --bb-nav-brand: #93c4c9; --bb-nav-hover: #124549; }
-:root[data-theme="ochre"] .bb-nav { --bb-nav-bg: #262410; --bb-nav-brand: #c3bc8c; --bb-nav-hover: #443d0a; }
-:root[data-theme="rust"] .bb-nav { --bb-nav-bg: #302111; --bb-nav-brand: #dab591; --bb-nav-hover: #5b350f; }
 /* Dark: the same selectors as the house style's dark token blocks (forced, and following the OS). */
 :root[data-theme="dark"] .bb-nav,
 :root[data-theme="pink"] .bb-nav, :root[data-theme="lilac"] .bb-nav, :root[data-theme="sky"] .bb-nav,
 :root[data-theme="cyan"] .bb-nav, :root[data-theme="yellow"] .bb-nav, :root[data-theme="orange"] .bb-nav {
-  --bb-nav-bg: var(--primary-7);
-  --bb-nav-brand: var(--primary-3);
   --bb-nav-hover: var(--primary-4);
   --bb-nav-current: var(--primary-3);
   --bb-nav-current-ink: var(--primary-5);
@@ -39,8 +32,6 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .bb-nav {
-    --bb-nav-bg: var(--primary-7);
-    --bb-nav-brand: var(--primary-3);
     --bb-nav-hover: var(--primary-4);
     --bb-nav-current: var(--primary-3);
     --bb-nav-current-ink: var(--primary-5);
