@@ -32,11 +32,21 @@
 
 ### PLAN
 
+On the dark themes the brand book's navigation (`.bb-nav`) sat only a shade lighter than the page beside it
+(`.bb-main`), so the two read as one plane. The light themes already set it apart with a near-black panel;
+the dark themes get the mirror image: a clearly lighter panel.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` becomes 18% of the theme colour over
+  `#333331` (the light half is 18% over `#141413`); the hover follows it, and the border line goes, as on light
+- [x] Contrast measured in all six dark themes: panel to page 1.82-1.95:1, white text 8.4:1 or better,
+  grey labels 4.7:1 or better, the "Contents" heading 4.5:1 or better, white on hover 4.8:1 or better
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at the navigation in the dark themes and approved it
 
 ### DEPLOY: feat/dark-nav-contrast
 
@@ -44,7 +54,11 @@
 
 ##### Tier 0
 
-**Score:**
+The brand book's navigation panel on the dark themes is now a clearly lighter grey with a touch of the theme
+colour, so it stands apart from the page the way the near-black panel does on the light themes. Only the
+brand book's own chrome changes; no house token or component does.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +67,9 @@
 
 ##### Tier 1
 
-**Score:**
+The brand book's own navigation only; management sees no change.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +78,9 @@
 
 ##### Tier 2
 
-**Score:**
+The brand book's own chrome, which no app or subscriber renders.
+
+**Score:** N/A
 
 #### Pull Request
 
