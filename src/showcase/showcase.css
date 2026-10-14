@@ -2,44 +2,21 @@
 
 .bb-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
 /* The sidebar contrasts with the page, mirrored per mode by the scale itself: its panel is --primary-7, the far
-   end (near-black in the theme's hue on light, near-white on dark). Its hover is --primary-6 on light and the
-   theme's colour, --primary-4, on dark. The text is the opposite end of the scale in both modes:
-   --primary-1 (the theme's page colour) as ink, --primary-3 (the line colour) as the quieter ink. */
+   end (near-black in the theme's hue on light, near-white on dark). The text is the opposite end of the scale in
+   both modes: --primary-1 (the theme's page colour) as ink, --primary-3 (the line colour) as the quieter ink.
+   Every colour is a --primary step read directly, no local alias (owner's correction, October 14, 2026). */
 .bb-nav {
-  --bb-nav-bg: var(--primary-7);
-  --bb-nav-brand: var(--primary-3);
-  --bb-nav-hover: var(--primary-6);
-  --bb-nav-current: var(--primary-4);
-  --bb-nav-current-ink: var(--primary-1);
-  --bb-nav-current-ring: var(--primary-1);
   position: sticky;
   top: 0;
   align-self: start;
   max-height: 100dvh;
   overflow-y: auto;
   padding: var(--spacing-5) var(--spacing-4);
-  background: var(--bb-nav-bg);
+  background: var(--primary-7);
   color: var(--primary-1);
 }
-/* Dark: the same selectors as the house style's dark token blocks (forced, and following the OS). */
-:root[data-theme="dark"] .bb-nav,
-:root[data-theme="pink"] .bb-nav, :root[data-theme="lilac"] .bb-nav, :root[data-theme="sky"] .bb-nav,
-:root[data-theme="cyan"] .bb-nav, :root[data-theme="yellow"] .bb-nav, :root[data-theme="orange"] .bb-nav {
-  --bb-nav-hover: var(--primary-4);
-  --bb-nav-current: var(--primary-3);
-  --bb-nav-current-ink: var(--primary-5);
-  --bb-nav-current-ring: var(--primary-7);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .bb-nav {
-    --bb-nav-hover: var(--primary-4);
-    --bb-nav-current: var(--primary-3);
-    --bb-nav-current-ink: var(--primary-5);
-    --bb-nav-current-ring: var(--primary-7);
-  }
-}
 /* The menu's heading ("Contents"): an <h2>, so it keeps the house h2 size and face; only its colour follows the nav. */
-.bb-brand { color: var(--bb-nav-brand); }
+.bb-brand { color: var(--primary-3); }
 .bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--primary-3); }
 .bb-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);
@@ -62,8 +39,24 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.bb-nav a:hover { background: var(--bb-nav-hover); }
-.bb-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--bb-nav-brand); outline-offset: var(--dkj-focus-offset-inset); }
+.bb-nav a:hover { background: var(--primary-6); }
+.bb-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-3); outline-offset: var(--dkj-focus-offset-inset); }
+/* The current page: the theme's colour on light, a line-coloured fill on dark. Its focus ring takes the far end of
+   the other mode, because the usual ring would vanish on the current fill. */
+.bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--primary-4); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
+.bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-1); }
+/* Dark: the same selectors as the house style's dark token blocks (forced, and following the OS). The hover is the
+   theme's colour, and the current page a --primary-3 fill with --primary-5 text. */
+:root:is([data-theme="dark"], [data-theme="pink"], [data-theme="lilac"], [data-theme="sky"], [data-theme="cyan"], [data-theme="yellow"], [data-theme="orange"]) .bb-nav a:hover { background: var(--primary-4); }
+:root:is([data-theme="dark"], [data-theme="pink"], [data-theme="lilac"], [data-theme="sky"], [data-theme="cyan"], [data-theme="yellow"], [data-theme="orange"]) .bb-nav a[aria-current='page'],
+:root:is([data-theme="dark"], [data-theme="pink"], [data-theme="lilac"], [data-theme="sky"], [data-theme="cyan"], [data-theme="yellow"], [data-theme="orange"]) .bb-nav a[aria-current='page']:hover { background: var(--primary-3); color: var(--primary-5); }
+:root:is([data-theme="dark"], [data-theme="pink"], [data-theme="lilac"], [data-theme="sky"], [data-theme="cyan"], [data-theme="yellow"], [data-theme="orange"]) .bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-7); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .bb-nav a:hover { background: var(--primary-4); }
+  :root:not([data-theme]) .bb-nav a[aria-current='page'],
+  :root:not([data-theme]) .bb-nav a[aria-current='page']:hover { background: var(--primary-3); color: var(--primary-5); }
+  :root:not([data-theme]) .bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-7); }
+}
 
 /* <main>: the house style gives it a centred 1080px column; the showcase fills the space beside the nav. */
 .bb-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
@@ -229,8 +222,6 @@
 .bb-view-components a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
 
 /* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */
-.bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--bb-nav-current); color: var(--bb-nav-current-ink); font-weight: var(--dkj-fw-semibold); }
-.bb-nav a[aria-current='page']:focus-visible { outline-color: var(--bb-nav-current-ring); }   /* the usual ring would vanish on the current fill */
 .bb-preview-back { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); }
 .bb-preview-back a { color: var(--primary-4); }
 .bb-preview-meta { margin-bottom: var(--spacing-4); }
