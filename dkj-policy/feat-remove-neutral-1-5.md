@@ -46,7 +46,7 @@ The owner asked to remove `--neutral-1` and `--neutral-5` and chose to renumber 
 
 - [x] Lint gate green (eslint, var() check, colour-literal check, tsc + vite build)
 - [x] Code review (Victor) and copy edit (Edith); their findings fixed (migration table, recomputed contrast figures, swatch base)
-- [ ] An owner has looked at the showcase in light and dark themes and approved it
+- [x] An owner has looked at the showcase in light and dark themes and approved it
 
 ### DEPLOY: feat/remove-neutral-1-5
 
