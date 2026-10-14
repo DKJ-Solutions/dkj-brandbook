@@ -203,7 +203,7 @@ export function ColumnChart({
           <svg width={width} height={H} viewBox={`0 0 ${width} ${H}`} role="group" aria-label={label} onKeyDown={onKey}>
             {tk.map((v) => (
               <g key={v}>
-                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--neutral-3)' : 'var(--grid)'} strokeWidth={1} />
+                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--neutral-3)' : 'var(--primary-5)'} strokeWidth={1} />
                 <text x={M.left - 8} y={y(v) + 4} textAnchor="end">
                   {format(v)}
                 </text>
@@ -211,7 +211,7 @@ export function ColumnChart({
             ))}
             {guides.map((g) => (
               <g key={g.key}>
-                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--grid)" strokeWidth={1} />
+                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--primary-5)" strokeWidth={1} />
                 {g.text && (
                   <text className="axis-note" x={g.x + 4} y={M.top - 8}>
                     {g.text}
@@ -574,7 +574,7 @@ export function LineChart({
           <svg width={width} height={H} viewBox={`0 0 ${width} ${H}`} role="group" aria-label={label} onKeyDown={onKey}>
             {tk.map((v) => (
               <g key={v}>
-                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--neutral-3)' : 'var(--grid)'} strokeWidth={1} />
+                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--neutral-3)' : 'var(--primary-5)'} strokeWidth={1} />
                 <text x={M.left - 8} y={y(v) + 4} textAnchor="end">
                   {format(v)}
                 </text>
@@ -582,7 +582,7 @@ export function LineChart({
             ))}
             {guides.map((g) => (
               <g key={g.key}>
-                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--grid)" strokeWidth={1} />
+                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--primary-5)" strokeWidth={1} />
                 {g.text && (
                   <text className="axis-note" x={g.x + 4} y={M.top - 8}>
                     {g.text}
@@ -602,7 +602,7 @@ export function LineChart({
             ))}
             {last &&
               series.map((s) => (
-                <circle key={s.key} cx={px(points.length - 1)} cy={y(last.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--surface)" strokeWidth={2} aria-hidden="true" />
+                <circle key={s.key} cx={px(points.length - 1)} cy={y(last.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--primary-2)" strokeWidth={2} aria-hidden="true" />
               ))}
             {ends.map(({ s, v, y: ey }) => (
               <text key={s.key} className={cx(s === series[0] && 'val')} x={M.left + pw + 8} y={ey} aria-hidden="true">
@@ -613,7 +613,7 @@ export function LineChart({
               <g aria-hidden="true" pointerEvents="none">
                 <line x1={px(active)} x2={px(active)} y1={M.top} y2={M.top + ph} stroke="var(--neutral-3)" strokeWidth={1} />
                 {series.map((s) => (
-                  <circle key={s.key} cx={px(active)} cy={y(a.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--surface)" strokeWidth={2} />
+                  <circle key={s.key} cx={px(active)} cy={y(a.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--primary-2)" strokeWidth={2} />
                 ))}
               </g>
             )}

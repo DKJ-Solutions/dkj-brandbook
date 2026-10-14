@@ -59,6 +59,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] The nine black, white and grey tokens merged into a five-step ramp `--neutral-1` .. `--neutral-5` (ground, raised plane, lines, secondary text, text; flipped on dark), and every use renamed; `--border` is now solid over `--neutral-3` instead of translucent; the info dialog's `--on-primary` re-declaration dropped, since it would now be a self-reference (owner's follow-up)
 - [x] `--negative-bg`, `--negative-light` and `--negative-dark` renamed to `--negative-1`, `--negative-3` and `--negative-5`, by the owner's rule that -1 is the ground end (light on light, dark on dark) and -5 the text end; the rule written into the README (owner's follow-up)
 - [x] The positive and warning tokens on the same 1/3/5 scale: `-bg` → `-1`, `-light` → `-3`, `-up`/`-dark` → `-5` (owner's follow-up)
+- [x] The theme group on the same scale, ground to text: `--page`, `--surface`, `--primary-soft`, `--border`, `--grid`, `--primary`, `--primary-ink` → `--primary-1` … `--primary-7` (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST

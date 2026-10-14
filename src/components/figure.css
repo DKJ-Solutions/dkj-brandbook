@@ -8,9 +8,9 @@
   max-width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-lg);
-  background: color-mix(in srgb, var(--neutral-5) 7%, var(--surface));
+  background: color-mix(in srgb, var(--neutral-5) 7%, var(--primary-2));
 }
 .dkj-figure--r-16-9 .dkj-figure__frame { aspect-ratio: 16 / 9; }
 .dkj-figure--r-4-3 .dkj-figure__frame { aspect-ratio: 4 / 3; }

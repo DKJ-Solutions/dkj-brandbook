@@ -8,13 +8,13 @@
   font: inherit;
   font-size: var(--text-lg); /* at least 16px, so iOS does not zoom in on focus */
   padding: var(--spacing-2-5) var(--spacing-3);
-  border: 1px solid var(--border);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-md);
-  background: var(--page);
+  background: var(--primary-1);
   color: var(--neutral-5);
 }
 .dkj-input:focus-visible, .dkj-input[data-demo-state='focus'] {
-  outline: var(--dkj-focus-w) solid var(--primary);
+  outline: var(--dkj-focus-w) solid var(--primary-6);
   outline-offset: var(--dkj-focus-offset);
 }
 .dkj-input:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -40,8 +40,8 @@
   font-weight: var(--dkj-fw-semibold);
   line-height: var(--dkj-lh-tight);
   overflow-wrap: anywhere;
-  background: var(--page);
-  border: 1px solid var(--border);
+  background: var(--primary-1);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-md);
 }
 
@@ -56,8 +56,8 @@
   color: var(--neutral-5);
   cursor: pointer;
 }
-.dkj-check input { flex: none; width: 1.5rem; height: 1.5rem; margin: var(--spacing-2-5) 0 0; accent-color: var(--primary); }
-.dkj-check input:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset); }
+.dkj-check input { flex: none; width: 1.5rem; height: 1.5rem; margin: var(--spacing-2-5) 0 0; accent-color: var(--primary-6); }
+.dkj-check input:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-6); outline-offset: var(--dkj-focus-offset); }
 .dkj-check span { padding: var(--spacing-2) 0; }
 .dkj-check small { display: block; margin-top: var(--spacing-0-5); font-size: var(--text-sm); font-weight: var(--dkj-fw-regular); color: var(--neutral-4); }
 
@@ -71,8 +71,8 @@
   font-size: var(--text-h4);
   line-height: var(--dkj-lh-none);
   color: var(--neutral-5);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--primary-2);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-md);
   cursor: pointer;
   touch-action: manipulation;
@@ -88,8 +88,8 @@
   text-align: center;
   font-variant-numeric: tabular-nums;
   color: var(--neutral-5);
-  background: var(--page);
-  border: 1px solid var(--border);
+  background: var(--primary-1);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-md);
   -moz-appearance: textfield;
   appearance: textfield;
@@ -98,14 +98,14 @@
 .dkj-stepper--lg button, .dkj-stepper--lg input { height: var(--dkj-control-lg); }
 .dkj-stepper--lg input { font-size: var(--text-h4); font-weight: var(--dkj-fw-bold); }
 .dkj-stepper button:disabled { opacity: 0.5; cursor: not-allowed; }
-.dkj-reset { padding: 0 var(--spacing-3); font-size: var(--text-base); color: var(--primary); background: transparent; }
+.dkj-reset { padding: 0 var(--spacing-3); font-size: var(--text-base); color: var(--primary-6); background: transparent; }
 .dkj-stepper button:active, .dkj-reset:active,
 .dkj-stepper button[data-demo-state='active'] {
-  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
-  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary-6) 16%, var(--primary-2));
+  border-color: var(--primary-6);
 }
 .dkj-stepper button:focus-visible, .dkj-stepper input:focus-visible, .dkj-reset:focus-visible {
-  outline: var(--dkj-focus-w) solid var(--primary);
+  outline: var(--dkj-focus-w) solid var(--primary-6);
   outline-offset: var(--dkj-focus-offset);
 }
 
@@ -113,7 +113,7 @@
 .dkj-combo { display: grid; grid-template-columns: minmax(0, 1fr); }
 .dkj-combo-input, .dkj-combo-picked { grid-row: 1; grid-column: 1; min-height: var(--dkj-tap); }
 .dkj-combo-input--under { opacity: 0; pointer-events: none; }
-.dkj-combo-input:focus-visible { border-color: var(--primary); }
+.dkj-combo-input:focus-visible { border-color: var(--primary-6); }
 .dkj-combo-picked {
   z-index: 1;
   min-width: 0;
@@ -125,12 +125,12 @@
   line-height: var(--dkj-lh-tight);
   overflow-wrap: anywhere;
   color: var(--neutral-5);
-  background: var(--page);
-  border: 1px solid var(--border);
+  background: var(--primary-1);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-md);
   cursor: pointer;
 }
-.dkj-combo-picked:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset); }
+.dkj-combo-picked:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-6); outline-offset: var(--dkj-focus-offset); }
 /* A magnifier on the right while there is something to tap; gone once typing starts. */
 .dkj-combo-input:not(:focus), .dkj-combo-picked { padding-right: 2.5rem; }
 .dkj-combo-glass {
@@ -149,8 +149,8 @@
   margin: var(--spacing-1-5) 0 0;
   padding: var(--spacing-1);
   list-style: none;
-  background: var(--page);
-  border: 1px solid var(--border);
+  background: var(--primary-1);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-md);
 }
 .dkj-combo-list li {
@@ -169,13 +169,13 @@
 .dkj-combo-meta { font-size: var(--text-sm); color: var(--neutral-4); }
 /* Active (hover, touch or keyboard via aria-activedescendant): a tint plus a bar on the left. */
 .dkj-combo-list li.is-active {
-  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
-  box-shadow: inset 3px 0 0 var(--primary);
+  background: color-mix(in srgb, var(--primary-6) 16%, var(--primary-2));
+  box-shadow: inset 3px 0 0 var(--primary-6);
 }
 .dkj-combo-list li.is-active .dkj-combo-name { font-weight: var(--dkj-fw-semibold); }
 .dkj-combo-list li.is-active .dkj-combo-meta { color: var(--neutral-5); }
 .dkj-combo-list li.is-own { flex-direction: row; align-items: center; justify-content: flex-start; gap: var(--spacing-2); border: 1px dashed var(--neutral-4); }
-.dkj-combo-list li.is-own::before { content: '+'; flex: none; font-weight: var(--dkj-fw-bold); color: var(--primary); }
+.dkj-combo-list li.is-own::before { content: '+'; flex: none; font-weight: var(--dkj-fw-bold); color: var(--primary-6); }
 .dkj-combo-list li.is-more {
   min-height: 0;
   padding-top: var(--spacing-1);
@@ -214,8 +214,8 @@
 .dkj-value-was { font-size: var(--text-sm); font-weight: var(--dkj-fw-regular); color: var(--neutral-4); }
 .dkj-value-unit { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); color: var(--neutral-4); }
 .dkj-value--changed {
-  border: 2px solid var(--primary);
-  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+  border: 2px solid var(--primary-6);
+  background: color-mix(in srgb, var(--primary-6) 10%, var(--primary-2));
 }
 .dkj-value--flush { padding-left: 0; padding-right: 0; }
 
@@ -226,7 +226,7 @@
   column-gap: var(--spacing-3);
   align-items: center;
   padding: var(--spacing-2) 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--primary-4);
 }
 .dkj-rows > .dkj-row:last-child { border-bottom: 0; }
 .dkj-row-name { min-width: 0; font-size: var(--text-base); color: var(--neutral-5); overflow-wrap: anywhere; }
@@ -255,7 +255,7 @@
 }
 
 /* A value the app changed for you flashes once in the accent. */
-@keyframes dkj-flash { from { background: var(--primary); color: var(--neutral-1); } }
+@keyframes dkj-flash { from { background: var(--primary-6); color: var(--neutral-1); } }
 .dkj-flash { animation: dkj-flash var(--dkj-duration-flash) var(--dkj-ease-out); }
 @media (prefers-reduced-motion: reduce) {
   .dkj-flash { animation: none; }

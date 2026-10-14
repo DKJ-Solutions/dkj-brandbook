@@ -18,12 +18,12 @@
        dark, both with those house defaults.
      The dark token block therefore appears twice; keep both in sync.
 
-   How far a theme reaches: every use of --primary (the pressed .seg, .btn--primary, .badge--info,
+   How far a theme reaches: every use of --primary-6 (the pressed .seg, .btn--primary, .badge--info,
    .meter--info, the settings toggle, focus rings), every link, native checkboxes, radios and
    sliders (accent-color), the text caret and the selection. Beyond that, by default: the page, the
-   cards and tiles carry a light tint of the primary (--page, --surface; 6% / 2% on light, 10% / 14%
-   on dark), the lines and borders a thinner one (--grid; --border, a line of about 15% opacity leaning to the primary), and h1 and h2 are set in the
-   primary as text (--primary-ink). The untinted neutrals live on as --neutral-1 .. --neutral-5. Status, direction and categorical colours are never tinted. The
+   cards and tiles carry a light tint of the primary (--primary-1, --primary-2; 6% / 2% on light, 10% / 14%
+   on dark), the lines and borders a thinner one (--primary-5; --primary-4, a line of about 15% opacity leaning to the primary), and h1 and h2 are set in the
+   primary as text (--primary-7). The untinted neutrals live on as --neutral-1 .. --neutral-5. Status, direction and categorical colours are never tinted. The
    --accent modifiers (header, card, tile, table) carry it further where an app opts in.
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
@@ -49,10 +49,10 @@
      and the lines with its own colour. Measured worst case: --neutral-4 reaches at least 6.2:1 on the tinted
      light page (measured at the former 12% tint; worst: Magenta, Paars) and 6.8:1 on the tinted dark surface (worst: Geel). */
   --page-tint: 6%; --surface-tint: 2%; --grid-tint: 8%; --border-tint: 6%;
-  --page: color-mix(in srgb, var(--primary) var(--page-tint), var(--neutral-1));        /* page background */
-  --surface: color-mix(in srgb, var(--primary) var(--surface-tint), var(--neutral-2));  /* cards, tiles, tooltips */
-  --grid: color-mix(in srgb, var(--primary) var(--grid-tint), var(--neutral-3));        /* row dividers, meter track, gridlines */
-  --border: color-mix(in srgb, var(--primary) var(--border-tint), var(--neutral-3));
+  --primary-1: color-mix(in srgb, var(--primary-6) var(--page-tint), var(--neutral-1));        /* page background */
+  --primary-2: color-mix(in srgb, var(--primary-6) var(--surface-tint), var(--neutral-2));  /* cards, tiles, tooltips */
+  --primary-5: color-mix(in srgb, var(--primary-6) var(--grid-tint), var(--neutral-3));        /* row dividers, meter track, gridlines */
+  --primary-4: color-mix(in srgb, var(--primary-6) var(--border-tint), var(--neutral-3));
 
   /* categorical palette (series slots) */
   --cat-1: #2a78d6;
@@ -71,12 +71,12 @@
 
   /* the theme's primary colour: switches, primary buttons, info badges and meters.
      Light default Blauw; each [data-theme] below sets its own. */
-  --primary: #2563d0;
-  --primary-soft: color-mix(in srgb, var(--primary) 14%, var(--surface));  /* a tint for backgrounds */
+  --primary-6: #2563d0;
+  --primary-3: color-mix(in srgb, var(--primary-6) 14%, var(--primary-2));  /* a tint for backgrounds */
   /* the primary as TEXT (links, h1, h2): 20% of --neutral-5 mixed in, so it darkens on light and lightens on dark.
      The tinted page is darker than the neutral one, and a bare Petrol or Oker link would fall to 4.0:1 on
      it; with this it is 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). */
-  --primary-ink: color-mix(in srgb, var(--primary) 80%, var(--neutral-5));
+  --primary-7: color-mix(in srgb, var(--primary-6) 80%, var(--neutral-5));
 
   --warning-1: #fff4e0;     /* notice background */
   --negative-1: #fde8e8;    /* a background for a negative message: the same lightness as --warning-1, in red */
@@ -115,8 +115,8 @@
   --column-narrow: 512px;
 
   /* native controls (checkbox, radio, range, progress) and the text caret take the theme */
-  accent-color: var(--primary);
-  caret-color: var(--primary);
+  accent-color: var(--primary-6);
+  caret-color: var(--primary-6);
 }
 
 /* ---- Tokens: dark, following the OS unless the page forces a theme -------- */
@@ -129,7 +129,7 @@
     --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-    --primary: #2fc8d8;
+    --primary-6: #2fc8d8;
   }
 }
 
@@ -142,7 +142,7 @@
   --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-  --primary: #2fc8d8;
+  --primary-6: #2fc8d8;
 }
 
 /* ---- Themes: the primary colour ------------------------------------------ */
@@ -151,22 +151,22 @@
    two whose primary sits next to the warning colour move the warning away from it. No red and
    no green theme: those hues mean bad and good. Order: magenta, purple, blue, teal, ochre, rust (light);
    pink, lilac, sky, cyan, yellow, orange (dark). */
-:root[data-theme="magenta"] { --primary: #c0258f; }
-:root[data-theme="purple"]  { --primary: #7a3fd6; }
-:root[data-theme="blue"]    { --primary: #2563d0; }
-:root[data-theme="teal"]    { --primary: #0f7c86; }
-:root[data-theme="ochre"]   { --primary: #7a6b00; }
-:root[data-theme="rust"]    { --primary: #ad5a0a; --warning-3: #b88a00; }
-:root[data-theme="pink"]    { --primary: #ff7ac8; }
-:root[data-theme="lilac"]   { --primary: #b69cff; }
-:root[data-theme="sky"]     { --primary: #5cb3ff; }
-:root[data-theme="cyan"]    { --primary: #2fc8d8; }
-:root[data-theme="yellow"]  { --primary: #f2c230; --warning-3: #f08a24; }
-:root[data-theme="orange"]  { --primary: #f5873a; }
+:root[data-theme="magenta"] { --primary-6: #c0258f; }
+:root[data-theme="purple"]  { --primary-6: #7a3fd6; }
+:root[data-theme="blue"]    { --primary-6: #2563d0; }
+:root[data-theme="teal"]    { --primary-6: #0f7c86; }
+:root[data-theme="ochre"]   { --primary-6: #7a6b00; }
+:root[data-theme="rust"]    { --primary-6: #ad5a0a; --warning-3: #b88a00; }
+:root[data-theme="pink"]    { --primary-6: #ff7ac8; }
+:root[data-theme="lilac"]   { --primary-6: #b69cff; }
+:root[data-theme="sky"]     { --primary-6: #5cb3ff; }
+:root[data-theme="cyan"]    { --primary-6: #2fc8d8; }
+:root[data-theme="yellow"]  { --primary-6: #f2c230; --warning-3: #f08a24; }
+:root[data-theme="orange"]  { --primary-6: #f5873a; }
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--page); color: var(--neutral-5);
+body { margin: 0; background: var(--primary-1); color: var(--neutral-5);
   font: var(--text-base)/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
 
 /* ---- Layout -------------------------------------------------------------- */
@@ -191,7 +191,7 @@ h1, h2 { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
   font-weight: 600; letter-spacing: -0.01em; }
 /* The theme's colour, as text. :where() keeps it at zero specificity, so a heading inside a coloured container
    (or one an app colours itself) wins without an override. */
-:where(h1, h2) { color: var(--primary-ink); }
+:where(h1, h2) { color: var(--primary-7); }
 h1 { font-size: var(--text-h1); margin: 0; }
 h2 { font-size: var(--text-h2); margin: 0 0 var(--spacing-1); }
 /* Flex so an .info-button sits on the heading's vertical centre, not on its baseline; the serif's
@@ -214,34 +214,34 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .delta--down, .neg { color: var(--negative-5); }
 
 /* ---- Links and selection ---------------------------------------------------- */
-/* A link (an <a> with an href) takes the theme's primary as text (--primary-ink), visited or not: it reaches 4.5:1
+/* A link (an <a> with an href) takes the theme's primary as text (--primary-7), visited or not: it reaches 4.5:1
    on the tinted page and surface in every theme. :where() keeps each rule at zero specificity, so any class on an
    <a> (a .btn, a .menu-item, an app's own) wins over it without an override. */
-:where(a:any-link) { color: var(--primary-ink); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+:where(a:any-link) { color: var(--primary-7); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 :where(a:any-link:hover) { text-decoration-thickness: 2px; }
-:where(a:any-link:focus-visible) { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 2px; }
-::selection { background: color-mix(in srgb, var(--primary) 30%, transparent); }
+:where(a:any-link:focus-visible) { outline: 2px solid var(--primary-6); outline-offset: 2px; border-radius: 2px; }
+::selection { background: color-mix(in srgb, var(--primary-6) 30%, transparent); }
 
 /* ---- Surfaces ------------------------------------------------------------- */
-.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: var(--spacing-5); margin-top: var(--spacing-4); }
+.card { background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 12px; padding: var(--spacing-5); margin-top: var(--spacing-4); }
 .hero { display: flex; flex-wrap: wrap; gap: var(--spacing-6) var(--spacing-12); align-items: flex-end; }   /* use with .card */
 .hero .value { font-size: var(--text-h0); font-weight: 600; line-height: 1.1; }
-.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: var(--spacing-3-5) var(--spacing-4); }
+.tile { background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 12px; padding: var(--spacing-3-5) var(--spacing-4); }
 .tile .label { color: var(--neutral-4); font-size: var(--text-sm); }
 .tile .v { font-size: var(--text-h4); font-weight: 600; margin-top: var(--spacing-0-5); }
-.mini-card { border: 1px solid var(--border); border-radius: 10px; padding: var(--spacing-3) var(--spacing-3-5); }
+.mini-card { border: 1px solid var(--primary-4); border-radius: 10px; padding: var(--spacing-3) var(--spacing-3-5); }
 .mini-card--highlight { border-color: var(--warning-3); }
 .mini-card__label { font-size: var(--text-sm); color: var(--neutral-4); }
 .mini-card__value { font-size: var(--text-lg); font-weight: 600; margin: var(--spacing-0-5) 0 var(--spacing-2); font-variant-numeric: tabular-nums; }
-.notice { background: var(--warning-1); border: 1px solid var(--border); border-radius: 12px; padding: var(--spacing-3) var(--spacing-4); margin-top: var(--spacing-4); }
-.item { border-top: 1px solid var(--grid); padding: var(--spacing-2-5) 0; }
+.notice { background: var(--warning-1); border: 1px solid var(--primary-4); border-radius: 12px; padding: var(--spacing-3) var(--spacing-4); margin-top: var(--spacing-4); }
+.item { border-top: 1px solid var(--primary-5); padding: var(--spacing-2-5) 0; }
 .item b { display: block; font-size: var(--text-sm); margin-bottom: var(--spacing-0-5); }
 .item p { margin: 0; font-size: var(--text-sm); color: var(--neutral-4); }
 
 /* ---- Tables --------------------------------------------------------------- */
 .table-wrap { overflow-x: auto; }
 .table { border-collapse: collapse; width: 100%; font-size: var(--text-sm); }
-.table th, .table td { padding: var(--spacing-2) var(--spacing-2-5); text-align: right; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+.table th, .table td { padding: var(--spacing-2) var(--spacing-2-5); text-align: right; border-bottom: 1px solid var(--primary-5); white-space: nowrap; }
 .table th { color: var(--neutral-4); font-weight: 600; }
 .table th:first-child, .table td:first-child { text-align: left; white-space: normal; min-width: 180px; }
 .table td { font-variant-numeric: tabular-nums; }
@@ -287,10 +287,10 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 
 /* ---- Meter ---------------------------------------------------------------- */
 /* Fill colour via --m: <span style="--m: var(--positive-3)"> or a .meter--* class on the meter. */
-.meter { height: 6px; border-radius: 3px; background: var(--grid); overflow: hidden; }
+.meter { height: 6px; border-radius: 3px; background: var(--primary-5); overflow: hidden; }
 .meter span { display: block; height: 100%; border-radius: 3px; background: var(--m); }
 .meter--good { --m: var(--positive-3); } .meter--warn { --m: var(--warning-3); }
-.meter--bad { --m: var(--negative-3); }   .meter--info { --m: var(--primary); }
+.meter--bad { --m: var(--negative-3); }   .meter--info { --m: var(--primary-6); }
 
 /* ---- Badge ---------------------------------------------------------------- */
 .badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%;
@@ -298,19 +298,19 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .badge--good    { --b: var(--positive-3); }
 .badge--warn    { --b: var(--warning-3); }
 .badge--bad     { --b: var(--negative-3); }
-.badge--info    { --b: var(--primary); color: var(--neutral-1); }
+.badge--info    { --b: var(--primary-6); color: var(--neutral-1); }
 .badge--neutral { --b: var(--neutral-3); color: var(--neutral-5); }
 .badge--sm { width: 18px; height: 18px; font-size: var(--text-xs); }
 .badge-row { display: flex; align-items: center; gap: var(--spacing-1-5); font-size: var(--text-sm); margin-top: var(--spacing-2); }
 
 /* ---- Buttons -------------------------------------------------------------- */
-.btn { background: none; border: 1px solid var(--border); color: var(--neutral-4); border-radius: 8px;
+.btn { background: none; border: 1px solid var(--primary-4); color: var(--neutral-4); border-radius: 8px;
   padding: var(--spacing-1) var(--spacing-2-5); font: inherit; font-size: var(--text-sm); cursor: pointer; }
 /* Segmented switch: <span class="seg" role="group"><button aria-pressed="true">A</button><button aria-pressed="false">B</button></span>. */
-.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; vertical-align: middle; }
+.seg { display: inline-flex; border: 1px solid var(--primary-4); border-radius: 8px; overflow: hidden; vertical-align: middle; }
 .seg button { background: none; border: 0; color: var(--neutral-4); padding: 0 var(--spacing-2-5); height: 100%; font: inherit; font-size: var(--text-sm); cursor: pointer; }
-.seg button + button { border-left: 1px solid var(--border); }
-.seg button[aria-pressed="true"] { background: var(--primary); color: var(--neutral-1); }
+.seg button + button { border-left: 1px solid var(--primary-4); }
+.seg button[aria-pressed="true"] { background: var(--primary-6); color: var(--neutral-1); }
 .seg button:focus-visible { outline: 2px solid var(--neutral-5); outline-offset: -2px; }   /* inset: .seg clips its overflow; ink shows on the page and on the primary */
 /* The round "?" button that opens an explanation tooltip. */
 .info-button { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px;
@@ -318,11 +318,11 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
   color: var(--neutral-4); font: 600 var(--text-xs)/1 system-ui, sans-serif; cursor: help; vertical-align: 1px; position: relative; }
 .info-button::after { content: ""; position: absolute; inset: -14px; }  /* a 44px hit target around the 16px mark */
 .info-button:hover, .info-button:focus-visible, .info-button[aria-expanded="true"] { border-color: var(--neutral-4); color: var(--neutral-5); }
-.info-button:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.info-button:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
 
 /* ---- Tooltip -------------------------------------------------------------- */
-.tooltip { position: fixed; pointer-events: none; background: var(--surface); color: var(--neutral-5);
-  border: 1px solid var(--border); border-radius: 8px; padding: var(--spacing-2) var(--spacing-2-5); font-size: var(--text-sm);
+.tooltip { position: fixed; pointer-events: none; background: var(--primary-2); color: var(--neutral-5);
+  border: 1px solid var(--primary-4); border-radius: 8px; padding: var(--spacing-2) var(--spacing-2-5); font-size: var(--text-sm);
   box-shadow: var(--shadow-pop); display: none; max-width: 280px; z-index: 10; }
 .tooltip b { display: block; margin-bottom: var(--spacing-0-5); }
 .tooltip--explain { max-width: 320px; line-height: 1.45; }
@@ -338,27 +338,27 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .more summary::after { content: " \25BE"; }
 .more[open] summary::after { content: " \25B4"; }
 .more[open] summary { margin-bottom: var(--spacing-1); }
-.more summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+.more summary:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; border-radius: 4px; }
 /* A full-width "read more" button under a block; the extra detail opens ABOVE it, so the toggle
    moves down with the text it reveals. Set aria-expanded from the script. */
 .moretoggle { display: flex; justify-content: center; align-items: center; gap: var(--spacing-1); width: 100%; min-height: var(--tap); cursor: pointer; text-align: center; padding: var(--spacing-2) var(--spacing-4); background: none; border: 0;
-  border-top: 1px solid var(--border); font: 600 var(--text-sm)/1.4 system-ui, sans-serif; color: var(--neutral-4); }
+  border-top: 1px solid var(--primary-4); font: 600 var(--text-sm)/1.4 system-ui, sans-serif; color: var(--neutral-4); }
 .moretoggle::after { content: " \25BE"; }
 .moretoggle[aria-expanded="true"]::after { content: " \25B4"; }
 .moretoggle:focus-visible { outline: 2px solid var(--neutral-4); outline-offset: -2px; }
 
 /* ---- Primary button -------------------------------------------------------- */
-.btn--primary { background: var(--primary); border-color: var(--primary); color: var(--neutral-1); font-weight: 600; }
-.btn--primary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.btn--primary { background: var(--primary-6); border-color: var(--primary-6); color: var(--neutral-1); font-weight: 600; }
+.btn--primary:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
 /* Disabled: one rule for every .btn variant, so an app never adds its own on this reserved class. */
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ---- Theme accents (opt-in) ------------------------------------------------- */
 /* Carry the theme beyond the primary controls, on the surfaces a page is built from. Add one to a
    house element; an app that does not keeps the base look. Text stays --neutral-5. */
-.header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary); }   /* on the page header */
-.card--accent, .tile--accent { border-top: 3px solid var(--primary); }
-.table--accent th { background: var(--primary-soft); color: var(--neutral-5); }
+.header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary-6); }   /* on the page header */
+.card--accent, .tile--accent { border-top: 3px solid var(--primary-6); }
+.table--accent th { background: var(--primary-3); color: var(--neutral-5); }
 
 /* ---- Theme picker (drawn by house-theme.js: DKJTheme.picker(el)) ------------ */
 /* Two rows of round swatches, light and dark; each swatch is the theme's page colour with its
@@ -367,13 +367,13 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .theme-picker__row { display: grid; grid-template-columns: 64px 1fr; gap: var(--spacing-4); align-items: center; }
 .theme-picker__label { font-size: var(--text-sm); font-weight: 600; color: var(--neutral-4); }
 .theme-picker__swatches { display: flex; gap: var(--spacing-2); flex-wrap: wrap; }
-.theme-swatch { width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid var(--border); cursor: pointer; display: grid; place-items: center; }
+.theme-swatch { width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid var(--primary-4); cursor: pointer; display: grid; place-items: center; }
 /* Each swatch previews its own theme's page: the page base with the same tint as --page-tint (6% light, 10% dark). */
 .theme-swatch--light { background: color-mix(in srgb, var(--swatch) 6%, #f9f9f7); }
 .theme-swatch--dark { background: color-mix(in srgb, var(--swatch) 10%, #0d0d0d); }
 .theme-swatch i { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--swatch); }
 .theme-swatch[aria-pressed="true"] { outline: 2px solid var(--neutral-5); outline-offset: 2px; }   /* the chosen theme */
-.theme-swatch:focus-visible { outline: 2px dashed var(--primary); outline-offset: 4px; }       /* keyboard focus: a different ring */
+.theme-swatch:focus-visible { outline: 2px dashed var(--primary-6); outline-offset: 4px; }       /* keyboard focus: a different ring */
 
 /* ---- Settings button (drawn by house-theme.js: DKJTheme.settings(el)) ------- */
 /* A round toggle that opens a panel with the theme picker, a reset and the app's own controls
@@ -382,20 +382,20 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .theme-settings { position: relative; display: inline-block; }
 .theme-settings--floating { position: fixed; top: var(--spacing-3); right: var(--spacing-3); z-index: 20; }
 .theme-settings__toggle { display: inline-flex; align-items: center; justify-content: center; width: var(--tap); height: var(--tap);
-  padding: 0; color: var(--neutral-5); background: var(--surface); border: 1px solid var(--border); border-radius: 50%;
+  padding: 0; color: var(--neutral-5); background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 50%;
   box-shadow: var(--shadow-pop); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
-.theme-settings__toggle:hover { background: var(--primary-soft); }
-.theme-settings__toggle[aria-expanded="true"] { color: var(--primary); border-color: var(--primary); }
-.theme-settings__toggle:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.theme-settings__toggle:hover { background: var(--primary-3); }
+.theme-settings__toggle[aria-expanded="true"] { color: var(--primary-6); border-color: var(--primary-6); }
+.theme-settings__toggle:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
 .theme-settings__close, .theme-settings__toggle[aria-expanded="true"] .theme-settings__open { display: none; }
 .theme-settings__toggle[aria-expanded="true"] .theme-settings__close { display: block; }
 .theme-settings__panel { position: absolute; top: calc(100% + var(--spacing-2)); right: 0; z-index: 20; display: grid; gap: var(--spacing-4);
   width: max-content; max-width: calc(100vw - 2 * var(--spacing-4)); max-height: calc(100dvh - var(--tap) - 2 * var(--spacing-5));
-  overflow-y: auto; padding: var(--spacing-4); text-align: left; background: var(--surface); border: 1px solid var(--border);
+  overflow-y: auto; padding: var(--spacing-4); text-align: left; background: var(--primary-2); border: 1px solid var(--primary-4);
   border-radius: 12px; box-shadow: var(--shadow-pop); }
 .theme-settings__panel[hidden] { display: none; }
 .theme-settings__title { margin: 0; font-size: var(--text-lg); font-weight: 600; color: var(--neutral-5); }
-.theme-settings__group { display: grid; gap: var(--spacing-2); padding-top: var(--spacing-4); border-top: 1px solid var(--border); }
+.theme-settings__group { display: grid; gap: var(--spacing-2); padding-top: var(--spacing-4); border-top: 1px solid var(--primary-4); }
 .theme-settings__label { font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--neutral-4); }
 .theme-settings__foot { display: flex; flex-wrap: wrap; align-items: end; gap: var(--spacing-4); }
 .theme-settings__extra:empty { display: none; }
@@ -422,13 +422,13 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .field > span { display: block; font-size: var(--text-base); color: var(--neutral-4); margin-bottom: var(--spacing-1); }
 .field input, .field select { display: block; width: 100%; min-height: var(--control-h);
   font: inherit; font-size: 16px;   /* literal: iOS zooms in on focus below 16px, a platform constraint, not a type step */
-  padding: var(--spacing-2) var(--spacing-3); border: 1px solid var(--border); border-radius: 8px;
-  background: var(--page); color: var(--neutral-5); }
+  padding: var(--spacing-2) var(--spacing-3); border: 1px solid var(--primary-4); border-radius: 8px;
+  background: var(--primary-1); color: var(--neutral-5); }
 /* A select draws its own chevron, in the muted colour, with room to the edge. */
 .field select { -webkit-appearance: none; appearance: none; padding-right: var(--spacing-10); text-overflow: ellipsis;
   background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
   background-position: right 18px center, right 13px center; background-size: 5px 5px; background-repeat: no-repeat; }
-.field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
 .field__error { margin: var(--spacing-1) 0 0; font-size: var(--text-base); color: var(--negative-5); }
 .field__error:empty { display: none; }
 
@@ -437,18 +437,18 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
    .btn--primary (restated below, because this block comes after it). */
 .btn--touch { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap);
   padding: var(--spacing-2-5) var(--spacing-4); font-size: var(--text-base); font-weight: 600; color: var(--neutral-5);
-  background: var(--surface); -webkit-tap-highlight-color: transparent; }
-.btn--touch.btn--primary { background: var(--primary); border-color: var(--primary); color: var(--neutral-1); }
-.btn--touch:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+  background: var(--primary-2); -webkit-tap-highlight-color: transparent; }
+.btn--touch.btn--primary { background: var(--primary-6); border-color: var(--primary-6); color: var(--neutral-1); }
+.btn--touch:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
 .btn--block { width: 100%; }
 
 /* ---- Icon button and action row --------------------------------------------- */
 /* A filled icon button: an svg that takes the text colour, as tall as a touch target; it grows
    to the width of its row where .action-row stretches it. --ghost is the quiet one (menu button). */
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap); height: var(--tap); padding: 0;
-  border: 0; border-radius: 8px; background: var(--neutral-5); color: var(--page); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  border: 0; border-radius: 8px; background: var(--neutral-5); color: var(--primary-1); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .icon-btn svg { flex: none; }
-.icon-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.icon-btn:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
 .icon-btn--ghost { background: transparent; color: var(--neutral-4); }
 /* A row of icon buttons that share the full width. */
 .action-row { display: flex; gap: var(--spacing-2-5); width: 100%; }
@@ -459,7 +459,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
    on top of a dialog sets --dialog-scale smaller. The page behind stands still while one is open. */
 .dialog { width: calc(min(100vw, var(--column-narrow)) * var(--dialog-scale, 0.95)); max-width: none; max-height: calc(100% - var(--spacing-8));
   margin: auto; padding: 0; overflow-y: auto; overscroll-behavior: contain; text-align: left;
-  color: var(--neutral-5); background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+  color: var(--neutral-5); background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 16px; }
 .dialog::backdrop { background: rgba(0,0,0,0.45); }   /* same in both modes */
 html:has(dialog:modal) { overflow: hidden; }
 /* The padding sits in the body, so a tap on empty space in the dialog never counts as a tap outside it. */
@@ -475,11 +475,11 @@ html:has(dialog:modal) { overflow: hidden; }
    the two tap areas overlap by 2px so the plates stand 6px apart. */
 .dialog__close { position: absolute; top: var(--spacing-4); right: var(--spacing-4); display: flex; align-items: center; justify-content: center;
   width: var(--tap); height: var(--tap); padding: 0; color: var(--muted); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.dialog__close:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.dialog__close:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
 .dialog__close svg { position: relative; }   /* above the plate */
 .dialog__close--save::before, .dialog__close--cancel::before { content: ""; position: absolute; inset: var(--spacing-1); border: 1px solid; border-radius: var(--spacing-1-5); }
 .dialog__close--save { color: var(--neutral-1); }
-.dialog__close--save::before { background: var(--primary); border-color: var(--primary); }
+.dialog__close--save::before { background: var(--primary-6); border-color: var(--primary-6); }
 .dialog__close--cancel { right: calc(var(--spacing-4) + var(--tap) - 2px); color: var(--negative-5); }
 .dialog__close--cancel::before { border-color: var(--negative-5); }
 .dialog__close--back { right: auto; left: var(--spacing-4); }
@@ -496,7 +496,7 @@ html:has(dialog:modal) { overflow: hidden; }
 .dialog--drawer .dialog__body { display: flex; flex-direction: column; min-height: 100%; box-sizing: border-box;
   padding-top: calc(var(--spacing-4) + env(safe-area-inset-top)); padding-bottom: calc(var(--spacing-4) + env(safe-area-inset-bottom)); }
 .dialog--drawer .dialog__head { box-sizing: border-box; height: var(--topbar-h); min-height: 0; margin: calc(-1 * var(--spacing-4)) calc(-1 * var(--spacing-4)) 0;
-  padding: 0 calc(var(--spacing-4) + var(--tap) + var(--spacing-2)) 0 var(--spacing-4); border-bottom: 1px solid var(--border); }
+  padding: 0 calc(var(--spacing-4) + var(--tap) + var(--spacing-2)) 0 var(--spacing-4); border-bottom: 1px solid var(--primary-4); }
 .dialog--drawer .dialog__head--two { padding-right: calc(var(--spacing-4) + 2 * var(--tap) + var(--spacing-4)); }
 .dialog--drawer .dialog__head--back { padding: 0 var(--spacing-4) 0 calc(var(--spacing-4) + var(--tap) + var(--spacing-2)); }
 .dialog--drawer .dialog__title { font-size: var(--text-lg); font-weight: 700; }   /* as the name in the top bar */
@@ -510,7 +510,7 @@ html:has(dialog:modal) { overflow: hidden; }
 /* <header class="topbar"><div class="topbar__inner"><div class="topbar__brand">...</div> a .icon-btn--ghost</div></header>.
    Always at the top, in the surface colour, over the full width; its content lines up with
    the narrow column. A field scrolled into view stays below it. */
-.topbar { display: block; position: sticky; top: 0; z-index: 2; background: var(--surface); box-shadow: 0 1px 0 var(--border); }
+.topbar { display: block; position: sticky; top: 0; z-index: 2; background: var(--primary-2); box-shadow: 0 1px 0 var(--primary-4); }
 .topbar__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--column-narrow); height: var(--topbar-h);
   margin: 0 auto; padding: 0 var(--spacing-1) 0 var(--spacing-4); }
 .topbar__brand { display: flex; align-items: center; gap: var(--spacing-3); min-width: 0; }
@@ -522,7 +522,7 @@ html:has(.topbar) { scroll-padding-top: var(--topbar-h); }
    <span class="menu-row__value">..</span> an .icon-btn</li></ul>. A line between rows, not above or below. */
 .menu-list { margin: 0; padding: 0; list-style: none; }
 .menu-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: var(--spacing-3); min-height: var(--tap); padding: var(--spacing-2); }
-.menu-row + .menu-row { border-top: 1px solid var(--border); }
+.menu-row + .menu-row { border-top: 1px solid var(--primary-4); }
 .menu-row__label { font-size: var(--text-h6); font-weight: 600; }
 .menu-row__value { min-width: 0; font-size: var(--text-h6); text-align: right; overflow-wrap: anywhere; }
 /* A button at the end of the row is control-h tall and its centre sits under a close button's. */
@@ -531,8 +531,8 @@ html:has(.topbar) { scroll-padding-top: var(--topbar-h); }
    <button class="menu-item"><svg class="menu-item__icon"/><span class="menu-item__label">..</span><svg class="menu-item__chevron"/></button> */
 .menu-item { display: flex; align-items: center; gap: var(--spacing-3); width: 100%; min-height: var(--tap); margin: 0; padding: var(--spacing-2);
   border: 0; border-radius: 8px; background: none; font: inherit; text-align: left; text-decoration: none; color: var(--neutral-5); cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.menu-item + .menu-item { border-top: 1px solid var(--border); border-top-left-radius: 0; border-top-right-radius: 0; }
-.menu-item:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }   /* inset, so the ring is not cut off by the panel */
+.menu-item + .menu-item { border-top: 1px solid var(--primary-4); border-top-left-radius: 0; border-top-right-radius: 0; }
+.menu-item:focus-visible { outline: 2px solid var(--primary-6); outline-offset: -2px; }   /* inset, so the ring is not cut off by the panel */
 .menu-item__icon, .menu-item__chevron { flex: none; }
 .menu-item__label { flex: 1; min-width: 0; }
 .menu-item__chevron { color: var(--muted); }

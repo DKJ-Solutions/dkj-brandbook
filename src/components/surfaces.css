@@ -3,14 +3,14 @@
 
 /* ---------- Card ---------- */
 .dkj-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--primary-2);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-lg);
   padding: var(--spacing-4);
   transition: border-color var(--dkj-duration-slow) var(--dkj-ease-out);
 }
 .dkj-card--flush { padding: 0; overflow: hidden; }
-.dkj-card--open { border-color: color-mix(in srgb, var(--primary) 60%, var(--border)); }
+.dkj-card--open { border-color: color-mix(in srgb, var(--primary-6) 60%, var(--primary-4)); }
 .dkj-card--invalid { border-color: var(--negative-3); }
 /* Data variant: the head is left-aligned in the house serif (the h2 rule of house-style.css sets the family),
    with a muted subline, and there is no rule between head and body. */
@@ -33,20 +33,20 @@
 /* The title is an <h2>, which the house style sets to display:flex; a plain title stays a block. */
 .dkj-card-title { display: block; margin: 0; font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); }
 .dkj-card-title--icon { display: flex; align-items: center; justify-content: center; gap: var(--spacing-2); }
-.dkj-card-icon { flex-shrink: 0; color: var(--primary); }
-.dkj-card-body { padding: var(--spacing-1) var(--spacing-4) var(--spacing-4); border-top: 1px solid var(--border); }
+.dkj-card-icon { flex-shrink: 0; color: var(--primary-6); }
+.dkj-card-body { padding: var(--spacing-1) var(--spacing-4) var(--spacing-4); border-top: 1px solid var(--primary-4); }
 .dkj-card-body > :first-child { margin-top: var(--spacing-3-5); }
 
 /* ---------- TintedPanel ---------- */
 .dkj-panel {
   --part: var(--neutral-4);
   padding: var(--spacing-3);
-  border: 1px solid color-mix(in srgb, var(--part) 35%, var(--border));
+  border: 1px solid color-mix(in srgb, var(--part) 35%, var(--primary-4));
   border-radius: var(--dkj-radius-lg);
-  background: color-mix(in srgb, var(--part) 7%, var(--surface));
+  background: color-mix(in srgb, var(--part) 7%, var(--primary-2));
   color: var(--neutral-5);
 }
-.dkj-panel--accent { --part: var(--primary); }
+.dkj-panel--accent { --part: var(--primary-6); }
 .dkj-panel--positive { --part: var(--positive-5); }
 .dkj-panel--button {
   display: flex;
@@ -62,7 +62,7 @@
   font-weight: var(--dkj-fw-semibold);
   cursor: pointer;
 }
-.dkj-panel--button:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset); }
+.dkj-panel--button:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-6); outline-offset: var(--dkj-focus-offset); }
 .dkj-panel-label {
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-bold);
@@ -78,23 +78,23 @@
   padding: var(--spacing-3) var(--spacing-4);
   line-height: var(--dkj-lh-snug);
   color: var(--neutral-5);
-  border: 1px solid var(--border);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-lg);
 }
 .dkj-banner--accent {
   font-size: var(--text-lg);
   text-align: center;
-  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
-  border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+  background: color-mix(in srgb, var(--primary-6) 10%, var(--primary-2));
+  border-color: color-mix(in srgb, var(--primary-6) 35%, var(--primary-4));
 }
-.dkj-banner--accent strong { color: var(--primary); white-space: nowrap; }
-/* Warn: the look of the house .notice (--warning-1, --border, radius lg), built on tokens so it needs no reserved class. */
+.dkj-banner--accent strong { color: var(--primary-6); white-space: nowrap; }
+/* Warn: the look of the house .notice (--warning-1, --primary-4, radius lg), built on tokens so it needs no reserved class. */
 .dkj-banner--warn { font-size: var(--text-base); background: var(--warning-1); }
 .dkj-banner-lead { display: inline-flex; align-items: center; gap: var(--spacing-1-5); font-weight: var(--dkj-fw-bold); }
 .dkj-banner--warn ul { margin: var(--spacing-1) 0 0; padding-left: var(--spacing-5); }
 
 /* ---------- Alert ---------- */
-.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-3); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-3) 8%, var(--surface)); color: var(--neutral-5); }
+.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-3); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-3) 8%, var(--primary-2)); color: var(--neutral-5); }
 .dkj-alert-title { display: flex; align-items: center; gap: var(--spacing-2); margin: 0 0 var(--spacing-1); font-size: var(--text-h5); color: var(--negative-5); }
 .dkj-alert-icon { flex: none; }
 .dkj-alert > :last-child { margin-bottom: 0; }
@@ -111,7 +111,7 @@
   color: var(--negative-5);
   font-size: var(--text-sm);
 }
-.dkj-msg a { color: var(--primary); }
+.dkj-msg a { color: var(--primary-6); }
 .dkj-msg[hidden] { display: none; }
 
 /* ---------- Chip ---------- */
@@ -119,14 +119,14 @@
   display: inline-block;
   max-width: 100%;
   padding: var(--spacing-0-5) var(--spacing-3);
-  border: 1px solid var(--border);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-pill);
   font-size: var(--text-base);
   font-weight: var(--dkj-fw-bold);
   overflow-wrap: anywhere;
 }
-.dkj-chip--yes { background: var(--primary); border-color: var(--primary); color: var(--neutral-1); }
-.dkj-chip--no { background: var(--page); }
+.dkj-chip--yes { background: var(--primary-6); border-color: var(--primary-6); color: var(--neutral-1); }
+.dkj-chip--no { background: var(--primary-1); }
 .dkj-chip--todo, .dkj-chip--unknown { color: var(--neutral-4); border-style: dashed; }
 
 /* ---------- TitleTag ---------- */
@@ -139,7 +139,7 @@
   letter-spacing: var(--dkj-tracking-tag);
   text-transform: uppercase;
   color: var(--neutral-1);
-  background: var(--primary);
+  background: var(--primary-6);
   border-radius: var(--dkj-radius-pill);
 }
 .dkj-tag--info { color: var(--neutral-1); background: var(--cat-1); }
@@ -155,7 +155,7 @@
 .dkj-disclosure summary::after { content: ' \25BE'; content: ' \25BE' / ''; }
 .dkj-disclosure[open] > summary::after { content: ' \25B4'; content: ' \25B4' / ''; }
 .dkj-disclosure summary:focus-visible {
-  outline: var(--dkj-focus-w) solid var(--primary);
+  outline: var(--dkj-focus-w) solid var(--primary-6);
   outline-offset: var(--dkj-focus-offset);
   border-radius: var(--dkj-radius-xs);
 }
@@ -179,7 +179,7 @@
 .dkj-disclosure-trailing { margin-inline-start: auto; white-space: nowrap; }
 .dkj-disclosure-meta + .dkj-disclosure-trailing { margin-inline-start: 0; }
 .dkj-disclosure-meta { font-size: var(--text-sm); font-weight: normal; color: var(--neutral-4); font-variant-numeric: tabular-nums; }
-.dkj-disclosure-version { color: var(--primary); font-weight: var(--dkj-fw-bold); }
+.dkj-disclosure-version { color: var(--primary-6); font-weight: var(--dkj-fw-bold); }
 /* Narrow row: the marker stays on the first line, meta and trailing drop under the title and left-align. */
 @container (max-width: 24rem) {
   .dkj-disclosure-meta,
