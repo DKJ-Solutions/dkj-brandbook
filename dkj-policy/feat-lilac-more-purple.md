@@ -117,7 +117,18 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
 - [x] README token table, the anchor bullets and the migration rows, rewritten as one step from the released
       six-step scale to seven (the five-step trial never reached `main`)
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the seven-step scale in a light and a dark theme and approved it
+- [x] An owner approved the seven-step scale and asked to drop the neutral group (black, white and grey)
+- [x] The neutral ramp is removed: `--neutral-3` (all text) -> `--primary-5` (same lightness, tinted);
+      `--neutral-2` -> `--primary-3` for lines, the info-button outline, the neutral badge and the blockquote
+      bar, and -> `--primary-5` for a chart's zero line, axis and crosshair (apart from the `-3` gridlines);
+      `--neutral-1` -> `--primary-2` (the info dialog's base). The `--neutral-3: var(--primary-5)`
+      re-declarations on tinted surfaces are gone, now redundant. Showcase Tokens group removed.
+- [x] Contrast: `--primary-5` as text 6.9:1 or better on page and card on light (Oker), 5.5:1 on dark (Geel),
+      5.1:1 or better on the warning/negative/positive backgrounds (Oranje). Text on the `--warning-3` fill
+      stays under 4.5:1 as before: measured on #94.
+- [x] README: token table, the migration rows (neutral -> primary, after the primary rows), the measurements
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at the text and lines in a light and a dark theme and approved them
 
 ### DEPLOY: feat/lilac-more-purple
 
@@ -134,6 +145,11 @@ renames in the order the README's migration rows give (old `-4` -> `-3` first, o
 `-4` last). On the dark themes the fills and links turn from near-white to the theme's colour itself, and all
 six dark themes carry about twice the colour on their page, cards and lines. Petrol and Roest move a fraction
 darker, Hemelsblauw to Blauw's hue.
+
+The untinted neutral ramp is removed: all text is `--primary-5` (the same lightness as `--neutral-3`, now in the
+theme's tint), grey lines are `--primary-3`, a chart's axis and zero line `--primary-5`, and the info dialog's
+base `--primary-2`. A consuming repo replaces every `--neutral-*` after the primary renames, as the README's
+migration rows give.
 
 **Score:** 5
 
