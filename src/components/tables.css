@@ -3,7 +3,7 @@
 .dkj-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dkj-tone-negative { color: var(--negative-5); }
 .dkj-tone-positive { color: var(--positive-5); }
-.dkj-muted { color: var(--neutral-4); }
+.dkj-muted { color: var(--neutral-3); }
 
 /* ---------- DefinitionList ---------- */
 .dkj-dl { margin: 0; font-variant-numeric: tabular-nums; }
@@ -17,9 +17,9 @@
 }
 .dkj-dl dt { min-width: 0; }
 .dkj-dl dd { margin: 0; white-space: nowrap; font-weight: var(--dkj-fw-semibold); text-align: right; }
-.dkj-dl-detail { display: block; margin-top: var(--spacing-0-5); font-size: var(--text-sm); color: var(--neutral-4); }
+.dkj-dl-detail { display: block; margin-top: var(--spacing-0-5); font-size: var(--text-sm); color: var(--neutral-3); }
 .dkj-dl > .dkj-dl-total { border-bottom: 0; font-weight: var(--dkj-fw-bold); }
-.dkj-dl--facts dt { color: var(--neutral-4); }
+.dkj-dl--facts dt { color: var(--neutral-3); }
 .dkj-dl dd.dkj-dl-regular { font-weight: var(--dkj-fw-regular); }
 
 /* ---------- DataTable ---------- */
@@ -42,7 +42,7 @@
   font-weight: var(--dkj-fw-semibold);
   letter-spacing: var(--dkj-tracking-label);
   text-transform: uppercase;
-  color: var(--neutral-4);
+  color: var(--neutral-3);
 }
 .dkj-bill-head > :nth-child(1) { width: 4.75rem; }
 .dkj-bill-head > :nth-last-child(2) { width: 5rem; }
@@ -50,7 +50,7 @@
 .dkj-bill--qty .dkj-bill-head > :nth-child(3) { width: 2.5rem; }
 .dkj-bill tbody tr { border-bottom: 1px solid var(--primary-4); }
 .dkj-bill tbody:last-of-type tr:last-child { border-bottom: 0; }
-.dkj-bill-slot { font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); color: var(--neutral-5); }
+.dkj-bill-slot { font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); color: var(--neutral-3); }
 .dkj-bill-name {
   display: block;
   min-width: 0;
@@ -60,8 +60,8 @@
   font-size: var(--text-base);
   line-height: 1.3;
 }
-.dkj-bill-row--empty .dkj-bill-name { color: var(--neutral-4); }
-.dkj-bill-qty { font-size: var(--text-base); color: var(--neutral-4); }
+.dkj-bill-row--empty .dkj-bill-name { color: var(--neutral-3); }
+.dkj-bill-qty { font-size: var(--text-base); color: var(--neutral-3); }
 .dkj-bill-price { font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); }
 .dkj-bill-row--buy .dkj-bill-price { color: var(--primary-5); }
 .dkj-bill-action { text-align: right; }
@@ -69,13 +69,13 @@
 .dkj-bill-action .dkj-round-toggle { margin: calc(-1 * var(--spacing-2)) calc(-1 * var(--spacing-2)) calc(-1 * var(--spacing-2)) auto; }
 /* A group closes with its subtotal, between rules slightly stronger than the row rules. */
 .dkj-bill .dkj-bill-subtotal {
-  border-top: 2px solid color-mix(in srgb, var(--neutral-4) 50%, var(--primary-4));
-  border-bottom: 2px solid color-mix(in srgb, var(--neutral-4) 50%, var(--primary-4));
+  border-top: 2px solid color-mix(in srgb, var(--neutral-3) 50%, var(--primary-4));
+  border-bottom: 2px solid color-mix(in srgb, var(--neutral-3) 50%, var(--primary-4));
 }
 .dkj-bill .dkj-bill-subtotal > * { height: auto; padding-top: var(--spacing-1-5); padding-bottom: var(--spacing-1-5); vertical-align: baseline; }
 .dkj-bill-subtotal th, .dkj-bill-total th { padding-right: var(--spacing-4); font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); text-align: right; }
 .dkj-bill-subtotal strong, .dkj-bill-total strong { font-size: var(--text-base); font-variant-numeric: tabular-nums; }
-.dkj-bill tfoot tr { border-top: 1px solid var(--neutral-4); }
+.dkj-bill tfoot tr { border-top: 1px solid var(--neutral-3); }
 .dkj-bill .dkj-bill-total > * { height: auto; padding-top: var(--spacing-2); padding-bottom: var(--spacing-2); vertical-align: baseline; }
 .dkj-bill-total strong { color: var(--primary-5); }
 
@@ -89,7 +89,7 @@
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-bold);
   line-height: var(--dkj-lh-tight);
-  color: var(--neutral-4);
+  color: var(--neutral-3);
   text-align: right;
   vertical-align: bottom;
 }
@@ -98,7 +98,7 @@
 .dkj-compare tfoot th, .dkj-compare tfoot td {
   padding-top: var(--spacing-3-5);
   border-bottom: 0;
-  border-top: 2px solid color-mix(in srgb, var(--neutral-4) 50%, var(--primary-4));
+  border-top: 2px solid color-mix(in srgb, var(--neutral-3) 50%, var(--primary-4));
   font-weight: var(--dkj-fw-bold);
   font-size: var(--text-lg);
   text-align: left;
@@ -112,8 +112,8 @@
 .dkj-calc-row > * { padding: var(--spacing-2) 0; }
 .dkj-calc-row:has(+ .dkj-calc-result) { margin-bottom: var(--spacing-2); border-bottom: 0; }
 .dkj-calc-what { grid-column: what; padding-left: var(--spacing-3); font-size: var(--text-base); overflow-wrap: anywhere; }
-.dkj-calc-sub { display: block; font-size: var(--text-sm); color: var(--neutral-4); }
-.dkj-calc-op { grid-column: op; min-width: 1rem; padding-inline: var(--spacing-2); font-size: var(--text-base); text-align: center; color: var(--neutral-4); }
+.dkj-calc-sub { display: block; font-size: var(--text-sm); color: var(--neutral-3); }
+.dkj-calc-op { grid-column: op; min-width: 1rem; padding-inline: var(--spacing-2); font-size: var(--text-base); text-align: center; color: var(--neutral-3); }
 .dkj-calc-num { grid-column: num; padding-inline: var(--spacing-3); text-align: right; font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); white-space: nowrap; }
 .dkj-calc--boxed { --gutter: var(--spacing-1-5); grid-template-columns: [edge-l] var(--gutter) [what] minmax(0, 1fr) [op] auto [num] auto [edge-r] var(--gutter); }
 .dkj-calc--boxed .dkj-calc-what { padding-left: var(--spacing-2); }
@@ -144,4 +144,4 @@
 .dkj-answer-label { flex: 1; font-weight: var(--dkj-fw-semibold); }
 .dkj-answer-value { font-size: var(--text-lg); font-weight: var(--dkj-fw-bold); color: var(--primary-5); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dkj-calc-section + .dkj-calc-section { margin-top: var(--spacing-6); }
-.dkj-calc-question { margin: 0 0 var(--spacing-0-5); font-size: var(--text-h6); font-weight: var(--dkj-fw-bold); color: var(--neutral-5); }
+.dkj-calc-question { margin: 0 0 var(--spacing-0-5); font-size: var(--text-h6); font-weight: var(--dkj-fw-bold); color: var(--neutral-3); }

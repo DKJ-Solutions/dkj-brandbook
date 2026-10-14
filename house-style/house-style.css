@@ -23,7 +23,7 @@
    sliders (accent-color), the text caret and the selection. Beyond that, by default: the page, the
    cards and tiles carry a light tint of the primary (--primary-1, --primary-2; 2% / 6% on light, 10% / 14%
    on dark), every line a thin one (--primary-4: borders, dividers, grid lines), and h1 and h2 are set in the
-   primary as text (--primary-6). The untinted neutrals live on as --neutral-1 .. --neutral-5. Status, direction and categorical colours are never tinted. The
+   primary as text (--primary-6). The untinted neutrals live on as --neutral-1 .. --neutral-3. Status, direction and categorical colours are never tinted. The
    --accent modifiers (header, card, tile, table) carry it further where an app opts in.
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
@@ -37,23 +37,22 @@
 :root {
   color-scheme: light;
 
-  /* the neutral ramp: five steps from the ground to the text, flipped on dark (the dark blocks set their own) */
-  --neutral-1: #fcfcfb;   /* the ground: the page base, text and icons on the primary, the mark inside a status icon */
-  --neutral-2: #f9f9f7;   /* the next plane: the surface base, a shade off the ground in both modes */
-  --neutral-3: #d1d1d1;   /* lines: the grid and border base, axes, info-button outline, neutral badge */
-  --neutral-4: #52514e;   /* secondary text, labels */
-  --neutral-5: #0b0b0b;   /* primary text */
+  /* the neutral ramp: three untinted steps, flipped on dark (the dark blocks set their own). The ground, and the text and
+     icons that sit on the primary, are the theme's own --primary-1 (below), not a neutral. */
+  --neutral-1: #ebebe8;   /* the next plane: a clearly greyer surface than the page, the dialog card base */
+  --neutral-2: #d1d1d1;   /* lines: the grid and border base, axes, info-button outline, neutral badge */
+  --neutral-3: #52514e;   /* text: primary and secondary text, labels, focus outlines, the inverted button */
 
   /* the theme's colour, a fixed value per theme, from the ground to the text (Blauw here; each [data-theme]
-     below sets its own six). -1 to -4 are the theme's neutrals with a light tint of its colour, so every theme
+     below sets its own six). -1 to -4 are untinted neutrals with a light tint of the theme's colour, so every theme
      tints the page, the cards and the lines: page, cards (tiles, tooltips), a tinted background, lines
      (borders, row dividers, meter track, gridlines). -5 is the colour itself (switches, primary buttons, info
      badges and meters), -6 the colour as text (links, h1, h2), darker on light and lighter on dark, so a link
      reaches 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). On dark the top of the
      scale mirrors the bottom of light (owner's decision, October 14, 2026): -6 has the lightness of a light
      theme's -1 and -5 that of its -2, each in the dark theme's own hue, so both are near-white and carry the
-     near-black --neutral-1 as text (16.8:1 or better). Measured worst case:
-     --neutral-4 reaches at least 6.2:1 on the light page (worst: Magenta, Paars) and 6.8:1 on the dark card (worst: Geel). */
+     dark --primary-1 as text (14.3:1 or better, worst Geel); on the light themes --primary-1 is near-white and is text on
+     the -5 fill at 4.6:1 or better (worst: Petrol 4.67, Roest 4.70). Measured (WCAG relative luminance) worst case: --neutral-3, the text on --primary-1 and --primary-2, reaches at least 6.2:1 on the light page (worst: Magenta, Paars) and 6.8:1 on the dark card (worst: Geel). */
   --primary-1: #f8f9fa; --primary-2: #ecf0f5; --primary-3: #d0dcf0;
   --primary-4: #b7c1d1; --primary-5: #2563d0; --primary-6: #2051a9;
 
@@ -121,7 +120,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
-    --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333333; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
+    --neutral-1: #262625; --neutral-2: #333333; --neutral-3: #c3c2b7;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
     --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #ebf1f2; --primary-6: #f7f9f9;
@@ -133,7 +132,7 @@
 :root[data-theme="pink"], :root[data-theme="lilac"], :root[data-theme="sky"],
 :root[data-theme="cyan"], :root[data-theme="yellow"], :root[data-theme="orange"] {
   color-scheme: dark;
-  --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333333; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
+  --neutral-1: #262625; --neutral-2: #333333; --neutral-3: #c3c2b7;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
   --primary-1: #102021; --primary-2: #1d3234; --primary-3: #20474b; --primary-4: #333f40; --primary-5: #ebf1f2; --primary-6: #f7f9f9;
@@ -160,7 +159,7 @@
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--primary-1); color: var(--neutral-5);
+body { margin: 0; background: var(--primary-1); color: var(--neutral-3);
   font: var(--text-base)/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
 
 /* ---- Layout -------------------------------------------------------------- */
@@ -197,11 +196,11 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 h4 { font-size: var(--text-h4); margin: 0 0 var(--spacing-2); font-weight: 600; }
 h5 { font-size: var(--text-h5); margin: 0 0 var(--spacing-1-5); font-weight: 600; }
 h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; }
-.sub { color: var(--neutral-4); font-size: var(--text-sm); margin: 0 0 var(--spacing-4); }   /* line under a heading */
-.muted { color: var(--neutral-4); font-size: var(--text-sm); }
-.meta { font-size: var(--text-sm); color: var(--neutral-4); white-space: nowrap; }
-.note { font-size: var(--text-sm); color: var(--neutral-4); margin-top: var(--spacing-1); }
-.footer-note { color: var(--neutral-4); font-size: var(--text-sm); margin-top: var(--spacing-6); }
+.sub { color: var(--neutral-3); font-size: var(--text-sm); margin: 0 0 var(--spacing-4); }   /* line under a heading */
+.muted { color: var(--neutral-3); font-size: var(--text-sm); }
+.meta { font-size: var(--text-sm); color: var(--neutral-3); white-space: nowrap; }
+.note { font-size: var(--text-sm); color: var(--neutral-3); margin-top: var(--spacing-1); }
+.footer-note { color: var(--neutral-3); font-size: var(--text-sm); margin-top: var(--spacing-6); }
 .num { font-variant-numeric: tabular-nums; }                        /* aligned digits */
 .delta { font-weight: 600; }
 .delta--up, .pos { color: var(--positive-5); }
@@ -221,22 +220,22 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .hero { display: flex; flex-wrap: wrap; gap: var(--spacing-6) var(--spacing-12); align-items: flex-end; }   /* use with .card */
 .hero .value { font-size: var(--text-h0); font-weight: 600; line-height: 1.1; }
 .tile { background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 12px; padding: var(--spacing-3-5) var(--spacing-4); }
-.tile .label { color: var(--neutral-4); font-size: var(--text-sm); }
+.tile .label { color: var(--neutral-3); font-size: var(--text-sm); }
 .tile .v { font-size: var(--text-h4); font-weight: 600; margin-top: var(--spacing-0-5); }
 .mini-card { border: 1px solid var(--primary-4); border-radius: 10px; padding: var(--spacing-3) var(--spacing-3-5); }
 .mini-card--highlight { border-color: var(--warning-3); }
-.mini-card__label { font-size: var(--text-sm); color: var(--neutral-4); }
+.mini-card__label { font-size: var(--text-sm); color: var(--neutral-3); }
 .mini-card__value { font-size: var(--text-lg); font-weight: 600; margin: var(--spacing-0-5) 0 var(--spacing-2); font-variant-numeric: tabular-nums; }
 .notice { background: var(--warning-1); border: 1px solid var(--primary-4); border-radius: 12px; padding: var(--spacing-3) var(--spacing-4); margin-top: var(--spacing-4); }
 .item { border-top: 1px solid var(--primary-4); padding: var(--spacing-2-5) 0; }
 .item b { display: block; font-size: var(--text-sm); margin-bottom: var(--spacing-0-5); }
-.item p { margin: 0; font-size: var(--text-sm); color: var(--neutral-4); }
+.item p { margin: 0; font-size: var(--text-sm); color: var(--neutral-3); }
 
 /* ---- Tables --------------------------------------------------------------- */
 .table-wrap { overflow-x: auto; }
 .table { border-collapse: collapse; width: 100%; font-size: var(--text-sm); }
 .table th, .table td { padding: var(--spacing-2) var(--spacing-2-5); text-align: right; border-bottom: 1px solid var(--primary-4); white-space: nowrap; }
-.table th { color: var(--neutral-4); font-weight: 600; }
+.table th { color: var(--neutral-3); font-weight: 600; }
 .table th:first-child, .table td:first-child { text-align: left; white-space: normal; min-width: 180px; }
 .table td { font-variant-numeric: tabular-nums; }
 .table .row-total td { font-weight: 600; border-bottom: none; }
@@ -248,23 +247,23 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
    Idle: two faint chevrons, brighter on hover. Active: only the current direction, in full ink. */
 .table th .sort { position: relative; background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; border-radius: 3px; }
 .table th .sort::before { content: ""; position: absolute; left: -4px; right: -4px; top: 50%; height: var(--tap); transform: translateY(-50%); }   /* a 44px-high hit area around the label */
-.table th .sort::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 2px; border-radius: 1px; background: var(--neutral-5); opacity: 0; transition: opacity .15s; }
-.table th .sort:hover, .table th .sort:focus-visible { color: var(--neutral-5); }
+.table th .sort::after { content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 2px; border-radius: 1px; background: var(--neutral-3); opacity: 0; transition: opacity .15s; }
+.table th .sort:hover, .table th .sort:focus-visible { color: var(--neutral-3); }
 .table th .sort:hover::after, .table th .sort:focus-visible::after { opacity: .3; }
-.table th .sort:focus-visible { outline: 2px solid var(--neutral-5); outline-offset: 4px; }
-.table th[aria-sort="ascending"] .sort, .table th[aria-sort="descending"] .sort { color: var(--neutral-5); }
+.table th .sort:focus-visible { outline: 2px solid var(--neutral-3); outline-offset: 4px; }
+.table th[aria-sort="ascending"] .sort, .table th[aria-sort="descending"] .sort { color: var(--neutral-3); }
 .table th[aria-sort="ascending"] .sort::after, .table th[aria-sort="descending"] .sort::after { opacity: 1; }
 .table th .arrow { position: absolute; left: 100%; top: 50%; transform: translateY(-50%); margin-left: 3px; width: 8px; height: 12px; line-height: 0; pointer-events: none; }
-.table th .arrow svg { display: block; width: 8px; height: 12px; fill: none; stroke: var(--neutral-4); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.table th .arrow svg { display: block; width: 8px; height: 12px; fill: none; stroke: var(--neutral-3); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .table th .arrow path { opacity: .5; transition: opacity .15s, stroke .15s; }
-.table th .sort:hover .arrow path, .table th .sort:focus-visible .arrow path { opacity: 1; stroke: var(--neutral-4); }
+.table th .sort:hover .arrow path, .table th .sort:focus-visible .arrow path { opacity: 1; stroke: var(--neutral-3); }
 .table th[aria-sort="ascending"] .arrow .d, .table th[aria-sort="descending"] .arrow .u { opacity: 0; }
-.table th[aria-sort="ascending"] .arrow .u, .table th[aria-sort="descending"] .arrow .d { opacity: 1; stroke: var(--neutral-5); stroke-width: 2; }
+.table th[aria-sort="ascending"] .arrow .u, .table th[aria-sort="descending"] .arrow .d { opacity: 1; stroke: var(--neutral-3); stroke-width: 2; }
 @media (prefers-reduced-motion: reduce) { .table th .sort::after, .table th .arrow path { transition: none; } }
 
 /* ---- Legend and swatches -------------------------------------------------- */
 /* Set the colour per item with style="--c: var(--cat-1)". */
-.legend { display: flex; gap: var(--spacing-4); flex-wrap: wrap; font-size: var(--text-sm); color: var(--neutral-4); margin: var(--spacing-1) 0 var(--spacing-3); }
+.legend { display: flex; gap: var(--spacing-4); flex-wrap: wrap; font-size: var(--text-sm); color: var(--neutral-3); margin: var(--spacing-1) 0 var(--spacing-3); }
 .legend__item::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px;
   background: var(--c); margin-right: var(--spacing-1-5); vertical-align: -1px; }
 .legend__item--line::before { height: 2px; border-radius: 1px; vertical-align: 3px; width: 14px; }
@@ -272,12 +271,12 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 
 /* ---- Charts (inline SVG inside .chart) ------------------------------------ */
 .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
-.chart svg text { fill: var(--neutral-4); font-size: var(--text-sm); }
-.chart svg .axis-note { fill: var(--neutral-4); font-size: var(--text-xs); }
-.chart svg .val { fill: var(--neutral-5); font-variant-numeric: tabular-nums; }
+.chart svg text { fill: var(--neutral-3); font-size: var(--text-sm); }
+.chart svg .axis-note { fill: var(--neutral-3); font-size: var(--text-xs); }
+.chart svg .val { fill: var(--neutral-3); font-variant-numeric: tabular-nums; }
 .chart .bar:hover, .chart .bar:focus-visible { opacity: 0.8; }
 .chart .bar:focus { outline: none; }
-.chart .bar:focus-visible { stroke: var(--neutral-5); stroke-width: 2px; }   /* an SVG shape takes no reliable outline, so focus is a stroke */
+.chart .bar:focus-visible { stroke: var(--neutral-3); stroke-width: 2px; }   /* an SVG shape takes no reliable outline, so focus is a stroke */
 
 /* ---- Meter ---------------------------------------------------------------- */
 /* Fill colour via --m: <span style="--m: var(--positive-3)"> or a .meter--* class on the meter. */
@@ -288,34 +287,34 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 
 /* ---- Badge ---------------------------------------------------------------- */
 .badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%;
-  font: 700 var(--text-sm)/1 system-ui, sans-serif; color: var(--neutral-1); background: var(--b); flex: none; }
+  font: 700 var(--text-sm)/1 system-ui, sans-serif; color: var(--primary-1); background: var(--b); flex: none; }
 .badge--good    { --b: var(--positive-3); }
 .badge--warn    { --b: var(--warning-3); }
 .badge--bad     { --b: var(--negative-3); }
-.badge--info    { --b: var(--primary-5); color: var(--neutral-1); }
-.badge--neutral { --b: var(--neutral-3); color: var(--neutral-5); }
+.badge--info    { --b: var(--primary-5); color: var(--primary-1); }
+.badge--neutral { --b: var(--neutral-2); color: var(--neutral-3); }
 .badge--sm { width: 18px; height: 18px; font-size: var(--text-xs); }
 .badge-row { display: flex; align-items: center; gap: var(--spacing-1-5); font-size: var(--text-sm); margin-top: var(--spacing-2); }
 
 /* ---- Buttons -------------------------------------------------------------- */
-.btn { background: none; border: 1px solid var(--primary-4); color: var(--neutral-4); border-radius: 8px;
+.btn { background: none; border: 1px solid var(--primary-4); color: var(--neutral-3); border-radius: 8px;
   padding: var(--spacing-1) var(--spacing-2-5); font: inherit; font-size: var(--text-sm); cursor: pointer; }
 /* Segmented switch: <span class="seg" role="group"><button aria-pressed="true">A</button><button aria-pressed="false">B</button></span>. */
 .seg { display: inline-flex; border: 1px solid var(--primary-4); border-radius: 8px; overflow: hidden; vertical-align: middle; }
-.seg button { background: none; border: 0; color: var(--neutral-4); padding: 0 var(--spacing-2-5); height: 100%; font: inherit; font-size: var(--text-sm); cursor: pointer; }
+.seg button { background: none; border: 0; color: var(--neutral-3); padding: 0 var(--spacing-2-5); height: 100%; font: inherit; font-size: var(--text-sm); cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--primary-4); }
-.seg button[aria-pressed="true"] { background: var(--primary-5); color: var(--neutral-1); }
-.seg button:focus-visible { outline: 2px solid var(--neutral-5); outline-offset: -2px; }   /* inset: .seg clips its overflow; ink shows on the page and on the primary */
+.seg button[aria-pressed="true"] { background: var(--primary-5); color: var(--primary-1); }
+.seg button:focus-visible { outline: 2px solid var(--neutral-3); outline-offset: -2px; }   /* inset: .seg clips its overflow; ink shows on the page and on the primary */
 /* The round "?" button that opens an explanation tooltip. */
 .info-button { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px;
-  margin-left: 5px; padding: 0; border-radius: 50%; border: 1px solid var(--neutral-3); background: none;
-  color: var(--neutral-4); font: 600 var(--text-xs)/1 system-ui, sans-serif; cursor: help; vertical-align: 1px; position: relative; }
+  margin-left: 5px; padding: 0; border-radius: 50%; border: 1px solid var(--neutral-2); background: none;
+  color: var(--neutral-3); font: 600 var(--text-xs)/1 system-ui, sans-serif; cursor: help; vertical-align: 1px; position: relative; }
 .info-button::after { content: ""; position: absolute; inset: -14px; }  /* a 44px hit target around the 16px mark */
-.info-button:hover, .info-button:focus-visible, .info-button[aria-expanded="true"] { border-color: var(--neutral-4); color: var(--neutral-5); }
+.info-button:hover, .info-button:focus-visible, .info-button[aria-expanded="true"] { border-color: var(--neutral-3); color: var(--neutral-3); }
 .info-button:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 
 /* ---- Tooltip -------------------------------------------------------------- */
-.tooltip { position: fixed; pointer-events: none; background: var(--primary-2); color: var(--neutral-5);
+.tooltip { position: fixed; pointer-events: none; background: var(--primary-2); color: var(--neutral-3);
   border: 1px solid var(--primary-4); border-radius: 8px; padding: var(--spacing-2) var(--spacing-2-5); font-size: var(--text-sm);
   box-shadow: var(--shadow-pop); display: none; max-width: 280px; z-index: 10; }
 .tooltip b { display: block; margin-bottom: var(--spacing-0-5); }
@@ -327,7 +326,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 
 /* ---- Disclosure (details/summary) ------------------------------------------ */
 .more { margin-top: var(--spacing-2); }
-.more summary { cursor: pointer; font-size: var(--text-sm); font-weight: 600; color: var(--neutral-4); list-style: none; }
+.more summary { cursor: pointer; font-size: var(--text-sm); font-weight: 600; color: var(--neutral-3); list-style: none; }
 .more summary::-webkit-details-marker { display: none; }
 .more summary::after { content: " \25BE"; }
 .more[open] summary::after { content: " \25B4"; }
@@ -336,37 +335,38 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 /* A full-width "read more" button under a block; the extra detail opens ABOVE it, so the toggle
    moves down with the text it reveals. Set aria-expanded from the script. */
 .moretoggle { display: flex; justify-content: center; align-items: center; gap: var(--spacing-1); width: 100%; min-height: var(--tap); cursor: pointer; text-align: center; padding: var(--spacing-2) var(--spacing-4); background: none; border: 0;
-  border-top: 1px solid var(--primary-4); font: 600 var(--text-sm)/1.4 system-ui, sans-serif; color: var(--neutral-4); }
+  border-top: 1px solid var(--primary-4); font: 600 var(--text-sm)/1.4 system-ui, sans-serif; color: var(--neutral-3); }
 .moretoggle::after { content: " \25BE"; }
 .moretoggle[aria-expanded="true"]::after { content: " \25B4"; }
-.moretoggle:focus-visible { outline: 2px solid var(--neutral-4); outline-offset: -2px; }
+.moretoggle:focus-visible { outline: 2px solid var(--neutral-3); outline-offset: -2px; }
 
 /* ---- Primary button -------------------------------------------------------- */
-.btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--neutral-1); font-weight: 600; }
+.btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--primary-1); font-weight: 600; }
 .btn--primary:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 /* Disabled: one rule for every .btn variant, so an app never adds its own on this reserved class. */
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ---- Theme accents (opt-in) ------------------------------------------------- */
 /* Carry the theme beyond the primary controls, on the surfaces a page is built from. Add one to a
-   house element; an app that does not keeps the base look. Text stays --neutral-5. */
+   house element; an app that does not keeps the base look. Text stays --neutral-3. */
 .header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary-5); }   /* on the page header */
 .card--accent, .tile--accent { border-top: 3px solid var(--primary-5); }
-.table--accent th { background: var(--primary-3); color: var(--neutral-5); }
+.table--accent th { background: var(--primary-3); color: var(--neutral-3); }
 
 /* ---- Theme picker (drawn by house-theme.js: DKJTheme.picker(el)) ------------ */
 /* Two rows of round swatches, light and dark; each swatch is the theme's page colour with its
    primary as a dot, so the choice shows both halves of the theme. */
 .theme-picker { display: grid; gap: var(--spacing-3); }
 .theme-picker__row { display: grid; grid-template-columns: 64px 1fr; gap: var(--spacing-4); align-items: center; }
-.theme-picker__label { font-size: var(--text-sm); font-weight: 600; color: var(--neutral-4); }
+.theme-picker__label { font-size: var(--text-sm); font-weight: 600; color: var(--neutral-3); }
 .theme-picker__swatches { display: flex; gap: var(--spacing-2); flex-wrap: wrap; }
 .theme-swatch { width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid var(--primary-4); cursor: pointer; display: grid; place-items: center; }
-/* Each swatch previews its own theme's page: the current page base (--neutral-1) with the same tint as that theme's --primary-1 (2% light, 10% dark). */
-.theme-swatch--light { background: color-mix(in srgb, var(--swatch) 2%, var(--neutral-1)); }
-.theme-swatch--dark { background: color-mix(in srgb, var(--swatch) 10%, var(--neutral-1)); }
+/* Each swatch previews its own theme's page, whichever mode is current: that theme's tint (2% light, 10% dark,
+   as in its --primary-1) over white for a light theme and over black for a dark one. */
+.theme-swatch--light { background: color-mix(in srgb, var(--swatch) 2%, white); }
+.theme-swatch--dark { background: color-mix(in srgb, var(--swatch) 10%, black); }
 .theme-swatch i { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--swatch); }
-.theme-swatch[aria-pressed="true"] { outline: 2px solid var(--neutral-5); outline-offset: 2px; }   /* the chosen theme */
+.theme-swatch[aria-pressed="true"] { outline: 2px solid var(--neutral-3); outline-offset: 2px; }   /* the chosen theme */
 .theme-swatch:focus-visible { outline: 2px dashed var(--primary-5); outline-offset: 4px; }       /* keyboard focus: a different ring */
 
 /* ---- Settings button (drawn by house-theme.js: DKJTheme.settings(el)) ------- */
@@ -376,7 +376,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .theme-settings { position: relative; display: inline-block; }
 .theme-settings--floating { position: fixed; top: var(--spacing-3); right: var(--spacing-3); z-index: 20; }
 .theme-settings__toggle { display: inline-flex; align-items: center; justify-content: center; width: var(--tap); height: var(--tap);
-  padding: 0; color: var(--neutral-5); background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 50%;
+  padding: 0; color: var(--neutral-3); background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 50%;
   box-shadow: var(--shadow-pop); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .theme-settings__toggle:hover { background: var(--primary-3); }
 .theme-settings__toggle[aria-expanded="true"] { color: var(--primary-5); border-color: var(--primary-5); }
@@ -388,9 +388,9 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
   overflow-y: auto; padding: var(--spacing-4); text-align: left; background: var(--primary-2); border: 1px solid var(--primary-4);
   border-radius: 12px; box-shadow: var(--shadow-pop); }
 .theme-settings__panel[hidden] { display: none; }
-.theme-settings__title { margin: 0; font-size: var(--text-lg); font-weight: 600; color: var(--neutral-5); }
+.theme-settings__title { margin: 0; font-size: var(--text-lg); font-weight: 600; color: var(--neutral-3); }
 .theme-settings__group { display: grid; gap: var(--spacing-2); padding-top: var(--spacing-4); border-top: 1px solid var(--primary-4); }
-.theme-settings__label { font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--neutral-4); }
+.theme-settings__label { font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--neutral-3); }
 .theme-settings__foot { display: flex; flex-wrap: wrap; align-items: end; gap: var(--spacing-4); }
 .theme-settings__extra:empty { display: none; }
 .theme-settings__reset { margin-left: auto; }
@@ -399,8 +399,8 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
    App components: the generic, mobile-first parts of an app shell (lifted from MesoWise).
    A form field, touch buttons, a dialog, a side drawer, a top bar and a menu list. Domain
    components stay in the app. Touch targets are at least --tap (44px) high. Every colour
-   pairing below is an existing token pair (--neutral-5 on --primary-1 or --primary-2, --neutral-4
-   on --primary-2, --negative-5 on --primary-2, --neutral-1 on --primary-5) and holds 4.5:1 in every theme.
+   pairing below is an existing token pair (--neutral-3 on --primary-1 or --primary-2,
+   --negative-5 on --primary-2, --primary-1 on --primary-5) and holds 4.5:1 in every theme.
    ========================================================================== */
 
 /* ---- Narrow column --------------------------------------------------------- */
@@ -412,14 +412,14 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
    under the control and is hidden while empty: <p class="field__error" role="alert"></p>. */
 .field { display: block; margin-bottom: var(--spacing-3-5); }
 .field:last-child { margin-bottom: 0; }
-.field > span { display: block; font-size: var(--text-base); color: var(--neutral-4); margin-bottom: var(--spacing-1); }
+.field > span { display: block; font-size: var(--text-base); color: var(--neutral-3); margin-bottom: var(--spacing-1); }
 .field input, .field select { display: block; width: 100%; min-height: var(--control-h);
   font: inherit; font-size: 16px;   /* literal: iOS zooms in on focus below 16px, a platform constraint, not a type step */
   padding: var(--spacing-2) var(--spacing-3); border: 1px solid var(--primary-4); border-radius: 8px;
-  background: var(--primary-1); color: var(--neutral-5); }
+  background: var(--primary-1); color: var(--neutral-3); }
 /* A select draws its own chevron, in the muted colour, with room to the edge. */
 .field select { -webkit-appearance: none; appearance: none; padding-right: var(--spacing-10); text-overflow: ellipsis;
-  background-image: linear-gradient(45deg, transparent 50%, var(--neutral-4) 50%), linear-gradient(135deg, var(--neutral-4) 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, var(--neutral-3) 50%), linear-gradient(135deg, var(--neutral-3) 50%, transparent 50%);
   background-position: right 18px center, right 13px center; background-size: 5px 5px; background-repeat: no-repeat; }
 .field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .field__error { margin: var(--spacing-1) 0 0; font-size: var(--text-base); color: var(--negative-5); }
@@ -429,9 +429,9 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 /* .btn--touch makes a .btn a touch target; .btn--block makes it full width. Both combine with
    .btn--primary (restated below, because this block comes after it). */
 .btn--touch { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap);
-  padding: var(--spacing-2-5) var(--spacing-4); font-size: var(--text-base); font-weight: 600; color: var(--neutral-5);
+  padding: var(--spacing-2-5) var(--spacing-4); font-size: var(--text-base); font-weight: 600; color: var(--neutral-3);
   background: var(--primary-2); -webkit-tap-highlight-color: transparent; }
-.btn--touch.btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--neutral-1); }
+.btn--touch.btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--primary-1); }
 .btn--touch:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .btn--block { width: 100%; }
 
@@ -439,10 +439,10 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 /* A filled icon button: an svg that takes the text colour, as tall as a touch target; it grows
    to the width of its row where .action-row stretches it. --ghost is the quiet one (menu button). */
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap); height: var(--tap); padding: 0;
-  border: 0; border-radius: 8px; background: var(--neutral-5); color: var(--primary-1); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  border: 0; border-radius: 8px; background: var(--neutral-3); color: var(--primary-1); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .icon-btn svg { flex: none; }
 .icon-btn:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
-.icon-btn--ghost { background: transparent; color: var(--neutral-4); }
+.icon-btn--ghost { background: transparent; color: var(--neutral-3); }
 /* A row of icon buttons that share the full width. */
 .action-row { display: flex; gap: var(--spacing-2-5); width: 100%; }
 .action-row > * { flex: 1; min-width: 0; }
@@ -452,8 +452,8 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
    on top of a dialog sets --dialog-scale smaller. The page behind stands still while one is open. */
 .dialog { width: calc(min(100vw, var(--column-narrow)) * var(--dialog-scale, 0.95)); max-width: none; max-height: calc(100% - var(--spacing-8));
   margin: auto; padding: 0; overflow-y: auto; overscroll-behavior: contain; text-align: left;
-  color: var(--neutral-5); background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 16px; }
-.dialog::backdrop { background: var(--neutral-1); opacity: 0.45; }
+  color: var(--neutral-3); background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 16px; }
+.dialog::backdrop { background: var(--primary-1); opacity: 0.45; }
 html:has(dialog:modal) { overflow: hidden; }
 /* The padding sits in the body, so a tap on empty space in the dialog never counts as a tap outside it. */
 .dialog__body { position: relative; padding: var(--spacing-4); }
@@ -461,17 +461,17 @@ html:has(dialog:modal) { overflow: hidden; }
    one-line title sits level with it. */
 .dialog__head { display: flex; align-items: center; min-height: var(--tap); padding-right: calc(var(--tap) + var(--spacing-2)); margin-bottom: var(--spacing-4); }
 .dialog__title { margin: 0; min-width: 0; font-size: var(--text-h6); font-weight: 600; overflow-wrap: anywhere; }
-.dialog__sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-sm); color: var(--neutral-4); }
+.dialog__sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-sm); color: var(--neutral-3); }
 /* The close button, top right, with no visible border. Variants: --save (a filled plate, the
    check that saves), --cancel (an outlined plate to the left of save, the undo arrow), --back
    (on the left instead, for a second panel). The plates are 36px, the tap area stays 44px, and
    the two tap areas overlap by 2px so the plates stand 6px apart. */
 .dialog__close { position: absolute; top: var(--spacing-4); right: var(--spacing-4); display: flex; align-items: center; justify-content: center;
-  width: var(--tap); height: var(--tap); padding: 0; color: var(--neutral-4); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  width: var(--tap); height: var(--tap); padding: 0; color: var(--neutral-3); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .dialog__close:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .dialog__close svg { position: relative; }   /* above the plate */
 .dialog__close--save::before, .dialog__close--cancel::before { content: ""; position: absolute; inset: var(--spacing-1); border: 1px solid; border-radius: var(--spacing-1-5); }
-.dialog__close--save { color: var(--neutral-1); }
+.dialog__close--save { color: var(--primary-1); }
 .dialog__close--save::before { background: var(--primary-5); border-color: var(--primary-5); }
 .dialog__close--cancel { right: calc(var(--spacing-4) + var(--tap) - 2px); color: var(--negative-5); }
 .dialog__close--cancel::before { border-color: var(--negative-5); }
@@ -523,12 +523,12 @@ html:has(.topbar) { scroll-padding-top: var(--topbar-h); }
 /* A navigation row: a full-width button with icon, label and chevron; a line between items.
    <button class="menu-item"><svg class="menu-item__icon"/><span class="menu-item__label">..</span><svg class="menu-item__chevron"/></button> */
 .menu-item { display: flex; align-items: center; gap: var(--spacing-3); width: 100%; min-height: var(--tap); margin: 0; padding: var(--spacing-2);
-  border: 0; border-radius: 8px; background: none; font: inherit; text-align: left; text-decoration: none; color: var(--neutral-5); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  border: 0; border-radius: 8px; background: none; font: inherit; text-align: left; text-decoration: none; color: var(--neutral-3); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .menu-item + .menu-item { border-top: 1px solid var(--primary-4); border-top-left-radius: 0; border-top-right-radius: 0; }
 .menu-item:focus-visible { outline: 2px solid var(--primary-5); outline-offset: -2px; }   /* inset, so the ring is not cut off by the panel */
 .menu-item__icon, .menu-item__chevron { flex: none; }
 .menu-item__label { flex: 1; min-width: 0; }
-.menu-item__chevron { color: var(--neutral-4); }
+.menu-item__chevron { color: var(--neutral-3); }
 
 /* ---- Screen readers only --------------------------------------------------------- */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
