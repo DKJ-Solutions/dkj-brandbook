@@ -134,7 +134,7 @@ primary colour (on light its `--primary-4`, on dark its `--primary-5`):
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
 | Light | `magenta` Magenta `#c0258f`, `purple` Paars `#7a3fd6`, `blue` Blauw `#2563d0`, `teal` Petrol `#087983`, `ochre` Oker `#7a6b00`, `rust` Roest `#aa5703` |
-| Dark | `pink` Roze `#ffbee0`, `lilac` Lila `#ae8fff`, `sky` Hemelsblauw `#bdd6ff`, `cyan` Cyaan `#4aedff`, `yellow` Geel `#ffce3f`, `orange` Oranje `#ffc7a6` |
+| Dark | `pink` Roze `#ffbee0`, `lilac` Lila `#ae8fff`, `sky` Hemelsblauw `#7aacff`, `cyan` Cyaan `#4aedff`, `yellow` Geel `#ffce3f`, `orange` Oranje `#ffc7a6` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
   makes the number disappear. The status colours are the same in every theme.
@@ -220,7 +220,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   carry it** (owner's decision, October 14, 2026, from the owner's example Geel: `-4` `#91804c`, `-5` `#ffce3f`, `-6`
   `#ffe4a3`; the other dark themes take the same OKLCH lightness, `-4`'s chroma, and `-5`/`-6` at the gamut's full
   chroma in their own hue; Lila, too pale that way, takes Geel's chroma itself at a lower lightness: `-5` `#ae8fff`,
-  `-6` `#cfc0ff`). Text in the theme's colour (links, card and dialog titles, values) reads
+  `-6` `#cfc0ff`; Hemelsblauw takes Cyaan's chroma the same way: `-5` `#7aacff`, `-6` `#b1cfff`). Text in the theme's colour (links, card and dialog titles, values) reads
   `light-dark(var(--primary-4), var(--primary-5))`, and the picker's dot on dark is `-5`. The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). **`-3` is
   the greyest step.** On light `-5` is the colour itself, `-4`'s chroma and hue a step darker. `-4` carries the fills

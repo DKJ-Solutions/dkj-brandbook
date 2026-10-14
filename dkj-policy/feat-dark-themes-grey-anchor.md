@@ -41,6 +41,7 @@ Owner's idea (October 14, 2026): `--primary-4` the greyest; example dark Geel `-
 - [x] The picker's dark dots and the README theme table show the new `-5`
 - [x] Role descriptions and measured contrasts updated: `-1` on `-4` 4.61:1 or better on dark
 - [x] Lila matched to Geel (owner: "de paarse sluit nog niet aan op geel"): at Geel's lightness purple reaches only chroma 0.071, so `-5`/`-6` take Geel's chroma (0.160, 0.087) at a lower lightness, `#ae8fff`/`#cfc0ff`; measured worst cases updated (6.07:1 on the card, 4.98:1 on a status background)
+- [x] Hemelsblauw matched to Cyaan (owner: the gap at `-5` was too large): `-5`/`-6` take Cyaan's chroma (0.132, 0.075) at a lower lightness, `#7aacff`/`#b1cfff`; contrasts 6.78:1 on the card, 5.59:1 on a status background
 - [x] Lint gate green
 
 ### TEST
