@@ -52,8 +52,8 @@ house colour tokens in their own subtree instead of a `--dkj-*` alias.
 
 ### TEST
 
-- [ ] An owner has looked at the showcase (buttons, forms, the accent and info dialogs, alerts) in a few
-  themes, light and dark, and approved it
+- [x] An owner has looked at the showcase (buttons, forms, the accent and info dialogs, alerts) in a few
+  themes, light and dark, and approved it (Maikel, October 14, 2026: "ziet er goed uit, ship beide")
 
 ### DEPLOY: feat/drop-dkj-colour-tokens
 
