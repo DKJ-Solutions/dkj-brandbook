@@ -288,3 +288,56 @@ export function HouseFocusDemo() {
     </>
   )
 }
+
+/** How far a theme reaches: links, native controls, the selection, and the opt-in --accent modifiers. */
+export function HouseThemeReachDemo() {
+  return (
+    <>
+      <header className="header--accent">
+        <h2>Page header</h2>
+        <span className="meta">.header--accent</span>
+      </header>
+      <p>
+        A <a href="#tokens">plain link</a> takes the primary, visited or not. Select this text: the selection does too.
+      </p>
+      <div className="bb-row">
+        <label>
+          <input type="checkbox" defaultChecked /> Checkbox
+        </label>
+        <label>
+          <input type="radio" name="reach" defaultChecked /> Radio
+        </label>
+        <input type="range" defaultValue={60} aria-label="Slider" />
+        <progress value={0.6} aria-label="Progress" />
+      </div>
+      <div className="grid-2">
+        <div className="card card--accent">
+          <b>.card--accent</b>
+          <p className="muted">A rule in the primary across the top.</p>
+        </div>
+        <div className="tile tile--accent">
+          <div className="label">.tile--accent</div>
+          <div className="v num">1,234</div>
+        </div>
+      </div>
+      <table className="table table--accent">
+        <thead>
+          <tr>
+            <th>.table--accent</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Row one</td>
+            <td>12.5</td>
+          </tr>
+          <tr>
+            <td>Row two</td>
+            <td>8.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  )
+}
