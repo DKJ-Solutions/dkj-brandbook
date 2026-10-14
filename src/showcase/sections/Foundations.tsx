@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Icon, ICON_NAMES } from '../../components/Icon'
 import { Demo, Section } from '../Showcase'
 import { HouseThemeReachDemo } from './HouseApp'
@@ -52,10 +52,14 @@ function SwatchGrid({ items }: { items: Swatch[] }) {
       {items.map(({ name, value }) => (
         <div key={name} className="bb-swatch">
           <span className="bb-swatch-chip" style={{ background: `var(${name})` }} />
-          <span>
-            <code>{name}</code>
-            <br />
-            {value}
+          <span className="bb-swatch-text">
+            <code className="bb-swatch-name">{name}</code>
+            {/* A colour-mix() value wraps only after a comma, never inside "color-mix" or a hex. */}
+            <span className="bb-swatch-value">
+              {value?.split(', ').map((part, i, all) =>
+                i < all.length - 1 ? <Fragment key={i}><span>{part},</span> </Fragment> : <span key={i}>{part}</span>,
+              )}
+            </span>
           </span>
         </div>
       ))}

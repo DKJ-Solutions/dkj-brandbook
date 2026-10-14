@@ -129,10 +129,14 @@
 .bb-source code { white-space: pre-wrap; }
 
 /* Token swatches and scales */
-.bb-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: var(--spacing-2); }
-.bb-swatch { display: flex; align-items: center; gap: var(--spacing-2); font-size: var(--text-sm); }
+.bb-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: var(--spacing-4) var(--spacing-3); }
+/* Name over value: the name in ink and semibold, the value smaller in ink-2, the chip aligned with the name. */
+.bb-swatch { display: flex; align-items: flex-start; gap: var(--spacing-2-5); }
 .bb-swatch-chip { flex: none; width: 2.25rem; height: 2.25rem; border: 1px solid var(--border); border-radius: var(--dkj-radius-md); }
-.bb-swatch code { overflow-wrap: anywhere; }
+.bb-swatch-text { display: flex; flex-direction: column; gap: var(--spacing-0-5); min-width: 0; }
+.bb-swatch-name { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); color: var(--ink); overflow-wrap: anywhere; }
+.bb-swatch-value { font-family: var(--dkj-font-mono); font-size: var(--text-xs); line-height: var(--dkj-lh-snug); color: var(--ink-2); }
+.bb-swatch-value > span { white-space: nowrap; }
 .bb-scale { display: grid; gap: var(--spacing-2); }
 .bb-scale-row { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--spacing-3); align-items: center; font-size: var(--text-sm); color: var(--ink-2); }
 .bb-bar { max-width: 100%; height: 0.75rem; background: var(--primary); border-radius: var(--dkj-radius-xs); }
