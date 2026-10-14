@@ -47,7 +47,7 @@ Owner's idea (October 14, 2026): `--primary-4` the greyest; example dark Geel `-
 
 ### TEST
 
-- [ ] An owner has looked at the six dark themes in the showcase and approved them
+- [x] An owner has looked at the six dark themes in the showcase and approved them ("ship it")
 
 ### DEPLOY: feat/dark-themes-grey-anchor
 
@@ -58,7 +58,8 @@ Owner's idea (October 14, 2026): `--primary-4` the greyest; example dark Geel `-
 On the six dark themes `--primary-4` is a grey of the theme's colour and the colour itself moves to `--primary-5` and
 `-6` (Geel: `-4` `#91804c`, `-5` `#ffce3f`, `-6` `#ffe4a3`). Text that carried the colour (links, card and dialog
 titles, values, pressed toggles) reads `light-dark(var(--primary-4), var(--primary-5))`, so it keeps the colour on
-dark and is unchanged on light; fills, borders and focus rings stay `-4`. The theme picker's dark dots show `-5`.
+dark and is unchanged on light; fills, borders and focus rings stay `-4`. The theme picker's dark dots show `-5`. Lila and Hemelsblauw take the chroma of Geel and Cyaan at a lower lightness, so
+their `-5` is not paler than the others.
 The dark cards (`--primary-2`) are a lot darker, a shade above the page. Light themes are unchanged. No token is added or renamed.
 
 **Score:** 4
