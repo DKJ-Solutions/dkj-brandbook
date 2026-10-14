@@ -7,8 +7,6 @@
    --neutral-1 (the ground) as ink, --neutral-3 as the quieter ink. The default is the light default theme, Blauw. */
 .bb-nav {
   --bb-nav-bg: #172235;
-  --bb-nav-ink: var(--neutral-1);
-  --bb-nav-ink-2: var(--neutral-3);
   --bb-nav-brand: #9db9ea;
   --bb-nav-hover: #1c396b;
   --bb-nav-current: var(--primary-5);
@@ -21,7 +19,7 @@
   overflow-y: auto;
   padding: var(--spacing-5) var(--spacing-4);
   background: var(--bb-nav-bg);
-  color: var(--bb-nav-ink);
+  color: var(--neutral-1);
 }
 :root[data-theme="magenta"] .bb-nav { --bb-nav-bg: #331729; --bb-nav-brand: #e39dcd; --bb-nav-hover: #641c4d; }
 :root[data-theme="purple"] .bb-nav { --bb-nav-bg: #261c36; --bb-nav-brand: #c3a9ed; --bb-nav-hover: #44286e; }
@@ -51,14 +49,14 @@
 }
 /* The menu's heading ("Contents"): an <h2>, so it keeps the house h2 size and face; only its colour follows the nav. */
 .bb-brand { color: var(--bb-nav-brand); }
-.bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--bb-nav-ink-2); }
+.bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--neutral-3); }
 .bb-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-semibold);
   letter-spacing: var(--dkj-tracking-label);
   text-transform: uppercase;
-  color: var(--bb-nav-ink-2);
+  color: var(--neutral-3);
 }
 .bb-nav ul { margin: 0; padding: 0; list-style: none; }
 .bb-nav a {
@@ -66,7 +64,7 @@
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--dkj-radius-sm);
   font-size: var(--text-base);
-  color: var(--bb-nav-ink);
+  color: var(--neutral-1);
   text-decoration: none;
   /* One line per link: a name too long for the column is cut off with an ellipsis (the full name is its title). */
   white-space: nowrap;

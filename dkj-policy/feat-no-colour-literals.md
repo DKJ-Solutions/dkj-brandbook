@@ -38,7 +38,7 @@ it follows the mode.
 
 ### CREATE
 
-- [x] Navigation: `--bb-nav-ink` and `--bb-nav-ink-2` read `--neutral-1` and `--neutral-3` in both modes, the current item's ink and ring read `--neutral-1` / `--neutral-5`
+- [x] Navigation: the text reads `--neutral-1` and `--neutral-3` directly in both modes, so `--bb-nav-ink` and `--bb-nav-ink-2` are gone; the current item's ink reads `--neutral-1` (light) / `--neutral-5` (dark)
 - [x] Theme swatches and both dialog backdrops read `--neutral-1` (the backdrop at 45% opacity)
 - [x] `scripts/lint/check-colour-literals.mjs`, step 3 of `lint-web.ps1`: a colour code outside a token declaration, or a repo token that retypes a house value, blocks
 
@@ -54,7 +54,7 @@ it follows the mode.
 ##### Tier 0
 
 No stylesheet types a colour where a house token already holds it. The navigation's text reads `--neutral-1`
-and `--neutral-3`, the theme swatches and the dialog backdrops read `--neutral-1`, and a new gate step
+and `--neutral-3` directly (`--bb-nav-ink` and `--bb-nav-ink-2` are gone), the theme swatches and the dialog backdrops read `--neutral-1`, and a new gate step
 (`scripts/lint/check-colour-literals.mjs`) refuses a colour code outside a token declaration, or a repo token
 that retypes a house value.
 
