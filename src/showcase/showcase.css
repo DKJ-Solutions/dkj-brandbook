@@ -2,16 +2,15 @@
 
 .bb-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
 /* The sidebar contrasts with the page, mirrored per mode: on a light theme it is a dark panel (near-black with a
-   touch of the theme) with white text, on a dark theme the theme's text colour (--primary-6, a light pastel on
-   every dark theme) with black text. The current link fills with the theme colour on dark ground, and with the
-   theme colour darkened (the brand colour) on light ground, where the bright theme colour would barely stand
-   out. light-dark() reads the color-scheme the theme sets. */
+   touch of the theme) with white text, on a dark theme the theme's text colour (--primary-6, near-white on every
+   dark theme) with black text. The heading and the current link take the theme colour: --primary-5 over the
+   dark panel, the dark theme's tinted background (--primary-3) on the light one. light-dark() reads the color-scheme the theme sets. */
 .bb-nav {
   --bb-nav-bg: light-dark(color-mix(in srgb, var(--primary-5) 18%, #141413), var(--primary-6));
   --bb-nav-line: transparent;
   --bb-nav-ink: light-dark(#ffffff, #0b0b0b);
   --bb-nav-ink-2: light-dark(#c3c2b7, #52514e);
-  --bb-nav-brand: light-dark(color-mix(in srgb, var(--primary-5) 45%, #ffffff), color-mix(in srgb, var(--primary-5) 30%, #141413));
+  --bb-nav-brand: light-dark(color-mix(in srgb, var(--primary-5) 45%, #ffffff), var(--primary-3));
   --bb-nav-hover: light-dark(color-mix(in srgb, var(--primary-5) 35%, var(--bb-nav-bg)), color-mix(in srgb, #141413 10%, var(--bb-nav-bg)));
   --bb-nav-focus: var(--bb-nav-brand);
   --bb-nav-current: light-dark(var(--primary-5), var(--bb-nav-brand));

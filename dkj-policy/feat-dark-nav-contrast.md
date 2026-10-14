@@ -35,27 +35,29 @@
 On the dark themes the brand book's navigation (`.bb-nav`) sat only a shade lighter than the page beside it
 (`.bb-main`), so the two read as one plane. The light themes already set it apart with a near-black panel
 with white text; the dark themes get the mirror image, a light panel with black text, and that panel is the
-theme's own `--primary-6`. The owner chose to make the dark themes' `--primary-6` token itself lighter
-rather than add a separate nav colour, so headings and links on the dark themes turn the same light pastel.
+theme's own `--primary-6`. Along the way the owner set the model straight: on dark the top of the scale
+mirrors the bottom of light, `--primary-6` mirroring `--primary-1` and `--primary-5` mirroring `--primary-2`.
 
 ### CREATE
 
-- [x] `house-style/house-style.css`: the six dark themes' `--primary-6` become 20% of their old value over
-  white (Roze `#ffeaf6`, Lila `#f3efff`, Lucht `#e5f3ff`, Cyaan `#def6f9`, Geel `#fdf5de`, Oranje `#fdecdf`),
-  including the default dark blocks; `house-style/README.md` says so
+- [x] `house-style/house-style.css`: on the six dark themes (and the default dark blocks) `--primary-6` takes
+  the OKLCH lightness and chroma of the paired light theme's `--primary-1`, and `--primary-5` those of its
+  `--primary-2`, each in the dark theme's own hue (Roze/Magenta, Lila/Paars, Hemelsblauw/Blauw, Cyaan/Petrol,
+  Geel/Oker, Oranje/Roest); the token comment says so
+- [x] `house-style/README.md`: the mirror rule, and that the theme table's hex is now the theme's identity
+  colour (the picker's dot) rather than a dark token value; `house-theme.js` keeps its identity colours
 - [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` is `--primary-6`, with black text
-  (`#0b0b0b`) and dark grey labels (`#52514e`); the heading and focus ring take the theme colour darkened
-  (30% over `#141413`), the current link fills with that darkened colour under white text, the hover darkens
-  the panel by 10%, and the border line goes, as on light. The light themes are unchanged.
-- [x] Contrast measured in all six dark themes: `--primary-6` as text 14.9:1 or better on the page and
-  11.7:1 or better on a card; on the panel black text 17:1 or better, grey labels 6.8:1 or better, the
-  "Contents" heading 8.2:1 or better, black on hover 13.9:1 or better, white on the current link 8.9:1 or
-  better
+  (`#0b0b0b`) and grey labels (`#52514e`); the heading, focus ring and current-link fill take `--primary-3`
+  (the current link with white text), the hover darkens the panel by 10%, and the border line goes, as on
+  light. The light themes are unchanged.
+- [x] Contrast measured in all six dark themes: near-black on `--primary-5` 16.8:1 or better, `--primary-5`
+  against the page 14.3:1 or better; on the panel black text 18.6:1 or better, grey labels 7.5:1 or better,
+  the heading 8.9:1 or better, black on hover 15.1:1 or better, white on the current link 9.3:1 or better
 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the navigation, headings and links in the dark themes and approved it
+- [ ] An owner has looked at the navigation and the components in the dark themes and approved it
 
 ### DEPLOY: feat/dark-nav-contrast
 
@@ -63,13 +65,15 @@ rather than add a separate nav colour, so headings and links on the dark themes 
 
 ##### Tier 0
 
-On the six dark themes `--primary-6` is now a light pastel of the theme colour (20% of its old value over
-white), so headings and links read lighter, and the brand book's navigation panel takes it as its background
-with black text, the mirror image of the near-black panel with white text on the light themes. A repo that
-takes this house-style update needs no change of its own; its `h1`, `h2` and links on a dark theme simply
-turn lighter.
+On the six dark themes the top of the theme scale now mirrors the bottom of the light themes: `--primary-6`
+has the lightness of a light theme's `--primary-1` and `--primary-5` that of its `--primary-2`, each in the
+dark theme's own hue. Both are near-white, so on dark the headings and links, primary buttons, pressed
+switches, info badges and meters, focus rings and accent lines all turn near-white, with near-black text on a
+fill. The brand book's navigation panel takes `--primary-6` with black text, the mirror image of the
+near-black panel on the light themes. A repo that takes this house-style update changes nothing of its own;
+its dark themes simply look this way.
 
-**Score:** 3
+**Score:** 4
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -78,7 +82,7 @@ turn lighter.
 
 ##### Tier 1
 
-A colour value in the house style; management sees no change.
+Colour values in the house style; management sees no change.
 
 **Score:** N/A
 
@@ -89,11 +93,12 @@ A colour value in the house style; management sees no change.
 
 ##### Tier 2
 
-On a dark theme, every DKJ-Solutions app shows its headings and links in a lighter pastel of the theme colour.
+On a dark theme, every DKJ-Solutions app shows its headings, links, primary buttons and switches in a
+near-white tint of the theme colour instead of the bright theme colour.
 
-**Score:** 2
+**Score:** 4
 
 #### Pull Request
 
-A lighter --primary-6 on the dark themes, and the navigation panel takes it
+The dark themes' top of the scale mirrors the light themes' ground
 
