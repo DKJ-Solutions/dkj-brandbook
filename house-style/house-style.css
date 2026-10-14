@@ -18,7 +18,8 @@
        dark, both with those house defaults.
      The dark token block therefore appears twice; keep both in sync.
 
-   How far a theme reaches: every use of --primary-4, the theme's colour (the pressed .seg, .btn--primary,
+   How far a theme reaches: every use of --primary-4 (on dark a grey of the colour; text in the colour is -5 there:
+   links, titles, values) (the pressed .seg, .btn--primary,
    .badge--info, .meter--info, the settings toggle, focus rings, links), native checkboxes, radios and
    sliders (accent-color), the text caret and the selection. Beyond that, by default: the page, the
    cards and tiles carry a tint of the primary (--primary-1, --primary-2), and every line and tinted surface
@@ -36,20 +37,24 @@
 :root {
   color-scheme: light;
 
-  /* the theme's seven steps, fixed values per theme, with the theme's colour in the middle (owner's decision,
-     October 14, 2026): --primary-4 is the most saturated step, the anchor. -1 and -2 are the ground end (lightest
+  /* the theme's seven steps, fixed values per theme (owner's decision, October 14, 2026). On light --primary-4 is
+     the most saturated step, the anchor. On dark -4 is a grey of the colour and the colour moves to -5 and -6
+     (owner's decision, October 14, 2026, from the owner's example Geel: -4 #91804c, -5 #ffce3f, -6 #ffe4a3; the other dark
+     themes take the same OKLCH lightness, -4's chroma, and -5/-6 at the gamut's full chroma in their own hue;
+     Lila, too pale that way, takes Geel's chroma itself at a lower lightness: -5 #ae8fff, -6 #cfc0ff; Hemelsblauw
+     takes Cyaan's chroma the same way: -5 #7aacff, -6 #b1cfff). -1 and -2 are the ground end (lightest
      on light, darkest on dark), -6 and -7 the far end (darkest on light, whitest on dark). -3 is the
-     greyest. -5 is on the far side of the colour: on dark -3's low chroma there, on light the colour itself, -4's
+     greyest. On light -5 is the colour itself, -4's
      chroma and hue a step darker (the owner's example: Paars #6421b9), held at 4.5:1 on -3. Blauw here; each [data-theme]
      below sets its own seven.
      -1 the page, and the text on the colour; -2 the cards (tiles, tooltips); -3 every line (borders, row
      dividers, meter track, gridlines) and the tinted surfaces (an accent table head, a hover, a today row, the
-     accent dialog); -4 THE COLOUR: primary buttons, switches, info badges and meters, focus rings, links,
-     and the picker's dot; -5 all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end: every paragraph, and an inverted
+     accent dialog); -4 the fills: primary buttons, switches, info badges and meters, focus rings, and on light
+     links and the picker's dot (on dark text in the colour reads light-dark(-4, -5), and the dot is -5); -5 all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end: every paragraph, and an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -4 on the card 4.52:1
-     (Petrol, Roest), -1 on -4 4.88:1 on light (Petrol) and 7.2:1 on dark (Hemelsblauw), -5 on -3 4.54:1 (Petrol);
-     -5, all text, on -1 and -2 at 6.9:1 or better on light (Oker) and 9.5:1 on dark (Geel), and 6.9:1 or better
-     on a status background (Petrol). */
+     (Petrol, Roest), -1 on -4 4.88:1 on light (Petrol) and 4.61:1 on dark (Roze), -5 on -3 4.54:1 (Petrol);
+     -5, all text, on -1 and -2 at 6.9:1 or better on light (Oker) and 6.07:1 on dark (Lila), and 4.98:1 or better
+     on a status background (Lila on dark). */
   --primary-1: #f8f9fa; --primary-2: #eaf0f8; --primary-3: #b7c1d1; --primary-4: #2563d0;
   --primary-5: #0647b0; --primary-6: #193a75; --primary-7: #000d34;
 
@@ -119,7 +124,7 @@
     color-scheme: dark;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-    --primary-1: #00181a; --primary-2: #002a2e; --primary-3: #1c383a; --primary-4: #2fc8d8; --primary-5: #b5d5d7; --primary-6: #ddf4f6; --primary-7: #f4fafa;
+    --primary-1: #00181a; --primary-2: #001d20; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa;
   }
 }
 
@@ -130,7 +135,7 @@
   color-scheme: dark;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-  --primary-1: #00181a; --primary-2: #002a2e; --primary-3: #1c383a; --primary-4: #2fc8d8; --primary-5: #b5d5d7; --primary-6: #ddf4f6; --primary-7: #f4fafa;
+  --primary-1: #00181a; --primary-2: #001d20; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa;
 }
 
 /* ---- Themes: the primary colour ------------------------------------------ */
@@ -145,12 +150,12 @@
 :root[data-theme="teal"] { --primary-1: #f7f9f9; --primary-2: #e8f2f0; --primary-3: #b4c4c6; --primary-4: #087983; --primary-5: #025860; --primary-6: #12454a; --primary-7: #001518; }
 :root[data-theme="ochre"] { --primary-1: #f9f9f6; --primary-2: #f2f0e3; --primary-3: #c4c2b2; --primary-4: #7a6b00; --primary-5: #5b4f00; --primary-6: #453e0e; --primary-7: #161200; }
 :root[data-theme="rust"] { --primary-1: #faf9f6; --primary-2: #f7efe5; --primary-3: #ccbfb3; --primary-4: #aa5703; --primary-5: #7d3e01; --primary-6: #5c300b; --primary-7: #200b00; --warning-3: #b88a00; }
-:root[data-theme="pink"] { --primary-1: #23081b; --primary-2: #3b132d; --primary-3: #3f2b38; --primary-4: #ff7ac8; --primary-5: #dec4d3; --primary-6: #fbe8f2; --primary-7: #fff6f9; }
-:root[data-theme="lilac"] { --primary-1: #160f24; --primary-2: #281f3a; --primary-3: #342f3f; --primary-4: #b69cff; --primary-5: #cec8de; --primary-6: #efecfd; --primary-7: #f9f7fd; }
-:root[data-theme="sky"] { --primary-1: #021624; --primary-2: #09263b; --primary-3: #253440; --primary-4: #6aa2ff; --primary-5: #bccfdf; --primary-6: #e6effe; --primary-7: #f6f9fc; }
-:root[data-theme="cyan"] { --primary-1: #00181a; --primary-2: #002a2e; --primary-3: #1c383a; --primary-4: #2fc8d8; --primary-5: #b5d5d7; --primary-6: #ddf4f6; --primary-7: #f4fafa; }
-:root[data-theme="yellow"] { --primary-1: #1e1500; --primary-2: #312700; --primary-3: #3b331b; --primary-4: #f2c230; --primary-5: #d9cfb2; --primary-6: #f5eedd; --primary-7: #fcf9f0; --warning-3: #f08a24; }
-:root[data-theme="orange"] { --primary-1: #240b00; --primary-2: #3c1700; --primary-3: #482815; --primary-4: #f5873a; --primary-5: #eac1aa; --primary-6: #fceae0; --primary-7: #fff7f4; }
+:root[data-theme="pink"] { --primary-1: #23081b; --primary-2: #2d0621; --primary-3: #3f2b38; --primary-4: #a26f8a; --primary-5: #ffbee0; --primary-6: #ffdbed; --primary-7: #fff6f9; }
+:root[data-theme="lilac"] { --primary-1: #160f24; --primary-2: #1c132d; --primary-3: #342f3f; --primary-4: #8479a9; --primary-5: #ae8fff; --primary-6: #cfc0ff; --primary-7: #f9f7fd; }
+:root[data-theme="sky"] { --primary-1: #021624; --primary-2: #001a2e; --primary-3: #253440; --primary-4: #6782ae; --primary-5: #7aacff; --primary-6: #b1cfff; --primary-7: #f6f9fc; }
+:root[data-theme="cyan"] { --primary-1: #00181a; --primary-2: #001d20; --primary-3: #1c383a; --primary-4: #458e97; --primary-5: #4aedff; --primary-6: #abf6ff; --primary-7: #f4fafa; }
+:root[data-theme="yellow"] { --primary-1: #1e1500; --primary-2: #231b00; --primary-3: #3b331b; --primary-4: #91804c; --primary-5: #ffce3f; --primary-6: #ffe4a3; --primary-7: #fcf9f0; --warning-3: #f08a24; }
+:root[data-theme="orange"] { --primary-1: #240b00; --primary-2: #2b0e00; --primary-3: #482815; --primary-4: #a57558; --primary-5: #ffc7a6; --primary-6: #ffdfcd; --primary-7: #fff7f4; }
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }
@@ -211,7 +216,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 /* A link (an <a> with an href) takes the theme's primary as text (--primary-4), visited or not: it reaches 4.5:1
    on the tinted page and surface in every theme. :where() keeps each rule at zero specificity, so any class on an
    <a> (a .btn, a .menu-item, an app's own) wins over it without an override. */
-:where(a:any-link) { color: var(--primary-4); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+:where(a:any-link) { color: light-dark(var(--primary-4), var(--primary-5)); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 :where(a:any-link:hover) { text-decoration-thickness: 2px; }
 :where(a:any-link:focus-visible) { outline: 2px solid var(--primary-4); outline-offset: 2px; border-radius: 2px; }
 ::selection { background: color-mix(in srgb, var(--primary-4) 30%, transparent); }
@@ -381,7 +386,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
   padding: 0; color: var(--primary-5); background: var(--primary-2); border: 1px solid var(--primary-3); border-radius: 50%;
   box-shadow: var(--shadow-pop); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .theme-settings__toggle:hover { background: var(--primary-3); color: var(--primary-5); }
-.theme-settings__toggle[aria-expanded="true"] { color: var(--primary-4); border-color: var(--primary-4); }
+.theme-settings__toggle[aria-expanded="true"] { color: light-dark(var(--primary-4), var(--primary-5)); border-color: var(--primary-4); }
 .theme-settings__toggle:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; }
 .theme-settings__close, .theme-settings__toggle[aria-expanded="true"] .theme-settings__open { display: none; }
 .theme-settings__toggle[aria-expanded="true"] .theme-settings__close { display: block; }

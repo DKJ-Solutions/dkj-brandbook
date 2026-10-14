@@ -32,12 +32,12 @@
     { id: 'teal',    name: 'Petrol',      mode: 'light', hex: '#087983' },
     { id: 'ochre',   name: 'Oker',        mode: 'light', hex: '#7a6b00' },
     { id: 'rust',    name: 'Roest',       mode: 'light', hex: '#aa5703' },
-    { id: 'pink',    name: 'Roze',        mode: 'dark',  hex: '#ff7ac8' },
-    { id: 'lilac',   name: 'Lila',        mode: 'dark',  hex: '#b69cff' },
-    { id: 'sky',     name: 'Hemelsblauw', mode: 'dark',  hex: '#6aa2ff' },
-    { id: 'cyan',    name: 'Cyaan',       mode: 'dark',  hex: '#2fc8d8' },
-    { id: 'yellow',  name: 'Geel',        mode: 'dark',  hex: '#f2c230' },
-    { id: 'orange',  name: 'Oranje',      mode: 'dark',  hex: '#f5873a' }
+    { id: 'pink',    name: 'Roze',        mode: 'dark',  hex: '#ffbee0' },
+    { id: 'lilac',   name: 'Lila',        mode: 'dark',  hex: '#ae8fff' },
+    { id: 'sky',     name: 'Hemelsblauw', mode: 'dark',  hex: '#7aacff' },
+    { id: 'cyan',    name: 'Cyaan',       mode: 'dark',  hex: '#4aedff' },
+    { id: 'yellow',  name: 'Geel',        mode: 'dark',  hex: '#ffce3f' },
+    { id: 'orange',  name: 'Oranje',      mode: 'dark',  hex: '#ffc7a6' }
   ];
   var HOUSE_DEFAULT = { light: 'blue', dark: 'cyan' };
   var root = document.documentElement;
