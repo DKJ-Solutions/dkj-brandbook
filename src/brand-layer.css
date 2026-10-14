@@ -63,8 +63,10 @@
   --dkj-ease-out: ease-out;
 
   /* ---- Colour: scoped aliases ----
-     A tinted dialog re-declares these three, so every component inside follows the tint. The house
-     tokens themselves are never redefined, so the components use these where a tint can apply. */
+     Here they equal the house tokens; they exist to be re-declared in a subtree, since a house token
+     never is. .dkj-dialog--info (dialog.css) sets --dkj-accent to --cat-1 and --dkj-surface to its
+     tint, and every button, focus ring, checkbox and link inside follows without a variant of its own.
+     So a component uses the alias wherever a tint can reach it, and the house token elsewhere. */
   --dkj-surface: var(--surface);
   --dkj-accent: var(--primary);
   --dkj-on-accent: var(--on-primary);
