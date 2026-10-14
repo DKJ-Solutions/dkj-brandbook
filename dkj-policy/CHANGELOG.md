@@ -2,7 +2,43 @@
 
 ## [Unreleased]
 
-**49 minor entries** <!-- pending-tally -->
+**50 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/86-button-family · 20261014-134935Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+SaveButton, DownloadButton and ResetButton are gone; Button covers all three. Save is `Button variant="primary"`,
+the offline download is `<Button href download icon="download" block>`, and the reset beside a Stepper is
+`<Button variant="outline" tone="accent">`. A primary button is no longer always full width: `block` is now the
+only width control, so a call site that relied on it adds `block`. A link button with `aria-disabled` is inert.
+The Overlap section drops the three resolved findings and corrects the stale ones (#85).
+
+**Score:** 4
+
+##### Tier 1
+
+A clean-up of the component set; management sees no change.
+
+**Score:** N/A
+
+##### Tier 2
+
+Every default button now shows an accent border on hover and moves 1px down when pressed, as the download
+button did. A disabled primary button looks like the old disabled Save button (colourless, not faded), and the
+download button takes the default button's fill.
+
+**Score:** 2
+
+#### Pull Request
+
+SaveButton, DownloadButton and ResetButton fold into Button
+
+[PR #88](https://github.com/DKJ-Solutions/dkj-brandbook/pull/88)
+
+---
 
 ### DEPLOY: feat/dark-nav-contrast · 20261014-132326Z
 
