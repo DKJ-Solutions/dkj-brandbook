@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**44 minor entries** <!-- pending-tally -->
+**45 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/accent-alias-comment · 20261014-103112Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The comment above `--dkj-accent`, `--dkj-surface` and `--dkj-on-accent` now says why they exist when they equal the house tokens: a house token is never re-declared, so the alias is what `.dkj-dialog--info` re-declares to give everything inside it `--cat-1`. A reader who asked "isn't `--dkj-accent` just `--primary` twice?" finds the answer at the definition.
+
+**Score:** 1
+
+##### Tier 1
+
+A code comment; management sees nothing of it.
+
+**Score:** N/A
+
+##### Tier 2
+
+A code comment; no user of a DKJ-Solutions app sees anything change.
+
+**Score:** N/A
+
+#### Pull Request
+
+The accent alias says which dialog it exists for
+
+[PR #80](https://github.com/DKJ-Solutions/dkj-brandbook/pull/80)
+
+---
 
 ### DEPLOY: fix/swatch-readability · 20261014-102705Z
 
