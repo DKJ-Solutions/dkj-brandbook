@@ -2,8 +2,8 @@ import type { CSSProperties, ReactNode } from 'react'
 import { cx } from './cx'
 import './metrics.css'
 
-/** The series colours: --cat-1 .. --cat-3 (one meaning per slot in a view); a gain in a direction chart is --cat-1, a loss --loss. */
-export type SeriesColor = 'cat-1' | 'cat-2' | 'cat-3' | 'loss'
+/** The series colours: --cat-1 .. --cat-3 (one meaning per slot in a view); a gain in a direction chart is --cat-1, a loss --negative-3. */
+export type SeriesColor = 'cat-1' | 'cat-2' | 'cat-3' | 'negative-3'
 const seriesStyle = (color: SeriesColor) => ({ '--c': `var(--${color})` }) as CSSProperties
 
 /** StatTiles -- the grid of StatTiles (the house .tiles): as many 160px columns as fit. */
@@ -51,7 +51,7 @@ export function HeroValue({ label, info, size = 'display', children }: { label: 
 
 /**
  * Delta -- a change in direction: a ▲ or ▼, then the figure with its sign (the caller formats it, e.g. "+€ 1.200,00").
- * tone up is green, down is red (--up / --down, the text versions). The arrow repeats what the sign says, so it is
+ * tone up is green, down is red (--positive-5 / --negative-5, the text versions). The arrow repeats what the sign says, so it is
  * hidden from a screen reader.
  */
 export function Delta({ tone, children }: { tone: 'up' | 'down'; children: ReactNode }) {
@@ -115,7 +115,7 @@ export function Meter({ value, tone, label }: { value: number; tone: StatusTone;
 
 /**
  * Badge -- a small round status mark with a glyph in it (✓, ✗, !, ?, i). The colour is a status token, never a hex; the
- * glyph is --status-mark (white on light, near-black on dark). neutral is a grey disc. The glyph is decorative: say the
+ * glyph is --neutral-1 (white on light, near-black on dark). neutral is a grey disc. The glyph is decorative: say the
  * status in text beside it (BadgeRow). size="sm" is 18px.
  */
 export function Badge({ tone, size = 'md', children }: { tone: StatusTone | 'neutral'; size?: 'md' | 'sm'; children: string }) {

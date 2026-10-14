@@ -97,7 +97,7 @@ export function HouseDialogsDemo() {
               <h3 className="dialog__title" id="house-dialog-plain">
                 Dialog title
               </h3>
-              <p className="dialog__sub">A subtitle in --ink-2</p>
+              <p className="dialog__sub">A subtitle in --neutral-4</p>
             </div>
           </div>
           <button type="button" className="dialog__close" aria-label="Close" onClick={() => plain.current?.close()}>
@@ -146,7 +146,7 @@ export function HouseDialogsDemo() {
 
 export function HouseTopBarDemo() {
   return (
-    <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--dkj-radius-lg)', overflow: 'hidden', background: 'var(--page)' }}>
+    <div style={{ border: '1px solid var(--primary-4)', borderRadius: 'var(--dkj-radius-lg)', overflow: 'hidden', background: 'var(--primary-1)' }}>
       <header className="topbar">
         <div className="topbar__inner">
           <div className="topbar__brand">
@@ -170,7 +170,7 @@ export function HouseSettingsDemo() {
     window.DKJTheme.settings(ref.current)
   }, [])
   return (
-    <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--dkj-radius-lg)', background: 'var(--page)' }}>
+    <div style={{ border: '1px solid var(--primary-4)', borderRadius: 'var(--dkj-radius-lg)', background: 'var(--primary-1)' }}>
       <header className="topbar">
         <div className="topbar__inner">
           <div className="topbar__brand">

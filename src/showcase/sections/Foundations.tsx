@@ -4,17 +4,18 @@ import { Demo, Section } from '../Showcase'
 import { HouseThemeReachDemo } from './HouseApp'
 import { useThemeId } from '../theme'
 
-/** House tokens (house-style/house-style.css), grouped as in house-style/README.md. */
+/** House colour tokens (house-style/house-style.css), grouped by what a theme switch changes, as in house-style/README.md. */
 const HOUSE_COLORS = {
-  'Surfaces and ink': ['page', 'surface', 'ink', 'ink-2', 'muted', 'grid', 'axis', 'border', 'page-base', 'surface-base', 'grid-base', 'border-base'],
-  Primary: ['primary', 'on-primary', 'primary-soft', 'primary-ink'],
-  Status: ['good', 'warn', 'bad', 'warn-bg', 'status-mark', 'on-warn'],
-  Direction: ['loss', 'up', 'down'],
-  Categorical: ['cat-1', 'cat-2', 'cat-3'],
+  'changes with every theme': ['primary-1', 'primary-2', 'primary-3', 'primary-4', 'primary-5', 'primary-6'],
+  'changes only between light and dark -- black, white and grey': [
+    'neutral-1', 'neutral-2', 'neutral-3', 'neutral-4', 'neutral-5',
+  ],
+  'changes only between light and dark -- categories': ['cat-1', 'cat-2', 'cat-3'],
+  'changes only between light and dark -- status colours': [
+    'negative-1', 'negative-3', 'negative-5', 'positive-1', 'positive-3', 'positive-5', 'warning-1', 'warning-3', 'warning-5',
+  ],
 } as const
 
-/** How much of the primary each house surface takes (set per mode). */
-const TINTS = ['--page-tint', '--surface-tint', '--grid-tint', '--border-tint'] as const
 
 const TEXT_SIZES = [
   '--text-h0', '--text-h1', '--text-h2', '--text-h3', '--text-h4', '--text-h5', '--text-h6',
@@ -34,7 +35,7 @@ const DURATIONS = ['--dkj-duration-fast', '--dkj-duration-base', '--dkj-duration
 const FOCUS = ['--dkj-focus-w', '--dkj-focus-offset', '--dkj-focus-offset-inset', '--shadow-pop'] as const
 const MOTION = [...DURATIONS, '--dkj-ease-out', '--dkj-popup-scale', '--dkj-popup-step'] as const
 /** Read as text: tokens that are a number or a word rather than a colour to swatch. */
-const READOUTS = [...TINTS, ...FOCUS, ...MOTION, '--dkj-font-mono'] as const
+const READOUTS = [...FOCUS, ...MOTION, '--dkj-font-mono'] as const
 const RADII = ['xs', 'sm', 'md', 'md-plus', 'lg', 'xl', 'pill'] as const
 const CONTROLS = ['inline-toggle', 'control-dense', 'control-compact', 'control-h', 'tap', 'control-lg'] as const
 
@@ -43,7 +44,7 @@ type Swatch = { name: string; value: string | undefined; declared: string | unde
 
 /**
  * A custom property as WRITTEN on the root -- the computed value has every var() substituted, which turns
- * "var(--primary) 7%, var(--surface)" into nested hexes nobody can read. The last matching declaration wins:
+ * "var(--primary-5) 7%, var(--primary-2)" into nested hexes nobody can read. The last matching declaration wins:
  * the theme rules come after the base rule, and a media block counts only while it matches.
  */
 function readDeclared(names: string[]): Record<string, string> {
@@ -86,12 +87,12 @@ function resolveHex(value: string): string | undefined {
 const unvar = (s: string) => s.replace(/var\((--[\w-]+)\)/g, '$1')
 
 /**
- * A declared color-mix() as a recipe in token names: "color-mix(in srgb, var(--primary) 7%, var(--surface))"
- * reads ["--surface", "+ 7% --primary"] -- the base, then how much of which colour goes through it. A share
+ * A declared color-mix() as a recipe in token names: "color-mix(in srgb, var(--primary-5) 7%, var(--primary-2))"
+ * reads ["--primary-2", "+ 7% --primary-5"] -- the base, then how much of which colour goes through it. A share
  * that is itself a token (--surface-tint) shows its value. undefined when it is neither a mix nor an alias.
  */
 function mixRecipe(declared: string): string[] | undefined {
-  // An alias (--x: var(--surface)) names the token it stands for.
+  // An alias (--x: var(--primary-2)) names the token it stands for.
   const alias = /^var\((--[\w-]+)\)$/.exec(declared)
   if (alias) return [`= ${alias[1]}`]
   const m = /^color-mix\(in srgb,\s*(.+?)\s+([\d.]+%|var\(--[\w-]+\)),\s*(.+)\)$/.exec(declared)
@@ -181,7 +182,7 @@ export function Foundations() {
           {TEXT_SIZES.map((f) => (
             <div key={f} className="bb-scale-row">
               <code>{f}</code>
-              <span style={{ fontSize: `var(${f})`, color: 'var(--ink)', lineHeight: 'var(--dkj-lh-tight)' }}>The quick label 1,234</span>
+              <span style={{ fontSize: `var(${f})`, color: 'var(--neutral-5)', lineHeight: 'var(--dkj-lh-tight)' }}>The quick label 1,234</span>
             </div>
           ))}
         </div>
@@ -191,7 +192,7 @@ export function Foundations() {
           {WEIGHTS.map((w) => (
             <div key={w} className="bb-scale-row">
               <code>--dkj-fw-{w}</code>
-              <span style={{ fontSize: 'var(--text-lg)', fontWeight: `var(--dkj-fw-${w})`, color: 'var(--ink)' }}>The quick label 1,234</span>
+              <span style={{ fontSize: 'var(--text-lg)', fontWeight: `var(--dkj-fw-${w})`, color: 'var(--neutral-5)' }}>The quick label 1,234</span>
             </div>
           ))}
           {LINE_HEIGHTS.map((l) => (
@@ -210,12 +211,9 @@ export function Foundations() {
           ))}
           <div className="bb-scale-row">
             <code>--dkj-font-mono</code>
-            <span style={{ fontFamily: 'var(--dkj-font-mono)', color: 'var(--ink)' }}>const tap = '44px' -- 0123456789</span>
+            <span style={{ fontFamily: 'var(--dkj-font-mono)', color: 'var(--neutral-5)' }}>const tap = '44px' -- 0123456789</span>
           </div>
         </div>
-      </Demo>
-      <Demo label="Theme tint -- how much of the primary each surface takes (per mode)">
-        <Readouts names={TINTS} values={values} />
       </Demo>
       <Demo label="Spacing -- house, every step" wide>
         <div className="bb-scale">
@@ -287,7 +285,7 @@ export function Foundations() {
         <Readouts names={MOTION} values={values} />
       </Demo>
       <Demo label="Icons (stroke set, currentColor)">
-        <div className="bb-row" style={{ color: 'var(--ink)' }}>
+        <div className="bb-row" style={{ color: 'var(--neutral-5)' }}>
           {ICON_NAMES.map((n) => (
             <span key={n} title={n} style={{ display: 'grid', justifyItems: 'center', gap: 'var(--spacing-1)', width: '4rem', fontSize: 'var(--text-xs)' }}>
               <Icon name={n} size={24} />

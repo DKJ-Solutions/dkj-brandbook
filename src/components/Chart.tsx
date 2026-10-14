@@ -147,7 +147,7 @@ function ChartTable({ summary, caption, headings, children }: { summary: string;
 
 /**
  * ColumnChart -- a result per period around a zero line, on the house .chart: gain columns up in --cat-1, loss columns
- * down in --loss, so direction reads from position as well as colour. It draws at the width it is given, so its 12px
+ * down in --negative-3, so direction reads from position as well as colour. It draws at the width it is given, so its 12px
  * labels stay 12px on a phone, and thins the axis labels to what fits. Hover or keyboard focus shows the house
  * .tooltip with the value; the columns are one tab stop, and the arrow keys, Home and End move through them. The same
  * figures are always reachable as a table under the chart. Put a Legend (gain, loss) above it.
@@ -203,7 +203,7 @@ export function ColumnChart({
           <svg width={width} height={H} viewBox={`0 0 ${width} ${H}`} role="group" aria-label={label} onKeyDown={onKey}>
             {tk.map((v) => (
               <g key={v}>
-                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--axis)' : 'var(--grid)'} strokeWidth={1} />
+                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--neutral-3)' : 'var(--primary-4)'} strokeWidth={1} />
                 <text x={M.left - 8} y={y(v) + 4} textAnchor="end">
                   {format(v)}
                 </text>
@@ -211,7 +211,7 @@ export function ColumnChart({
             ))}
             {guides.map((g) => (
               <g key={g.key}>
-                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--grid)" strokeWidth={1} />
+                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--primary-4)" strokeWidth={1} />
                 {g.text && (
                   <text className="axis-note" x={g.x + 4} y={M.top - 8}>
                     {g.text}
@@ -228,7 +228,7 @@ export function ColumnChart({
                   key={c.key}
                   className={cx('dkj-chart-col', active === i && 'dkj-chart-col--active')}
                   d={columnPath(cx0 - bw / 2, bw, y0, h, up)}
-                  fill={up ? 'var(--cat-1)' : 'var(--loss)'}
+                  fill={up ? 'var(--cat-1)' : 'var(--negative-3)'}
                   aria-hidden="true"
                 />
               )
@@ -325,7 +325,7 @@ type BarColor = { colorBy: 'series' } | { colorBy: 'direction' }
 /**
  * BarChart -- a value per row as a horizontal bar, on the house .chart. `colorBy="series"` colours each bar with the
  * house --cat-N of its `series` (put a Legend above it); `colorBy="direction"` draws gains to the right of the zero line
- * in --cat-1 and losses to the left in --loss, so the side says the same as the colour. The order of `data` is kept, so
+ * in --cat-1 and losses to the left in --negative-3, so the side says the same as the colour. The order of `data` is kept, so
  * sort it first. It draws at its real width: one 30px line per row from 480px, stacked rows (label and value over the
  * bar) below it, so 12px text stays 12px on a phone. Hover, or tab to it and use Up, Down, Home and End, for the house
  * .tooltip; the same figures, and with `share` each row's share of the total, are always a table away.
@@ -374,7 +374,7 @@ export function BarChart({
   const x0 = x(0)
   const total = values.reduce((a, b) => a + b, 0)
   const showShare = !!share && lo >= 0 && total > 0 // a share is only meaningful for parts of a whole
-  const fill = (d: BarDatum) => (color.colorBy === 'series' ? `var(--cat-${d.series ?? 1})` : d.value >= 0 ? 'var(--cat-1)' : 'var(--loss)')
+  const fill = (d: BarDatum) => (color.colorBy === 'series' ? `var(--cat-${d.series ?? 1})` : d.value >= 0 ? 'var(--cat-1)' : 'var(--negative-3)')
   const sign = (v: number) => (color.colorBy === 'direction' ? (v >= 0 ? 'delta--up' : 'delta--down') : undefined)
 
   const showAtRow = (i: number) => {
@@ -394,9 +394,9 @@ export function BarChart({
           <svg width={width} height={h} viewBox={`0 0 ${width} ${h}`} role="group" aria-label={label} onKeyDown={onKey}>
             {/* The zero line: through stacked rows it would cut their text, so those get a piece beside each bar. */}
             {wide ? (
-              <line x1={x0} x2={x0} y1={0} y2={h} stroke="var(--axis)" strokeWidth={1} />
+              <line x1={x0} x2={x0} y1={0} y2={h} stroke="var(--neutral-3)" strokeWidth={1} />
             ) : (
-              data.map((c, i) => <line key={c.key} x1={x0} x2={x0} y1={i * rowH + barY - 2} y2={i * rowH + barY + BAR_H + 2} stroke="var(--axis)" strokeWidth={1} />)
+              data.map((c, i) => <line key={c.key} x1={x0} x2={x0} y1={i * rowH + barY - 2} y2={i * rowH + barY + BAR_H + 2} stroke="var(--neutral-3)" strokeWidth={1} />)
             )}
             {data.map((c, i) => {
               const w = Math.max(Math.abs(x(c.value) - x0), 1) // a zero value stays a 1px bar
@@ -574,7 +574,7 @@ export function LineChart({
           <svg width={width} height={H} viewBox={`0 0 ${width} ${H}`} role="group" aria-label={label} onKeyDown={onKey}>
             {tk.map((v) => (
               <g key={v}>
-                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--axis)' : 'var(--grid)'} strokeWidth={1} />
+                <line x1={M.left} x2={M.left + pw} y1={y(v)} y2={y(v)} stroke={v === 0 ? 'var(--neutral-3)' : 'var(--primary-4)'} strokeWidth={1} />
                 <text x={M.left - 8} y={y(v) + 4} textAnchor="end">
                   {format(v)}
                 </text>
@@ -582,7 +582,7 @@ export function LineChart({
             ))}
             {guides.map((g) => (
               <g key={g.key}>
-                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--grid)" strokeWidth={1} />
+                <line x1={g.x} x2={g.x} y1={M.top} y2={M.top + ph} stroke="var(--primary-4)" strokeWidth={1} />
                 {g.text && (
                   <text className="axis-note" x={g.x + 4} y={M.top - 8}>
                     {g.text}
@@ -602,7 +602,7 @@ export function LineChart({
             ))}
             {last &&
               series.map((s) => (
-                <circle key={s.key} cx={px(points.length - 1)} cy={y(last.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--surface)" strokeWidth={2} aria-hidden="true" />
+                <circle key={s.key} cx={px(points.length - 1)} cy={y(last.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--primary-2)" strokeWidth={2} aria-hidden="true" />
               ))}
             {ends.map(({ s, v, y: ey }) => (
               <text key={s.key} className={cx(s === series[0] && 'val')} x={M.left + pw + 8} y={ey} aria-hidden="true">
@@ -611,9 +611,9 @@ export function LineChart({
             ))}
             {a && active !== null && (
               <g aria-hidden="true" pointerEvents="none">
-                <line x1={px(active)} x2={px(active)} y1={M.top} y2={M.top + ph} stroke="var(--axis)" strokeWidth={1} />
+                <line x1={px(active)} x2={px(active)} y1={M.top} y2={M.top + ph} stroke="var(--neutral-3)" strokeWidth={1} />
                 {series.map((s) => (
-                  <circle key={s.key} cx={px(active)} cy={y(a.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--surface)" strokeWidth={2} />
+                  <circle key={s.key} cx={px(active)} cy={y(a.values[s.key])} r={DOT_R} fill={color(s)} stroke="var(--primary-2)" strokeWidth={2} />
                 ))}
               </g>
             )}

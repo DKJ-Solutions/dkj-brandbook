@@ -110,7 +110,7 @@ export function Metrics() {
         </Demo>
       </Section>
 
-      <Section id="Legend" title="Legend" intro="A row of swatches above a chart. Each series takes one of --cat-1 .. --cat-3 and keeps it in the whole view; gain uses --cat-1 and loss uses --loss. A line series gets a short line instead of a square.">
+      <Section id="Legend" title="Legend" intro="A row of swatches above a chart. Each series takes one of --cat-1 .. --cat-3 and keeps it in the whole view; gain uses --cat-1 and loss uses --negative-3. A line series gets a short line instead of a square.">
         <Demo label="Squares -- series, with info marks">
           <Legend>
             <LegendItem color="cat-1">
@@ -130,7 +130,7 @@ export function Metrics() {
         <Demo label="Squares -- gain and loss">
           <Legend>
             <LegendItem color="cat-1">Gain</LegendItem>
-            <LegendItem color="loss">Loss</LegendItem>
+            <LegendItem color="negative-3">Loss</LegendItem>
           </Legend>
         </Demo>
         <Demo label="Lines">
@@ -148,11 +148,11 @@ export function Metrics() {
         </Demo>
       </Section>
 
-      <Section id="ColumnChart" title="ColumnChart" intro="A result per period around a zero line: gain up in --cat-1, loss down in --loss, quarter guides, a legend above. It draws at its real width, so its labels stay 12px on a phone and thin out to what fits. Hover, or tab to it and use the arrow keys, for a value; the same figures are always a table away.">
+      <Section id="ColumnChart" title="ColumnChart" intro="A result per period around a zero line: gain up in --cat-1, loss down in --negative-3, quarter guides, a legend above. It draws at its real width, so its labels stay 12px on a phone and thin out to what fits. Hover, or tab to it and use the arrow keys, for a value; the same figures are always a table away.">
         <Demo label="Result per month, with quarter guides" wide>
           <Legend>
             <LegendItem color="cat-1">Gain</LegendItem>
-            <LegendItem color="loss">Loss</LegendItem>
+            <LegendItem color="negative-3">Loss</LegendItem>
           </Legend>
           <ColumnChart label="Result per month" data={MONTHS} format={eur} periodHeading="Month" />
         </Demo>
@@ -160,14 +160,14 @@ export function Metrics() {
           <div style={{ maxWidth: '360px' }}>
             <Legend>
               <LegendItem color="cat-1">Gain</LegendItem>
-              <LegendItem color="loss">Loss</LegendItem>
+              <LegendItem color="negative-3">Loss</LegendItem>
             </Legend>
             <ColumnChart label="Result per month" data={MONTHS} format={eur} periodHeading="Month" />
           </div>
         </Demo>
       </Section>
 
-      <Section id="BarChart" title="BarChart" intro="A value per row as a horizontal bar, in the order you give it. Coloured by series, each bar takes its --cat colour and a legend above is the key; coloured by direction, a gain runs right in --cat-1 and a loss left in --loss from the zero line. It draws at its real width, so on a phone the rows stack and the labels stay 12px. Hover, or tab to it and use the arrow keys, for a value; the same figures are always a table away.">
+      <Section id="BarChart" title="BarChart" intro="A value per row as a horizontal bar, in the order you give it. Coloured by series, each bar takes its --cat colour and a legend above is the key; coloured by direction, a gain runs right in --cat-1 and a loss left in --negative-3 from the zero line. It draws at its real width, so on a phone the rows stack and the labels stay 12px. Hover, or tab to it and use the arrow keys, for a value; the same figures are always a table away.">
         <Demo label="Allocation, by series, with share of the total" wide>
           <Legend>
             <LegendItem color="cat-1">Fund</LegendItem>
@@ -245,7 +245,7 @@ export function Metrics() {
         </Demo>
       </Section>
 
-      <Section id="Badge" title="Badge" intro="A small round status mark with a glyph. The colour is a status token (--good, --warn, --bad, the primary, --cat-1), the glyph is --status-mark, and the status is also written next to it: the glyph alone is decorative.">
+      <Section id="Badge" title="Badge" intro="A small round status mark with a glyph. The colour is a status token (--positive-3, --warning-3, --negative-3, the primary, --cat-1), the glyph is --neutral-1, and the status is also written next to it: the glyph alone is decorative.">
         <Demo label="Tones, 20px">
           <div className="bb-row">
             <Badge tone="good">✓</Badge>

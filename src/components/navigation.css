@@ -1,7 +1,7 @@
 /* Top bar, menu rows, download button, step header, info rows, page header. Origin: see src/components/sources.ts. */
 
 /* ---------- TopBar ---------- */
-.dkj-topbar { position: sticky; top: 0; z-index: 2; background: var(--surface); box-shadow: 0 1px 0 var(--border); }
+.dkj-topbar { position: sticky; top: 0; z-index: 2; background: var(--primary-2); box-shadow: 0 1px 0 var(--primary-4); }
 .dkj-topbar-inner {
   max-width: var(--dkj-column-w);
   height: var(--dkj-topbar-h);
@@ -13,7 +13,7 @@
 }
 .dkj-topbar-brand { display: flex; align-items: center; gap: var(--spacing-3); min-width: 0; }
 .dkj-topbar-name { flex: none; font-size: var(--text-lg); font-weight: var(--dkj-fw-bold); }
-.dkj-topbar-tagline { min-width: 0; font-size: var(--text-sm); line-height: 1.25; color: var(--ink-2); }
+.dkj-topbar-tagline { min-width: 0; font-size: var(--text-sm); line-height: 1.25; color: var(--neutral-4); }
 
 /* ---------- Menu ---------- */
 .dkj-drawer-content { display: flex; flex-direction: column; flex: 1; }
@@ -26,7 +26,7 @@
   min-height: var(--dkj-tap);
   padding: var(--spacing-2);
 }
-.dkj-menu-row + .dkj-menu-row { border-top: 1px solid var(--border); }
+.dkj-menu-row + .dkj-menu-row { border-top: 1px solid var(--primary-4); }
 .dkj-menu-label { font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); }
 .dkj-menu-value { min-width: 0; font-size: var(--text-h6); text-align: right; overflow-wrap: anywhere; }
 /* The pencils sit centred under the close button (44px tap area). */
@@ -48,9 +48,9 @@
   line-height: var(--dkj-lh-tight);
   text-align: center;
   text-decoration: none;
-  color: var(--ink);
-  background: var(--page);
-  border: 1px solid var(--border);
+  color: var(--neutral-5);
+  background: var(--primary-1);
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-md);
   cursor: pointer;
   touch-action: manipulation;
@@ -58,11 +58,11 @@
   transition: border-color var(--dkj-duration-base) var(--dkj-ease-out), transform var(--dkj-duration-fast) var(--dkj-ease-out);
 }
 .dkj-download svg { flex: none; }
-.dkj-download:focus-visible, .dkj-download[data-demo-state='focus'] { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset); }
-.dkj-download:active, .dkj-download[data-demo-state='active'] { transform: translateY(1px); border-color: var(--primary); }
-.dkj-download[data-demo-state='hover'] { border-color: var(--primary); }
+.dkj-download:focus-visible, .dkj-download[data-demo-state='focus'] { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
+.dkj-download:active, .dkj-download[data-demo-state='active'] { transform: translateY(1px); border-color: var(--primary-5); }
+.dkj-download[data-demo-state='hover'] { border-color: var(--primary-5); }
 @media (hover: hover) {
-  .dkj-download:hover { border-color: var(--primary); }
+  .dkj-download:hover { border-color: var(--primary-5); }
 }
 @media (prefers-reduced-motion: reduce) {
   .dkj-download { transition: none; }
@@ -84,9 +84,9 @@
 }
 
 /* ---------- InfoRows ---------- */
-.dkj-inforows { --box: var(--primary-soft); }
-.dkj-inforows--info { --box: color-mix(in srgb, var(--cat-1) 14%, var(--surface)); }
-.dkj-inforows-head { margin: 0 0 var(--spacing-1-5); font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); color: var(--ink-2); }
+.dkj-inforows { --box: var(--primary-3); }
+.dkj-inforows--info { --box: color-mix(in srgb, var(--cat-1) 14%, var(--primary-2)); }
+.dkj-inforows-head { margin: 0 0 var(--spacing-1-5); font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); color: var(--neutral-4); }
 .dkj-inforows-list { display: flex; flex-direction: column; gap: var(--spacing-1-5); }
 .dkj-inforow { display: flex; align-items: center; gap: var(--spacing-1-5); }
 .dkj-inforow-box {
@@ -112,16 +112,16 @@
   gap: var(--spacing-1);
   font: inherit;
   text-align: left;
-  color: var(--ink);
+  color: var(--neutral-5);
   background: transparent;
   border: 0;
   border-radius: var(--dkj-radius-md);
   cursor: pointer;
 }
 .dkj-inforow-named > svg { flex: none; }
-.dkj-inforow-named:focus-visible { outline: var(--dkj-focus-w) solid var(--primary); outline-offset: var(--dkj-focus-offset-inset); }
-.dkj-inforow-value { min-width: 0; font-size: var(--text-h6); line-height: 1.5rem; font-weight: var(--dkj-fw-semibold); color: var(--ink); overflow-wrap: anywhere; }
-.dkj-inforow-value--placeholder { font-weight: var(--dkj-fw-regular); color: var(--ink-2); }
+.dkj-inforow-named:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset-inset); }
+.dkj-inforow-value { min-width: 0; font-size: var(--text-h6); line-height: 1.5rem; font-weight: var(--dkj-fw-semibold); color: var(--neutral-5); overflow-wrap: anywhere; }
+.dkj-inforow-value--placeholder { font-weight: var(--dkj-fw-regular); color: var(--neutral-4); }
 
 /* ---------- PageHeader ---------- */
 /* The house rule for `main > header` and its .controls row, for a header that is not a direct child of main. */

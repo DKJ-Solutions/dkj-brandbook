@@ -231,7 +231,7 @@ export function Surfaces() {
         </Demo>
       </Section>
 
-      <Section id="Alert" title="Alert" intro="A generic danger callout: a danger border, a tint of --bad built from house tokens, a title in the danger text colour. No hazard stripes: a layout that is one app's own stays in that app.">
+      <Section id="Alert" title="Alert" intro="A generic danger callout: a danger border, a tint of --negative-3 built from house tokens, a title in the danger text colour. No hazard stripes: a layout that is one app's own stays in that app.">
         <Demo label="Danger" surface={false}>
           <Alert title="Danger zone">
             <p className="dkj-msg">{LOREM}</p>
