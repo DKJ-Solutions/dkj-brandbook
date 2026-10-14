@@ -107,7 +107,17 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
 - [x] Hemelsblauw `-3` `#5cb3ff` -> `#6aa2ff` (and the picker's dot): OKLCH hue 247 -> 260, Blauw's own hue,
       L 0.745 -> 0.715 at maximum chroma (0.148); 55 degrees from Cyaan, 35 from Lila. `-1` on it 6.60:1,
       it on `-2` 5.34:1.
-- [ ] An owner has looked at the five-step scale in a light and a dark theme and approved it
+- [x] An owner chose seven steps instead: `-4` in the middle is always the most saturated colour; on dark
+      `-1`/`-2` the darkest and `-6`/`-7` the whitest (mirrored on light); `-3` and `-5` the greyest, `-5` the
+      far-side mirror of `-3`. Rename from the five-step trial: `-3` (colour) <-> `-4` (lines and tinted
+      surfaces) swapped; `-5` keeps its role (text on a tinted surface) with new, greyer values: `-3`'s hue and
+      chroma at the first lightness on the far side reaching 4.5:1 on `-3`. `-6` (no role yet) and `-7` (the
+      showcase's dark panel) in the colour's hue, OKLCH L 0.95/0.98 on dark, 0.36/0.26 on light.
+- [x] Contrast: `-5` on `-3` 4.51:1 or better (Lila), `-5` on `-2` 5.48:1 or better; `-4`/`-1` as before
+- [x] README token table, the anchor bullets and the migration rows, rewritten as one step from the released
+      six-step scale to seven (the five-step trial never reached `main`)
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at the seven-step scale in a light and a dark theme and approved it
 
 ### DEPLOY: feat/lilac-more-purple
 
@@ -115,13 +125,15 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
 
 ##### Tier 0
 
-The primary scale is cut from six steps to five, with the theme's own colour in the middle: `--primary-3` is
-the anchor (the colour of buttons, switches, focus rings, links, `h1` and `h2`, and the picker's dot),
-`-1` and `-2` the page and the card, `-4` the lines and the tinted surfaces, and `-5` the ink, the text on a
-tinted surface. `--primary-6` is gone and `--primary-3` changes meaning, so a consuming repo renames in the
-order the README's migration rows give (old `-3` -> `-4`, old `-5` -> `-3`, old `-6` -> `-3`). On the dark
-themes the fills and links turn from near-white to the theme's colour itself, and all six dark themes carry
-about twice the colour on their page, cards and lines. Petrol and Roest move a fraction darker.
+The primary scale grows from six steps to seven, with the theme's own colour in the middle: `--primary-4` is
+the most saturated step and the anchor (buttons, switches, focus rings, links, `h1` and `h2`, the picker's dot).
+`-1` and `-2` are the page and the card; `-3` the lines and the tinted surfaces; `-5` the text on a tinted
+surface, as grey as `-3` on the far side of the colour; `-6` has no role yet; `-7` is the far end, an inverted
+surface. `--primary-4` and `--primary-5` change meaning and `--primary-6` changes value, so a consuming repo
+renames in the order the README's migration rows give (old `-4` -> `-3` first, old `-5` -> `-4`, old `-6` ->
+`-4` last). On the dark themes the fills and links turn from near-white to the theme's colour itself, and all
+six dark themes carry about twice the colour on their page, cards and lines. Petrol and Roest move a fraction
+darker, Hemelsblauw to Blauw's hue.
 
 **Score:** 5
 
@@ -149,5 +161,5 @@ A user sees buttons, links and headings in the theme's own colour, and a more co
 
 #### Pull Request
 
-The primary scale has five steps, with the theme's colour as --primary-3
+The primary scale has seven steps, with the theme's colour as --primary-4
 

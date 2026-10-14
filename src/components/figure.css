@@ -8,7 +8,7 @@
   max-width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border: 1px solid var(--primary-4);
+  border: 1px solid var(--primary-3);
   border-radius: var(--dkj-radius-lg);
   background: color-mix(in srgb, var(--neutral-3) 7%, var(--primary-2));
 }
