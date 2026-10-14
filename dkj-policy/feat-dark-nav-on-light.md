@@ -39,6 +39,7 @@ main area keeps its light tint and the navigation gets a dark background.
 
 - [x] `src/showcase/showcase.css`: the nav's colours as `--bb-nav-*` variables, chosen per mode with `light-dark()` -- dark panel on light themes, unchanged tint on dark themes
 - [x] Brand name, group labels, links, hover, focus ring and the active-link focus ring read those variables
+- [x] `.bb-view` on `--surface-base` instead of `--page`, so the views no longer share the main area's tint (owner's follow-up)
 
 ### TEST
 
@@ -51,7 +52,7 @@ main area keeps its light tint and the navigation gets a dark background.
 
 ##### Tier 0
 
-On a light theme the brand book's sidebar is now a dark panel -- near-black with 18% of the theme's primary, white links, light grey group labels and the brand name in a light tint of the primary -- so it stands apart from the light main area. Dark themes keep the tinted sidebar they had. The colours are showcase-only `--bb-nav-*` variables picked per mode with `light-dark()`; no house token changed.
+On a light theme the brand book's sidebar is now a dark panel -- near-black with 18% of the theme's primary, white links, light grey group labels and the brand name in a light tint of the primary -- so it stands apart from the light main area. Dark themes keep the tinted sidebar they had. The colours are showcase-only `--bb-nav-*` variables picked per mode with `light-dark()`; no house token changed. The views in the apps overview now sit on the untinted surface instead of the page colour, so they no longer read as holes in the card.
 
 **Score:** 2
 
