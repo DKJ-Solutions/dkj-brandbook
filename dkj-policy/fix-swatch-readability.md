@@ -38,7 +38,10 @@ size and colour, and a `color-mix(...)` value broke mid-word ("color-" / "mix").
 ### CREATE
 
 - [x] Swatch: name semibold in `--ink`, value mono `--text-xs` in `--ink-2`, chip aligned with the name
-- [x] A value wraps only after a comma (each comma-separated part is `nowrap`); grid column 11rem -> 13rem
+- [x] Grid column 11rem -> 13rem
+- [x] A `color-mix()` value shows the colour it resolves to (one hex, read off a 1px canvas), with its
+  recipe beneath in words -- "7% #0f7c86 over 2% #0f7c86 over #fcfcfb" -- each step kept on one line;
+  the raw expression stays on hover
 - [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
@@ -52,8 +55,9 @@ size and colour, and a `color-mix(...)` value broke mid-word ("color-" / "mix").
 ##### Tier 0
 
 The colour swatches in the brand book's Tokens section read as a name over its value: the name is
-semibold in ink, the value smaller and monospaced in ink-2, and a `color-mix()` value now wraps only
-after a comma instead of breaking inside a word.
+semibold in ink, the value smaller and monospaced in ink-2. A `color-mix()` token shows the one colour it
+resolves to, with its recipe in words beneath it ("7% #0f7c86 over 2% #0f7c86 over #fcfcfb") instead of
+the nested expression.
 
 **Score:** 2
 

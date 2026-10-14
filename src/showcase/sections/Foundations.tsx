@@ -46,23 +46,55 @@ const CONTROLS = ['inline-toggle', 'control-dense', 'control-compact', 'control-
 
 type Swatch = { name: string; value: string | undefined }
 
+const hex2 = (n: number) => n.toString(16).padStart(2, '0')
+
+/** The colour a CSS colour value resolves to, as #rrggbb (or #rrggbbaa when it is translucent), painted on a 1px canvas. */
+function resolveHex(value: string): string | undefined {
+  const ctx = document.createElement('canvas').getContext('2d', { willReadFrequently: true })
+  if (!ctx) return undefined
+  ctx.fillStyle = value
+  ctx.fillRect(0, 0, 1, 1)
+  const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data
+  return `#${hex2(r)}${hex2(g)}${hex2(b)}${a < 255 ? hex2(a) : ''}`
+}
+
+/**
+ * A color-mix() value as a recipe, one layer per step: "color-mix(in srgb, A 7%, color-mix(in srgb, A 2%, B))"
+ * reads ["7% A", "2% A", "B"] -- each colour laid over the one after it. undefined when it is not such a mix.
+ */
+function mixRecipe(value: string): string[] | undefined {
+  const m = /^color-mix\(in srgb, (\S+) ([\d.]+%), (.+)\)$/.exec(value)
+  if (!m) return undefined
+  const [, color, share, base] = m
+  return [`${share} ${color}`, ...(mixRecipe(base) ?? [base])]
+}
+
 function SwatchGrid({ items }: { items: Swatch[] }) {
   return (
     <div className="bb-swatches">
-      {items.map(({ name, value }) => (
-        <div key={name} className="bb-swatch">
-          <span className="bb-swatch-chip" style={{ background: `var(${name})` }} />
-          <span className="bb-swatch-text">
-            <code className="bb-swatch-name">{name}</code>
-            {/* A colour-mix() value wraps only after a comma, never inside "color-mix" or a hex. */}
-            <span className="bb-swatch-value">
-              {value?.split(', ').map((part, i, all) =>
-                i < all.length - 1 ? <Fragment key={i}><span>{part},</span> </Fragment> : <span key={i}>{part}</span>,
+      {items.map(({ name, value }) => {
+        const recipe = value ? mixRecipe(value) : undefined
+        return (
+          <div key={name} className="bb-swatch">
+            <span className="bb-swatch-chip" style={{ background: `var(${name})` }} />
+            <span className="bb-swatch-text">
+              <code className="bb-swatch-name">{name}</code>
+              {/* A mix shows the colour it comes to, then its recipe; a plain value shows itself. */}
+              <span className="bb-swatch-value">{recipe ? resolveHex(value!) : value}</span>
+              {recipe && (
+                <span className="bb-swatch-recipe" title={value}>
+                  {recipe.map((step, i) => (
+                    <Fragment key={i}>
+                      {i > 0 && ' '}
+                      <span>{i > 0 ? `over ${step}` : step}</span>
+                    </Fragment>
+                  ))}
+                </span>
               )}
             </span>
-          </span>
-        </div>
-      ))}
+          </div>
+        )
+      })}
     </div>
   )
 }
