@@ -66,6 +66,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] `--primary-5` (the grid line) merged into `--primary-4`, `--grid-tint` dropped, and `--primary-6`/`-7` renumbered to `-5`/`-6` (owner's follow-up)
 - [x] `--neutral-3` a pure grey: #d1d1d1 light, #333333 dark (owner's follow-up)
 - [x] `--primary-1` .. `--primary-6` fixed hex values per theme instead of mixes (computed once from the current mixes, so nothing changes visually); `--page-tint`, `--surface-tint` and `--border-tint` removed with the showcase's tint readout; the accent dialog takes `--primary-3` as its surface and the info dialog mixes `--cat-1` into `--neutral-2` (owner's follow-up)
+- [x] Light `--primary-4` tinted 15% instead of 6% in every light theme: over the now pure-grey `--neutral-3`, 6% left Blauw's line at 10% saturation, which read as warm (orange) next to its 31-52% blue cards (owner's report)
 - [x] Lint gate green
 
 ### TEST

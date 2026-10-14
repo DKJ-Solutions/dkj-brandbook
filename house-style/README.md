@@ -202,7 +202,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   theme's block, not mixes (owner's decision, October 14, 2026: the percentages were too hard to follow). A
   new theme computes them once, the way the existing ones were: the page is the untinted ground with 2%
   (light) or 10% (dark) of the theme's colour, a card the next neutral with 6% or 14%, the tinted background
-  14% over the card, a line the line grey with 6% or 8%, and the text colour the theme's colour with 20% of
+  14% over the card, a line the pure line grey with 15% (light) or 8% (dark; 6% on light read as warm next to the tinted cards), and the text colour the theme's colour with 20% of
   the text neutral mixed in.
 - **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
   on dark the card is a shade lighter than the page. Either way the page is the ground end (owner's decision,
