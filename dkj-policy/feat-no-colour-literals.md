@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Every hard-coded colour that an existing house token can carry reads that token; no new tokens are added
+(owner's instruction). Where no token holds the exact code, the owner chose an existing token even though
+it follows the mode.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Navigation: `--bb-nav-ink` and `--bb-nav-ink-2` read `--neutral-1` and `--neutral-3` in both modes, the current item's ink and ring read `--neutral-1` / `--neutral-5`
+- [x] Theme swatches and both dialog backdrops read `--neutral-1` (the backdrop at 45% opacity)
+- [x] `scripts/lint/check-colour-literals.mjs`, step 3 of `lint-web.ps1`: a colour code outside a token declaration, or a repo token that retypes a house value, blocks
 
 ### TEST
+
+- [x] Gate green (`lint-web.ps1`); the new check reports all 13 old codes on `main`'s files and none on this branch
+- [ ] An owner has looked at the navigation, the theme picker and an open dialog in light and dark and approved them
 
 ### DEPLOY: feat/no-colour-literals
 
@@ -44,27 +53,27 @@
 
 ##### Tier 0
 
-**Score:**
+No stylesheet types a colour where a house token already holds it. The navigation's text reads `--neutral-1`
+and `--neutral-3`, the theme swatches and the dialog backdrops read `--neutral-1`, and a new gate step
+(`scripts/lint/check-colour-literals.mjs`) refuses a colour code outside a token declaration, or a repo token
+that retypes a house value.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 3
 
 ##### Tier 1
 
-**Score:**
+Internal consistency of the brand book; management sees no change.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+The navigation's secondary text is a touch lighter on a light theme and darker on a dark theme. The theme
+swatches take the current page's ground, so on a dark page the light themes' swatches are dark too. The page
+behind an open dialog fades towards white on a light theme instead of darkening.
+
+**Score:** 2
 
 #### Pull Request
 
 Every colour is a token: no duplicated colour codes, and a gate that keeps it so
-

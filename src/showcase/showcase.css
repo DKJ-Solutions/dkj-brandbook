@@ -1,18 +1,19 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
 .bb-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
-/* The sidebar contrasts with the page, mirrored per mode, in fixed colour codes only: on a light theme a dark
-   panel (near-black in the theme's hue, one code per theme below) with white text, on a dark theme the theme's
-   near-white --primary-6 with black text. The default is the light default theme, Blauw. */
+/* The sidebar contrasts with the page, mirrored per mode, with no color-mix: on a light theme a dark panel
+   (near-black in the theme's hue, one code per theme below; the house has no token for it), on a dark theme
+   the theme's near-white --primary-6. The text is the opposite end of the neutral ramp in both modes:
+   --neutral-1 (the ground) as ink, --neutral-3 as the quieter ink. The default is the light default theme, Blauw. */
 .bb-nav {
   --bb-nav-bg: #172235;
-  --bb-nav-ink: #ffffff;
-  --bb-nav-ink-2: #c3c2b7;
+  --bb-nav-ink: var(--neutral-1);
+  --bb-nav-ink-2: var(--neutral-3);
   --bb-nav-brand: #9db9ea;
   --bb-nav-hover: #1c396b;
   --bb-nav-current: var(--primary-5);
   --bb-nav-current-ink: var(--neutral-1);
-  --bb-nav-current-ring: #ffffff;
+  --bb-nav-current-ring: var(--neutral-1);
   position: sticky;
   top: 0;
   align-self: start;
@@ -32,23 +33,19 @@
 :root[data-theme="pink"] .bb-nav, :root[data-theme="lilac"] .bb-nav, :root[data-theme="sky"] .bb-nav,
 :root[data-theme="cyan"] .bb-nav, :root[data-theme="yellow"] .bb-nav, :root[data-theme="orange"] .bb-nav {
   --bb-nav-bg: var(--primary-6);
-  --bb-nav-ink: #0b0b0b;
-  --bb-nav-ink-2: #52514e;
   --bb-nav-brand: var(--primary-3);
   --bb-nav-hover: var(--primary-5);
   --bb-nav-current: var(--primary-3);
-  --bb-nav-current-ink: #ffffff;
+  --bb-nav-current-ink: var(--neutral-5);
   --bb-nav-current-ring: var(--primary-6);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) .bb-nav {
     --bb-nav-bg: var(--primary-6);
-    --bb-nav-ink: #0b0b0b;
-    --bb-nav-ink-2: #52514e;
     --bb-nav-brand: var(--primary-3);
     --bb-nav-hover: var(--primary-5);
     --bb-nav-current: var(--primary-3);
-    --bb-nav-current-ink: #ffffff;
+    --bb-nav-current-ink: var(--neutral-5);
     --bb-nav-current-ring: var(--primary-6);
   }
 }
