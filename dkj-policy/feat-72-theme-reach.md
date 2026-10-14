@@ -32,11 +32,18 @@
 
 ### PLAN
 
+Decide how far a house theme reaches (#72): links and native controls take `--primary` by default, and a small set of opt-in `--accent` modifiers carry it onto headers, cards, tiles and tables, so apps stop inventing their own. It reaches the apps only after a `house-style-v<N>` release and the skill repoint, both on the owner's request.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/house-style.css`: links (`:where(a)`, visited, hover, focus ring) on `--primary` at zero specificity; `accent-color` and `caret-color` on `:root`; a primary-tinted `::selection`; opt-in `.header--accent`, `.card--accent`, `.tile--accent`, `.table--accent`
+- [x] `house-style/README.md`: a "How far a theme reaches" section, the Primary row, and the new reserved names
+- [x] Showcase: a "Theme reach" demo in the Tokens section (link, checkbox, radio, slider, progress, and each accent modifier)
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has looked at the Theme reach demo across light and dark themes, and at the brand book's own links, and approved them
 
 ### DEPLOY: feat/72-theme-reach
 
@@ -44,27 +51,22 @@
 
 ##### Tier 0
 
-**Score:**
+A house theme now reaches beyond the primary button: links, checkboxes, radios, sliders, progress bars, the text caret and the selection take `--primary` by default, and `.header--accent`, `.card--accent`, `.tile--accent` and `.table--accent` carry it onto the page's surfaces where an app opts in. The link rules weigh nothing (`:where()`), so a class on an `<a>` keeps its own look. The Tokens section shows it all.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 3
 
 ##### Tier 1
 
-**Score:**
+Internal design system; no change for management or a commissioner.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing change until an app adopts it after a house-style release.
+
+**Score:** N/A
 
 #### Pull Request
 
-A theme reaches links and a small set of house accents
-
+A theme reaches links, native controls and a small set of house accents
