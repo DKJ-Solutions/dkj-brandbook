@@ -32,11 +32,22 @@
 
 ### PLAN
 
+Resolves #77. The owner's decision on the thread (October 14, 2026): move the level, so each component
+heading becomes the h-level whose token matches its current size and the look stays the same.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] House style: a `--font-serif` token (the `h1`/`h2` face, now read from it), the drawer's `.dialog__title` at `--text-h5` (18px, as `--text-lg` was), README guidance for the `.dialog__title` element
+- [x] Card title `<h2>` → `<h6>` (`<h2>` stays in a data card, which is `--text-h2`); it sets the serif face and `--primary-6` itself, which the house `h2` rule used to give it
+- [x] Dialog title `<h2>` → `<h6>` plain, `<h3>` as a card heading, `<h5>` in a drawer; serif and colour set on the class, the drawer at `--text-h5`
+- [x] Alert title `<h3>` → `<h5>`; calculation question `<h4>` → `<h6>`; QuestionBlock title `<h3>` → `<h5>` (same mismatch, not in the issue's table)
+- [x] House dialog demo, type specimen and QuestionBlock intro follow the new levels
+- [x] GroupHeading (level by prop, always `--text-base`) is a different decision, filed as #90
 
 ### TEST
+
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
+- [ ] An owner has looked at the card, dialog (plain, card, drawer), alert, calculation and QuestionBlock titles and the house dialogs in the showcase and approved that they look as before
 
 ### DEPLOY: feat/77-heading-levels-match-size
 
@@ -44,25 +55,25 @@
 
 ##### Tier 0
 
-**Score:**
+A component's heading element now takes the token of its own level. The card title is an `<h6>` (an `<h2>`
+in a data card), the dialog title an `<h6>`, `<h3>` as a card heading or `<h5>` in a drawer, the alert and
+QuestionBlock titles `<h5>` and the calculation question `<h6>`; the house `.dialog__title` goes on an `<h6>`
+(`<h5>` in a drawer, now `--text-h5`). The house style gains `--font-serif`, the face of `h1` and `h2`, so a
+title that moved off `<h2>` keeps it. Sizes, faces and colours are unchanged.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+Markup and outline only; management sees no change.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+Nothing a user sees changes; a screen reader announces these titles at their new level.
+
+**Score:** N/A
 
 #### Pull Request
 

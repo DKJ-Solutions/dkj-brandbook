@@ -24,7 +24,7 @@ export type DialogProps = {
   onSave?: () => void
   /** drawer: a full-height panel sliding in from the right, swipe right to close. */
   variant?: 'dialog' | 'drawer'
-  /** heading size: card (h2 size, bold) or plain (1rem). */
+  /** heading: card (an <h3>, --text-h3, bold) or plain (an <h6>, --text-h6). A drawer's title is an <h5> (--text-h5). */
   heading?: 'card' | 'plain'
   children: ReactNode
 }
@@ -52,6 +52,8 @@ export function Dialog({
   const [infoOpen, setInfoOpen] = useState(false)
   const swipeStart = useRef<number | null>(null)
   const titleId = useId()
+  // A heading takes the token of its own level: the drawer's title is --text-h5, a card heading --text-h3, a plain one --text-h6.
+  const Title = variant === 'drawer' ? 'h5' : heading === 'card' ? 'h3' : 'h6'
 
   useEffect(() => {
     const d = ref.current
@@ -101,9 +103,9 @@ export function Dialog({
             <div className="dkj-dialog-titles">
               {tag && <TitleTag tone={tone === 'info' ? 'info' : 'accent'}>{tag}</TitleTag>}
               <div className="dkj-dialog-title-row">
-                <h2 id={titleId} className={cx('dkj-dialog-title', heading === 'card' && 'dkj-dialog-title--card')}>
+                <Title id={titleId} className={cx('dkj-dialog-title', heading === 'card' && 'dkj-dialog-title--card')}>
                   {title}
-                </h2>
+                </Title>
                 {info && <RoundToggle kind="info" expanded={infoOpen} onClick={() => setInfoOpen(true)} />}
               </div>
               {subtitle && <p className="dkj-dialog-sub">{subtitle}</p>}

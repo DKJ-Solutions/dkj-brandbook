@@ -326,7 +326,7 @@ export function AnswerBox({ label, value }: { label: string; value: string }) {
 export function CalcSection({ question, children }: { question: string; children: ReactNode }) {
   return (
     <section className="dkj-calc-section">
-      <h4 className="dkj-calc-question">{question}</h4>
+      <h6 className="dkj-calc-question">{question}</h6>
       {children}
     </section>
   )

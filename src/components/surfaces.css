@@ -12,7 +12,7 @@
 .dkj-card--flush { padding: 0; overflow: hidden; }
 .dkj-card--open { border-color: color-mix(in srgb, var(--primary-5) 60%, var(--primary-4)); }
 .dkj-card--invalid { border-color: var(--negative-3); }
-/* Data variant: the head is left-aligned in the house serif (the h2 rule of house-style.css sets the family),
+/* Data variant: the head is left-aligned, its title an <h2> at --text-h2,
    with a muted subline, and there is no rule between head and body. */
 .dkj-card--data { padding: var(--spacing-5); }
 .dkj-card--data .dkj-card-head { gap: 0; padding: 0; text-align: left; }
@@ -30,8 +30,8 @@
   padding: var(--spacing-4);
   text-align: center;
 }
-/* The title is an <h2>, which the house style sets to display:flex; a plain title stays a block. */
-.dkj-card-title { display: block; margin: 0; font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); }
+/* The title is an <h6> (an <h2> in a data card), in the house serif and colour of h1 and h2; a plain title stays a block. */
+.dkj-card-title { display: block; margin: 0; font-family: var(--font-serif); font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); letter-spacing: -0.01em; color: var(--primary-6); }
 .dkj-card-title--icon { display: flex; align-items: center; justify-content: center; gap: var(--spacing-2); }
 .dkj-card-icon { flex-shrink: 0; color: var(--primary-5); }
 .dkj-card-body { padding: var(--spacing-1) var(--spacing-4) var(--spacing-4); border-top: 1px solid var(--primary-4); }
@@ -213,7 +213,7 @@
   gap: var(--spacing-1) var(--spacing-3);
   margin: 0 0 var(--spacing-2);
 }
-.dkj-question-head h3 { margin: 0; font-size: var(--text-h5); font-weight: var(--dkj-fw-bold); line-height: var(--dkj-lh-tight); }
+.dkj-question-head h5 { margin: 0; font-size: var(--text-h5); font-weight: var(--dkj-fw-bold); line-height: var(--dkj-lh-tight); }
 .dkj-question-head .dkj-chip { min-width: 0; margin-left: auto; text-align: right; }
 .dkj-verdict { margin: 0 0 var(--spacing-1-5); font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); line-height: var(--dkj-lh-snug); }
 

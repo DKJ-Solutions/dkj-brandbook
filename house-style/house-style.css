@@ -99,6 +99,8 @@
   --text-h0: 48px; --text-h1: 40px; --text-h2: 32px; --text-h3: 24px;
   --text-h4: 22px; --text-h5: 18px; --text-h6: 16px;
   --text-lg: 18px; --text-base: 14px; --text-sm: 12px; --text-xs: 11px;
+  /* the serif h1 and h2 are set in; a component whose title keeps that face at another level takes it from here */
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif", serif;
 
   /* app-shell sizes, same in both modes (built from the spacing scale; see "App components" at the end):
      the height of a value field and of the button beside it, the minimum touch target, the height of
@@ -179,7 +181,7 @@ body > header, main > header { display: flex; justify-content: space-between; al
    external requests): Iowan Old Style (macOS/iOS), Palatino Linotype (Windows), Georgia,
    Noto Serif (Android/Linux). Their bold is heavier than the sans 600, so the tracking is
    pulled in slightly. h3 stays in the body sans. */
-h1, h2 { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Noto Serif", serif;
+h1, h2 { font-family: var(--font-serif);
   font-weight: 600; letter-spacing: -0.01em; }
 /* The theme's colour, as text. :where() keeps it at zero specificity, so a heading inside a coloured container
    (or one an app colours itself) wins without an override. */
@@ -490,7 +492,7 @@ html:has(dialog:modal) { overflow: hidden; }
   padding: 0 calc(var(--spacing-4) + var(--tap) + var(--spacing-2)) 0 var(--spacing-4); border-bottom: 1px solid var(--primary-4); }
 .dialog--drawer .dialog__head--two { padding-right: calc(var(--spacing-4) + 2 * var(--tap) + var(--spacing-4)); }
 .dialog--drawer .dialog__head--back { padding: 0 var(--spacing-4) 0 calc(var(--spacing-4) + var(--tap) + var(--spacing-2)); }
-.dialog--drawer .dialog__title { font-size: var(--text-lg); font-weight: 700; }   /* as the name in the top bar */
+.dialog--drawer .dialog__title { font-size: var(--text-h5); font-weight: 700; }   /* as the name in the top bar */
 .dialog--drawer .dialog__close { top: calc((var(--topbar-h) - var(--tap)) / 2 + env(safe-area-inset-top)); }
 .dialog--drawer::backdrop { animation: house-backdrop-in 220ms ease-out; }
 @keyframes house-drawer-in { from { transform: translateX(100%); } }

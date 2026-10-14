@@ -1,7 +1,10 @@
-import type { ReactNode } from 'react'
+import { createContext, useContext, type ReactNode } from 'react'
 import { cx } from './cx'
 import { Icon, type IconName } from './Icon'
 import './surfaces.css'
+
+/** The card's variant, so CardHead picks the heading element whose token its title is set in. */
+const CardVariant = createContext<'default' | 'data'>('default')
 
 /**
  * Card -- the main surface. flush: no padding, the head and body bring their own.
@@ -28,13 +31,14 @@ export function Card({
     <section
       className={cx('dkj-card', flush && 'dkj-card--flush', variant === 'data' && 'dkj-card--data', invalid && 'dkj-card--invalid', open && 'dkj-card--open', className)}
     >
-      {children}
+      <CardVariant.Provider value={variant}>{children}</CardVariant.Provider>
     </section>
   )
 }
 
 /**
  * CardHead -- a centred title (optionally with an accent icon), and below it the card's actions over the full width.
+ * The title is an <h6> (--text-h6), or an <h2> (--text-h2) in a data card: a heading takes the token of its own level.
  * subtitle: a muted line under the title. info: a slot after the title text, for an inline RoundToggle.
  */
 export function CardHead({
@@ -50,13 +54,14 @@ export function CardHead({
   info?: ReactNode
   actions?: ReactNode
 }) {
+  const Title = useContext(CardVariant) === 'data' ? 'h2' : 'h6'
   return (
     <div className="dkj-card-head">
-      <h2 className={cx('dkj-card-title', icon && 'dkj-card-title--icon')}>
+      <Title className={cx('dkj-card-title', icon && 'dkj-card-title--icon')}>
         {icon && <Icon name={icon} className="dkj-card-icon" />}
         {title}
         {info}
-      </h2>
+      </Title>
       {subtitle && <p className="dkj-card-sub">{subtitle}</p>}
       {actions}
     </div>
