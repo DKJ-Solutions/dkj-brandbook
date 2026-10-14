@@ -10,16 +10,10 @@ const GROUPS: readonly { verdict: string; findings: readonly Finding[] }[] = [
     verdict: 'Strong candidates -- one pattern, two names',
     findings: [
       {
-        title: 'SaveButton and Button primary',
-        components: ['SaveButton', 'Button'],
-        why: 'Both are an accent fill with the on-accent text. Primary is always full width with a border; SaveButton has neither.',
-        proposal: 'SaveButton becomes Button variant="primary", with the width set by the existing block prop.',
-      },
-      {
         title: 'StatTile and MiniCard',
         components: ['StatTile', 'MiniCard'],
-        why: 'Both are a bordered tile with a small muted label and a 600-weight figure. Only radius, padding, figure size and grid column width differ.',
-        proposal: 'One Tile with size="md" | "sm", keeping the info, tone, highlight and children slots.',
+        why: 'Both are a bordered tile with a small muted label and a 600-weight figure. StatTile has a --primary-2 background and a 12px radius; MiniCard has no background and a 10px radius. Padding, figure size and grid column width differ too.',
+        proposal: 'One Tile with size="md" | "sm", keeping the highlight and children slots. The info and tone slots exist on StatTile only, so they are a merge target, not current.',
       },
       {
         title: 'Banner warn and Alert',
@@ -45,22 +39,10 @@ const GROUPS: readonly { verdict: string; findings: readonly Finding[] }[] = [
     verdict: 'Borderline -- closely related, but each has a role of its own',
     findings: [
       {
-        title: 'DownloadButton and Button',
-        components: ['DownloadButton', 'Button'],
-        why: 'A full-width bordered button; the difference is that it is an <a download> with an icon.',
-        proposal: 'Possibly Button with href and icon.',
-      },
-      {
-        title: 'ResetButton',
-        components: ['Stepper', 'Button'],
-        why: 'Accent text without a fill, shown beside the Stepper: in effect a Button variant="text" the set does not have yet.',
-        proposal: 'Possibly a text variant of Button.',
-      },
-      {
-        title: 'AnswerBox and TintedPanel accent',
-        components: ['AnswerBox', 'TintedPanel'],
-        why: 'Both are an accent-tinted box: 10% without a border against 7% with one.',
-        proposal: 'Possibly TintedPanel with a fixed label-and-value layout.',
+        title: 'Banner accent, AnswerBox and TintedPanel accent',
+        components: ['Banner', 'AnswerBox', 'TintedPanel'],
+        why: 'Three accent-tinted boxes: Banner accent is a 10% tint with a 35% border, AnswerBox 10% without a border, TintedPanel accent 7% with one.',
+        proposal: 'One decision for all three, e.g. a single tinted surface with a fixed label-and-value layout as one option.',
       },
       {
         title: 'Chip and TitleTag',
@@ -94,9 +76,9 @@ const GROUPS: readonly { verdict: string; findings: readonly Finding[] }[] = [
         why: 'They already share their internals: the chart frame, the keyboard handling, the tooltip and the table.',
       },
       {
-        title: 'GroupHeading and CalcSection',
+        title: 'GroupHeading and the AnswerBox question heading',
         components: ['GroupHeading', 'AnswerBox'],
-        why: 'A muted uppercase section label against the bold question heading of a calculation block: a different look and a different job.',
+        why: 'A muted uppercase section label against the bold question heading of a calculation block (the AnswerBox pattern; CalcSection is not a component of its own): a different look and a different job.',
       },
     ],
   },

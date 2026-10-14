@@ -35,40 +35,6 @@
 .dkj-drawer-footer { margin-top: auto; padding-top: var(--spacing-6); }
 .dkj-drawer-footer > .dkj-msg { margin-top: var(--spacing-3); }
 
-.dkj-download {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-2-5);
-  width: 100%;
-  min-height: var(--dkj-tap);
-  padding: var(--spacing-3);
-  font: inherit;
-  font-weight: var(--dkj-fw-semibold);
-  line-height: var(--dkj-lh-tight);
-  text-align: center;
-  text-decoration: none;
-  color: var(--neutral-5);
-  background: var(--primary-1);
-  border: 1px solid var(--primary-4);
-  border-radius: var(--dkj-radius-md);
-  cursor: pointer;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  transition: border-color var(--dkj-duration-base) var(--dkj-ease-out), transform var(--dkj-duration-fast) var(--dkj-ease-out);
-}
-.dkj-download svg { flex: none; }
-.dkj-download:focus-visible, .dkj-download[data-demo-state='focus'] { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
-.dkj-download:active, .dkj-download[data-demo-state='active'] { transform: translateY(1px); border-color: var(--primary-5); }
-.dkj-download[data-demo-state='hover'] { border-color: var(--primary-5); }
-@media (hover: hover) {
-  .dkj-download:hover { border-color: var(--primary-5); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .dkj-download { transition: none; }
-  .dkj-download:active { transform: none; }
-}
-
 /* ---------- StepHeader ---------- */
 .dkj-stephead { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) 5.5rem; align-items: center; gap: var(--spacing-2); }
 .dkj-stephead .dkj-btn { width: 100%; margin: 0; }

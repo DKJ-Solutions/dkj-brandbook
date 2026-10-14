@@ -3,7 +3,7 @@ import { Button, RoundToggle, SegmentedChoice } from '../../components/Button'
 import { Dialog, DialogActions, DialogLabel } from '../../components/Dialog'
 import { Disclosure, Message, Tooltip } from '../../components/Feedback'
 import { Stepper } from '../../components/Field'
-import { DownloadButton, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, StepHeader, TopBar } from '../../components/Navigation'
+import { DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, StepHeader, TopBar } from '../../components/Navigation'
 import { RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
 import { HouseDialogsDemo, HouseMenuDemo, HouseSettingsDemo, HouseTopBarDemo } from './HouseApp'
@@ -76,7 +76,7 @@ export function Overlays() {
             <InfoRow value={null} onEdit={() => undefined} />
           </InfoRows>
           <DialogActions>
-            <Button variant="primary">Primary action</Button>
+            <Button variant="primary" block>Primary action</Button>
           </DialogActions>
         </Dialog>
 
@@ -176,15 +176,6 @@ export function Overlays() {
         </Demo>
       </Section>
 
-      <Section id="DownloadButton" title="DownloadButton" intro="A soft full-width link button. Its border turns accent on hover and while pressed.">
-        <Demo label="Rest / hover / focus / active">
-          <DownloadButton href="#DownloadButton">Download offline version</DownloadButton>
-          <a className="dkj-download" data-demo-state="hover" href="#DownloadButton">Hover</a>
-          <a className="dkj-download" data-demo-state="focus" href="#DownloadButton">Focus</a>
-          <a className="dkj-download" data-demo-state="active" href="#DownloadButton">Active</a>
-        </Demo>
-      </Section>
-
       <Section id="StepHeader" title="StepHeader" intro="Back, a large value exactly centred between two equal side columns, and forward. Both buttons are identical in size.">
         <Demo label="Interactive (1 to 10)">
           <StepHeader value={step} onBack={() => setStep(step - 1)} onForward={() => setStep(step + 1)} canBack={step > 1} canForward={step < 10} />
@@ -239,7 +230,7 @@ function DrawerMenu() {
         </Disclosure>
       </div>
       <DrawerFooter>
-        <DownloadButton href="#TopBar">Download offline version</DownloadButton>
+        <Button href="#TopBar" download icon="download" block>Download offline version</Button>
         <Message>One file you open in your browser, without internet.</Message>
       </DrawerFooter>
     </>

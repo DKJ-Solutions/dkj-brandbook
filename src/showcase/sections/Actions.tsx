@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Button, CardActions, FilterChips, IconButton, RoundToggle, SaveButton, SegmentedChoice } from '../../components/Button'
+import { Button, CardActions, FilterChips, IconButton, RoundToggle, SegmentedChoice } from '../../components/Button'
+import { Stepper } from '../../components/Field'
 import { Demo, Section } from '../Showcase'
 import { HouseButtonsDemo, HouseFocusDemo } from './HouseApp'
 
@@ -41,18 +42,22 @@ export function Actions() {
   const [listChoice, setListChoice] = useState<'a' | 'b' | 'c' | 'd'>('a')
   const [view, setView] = useState<'primary' | 'secondary'>('primary')
   const [pressed, setPressed] = useState(false)
+  const [amount, setAmount] = useState(12)
   const [help, setHelp] = useState(false)
   const [inline, setInline] = useState(false)
   return (
     <>
-      <Section id="Button" title="Button" intro="One text button with four variants and a compact size. The compact size keeps a 44px tap area around its 36px face.">
+      <Section id="Button" title="Button" intro="One text button with four variants, a compact size, an optional icon and an accent tone for the outline. With href it is a link that looks the same. Width is content-sized unless block is set. The compact size keeps a 44px tap area around its 36px face.">
         <Demo label="Variants">
           <div className="bb-row">
             <Button>Default</Button>
             <Button variant="outline">Outline</Button>
             <Button variant="positive">Positive</Button>
           </div>
-          <Button variant="primary">Primary (full width)</Button>
+          <div className="bb-row">
+            <Button variant="primary">Primary (content width)</Button>
+          </div>
+          <Button variant="primary" block>Primary (block)</Button>
         </Demo>
         <Demo label="States -- default">
           <div className="bb-row">
@@ -69,8 +74,28 @@ export function Actions() {
           </div>
         </Demo>
         <Demo label="Primary -- states">
-          <Button variant="primary" data-demo-state="focus">Focus</Button>
-          <Button variant="primary" disabled>Disabled</Button>
+          <div className="bb-row">
+            <Button variant="primary">Rest</Button>
+            <Button variant="primary" data-demo-state="focus">Focus</Button>
+            <Button variant="primary" disabled>Disabled</Button>
+          </div>
+        </Demo>
+        <Demo label="Accent outline -- beside a Stepper (reset), rest / focus / disabled">
+          <div className="bb-row">
+            <Stepper label="Amount" value={amount} onChange={setAmount} />
+            <Button variant="outline" tone="accent" onClick={() => setAmount(12)}>Reset</Button>
+            <Button variant="outline" tone="accent" data-demo-state="focus">Focus</Button>
+            <Button variant="outline" tone="accent" disabled>Disabled</Button>
+          </div>
+        </Demo>
+        <Demo label="Link with icon -- a download: rest / hover / focus / active / disabled">
+          <Button href="#Button" download icon="download" block>Download offline version</Button>
+          <div className="bb-row">
+            <Button href="#Button" download icon="download" data-demo-state="hover">Hover</Button>
+            <Button href="#Button" download icon="download" data-demo-state="focus">Focus</Button>
+            <Button href="#Button" download icon="download" data-demo-state="active">Active</Button>
+            <Button href="#Button" icon="download" aria-disabled="true">Disabled</Button>
+          </div>
         </Demo>
         <Demo label="House .btn / .btn--primary -- rest / disabled">
           <div className="bb-row">
@@ -85,16 +110,6 @@ export function Actions() {
         </Demo>
         <Demo label="House .seg / .info-button / .more / .sort / .chart .bar / .moretoggle -- tab through for the focus rings">
           <HouseFocusDemo />
-        </Demo>
-      </Section>
-
-      <Section id="SaveButton" title="SaveButton" intro="The most prominent button in a box. It only becomes active once there is something to save.">
-        <Demo label="Enabled / focus / disabled">
-          <div className="bb-row">
-            <SaveButton />
-            <SaveButton data-demo-state="focus" />
-            <SaveButton disabled />
-          </div>
         </Demo>
       </Section>
 

@@ -1,39 +1,63 @@
-import { useRef, type ButtonHTMLAttributes, type CSSProperties, type ReactNode, type Ref } from 'react'
+import { useRef, type AnchorHTMLAttributes, type ButtonHTMLAttributes, type CSSProperties, type ReactNode, type Ref } from 'react'
 import { cx } from './cx'
 import { Icon, type IconName } from './Icon'
 import './buttons.css'
 
 type Native = ButtonHTMLAttributes<HTMLButtonElement>
+type Anchor = AnchorHTMLAttributes<HTMLAnchorElement>
+
+/** The look props; tone belongs to the outline variant only. */
+type Look = { size?: 'md' | 'compact'; block?: boolean; icon?: IconName } & (
+  | { variant?: 'default' | 'primary' | 'positive' | 'outline'; tone?: undefined }
+  | { variant: 'outline'; tone?: 'accent' }
+)
+type ButtonProps = Look & Native & { href?: undefined }
+type LinkProps = Look & Anchor & { href: string }
 
 /**
- * Button -- the text button.
- * default: surface fill with a border. primary: accent fill, full width. positive: green gradient.
- * outline: transparent with a muted border in the text colour (a quiet "back").
+ * Button -- the text button; with href it renders as a link (<a>) that looks the same.
+ * default: surface fill with a border. primary: accent fill, as wide as its content (the most prominent button in a box).
+ * positive: green gradient. outline: transparent with a muted border in the text colour (a quiet "back").
+ * tone="accent" (outline only): accent text and border -- a quiet reset beside a Stepper.
  * size="compact": 36px, uppercase, tracked -- the tap area stays 44px.
+ * block: full width; width is only ever set by this prop.
+ * icon: a stroke icon before the label.
+ * href: renders a link; pass download etc. as on an <a>. A disabled link (aria-disabled="true") is inert:
+ * it renders without href, leaves the tab order and ignores clicks.
  */
-export function Button({
-  variant = 'default',
-  size = 'md',
-  block,
-  className,
-  type = 'button',
-  ...rest
-}: Native & { variant?: 'default' | 'primary' | 'positive' | 'outline'; size?: 'md' | 'compact'; block?: boolean }) {
+export function Button(props: ButtonProps | LinkProps) {
+  return props.href === undefined ? <NativeButton {...props} /> : <LinkButton {...props} />
+}
+
+function look({ variant = 'default', size, block, tone }: Pick<Look, 'variant' | 'size' | 'block' | 'tone'>, className?: string) {
+  return cx('dkj-btn', `dkj-btn--${variant}`, tone === 'accent' && 'dkj-btn--accent', size === 'compact' && 'dkj-btn--compact', block && 'dkj-btn--block', className)
+}
+
+function NativeButton({ variant, size, block, icon, tone, className, children, type = 'button', ...rest }: ButtonProps) {
   return (
-    <button
-      type={type}
-      className={cx('dkj-btn', `dkj-btn--${variant}`, size === 'compact' && 'dkj-btn--compact', block && 'dkj-btn--block', className)}
-      {...rest}
-    />
+    <button type={type} className={look({ variant, size, block, tone } as Look, className)} {...rest}>
+      {icon && <Icon name={icon} />}
+      {children}
+    </button>
   )
 }
 
-/** SaveButton -- the most prominent button in a box: accent fill, no border. Disabled: visible, colourless, inert. */
-export function SaveButton({ className, type = 'button', children = 'Save', ...rest }: Native) {
+function LinkButton({ variant, size, block, icon, tone, className, children, href, onClick, ...rest }: LinkProps) {
+  const disabled = rest['aria-disabled'] === true || rest['aria-disabled'] === 'true'
   return (
-    <button type={type} className={cx('dkj-save', className)} {...rest}>
+    <a
+      className={look({ variant, size, block, tone } as Look, className)}
+      href={disabled ? undefined : href}
+      tabIndex={disabled ? -1 : undefined}
+      onClick={(e) => {
+        if (disabled) e.preventDefault()
+        else onClick?.(e)
+      }}
+      {...rest}
+    >
+      {icon && <Icon name={icon} />}
       {children}
-    </button>
+    </a>
   )
 }
 

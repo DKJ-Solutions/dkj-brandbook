@@ -116,7 +116,7 @@ function PlaylistManager() {
             <Button variant="outline" onClick={() => setConnected((c) => !c)}>
               {connected ? 'Disconnect' : 'Connect'}
             </Button>{' '}
-            <Button variant="primary" disabled={!connected}>
+            <Button variant="primary" block disabled={!connected}>
               Sync playlists
             </Button>
           </div>

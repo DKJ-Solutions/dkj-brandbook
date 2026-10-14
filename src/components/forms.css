@@ -64,7 +64,7 @@
 /* ---------- Stepper ---------- */
 .dkj-stepper { display: grid; grid-template-columns: var(--dkj-tap) 3.5rem var(--dkj-tap); gap: var(--spacing-1); }
 .dkj-stepper--lg { grid-template-columns: var(--dkj-control-lg) 5rem var(--dkj-control-lg); gap: var(--spacing-2); }
-.dkj-stepper button, .dkj-reset {
+.dkj-stepper button {
   height: var(--dkj-tap);
   padding: 0;
   font: inherit;
@@ -98,13 +98,12 @@
 .dkj-stepper--lg button, .dkj-stepper--lg input { height: var(--dkj-control-lg); }
 .dkj-stepper--lg input { font-size: var(--text-h4); font-weight: var(--dkj-fw-bold); }
 .dkj-stepper button:disabled { opacity: 0.5; cursor: not-allowed; }
-.dkj-reset { padding: 0 var(--spacing-3); font-size: var(--text-base); color: var(--primary-5); background: transparent; }
-.dkj-stepper button:active, .dkj-reset:active,
+.dkj-stepper button:active,
 .dkj-stepper button[data-demo-state='active'] {
   background: color-mix(in srgb, var(--primary-5) 16%, var(--primary-2));
   border-color: var(--primary-5);
 }
-.dkj-stepper button:focus-visible, .dkj-stepper input:focus-visible, .dkj-reset:focus-visible {
+.dkj-stepper button:focus-visible, .dkj-stepper input:focus-visible {
   outline: var(--dkj-focus-w) solid var(--primary-5);
   outline-offset: var(--dkj-focus-offset);
 }

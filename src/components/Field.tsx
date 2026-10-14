@@ -100,14 +100,6 @@ export function Stepper({
   )
 }
 
-export function ResetButton({ children = 'Reset', onClick }: { children?: ReactNode; onClick?: () => void }) {
-  return (
-    <button type="button" className="dkj-reset" onClick={onClick}>
-      {children}
-    </button>
-  )
-}
-
 /**
  * SearchCombobox -- the chosen value is a button laid over an invisible search input in the same cell; a tap
  * reveals the input and a list opens under it over the full width. The active option is tinted with an accent
