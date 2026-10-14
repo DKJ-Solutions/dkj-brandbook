@@ -39,12 +39,13 @@ main area keeps its light tint and the navigation gets a dark background.
 
 - [x] `src/showcase/showcase.css`: the nav's colours as `--bb-nav-*` variables, chosen per mode with `light-dark()` -- dark panel on light themes, unchanged tint on dark themes
 - [x] Brand name, group labels, links, hover, focus ring and the active-link focus ring read those variables
-- [x] `.bb-view` on `--primary-soft` instead of `--page`, so the views no longer share the main area's tint but still follow the theme (owner's follow-ups; an untinted `--surface-base` was tried first and looked the same in every theme)
+- [x] `.bb-view` on its own tint (8% of the primary over `--surface`) instead of `--page`, so the views no longer share the main area's tint but still follow the theme (owner's follow-ups; an untinted `--surface-base` looked the same in every theme, `--primary-soft` too present)
+- [x] `house-style/house-style.css` + `README.md`: the light tint halved -- `--page-tint` 12% -> 6%, `--surface-tint` 4% -> 2%, `--grid-tint` 12% -> 8%, the theme swatch preview to 6%; dark unchanged (owner: "a notch less, more white is fine")
 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at the navigation across the six light themes (and checked the dark ones are unchanged) and approved it
+- [ ] An owner has looked at the navigation, the softer light tint and the apps overview across the six light themes (and checked the dark ones are unchanged) and approved it
 
 ### DEPLOY: feat/dark-nav-on-light
 
@@ -52,7 +53,7 @@ main area keeps its light tint and the navigation gets a dark background.
 
 ##### Tier 0
 
-On a light theme the brand book's sidebar is now a dark panel -- near-black with 18% of the theme's primary, white links, light grey group labels and the brand name in a light tint of the primary -- so it stands apart from the light main area. Dark themes keep the tinted sidebar they had. The colours are showcase-only `--bb-nav-*` variables picked per mode with `light-dark()`; no house token changed. The views in the apps overview now sit on `--primary-soft` instead of the page colour: still the theme's tint, but a step deeper than the page and the card around them.
+On a light theme the brand book's sidebar is now a dark panel -- near-black with 18% of the theme's primary, white links, light grey group labels and the brand name in a light tint of the primary -- so it stands apart from the light main area. Dark themes keep the tinted sidebar they had. The colours are showcase-only `--bb-nav-*` variables picked per mode with `light-dark()`. The light themes' tint is also halved in the house style -- page 6% (was 12%), cards 2% (was 4%), lines 8% (was 12%) -- so a light page reads whiter; dark themes are unchanged. The views in the apps overview get their own tint, a step deeper than the page and the card around them, instead of the page colour.
 
 **Score:** 2
 
@@ -74,11 +75,11 @@ The brand book's own chrome; no change for management or a commissioner.
 
 ##### Tier 2
 
-The house style is untouched, so no app and no subscriber sees a change.
+No subscriber-facing change until an app takes the softer tint after a house-style release.
 
 **Score:** N/A
 
 #### Pull Request
 
-A dark brand book navigation on the light themes
+A dark brand book navigation and a softer tint on the light themes
 

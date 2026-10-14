@@ -21,7 +21,7 @@
    How far a theme reaches: every use of --primary (the pressed .seg, .btn--primary, .badge--info,
    .meter--info, the settings toggle, focus rings), every link, native checkboxes, radios and
    sliders (accent-color), the text caret and the selection. Beyond that, by default: the page, the
-   cards and tiles carry a light tint of the primary (--page, --surface; 12% / 4% on light, 10% / 14%
+   cards and tiles carry a light tint of the primary (--page, --surface; 6% / 2% on light, 10% / 14%
    on dark), the lines and borders a thinner one (--grid; --border, a line of about 15% opacity leaning to the primary), and h1 and h2 are set in the
    primary as text (--primary-ink). The neutral values live on as --page-base, --surface-base,
    --grid-base and --border-base. Status, direction and categorical colours are never tinted. The
@@ -40,11 +40,11 @@
   /* surfaces and ink */
   /* The neutral bases and how much of the theme's primary is mixed into each (the dark blocks set their
      own values). --page, --surface, --grid and --border below are derived from them, so every theme
-     tints the page, the cards and the lines with its own colour. Measured worst case: --ink-2 reaches
-     6.2:1 on the tinted light page (worst: Magenta, Paars) and 6.8:1 on the tinted dark surface (worst: Geel). */
-  --page-base: #f9f9f7;   --page-tint: 12%;
-  --surface-base: #fcfcfb; --surface-tint: 4%;
-  --grid-base: #e1e0d9;   --grid-tint: 12%;
+     tints the page, the cards and the lines with its own colour. Measured worst case: --ink-2 reaches at least
+     6.2:1 on the tinted light page (measured at the former 12% tint; worst: Magenta, Paars) and 6.8:1 on the tinted dark surface (worst: Geel). */
+  --page-base: #f9f9f7;   --page-tint: 6%;
+  --surface-base: #fcfcfb; --surface-tint: 2%;
+  --grid-base: #e1e0d9;   --grid-tint: 8%;
   --border-base: rgba(11,11,11,0.10);  --border-tint: 6%;   /* --border-base is translucent and the mix is premultiplied: 6% gives a line of about 15% opacity, leaning to the primary, about as visible as the old one */
   --page: color-mix(in srgb, var(--primary) var(--page-tint), var(--page-base));           /* page background */
   --surface: color-mix(in srgb, var(--primary) var(--surface-tint), var(--surface-base));  /* cards, tiles, tooltips */
@@ -377,8 +377,8 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 .theme-picker__label { font-size: var(--text-sm); font-weight: 600; color: var(--ink-2); }
 .theme-picker__swatches { display: flex; gap: var(--spacing-2); flex-wrap: wrap; }
 .theme-swatch { width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid var(--border); cursor: pointer; display: grid; place-items: center; }
-/* Each swatch previews its own theme's page: the page base with the same tint as --page-tint (12% light, 10% dark). */
-.theme-swatch--light { background: color-mix(in srgb, var(--swatch) 12%, #f9f9f7); }
+/* Each swatch previews its own theme's page: the page base with the same tint as --page-tint (6% light, 10% dark). */
+.theme-swatch--light { background: color-mix(in srgb, var(--swatch) 6%, #f9f9f7); }
 .theme-swatch--dark { background: color-mix(in srgb, var(--swatch) 10%, #0d0d0d); }
 .theme-swatch i { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--swatch); }
 .theme-swatch[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 2px; }   /* the chosen theme */
