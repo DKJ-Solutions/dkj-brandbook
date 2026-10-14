@@ -47,7 +47,7 @@ stale Overlap findings of #85 are corrected on the same branch, since the sectio
 
 ### TEST
 
-- [ ] An owner has looked at the Actions section (primary widths and disabled, link and accent outline), the
+- [x] An owner has looked at the Actions section (primary widths and disabled, link and accent outline), the
       Stepper with its Reset, the download button in the drawer and TopBar, and the new hover/press on default
       buttons, and approved it
 
