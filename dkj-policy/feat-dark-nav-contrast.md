@@ -35,17 +35,18 @@
 On the dark themes the brand book's navigation (`.bb-nav`) sat only a shade lighter than the page beside it
 (`.bb-main`), so the two read as one plane. The light themes already set it apart with a near-black panel;
 the dark themes get the mirror image: a panel light enough to carry black text (owner's correction: a mid grey
-with white text was not light enough).
+with white text was not light enough), and that light colour is the theme's own fixed `--primary-6`
+(owner's correction).
 
 ### CREATE
 
-- [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` becomes 14% of the theme colour over
-  `#fcfcfb`, with black text (`#0b0b0b`) and dark grey labels (`#52514e`); the heading and focus ring take the
-  theme colour darkened, the current link fills with that darkened colour under white text, and the border
-  line goes, as on light. The light themes are unchanged.
-- [x] Contrast measured in all six dark themes: panel to page 14.8:1 or more, black text 17:1 or better,
-  grey labels 6.8:1 or better, the "Contents" heading 5.3:1 or better, black on hover 13.5:1 or better,
-  white on the current link 5.9:1 or better
+- [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` becomes `--primary-6`, with black text
+  (`#0b0b0b`) and dark grey labels (`#2e2d2b`); the heading and focus ring take the theme colour darkened
+  (30% over `#141413`), the current link fills with that darkened colour under white text, the hover darkens
+  the panel by 12%, and the border line goes, as on light. The light themes are unchanged.
+- [x] Contrast measured in all six dark themes: panel to page 8.2:1 or more, black text 9.4:1 or better,
+  grey labels 6.6:1 or better, the "Contents" heading 5.1:1 or better, black on hover 7.5:1 or better,
+  white on the current link 8.9:1 or better
 
 ### TEST
 
@@ -58,7 +59,7 @@ with white text was not light enough).
 
 ##### Tier 0
 
-The brand book's navigation panel on the dark themes is now near-white with a touch of the theme colour and
+The brand book's navigation panel on the dark themes is now the theme's own light colour (`--primary-6`) with
 black text, the mirror image of the near-black panel with white text on the light themes, so it stands clearly
 apart from the page. Only the
 brand book's own chrome changes; no house token or component does.
