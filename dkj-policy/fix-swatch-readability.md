@@ -32,11 +32,18 @@
 
 ### PLAN
 
+The token swatches in the `bb-demo-stage--surface` stages were hard to read: name and value had the same
+size and colour, and a `color-mix(...)` value broke mid-word ("color-" / "mix").
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Swatch: name semibold in `--ink`, value mono `--text-xs` in `--ink-2`, chip aligned with the name
+- [x] A value wraps only after a comma (each comma-separated part is `nowrap`); grid column 11rem -> 13rem
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
+
+- [ ] An owner has looked at the Tokens section and approved it
 
 ### DEPLOY: fix/swatch-readability
 
@@ -44,7 +51,11 @@
 
 ##### Tier 0
 
-**Score:**
+The colour swatches in the brand book's Tokens section read as a name over its value: the name is
+semibold in ink, the value smaller and monospaced in ink-2, and a `color-mix()` value now wraps only
+after a comma instead of breaking inside a word.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+Only the brand book's own showcase changes; no app or house token is touched.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing surface changes.
+
+**Score:** N/A
 
 #### Pull Request
 
