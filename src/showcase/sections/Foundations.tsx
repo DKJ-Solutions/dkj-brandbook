@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Icon, ICON_NAMES } from '../../components/Icon'
 import { Demo, Section } from '../Showcase'
 import { HouseThemeReachDemo } from './HouseApp'
@@ -44,21 +44,95 @@ const READOUTS = [...TINTS, ...FOCUS, ...MOTION, '--dkj-font-mono'] as const
 const RADII = ['xs', 'sm', 'md', 'md-plus', 'lg', 'xl', 'pill'] as const
 const CONTROLS = ['inline-toggle', 'control-dense', 'control-compact', 'control-h', 'tap', 'control-lg'] as const
 
-type Swatch = { name: string; value: string | undefined }
+/** value: as computed (every var() already filled in). declared: as written in the stylesheet, var() names intact. */
+type Swatch = { name: string; value: string | undefined; declared: string | undefined }
+
+/**
+ * A custom property as WRITTEN on the root -- the computed value has every var() substituted, which turns
+ * "var(--primary) 7%, var(--surface)" into nested hexes nobody can read. The last matching declaration wins:
+ * the theme rules come after the base rule, and a media block counts only while it matches.
+ */
+function readDeclared(names: string[]): Record<string, string> {
+  const root = document.documentElement
+  const found: Record<string, string> = {}
+  const walk = (rules: CSSRuleList) => {
+    for (const rule of Array.from(rules)) {
+      if (rule instanceof CSSMediaRule) {
+        if (window.matchMedia(rule.conditionText).matches) walk(rule.cssRules)
+      } else if (rule instanceof CSSStyleRule && root.matches(rule.selectorText)) {
+        for (const n of names) {
+          const v = rule.style.getPropertyValue(n).trim()
+          if (v) found[n] = v
+        }
+      }
+    }
+  }
+  for (const sheet of Array.from(document.styleSheets)) {
+    try {
+      walk(sheet.cssRules)
+    } catch {
+      // A cross-origin sheet (a web font) cannot be read, and declares no tokens.
+    }
+  }
+  return found
+}
+
+const hex2 = (n: number) => n.toString(16).padStart(2, '0')
+
+/** The colour a CSS colour value resolves to, as #rrggbb (or #rrggbbaa when it is translucent), painted on a 1px canvas. */
+function resolveHex(value: string): string | undefined {
+  const ctx = document.createElement('canvas').getContext('2d', { willReadFrequently: true })
+  if (!ctx) return undefined
+  ctx.fillStyle = value
+  ctx.fillRect(0, 0, 1, 1)
+  const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data
+  return `#${hex2(r)}${hex2(g)}${hex2(b)}${a < 255 ? hex2(a) : ''}`
+}
+
+const unvar = (s: string) => s.replace(/var\((--[\w-]+)\)/g, '$1')
+
+/**
+ * A declared color-mix() as a recipe in token names: "color-mix(in srgb, var(--primary) 7%, var(--surface))"
+ * reads ["--surface", "+ 7% --primary"] -- the base, then how much of which colour goes through it. A share
+ * that is itself a token (--surface-tint) shows its value. undefined when it is neither a mix nor an alias.
+ */
+function mixRecipe(declared: string): string[] | undefined {
+  // An alias (--dkj-surface: var(--surface)) names the token it stands for.
+  const alias = /^var\((--[\w-]+)\)$/.exec(declared)
+  if (alias) return [`= ${alias[1]}`]
+  const m = /^color-mix\(in srgb,\s*(.+?)\s+([\d.]+%|var\(--[\w-]+\)),\s*(.+)\)$/.exec(declared)
+  if (!m) return undefined
+  const [, color, share, base] = m
+  const pct = share.startsWith('var(') ? getComputedStyle(document.documentElement).getPropertyValue(unvar(share)).trim() : share
+  return [unvar(base), `+ ${pct} ${unvar(color)}`]
+}
 
 function SwatchGrid({ items }: { items: Swatch[] }) {
   return (
     <div className="bb-swatches">
-      {items.map(({ name, value }) => (
-        <div key={name} className="bb-swatch">
-          <span className="bb-swatch-chip" style={{ background: `var(${name})` }} />
-          <span>
-            <code>{name}</code>
-            <br />
-            {value}
-          </span>
-        </div>
-      ))}
+      {items.map(({ name, value, declared }) => {
+        const recipe = declared ? mixRecipe(declared) : undefined
+        return (
+          <div key={name} className="bb-swatch">
+            <span className="bb-swatch-chip" style={{ background: `var(${name})` }} />
+            <span className="bb-swatch-text">
+              <code className="bb-swatch-name">{name}</code>
+              {/* A mix shows the colour it comes to, then its recipe; a plain value shows itself. */}
+              <span className="bb-swatch-value">{recipe ? resolveHex(value!) : value}</span>
+              {recipe && (
+                <span className="bb-swatch-recipe" title={declared}>
+                  {recipe.map((step, i) => (
+                    <Fragment key={i}>
+                      {i > 0 && ' '}
+                      <span>{step}</span>
+                    </Fragment>
+                  ))}
+                </span>
+              )}
+            </span>
+          </div>
+        )
+      })}
     </div>
   )
 }
@@ -82,6 +156,7 @@ function Readouts({ names, values }: { names: readonly string[]; values: Record<
 export function Foundations() {
   const theme = useThemeId()
   const [values, setValues] = useState<Record<string, string>>({})
+  const [declared, setDeclared] = useState<Record<string, string>>({})
   useEffect(() => {
     // Re-read when the house theme changes (useThemeId also fires when the OS scheme moves the default theme).
     const cs = getComputedStyle(document.documentElement)
@@ -91,6 +166,7 @@ export function Foundations() {
       ...READOUTS,
     ]
     setValues(Object.fromEntries(names.map((n) => [n, cs.getPropertyValue(n).trim()])))
+    setDeclared(readDeclared(names))
   }, [theme])
 
   return (
@@ -101,11 +177,11 @@ export function Foundations() {
     >
       {Object.entries(HOUSE_COLORS).map(([group, names]) => (
         <Demo key={group} label={`House colour -- ${group}`} wide>
-          <SwatchGrid items={names.map((n) => ({ name: `--${n}`, value: values[`--${n}`] }))} />
+          <SwatchGrid items={names.map((n) => ({ name: `--${n}`, value: values[`--${n}`], declared: declared[`--${n}`] }))} />
         </Demo>
       ))}
       <Demo label="Brand layer colour (--dkj-*)" wide>
-        <SwatchGrid items={LAYER_COLORS.map((n) => ({ name: `--dkj-${n}`, value: values[`--dkj-${n}`] }))} />
+        <SwatchGrid items={LAYER_COLORS.map((n) => ({ name: `--dkj-${n}`, value: values[`--dkj-${n}`], declared: declared[`--dkj-${n}`] }))} />
       </Demo>
       <Demo label="Theme reach -- links, native controls, selection, and the opt-in --accent modifiers" wide>
         <HouseThemeReachDemo />
