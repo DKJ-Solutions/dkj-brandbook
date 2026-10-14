@@ -62,6 +62,9 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] The theme group on the same scale, ground to text: `--page`, `--surface`, `--primary-soft`, `--border`, `--grid`, `--primary`, `--primary-ink` → `--primary-1` … `--primary-7` (owner's follow-up)
 - [x] `--muted` removed; its uses (notes, quiet icons, chevrons, the select arrow) take `--neutral-4`, and the `.muted` class keeps its name (owner's follow-up)
 - [x] `--cat-1` .. `--cat-3` split off into a "categories" subgroup, beside "status colours", in the showcase and the README (owner's follow-up)
+- [x] Light flipped so the page is the ground end: `--neutral-1` #fcfcfb and `--neutral-2` #f9f9f7, page tint 2% and surface tint 6% (were the other way round), the light picker swatch to match (owner's decision)
+- [x] `--primary-5` (the grid line) merged into `--primary-4`, `--grid-tint` dropped, and `--primary-6`/`-7` renumbered to `-5`/`-6` (owner's follow-up)
+- [x] `--neutral-3` a pure grey: #d1d1d1 light, #333333 dark (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST

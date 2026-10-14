@@ -34,7 +34,7 @@
 
 /* near / today: bar + tint + bold, plus the word beside the date. */
 .dkj-daterow--near,
-.dkj-daterow--today { background: var(--primary-3); box-shadow: inset 3px 0 0 var(--primary-6); }
+.dkj-daterow--today { background: var(--primary-3); box-shadow: inset 3px 0 0 var(--primary-5); }
 .dkj-daterow--near .dkj-daterow-when,
 .dkj-daterow--today .dkj-daterow-when { font-weight: var(--dkj-fw-bold); color: var(--neutral-5); }
 
@@ -48,6 +48,6 @@
 .dkj-daterow-title a { color: inherit; text-decoration: underline; text-underline-offset: 0.15em; }
 .dkj-daterow-title a::after { content: ''; position: absolute; inset: 0; }
 .dkj-daterow-title a:focus-visible { outline: none; }
-.dkj-daterow-title a:focus-visible::after { outline: var(--dkj-focus-w) solid var(--primary-6); outline-offset: calc(-1 * var(--dkj-focus-w)); }
+.dkj-daterow-title a:focus-visible::after { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: calc(-1 * var(--dkj-focus-w)); }
 .dkj-daterow--link { cursor: pointer; }
 .dkj-daterow--link:hover { background: var(--primary-3); }

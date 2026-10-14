@@ -6,7 +6,7 @@ import { useThemeId } from '../theme'
 
 /** House colour tokens (house-style/house-style.css), grouped by what a theme switch changes, as in house-style/README.md. */
 const HOUSE_COLORS = {
-  'changes with every theme': ['primary-1', 'primary-2', 'primary-3', 'primary-4', 'primary-5', 'primary-6', 'primary-7'],
+  'changes with every theme': ['primary-1', 'primary-2', 'primary-3', 'primary-4', 'primary-5', 'primary-6'],
   'changes only between light and dark -- black, white and grey': [
     'neutral-1', 'neutral-2', 'neutral-3', 'neutral-4', 'neutral-5',
   ],
@@ -17,7 +17,7 @@ const HOUSE_COLORS = {
 } as const
 
 /** How much of the primary each house surface takes (set per mode). */
-const TINTS = ['--page-tint', '--surface-tint', '--grid-tint', '--border-tint'] as const
+const TINTS = ['--page-tint', '--surface-tint', '--border-tint'] as const
 
 const TEXT_SIZES = [
   '--text-h0', '--text-h1', '--text-h2', '--text-h3', '--text-h4', '--text-h5', '--text-h6',
@@ -46,7 +46,7 @@ type Swatch = { name: string; value: string | undefined; declared: string | unde
 
 /**
  * A custom property as WRITTEN on the root -- the computed value has every var() substituted, which turns
- * "var(--primary-6) 7%, var(--primary-2)" into nested hexes nobody can read. The last matching declaration wins:
+ * "var(--primary-5) 7%, var(--primary-2)" into nested hexes nobody can read. The last matching declaration wins:
  * the theme rules come after the base rule, and a media block counts only while it matches.
  */
 function readDeclared(names: string[]): Record<string, string> {
@@ -89,8 +89,8 @@ function resolveHex(value: string): string | undefined {
 const unvar = (s: string) => s.replace(/var\((--[\w-]+)\)/g, '$1')
 
 /**
- * A declared color-mix() as a recipe in token names: "color-mix(in srgb, var(--primary-6) 7%, var(--primary-2))"
- * reads ["--primary-2", "+ 7% --primary-6"] -- the base, then how much of which colour goes through it. A share
+ * A declared color-mix() as a recipe in token names: "color-mix(in srgb, var(--primary-5) 7%, var(--primary-2))"
+ * reads ["--primary-2", "+ 7% --primary-5"] -- the base, then how much of which colour goes through it. A share
  * that is itself a token (--surface-tint) shows its value. undefined when it is neither a mix nor an alias.
  */
 function mixRecipe(declared: string): string[] | undefined {

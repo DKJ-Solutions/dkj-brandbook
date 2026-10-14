@@ -18,12 +18,12 @@
        dark, both with those house defaults.
      The dark token block therefore appears twice; keep both in sync.
 
-   How far a theme reaches: every use of --primary-6 (the pressed .seg, .btn--primary, .badge--info,
+   How far a theme reaches: every use of --primary-5 (the pressed .seg, .btn--primary, .badge--info,
    .meter--info, the settings toggle, focus rings), every link, native checkboxes, radios and
    sliders (accent-color), the text caret and the selection. Beyond that, by default: the page, the
-   cards and tiles carry a light tint of the primary (--primary-1, --primary-2; 6% / 2% on light, 10% / 14%
-   on dark), the lines and borders a thinner one (--primary-5; --primary-4, a line of about 15% opacity leaning to the primary), and h1 and h2 are set in the
-   primary as text (--primary-7). The untinted neutrals live on as --neutral-1 .. --neutral-5. Status, direction and categorical colours are never tinted. The
+   cards and tiles carry a light tint of the primary (--primary-1, --primary-2; 2% / 6% on light, 10% / 14%
+   on dark), every line a thin one (--primary-4: borders, dividers, grid lines), and h1 and h2 are set in the
+   primary as text (--primary-6). The untinted neutrals live on as --neutral-1 .. --neutral-5. Status, direction and categorical colours are never tinted. The
    --accent modifiers (header, card, tile, table) carry it further where an app opts in.
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
@@ -38,20 +38,19 @@
   color-scheme: light;
 
   /* the neutral ramp: five steps from the ground to the text, flipped on dark (the dark blocks set their own) */
-  --neutral-1: #f9f9f7;   /* the ground: the page base, text and icons on the primary, the mark inside a status icon */
-  --neutral-2: #fcfcfb;   /* the raised plane: the surface base */
-  --neutral-3: #d2d1c8;   /* lines: the grid and border base, axes, info-button outline, neutral badge */
+  --neutral-1: #fcfcfb;   /* the ground: the page base, text and icons on the primary, the mark inside a status icon */
+  --neutral-2: #f9f9f7;   /* the next plane: the surface base, a shade off the ground in both modes */
+  --neutral-3: #d1d1d1;   /* lines: the grid and border base, axes, info-button outline, neutral badge */
   --neutral-4: #52514e;   /* secondary text, labels */
   --neutral-5: #0b0b0b;   /* primary text */
 
   /* surfaces and lines: a neutral with the theme's primary mixed in, so every theme tints the page, the cards
      and the lines with its own colour. Measured worst case: --neutral-4 reaches at least 6.2:1 on the tinted
      light page (measured at the former 12% tint; worst: Magenta, Paars) and 6.8:1 on the tinted dark surface (worst: Geel). */
-  --page-tint: 6%; --surface-tint: 2%; --grid-tint: 8%; --border-tint: 6%;
-  --primary-1: color-mix(in srgb, var(--primary-6) var(--page-tint), var(--neutral-1));        /* page background */
-  --primary-2: color-mix(in srgb, var(--primary-6) var(--surface-tint), var(--neutral-2));  /* cards, tiles, tooltips */
-  --primary-5: color-mix(in srgb, var(--primary-6) var(--grid-tint), var(--neutral-3));        /* row dividers, meter track, gridlines */
-  --primary-4: color-mix(in srgb, var(--primary-6) var(--border-tint), var(--neutral-3));
+  --page-tint: 2%; --surface-tint: 6%; --border-tint: 6%;
+  --primary-1: color-mix(in srgb, var(--primary-5) var(--page-tint), var(--neutral-1));        /* page background */
+  --primary-2: color-mix(in srgb, var(--primary-5) var(--surface-tint), var(--neutral-2));  /* cards, tiles, tooltips */
+  --primary-4: color-mix(in srgb, var(--primary-5) var(--border-tint), var(--neutral-3));      /* borders, row dividers, meter track, gridlines */
 
   /* categorical palette (series slots) */
   --cat-1: #2a78d6;
@@ -70,12 +69,12 @@
 
   /* the theme's primary colour: switches, primary buttons, info badges and meters.
      Light default Blauw; each [data-theme] below sets its own. */
-  --primary-6: #2563d0;
-  --primary-3: color-mix(in srgb, var(--primary-6) 14%, var(--primary-2));  /* a tint for backgrounds */
+  --primary-5: #2563d0;
+  --primary-3: color-mix(in srgb, var(--primary-5) 14%, var(--primary-2));  /* a tint for backgrounds */
   /* the primary as TEXT (links, h1, h2): 20% of --neutral-5 mixed in, so it darkens on light and lightens on dark.
      The tinted page is darker than the neutral one, and a bare Petrol or Oker link would fall to 4.0:1 on
      it; with this it is 5.4:1 or better in every theme (worst: Petrol, Roest, Oker, Magenta, light). */
-  --primary-7: color-mix(in srgb, var(--primary-6) 80%, var(--neutral-5));
+  --primary-6: color-mix(in srgb, var(--primary-5) 80%, var(--neutral-5));
 
   --warning-1: #fff4e0;     /* notice background */
   --negative-1: #fde8e8;    /* a background for a negative message: the same lightness as --warning-1, in red */
@@ -114,8 +113,8 @@
   --column-narrow: 512px;
 
   /* native controls (checkbox, radio, range, progress) and the text caret take the theme */
-  accent-color: var(--primary-6);
-  caret-color: var(--primary-6);
+  accent-color: var(--primary-5);
+  caret-color: var(--primary-5);
 }
 
 /* ---- Tokens: dark, following the OS unless the page forces a theme -------- */
@@ -124,11 +123,11 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
-    --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333331; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
-    --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
+    --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333333; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
+    --page-tint: 10%; --surface-tint: 14%; --border-tint: 8%;
     --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
     --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-    --primary-6: #2fc8d8;
+    --primary-5: #2fc8d8;
   }
 }
 
@@ -137,11 +136,11 @@
 :root[data-theme="pink"], :root[data-theme="lilac"], :root[data-theme="sky"],
 :root[data-theme="cyan"], :root[data-theme="yellow"], :root[data-theme="orange"] {
   color-scheme: dark;
-  --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333331; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
-  --page-tint: 10%; --surface-tint: 14%; --grid-tint: 20%; --border-tint: 8%;
+  --neutral-1: #0d0d0d; --neutral-2: #1a1a19; --neutral-3: #333333; --neutral-4: #c3c2b7; --neutral-5: #ffffff;
+  --page-tint: 10%; --surface-tint: 14%; --border-tint: 8%;
   --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70;
   --positive-5: #3fc23f; --negative-5: #ff7a7a; --positive-3: #25b225; --negative-3: #e66767; --warning-3: #ffc61a; --warning-5: #ffd75e; --warning-1: #3a2a10; --negative-1: #3a1414; --positive-1: #133a13;
-  --primary-6: #2fc8d8;
+  --primary-5: #2fc8d8;
 }
 
 /* ---- Themes: the primary colour ------------------------------------------ */
@@ -150,18 +149,18 @@
    two whose primary sits next to the warning colour move the warning away from it. No red and
    no green theme: those hues mean bad and good. Order: magenta, purple, blue, teal, ochre, rust (light);
    pink, lilac, sky, cyan, yellow, orange (dark). */
-:root[data-theme="magenta"] { --primary-6: #c0258f; }
-:root[data-theme="purple"]  { --primary-6: #7a3fd6; }
-:root[data-theme="blue"]    { --primary-6: #2563d0; }
-:root[data-theme="teal"]    { --primary-6: #0f7c86; }
-:root[data-theme="ochre"]   { --primary-6: #7a6b00; }
-:root[data-theme="rust"]    { --primary-6: #ad5a0a; --warning-3: #b88a00; }
-:root[data-theme="pink"]    { --primary-6: #ff7ac8; }
-:root[data-theme="lilac"]   { --primary-6: #b69cff; }
-:root[data-theme="sky"]     { --primary-6: #5cb3ff; }
-:root[data-theme="cyan"]    { --primary-6: #2fc8d8; }
-:root[data-theme="yellow"]  { --primary-6: #f2c230; --warning-3: #f08a24; }
-:root[data-theme="orange"]  { --primary-6: #f5873a; }
+:root[data-theme="magenta"] { --primary-5: #c0258f; }
+:root[data-theme="purple"]  { --primary-5: #7a3fd6; }
+:root[data-theme="blue"]    { --primary-5: #2563d0; }
+:root[data-theme="teal"]    { --primary-5: #0f7c86; }
+:root[data-theme="ochre"]   { --primary-5: #7a6b00; }
+:root[data-theme="rust"]    { --primary-5: #ad5a0a; --warning-3: #b88a00; }
+:root[data-theme="pink"]    { --primary-5: #ff7ac8; }
+:root[data-theme="lilac"]   { --primary-5: #b69cff; }
+:root[data-theme="sky"]     { --primary-5: #5cb3ff; }
+:root[data-theme="cyan"]    { --primary-5: #2fc8d8; }
+:root[data-theme="yellow"]  { --primary-5: #f2c230; --warning-3: #f08a24; }
+:root[data-theme="orange"]  { --primary-5: #f5873a; }
 
 /* ---- Base ---------------------------------------------------------------- */
 * { box-sizing: border-box; }
@@ -190,7 +189,7 @@ h1, h2 { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
   font-weight: 600; letter-spacing: -0.01em; }
 /* The theme's colour, as text. :where() keeps it at zero specificity, so a heading inside a coloured container
    (or one an app colours itself) wins without an override. */
-:where(h1, h2) { color: var(--primary-7); }
+:where(h1, h2) { color: var(--primary-6); }
 h1 { font-size: var(--text-h1); margin: 0; }
 h2 { font-size: var(--text-h2); margin: 0 0 var(--spacing-1); }
 /* Flex so an .info-button sits on the heading's vertical centre, not on its baseline; the serif's
@@ -213,13 +212,13 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .delta--down, .neg { color: var(--negative-5); }
 
 /* ---- Links and selection ---------------------------------------------------- */
-/* A link (an <a> with an href) takes the theme's primary as text (--primary-7), visited or not: it reaches 4.5:1
+/* A link (an <a> with an href) takes the theme's primary as text (--primary-6), visited or not: it reaches 4.5:1
    on the tinted page and surface in every theme. :where() keeps each rule at zero specificity, so any class on an
    <a> (a .btn, a .menu-item, an app's own) wins over it without an override. */
-:where(a:any-link) { color: var(--primary-7); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+:where(a:any-link) { color: var(--primary-6); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 :where(a:any-link:hover) { text-decoration-thickness: 2px; }
-:where(a:any-link:focus-visible) { outline: 2px solid var(--primary-6); outline-offset: 2px; border-radius: 2px; }
-::selection { background: color-mix(in srgb, var(--primary-6) 30%, transparent); }
+:where(a:any-link:focus-visible) { outline: 2px solid var(--primary-5); outline-offset: 2px; border-radius: 2px; }
+::selection { background: color-mix(in srgb, var(--primary-5) 30%, transparent); }
 
 /* ---- Surfaces ------------------------------------------------------------- */
 .card { background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 12px; padding: var(--spacing-5); margin-top: var(--spacing-4); }
@@ -233,14 +232,14 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .mini-card__label { font-size: var(--text-sm); color: var(--neutral-4); }
 .mini-card__value { font-size: var(--text-lg); font-weight: 600; margin: var(--spacing-0-5) 0 var(--spacing-2); font-variant-numeric: tabular-nums; }
 .notice { background: var(--warning-1); border: 1px solid var(--primary-4); border-radius: 12px; padding: var(--spacing-3) var(--spacing-4); margin-top: var(--spacing-4); }
-.item { border-top: 1px solid var(--primary-5); padding: var(--spacing-2-5) 0; }
+.item { border-top: 1px solid var(--primary-4); padding: var(--spacing-2-5) 0; }
 .item b { display: block; font-size: var(--text-sm); margin-bottom: var(--spacing-0-5); }
 .item p { margin: 0; font-size: var(--text-sm); color: var(--neutral-4); }
 
 /* ---- Tables --------------------------------------------------------------- */
 .table-wrap { overflow-x: auto; }
 .table { border-collapse: collapse; width: 100%; font-size: var(--text-sm); }
-.table th, .table td { padding: var(--spacing-2) var(--spacing-2-5); text-align: right; border-bottom: 1px solid var(--primary-5); white-space: nowrap; }
+.table th, .table td { padding: var(--spacing-2) var(--spacing-2-5); text-align: right; border-bottom: 1px solid var(--primary-4); white-space: nowrap; }
 .table th { color: var(--neutral-4); font-weight: 600; }
 .table th:first-child, .table td:first-child { text-align: left; white-space: normal; min-width: 180px; }
 .table td { font-variant-numeric: tabular-nums; }
@@ -286,10 +285,10 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 
 /* ---- Meter ---------------------------------------------------------------- */
 /* Fill colour via --m: <span style="--m: var(--positive-3)"> or a .meter--* class on the meter. */
-.meter { height: 6px; border-radius: 3px; background: var(--primary-5); overflow: hidden; }
+.meter { height: 6px; border-radius: 3px; background: var(--primary-4); overflow: hidden; }
 .meter span { display: block; height: 100%; border-radius: 3px; background: var(--m); }
 .meter--good { --m: var(--positive-3); } .meter--warn { --m: var(--warning-3); }
-.meter--bad { --m: var(--negative-3); }   .meter--info { --m: var(--primary-6); }
+.meter--bad { --m: var(--negative-3); }   .meter--info { --m: var(--primary-5); }
 
 /* ---- Badge ---------------------------------------------------------------- */
 .badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%;
@@ -297,7 +296,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .badge--good    { --b: var(--positive-3); }
 .badge--warn    { --b: var(--warning-3); }
 .badge--bad     { --b: var(--negative-3); }
-.badge--info    { --b: var(--primary-6); color: var(--neutral-1); }
+.badge--info    { --b: var(--primary-5); color: var(--neutral-1); }
 .badge--neutral { --b: var(--neutral-3); color: var(--neutral-5); }
 .badge--sm { width: 18px; height: 18px; font-size: var(--text-xs); }
 .badge-row { display: flex; align-items: center; gap: var(--spacing-1-5); font-size: var(--text-sm); margin-top: var(--spacing-2); }
@@ -309,7 +308,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .seg { display: inline-flex; border: 1px solid var(--primary-4); border-radius: 8px; overflow: hidden; vertical-align: middle; }
 .seg button { background: none; border: 0; color: var(--neutral-4); padding: 0 var(--spacing-2-5); height: 100%; font: inherit; font-size: var(--text-sm); cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--primary-4); }
-.seg button[aria-pressed="true"] { background: var(--primary-6); color: var(--neutral-1); }
+.seg button[aria-pressed="true"] { background: var(--primary-5); color: var(--neutral-1); }
 .seg button:focus-visible { outline: 2px solid var(--neutral-5); outline-offset: -2px; }   /* inset: .seg clips its overflow; ink shows on the page and on the primary */
 /* The round "?" button that opens an explanation tooltip. */
 .info-button { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px;
@@ -317,7 +316,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
   color: var(--neutral-4); font: 600 var(--text-xs)/1 system-ui, sans-serif; cursor: help; vertical-align: 1px; position: relative; }
 .info-button::after { content: ""; position: absolute; inset: -14px; }  /* a 44px hit target around the 16px mark */
 .info-button:hover, .info-button:focus-visible, .info-button[aria-expanded="true"] { border-color: var(--neutral-4); color: var(--neutral-5); }
-.info-button:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
+.info-button:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 
 /* ---- Tooltip -------------------------------------------------------------- */
 .tooltip { position: fixed; pointer-events: none; background: var(--primary-2); color: var(--neutral-5);
@@ -337,7 +336,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .more summary::after { content: " \25BE"; }
 .more[open] summary::after { content: " \25B4"; }
 .more[open] summary { margin-bottom: var(--spacing-1); }
-.more summary:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; border-radius: 4px; }
+.more summary:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; border-radius: 4px; }
 /* A full-width "read more" button under a block; the extra detail opens ABOVE it, so the toggle
    moves down with the text it reveals. Set aria-expanded from the script. */
 .moretoggle { display: flex; justify-content: center; align-items: center; gap: var(--spacing-1); width: 100%; min-height: var(--tap); cursor: pointer; text-align: center; padding: var(--spacing-2) var(--spacing-4); background: none; border: 0;
@@ -347,16 +346,16 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .moretoggle:focus-visible { outline: 2px solid var(--neutral-4); outline-offset: -2px; }
 
 /* ---- Primary button -------------------------------------------------------- */
-.btn--primary { background: var(--primary-6); border-color: var(--primary-6); color: var(--neutral-1); font-weight: 600; }
-.btn--primary:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
+.btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--neutral-1); font-weight: 600; }
+.btn--primary:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 /* Disabled: one rule for every .btn variant, so an app never adds its own on this reserved class. */
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ---- Theme accents (opt-in) ------------------------------------------------- */
 /* Carry the theme beyond the primary controls, on the surfaces a page is built from. Add one to a
    house element; an app that does not keeps the base look. Text stays --neutral-5. */
-.header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary-6); }   /* on the page header */
-.card--accent, .tile--accent { border-top: 3px solid var(--primary-6); }
+.header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary-5); }   /* on the page header */
+.card--accent, .tile--accent { border-top: 3px solid var(--primary-5); }
 .table--accent th { background: var(--primary-3); color: var(--neutral-5); }
 
 /* ---- Theme picker (drawn by house-theme.js: DKJTheme.picker(el)) ------------ */
@@ -367,12 +366,12 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .theme-picker__label { font-size: var(--text-sm); font-weight: 600; color: var(--neutral-4); }
 .theme-picker__swatches { display: flex; gap: var(--spacing-2); flex-wrap: wrap; }
 .theme-swatch { width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid var(--primary-4); cursor: pointer; display: grid; place-items: center; }
-/* Each swatch previews its own theme's page: the page base with the same tint as --page-tint (6% light, 10% dark). */
-.theme-swatch--light { background: color-mix(in srgb, var(--swatch) 6%, #f9f9f7); }
+/* Each swatch previews its own theme's page: the page base with the same tint as --page-tint (2% light, 10% dark). */
+.theme-swatch--light { background: color-mix(in srgb, var(--swatch) 2%, #fcfcfb); }
 .theme-swatch--dark { background: color-mix(in srgb, var(--swatch) 10%, #0d0d0d); }
 .theme-swatch i { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--swatch); }
 .theme-swatch[aria-pressed="true"] { outline: 2px solid var(--neutral-5); outline-offset: 2px; }   /* the chosen theme */
-.theme-swatch:focus-visible { outline: 2px dashed var(--primary-6); outline-offset: 4px; }       /* keyboard focus: a different ring */
+.theme-swatch:focus-visible { outline: 2px dashed var(--primary-5); outline-offset: 4px; }       /* keyboard focus: a different ring */
 
 /* ---- Settings button (drawn by house-theme.js: DKJTheme.settings(el)) ------- */
 /* A round toggle that opens a panel with the theme picker, a reset and the app's own controls
@@ -384,8 +383,8 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
   padding: 0; color: var(--neutral-5); background: var(--primary-2); border: 1px solid var(--primary-4); border-radius: 50%;
   box-shadow: var(--shadow-pop); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .theme-settings__toggle:hover { background: var(--primary-3); }
-.theme-settings__toggle[aria-expanded="true"] { color: var(--primary-6); border-color: var(--primary-6); }
-.theme-settings__toggle:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
+.theme-settings__toggle[aria-expanded="true"] { color: var(--primary-5); border-color: var(--primary-5); }
+.theme-settings__toggle:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .theme-settings__close, .theme-settings__toggle[aria-expanded="true"] .theme-settings__open { display: none; }
 .theme-settings__toggle[aria-expanded="true"] .theme-settings__close { display: block; }
 .theme-settings__panel { position: absolute; top: calc(100% + var(--spacing-2)); right: 0; z-index: 20; display: grid; gap: var(--spacing-4);
@@ -405,7 +404,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
    A form field, touch buttons, a dialog, a side drawer, a top bar and a menu list. Domain
    components stay in the app. Touch targets are at least --tap (44px) high. Every colour
    pairing below is an existing token pair (--neutral-5 on --primary-1 or --primary-2, --neutral-4
-   on --primary-2, --negative-5 on --primary-2, --neutral-1 on --primary-6) and holds 4.5:1 in every theme.
+   on --primary-2, --negative-5 on --primary-2, --neutral-1 on --primary-5) and holds 4.5:1 in every theme.
    ========================================================================== */
 
 /* ---- Narrow column --------------------------------------------------------- */
@@ -426,7 +425,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .field select { -webkit-appearance: none; appearance: none; padding-right: var(--spacing-10); text-overflow: ellipsis;
   background-image: linear-gradient(45deg, transparent 50%, var(--neutral-4) 50%), linear-gradient(135deg, var(--neutral-4) 50%, transparent 50%);
   background-position: right 18px center, right 13px center; background-size: 5px 5px; background-repeat: no-repeat; }
-.field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
+.field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .field__error { margin: var(--spacing-1) 0 0; font-size: var(--text-base); color: var(--negative-5); }
 .field__error:empty { display: none; }
 
@@ -436,8 +435,8 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .btn--touch { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap);
   padding: var(--spacing-2-5) var(--spacing-4); font-size: var(--text-base); font-weight: 600; color: var(--neutral-5);
   background: var(--primary-2); -webkit-tap-highlight-color: transparent; }
-.btn--touch.btn--primary { background: var(--primary-6); border-color: var(--primary-6); color: var(--neutral-1); }
-.btn--touch:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
+.btn--touch.btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--neutral-1); }
+.btn--touch:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .btn--block { width: 100%; }
 
 /* ---- Icon button and action row --------------------------------------------- */
@@ -446,7 +445,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap); height: var(--tap); padding: 0;
   border: 0; border-radius: 8px; background: var(--neutral-5); color: var(--primary-1); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .icon-btn svg { flex: none; }
-.icon-btn:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
+.icon-btn:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .icon-btn--ghost { background: transparent; color: var(--neutral-4); }
 /* A row of icon buttons that share the full width. */
 .action-row { display: flex; gap: var(--spacing-2-5); width: 100%; }
@@ -473,11 +472,11 @@ html:has(dialog:modal) { overflow: hidden; }
    the two tap areas overlap by 2px so the plates stand 6px apart. */
 .dialog__close { position: absolute; top: var(--spacing-4); right: var(--spacing-4); display: flex; align-items: center; justify-content: center;
   width: var(--tap); height: var(--tap); padding: 0; color: var(--neutral-4); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.dialog__close:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; }
+.dialog__close:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .dialog__close svg { position: relative; }   /* above the plate */
 .dialog__close--save::before, .dialog__close--cancel::before { content: ""; position: absolute; inset: var(--spacing-1); border: 1px solid; border-radius: var(--spacing-1-5); }
 .dialog__close--save { color: var(--neutral-1); }
-.dialog__close--save::before { background: var(--primary-6); border-color: var(--primary-6); }
+.dialog__close--save::before { background: var(--primary-5); border-color: var(--primary-5); }
 .dialog__close--cancel { right: calc(var(--spacing-4) + var(--tap) - 2px); color: var(--negative-5); }
 .dialog__close--cancel::before { border-color: var(--negative-5); }
 .dialog__close--back { right: auto; left: var(--spacing-4); }
@@ -530,7 +529,7 @@ html:has(.topbar) { scroll-padding-top: var(--topbar-h); }
 .menu-item { display: flex; align-items: center; gap: var(--spacing-3); width: 100%; min-height: var(--tap); margin: 0; padding: var(--spacing-2);
   border: 0; border-radius: 8px; background: none; font: inherit; text-align: left; text-decoration: none; color: var(--neutral-5); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .menu-item + .menu-item { border-top: 1px solid var(--primary-4); border-top-left-radius: 0; border-top-right-radius: 0; }
-.menu-item:focus-visible { outline: 2px solid var(--primary-6); outline-offset: -2px; }   /* inset, so the ring is not cut off by the panel */
+.menu-item:focus-visible { outline: 2px solid var(--primary-5); outline-offset: -2px; }   /* inset, so the ring is not cut off by the panel */
 .menu-item__icon, .menu-item__chevron { flex: none; }
 .menu-item__label { flex: 1; min-width: 0; }
 .menu-item__chevron { color: var(--neutral-4); }
