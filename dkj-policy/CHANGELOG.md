@@ -2,7 +2,42 @@
 
 ## [Unreleased]
 
-**56 minor entries** <!-- pending-tally -->
+**57 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/dark-themes-grey-anchor · 20261014-205224Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+On the six dark themes `--primary-4` is a grey of the theme's colour and the colour itself moves to `--primary-5` and
+`-6` (Geel: `-4` `#91804c`, `-5` `#ffce3f`, `-6` `#ffe4a3`). Text that carried the colour (links, card and dialog
+titles, values, pressed toggles) reads `light-dark(var(--primary-4), var(--primary-5))`, so it keeps the colour on
+dark and is unchanged on light; fills, borders and focus rings stay `-4`. The theme picker's dark dots show `-5`. Lila and Hemelsblauw take the chroma of Geel and Cyaan at a lower lightness, so
+their `-5` is not paler than the others.
+The dark cards (`--primary-2`) are a lot darker, a shade above the page. Light themes are unchanged. No token is added or renamed.
+
+**Score:** 4
+
+##### Tier 1
+
+The dark themes change character: quieter buttons, with the colour in the text and headings.
+
+**Score:** 3
+
+##### Tier 2
+
+On a dark theme a user sees greyer buttons and the theme's colour in links, headings and labels.
+
+**Score:** 3
+
+#### Pull Request
+
+Dark themes: --primary-4 is the greyest step, --primary-5 and -6 carry the colour
+
+[PR #100](https://github.com/DKJ-Solutions/dkj-brandbook/pull/100)
+
+---
 
 ### DEPLOY: feat/dark-themes-deeper-ground · 20261014-203802Z
 
