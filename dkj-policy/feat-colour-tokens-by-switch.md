@@ -54,6 +54,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] `--warn-bg` renamed to `--warning-bg`; `--negative-bg` (`#fde8e8` light, `#3a1414` dark) and `--positive-bg` (`#e6f6e6` light, `#133a13` dark) added beside it (owner's follow-up)
 - [x] `--warn` renamed to `--warning-bad`; `--warning-down` added (`#8a4400` light, 6.9:1 on the page; `#ffd75e` dark, 10.4:1); class modifiers keep their names (owner's follow-up)
 - [x] `--negative-bad`, `--positive-good` and `--warning-bad` renamed to `--negative-light`, `--positive-light` and `--warning-light`; the README's rename notes collapsed into one table from the released names to the new ones (owner's follow-up)
+- [x] `--negative-down` and `--warning-down` renamed to `--negative-dark` and `--warning-dark` (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST
