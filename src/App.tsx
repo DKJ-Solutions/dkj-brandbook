@@ -16,7 +16,6 @@ import { Surfaces } from './showcase/sections/Surfaces'
 
 /** The navigation mirrors the section order below; each id is a component id in src/components/sources.ts. */
 const NAV = [
-  { group: 'Apps', items: ['apps', 'overlap'] },
   { group: 'Foundations', items: ['tokens'] },
   { group: 'Actions', items: ['Button', 'SaveButton', 'SegmentedChoice', 'FilterChips', 'IconButton', 'RoundToggle'] },
   { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Alert', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'ReadMoreToggle', 'GroupHeading', 'QuestionBlock', 'Amount', 'Prose', 'Figure', 'FooterNote'] },
@@ -24,6 +23,7 @@ const NAV = [
   { group: 'Forms & rows', items: ['Field', 'Checkbox', 'Stepper', 'SearchCombobox', 'ValueBox', 'StatRow', 'FormulaRow', 'DateRow'] },
   { group: 'Overlays & navigation', items: ['Dialog', 'Tooltip', 'Drawer', 'TopBar', 'PageHeader', 'MenuRow', 'DownloadButton', 'StepHeader', 'InfoRow'] },
   { group: 'Data', items: ['DefinitionList', 'DataTable', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },
+  { group: 'Apps', items: ['apps', 'overlap'] },
 ] as const
 
 const LABELS: Record<string, string> = { apps: 'Overview', overlap: 'Overlap', tokens: 'Tokens' }
@@ -113,8 +113,6 @@ export default function App() {
           ) : (
             <>
               <Intro />
-              <Apps />
-              <Overlap />
               <Foundations />
               <Actions />
               <Surfaces />
@@ -122,6 +120,8 @@ export default function App() {
               <Forms />
               <Overlays />
               <Data />
+              <Apps />
+              <Overlap />
             </>
           )}
         </div>

@@ -45,6 +45,7 @@ tokens the Tokens section never drew.
 - [x] The nav's group labels stay labels, not `<h3>` (designer's call, owner delegated): each names its list via `aria-labelledby`, so the menu keeps its compact size and the heading list stays the page's structure
 - [x] Every showcase heading at its own level's token (owner: "why is bb-section-title text-h3 while it is an h2?"): no size override on `.bb-section-title` (h2), `.bb-app-name` (h3), `.bb-kind` (h3/h4, no longer styled as a small label) and the view titles (h4/h5); components follow under #77
 - [x] `house-style/house-style.css` + `README.md`: `h4`, `h5` and `h6` take `--text-h4`/`-h5`/`-h6` (resolves #76); the specimen's `.bb-h4`-`.bb-h6` workaround is gone
+- [x] The Apps group (Overview, Overlap) moved to the end of the page and of the menu, just above the app previews (owner's request)
 - [x] Fixed: the brand-layer swatch `--dkj-on-warn` named a token that does not exist (always blank); `on-warn` is a house token and now sits under Status
 
 ### TEST
@@ -58,7 +59,7 @@ tokens the Tokens section never drew.
 
 ##### Tier 0
 
-The brand book now opens with an intro: the page's one `<h1>` at `--text-h1` (the navigation now opens with its own `<h2>` "Contents" instead of repeating the name), a hero card at the house display size (h0) and a type specimen with every heading level and the running-text styles. Its Tokens section now draws every token the house style and the brand layer define: the whole spacing scale, the theme tint percentages, the app-shell and layout sizes, the dialog scale, type weights, line heights, tracking and the mono stack, the focus ring and shadow, and every motion duration, animated. Every heading in the brand book now takes its own level's token -- section titles are the full h2 size -- and the house style gives `h4`, `h5` and `h6` their `--text-h4`/`-h5`/`-h6` tokens (#76). A blank swatch that named a non-existent `--dkj-on-warn` is gone; `--on-warn` shows under the house status colours.
+The brand book now opens with an intro: the page's one `<h1>` at `--text-h1` (the navigation now opens with its own `<h2>` "Contents" instead of repeating the name), a hero card at the house display size (h0) and a type specimen with every heading level and the running-text styles. Its Tokens section now draws every token the house style and the brand layer define: the whole spacing scale, the theme tint percentages, the app-shell and layout sizes, the dialog scale, type weights, line heights, tracking and the mono stack, the focus ring and shadow, and every motion duration, animated. Every heading in the brand book now takes its own level's token -- section titles are the full h2 size -- and the house style gives `h4`, `h5` and `h6` their `--text-h4`/`-h5`/`-h6` tokens (#76). The Apps overview and the Overlap review now come last, after the components. A blank swatch that named a non-existent `--dkj-on-warn` is gone; `--on-warn` shows under the house status colours.
 
 **Score:** 2
 
