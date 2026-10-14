@@ -51,7 +51,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-5`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-5`/`--negative-5` are the text versions of `--positive-3`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
 | Status | `--positive-3`, `--warning-3`, `--negative-3`, `--warning-5`, `--warning-1`, `--negative-1`, `--positive-1` | badges, meters, notices. `--warning-1`, `--negative-1` and `--positive-1` are the backgrounds of a warning, negative or positive message. The mark inside a status icon (check, cross, "!") is `--primary-1` |
-| Primary | `--primary-3`, `--primary-5`, `--primary-6` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--primary-1` is text on it, `--primary-3` a tint for a background and the theme's anchor (text on it is `--primary-6`), `--primary-6` the primary as text (links, `h1`, `h2`). Never a status or a number |
+| Primary | `--primary-3`, `--primary-5`, `--primary-6`, `--on-primary-3` | the theme's own colour, set per theme: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)). `--primary-1` is text on it, `--primary-3` a tint for a background and the theme's anchor (text on it is `--on-primary-3`), `--primary-6` the primary as text (links, `h1`, `h2`). Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs`, `--font-serif` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h6` each take the token of their own level, body text is `--text-base`. `--font-serif` is the face of `h1` and `h2`, for a title that keeps it at another level |
@@ -197,7 +197,7 @@ every theme. Now:
   `--primary-3`.
 - **Opt-in**, one modifier on a house element: `.header--accent` puts a primary rule under the page
   header, `.card--accent` and `.tile--accent` a primary rule across the top, and `.table--accent` a
-  `--primary-3` table head, its text `--primary-6` (the `-3` rule below). Other text stays `--neutral-3`. They are modifiers rather than defaults, so an app
+  `--primary-3` table head, its text `--on-primary-3` (the `-3` rule below). Other text stays `--neutral-3`. They are modifiers rather than defaults, so an app
   that takes the update keeps its layout until it adds one.
 
 **What this changes for an app that takes the update:** its unstyled links, checkboxes, radios and
@@ -217,12 +217,15 @@ out). Three more things follow it by default, in light and in dark (and a measur
   hue and multiplies its chroma by 2.18, 2.13, 2.08, 2.14, 2.00 and 2.89 for `-1` to `-6`, clipped to sRGB.
 - **`--primary-3` is the anchor** (owner's decision, October 14, 2026). A theme is set around its `-3`:
   it is chosen first, by eye, and the other five steps and everything drawn on it follow it, never the
-  other way round. So **text on a `--primary-3` surface is `--primary-6`**, not `--neutral-3`: the
+  other way round. So **text on a `--primary-3` surface is `--on-primary-3`**, not `--neutral-3`. It is
+  `--primary-6` by default; Geel sets it to `--primary-1`, because its `-3` is a true yellow (`#f2c230`, its
+  identity colour) and yellow only exists light, so near-white text cannot sit on it (9.8:1 with `-1`). The
   `.table--accent` head, the hover of a joined choice, the settings toggle and the showcase's chips, a
   near or today date row, a date row's hover, the accent dialog and an InfoRows box. A surface whose text
-  is read through `--neutral-3` re-declares `--neutral-3: var(--primary-6)` on itself, the way the accent
-  dialog re-declares `--primary-2`. `--primary-6` on `--primary-3` reaches 4.9:1 or better in every
-  theme (worst: Roest, Petrol), where `--neutral-3` would fall to 3.4:1 on Oranje's `#a54600`.
+  is read through `--neutral-3` re-declares `--neutral-3: var(--on-primary-3)` on itself, the way the accent
+  dialog re-declares `--primary-2`. Each `-3` takes its identity colour's hue and chroma (capped by sRGB) at
+  the lightness where its text reaches 5.7:1 on dark (Oranje's `#a54600`, chosen by eye, set that bar) and
+  4.6:1 on light, where the darker `-6` allows no more. Geel is the exception above.
 - **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
   on dark the card is a shade lighter than the page. Either way the page is the ground end (owner's decision,
   October 14, 2026: it used to be the other way round on light).

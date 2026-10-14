@@ -23,13 +23,13 @@ html:has(dialog:modal) { overflow: hidden; }
 
 /* Tints: the dialog takes the tint on its own surface and border, and the info dialog's children re-declare the
    house colour tokens (the exception in house-style/README.md rule 3), so every box inside follows.
-   The accent dialog takes the theme's tinted background (--primary-3) as its surface, so its text is --primary-6
+   The accent dialog takes the theme's tinted background (--primary-3) as its surface, so its text is --on-primary-3
    (the -3 rule); the info dialog mixes
    --cat-1 into the untinted card (--neutral-1). --primary-5 is re-declared on the children, not on the dialog,
    so the dialog's own border still takes the outer colour. */
 .dkj-dialog--accent {
   --primary-2: var(--primary-3);
-  --neutral-3: var(--primary-6);
+  --neutral-3: var(--on-primary-3);
   border-color: color-mix(in srgb, var(--primary-5) 30%, var(--primary-3));
 }
 .dkj-dialog--info {

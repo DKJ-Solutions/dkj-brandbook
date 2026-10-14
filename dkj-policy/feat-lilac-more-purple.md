@@ -84,7 +84,13 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
       Magenta `#ffb9e0`, Paars `#cdbcff`, Blauw `#b0cdff`, Petrol `#88e4ee`, Oker `#e0d17a`, Roest `#ffcba9`;
       Roze `#ad2d7f`, Lila `#6d51ad`, Hemelsblauw `#0066a9`, Cyaan `#026d77`, Geel `#7b5f01`. Blauw and Cyaan
       are the house defaults, so `:root` and both dark blocks change with them.
-- [ ] An owner has looked at the trial in all twelve themes and decided
+- [x] An owner looked at the trial: Geel's `-3` must be truly yellow
+- [x] Geel `-3` `#7b5f01` -> `#f2c230` (its identity colour; yellow only exists light). New token
+      `--on-primary-3`, the text on a `-3` surface: `--primary-6` by default, `--primary-1` in Geel (9.79:1
+      on `#f2c230`). Every text-on-`-3` site reads it now; the showcase nav brand takes `--primary-1` in Geel
+      (yellow on its near-white nav was 1.59:1). README token table and the `-3` rule updated.
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at Geel and the rest of the trial and decided
 
 ### DEPLOY: feat/lilac-more-purple
 
@@ -97,8 +103,9 @@ Cyaan, Geel and Oranje keeps its lightness and hue and roughly doubles its chrom
 lines and the near-white fills read as that colour rather than grey; Oranje's `--primary-3` is a real orange,
 `#a54600`. Cyaan is also the house dark default, so an app that sets no theme sees it too.
 
-`--primary-3` becomes the theme's anchor, and text on a `--primary-3` surface is `--primary-6` instead of
-`--neutral-3` in every theme: the `.table--accent` head, the joined choice's hover, the settings toggle's
+`--primary-3` becomes the theme's anchor: each theme's `-3` is a saturated tone of its own colour (Geel a
+true yellow), and text on a `--primary-3` surface is the new `--on-primary-3` (`--primary-6`, or `--primary-1`
+in Geel) instead of `--neutral-3` in every theme: the `.table--accent` head, the joined choice's hover, the settings toggle's
 hover, the near/today and hovered date rows, the accent dialog and the InfoRows box. On the light themes that
 text turns from grey to the theme's dark colour.
 

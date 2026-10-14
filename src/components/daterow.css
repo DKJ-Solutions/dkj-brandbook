@@ -32,9 +32,9 @@
 .dkj-daterow-sub { font-size: var(--text-sm); color: var(--neutral-3); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .dkj-daterow-trailing { margin-left: auto; font-size: var(--text-sm); color: var(--neutral-3); overflow-wrap: anywhere; }
 
-/* near / today: bar + tint + bold, plus the word beside the date. On --primary-3 the text is --primary-6 (the -3 rule). */
+/* near / today: bar + tint + bold, plus the word beside the date. On --primary-3 the text is --on-primary-3 (the -3 rule). */
 .dkj-daterow--near,
-.dkj-daterow--today { --neutral-3: var(--primary-6); background: var(--primary-3); box-shadow: inset 3px 0 0 var(--primary-5); }
+.dkj-daterow--today { --neutral-3: var(--on-primary-3); background: var(--primary-3); box-shadow: inset 3px 0 0 var(--primary-5); }
 .dkj-daterow--near .dkj-daterow-when,
 .dkj-daterow--today .dkj-daterow-when { font-weight: var(--dkj-fw-bold); color: var(--neutral-3); }
 
@@ -50,4 +50,4 @@
 .dkj-daterow-title a:focus-visible { outline: none; }
 .dkj-daterow-title a:focus-visible::after { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: calc(-1 * var(--dkj-focus-w)); }
 .dkj-daterow--link { cursor: pointer; }
-.dkj-daterow--link:hover { --neutral-3: var(--primary-6); background: var(--primary-3); }
+.dkj-daterow--link:hover { --neutral-3: var(--on-primary-3); background: var(--primary-3); }
