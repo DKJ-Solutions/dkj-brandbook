@@ -50,7 +50,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-5`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-5`/`--negative-5` are the text versions of `--positive-3`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
 | Status | `--positive-3`, `--warning-3`, `--negative-3`, `--warning-5`, `--warning-1`, `--negative-1`, `--positive-1` | badges, meters, notices. `--warning-1`, `--negative-1` and `--positive-1` are the backgrounds of a warning, negative or positive message. The mark inside a status icon (check, cross, "!") is `--primary-1` |
-| Primary | `--primary-3` … `--primary-7` | `--primary-4` is the theme's own colour, the most saturated step and the anchor of the scale: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, `h1` and `h2`, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)); `--primary-1` is the text on it. `--primary-5` is **all text**: body text, labels, quiet icons, focus outlines, and the text on a tinted surface. `--primary-3` is also the tinted surface (an accent table head, a hover, the accent dialog). `--primary-6` has no role yet; `--primary-7` is the far end, an inverted surface. Never a status or a number |
+| Primary | `--primary-3` … `--primary-7` | `--primary-4` is the theme's own colour, the most saturated step and the anchor of the scale: the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)); `--primary-1` is the text on it. `--primary-5` is **all text that is not a paragraph**: labels, quiet icons, focus outlines, and the text on a tinted surface. `--primary-3` is also the tinted surface (an accent table head, a hover, the accent dialog). `--primary-5` is also `h1` and `h2`, and `--primary-6` is `h3`–`h6`; `--primary-7` is the far end: **every paragraph** (`<p>`, a quiet class such as `.sub` or `.muted` on it included), and an inverted surface, where `h1` and `h2` take `--primary-3` and `h3`–`h6` take `--primary-2`. Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs`, `--font-serif` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h6` each take the token of their own level, body text is `--text-base`. `--font-serif` is the face of `h1` and `h2`, for a title that keeps it at another level |
@@ -217,9 +217,9 @@ out). Three more things follow it by default, in light and in dark (and a measur
   theme's block, not mixes (owner's decision, October 14, 2026: the percentages were too hard to follow).
 - **`--primary-4` is the anchor** (owner's decision, October 14, 2026): the theme's own colour, the dot the
   picker draws, and the most saturated step of the seven. The scale runs from the ground (`-1` page, `-2` card:
-  lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). **`-3` and
-  `-5` are the greyest steps**, with the same low chroma, one on each side of the colour: `-5` is `-3` on the far
-  side. `-4` carries the fills, focus rings, links and `h1`/`h2` in both modes, with `--primary-1` as text on a
+  lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). **`-3` is
+  the greyest step.** `-5` is on the far side of the colour: on dark with `-3`'s low chroma, on light the colour
+  itself, `-4`'s chroma and hue a step darker. `-4` carries the fills, focus rings and links in both modes, with `--primary-1` as text on a
   fill. On light it is held where it reaches 4.5:1 as link text on the card, which moved Petrol and Roest a
   fraction darker (`#0f7c86` → `#087983`, `#ad5a0a` → `#aa5703`); Hemelsblauw moved to Blauw's hue
   (`#5cb3ff` → `#6aa2ff`) to stand apart from Cyaan.
@@ -232,23 +232,30 @@ out). Three more things follow it by default, in light and in dark (and a measur
   plus 6% or 14%; the line `#d1d1d1` or `#333333` plus 15% or 8% (6% on light read as warm). The dark themes
   then carry about twice that colour (owner's decision, October 14, 2026: they read grey): each step keeps its
   OKLCH lightness and hue and multiplies its chroma by about 2.1, clipped to sRGB. `-5` takes `-3`'s hue and
-  chroma, at the first lightness on the far side where it reaches 4.5:1 on `-3`. `-6` and `-7` are in the
-  colour's hue: on dark OKLCH lightness 0.95 and 0.98, near-white; on light 0.36 and 0.26.
+  chroma, at the first lightness on the far side where it reaches 4.5:1 on `-3`. On dark `-1`, `-2` and `-3` then
+  move 0.04 OKLCH lightness darker and `-5` 0.12 lighter, hue and chroma kept (owner's decision, October 14,
+  2026: a deeper ground and brighter text). On light `-2` then carries 1.6 times its chroma at the same lightness (owner's
+  decision, October 14, 2026: a card with a little more colour), and `-5` takes `-4`'s
+  chroma and hue about 0.08 OKLCH lightness darker, further where it needs it to reach 4.5:1 on `-3` (owner's example,
+  October 14, 2026: Paars `#6421b9`). `-6` and `-7` are in the
+  colour's hue: on dark OKLCH lightness 0.95 and 0.98, near-white; on light 0.36 and 0.18 (`-7` was 0.26 until
+  the owner asked for it a lot darker, October 14, 2026).
 - **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
   on dark the card is a shade lighter than the page. Either way the page is the ground end (owner's decision,
   October 14, 2026: it used to be the other way round on light).
 - **Lines are tinted.** `--primary-3` is every line: borders, row dividers, grid lines and the meter track
   (a separate grid colour was dropped on October 14, 2026: it was too close to the border to tell apart).
 - **The theme picker previews it:** each swatch shows its own theme's page, with the primary as the dot.
-- **`h1` and `h2` are the theme's colour**, as `--primary-4`, and so are links.
+- **Links are the theme's colour**, as `--primary-4`. **`h1` and `h2` are `--primary-5` and `h3`–`h6` are `--primary-6`**;
+  on a `--primary-7` surface `h1` and `h2` are `--primary-3` and `h3`–`h6` are `--primary-2` (owner's decision, October 14, 2026).
 - **Measured:** `--primary-5`, all text, reaches 6.9:1 or better on the page and card on light (Oker) and
-  5.5:1 on dark (Geel), and 5.1:1 or better on a warning, negative or positive background (Oranje); `--primary-4` reaches 4.5:1 or better on the card
-  (worst: Petrol, Roest) and `--primary-1` on `--primary-4` 4.88:1 on light (Petrol) and 6.91:1 on dark
-  (Oranje); `--primary-5` on `--primary-3` 4.51:1 or better (Lila). Status, direction and categorical
+  9.5:1 on dark (Geel), and 6.9:1 or better on a warning, negative or positive background (Petrol); `--primary-4` reaches 4.5:1 or better on the card
+  (worst: Petrol, Roest) and `--primary-1` on `--primary-4` 4.88:1 on light (Petrol) and 7.2:1 on dark
+  (Hemelsblauw); `--primary-5` on `--primary-3` 4.54:1 or better (Petrol). Status, direction and categorical
   colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never tinted.
 
 **What this changes for an app that takes the update:** every page turns a light shade of its theme, and
-`h1`/`h2` take its colour (through `:where()`, so a heading inside a coloured container, or one the app colours itself, keeps that colour). An app that hard-codes a grey next to a house surface will show the seam.
+the headings take its tint (through `:where()`, so a heading inside a coloured container, or one the app colours itself, keeps that colour). An app that hard-codes a grey next to a house surface will show the seam.
 
 ## Components
 

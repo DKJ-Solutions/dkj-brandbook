@@ -53,7 +53,7 @@
 .dkj-inforows { --box: var(--primary-3); }
 .dkj-inforows:not(.dkj-inforows--info) .dkj-inforow-box { color: var(--primary-5); }   /* text on a tinted surface (--primary-3) is --primary-5 */
 .dkj-inforows--info { --box: color-mix(in srgb, var(--cat-1) 14%, var(--primary-2)); }
-.dkj-inforows-head { margin: 0 0 var(--spacing-1-5); font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); color: var(--primary-5); }
+.dkj-inforows-head { margin: 0 0 var(--spacing-1-5); font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); color: var(--primary-7); }
 .dkj-inforows-list { display: flex; flex-direction: column; gap: var(--spacing-1-5); }
 .dkj-inforow { display: flex; align-items: center; gap: var(--spacing-1-5); }
 .dkj-inforow-box {
