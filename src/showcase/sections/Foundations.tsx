@@ -11,9 +11,9 @@ const HOUSE_COLORS = {
     'ink', 'ink-2', 'axis', 'page-base', 'surface-base', 'grid-base', 'border-base', 'on-primary', 'status-mark',
   ],
   'changes only between light and dark -- colours': [
-    'cat-1', 'cat-2', 'cat-3', 'loss', 'up', 'down', 'bad', 'warn', 'warn-bg',
+    'cat-1', 'cat-2', 'cat-3', 'loss', 'up', 'down', 'good', 'bad', 'warn', 'warn-bg',
   ],
-  'the same in every theme': ['muted', 'good'],
+  'the same in every theme': ['muted'],
 } as const
 
 /** How much of the primary each house surface takes (set per mode). */

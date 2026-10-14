@@ -45,6 +45,7 @@ the light/dark group with one exception (Roest and Geel move it). The house styl
 - [x] The light/dark group split in two, in both places: black, white and grey, and colours (owner's follow-up)
 - [x] `--on-warn` removed from the house style (owner's follow-up); its one user, `.dkj-tag--warn`, now takes
   `--ink`. Known effect: on the dark themes that is white text on the yellow warning fill
+- [x] `--good` gets a dark value of its own, `#25b225` (halfway to `--up`), so it lightens on dark like `--up` and `--bad`; it moves to the light/dark colours group (owner's follow-up)
 - [x] Lint gate green
 
 ### TEST
