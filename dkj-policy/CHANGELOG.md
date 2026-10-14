@@ -2,7 +2,44 @@
 
 ## [Unreleased]
 
-**48 minor entries** <!-- pending-tally -->
+**49 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/dark-nav-contrast · 20261014-132326Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+On the six dark themes the top of the theme scale now mirrors the bottom of the light themes: `--primary-6`
+has the lightness of a light theme's `--primary-1` and `--primary-5` that of its `--primary-2`, each in the
+dark theme's own hue. Both are near-white, so on dark the headings and links, primary buttons, pressed
+switches, info badges and meters, focus rings and accent lines all turn near-white, with near-black text on a
+fill. The brand book's navigation panel takes `--primary-6` with black text, the mirror image of the
+near-black panel on the light themes. A repo that takes this house-style update changes nothing of its own;
+its dark themes simply look this way.
+
+**Score:** 4
+
+##### Tier 1
+
+Colour values in the house style; management sees no change.
+
+**Score:** N/A
+
+##### Tier 2
+
+On a dark theme, every DKJ-Solutions app shows its headings, links, primary buttons and switches in a
+near-white tint of the theme colour instead of the bright theme colour.
+
+**Score:** 4
+
+#### Pull Request
+
+The dark themes' top of the scale mirrors the light themes' ground
+
+[PR #87](https://github.com/DKJ-Solutions/dkj-brandbook/pull/87)
+
+---
 
 ### DEPLOY: feat/colour-tokens-by-switch · 20261014-124156Z
 
