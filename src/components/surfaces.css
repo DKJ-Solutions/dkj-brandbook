@@ -17,7 +17,7 @@
 .dkj-card--data { padding: var(--spacing-5); }
 .dkj-card--data .dkj-card-head { gap: 0; padding: 0; text-align: left; }
 .dkj-card--data > .dkj-card-head > .dkj-card-title { display: flex; align-items: center; justify-content: flex-start; font-size: var(--text-h2); }
-.dkj-card-sub { margin: var(--spacing-1) 0 0; font-size: var(--text-sm); color: var(--primary-5); }
+.dkj-card-sub { margin: var(--spacing-1) 0 0; font-size: var(--text-sm); color: var(--primary-7); }
 .dkj-card--data .dkj-card-head ~ * { margin-top: var(--spacing-4); }
 .dkj-card--data .dkj-card-body { padding: 0; border-top: 0; }
 .dkj-card--data .dkj-card-body > :first-child { margin-top: 0; }
@@ -100,7 +100,7 @@
 .dkj-alert > :last-child { margin-bottom: 0; }
 
 /* ---------- Message ---------- */
-.dkj-msg { margin: 0; font-size: var(--text-base); color: var(--primary-5); }
+.dkj-msg { margin: 0; font-size: var(--text-base); color: var(--primary-7); }
 .dkj-msg--note { margin-top: var(--spacing-5); }
 .dkj-msg--warn { color: var(--warning-5); font-weight: var(--dkj-fw-semibold); }
 .dkj-msg--error { color: var(--negative-5); }

@@ -48,6 +48,7 @@ Owner's request (October 14, 2026): on the dark themes `--primary-1` to `-3` a l
 - [x] `h1` follows `h2`: `--primary-5` on the page, `-3` on `--primary-7` (was `-4`); `-4` role lists, the README and the component title comments updated; the "same low chroma" statement for `-3`/`-5` corrected after `-5`'s chroma change (owner's request)
 - [x] Light themes: `--primary-5` once more, to three times its original OKLCH chroma (Petrol 0.002 darker to hold 4.5:1 on `-3`); `-5` on `-3` 4.52:1 or better, on status backgrounds 6.9:1 or better (owner's request)
 - [x] Light themes: `--primary-5` from the owner's example (Paars `#6421b9`, which is `-4` 0.08 OKLCH lightness darker at the same chroma and hue), derived the same way for the other five and darkened further to 4.52:1 on `-3`; the 'greyest step' descriptions corrected (owner's request)
+- [x] Every `<p>` is `--primary-7` (a quiet house class on a `<p>` too; the same class on a span stays `-5`); the p-only component and showcase classes follow; status-coloured paragraphs and the nav's on `-7` keep their own (owner's request)
 - [x] Lint gate green
 
 ### TEST
@@ -68,7 +69,7 @@ On the six light themes `--primary-7`, the far end and the inverted surface, is 
 was 0.26).
 
 `h2` is now `--primary-5` (it was `--primary-4`, like `h1`) and `h3`–`h6` are `--primary-6`; on a `--primary-7`
-surface `h2` is `--primary-3` and `h3`–`h6` are `--primary-2`. `h1` follows `h2` (it was the theme's colour, `--primary-4`). On the light themes the cards (`--primary-2`) carry a little more colour, and all text (`--primary-5`) is
+surface `h2` is `--primary-3` and `h3`–`h6` are `--primary-2`. `h1` follows `h2` (it was the theme's colour, `--primary-4`). Every paragraph is `--primary-7`. On the light themes the cards (`--primary-2`) carry a little more colour, and all text (`--primary-5`) is
 the theme's colour a step darker (Paars `#6421b9`).
 
 The brand book's own sidebar now reads the seven primaries directly in every theme, with no typed colour per light

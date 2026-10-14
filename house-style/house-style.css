@@ -45,7 +45,7 @@
      -1 the page, and the text on the colour; -2 the cards (tiles, tooltips); -3 every line (borders, row
      dividers, meter track, gridlines) and the tinted surfaces (an accent table head, a hover, a today row, the
      accent dialog); -4 THE COLOUR: primary buttons, switches, info badges and meters, focus rings, links,
-     and the picker's dot; -5 all text (body, labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end, an inverted
+     and the picker's dot; -5 all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end: every paragraph, and an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -4 on the card 4.52:1
      (Petrol, Roest), -1 on -4 4.88:1 on light (Petrol) and 7.2:1 on dark (Hemelsblauw), -5 on -3 4.54:1 (Petrol);
      -5, all text, on -1 and -2 at 6.9:1 or better on light (Oker) and 9.5:1 on dark (Geel), and 6.9:1 or better
@@ -198,6 +198,10 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .meta { font-size: var(--text-sm); color: var(--primary-5); white-space: nowrap; }
 .note { font-size: var(--text-sm); color: var(--primary-5); margin-top: var(--spacing-1); }
 .footer-note { color: var(--primary-5); font-size: var(--text-sm); margin-top: var(--spacing-6); }
+/* A paragraph is --primary-7, the far end, always (owner's decision, October 14, 2026): a quiet class on a <p> takes
+   it too, while the same class on a span or a div stays -5. A <p> in a status colour, or on a --primary-7 surface,
+   sets its own. */
+p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--primary-7); }
 .num { font-variant-numeric: tabular-nums; }                        /* aligned digits */
 .delta { font-weight: 600; }
 .delta--up, .pos { color: var(--positive-5); }
@@ -226,7 +230,7 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .notice { background: var(--warning-1); border: 1px solid var(--primary-3); border-radius: 12px; padding: var(--spacing-3) var(--spacing-4); margin-top: var(--spacing-4); }
 .item { border-top: 1px solid var(--primary-3); padding: var(--spacing-2-5) 0; }
 .item b { display: block; font-size: var(--text-sm); margin-bottom: var(--spacing-0-5); }
-.item p { margin: 0; font-size: var(--text-sm); color: var(--primary-5); }
+.item p { margin: 0; font-size: var(--text-sm); color: var(--primary-7); }
 
 /* ---- Tables --------------------------------------------------------------- */
 .table-wrap { overflow-x: auto; }

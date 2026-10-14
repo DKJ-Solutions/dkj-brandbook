@@ -105,8 +105,8 @@
 
 /* The intro: page title, hero card and type specimen at the top of the content. */
 .bb-intro { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }
-.bb-eyebrow { margin: 0 0 var(--spacing-1); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-5); }
-.bb-lead { max-width: 46rem; margin: var(--spacing-2) 0 0; font-size: var(--text-lg); line-height: var(--dkj-lh-snug); color: var(--primary-5); }
+.bb-eyebrow { margin: 0 0 var(--spacing-1); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-7); }
+.bb-lead { max-width: 46rem; margin: var(--spacing-2) 0 0; font-size: var(--text-lg); line-height: var(--dkj-lh-snug); color: var(--primary-7); }
 .bb-specimen { display: grid; gap: var(--spacing-3); }
 .bb-specimen > * { margin: 0; }
 .bb-specimen-lg { font-size: var(--text-lg); }
@@ -114,7 +114,7 @@
 .bb-section { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }
 /* An <h2> at the house h2 size; the house style makes it a flex row, the showcase title stays a block. */
 .bb-section-title { display: block; margin: 0 0 var(--spacing-1); }
-.bb-section-intro { margin: 0 0 var(--spacing-4); max-width: 46rem; font-size: var(--text-base); color: var(--primary-5); }
+.bb-section-intro { margin: 0 0 var(--spacing-4); max-width: 46rem; font-size: var(--text-base); color: var(--primary-7); }
 .bb-demos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: var(--spacing-4); }
 .bb-demo { margin: 0; min-width: 0; }
 .bb-demo--wide { grid-column: 1 / -1; }
@@ -208,8 +208,8 @@
 /* Apps overview */
 .bb-app { grid-column: 1 / -1; display: grid; gap: var(--spacing-4); padding: var(--spacing-4); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-lg); background: var(--primary-2); scroll-margin-top: 5rem; }
 .bb-app-name { margin: 0; }
-.bb-app-desc { margin: var(--spacing-1) 0 var(--spacing-2); max-width: 46rem; color: var(--primary-5); }
-.bb-app-meta { display: flex; flex-wrap: wrap; gap: var(--spacing-1) var(--spacing-4); margin: 0; font-size: var(--text-sm); color: var(--primary-5); }
+.bb-app-desc { margin: var(--spacing-1) 0 var(--spacing-2); max-width: 46rem; color: var(--primary-7); }
+.bb-app-meta { display: flex; flex-wrap: wrap; gap: var(--spacing-1) var(--spacing-4); margin: 0; font-size: var(--text-sm); color: var(--primary-7); }
 .bb-app-meta a { color: var(--primary-4); }
 .bb-kind { margin: 0 0 var(--spacing-2); }
 .bb-views { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: var(--spacing-3); margin: 0; padding: 0; list-style: none; }
