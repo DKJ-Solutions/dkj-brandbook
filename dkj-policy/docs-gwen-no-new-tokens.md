@@ -32,11 +32,16 @@
 
 ### PLAN
 
+The owner corrected an `--ink` alias token added on a dark-theme branch (deleted since): the theme's colour is
+its seven primaries. The rule goes into Gwen's lens so it holds next time.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.claude/specialists/lenses/specialist-04-12-lens.md`: no colour token beyond `--primary-1` … `--primary-7`
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green
 
 ### DEPLOY: docs/gwen-no-new-tokens
 
@@ -44,7 +49,10 @@
 
 ##### Tier 0
 
-**Score:**
+Gwen's lens states that a theme's colour is its seven `--primary-*` tokens and nothing else: she never adds a
+colour token, not even an alias, without the owner's decision.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +61,9 @@
 
 ##### Tier 1
 
-**Score:**
+Internal working rule; nobody outside the repo notices it.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +72,9 @@
 
 ##### Tier 2
 
-**Score:**
+Internal working rule; no user notices it.
+
+**Score:** N/A
 
 #### Pull Request
 
