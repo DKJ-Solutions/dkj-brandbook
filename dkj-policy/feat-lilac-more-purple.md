@@ -128,7 +128,9 @@ chroma at hue 297-300. Approved on Lila, the owner asked for the same on the oth
       stays under 4.5:1 as before: measured on #94.
 - [x] README: token table, the migration rows (neutral -> primary, after the primary rows), the measurements
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the text and lines in a light and a dark theme and approved them
+- [x] An owner asked for a more cyan Petrol `-4`; measured: it already sits at sRGB maximum chroma, and a
+      lighter, truly cyan `-4` drops links to 2.6-3.1:1 on the card. Kept at `#087983`.
+- [x] An owner has looked at the branch in light and dark themes and approved it ("ship it")
 
 ### DEPLOY: feat/lilac-more-purple
 
