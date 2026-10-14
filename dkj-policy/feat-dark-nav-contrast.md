@@ -48,11 +48,11 @@ mirrors the bottom of light, `--primary-6` mirroring `--primary-1` and `--primar
   colour (the picker's dot) rather than a dark token value; `house-theme.js` keeps its identity colours
 - [x] `src/showcase/showcase.css`: the dark half of `--bb-nav-bg` is `--primary-6`, with black text
   (`#0b0b0b`) and grey labels (`#52514e`); the heading, focus ring and current-link fill take `--primary-3`
-  (the current link with white text), the hover darkens the panel by 10%, and the border line goes, as on
+  (the current link with white text), the hover takes `--primary-5` (only fixed colour codes, no percentages, at the owner's request), and the border line goes, as on
   light. The light themes are unchanged.
 - [x] Contrast measured in all six dark themes: near-black on `--primary-5` 16.8:1 or better, `--primary-5`
   against the page 14.3:1 or better; on the panel black text 18.6:1 or better, grey labels 7.5:1 or better,
-  the heading 8.9:1 or better, black on hover 15.1:1 or better, white on the current link 9.3:1 or better
+  the heading 8.9:1 or better, black on hover 17.0:1 or better, white on the current link 9.3:1 or better
 
 ### TEST
 
