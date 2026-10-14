@@ -151,14 +151,14 @@ out). Three more things follow it by default, in light and in dark (and a measur
 
 - **The page and the surfaces are tinted.** `--page` and `--surface` are no longer fixed greys: each is
   `color-mix(in srgb, var(--primary) N%, <base>)`, with the old grey kept as `--page-base` and
-  `--surface-base`. Light mixes 12% into the page and 4% into the cards (the card stays lighter than
+  `--surface-base`. Light mixes 6% into the page and 2% into the cards (the card stays lighter than
   the page); dark mixes 10% into the page and 14% into the cards (the card stays lighter there too).
   The percentages are the `--page-tint`, `--surface-tint`, `--grid-tint` and `--border-tint` tokens, set per mode.
-- **Lines and borders are tinted.** `--grid` takes 12% (light) or 20% (dark) of the primary over
+- **Lines and borders are tinted.** `--grid` takes 8% (light) or 20% (dark) of the primary over
   `--grid-base`. `--border` takes `--border-tint` (6% light, 8% dark) over `--border-base`; because that
   base is translucent and the mix is premultiplied, the visible result is a line of about 15% opacity
   that leans to the primary, roughly as visible as the old neutral one. `--axis` stays neutral.
-- **The theme picker previews it:** each swatch shows its own theme's page (the same 12% / 10% tint),
+- **The theme picker previews it:** each swatch shows its own theme's page (the same 6% / 10% tint),
   with the primary as the dot.
 - **`h1` and `h2` are the theme's colour**, as `--primary-ink`: the primary with 20% of `--ink` mixed in,
   so it darkens on light and lightens on dark. Links use it too. It exists because the tinted page is
