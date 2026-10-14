@@ -32,11 +32,22 @@
 
 ### PLAN
 
+The owner finds Lila, the dark counterpart of Paars, too dark and short of purple. Keep each step's
+OKLCH lightness (so every contrast and the October 14 mirror decision hold) and roughly double its
+chroma at hue 297-300.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/house-style.css`: the six `lilac` primaries, old -> new (OKLCH L/C):
+      -1 `#1e1b25` -> `#1f182e` (0.230, 0.020 -> 0.042), -2 `#302c39` -> `#322945` (0.303, 0.024 -> 0.052),
+      -3 `#433c55` -> `#46356a` (0.374, 0.043 -> 0.090), -4 `#3d3b43` -> `#3e394a` (0.357, 0.014 -> 0.030),
+      -5 `#f0eef6` -> `#f0ecfc` (0.950, 0.011 -> 0.022), -6 `#f9f8fa` -> `#f9f7fd` (0.980, 0.003 -> 0.008)
 
 ### TEST
+
+- [x] Contrast (WCAG): `--neutral-3` on -1 9.54:1 (was 9.46), on -2 7.62:1 (was 7.59); -1 on -5 14.74:1
+      (was 14.75); -6 on -1 16.08:1. Every documented worst case (6.8:1, 14.3:1) still holds and stays Geel.
+- [ ] An owner has looked at Lila in the showcase and approved it
 
 ### DEPLOY: feat/lilac-more-purple
 
@@ -44,7 +55,11 @@
 
 ##### Tier 0
 
-**Score:**
+The dark purple theme, Lila, carries visibly more purple: its six `--primary-*` keep their lightness and
+roughly double their chroma, so the page, the cards, the lines and the near-white fills read as purple
+rather than grey. Every contrast stays where it was.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +68,9 @@
 
 ##### Tier 1
 
-**Score:**
+An app on Lila looks purple in the dark, as the light Paars does in the light.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +79,9 @@
 
 ##### Tier 2
 
-**Score:**
+A user who picked Lila sees a purpler page and nothing else changes.
+
+**Score:** 2
 
 #### Pull Request
 
