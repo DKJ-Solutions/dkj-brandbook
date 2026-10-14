@@ -34,7 +34,7 @@
 
 The owner finds Lila, the dark counterpart of Paars, too dark and short of purple. Keep each step's
 OKLCH lightness (so every contrast and the October 14 mirror decision hold) and roughly double its
-chroma at hue 297-300.
+chroma at hue 297-300. Approved on Lila, the owner asked for the same on the other five dark themes.
 
 ### CREATE
 
@@ -47,7 +47,19 @@ chroma at hue 297-300.
 
 - [x] Contrast (WCAG): `--neutral-3` on -1 9.54:1 (was 9.46), on -2 7.62:1 (was 7.59); -1 on -5 14.74:1
       (was 14.75); -6 on -1 16.08:1. Every documented worst case (6.8:1, 14.3:1) still holds and stays Geel.
-- [ ] An owner has looked at Lila in the showcase and approved it
+- [x] An owner has looked at Lila in the showcase and approved it
+- [x] The other five dark themes, same method: each step keeps its own OKLCH lightness and hue and takes
+      Lila's chroma factor for that step (x2.18, 2.13, 2.08, 2.14, 2.00, 2.89), clipped to sRGB where it
+      would leave the gamut (Cyaan and Geel's dark steps). Cyaan is also the house dark default, so both
+      dark token blocks change with it.
+      Roze `#2d1124 #461d37 #691d4e #4a3542 #fde9f3 #fff6f9`;
+      Hemelsblauw `#091f2e #143046 #05416c #2f3e4b #e8f1fb #f6f9fc`;
+      Cyaan `#002225 #00353a #004a50 #264244 #e6f2f4 #f4fafa`;
+      Geel `#291e00 #3d3100 #574500 #463d25 #f5efe1 #fcf9f0`;
+      Oranje `#2d1504 #452306 #612e00 #4a372a #fcece4 #fff7f4`
+- [x] Contrast (WCAG) over all six dark themes: `--neutral-3` on -2 7.16:1 or better, -1 on -5 14.31:1 or
+      better, worst Geel in both; the stylesheet's stated floors (6.8:1, 14.3:1, worst Geel) still hold.
+- [ ] An owner has looked at the five other dark themes and approved them
 
 ### DEPLOY: feat/lilac-more-purple
 
@@ -55,9 +67,10 @@ chroma at hue 297-300.
 
 ##### Tier 0
 
-The dark purple theme, Lila, carries visibly more purple: its six `--primary-*` keep their lightness and
-roughly double their chroma, so the page, the cards, the lines and the near-white fills read as purple
-rather than grey. Every contrast stays where it was.
+The six dark themes carry visibly more of their own colour: every `--primary-*` of Roze, Lila, Hemelsblauw,
+Cyaan, Geel and Oranje keeps its lightness and hue and roughly doubles its chroma, so the page, the cards, the
+lines and the near-white fills read as that colour rather than grey. Cyaan is also the house dark default,
+so an app that sets no theme sees it too. Every contrast stays above the stated floors.
 
 **Score:** 3
 
@@ -68,7 +81,7 @@ rather than grey. Every contrast stays where it was.
 
 ##### Tier 1
 
-An app on Lila looks purple in the dark, as the light Paars does in the light.
+Every dark theme looks like its colour, as the light themes already did.
 
 **Score:** 2
 
@@ -79,11 +92,11 @@ An app on Lila looks purple in the dark, as the light Paars does in the light.
 
 ##### Tier 2
 
-A user who picked Lila sees a purpler page and nothing else changes.
+A user on a dark theme sees a more colourful page and nothing else changes.
 
 **Score:** 2
 
 #### Pull Request
 
-Lila (dark purple) carries more purple
+The dark themes carry more of their own colour
 
