@@ -253,8 +253,8 @@ out). Three more things follow it by default, in light and in dark (and a measur
   Hemelsblauw sits on `#0000ff`'s HSL hue 240, like Blauw.
 
   **A role takes the same step in both modes** (owner's decision, October 15, 2026): never `light-dark()` between
-  two `--primary-*` steps, and no dark-only rule that picks another step. Text in the theme's colour (card and
-  dialog titles, values), focus rings, lines and meters are `-5` everywhere, and the text on a `-5` fill is `-1`. On
+  two `--primary-*` steps, and no dark-only rule that picks another step. Text in the theme's colour (values),
+  focus rings, lines and meters are `-5` everywhere, and the text on a `-5` fill is `-1`. On
   dark that reads at about 3.3:1 (`-1` on `-5` 3.51:1, `-5` on the card 3.38:1, both Roze), which the owner accepted.
   The picker's dot is `-5` in every theme. The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-8`, `-9`: darkest on light, whitest on dark). `-5` carries the fills

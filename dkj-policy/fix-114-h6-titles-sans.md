@@ -32,11 +32,31 @@
 
 ### PLAN
 
+#### The decision
+
+Owner's decision on #114 (maikel-bwj, October 15, 2026): an h6 is never serif. `.dkj-card-title` and
+`.dkj-dialog-title` drop `--font-serif` and take the house heading colour `--primary-8`; the role prose of `-5`
+("card and dialog titles") is updated to match.
+
+#### Notes for the merge and the look
+
+- The `-0.01em` tracking goes with the serif: the house sets it only because the serif's bold is heavier.
+- The info dialog remapped `--primary-5` to `--cat-1`, so its title used to be in the info colour; at `-8` it
+  is the ordinary heading colour. The accent dialog keeps its own `-7` title rule.
+- `fix/109-primary-button-step` edits the same prose line in `house-style.css` (the `-7` role list);
+  whichever merges second resolves one line by keeping both edits.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.dkj-card-title` (`src/components/surfaces.css`) and `.dkj-dialog-title` (`src/components/dialog.css`):
+  no `--font-serif`, no `-0.01em` tracking, `--primary-8` instead of `--primary-5`; the dialog comment says so.
+- [x] The `-5` role prose in `house-style/house-style.css` and `house-style/README.md` no longer lists card and
+  dialog titles.
 
 ### TEST
+
+- [ ] An owner has looked at the card titles (Surfaces showcase, Mesowise's cards) and the plain, accent and info
+  dialogs (Overlays), in light and dark across a few themes, and approved it.
 
 ### DEPLOY: fix/114-h6-titles-sans
 
@@ -44,25 +64,21 @@
 
 ##### Tier 0
 
-**Score:**
+Card and dialog titles are set in the body sans in the heading colour (`--primary-8`), like every other h3-h6, instead of a small serif in a grey that read faint on dark (#114).
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: the look of two component titles in the brand book.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet's rules are untouched; only its role prose for `-5` drops "card and dialog titles".
+
+**Score:** N/A
 
 #### Pull Request
 
