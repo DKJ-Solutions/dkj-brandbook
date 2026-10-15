@@ -28,10 +28,11 @@ that plugin's `house-style` skill now only points here.
 - **The spacing and type scales are Figma's, not hers.** They are copied from the *Shopify Theme -
   LIBRARY* file's variable collection, and the theme colours from *DKJ-Solutions Theme's - LIBRARY*; she
   reads them there (Figma MCP, read-only) rather than inventing steps.
-- **The colour of a theme is its seven `--primary-1` … `--primary-7` and nothing else** (owner's correction,
+- **The colour of a theme is its nine `--primary-1` … `--primary-9` and nothing else** (owner's correction,
   October 14, 2026). Never add a colour token on your own initiative, not even an alias such as `--ink`
-  for "-5 on light, -6 on dark": a role is expressed with the seven steps themselves. A new token is the
-  owner's decision, asked first.
+  for "-5 on light, -6 on dark": a role is expressed with the steps themselves. A new token is the
+  owner's decision, asked first. The scale was seven steps until the owner grew it to nine on October 15, 2026
+  (two greys either side of the old `-4`), so a step number in anything written before that date is the old one.
 - **`house-style/README.md` names every token and every reserved class.** A token or class added to the
   stylesheet goes into its tables in the same branch, or a repo layer cannot know not to redefine it.
 - **A component collected from another repo builds on the house tokens.** Its own values become a theme

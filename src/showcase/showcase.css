@@ -1,7 +1,7 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
 .bb-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
-/* The sidebar contrasts with the page, mirrored per mode by the scale itself: its panel is --primary-7, the far
+/* The sidebar contrasts with the page, mirrored per mode by the scale itself: its panel is --primary-9, the far
    end (near-black in the theme's hue on light, near-white on dark). The text is the opposite end of the scale in
    both modes: --primary-1 (the theme's page colour) as ink, --primary-3 (the line colour) as the quieter ink.
    Every colour is a --primary step read directly, no local alias (owner's correction, October 14, 2026). */
@@ -12,12 +12,12 @@
   max-height: 100dvh;
   overflow-y: auto;
   padding: var(--spacing-5) var(--spacing-4);
-  background: var(--primary-7);
+  background: var(--primary-9);
   color: var(--primary-1);
 }
 /* The menu's heading ("Contents"): an <h2>, so it keeps the house h2 size and face; only its colour follows the nav. */
-.bb-nav :where(h1, h2) { color: var(--primary-3); }   /* h1 and h2 on --primary-7 take -3 */
-.bb-nav :where(h3, h4, h5, h6) { color: var(--primary-2); }   /* h3-h6 on --primary-7 take -2 */
+.bb-nav :where(h1, h2) { color: var(--primary-3); }   /* h1 and h2 on --primary-9 take -3 */
+.bb-nav :where(h3, h4, h5, h6) { color: var(--primary-2); }   /* h3-h6 on --primary-9 take -2 */
 .bb-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--primary-3); }
 .bb-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);
@@ -40,11 +40,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.bb-nav a:hover { background: var(--primary-6); }
+.bb-nav a:hover { background: var(--primary-8); }
 .bb-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-3); outline-offset: var(--dkj-focus-offset-inset); }
-/* The current page: a --primary-4 fill, the same step in both modes. Its focus ring takes --primary-1, because the
+/* The current page: a --primary-5 fill, the same step in both modes. Its focus ring takes --primary-1, because the
    usual ring would vanish on the current fill. */
-.bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--primary-4); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
+.bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--primary-5); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
 .bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-1); }
 
 /* <main>: the house style gives it a centred 1080px column; the showcase fills the space beside the nav. */
@@ -59,13 +59,13 @@
   margin: 0 calc(-1 * var(--spacing-6));
 }
 .bb-settings-anchor { position: absolute; top: var(--spacing-3); right: var(--spacing-6); }
-.bb-control { display: flex; flex-direction: column; gap: var(--spacing-1); font-size: var(--text-sm); color: var(--primary-7); }
+.bb-control { display: flex; flex-direction: column; gap: var(--spacing-1); font-size: var(--text-sm); color: var(--primary-9); }
 .bb-control select {
   min-height: var(--dkj-control-compact);
   padding: 0 var(--spacing-2);
   font: inherit;
   font-size: var(--text-base);
-  color: var(--primary-7);
+  color: var(--primary-9);
   background: var(--primary-2);
   border: 1px solid var(--primary-3);
   border-radius: var(--dkj-radius-md);
@@ -76,7 +76,7 @@
   padding: 0 var(--spacing-3);
   font: inherit;
   font-size: var(--text-base);
-  color: var(--primary-7);
+  color: var(--primary-9);
   background: var(--primary-2);
   border: 1px solid var(--primary-3);
   cursor: pointer;
@@ -84,8 +84,8 @@
 .bb-toggle button + button { border-left: 0; }
 .bb-toggle button:first-child { border-radius: var(--dkj-radius-md) 0 0 var(--dkj-radius-md); }
 .bb-toggle button:last-child { border-radius: 0 var(--dkj-radius-md) var(--dkj-radius-md) 0; }
-.bb-toggle button[aria-pressed='true'] { background: var(--primary-4); border-color: var(--primary-4); color: var(--primary-1); }
-.bb-toggle button:focus-visible, .bb-control select:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
+.bb-toggle button[aria-pressed='true'] { background: var(--primary-5); border-color: var(--primary-5); color: var(--primary-1); }
+.bb-toggle button:focus-visible, .bb-control select:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
 
 /* Phone width: everything renders in a 360px column, like the source app on the smallest phone it supports. */
 .bb-content--phone { max-width: 360px; }
@@ -93,8 +93,8 @@
 
 /* The intro: page title, hero card and type specimen at the top of the content. */
 .bb-intro { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }
-.bb-eyebrow { margin: 0 0 var(--spacing-1); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-4); }
-.bb-lead { max-width: 46rem; margin: var(--spacing-2) 0 0; font-size: var(--text-lg); line-height: var(--dkj-lh-snug); color: var(--primary-7); }
+.bb-eyebrow { margin: 0 0 var(--spacing-1); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-5); }
+.bb-lead { max-width: 46rem; margin: var(--spacing-2) 0 0; font-size: var(--text-lg); line-height: var(--dkj-lh-snug); color: var(--primary-9); }
 .bb-specimen { display: grid; gap: var(--spacing-3); }
 .bb-specimen > * { margin: 0; }
 .bb-specimen-lg { font-size: var(--text-lg); }
@@ -102,11 +102,11 @@
 .bb-section { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }
 /* An <h2> at the house h2 size; the house style makes it a flex row, the showcase title stays a block. */
 .bb-section-title { display: block; margin: 0 0 var(--spacing-1); }
-.bb-section-intro { margin: 0 0 var(--spacing-4); max-width: 46rem; font-size: var(--text-base); color: var(--primary-7); }
+.bb-section-intro { margin: 0 0 var(--spacing-4); max-width: 46rem; font-size: var(--text-base); color: var(--primary-9); }
 .bb-demos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: var(--spacing-4); }
 .bb-demo { margin: 0; min-width: 0; }
 .bb-demo--wide { grid-column: 1 / -1; }
-.bb-demo figcaption { margin-bottom: var(--spacing-1-5); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-6); }
+.bb-demo figcaption { margin-bottom: var(--spacing-1-5); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-8); }
 .bb-demo-stage { display: flex; flex-direction: column; gap: var(--spacing-3); padding: var(--spacing-4); border: 1px dashed var(--primary-3); border-radius: var(--dkj-radius-lg); }
 .bb-demo-stage--surface { background: var(--primary-2); border-style: solid; }
 .bb-row { display: flex; flex-wrap: wrap; gap: var(--spacing-2); align-items: center; }
@@ -118,7 +118,7 @@
   margin-top: var(--spacing-3);
   padding: var(--spacing-2) var(--spacing-3);
   font-size: var(--text-sm);
-  color: var(--primary-7);
+  color: var(--primary-9);
   border-left: 2px solid var(--primary-3);
 }
 .bb-source dl { margin: 0; display: grid; gap: var(--spacing-0-5); }
@@ -132,18 +132,18 @@
 /* Name over value: the name in ink and semibold, the value smaller in ink-2, the chip aligned with the name. */
 .bb-swatch { display: flex; align-items: flex-start; gap: var(--spacing-2-5); }
 .bb-swatch-chip { flex: none; width: 2.25rem; height: 2.25rem; border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); }
-.bb-swatch-text { display: flex; flex-direction: column; gap: var(--spacing-0-5); min-width: 0; color: var(--primary-7); }
+.bb-swatch-text { display: flex; flex-direction: column; gap: var(--spacing-0-5); min-width: 0; color: var(--primary-9); }
 .bb-swatch-name { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); overflow-wrap: anywhere; }
 .bb-swatch-value { font-family: var(--dkj-font-mono); font-size: var(--text-xs); line-height: var(--dkj-lh-snug); }
 /* A mix's recipe under its resolved colour: in the body face, each "over <colour>" step kept on one line. */
 .bb-swatch-recipe { font-size: var(--text-xs); line-height: var(--dkj-lh-snug); }
 .bb-swatch-recipe > span { white-space: nowrap; }
 .bb-scale { display: grid; gap: var(--spacing-2); }
-.bb-scale-row { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--spacing-3); align-items: center; font-size: var(--text-sm); color: var(--primary-7); }
-.bb-bar { max-width: 100%; height: 0.75rem; background: var(--primary-4); border-radius: var(--dkj-radius-xs); }
-.bb-lh-sample { max-width: 16rem; font-size: var(--text-base); color: var(--primary-7); }
-.bb-tracking-sample { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); text-transform: uppercase; color: var(--primary-7); }
-.bb-readouts { display: grid; gap: var(--spacing-0-5); margin: 0; font-size: var(--text-sm); color: var(--primary-7); }
+.bb-scale-row { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--spacing-3); align-items: center; font-size: var(--text-sm); color: var(--primary-9); }
+.bb-bar { max-width: 100%; height: 0.75rem; background: var(--primary-5); border-radius: var(--dkj-radius-xs); }
+.bb-lh-sample { max-width: 16rem; font-size: var(--text-base); color: var(--primary-9); }
+.bb-tracking-sample { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); text-transform: uppercase; color: var(--primary-9); }
+.bb-readouts { display: grid; gap: var(--spacing-0-5); margin: 0; font-size: var(--text-sm); color: var(--primary-9); }
 .bb-readouts > div { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: var(--spacing-2); }
 .bb-readouts dd { margin: 0; overflow-wrap: anywhere; }
 .bb-focus-row { gap: var(--spacing-6); padding: var(--spacing-2); }
@@ -153,11 +153,11 @@
   width: var(--dkj-tap);
   height: var(--dkj-tap);
   font-size: var(--text-xs);
-  color: var(--primary-7);
+  color: var(--primary-9);
   background: var(--primary-1);
   border-radius: var(--dkj-radius-md);
 }
-.bb-focus-sample { outline: var(--dkj-focus-w) solid var(--primary-4); }
+.bb-focus-sample { outline: var(--dkj-focus-w) solid var(--primary-5); }
 .bb-shadow-sample { background: var(--primary-2); box-shadow: var(--shadow-pop); }
 /* Motion: each dot crosses its track in its own duration when the panel is hovered or focused. */
 .bb-motion-track { position: relative; height: 0.75rem; max-width: 16rem; background: var(--primary-3); border-radius: var(--dkj-radius-pill); }
@@ -167,15 +167,15 @@
   left: 0;
   width: 0.75rem;
   height: 0.75rem;
-  background: var(--primary-4);
+  background: var(--primary-5);
   border-radius: var(--dkj-radius-pill);
   transition-property: left;
   transition-timing-function: var(--dkj-ease-out);
 }
 .bb-motion:hover .bb-motion-dot, .bb-motion:focus-visible .bb-motion-dot { left: calc(100% - 0.75rem); }
-.bb-motion:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
+.bb-motion:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
 @media (prefers-reduced-motion: reduce) { .bb-motion-dot { transition: none; } }
-.bb-radius { width: 3rem; height: 3rem; background: color-mix(in srgb, var(--primary-4) 20%, var(--primary-2)); border: 1px solid var(--primary-4); }
+.bb-radius { width: 3rem; height: 3rem; background: color-mix(in srgb, var(--primary-5) 20%, var(--primary-2)); border: 1px solid var(--primary-5); }
 
 @media (max-width: 52rem) {
   .bb-shell { grid-template-columns: minmax(0, 1fr); }
@@ -191,28 +191,28 @@
 
 /* "Used in" line under a component */
 .bb-used-in { margin: 0 0 var(--spacing-1-5); }
-.bb-used-in a { color: var(--primary-4); }
+.bb-used-in a { color: var(--primary-5); }
 
 /* Apps overview */
 .bb-app { grid-column: 1 / -1; display: grid; gap: var(--spacing-4); padding: var(--spacing-4); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-lg); background: var(--primary-2); scroll-margin-top: 5rem; }
 .bb-app-name { margin: 0; }
-.bb-app-desc { margin: var(--spacing-1) 0 var(--spacing-2); max-width: 46rem; color: var(--primary-7); }
-.bb-app-meta { display: flex; flex-wrap: wrap; gap: var(--spacing-1) var(--spacing-4); margin: 0; font-size: var(--text-sm); color: var(--primary-7); }
-.bb-app-meta a { color: var(--primary-4); }
+.bb-app-desc { margin: var(--spacing-1) 0 var(--spacing-2); max-width: 46rem; color: var(--primary-9); }
+.bb-app-meta { display: flex; flex-wrap: wrap; gap: var(--spacing-1) var(--spacing-4); margin: 0; font-size: var(--text-sm); color: var(--primary-9); }
+.bb-app-meta a { color: var(--primary-5); }
 .bb-kind { margin: 0 0 var(--spacing-2); }
 .bb-views { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: var(--spacing-3); margin: 0; padding: 0; list-style: none; }
-.bb-view { display: grid; gap: var(--spacing-1-5); align-content: start; padding: var(--spacing-3); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); background: color-mix(in srgb, var(--primary-4) 8%, var(--primary-2)); }   /* the theme's tint, a step deeper than the page and the app card around it */
+.bb-view { display: grid; gap: var(--spacing-1-5); align-content: start; padding: var(--spacing-3); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); background: color-mix(in srgb, var(--primary-5) 8%, var(--primary-2)); }   /* the theme's tint, a step deeper than the page and the app card around it */
 .bb-view h5, .bb-view-title { margin: 0; }
-.bb-view p strong { color: var(--primary-5); }
-.bb-view p { margin: 0; font-size: var(--text-sm); color: var(--primary-7); }
+.bb-view p strong { color: var(--primary-7); }
+.bb-view p { margin: 0; font-size: var(--text-sm); color: var(--primary-9); }
 .bb-view-components { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
-.bb-view-components a { padding: var(--spacing-0-5) var(--spacing-2); font-size: var(--text-sm); color: var(--primary-7); text-decoration: none; border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-pill); background: var(--primary-2); }
-.bb-view-components a:hover { background: var(--primary-3); color: var(--primary-5); }
-.bb-view-components a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
+.bb-view-components a { padding: var(--spacing-0-5) var(--spacing-2); font-size: var(--text-sm); color: var(--primary-9); text-decoration: none; border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-pill); background: var(--primary-2); }
+.bb-view-components a:hover { background: var(--primary-3); color: var(--primary-7); }
+.bb-view-components a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
 
 /* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */
 .bb-preview-back { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); }
-.bb-preview-back a { color: var(--primary-4); }
+.bb-preview-back a { color: var(--primary-5); }
 .bb-preview-meta { margin-bottom: var(--spacing-4); }
 .bb-preview-frame { border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-lg); overflow: hidden; background: var(--primary-1); }
 .bb-preview-app--padded { padding: var(--spacing-5) var(--spacing-4) var(--spacing-6); }

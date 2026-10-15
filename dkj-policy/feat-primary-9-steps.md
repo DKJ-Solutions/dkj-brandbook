@@ -36,9 +36,16 @@ Owner (Maikel, October 15, 2026): two new greys either side of the old -4. Old -
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Renumber every `--primary-*` use outside the changelog and the README's migration history in one pass: 7 -> 9, 6 -> 8, 5 -> 7, 4 -> 5 (stylesheet, components, showcase, README, Gwen's lens)
+- [x] Compute the two new greys per theme in OKLCH: the old -4's hue at half its chroma, lightness 0.08 either side (light -4 0.55, -6 0.39; dark -4 0.458, -6 0.618); write them into all twelve themes and both default dark blocks
+- [x] Stylesheet header comment and README: nine steps, the new rows in both step tables, and a migration table for apps (old -> new, in apply order)
+- [x] The showcase's token list shows `--primary-4` and `--primary-6`
+- [~] Victor's review: dropped, the change is a mechanical single-pass rename (no role changes value) plus two new values with no role yet; the lint gate checks every `var()` resolves
 
 ### TEST
+
+- [x] Lint gate green (eslint, every var() resolves, no colour literal, tsc + vite build)
+- [ ] An owner has looked at the new greys in the showcase and approved them
 
 ### DEPLOY: feat/primary-9-steps
 
@@ -46,7 +53,9 @@ Owner (Maikel, October 15, 2026): two new greys either side of the old -4. Old -
 
 ##### Tier 0
 
-**Score:**
+The primary scale grows from seven to nine steps (owner's decision, October 15, 2026): two new greys, `--primary-4` and `--primary-6`, sit either side of the old `-4`, which becomes `--primary-5`, so the greys are a trio with `-5` in the middle. The colour and the text steps move up two: old `-5`, `-6`, `-7` are now `-7`, `-8`, `-9`. Every role keeps its colour; only its number changes. The new greys take the middle grey's hue at half its chroma, so they read greyer than it, at 0.08 OKLCH lightness either side (on dark `-4` darker and `-6` lighter, mirrored on light) and have no role yet. The README carries the old-to-new mapping for an app that takes the update.
+
+**Score:** 4
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -55,7 +64,9 @@ Owner (Maikel, October 15, 2026): two new greys either side of the old -4. Old -
 
 ##### Tier 1
 
-**Score:**
+An app that takes this house style must rename its own uses of `--primary-4` … `--primary-7` (the README's table, in that order) before it looks the same again; nothing changes on screen once it has.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -64,7 +75,9 @@ Owner (Maikel, October 15, 2026): two new greys either side of the old -4. Old -
 
 ##### Tier 2
 
-**Score:**
+The brand book's own showcase is not a subscribed service.
+
+**Score:** N/A
 
 #### Pull Request
 
