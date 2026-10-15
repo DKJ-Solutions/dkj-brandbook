@@ -118,7 +118,7 @@
 .bb-demos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: var(--spacing-4); }
 .bb-demo { margin: 0; min-width: 0; }
 .bb-demo--wide { grid-column: 1 / -1; }
-.bb-demo figcaption { margin-bottom: var(--spacing-1-5); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-4); }
+.bb-demo figcaption { margin-bottom: var(--spacing-1-5); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-6); }
 .bb-demo-stage { display: flex; flex-direction: column; gap: var(--spacing-3); padding: var(--spacing-4); border: 1px dashed var(--primary-3); border-radius: var(--dkj-radius-lg); }
 .bb-demo-stage--surface { background: var(--primary-2); border-style: solid; }
 .bb-row { display: flex; flex-wrap: wrap; gap: var(--spacing-2); align-items: center; }
