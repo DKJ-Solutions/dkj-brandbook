@@ -129,12 +129,12 @@ small text → 12, a mini-card value 20 → 18, the info button's mark 10 → 11
 
 **Every DKJ-Solutions app has the same form, and a colour of its own that the user picks** (Maikel,
 October 12, 2026). The house style carries twelve themes. Each one is a mode, light or dark, plus a
-primary colour (on light its `--primary-4`, on dark its `--primary-5`):
+primary colour, its `--primary-4` in either mode (the dot the picker draws):
 
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
 | Light | `magenta` Magenta `#804369`, `purple` Paars `#634b92`, `blue` Blauw `#515198`, `teal` Petrol `#406165`, `ochre` Oker `#615c3c`, `rust` Roest `#73533c` |
-| Dark | `pink` Roze `#fe97d0`, `lilac` Lila `#c2affe`, `sky` Hemelsblauw `#b5b5fe`, `cyan` Cyaan `#0fd6e8`, `yellow` Geel `#e8b70c`, `orange` Oranje `#fea56e` |
+| Dark | `pink` Roze `#99537a`, `lilac` Lila `#7261a5`, `sky` Hemelsblauw `#6565a9`, `cyan` Cyaan `#4e767a`, `yellow` Geel `#796e49`, `orange` Oranje `#8f6249` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
   makes the number disappear. The status colours are the same in every theme.
@@ -226,7 +226,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   | `-1` | 0.19 | 0.035 |
   | `-2` | 0.21 | 0.045 |
   | `-3` | 0.32 | 0.08, at most 0.6 relative |
-  | `-4` | 0.50 | 0.105, at most 0.39 relative (the owner's Hemelsblauw `#4c4c8d`, then a little lighter) |
+  | `-4` | 0.538 | 0.105, at most 0.49 relative (the owner's Oranje `#8f6249`; at most the chroma of the owner's Hemelsblauw `#4c4c8d`) |
   | `-5` | 0.80 | 0.99 relative |
   | `-6` | 0.90 | 0.83 relative |
   | `-7` | 0.981 | 0.008 |
@@ -236,8 +236,8 @@ out). Three more things follow it by default, in light and in dark (and a measur
   **A role takes the same step in both modes** (owner's decision, October 15, 2026): never `light-dark()` between
   two `--primary-*` steps, and no dark-only rule that picks another step. Text in the theme's colour (links, card and
   dialog titles, values), focus rings, lines and meters are `-4` everywhere, and the text on a `-4` fill is `-1`. On
-  dark that reads at about 3:1 (`-1` on `-4` 2.96:1, `-4` on the card 2.85:1, both Roze), which the owner accepted.
-  The picker's dot on dark is `-5`. The scale runs from the ground (`-1` page, `-2` card:
+  dark that reads at about 3.3:1 (`-1` on `-4` 3.44:1, `-4` on the card 3.31:1, both Roze), which the owner accepted.
+  The picker's dot is `-4` in every theme. The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). `-4` carries the fills
   in both modes, and the focus rings and links, with `--primary-1` as text on a fill. **On light every
   theme behaves the same and only the hue differs** (owner's decision, October 15, 2026): each step has one OKLCH
