@@ -50,7 +50,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-5`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-5`/`--negative-5` are the text versions of `--positive-3`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
 | Status | `--positive-3`, `--warning-3`, `--negative-3`, `--warning-5`, `--warning-1`, `--negative-1`, `--positive-1` | badges, meters, notices. `--warning-1`, `--negative-1` and `--positive-1` are the backgrounds of a warning, negative or positive message. The mark inside a status icon (check, cross, "!") is `--primary-1` |
-| Primary | `--primary-3` … `--primary-7` | `--primary-4` is the theme's own colour on light, the most saturated step and the anchor of the scale; on dark it is a grey of the colour, and the colour is `--primary-5` and `-6` there. `-4` is the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links on light, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)); `--primary-1` is the text on it. `--primary-5` is **all text that is not a paragraph**: labels, quiet icons, focus outlines, and the text on a tinted surface. `--primary-3` is also the tinted surface (an accent table head, a hover, the accent dialog). `--primary-5` is also `h1` and `h2`, and `--primary-6` is `h3`–`h6`; `--primary-7` is the far end: **every paragraph** (`<p>`, a quiet class such as `.sub` or `.muted` on it included), and an inverted surface, where `h1` and `h2` take `--primary-3` and `h3`–`h6` take `--primary-2`. Never a status or a number |
+| Primary | `--primary-3` … `--primary-7` | `--primary-4` is a softened, greyer step of the theme's colour in the middle of the scale (on dark the greyest step), and the colour itself is `--primary-5` and `-6`. `-4` is the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links on light, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)); `--primary-1` is the text on it. `--primary-5` is **all text that is not a paragraph**: labels, quiet icons, focus outlines, and the text on a tinted surface. `--primary-3` is also the tinted surface (an accent table head, a hover, the accent dialog). `--primary-5` is also `h1` and `h2`, and `--primary-6` is `h3`–`h6`; `--primary-7` is the far end: **every paragraph** (`<p>`, a quiet class such as `.sub` or `.muted` on it included), and an inverted surface, where `h1` and `h2` take `--primary-3` and `h3`–`h6` take `--primary-2`. Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs`, `--font-serif` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h6` each take the token of their own level, body text is `--text-base`. `--font-serif` is the face of `h1` and `h2`, for a title that keeps it at another level |
@@ -134,7 +134,7 @@ primary colour (on light its `--primary-4`, on dark its `--primary-5`):
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
 | Light | `magenta` Magenta `#804369`, `purple` Paars `#634b92`, `blue` Blauw `#515198`, `teal` Petrol `#406165`, `ochre` Oker `#615c3c`, `rust` Roest `#73533c` |
-| Dark | `pink` Roze `#ffbee0`, `lilac` Lila `#ae8fff`, `sky` Hemelsblauw `#7aacff`, `cyan` Cyaan `#4aedff`, `yellow` Geel `#ffce3f`, `orange` Oranje `#ffc7a6` |
+| Dark | `pink` Roze `#fe97d0`, `lilac` Lila `#c2affe`, `sky` Hemelsblauw `#b5b5fe`, `cyan` Cyaan `#0fd6e8`, `yellow` Geel `#e8b70c`, `orange` Oranje `#fea56e` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
   makes the number disappear. The status colours are the same in every theme.
@@ -217,15 +217,23 @@ out). Three more things follow it by default, in light and in dark (and a measur
 
 - **Every theme writes out its own seven values.** `--primary-1` … `--primary-7` are fixed hex values in each
   theme's block, not mixes (owner's decision, October 14, 2026: the percentages were too hard to follow).
-- **On light `--primary-4` is the anchor** (owner's decision, October 14, 2026): the theme's own colour, the dot
-  the picker draws, and the most saturated step of the seven. **On dark `-4` is a grey of the colour and `-5`/`-6`
-  carry it** (owner's decision, October 14, 2026, from the owner's example Geel: `-4` `#91804c`, `-5` `#ffce3f`, `-6`
-  `#ffe4a3`; the other dark themes take the same OKLCH lightness, `-4`'s chroma, and `-5`/`-6` at the gamut's full
-  chroma in their own hue; Lila, too pale that way, takes Geel's chroma itself at a lower lightness: `-5` `#ae8fff`,
-  `-6` `#cfc0ff`; Hemelsblauw takes Cyaan's chroma the same way: `-5` `#7aacff`, `-6` `#b1cfff`). Text in the theme's colour (links, card and dialog titles, values) reads
+- **On dark `-4` is the greyest step, in the middle of the scale, and `-5`/`-6` carry the colour.** Dark
+  follows the light rule mirrored (owner's decision, October 15, 2026): each step has one OKLCH lightness and one
+  chroma in all six dark themes, capped by relative chroma where a hue holds less, and only the hue differs.
+
+  | Step | OKLCH lightness | Chroma |
+  |---|---|---|
+  | `-1` | 0.19 | 0.035 |
+  | `-2` | 0.21 | 0.045 |
+  | `-3` | 0.32 | 0.06, at most 0.6 relative |
+  | `-4` | 0.60, as dark as `-1` on it allows at 4.5:1 | 0.074, at most 0.30 relative |
+  | `-5` | 0.80 | 0.99 relative |
+  | `-6` | 0.90 | 0.83 relative |
+  | `-7` | 0.981 | 0.008 |
+
+  Hemelsblauw sits on `#0000ff`'s HSL hue 240, like Blauw. Text in the theme's colour (links, card and dialog titles, values) reads
   `light-dark(var(--primary-4), var(--primary-5))`, and the picker's dot on dark is `-5`. The scale runs from the ground (`-1` page, `-2` card:
-  lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). On dark
-  **`-3` is the greyest step.** `-4` carries the fills
+  lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). `-4` carries the fills
   and focus rings in both modes, and the links on light, with `--primary-1` as text on a fill. **On light every
   theme behaves the same and only the hue differs** (owner's decision, October 15, 2026): each step has one OKLCH
   lightness and one chroma in all six, capped at a share of what the hue can hold (relative chroma) where the hue

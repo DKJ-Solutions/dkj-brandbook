@@ -48,12 +48,13 @@
 - [x] Light themes' `--primary-4` softened: the owner's Petrol `#48878d` fell to 4.06:1, so each light theme takes its relative chroma at the lightness that holds 4.5:1 on -1 and -2 (Petrol `#437e84`), then greyer from the owner's Paars `#5d458b` and Magenta `#954c7a` and Blauw `#49498d`, which Oker and Roest follow; picker dots and the stylesheet's measured worst cases updated
 - [x] Blauw's other steps moved to `#0000ff`'s HSL hue 240, each at its own saturation and luminance, so every contrast holds; then `-5`, `-6` and `-7` a good deal darker (`#0707bf`, `#181873`, `#00002b`)
 - [x] Every light theme behaves the same, only the hue differs: one OKLCH lightness and one chroma per step (capped by relative chroma where a hue holds less), from the owner's examples; `-5` to `-7` at Blauw's darker level (owner's choice); picker dots, README table and the stylesheet's worst cases follow
+- [x] The dark themes follow the same rule, mirrored: one OKLCH lightness and chroma per step, `-4` the greyest step in the middle of the scale (as dark as 4.5:1 for `-1` on it allows), Hemelsblauw on `#0000ff`'s hue; the default dark blocks, picker dots, README and worst cases follow
 - [x] Everything in `.bb-swatch-text` (name, value, recipe) from `--primary-5` to `--primary-7`
 
 ### TEST
 
 - [x] Lint gate green
-- [ ] An owner has looked at the showcase (nav group labels, eyebrows, muted and `.meta` text, hero values, figcaptions, swatch text, accent tile and card, native controls) and at all six light themes, and approved them
+- [ ] An owner has looked at the showcase (nav group labels, eyebrows, muted and `.meta` text, hero values, figcaptions, swatch text, accent tile and card, native controls) and at all twelve themes, and approved them
 
 ### DEPLOY: feat/nav-group-primary-2
 
@@ -61,7 +62,7 @@
 
 ##### Tier 0
 
-Every light theme now behaves the same and only its hue differs: each of the seven `--primary-*` steps has one OKLCH lightness and one chroma in all six, capped where a hue cannot hold it, taken from the owner's examples (Petrol for `-1` to `-3`, Paars, Magenta and Blauw for `-4`, Blauw for `-5` to `-7`). The page and card fills are lighter, lines and tinted surfaces carry more colour, the fills and links are a softer, greyer step of the colour, and text is darker; Blauw sits on the hue of `#0000ff` instead of leaning to cyan. The picker's light dots follow. Native checkboxes, radios, sliders and progress bars take `--primary-5` through `accent-color`. The house `.muted` class is `--primary-4` and `.meta` is `--primary-6` (a paragraph keeps `--primary-7`), the hero figure is `--primary-7`, and `.card--accent` and `.tile--accent` no longer draw a rule across their top. In the showcase the nav group labels are `--primary-2`, eyebrows `--primary-4`, figcaptions `--primary-6` and the swatch text `--primary-7`.
+Every light theme now behaves the same and only its hue differs: each of the seven `--primary-*` steps has one OKLCH lightness and one chroma in all six, capped where a hue cannot hold it, taken from the owner's examples (Petrol for `-1` to `-3`, Paars, Magenta and Blauw for `-4`, Blauw for `-5` to `-7`). The page and card fills are lighter, lines and tinted surfaces carry more colour, the fills and links are a softer, greyer step of the colour, and text is darker; Blauw sits on the hue of `#0000ff` instead of leaning to cyan. The six dark themes follow the same rule, mirrored: `-4` is the greyest step in the middle of the scale, `-5` and `-6` carry the colour, and Hemelsblauw is truly blue. The picker's dots follow. Native checkboxes, radios, sliders and progress bars take `--primary-5` through `accent-color`. The house `.muted` class is `--primary-4` and `.meta` is `--primary-6` (a paragraph keeps `--primary-7`), the hero figure is `--primary-7`, and `.card--accent` and `.tile--accent` no longer draw a rule across their top. In the showcase the nav group labels are `--primary-2`, eyebrows `--primary-4`, figcaptions `--primary-6` and the swatch text `--primary-7`.
 
 **Score:** 3
 
@@ -72,7 +73,7 @@ Every light theme now behaves the same and only its hue differs: each of the sev
 
 ##### Tier 1
 
-Every DKJ-Solutions app on a light theme looks different once it takes this house style: lighter fills, a greyer primary and darker text.
+Every DKJ-Solutions app looks different, in every theme, once it takes this house style: lighter fills, a greyer primary and darker text.
 
 **Score:** 2
 
@@ -89,4 +90,4 @@ The brand book's own showcase is not a subscribed service.
 
 #### Pull Request
 
-Light themes on one rule, and a colour pass on the house text and the showcase
+Every theme on one rule, and a colour pass on the house text and the showcase
