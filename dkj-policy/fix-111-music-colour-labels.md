@@ -32,11 +32,19 @@
 
 ### PLAN
 
+#111: the Music library preview's Colour filter called its `--cat-1`, `--cat-2` and `--cat-3` dots Red, Green
+and Blue, while those dots are blue, orange and green. The house has no red or green theme colour on purpose,
+so the placeholder labels change to name what the dots show.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `MusicLibraryPreview.tsx`: the colour options, the six playlists and the chart counts read Blue, Orange
+  and Green, in the `--cat-1..3` order
 
 ### TEST
+
+- [x] Screenshot of the Music library preview: each chip, table cell and chart label names its dot's colour
+- [ ] An owner has looked at the Music library preview and approved it
 
 ### DEPLOY: fix/111-music-colour-labels
 
@@ -44,7 +52,9 @@
 
 ##### Tier 0
 
-**Score:**
+The Music library preview's colour filter names the colour each dot shows, blue, orange and green (#111).
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +63,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: placeholder labels in one preview.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +74,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
 
 #### Pull Request
 

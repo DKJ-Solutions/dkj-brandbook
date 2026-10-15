@@ -13,9 +13,9 @@ type View = 'playlists' | 'dashboard' | 'tracks'
 
 const ALL = 'All'
 const COLOURS = [
-  { value: 'Red', label: 'Red', color: 'var(--cat-1)' },
-  { value: 'Green', label: 'Green', color: 'var(--cat-2)' },
-  { value: 'Blue', label: 'Blue', color: 'var(--cat-3)' },
+  { value: 'Blue', label: 'Blue', color: 'var(--cat-1)' },
+  { value: 'Orange', label: 'Orange', color: 'var(--cat-2)' },
+  { value: 'Green', label: 'Green', color: 'var(--cat-3)' },
 ] as const
 type Colour = (typeof COLOURS)[number]['value']
 const DENSITIES = ['Low', 'Mid', 'High'].map((d) => ({ value: d, label: d }))
@@ -37,12 +37,12 @@ type Playlist = {
 
 /** Placeholder playlists: invented names, worlds and ids; nothing from a real library. */
 const PLAYLISTS: readonly Playlist[] = [
-  { id: 'p1', world: 'World A', type: 'Set', bpm: 'Slow', name: 'Example playlist 1', colour: 'Red', mixId: 'mix-001', genre: 'Genre one', density: 'Low', tracks: 42, done: true },
-  { id: 'p2', world: 'World A', type: 'Set', bpm: 'Medium', name: 'Example playlist 2', colour: 'Green', mixId: 'mix-002', genre: 'Genre two', density: 'Mid', tracks: 31, done: false },
-  { id: 'p3', world: 'World B', type: 'Archive', bpm: 'Fast', name: 'Example playlist 3', colour: 'Blue', mixId: '', genre: 'Genre one', density: 'High', tracks: 58, done: false },
-  { id: 'p4', world: 'World B', type: 'Set', bpm: 'Medium', name: 'Example playlist 4', colour: 'Red', mixId: 'mix-004', genre: 'Genre three', density: 'Mid', tracks: 24, done: true },
-  { id: 'p5', world: 'World C', type: 'Archive', bpm: 'Slow', name: 'Example playlist 5', colour: 'Green', mixId: '', genre: 'Genre two', density: 'Low', tracks: 17, done: false },
-  { id: 'p6', world: 'World C', type: 'Set', bpm: 'Fast', name: 'Example playlist 6', colour: 'Blue', mixId: 'mix-006', genre: 'Genre three', density: 'High', tracks: 66, done: false },
+  { id: 'p1', world: 'World A', type: 'Set', bpm: 'Slow', name: 'Example playlist 1', colour: 'Blue', mixId: 'mix-001', genre: 'Genre one', density: 'Low', tracks: 42, done: true },
+  { id: 'p2', world: 'World A', type: 'Set', bpm: 'Medium', name: 'Example playlist 2', colour: 'Orange', mixId: 'mix-002', genre: 'Genre two', density: 'Mid', tracks: 31, done: false },
+  { id: 'p3', world: 'World B', type: 'Archive', bpm: 'Fast', name: 'Example playlist 3', colour: 'Green', mixId: '', genre: 'Genre one', density: 'High', tracks: 58, done: false },
+  { id: 'p4', world: 'World B', type: 'Set', bpm: 'Medium', name: 'Example playlist 4', colour: 'Blue', mixId: 'mix-004', genre: 'Genre three', density: 'Mid', tracks: 24, done: true },
+  { id: 'p5', world: 'World C', type: 'Archive', bpm: 'Slow', name: 'Example playlist 5', colour: 'Orange', mixId: '', genre: 'Genre two', density: 'Low', tracks: 17, done: false },
+  { id: 'p6', world: 'World C', type: 'Set', bpm: 'Fast', name: 'Example playlist 6', colour: 'Green', mixId: 'mix-006', genre: 'Genre three', density: 'High', tracks: 66, done: false },
 ]
 
 const WORLDS = [
@@ -241,9 +241,9 @@ const TOP_ARTISTS: readonly BarDatum[] = [
 ]
 
 const COLOUR_COUNTS: readonly BarDatum[] = [
-  { key: 'c1', label: 'Red', value: 2, series: 1 },
-  { key: 'c2', label: 'Green', value: 2, series: 2 },
-  { key: 'c3', label: 'Blue', value: 2, series: 3 },
+  { key: 'c1', label: 'Blue', value: 2, series: 1 },
+  { key: 'c2', label: 'Orange', value: 2, series: 2 },
+  { key: 'c3', label: 'Green', value: 2, series: 3 },
 ]
 
 const tracksText = (n: number) => `${n} tracks`
