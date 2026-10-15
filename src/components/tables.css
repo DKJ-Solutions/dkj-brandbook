@@ -69,8 +69,8 @@
 .dkj-bill-action .dkj-round-toggle { margin: calc(-1 * var(--spacing-2)) calc(-1 * var(--spacing-2)) calc(-1 * var(--spacing-2)) auto; }
 /* A group closes with its subtotal, between rules slightly stronger than the row rules. */
 .dkj-bill .dkj-bill-subtotal {
-  border-top: 2px solid color-mix(in srgb, var(--primary-7) 50%, var(--primary-3));
-  border-bottom: 2px solid color-mix(in srgb, var(--primary-7) 50%, var(--primary-3));
+  border-top: 2px solid var(--primary-5);
+  border-bottom: 2px solid var(--primary-5);
 }
 .dkj-bill .dkj-bill-subtotal > * { height: auto; padding-top: var(--spacing-1-5); padding-bottom: var(--spacing-1-5); vertical-align: baseline; }
 .dkj-bill-subtotal th, .dkj-bill-total th { padding-right: var(--spacing-4); font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); text-align: right; }
@@ -98,7 +98,7 @@
 .dkj-compare tfoot th, .dkj-compare tfoot td {
   padding-top: var(--spacing-3-5);
   border-bottom: 0;
-  border-top: 2px solid color-mix(in srgb, var(--primary-7) 50%, var(--primary-3));
+  border-top: 2px solid var(--primary-5);
   font-weight: var(--dkj-fw-bold);
   font-size: var(--text-lg);
   text-align: left;
@@ -122,7 +122,7 @@
 .dkj-calc-box {
   margin: 0;
   padding: var(--gutter, var(--spacing-1-5)) 0;
-  border: 1.5px solid color-mix(in srgb, var(--primary-5) 45%, var(--primary-3));
+  border: 1.5px solid var(--primary-4);
   border-radius: var(--dkj-radius-md-plus);
 }
 /* Boxes only exist in a boxed calculation, whose edge columns they span inside. */
@@ -139,7 +139,7 @@
   margin-top: var(--spacing-2);
   padding: var(--spacing-2) var(--spacing-3);
   border-radius: var(--dkj-radius-md-plus);
-  background: color-mix(in srgb, var(--primary-5) 10%, var(--primary-2));
+  background: var(--primary-3);
 }
 .dkj-answer-label { flex: 1; font-weight: var(--dkj-fw-semibold); }
 .dkj-answer-value { font-size: var(--text-lg); font-weight: var(--dkj-fw-bold); color: var(--primary-5); white-space: nowrap; font-variant-numeric: tabular-nums; }

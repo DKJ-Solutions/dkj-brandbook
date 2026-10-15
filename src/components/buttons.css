@@ -66,7 +66,7 @@
 }
 .dkj-btn--outline {
   background: transparent;
-  color: color-mix(in srgb, var(--primary-7) 80%, var(--primary-1));
+  color: var(--primary-7);
   border-color: currentColor;
   font-weight: var(--dkj-fw-medium);
 }
@@ -74,7 +74,7 @@
 .dkj-btn--outline.dkj-btn--accent { color: var(--primary-5); border-color: var(--primary-3); }
 .dkj-btn--outline.dkj-btn--accent:active:not(:disabled):not([aria-disabled='true']),
 .dkj-btn--outline.dkj-btn--accent[data-demo-state='active'] {
-  background: color-mix(in srgb, var(--primary-5) 16%, var(--primary-2));
+  background: var(--primary-3);
   border-color: var(--primary-5);
 }
 /* Compact: smaller to the eye, but the tap area stays 44px via ::after. */

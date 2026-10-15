@@ -176,7 +176,7 @@
 .dkj-motion:hover .dkj-motion-dot, .dkj-motion:focus-visible .dkj-motion-dot { left: calc(100% - 0.75rem); }
 .dkj-motion:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
 @media (prefers-reduced-motion: reduce) { .dkj-motion-dot { transition: none; } }
-.dkj-radius { width: 3rem; height: 3rem; background: color-mix(in srgb, var(--primary-5) 20%, var(--primary-2)); border: 1px solid var(--primary-5); }
+.dkj-radius { width: 3rem; height: 3rem; background: var(--primary-3); border: 1px solid var(--primary-5); }
 
 @media (max-width: 52rem) {
   .dkj-shell { grid-template-columns: minmax(0, 1fr); }
@@ -202,7 +202,7 @@
 .dkj-app-meta a { color: var(--primary-7); }
 .dkj-kind { margin: 0 0 var(--spacing-2); }
 .dkj-views { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: var(--spacing-3); margin: 0; padding: 0; list-style: none; }
-.dkj-view { display: grid; gap: var(--spacing-1-5); align-content: start; padding: var(--spacing-3); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); background: color-mix(in srgb, var(--primary-5) 8%, var(--primary-2)); }   /* the theme's tint, a step deeper than the page and the app card around it */
+.dkj-view { display: grid; gap: var(--spacing-1-5); align-content: start; padding: var(--spacing-3); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); background: var(--primary-3); }   /* the theme's tint, a step deeper than the page and the app card around it */
 .dkj-view h5, .dkj-view-title { margin: 0; }
 .dkj-view p strong { color: var(--primary-7); }
 .dkj-view p { margin: 0; font-size: var(--text-sm); color: var(--primary-9); }

@@ -54,14 +54,14 @@
   font-size: 0.9em;
   padding: 0.1em 0.35em;
   border-radius: var(--dkj-radius-xs);
-  background: color-mix(in srgb, var(--primary-7) 7%, var(--primary-2));
+  background: var(--primary-3);
 }
 .dkj-prose pre {
   font-size: var(--text-sm);
   padding: var(--spacing-3) var(--spacing-4);
   border: 1px solid var(--primary-3);
   border-radius: var(--dkj-radius-md);
-  background: color-mix(in srgb, var(--primary-7) 7%, var(--primary-2));
+  background: var(--primary-3);
   overflow-x: auto;
   white-space: pre;
   tab-size: 2;

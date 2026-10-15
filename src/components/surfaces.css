@@ -10,7 +10,7 @@
   transition: border-color var(--dkj-duration-slow) var(--dkj-ease-out);
 }
 .dkj-card--flush { padding: 0; overflow: hidden; }
-.dkj-card--open { border-color: color-mix(in srgb, var(--primary-5) 60%, var(--primary-3)); }
+.dkj-card--open { border-color: var(--primary-4); }
 .dkj-card--invalid { border-color: var(--negative-3); }
 /* Data variant: the head is left-aligned, its title an <h2> at --text-h2,
    with a muted subline, and there is no rule between head and body. */
@@ -39,15 +39,14 @@
 
 /* ---------- TintedPanel ---------- */
 .dkj-panel {
-  --part: var(--primary-7);
   padding: var(--spacing-3);
-  border: 1px solid color-mix(in srgb, var(--part) 35%, var(--primary-3));
+  border: 1px solid var(--primary-4);
   border-radius: var(--dkj-radius-lg);
-  background: color-mix(in srgb, var(--part) 7%, var(--primary-2));
+  background: var(--primary-3);
   color: var(--primary-9);
 }
-.dkj-panel--accent { --part: var(--primary-5); }
-.dkj-panel--positive { --part: var(--positive-5); }
+.dkj-panel--accent { border-color: var(--primary-5); }
+.dkj-panel--positive { border-color: var(--positive-3); background: var(--positive-1); }
 .dkj-panel--button {
   display: flex;
   flex-direction: column;
@@ -84,8 +83,8 @@
 .dkj-banner--accent {
   font-size: var(--text-lg);
   text-align: center;
-  background: color-mix(in srgb, var(--primary-5) 10%, var(--primary-2));
-  border-color: color-mix(in srgb, var(--primary-5) 35%, var(--primary-3));
+  background: var(--primary-3);
+  border-color: var(--primary-4);
 }
 .dkj-banner--accent strong { color: var(--primary-5); white-space: nowrap; }
 /* Warn: the look of the house .notice (--warning-1, --primary-3, radius lg), built on tokens so it needs no reserved class. */
@@ -94,7 +93,7 @@
 .dkj-banner--warn ul { margin: var(--spacing-1) 0 0; padding-left: var(--spacing-5); }
 
 /* ---------- Alert ---------- */
-.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-3); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-3) 8%, var(--primary-2)); color: var(--primary-9); }
+.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-3); border-radius: var(--dkj-radius-lg); background: var(--negative-1); color: var(--primary-9); }
 .dkj-alert-title { display: flex; align-items: center; gap: var(--spacing-2); margin: 0 0 var(--spacing-1); font-size: var(--text-h5); color: var(--negative-5); }
 .dkj-alert-icon { flex: none; }
 .dkj-alert > :last-child { margin-bottom: 0; }

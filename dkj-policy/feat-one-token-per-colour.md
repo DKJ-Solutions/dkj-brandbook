@@ -32,11 +32,25 @@
 
 ### PLAN
 
+The owner wants every colour to point at one token, not a `color-mix()` of two. No new house token: each mix
+takes the existing step it came closest to.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Tinted surfaces (a little `-5`/`-7` through the card) take `--primary-3`; accent lines (`-5` through `-3`)
+  take `--primary-4`; the 2px table rules (`-7` half through `-3`) take `--primary-5`; the outline button's
+  text takes `--primary-7`; `::selection` takes `--primary-3`
+- [x] The alert takes `--negative-1`; the positive panel `--positive-1` with a `--positive-3` border; the info
+  dialog and info rows keep the card (`--primary-2`) with a `--cat-1` border
+- [x] TintedPanel's local `--part` is gone: each tone names its border and background token directly
+- [x] Comments that described a mix say which token it is now
+- [~] The theme picker's swatches keep their mix: each previews ANOTHER theme's page, whose tokens the current
+  theme does not carry, so there is no token to point at
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
+
+- [ ] An owner has looked at the showcase, on light and dark themes, and approved it
 
 ### DEPLOY: feat/one-token-per-colour
 
@@ -44,7 +58,12 @@
 
 ##### Tier 0
 
-**Score:**
+Every colour in the components and the showcase points at one house token instead of a `color-mix()` of two:
+tinted surfaces are `--primary-3`, accent lines `--primary-4`, the alert `--negative-1`, the positive panel
+`--positive-1`, and the info dialog and info rows a `--cat-1` border on the card. Only the theme picker's
+swatches still mix, because each previews another theme.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +72,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: tints inside the brand book's own components; management sees no difference.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +83,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the apps see only the `::selection` change, when they take a new copy of the house style.
+
+**Score:** N/A
 
 #### Pull Request
 
