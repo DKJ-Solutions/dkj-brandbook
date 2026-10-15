@@ -55,8 +55,8 @@ Owner's decision on #114 (maikel-bwj, October 15, 2026): an h6 is never serif. `
 
 ### TEST
 
-- [ ] An owner has looked at the card titles (Surfaces showcase, Mesowise's cards) and the plain, accent and info
-  dialogs (Overlays), in light and dark across a few themes, and approved it.
+- [x] An owner has looked at the card titles (Surfaces showcase, Mesowise's cards) and the plain, accent and info
+  dialogs (Overlays), in light and dark across a few themes, and approved it (maikel-bwj, October 15, 2026).
 
 ### DEPLOY: fix/114-h6-titles-sans
 
