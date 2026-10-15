@@ -44,7 +44,7 @@ so the placeholder labels change to name what the dots show.
 ### TEST
 
 - [x] Screenshot of the Music library preview: each chip, table cell and chart label names its dot's colour
-- [ ] An owner has looked at the Music library preview and approved it
+- [x] An owner has looked at the Music library preview and approved it
 
 ### DEPLOY: fix/111-music-colour-labels
 
