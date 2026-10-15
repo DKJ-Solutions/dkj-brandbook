@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**67 minor entries** <!-- pending-tally -->
+**68 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/113-recipe-tag-gap · 20261015-103918Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The recipe tags in the Recipes preview sit in a row with an even gap instead of edge to edge (#113).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: spacing inside one preview.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Recipes: the recipe tags sit in a row with a gap
+
+[PR #120](https://github.com/DKJ-Solutions/dkj-brandbook/pull/120)
+
+---
 
 ### DEPLOY: fix/111-music-colour-labels · 20261015-103559Z
 
