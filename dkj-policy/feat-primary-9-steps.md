@@ -43,7 +43,7 @@ Owner (Maikel, October 15, 2026): two new greys either side of the old -4. Old -
 - [x] Owner: "maak primary-5 ook een stuk grijzer" -- -5 takes 0.6 of its base chroma in every theme (hue and lightness kept), with the picker dots and the README theme table; -4 and -6 stay at 0.5, so -5 keeps a little more colour
 - [x] Owner: at most three tokens a row in the showcase's Tokens section, so -1..-3, -4..-6 and -7..-9 each read as one row (`.bb-swatches`)
 - [x] Owner: links take `--primary-7` (house link rule, `.dkj-prose a`, `.dkj-msg a`, the showcase's own links); their focus ring stays `-5` like every focus ring
-- [x] Owner: sub lines and notes take `--primary-5`, on a `<p>` too (`.sub`, `.dialog__sub`, `.note`, `.footer-note`, the components' `-sub` classes), and `.muted` on a `<p>`; the inverted panel's `.bb-brand-sub` keeps `-3`
+- [x] Owner: sub lines and notes take `--primary-6` (first -5, then -6 on the owner's word), on a `<p>` too (`.sub`, `.dialog__sub`, `.note`, `.footer-note`, the components' `-sub` classes), and `.muted` on a `<p>`; the inverted panel's `.bb-brand-sub` keeps `-3`
 - [~] Victor's review: dropped, the change is a mechanical single-pass rename (no role changes value) plus two new values with no role yet; the lint gate checks every `var()` resolves
 
 ### TEST
@@ -57,7 +57,7 @@ Owner (Maikel, October 15, 2026): two new greys either side of the old -4. Old -
 
 ##### Tier 0
 
-The primary scale grows from seven to nine steps (owner's decision, October 15, 2026): two new greys, `--primary-4` and `--primary-6`, sit either side of the old `-4`, which becomes `--primary-5`, so the greys are a trio with `-5` in the middle. The colour and the text steps move up two: old `-5`, `-6`, `-7` are now `-7`, `-8`, `-9`. Every role keeps its colour; only its number changes. The new greys take the middle grey's hue at half its chroma, so they read greyer than it, at 0.08 OKLCH lightness either side (on dark `-4` darker and `-6` lighter, mirrored on light) and have no role yet. `--primary-5` itself turns greyer too: 0.6 of its former chroma in every theme, hue and lightness kept, so the fills, focus rings and the picker dots read calmer at the same contrast. Links move to `--primary-7`, the colour, and sub lines, notes and `.muted` to `--primary-5`, on a `<p>` too. The README carries the old-to-new mapping for an app that takes the update.
+The primary scale grows from seven to nine steps (owner's decision, October 15, 2026): two new greys, `--primary-4` and `--primary-6`, sit either side of the old `-4`, which becomes `--primary-5`, so the greys are a trio with `-5` in the middle. The colour and the text steps move up two: old `-5`, `-6`, `-7` are now `-7`, `-8`, `-9`. Every role keeps its colour; only its number changes. The new greys take the middle grey's hue at half its chroma, so they read greyer than it, at 0.08 OKLCH lightness either side (on dark `-4` darker and `-6` lighter, mirrored on light) and have no role yet. `--primary-5` itself turns greyer too: 0.6 of its former chroma in every theme, hue and lightness kept, so the fills, focus rings and the picker dots read calmer at the same contrast. Links move to `--primary-7`, the colour, and sub lines, notes and `.muted` to `--primary-6`, the grey a step towards the far end, on a `<p>` too. The README carries the old-to-new mapping for an app that takes the update.
 
 **Score:** 4
 

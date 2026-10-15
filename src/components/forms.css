@@ -229,7 +229,7 @@
 }
 .dkj-rows > .dkj-row:last-child { border-bottom: 0; }
 .dkj-row-name { min-width: 0; font-size: var(--text-base); color: var(--primary-9); overflow-wrap: anywhere; }
-.dkj-row-sub { display: block; font-size: var(--text-sm); color: var(--primary-5); font-variant-numeric: tabular-nums; }
+.dkj-row-sub { display: block; font-size: var(--text-sm); color: var(--primary-6); font-variant-numeric: tabular-nums; }
 /* With a help column, every row keeps it free so the values stay in line. */
 .dkj-row--help { grid-template-columns: minmax(0, 1fr) auto 2.25rem var(--dkj-control-h); }
 .dkj-rows--help > .dkj-row:not(.dkj-row--formula) { grid-template-columns: minmax(0, 1fr) auto 2.25rem var(--dkj-control-h); }
