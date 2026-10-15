@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**64 minor entries** <!-- pending-tally -->
+**65 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/104-scale-prose · 20261015-090836Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house style's README and the token comment describe the nine-step scale as it is (#104): the recipe gives
+each step's OKLCH lightness in light and dark, the contrast figures are measured again on the current tokens,
+and `--primary-7` is described as the highlight rather than as all text.
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: documentation only.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: no value changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+The scale's prose describes the nine steps as they are
+
+[PR #117](https://github.com/DKJ-Solutions/dkj-brandbook/pull/117)
+
+---
 
 ### DEPLOY: fix/102-gate-css-syntax · 20261015-090514Z
 
