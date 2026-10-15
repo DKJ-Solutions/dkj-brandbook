@@ -100,7 +100,7 @@ export function EtfPreview() {
           <CardHead title="Monthly result" info={info('Monthly result')} />
           <CardBody>
             <Legend>
-              <LegendItem color="cat-1">Gain</LegendItem>
+              <LegendItem color="positive-3">Gain</LegendItem>
               <LegendItem color="negative-3">Loss</LegendItem>
             </Legend>
             <ColumnChart label="Result per month" data={MONTHS} format={eur} periodHeading="Month" />
