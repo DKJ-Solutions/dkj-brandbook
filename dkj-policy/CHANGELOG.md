@@ -2,7 +2,41 @@
 
 ## [Unreleased]
 
-**60 minor entries** <!-- pending-tally -->
+**61 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/primary-4-further-from-5 · 20261015-083746Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+`--primary-4` moves a big step towards the ground in every theme: OKLCH lightness 0.70 on light (was 0.55)
+and 0.38 on dark (was 0.458), each theme keeping its hue and chroma. It has no role yet, so nothing in the
+house style changes on screen beyond the swatch. On the dark themes `--primary-6` (sub lines, notes and
+`.muted`) moves lighter too, to L 0.70 (was 0.618), so that text reads at 6.58:1 or better on a card
+instead of 4.76:1.
+
+**Score:** 3
+
+##### Tier 1
+
+N/A: a swatch and a lighter grey for secondary text on dark; management sees no difference.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the brand book has no subscribers; the apps that take the house style pick this up when they take a new copy.
+
+**Score:** N/A
+
+#### Pull Request
+
+--primary-4 moves a big step towards the ground, and the dark --primary-6 a big step lighter
+
+[PR #106](https://github.com/DKJ-Solutions/dkj-brandbook/pull/106)
+
+---
 
 ### DEPLOY: feat/primary-9-steps · 20261015-082601Z
 
