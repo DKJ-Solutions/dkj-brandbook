@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**79 minor entries** <!-- pending-tally -->
+**80 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/135-tier1-score · 20261015-162316Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The `fix/131-gain-positive-3` changelog entry now scores tier 1, so the ladder is cumulative again and the release cut accepts it (#135).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: a correction to the changelog's own bookkeeping.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Score tier 1 of the fix/131 changelog entry
+
+[PR #136](https://github.com/DKJ-Solutions/dkj-brandbook/pull/136)
+
+---
 
 ### DEPLOY: fix/131-gain-positive-3 · 20261015-162052Z
 
