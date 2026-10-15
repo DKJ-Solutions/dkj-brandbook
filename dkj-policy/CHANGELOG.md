@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**74 minor entries** <!-- pending-tally -->
+**75 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/110-button-sentence-case · 20261015-120532Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Compact buttons are in sentence case like every other button, so two sizes on one screen no longer read as two styles (#110).
+
+**Score:** 2
+
+##### Tier 1
+
+Back, Open recipe, Clear filters and the other compact buttons render in sentence case instead of tracked capitals.
+
+**Score:** 2
+
+##### Tier 2
+
+N/A: the compact button lives in the brand book's own component layer; the house stylesheet the apps take is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Buttons: every size is in sentence case
+
+[PR #127](https://github.com/DKJ-Solutions/dkj-brandbook/pull/127)
+
+---
 
 ### DEPLOY: fix/109-primary-button-step · 20261015-120412Z
 
