@@ -2,7 +2,67 @@
 
 ## [Unreleased]
 
-**69 minor entries** <!-- pending-tally -->
+**71 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/98-direct-token-reads · 20261015-115636Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The components read their `--primary` and `--cat-1` steps directly instead of through local aliases (`--box`, `--info-glyph`, and the component-side `--m` / `--b`); nothing renders differently (#98).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: an internal refactor of the showcase components.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and its `--m` / `--b` API are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Components read --primary steps directly instead of local colour aliases
+
+[PR #123](https://github.com/DKJ-Solutions/dkj-brandbook/pull/123)
+
+---
+
+### DEPLOY: fix/112-filter-group-labels · 20261015-115458Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A filter group inside a form is labelled like the fields beside it, in sentence case, instead of as an uppercase group label (Music library, Recipes; #112).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: labels inside two previews.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Filter-group labels inside a form take the shape of the field labels
+
+[PR #122](https://github.com/DKJ-Solutions/dkj-brandbook/pull/122)
+
+---
 
 ### DEPLOY: docs/90-group-heading-exempt · 20261015-114435Z
 
