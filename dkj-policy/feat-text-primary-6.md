@@ -80,5 +80,5 @@ The brand book's own showcase is not a subscribed service.
 
 #### Pull Request
 
-Text that is not a paragraph takes --primary-6; --primary-5 is for highlights only
+All text takes --primary-7; --primary-5 is for highlights only
 
