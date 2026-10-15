@@ -45,7 +45,7 @@ much lighter on the light themes; and `--primary-6` much lighter on the dark the
 
 ### TEST
 
-- [ ] An owner has looked at `--primary-4` and the dark `--primary-6` in the showcase, on light and dark themes, and approved it
+- [x] An owner has looked at `--primary-4` and the dark `--primary-6` in the showcase, on light and dark themes, and approved it
 
 ### DEPLOY: feat/primary-4-further-from-5
 
@@ -85,5 +85,5 @@ N/A: the brand book has no subscribers; the apps that take the house style pick 
 
 #### Pull Request
 
---primary-4 moves a big step towards the ground: lighter on light, darker on dark
+--primary-4 moves a big step towards the ground, and the dark --primary-6 a big step lighter
 
