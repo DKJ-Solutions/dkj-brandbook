@@ -46,10 +46,6 @@
    usual ring would vanish on the current fill. */
 .bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--primary-4); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
 .bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-1); }
-  :root:not([data-theme]) .bb-nav a[aria-current='page'],
-  :root:not([data-theme]) .bb-nav a[aria-current='page']:hover { background: var(--primary-3); color: var(--primary-5); }
-  :root:not([data-theme]) .bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-7); }
-}
 
 /* <main>: the house style gives it a centred 1080px column; the showcase fills the space beside the nav. */
 .bb-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
