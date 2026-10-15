@@ -133,7 +133,7 @@ primary colour (on light its `--primary-4`, on dark its `--primary-5`):
 
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
-| Light | `magenta` Magenta `#954c7a`, `purple` Paars `#5d458b`, `blue` Blauw `#49498d`, `teal` Petrol `#437e84`, `ochre` Oker `#66603f`, `rust` Roest `#79573f` |
+| Light | `magenta` Magenta `#804369`, `purple` Paars `#634b92`, `blue` Blauw `#515198`, `teal` Petrol `#406165`, `ochre` Oker `#615c3c`, `rust` Roest `#73533c` |
 | Dark | `pink` Roze `#ffbee0`, `lilac` Lila `#ae8fff`, `sky` Hemelsblauw `#7aacff`, `cyan` Cyaan `#4aedff`, `yellow` Geel `#ffce3f`, `orange` Oranje `#ffc7a6` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
@@ -225,18 +225,24 @@ out). Three more things follow it by default, in light and in dark (and a measur
   `-6` `#cfc0ff`; Hemelsblauw takes Cyaan's chroma the same way: `-5` `#7aacff`, `-6` `#b1cfff`). Text in the theme's colour (links, card and dialog titles, values) reads
   `light-dark(var(--primary-4), var(--primary-5))`, and the picker's dot on dark is `-5`. The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). On dark
-  **`-3` is the greyest step.** On light `-5` is the colour itself, `-4`'s hue a step darker. `-4` carries the fills
-  and focus rings in both modes, and the links on light, with `--primary-1` as text on a
-  fill. On light it is a softened step of the colour (owner's decision, October 15, 2026, from the owner's example
-  Petrol `#48878d`): each light theme takes that example's relative OKLCH chroma in its own hue, at the lightness
-  that holds 4.5:1 as link text on the page and the card (Petrol `#437e84`). The owner then made Paars and Magenta greyer (`#5d458b`, `#954c7a`), and Blauw bluer (`#49498d`, a
-  hue of 281 where the derived one leaned to cyan; Blauw's other steps sit on `#0000ff`'s HSL hue 240 too,
-  each at its own saturation and luminance, and `-5`, `-6` and `-7` a good deal
-  darker: `#0707bf`, `#181873`, `#00002b`): Oker and Roest follow Paars and Magenta at their mean OKLCH lightness (0.486), at their chroma (0.1135) or at their relative chroma (0.486)
-  where the hue holds less. The light `-1`, `-2` and `-3` follow
-  the owner's Petrol examples too (`#faffff`, `#f2ffff`, `#9adae2`): `-3` at the same OKLCH lightness and
-  relative chroma in each hue, `-1` and `-2` at the same chroma as light as each hue allows, `-2` never closer to
-  `-1` than in Petrol.
+  **`-3` is the greyest step.** `-4` carries the fills
+  and focus rings in both modes, and the links on light, with `--primary-1` as text on a fill. **On light every
+  theme behaves the same and only the hue differs** (owner's decision, October 15, 2026): each step has one OKLCH
+  lightness and one chroma in all six, capped at a share of what the hue can hold (relative chroma) where the hue
+  holds less.
+
+  | Step | OKLCH lightness | Chroma | From the owner's example |
+  |---|---|---|---|
+  | `-1` | 0.989 | 0.0053 | Petrol `#faffff`, at the lightest lightness every hue holds |
+  | `-2` | 0.972 | 0.0136 | Petrol `#f2ffff`, the same way |
+  | `-3` | 0.848 | 0.066, at most 0.45 relative | Petrol `#9adae2` |
+  | `-4` | 0.47 | 0.1135, at most 0.486 relative | Paars `#5d458b`, Magenta `#954c7a`, Blauw `#49498d` |
+  | `-5` | 0.369 | 0.99 relative | Blauw `#0707bf` |
+  | `-6` | 0.289 | 0.83 relative | Blauw `#181873` |
+  | `-7` | 0.131 | 0.99 relative | Blauw `#00002b` |
+
+  Each step keeps its hue; Blauw's sit on `#0000ff`'s HSL hue 240, from 264 to 286 in OKLCH as their chroma
+  falls, because at a constant OKLCH hue that blue leans to cyan.
 - **A tinted surface takes `-5`.** `--primary-3` is every line and also the surface of the `.table--accent`
   head, the hover of a joined choice and of the settings toggle, a near or today date row, a date row's hover,
   the accent dialog and an InfoRows box. The text on it is `--primary-5`, like all text, and not the colour

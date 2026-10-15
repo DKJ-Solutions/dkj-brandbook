@@ -47,12 +47,13 @@
 - [x] Light themes' `--primary-2` lighter: Petrol takes the owner's `#f2ffff`, the other five take its OKLCH chroma at the highest lightness their hue allows, never closer to `--primary-1` than Petrol's gap (which only Oker reaches)
 - [x] Light themes' `--primary-4` softened: the owner's Petrol `#48878d` fell to 4.06:1, so each light theme takes its relative chroma at the lightness that holds 4.5:1 on -1 and -2 (Petrol `#437e84`), then greyer from the owner's Paars `#5d458b` and Magenta `#954c7a` and Blauw `#49498d`, which Oker and Roest follow; picker dots and the stylesheet's measured worst cases updated
 - [x] Blauw's other steps moved to `#0000ff`'s HSL hue 240, each at its own saturation and luminance, so every contrast holds; then `-5`, `-6` and `-7` a good deal darker (`#0707bf`, `#181873`, `#00002b`)
+- [x] Every light theme behaves the same, only the hue differs: one OKLCH lightness and one chroma per step (capped by relative chroma where a hue holds less), from the owner's examples; `-5` to `-7` at Blauw's darker level (owner's choice); picker dots, README table and the stylesheet's worst cases follow
 - [x] Everything in `.bb-swatch-text` (name, value, recipe) from `--primary-5` to `--primary-7`
 
 ### TEST
 
 - [x] Lint gate green
-- [ ] An owner has looked at the sidebar group labels in the showcase and the eyebrows and the muted text the hero values the figcaptions and the swatch text `.meta` the accent tile and card the native controls and the light themes' `--primary-1` to `--primary-4`, and approved them
+- [ ] An owner has looked at the showcase (nav group labels, eyebrows, muted and `.meta` text, hero values, figcaptions, swatch text, accent tile and card, native controls) and at all six light themes, and approved them
 
 ### DEPLOY: feat/nav-group-primary-2
 
@@ -60,9 +61,9 @@
 
 ##### Tier 0
 
-The showcase sidebar's group labels now use `--primary-2` instead of `--primary-3`, and the eyebrows `--primary-4` instead of `--primary-7`. The house `.muted` class (and the table's `.dkj-muted`) is `--primary-4` instead of `--primary-5`; a paragraph keeps `--primary-7`. The house `.meta` class is `--primary-6` instead of `--primary-5`, again except on a paragraph. The hero figure (`.hero .value`) is set in `--primary-7`. Figcaptions (the showcase demo label and the `Figure` caption) are `--primary-6` instead of `--primary-5`. `.tile--accent` and `.card--accent` no longer draw a rule across their top. Native checkboxes, radios, sliders and progress bars take `--primary-5` instead of `--primary-4` through `accent-color`. On the light themes `--primary-3`, every line and tinted surface, carries more of the theme's colour (Petrol `#9adae2`, the rest derived from it), and text on it gains contrast. Their page fill `--primary-1` is lighter and a touch more coloured (Petrol `#faffff`, the rest at the same chroma), and so is their card fill `--primary-2` (Petrol `#f2ffff`). Their `--primary-4` (buttons, links, the picker's dot) is a softer step of the colour, held at 4.5:1 (Petrol `#437e84`, from the owner's `#48878d`; greyer still from the owner's Paars `#5d458b` and Magenta `#954c7a` and Blauw `#49498d`, which Oker and Roest follow). Blauw's other steps move to the hue of `#0000ff`, so the theme no longer leans to cyan. The colour swatches' name, value and recipe are `--primary-7` instead of `--primary-5`.
+Every light theme now behaves the same and only its hue differs: each of the seven `--primary-*` steps has one OKLCH lightness and one chroma in all six, capped where a hue cannot hold it, taken from the owner's examples (Petrol for `-1` to `-3`, Paars, Magenta and Blauw for `-4`, Blauw for `-5` to `-7`). The page and card fills are lighter, lines and tinted surfaces carry more colour, the fills and links are a softer, greyer step of the colour, and text is darker; Blauw sits on the hue of `#0000ff` instead of leaning to cyan. The picker's light dots follow. Native checkboxes, radios, sliders and progress bars take `--primary-5` through `accent-color`. The house `.muted` class is `--primary-4` and `.meta` is `--primary-6` (a paragraph keeps `--primary-7`), the hero figure is `--primary-7`, and `.card--accent` and `.tile--accent` no longer draw a rule across their top. In the showcase the nav group labels are `--primary-2`, eyebrows `--primary-4`, figcaptions `--primary-6` and the swatch text `--primary-7`.
 
-**Score:** 1
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -71,9 +72,9 @@ The showcase sidebar's group labels now use `--primary-2` instead of `--primary-
 
 ##### Tier 1
 
-Showcase styling only; nothing management or a commissioner would notice.
+Every DKJ-Solutions app on a light theme looks different once it takes this house style: lighter fills, a greyer primary and darker text.
 
-**Score:** N/A
+**Score:** 2
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -88,5 +89,4 @@ The brand book's own showcase is not a subscribed service.
 
 #### Pull Request
 
-Nav group labels in --primary-2, eyebrows and muted text in --primary-4, hero values in --primary-7, figcaptions in --primary-6, swatch text in --primary-7, .meta in --primary-6, no rule on the accent tile and card, native controls in --primary-5, more colour in the light themes' --primary-1 to -4
-
+Light themes on one rule, and a colour pass on the house text and the showcase
