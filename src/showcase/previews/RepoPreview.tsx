@@ -26,19 +26,19 @@ export function RepoPreview({ repo }: { repo: string }) {
   const Preview = PREVIEWS[repo]
   const app = APPS.find((a) => a.repo === `DKJ-Solutions/${repo}`)
   return (
-    <section className="bb-section" aria-labelledby="preview-title">
-      <p className="bb-preview-back">
+    <section className="dkj-section" aria-labelledby="preview-title">
+      <p className="dkj-preview-back">
         <a href="#apps">&larr; Back to the brand book</a>
       </p>
-      <h2 className="bb-section-title" id="preview-title">
+      <h2 className="dkj-section-title" id="preview-title">
         {app?.name ?? repo}
       </h2>
-      <p className="bb-section-intro">
+      <p className="dkj-section-intro">
         {Preview
           ? 'A recreated preview, built from the brand-book components with placeholder content. Change the theme or the width above and it follows.'
           : 'No recreated preview yet.'}
       </p>
-      <p className="bb-app-meta bb-preview-meta">
+      <p className="dkj-app-meta dkj-preview-meta">
         <span>
           Repo: <a href={`https://github.com/DKJ-Solutions/${repo}`}>DKJ-Solutions/{repo}</a>
         </span>
@@ -54,7 +54,7 @@ export function RepoPreview({ repo }: { repo: string }) {
         )}
       </p>
       {Preview ? (
-        <div className="bb-preview-frame">
+        <div className="dkj-preview-frame">
           <Preview />
         </div>
       ) : (

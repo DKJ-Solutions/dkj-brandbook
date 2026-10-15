@@ -75,7 +75,7 @@ const COMING_UP = [
 
 function DossierCards({ items, onOpen }: { items: readonly Dossier[]; onOpen: (id: string) => void }) {
   return (
-    <div className="bb-preview-tiles">
+    <div className="dkj-preview-tiles">
       {items.map((d) => {
         const p = PHASES[d.phase]
         return (
@@ -96,7 +96,7 @@ function DossierCards({ items, onOpen }: { items: readonly Dossier[]; onOpen: (i
               <p>{d.summary}</p>
               <Meter value={d.total === 0 ? 0 : ((d.total - d.open) / d.total) * 100} tone={p.tone} label={`Progress: ${d.open} open of ${d.total}`} />
               <Message>{`${d.open} open of ${d.total}`}</Message>
-              <div className="bb-preview-gap">
+              <div className="dkj-preview-gap">
                 <Button variant="outline" size="compact" onClick={() => onOpen(d.id)}>
                   Open dossier
                   <span className="sr-only"> {d.title}</span>
@@ -132,7 +132,7 @@ function Hub({ onOpen }: { onOpen: (id: string) => void }) {
 
       <div>
         <GroupHeading level={2}>Available apps</GroupHeading>
-        <div className="bb-preview-tiles">
+        <div className="dkj-preview-tiles">
           {APPS_LIST.map((a) => (
             <Card key={a.title}>
               <CardBody>
@@ -199,7 +199,7 @@ function DossierDetail({ dossier, onBack, onOpen }: { dossier: Dossier; onBack: 
             <p>{shown.intro}</p>
           </Prose>
           {shown.sections.map((s) => (
-            <div key={s.heading} className="bb-preview-gap">
+            <div key={s.heading} className="dkj-preview-gap">
               <GroupHeading level={2}>{s.heading}</GroupHeading>
               <Prose>
                 <p>{s.text}</p>
@@ -242,7 +242,7 @@ export function LifeHubPreview() {
     setView('dossier')
   }
   return (
-    <div className="bb-preview-app bb-preview-app--padded">
+    <div className="dkj-preview-app dkj-preview-app--padded">
       <PageHeader title={view === 'hub' ? 'My hub' : dossier.title}>
         <SegmentedChoice
           label="Screen"
@@ -255,7 +255,7 @@ export function LifeHubPreview() {
           ]}
         />
       </PageHeader>
-      <div className="bb-preview-column">
+      <div className="dkj-preview-column">
         {view === 'hub' ? (
           <Hub onOpen={open} />
         ) : (

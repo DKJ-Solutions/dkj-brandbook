@@ -46,7 +46,7 @@ export function Forms() {
 
       <Section id="Stepper" title="Stepper" intro="Minus, number, plus. 44px on a card, 52px in a dialog. A reset button can sit next to it. Press a button to see its active state.">
         <Demo label="Medium (44px) + reset">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Stepper label="Amount" value={n} onChange={setN} />
             <Button variant="outline" tone="accent" onClick={() => setN(12)}>Reset</Button>
           </div>
@@ -71,7 +71,7 @@ export function Forms() {
 
       <Section id="ValueBox" title="ValueBox" intro="A read-only figure. It does not look like the pencil next to it: no border, no fill. Changed values get an accent border with the expected value struck through.">
         <Demo label="States">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <ValueBox value="1,234" />
             <ValueBox value="1,240" changed expected="1,234" />
             <ValueBox value="56" unit="UNIT" />
@@ -143,7 +143,7 @@ export function Forms() {
           </DateList>
         </Demo>
         <Demo label="Narrow (the trailing label drops under the title)">
-          <div className="bb-narrow">
+          <div className="dkj-narrow">
             <DateList label="Narrow">
               <DateRow when="09:00-10:30" title="An example item with a rather long title that has to wrap" sub="A muted second line" trailing="Calendar one" />
               <DateRow when="tomorrow" title="Example appointment" trailing="Calendar two" state="near" />
@@ -162,7 +162,7 @@ export function Forms() {
           </RowList>
         </Demo>
         <Demo label="Flash (app changed the value)">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <span className="dkj-flash" style={{ display: 'inline-block', padding: 'var(--spacing-1) var(--spacing-2)', borderRadius: 'var(--dkj-radius-md)' }} key={flash}>
               25
             </span>

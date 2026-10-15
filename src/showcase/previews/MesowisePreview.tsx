@@ -20,14 +20,14 @@ const CARDS: readonly { title: string; icon: IconName }[] = [
 export function MesowisePreview() {
   const [level, setLevel] = useState(34)
   return (
-    <div className="bb-preview-app">
+    <div className="dkj-preview-app">
       <TopBar name="Mesowise" tagline="The cheapest way to your next level." menu={<SettingsMenu />} />
-      <div className="bb-preview-column">
+      <div className="dkj-preview-column">
         <StepHeader value={`Level ${level}`} forwardLabel="Level up" onBack={() => setLevel(level - 1)} onForward={() => setLevel(level + 1)} canBack={level > 1} />
         <Banner>
           What does it cost a <strong>level {level} Warrior</strong> to reach level {level + 1}?
         </Banner>
-        <div className="bb-preview-tiles">
+        <div className="dkj-preview-tiles">
           <TintedPanel as="button" tone="positive">
             <span className="dkj-panel-label">Cheapest setup</span>
             <span className="dkj-panel-value">
@@ -48,7 +48,7 @@ export function MesowisePreview() {
               title={c.title}
               icon={c.icon}
               actions={
-                <div className="bb-preview-card-actions">
+                <div className="dkj-preview-card-actions">
                   <CardActions>
                     <IconButton variant="filled" icon="eye" label={`${c.title}: cheapest`}>
                       Cheapest
@@ -75,7 +75,7 @@ function SettingsMenu() {
         <MenuRow label="Job" value="Warrior" />
         <MenuRow label="Gender" value="Female" />
       </MenuList>
-      <div className="bb-preview-gap">
+      <div className="dkj-preview-gap">
         <SegmentedChoice
           label="Server"
           layout="list"
@@ -87,7 +87,7 @@ function SettingsMenu() {
           ]}
         />
       </div>
-      <div className="bb-preview-gap">
+      <div className="dkj-preview-gap">
         <Disclosure summary="Help">
           <Message>Pick your job and level; every card works out the cheapest way up from there.</Message>
         </Disclosure>

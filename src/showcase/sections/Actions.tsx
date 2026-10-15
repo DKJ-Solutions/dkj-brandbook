@@ -49,39 +49,39 @@ export function Actions() {
     <>
       <Section id="Button" title="Button" intro="One text button with four variants, a compact size, an optional icon and an accent tone for the outline. With href it is a link that looks the same. Width is content-sized unless block is set. The compact size keeps a 44px tap area around its 36px face.">
         <Demo label="Variants">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Button>Default</Button>
             <Button variant="outline">Outline</Button>
             <Button variant="positive">Positive</Button>
           </div>
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Button variant="primary">Primary (content width)</Button>
           </div>
           <Button variant="primary" block>Primary (block)</Button>
         </Demo>
         <Demo label="States -- default">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Button>Rest</Button>
             <Button data-demo-state="focus">Focus</Button>
             <Button disabled>Disabled</Button>
           </div>
         </Demo>
         <Demo label="Compact (uppercase)">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Button variant="outline" size="compact">Back</Button>
             <Button variant="positive" size="compact">Next</Button>
             <Button variant="positive" size="compact" disabled>Next</Button>
           </div>
         </Demo>
         <Demo label="Primary -- states">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Button variant="primary">Rest</Button>
             <Button variant="primary" data-demo-state="focus">Focus</Button>
             <Button variant="primary" disabled>Disabled</Button>
           </div>
         </Demo>
         <Demo label="Accent outline -- beside a Stepper (reset), rest / focus / disabled">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Stepper label="Amount" value={amount} onChange={setAmount} />
             <Button variant="outline" tone="accent" onClick={() => setAmount(12)}>Reset</Button>
             <Button variant="outline" tone="accent" data-demo-state="focus">Focus</Button>
@@ -90,7 +90,7 @@ export function Actions() {
         </Demo>
         <Demo label="Link with icon -- a download: rest / hover / focus / active / disabled">
           <Button href="#Button" download icon="download" block>Download offline version</Button>
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Button href="#Button" download icon="download" data-demo-state="hover">Hover</Button>
             <Button href="#Button" download icon="download" data-demo-state="focus">Focus</Button>
             <Button href="#Button" download icon="download" data-demo-state="active">Active</Button>
@@ -98,7 +98,7 @@ export function Actions() {
           </div>
         </Demo>
         <Demo label="House .btn / .btn--primary -- rest / disabled">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <button type="button" className="btn">Rest</button>
             <button type="button" className="btn" disabled>Disabled</button>
             <button type="button" className="btn btn--primary">Rest</button>
@@ -124,7 +124,7 @@ export function Actions() {
           <SegmentedChoice label="Choose an option" layout="list" options={OPTIONS} value={listChoice} onChange={setListChoice} />
         </Demo>
         <Demo label="Joined -- two options / nothing chosen">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <SegmentedChoice label="View" layout="joined" options={VIEWS} value={view} onChange={setView} />
             <SegmentedChoice label="Choose an option" layout="joined" options={OPTIONS.slice(0, 3)} value={undefined} onChange={setChoice} />
           </div>
@@ -159,7 +159,7 @@ export function Actions() {
           </CardActions>
         </Demo>
         <Demo label="Outline -- rest / focus / pressed (open)">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <IconButton icon="pencil" label="Edit" />
             <IconButton icon="pencil" label="Edit" data-demo-state="focus" />
             <IconButton icon="pencil" label="Edit" pressed={pressed} onClick={() => setPressed(!pressed)} />
@@ -167,7 +167,7 @@ export function Actions() {
           </div>
         </Demo>
         <Demo label="Ghost">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <IconButton variant="ghost" icon="menu" label="Menu" />
             <IconButton variant="ghost" icon="close" label="Close" />
           </div>
@@ -176,20 +176,20 @@ export function Actions() {
 
       <Section id="RoundToggle" title="RoundToggle" intro="A round “?” or “i”: a small glyph with a 44px tap area that does not make its row taller. The badge size sits after a number in a table; the inline size is a 16px muted ring for inside a label or heading.">
         <Demo label="Help -- closed / open">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <RoundToggle />
             <RoundToggle expanded />
             <RoundToggle data-demo-state="focus" />
           </div>
         </Demo>
         <Demo label="Info -- closed / open">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <RoundToggle kind="info" />
             <RoundToggle kind="info" expanded />
           </div>
         </Demo>
         <Demo label="Inline -- in a label and a heading / open / focus">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <span>
               Net deposits
               <RoundToggle size="inline" label="Explain: Net deposits" expanded={inline} onClick={() => setInline(!inline)} />
@@ -213,7 +213,7 @@ export function Actions() {
           </h3>
         </Demo>
         <Demo label="Badge -- after a number">
-          <div className="bb-row" style={{ fontVariantNumeric: 'tabular-nums' }}>
+          <div className="dkj-demo-row" style={{ fontVariantNumeric: 'tabular-nums' }}>
             <span>12 pcs</span>
             <RoundToggle size="badge" expanded={help} onClick={() => setHelp(!help)} />
           </div>

@@ -112,7 +112,7 @@ function PlaylistManager() {
         <CardHead title="Connection" />
         <CardBody>
           <Message>{connected ? 'Connected to the example music service.' : 'Not connected.'}</Message>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <Button variant="outline" onClick={() => setConnected((c) => !c)}>
               {connected ? 'Disconnect' : 'Connect'}
             </Button>{' '}
@@ -145,24 +145,24 @@ function PlaylistManager() {
       <Card variant="data">
         <CardHead title="Playlists" subtitle={`${visible.length} of ${PLAYLISTS.length} shown`} />
         <CardBody>
-          <div className="bb-preview-tiles">
+          <div className="dkj-preview-tiles">
             <TextField label="Search" type="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Playlist name" />
             <SelectField label="Type" options={[ALL, 'Set', 'Archive']} value={type} onChange={(e) => setType(e.target.value)} />
             <SelectField label="Genre" options={[ALL, 'Genre one', 'Genre two', 'Genre three']} value={genre} onChange={(e) => setGenre(e.target.value)} />
           </div>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <GroupHeading level={3}>Colour</GroupHeading>
             <FilterChips label="Colour" options={COLOURS} value={colours} onChange={setColours} />
           </div>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <GroupHeading level={3}>Density</GroupHeading>
             <FilterChips label="Density" options={DENSITIES} value={densities} onChange={setDensities} />
           </div>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <GroupHeading level={3}>BPM tier</GroupHeading>
             <FilterChips label="BPM tier" options={BPM_TIERS} value={bpmTiers} onChange={setBpmTiers} />
           </div>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <SegmentedChoice
               label="ID filled"
               layout="joined"
@@ -178,7 +178,7 @@ function PlaylistManager() {
               Clear filters
             </Button>
           </div>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <DataTable
               label="Playlists"
               sort={sort}
@@ -284,7 +284,7 @@ function DataDashboard() {
               <StatTile key={w.label} label={`${w.emoji} ${w.label}`} value={w.count} />
             ))}
           </StatTiles>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <GroupHeading level={3}>Colours</GroupHeading>
             <Legend>
               {COLOUR_COUNTS.map((c) => (
@@ -295,7 +295,7 @@ function DataDashboard() {
             </Legend>
             <BarChart colorBy="series" label="Playlists per colour" data={COLOUR_COUNTS} format={(n) => `${n} playlists`} itemHeading="Colour" valueHeading="Playlists" />
           </div>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <GroupHeading level={3}>BPM tiers</GroupHeading>
             <StatTiles>
               <StatTile label="Slow" value={2} />
@@ -357,7 +357,7 @@ function TrackRegister() {
         <CardBody>
           <fieldset>
             <legend>Filter the tracks</legend>
-            <div className="bb-preview-tiles">
+            <div className="dkj-preview-tiles">
             <TextField label="Search" type="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Title or artist" />
             <SelectField label="BPM" options={[ALL, 'Under 110', '110 to 130', 'Over 130']} value={bpm} onChange={(e) => setBpm(e.target.value)} />
             <SelectField label="Genre" options={[ALL, 'Genre one', 'Genre two', 'Genre three']} value={genre} onChange={(e) => setGenre(e.target.value)} />
@@ -365,7 +365,7 @@ function TrackRegister() {
             <SelectField label="Group" options={[ALL, 'Group X', 'Group Y']} value={group} onChange={(e) => setGroup(e.target.value)} />
             </div>
           </fieldset>
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <Button variant="outline" size="compact" onClick={clear}>
               Clear filters
             </Button>
@@ -391,7 +391,7 @@ function TrackRegister() {
             rows={sortedBy(visible, sort).map((t) => ({ id: t.id, cells: { title: t.title, artist: t.artist, bpm: t.bpm, genre: t.genre, album: t.album, group: t.group } }))}
             empty="No tracks match these filters"
           />
-          <div className="bb-preview-gap">
+          <div className="dkj-preview-gap">
             <TintedPanel>
               <strong>Player</strong>
               <Message>A placeholder strip: the real page embeds the music service player here, below the table.</Message>
@@ -409,7 +409,7 @@ const TITLES: Record<View, string> = { playlists: 'Playlist manager', dashboard:
 export function MusicLibraryPreview() {
   const [view, setView] = useState<View>('playlists')
   return (
-    <div className="bb-preview-app bb-preview-app--padded">
+    <div className="dkj-preview-app dkj-preview-app--padded">
       <PageHeader title={TITLES[view]}>
         <SegmentedChoice
           label="Screen"
@@ -423,7 +423,7 @@ export function MusicLibraryPreview() {
           ]}
         />
       </PageHeader>
-      <div className="bb-preview-column bb-preview-column--wide">
+      <div className="dkj-preview-column dkj-preview-column--wide">
         {view === 'playlists' && <PlaylistManager />}
         {view === 'dashboard' && <DataDashboard />}
         {view === 'tracks' && <TrackRegister />}

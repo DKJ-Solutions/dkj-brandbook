@@ -32,11 +32,18 @@
 
 ### PLAN
 
+The owner wants one kind of class naming: the components used `dkj-`, the showcase `bb-`. Everything takes
+`dkj-`.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Every `bb-` class in `src/` renamed to `dkj-` (22 files, the generated `dkj-nav-group-<n>` ids too)
+- [x] The one clash, the showcase's `.bb-row` against the component `.dkj-row`, becomes `.dkj-demo-row`
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
+
+- [ ] An owner has looked at the showcase and approved it
 
 ### DEPLOY: feat/one-class-prefix
 
@@ -44,7 +51,12 @@
 
 ##### Tier 0
 
-**Score:**
+The showcase's own classes take the `dkj-` prefix the components already used, so every class the brand
+book adds on top of the house style starts with `dkj-` instead of a mix of `bb-` and `dkj-`. The showcase's
+row of demo items, which would have clashed with the component `.dkj-row`, is `.dkj-demo-row`. Nothing changes
+on screen.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +65,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a rename inside the showcase; nobody outside the repo sees it.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +76,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
 
 #### Pull Request
 

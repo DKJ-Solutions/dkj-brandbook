@@ -6,14 +6,14 @@ type Width = 'fluid' | 'phone'
 export function useWidth() {
   const [width, setWidth] = useState<Width>(() => {
     try {
-      return (localStorage.getItem('bb-width') as Width | null) ?? 'fluid'
+      return (localStorage.getItem('dkj-width') as Width | null) ?? 'fluid'
     } catch {
       return 'fluid'
     }
   })
   useEffect(() => {
     try {
-      localStorage.setItem('bb-width', width)
+      localStorage.setItem('dkj-width', width)
     } catch {
       /* storage unavailable: the choice simply is not remembered */
     }

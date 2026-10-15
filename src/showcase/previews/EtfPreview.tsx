@@ -60,7 +60,7 @@ const TIMELINE_SERIES: LineSeries[] = [
 export function EtfPreview() {
   const [view, setView] = useState<'primary' | 'secondary'>('primary')
   return (
-    <div className="bb-preview-app bb-preview-app--padded">
+    <div className="dkj-preview-app dkj-preview-app--padded">
       <PageHeader title="Portfolio" asOf="As of 13 October 2026">
         <SegmentedChoice
           label="View"
@@ -73,7 +73,7 @@ export function EtfPreview() {
           ]}
         />
       </PageHeader>
-      <div className="bb-preview-column bb-preview-column--wide">
+      <div className="dkj-preview-column dkj-preview-column--wide">
         <Banner tone="warn" lead="The ledger does not match the export">
           -- one figure may differ.
         </Banner>

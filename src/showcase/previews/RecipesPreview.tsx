@@ -115,7 +115,7 @@ function RecipeList({ list, onOpen }: { list: readonly string[]; onOpen: (id: st
           <CardBody>
             <strong>{r.title}</strong>
             <Message>{[`${r.minutes} min`, countText(r.ingredients.length, 'ingredient', 'ingredients'), ...r.tags].join(' · ')}</Message>
-            <div className="bb-preview-gap">
+            <div className="dkj-preview-gap">
               {r.tags.map((t) => (
                 <TitleTag key={t}>{t}</TitleTag>
               ))}{' '}
@@ -163,12 +163,12 @@ function RecipePage({ recipe, onBack, onList, onToggleList }: { recipe: Recipe; 
             Reset
           </Button>
           {departments.map((d) => (
-            <div key={d} className="bb-preview-gap">
+            <div key={d} className="dkj-preview-gap">
               <GroupHeading level={3}>{d}</GroupHeading>
               {recipe.ingredients
                 .filter((i) => i.department === d)
                 .map((i) => (
-                  <div key={key(i)} className={checked.includes(key(i)) ? 'bb-preview-done' : undefined}>
+                  <div key={key(i)} className={checked.includes(key(i)) ? 'dkj-preview-done' : undefined}>
                     <Checkbox label={scaled(i, recipe.portions, n)} checked={checked.includes(key(i))} onChange={() => toggle(key(i))} />
                   </div>
                 ))}
@@ -202,7 +202,7 @@ export function RecipesPreview() {
   const recipe = RECIPES.find((r) => r.id === openId) ?? RECIPES[0]
   const toggleList = () => setList((l) => (l.includes(recipe.id) ? l.filter((x) => x !== recipe.id) : [...l, recipe.id]))
   return (
-    <div className="bb-preview-app bb-preview-app--padded">
+    <div className="dkj-preview-app dkj-preview-app--padded">
       <PageHeader title={view === 'list' ? 'Recipes' : recipe.title}>
         {view === 'list' && <Button variant="outline" size="compact">{`Shopping list (${list.length})`}</Button>}
         <SegmentedChoice
@@ -216,7 +216,7 @@ export function RecipesPreview() {
           ]}
         />
       </PageHeader>
-      <div className="bb-preview-column">
+      <div className="dkj-preview-column">
         {view === 'list' && (
           <RecipeList
             list={list}
