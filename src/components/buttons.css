@@ -5,7 +5,7 @@
 .dkj-iconbtn:focus-visible, .dkj-iconbtn[data-demo-state='focus'],
 .dkj-badge-toggle:focus-visible, .dkj-badge-toggle[data-demo-state='focus'],
 .dkj-inline-toggle:focus-visible, .dkj-inline-toggle[data-demo-state='focus'] {
-  outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5));
+  outline: var(--dkj-focus-w) solid var(--primary-4);
   outline-offset: var(--dkj-focus-offset);
 }
 
@@ -38,7 +38,7 @@
 .dkj-btn svg { flex: none; }
 .dkj-btn:disabled, .dkj-btn[aria-disabled='true'] { opacity: 0.5; cursor: not-allowed; }
 .dkj-btn--block { display: flex; width: 100%; }
-.dkj-btn--primary { background: var(--primary-4); border-color: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); }
+.dkj-btn--primary { background: var(--primary-4); border-color: var(--primary-4); color: var(--primary-1); }
 /* Primary disabled: visible, colourless, inert -- "Save only becomes active when there is something to save". */
 .dkj-btn--primary:disabled, .dkj-btn--primary[aria-disabled='true'] {
   opacity: 1;
@@ -50,10 +50,10 @@
 /* The default look answers a hover or a press with the accent border (the download button's behaviour, now every default button's).
    Choices in a segmented row or list carry their own pressed state and are left out. */
 .dkj-btn--default:not(.dkj-choice):active:not(:disabled):not([aria-disabled='true']),
-.dkj-btn--default:not(.dkj-choice)[data-demo-state='active'] { transform: translateY(1px); border-color: light-dark(var(--primary-4), var(--primary-5)); }
-.dkj-btn--default:not(.dkj-choice)[data-demo-state='hover'] { border-color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-btn--default:not(.dkj-choice)[data-demo-state='active'] { transform: translateY(1px); border-color: var(--primary-4); }
+.dkj-btn--default:not(.dkj-choice)[data-demo-state='hover'] { border-color: var(--primary-4); }
 @media (hover: hover) {
-  .dkj-btn--default:not(.dkj-choice):hover:not(:disabled):not([aria-disabled='true']) { border-color: light-dark(var(--primary-4), var(--primary-5)); }
+  .dkj-btn--default:not(.dkj-choice):hover:not(:disabled):not([aria-disabled='true']) { border-color: var(--primary-4); }
 }
 @media (prefers-reduced-motion: reduce) {
   .dkj-btn { transition: none; }
@@ -71,11 +71,11 @@
   font-weight: var(--dkj-fw-medium);
 }
 /* Accent outline (Button tone="accent"): accent text, the border and press of the Stepper beside it. */
-.dkj-btn--outline.dkj-btn--accent { color: light-dark(var(--primary-4), var(--primary-5)); border-color: var(--primary-3); }
+.dkj-btn--outline.dkj-btn--accent { color: var(--primary-4); border-color: var(--primary-3); }
 .dkj-btn--outline.dkj-btn--accent:active:not(:disabled):not([aria-disabled='true']),
 .dkj-btn--outline.dkj-btn--accent[data-demo-state='active'] {
   background: color-mix(in srgb, var(--primary-4) 16%, var(--primary-2));
-  border-color: light-dark(var(--primary-4), var(--primary-5));
+  border-color: var(--primary-4);
 }
 /* Compact: smaller to the eye, but the tap area stays 44px via ::after. */
 .dkj-btn--compact {
@@ -123,7 +123,7 @@
   border: 1px solid var(--primary-3);
   border-radius: var(--dkj-radius-md);
 }
-.dkj-iconbtn--outline[aria-pressed='true'] { background: none; border-color: transparent; color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-iconbtn--outline[aria-pressed='true'] { background: none; border-color: transparent; color: var(--primary-4); }
 .dkj-iconbtn--ghost {
   flex: none;
   width: var(--dkj-tap);
@@ -157,9 +157,9 @@
   -webkit-tap-highlight-color: transparent;
 }
 .dkj-round-toggle--info { color: var(--primary-5); }
-.dkj-round-toggle[aria-expanded='true'] { color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-round-toggle[aria-expanded='true'] { color: var(--primary-4); }
 .dkj-round-toggle:focus-visible, .dkj-round-toggle[data-demo-state='focus'] {
-  outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5));
+  outline: var(--dkj-focus-w) solid var(--primary-4);
   outline-offset: var(--dkj-focus-offset-inset);
 }
 
@@ -184,7 +184,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 .dkj-badge-toggle::after { content: ''; position: absolute; inset: calc(-1 * var(--spacing-2)); }
-.dkj-badge-toggle[aria-expanded='true'] { color: light-dark(var(--primary-4), var(--primary-5)); border-color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-badge-toggle[aria-expanded='true'] { color: var(--primary-4); border-color: var(--primary-4); }
 
 .dkj-inline-toggle {
   position: relative;
@@ -212,7 +212,7 @@
 /* The ring is 16px; the tap area is 44px high but only 8px wider on each side, so neighbouring toggles and the label text are not covered. */
 .dkj-inline-toggle::after { content: ''; position: absolute; inset: calc((var(--dkj-inline-toggle) - var(--dkj-tap)) / 2) calc(-1 * var(--spacing-2)); }
 .dkj-inline-toggle:hover { color: var(--primary-5); border-color: var(--primary-5); }
-.dkj-inline-toggle[aria-expanded='true'] { color: light-dark(var(--primary-4), var(--primary-5)); border-color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-inline-toggle[aria-expanded='true'] { color: var(--primary-4); border-color: var(--primary-4); }
 
 /* ---------- SegmentedChoice ---------- */
 .dkj-choices--row {
@@ -228,9 +228,9 @@
   white-space: nowrap;
 }
 .dkj-choices--row .dkj-choice[aria-pressed='true'] {
-  border-color: light-dark(var(--primary-4), var(--primary-5));
-  box-shadow: inset 0 0 0 1px light-dark(var(--primary-4), var(--primary-5));
-  color: light-dark(var(--primary-4), var(--primary-5));
+  border-color: var(--primary-4);
+  box-shadow: inset 0 0 0 1px var(--primary-4);
+  color: var(--primary-4);
 }
 .dkj-choices--list { display: flex; flex-direction: column; }
 .dkj-choices--list .dkj-choice {
@@ -248,7 +248,7 @@
   color: var(--primary-5);
 }
 .dkj-choices--list .dkj-choice + .dkj-choice { border-top: 1px solid var(--primary-3); }
-.dkj-choices--list .dkj-choice[aria-pressed='true'] { color: light-dark(var(--primary-4), var(--primary-5)); font-weight: var(--dkj-fw-semibold); }
+.dkj-choices--list .dkj-choice[aria-pressed='true'] { color: var(--primary-4); font-weight: var(--dkj-fw-semibold); }
 
 /* Joined: one capsule. The face is --dkj-control-dense high; ::after grows the tap area to 44px without moving anything.
    No overflow:hidden on the capsule (it would clip that area), so the end buttons round their own corners. */
@@ -275,7 +275,7 @@
 .dkj-choices--joined .dkj-choice + .dkj-choice { border-left: 1px solid var(--primary-3); }
 .dkj-choices--joined .dkj-choice:first-child { border-radius: calc(var(--dkj-radius-md) - 1px) 0 0 calc(var(--dkj-radius-md) - 1px); }
 .dkj-choices--joined .dkj-choice:last-child { border-radius: 0 calc(var(--dkj-radius-md) - 1px) calc(var(--dkj-radius-md) - 1px) 0; }
-.dkj-choices--joined .dkj-choice[aria-pressed='true'] { background: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); font-weight: var(--dkj-fw-semibold); }
+.dkj-choices--joined .dkj-choice[aria-pressed='true'] { background: var(--primary-4); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
 .dkj-choices--joined .dkj-choice:hover:not([aria-pressed='true']) { background: var(--primary-3); color: var(--primary-5); }
 /* The ring sits above the neighbouring button, which would otherwise paint over half of it. */
 .dkj-choices--joined .dkj-choice:focus-visible { z-index: 1; }
@@ -303,7 +303,7 @@
 .dkj-filter-chip[aria-pressed='true'] {
   background: var(--primary-4);
   border-color: var(--primary-4);
-  color: light-dark(var(--primary-1), var(--primary-7));
+  color: var(--primary-1);
   font-weight: var(--dkj-fw-semibold);
 }
 .dkj-filter-chip__check { flex: none; }
@@ -322,7 +322,7 @@
   padding: 0 var(--spacing-2);
   border: 0;
   background: none;
-  color: light-dark(var(--primary-4), var(--primary-5));
+  color: var(--primary-4);
   font: inherit;
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-semibold);
@@ -332,6 +332,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 .dkj-filter-chip:focus-visible, .dkj-filter-chips__clear:focus-visible {
-  outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5));
+  outline: var(--dkj-focus-w) solid var(--primary-4);
   outline-offset: var(--dkj-focus-offset);
 }

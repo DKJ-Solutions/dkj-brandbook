@@ -86,7 +86,7 @@
   cursor: pointer;
 }
 .dkj-inforow-named > svg { flex: none; }
-.dkj-inforow-named:focus-visible { outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: var(--dkj-focus-offset-inset); }
+.dkj-inforow-named:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset-inset); }
 .dkj-inforow-value { min-width: 0; font-size: var(--text-h6); line-height: 1.5rem; font-weight: var(--dkj-fw-semibold); color: var(--primary-5); overflow-wrap: anywhere; }
 .dkj-inforow-value--placeholder { font-weight: var(--dkj-fw-regular); color: var(--primary-5); }
 

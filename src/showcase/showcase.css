@@ -42,18 +42,10 @@
 }
 .bb-nav a:hover { background: var(--primary-6); }
 .bb-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-3); outline-offset: var(--dkj-focus-offset-inset); }
-/* The current page: the theme's colour on light, a line-coloured fill on dark. Its focus ring takes the far end of
-   the other mode, because the usual ring would vanish on the current fill. */
-.bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); font-weight: var(--dkj-fw-semibold); }
+/* The current page: a --primary-4 fill, the same step in both modes. Its focus ring takes --primary-1, because the
+   usual ring would vanish on the current fill. */
+.bb-nav a[aria-current='page'], .bb-nav a[aria-current='page']:hover { background: var(--primary-4); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
 .bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-1); }
-/* Dark: the same selectors as the house style's dark token blocks (forced, and following the OS). The hover is the
-   theme's colour, and the current page a --primary-3 fill with --primary-5 text. */
-:root:is([data-theme="dark"], [data-theme="pink"], [data-theme="lilac"], [data-theme="sky"], [data-theme="cyan"], [data-theme="yellow"], [data-theme="orange"]) .bb-nav a:hover { background: var(--primary-4); color: var(--primary-7); }
-:root:is([data-theme="dark"], [data-theme="pink"], [data-theme="lilac"], [data-theme="sky"], [data-theme="cyan"], [data-theme="yellow"], [data-theme="orange"]) .bb-nav a[aria-current='page'],
-:root:is([data-theme="dark"], [data-theme="pink"], [data-theme="lilac"], [data-theme="sky"], [data-theme="cyan"], [data-theme="yellow"], [data-theme="orange"]) .bb-nav a[aria-current='page']:hover { background: var(--primary-3); color: var(--primary-5); }
-:root:is([data-theme="dark"], [data-theme="pink"], [data-theme="lilac"], [data-theme="sky"], [data-theme="cyan"], [data-theme="yellow"], [data-theme="orange"]) .bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-7); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .bb-nav a:hover { background: var(--primary-4); color: var(--primary-7); }
   :root:not([data-theme]) .bb-nav a[aria-current='page'],
   :root:not([data-theme]) .bb-nav a[aria-current='page']:hover { background: var(--primary-3); color: var(--primary-5); }
   :root:not([data-theme]) .bb-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-7); }
@@ -96,8 +88,8 @@
 .bb-toggle button + button { border-left: 0; }
 .bb-toggle button:first-child { border-radius: var(--dkj-radius-md) 0 0 var(--dkj-radius-md); }
 .bb-toggle button:last-child { border-radius: 0 var(--dkj-radius-md) var(--dkj-radius-md) 0; }
-.bb-toggle button[aria-pressed='true'] { background: var(--primary-4); border-color: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); }
-.bb-toggle button:focus-visible, .bb-control select:focus-visible { outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: var(--dkj-focus-offset); }
+.bb-toggle button[aria-pressed='true'] { background: var(--primary-4); border-color: var(--primary-4); color: var(--primary-1); }
+.bb-toggle button:focus-visible, .bb-control select:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
 
 /* Phone width: everything renders in a 360px column, like the source app on the smallest phone it supports. */
 .bb-content--phone { max-width: 360px; }
@@ -169,7 +161,7 @@
   background: var(--primary-1);
   border-radius: var(--dkj-radius-md);
 }
-.bb-focus-sample { outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5)); }
+.bb-focus-sample { outline: var(--dkj-focus-w) solid var(--primary-4); }
 .bb-shadow-sample { background: var(--primary-2); box-shadow: var(--shadow-pop); }
 /* Motion: each dot crosses its track in its own duration when the panel is hovered or focused. */
 .bb-motion-track { position: relative; height: 0.75rem; max-width: 16rem; background: var(--primary-3); border-radius: var(--dkj-radius-pill); }
@@ -185,9 +177,9 @@
   transition-timing-function: var(--dkj-ease-out);
 }
 .bb-motion:hover .bb-motion-dot, .bb-motion:focus-visible .bb-motion-dot { left: calc(100% - 0.75rem); }
-.bb-motion:focus-visible { outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: var(--dkj-focus-offset); }
+.bb-motion:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
 @media (prefers-reduced-motion: reduce) { .bb-motion-dot { transition: none; } }
-.bb-radius { width: 3rem; height: 3rem; background: color-mix(in srgb, var(--primary-4) 20%, var(--primary-2)); border: 1px solid light-dark(var(--primary-4), var(--primary-5)); }
+.bb-radius { width: 3rem; height: 3rem; background: color-mix(in srgb, var(--primary-4) 20%, var(--primary-2)); border: 1px solid var(--primary-4); }
 
 @media (max-width: 52rem) {
   .bb-shell { grid-template-columns: minmax(0, 1fr); }
@@ -203,14 +195,14 @@
 
 /* "Used in" line under a component */
 .bb-used-in { margin: 0 0 var(--spacing-1-5); }
-.bb-used-in a { color: light-dark(var(--primary-4), var(--primary-5)); }
+.bb-used-in a { color: var(--primary-4); }
 
 /* Apps overview */
 .bb-app { grid-column: 1 / -1; display: grid; gap: var(--spacing-4); padding: var(--spacing-4); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-lg); background: var(--primary-2); scroll-margin-top: 5rem; }
 .bb-app-name { margin: 0; }
 .bb-app-desc { margin: var(--spacing-1) 0 var(--spacing-2); max-width: 46rem; color: var(--primary-7); }
 .bb-app-meta { display: flex; flex-wrap: wrap; gap: var(--spacing-1) var(--spacing-4); margin: 0; font-size: var(--text-sm); color: var(--primary-7); }
-.bb-app-meta a { color: light-dark(var(--primary-4), var(--primary-5)); }
+.bb-app-meta a { color: var(--primary-4); }
 .bb-kind { margin: 0 0 var(--spacing-2); }
 .bb-views { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: var(--spacing-3); margin: 0; padding: 0; list-style: none; }
 .bb-view { display: grid; gap: var(--spacing-1-5); align-content: start; padding: var(--spacing-3); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); background: color-mix(in srgb, var(--primary-4) 8%, var(--primary-2)); }   /* the theme's tint, a step deeper than the page and the app card around it */
@@ -220,11 +212,11 @@
 .bb-view-components { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
 .bb-view-components a { padding: var(--spacing-0-5) var(--spacing-2); font-size: var(--text-sm); color: var(--primary-5); text-decoration: none; border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-pill); background: var(--primary-2); }
 .bb-view-components a:hover { background: var(--primary-3); color: var(--primary-5); }
-.bb-view-components a:focus-visible { outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: var(--dkj-focus-offset); }
+.bb-view-components a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
 
 /* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */
 .bb-preview-back { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); }
-.bb-preview-back a { color: light-dark(var(--primary-4), var(--primary-5)); }
+.bb-preview-back a { color: var(--primary-4); }
 .bb-preview-meta { margin-bottom: var(--spacing-4); }
 .bb-preview-frame { border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-lg); overflow: hidden; background: var(--primary-1); }
 .bb-preview-app--padded { padding: var(--spacing-5) var(--spacing-4) var(--spacing-6); }

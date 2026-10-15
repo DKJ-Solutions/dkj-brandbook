@@ -48,16 +48,17 @@
      mirrored (owner's decision, October 15, 2026): -1 L 0.19 C 0.035, -2 L 0.21 C 0.045, -3 L 0.32 C 0.08 at most
      0.6 relative, -4 L 0.50 C 0.105 at most 0.39 relative (the owner's Hemelsblauw #4c4c8d, then a little lighter), -5 L 0.80 at 0.99, -6 L 0.90 at 0.83 relative, -7 L
      0.981 C 0.008. -4 is the greyest step, in the middle of the scale, and -5 and -6 carry
-     the colour. -1 is too close to that -4 to read on it, so on dark the text on a -4 fill is -7, and every focus
-     ring, line, meter fill and quiet text that is -4 on light is -5 (light-dark(-4, -5)). Hemelsblauw sits on #0000ff's HSL hue 240 like Blauw. -1 and -2 are the ground end (lightest
+     the colour. A role takes the same step in both modes, never light-dark() between two steps (owner's
+     decision, October 15, 2026): on dark that puts -1 on a -4 fill, and -4 text and rings on -1 and -2, at about
+     3:1 (owner accepted). Hemelsblauw sits on #0000ff's HSL hue 240 like Blauw. -1 and -2 are the ground end (lightest
      on light, darkest on dark), -6 and -7 the far end (darkest on light, whitest on dark). Blauw here; each [data-theme]
      below sets its own seven.
-     -1 the page, and the text on a -4 fill (on dark -7); -2 the cards (tiles, tooltips); -3 every line (borders, row
+     -1 the page, and the text on a -4 fill; -2 the cards (tiles, tooltips); -3 every line (borders, row
      dividers, meter track, gridlines) and the tinted surfaces (an accent table head, a hover, a today row, the
-     accent dialog); -4 the fills: primary buttons, switches and info badges, and on light focus rings, meters,
-     links and the picker's dot (on dark text in the colour reads light-dark(-4, -5), and the dot is -5); -5 all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end: every paragraph, and an inverted
+     accent dialog); -4 the fills (primary buttons, switches, info badges), focus rings, meters, links and text in
+     the colour (card and dialog titles, values), and the picker's dot on light (on dark the dot is -5); -5 all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end: every paragraph, and an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -4 on the card 6.24:1
-     on light (Oker), -1 on -4 6.54:1 on light (Oker) and -7 on -4 5.63:1 on dark (Cyaan), -5 on -3 6.53:1 on light (Petrol);
+     on light (Oker), -1 on -4 6.54:1 on light (Oker) and 2.96:1 on dark (Roze), -4 on the card 2.85:1 on dark (Roze), -5 on -3 6.53:1 on light (Petrol);
      -5, all text, on -1 and -2 at 9.42:1 or better on light (Petrol) and 9.02:1 on dark (Roze), and 6.42:1 or better
      on a status background (Roze on dark). */
   --primary-1: #fbfbff; --primary-2: #f5f5ff; --primary-3: #cacae4; --primary-4: #515198;
@@ -118,7 +119,7 @@
 
   /* native controls (checkbox, radio, range, progress) and the text caret take the theme */
   accent-color: var(--primary-5);
-  caret-color: light-dark(var(--primary-4), var(--primary-5));
+  caret-color: var(--primary-4);
 }
 
 /* ---- Tokens: dark, following the OS unless the page forces a theme -------- */
@@ -204,7 +205,7 @@ h4 { font-size: var(--text-h4); margin: 0 0 var(--spacing-2); font-weight: 600; 
 h5 { font-size: var(--text-h5); margin: 0 0 var(--spacing-1-5); font-weight: 600; }
 h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; }
 .sub { color: var(--primary-5); font-size: var(--text-sm); margin: 0 0 var(--spacing-4); }   /* line under a heading */
-.muted { color: light-dark(var(--primary-4), var(--primary-5)); font-size: var(--text-sm); }
+.muted { color: var(--primary-4); font-size: var(--text-sm); }
 .meta { font-size: var(--text-sm); color: var(--primary-6); white-space: nowrap; }
 .note { font-size: var(--text-sm); color: var(--primary-5); margin-top: var(--spacing-1); }
 .footer-note { color: var(--primary-5); font-size: var(--text-sm); margin-top: var(--spacing-6); }
@@ -221,9 +222,9 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 /* A link (an <a> with an href) takes the theme's primary as text (--primary-4), visited or not: it reaches 4.5:1
    on the tinted page and surface in every theme. :where() keeps each rule at zero specificity, so any class on an
    <a> (a .btn, a .menu-item, an app's own) wins over it without an override. */
-:where(a:any-link) { color: light-dark(var(--primary-4), var(--primary-5)); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+:where(a:any-link) { color: var(--primary-4); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 :where(a:any-link:hover) { text-decoration-thickness: 2px; }
-:where(a:any-link:focus-visible) { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; border-radius: 2px; }
+:where(a:any-link:focus-visible) { outline: 2px solid var(--primary-4); outline-offset: 2px; border-radius: 2px; }
 ::selection { background: color-mix(in srgb, var(--primary-4) 30%, transparent); }
 
 /* ---- Surfaces ------------------------------------------------------------- */
@@ -294,7 +295,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .meter { height: 6px; border-radius: 3px; background: var(--primary-3); overflow: hidden; }
 .meter span { display: block; height: 100%; border-radius: 3px; background: var(--m); }
 .meter--good { --m: var(--positive-3); } .meter--warn { --m: var(--warning-3); }
-.meter--bad { --m: var(--negative-3); }   .meter--info { --m: light-dark(var(--primary-4), var(--primary-5)); }
+.meter--bad { --m: var(--negative-3); }   .meter--info { --m: var(--primary-4); }
 
 /* ---- Badge ---------------------------------------------------------------- */
 .badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%;
@@ -302,7 +303,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .badge--good    { --b: var(--positive-3); }
 .badge--warn    { --b: var(--warning-3); }
 .badge--bad     { --b: var(--negative-3); }
-.badge--info    { --b: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); }
+.badge--info    { --b: var(--primary-4); color: var(--primary-1); }
 .badge--neutral { --b: var(--primary-3); color: var(--primary-5); }
 .badge--sm { width: 18px; height: 18px; font-size: var(--text-xs); }
 .badge-row { display: flex; align-items: center; gap: var(--spacing-1-5); font-size: var(--text-sm); margin-top: var(--spacing-2); }
@@ -314,7 +315,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .seg { display: inline-flex; border: 1px solid var(--primary-3); border-radius: 8px; overflow: hidden; vertical-align: middle; }
 .seg button { background: none; border: 0; color: var(--primary-5); padding: 0 var(--spacing-2-5); height: 100%; font: inherit; font-size: var(--text-sm); cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--primary-3); }
-.seg button[aria-pressed="true"] { background: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); }
+.seg button[aria-pressed="true"] { background: var(--primary-4); color: var(--primary-1); }
 .seg button:focus-visible { outline: 2px solid var(--primary-5); outline-offset: -2px; }   /* inset: .seg clips its overflow; ink shows on the page and on the primary */
 /* The round "?" button that opens an explanation tooltip. */
 .info-button { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px;
@@ -322,7 +323,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
   color: var(--primary-5); font: 600 var(--text-xs)/1 system-ui, sans-serif; cursor: help; vertical-align: 1px; position: relative; }
 .info-button::after { content: ""; position: absolute; inset: -14px; }  /* a 44px hit target around the 16px mark */
 .info-button:hover, .info-button:focus-visible, .info-button[aria-expanded="true"] { border-color: var(--primary-5); color: var(--primary-5); }
-.info-button:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; }
+.info-button:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; }
 
 /* ---- Tooltip -------------------------------------------------------------- */
 .tooltip { position: fixed; pointer-events: none; background: var(--primary-2); color: var(--primary-5);
@@ -342,7 +343,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .more summary::after { content: " \25BE"; }
 .more[open] summary::after { content: " \25B4"; }
 .more[open] summary { margin-bottom: var(--spacing-1); }
-.more summary:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; border-radius: 4px; }
+.more summary:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; border-radius: 4px; }
 /* A full-width "read more" button under a block; the extra detail opens ABOVE it, so the toggle
    moves down with the text it reveals. Set aria-expanded from the script. */
 .moretoggle { display: flex; justify-content: center; align-items: center; gap: var(--spacing-1); width: 100%; min-height: var(--tap); cursor: pointer; text-align: center; padding: var(--spacing-2) var(--spacing-4); background: none; border: 0;
@@ -352,8 +353,8 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .moretoggle:focus-visible { outline: 2px solid var(--primary-5); outline-offset: -2px; }
 
 /* ---- Primary button -------------------------------------------------------- */
-.btn--primary { background: var(--primary-4); border-color: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); font-weight: 600; }
-.btn--primary:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; }
+.btn--primary { background: var(--primary-4); border-color: var(--primary-4); color: var(--primary-1); font-weight: 600; }
+.btn--primary:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; }
 /* Disabled: one rule for every .btn variant, so an app never adds its own on this reserved class. */
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
@@ -361,7 +362,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 /* Carry the theme beyond the primary controls, on the surfaces a page is built from. Add one to a
    house element; an app that does not keeps the base look. Text stays --primary-5, on a tinted
    surface (--primary-3) too. */
-.header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid light-dark(var(--primary-4), var(--primary-5)); }   /* on the page header */
+.header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary-4); }   /* on the page header */
 .table--accent th { background: var(--primary-3); color: var(--primary-5); }
 
 /* ---- Theme picker (drawn by house-theme.js: DKJTheme.picker(el)) ------------ */
@@ -378,7 +379,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .theme-swatch--dark { background: color-mix(in srgb, var(--swatch) 10%, black); }
 .theme-swatch i { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--swatch); }
 .theme-swatch[aria-pressed="true"] { outline: 2px solid var(--primary-5); outline-offset: 2px; }   /* the chosen theme */
-.theme-swatch:focus-visible { outline: 2px dashed light-dark(var(--primary-4), var(--primary-5)); outline-offset: 4px; }       /* keyboard focus: a different ring */
+.theme-swatch:focus-visible { outline: 2px dashed var(--primary-4); outline-offset: 4px; }       /* keyboard focus: a different ring */
 
 /* ---- Settings button (drawn by house-theme.js: DKJTheme.settings(el)) ------- */
 /* A round toggle that opens a panel with the theme picker, a reset and the app's own controls
@@ -390,8 +391,8 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
   padding: 0; color: var(--primary-5); background: var(--primary-2); border: 1px solid var(--primary-3); border-radius: 50%;
   box-shadow: var(--shadow-pop); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .theme-settings__toggle:hover { background: var(--primary-3); color: var(--primary-5); }
-.theme-settings__toggle[aria-expanded="true"] { color: light-dark(var(--primary-4), var(--primary-5)); border-color: light-dark(var(--primary-4), var(--primary-5)); }
-.theme-settings__toggle:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; }
+.theme-settings__toggle[aria-expanded="true"] { color: var(--primary-4); border-color: var(--primary-4); }
+.theme-settings__toggle:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; }
 .theme-settings__close, .theme-settings__toggle[aria-expanded="true"] .theme-settings__open { display: none; }
 .theme-settings__toggle[aria-expanded="true"] .theme-settings__close { display: block; }
 .theme-settings__panel { position: absolute; top: calc(100% + var(--spacing-2)); right: 0; z-index: 20; display: grid; gap: var(--spacing-4);
@@ -432,7 +433,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .field select { -webkit-appearance: none; appearance: none; padding-right: var(--spacing-10); text-overflow: ellipsis;
   background-image: linear-gradient(45deg, transparent 50%, var(--primary-5) 50%), linear-gradient(135deg, var(--primary-5) 50%, transparent 50%);
   background-position: right 18px center, right 13px center; background-size: 5px 5px; background-repeat: no-repeat; }
-.field input:focus-visible, .field select:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; }
+.field input:focus-visible, .field select:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; }
 .field__error { margin: var(--spacing-1) 0 0; font-size: var(--text-base); color: var(--negative-5); }
 .field__error:empty { display: none; }
 
@@ -442,8 +443,8 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .btn--touch { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap);
   padding: var(--spacing-2-5) var(--spacing-4); font-size: var(--text-base); font-weight: 600; color: var(--primary-5);
   background: var(--primary-2); -webkit-tap-highlight-color: transparent; }
-.btn--touch.btn--primary { background: var(--primary-4); border-color: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); }
-.btn--touch:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; }
+.btn--touch.btn--primary { background: var(--primary-4); border-color: var(--primary-4); color: var(--primary-1); }
+.btn--touch:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; }
 .btn--block { width: 100%; }
 
 /* ---- Icon button and action row --------------------------------------------- */
@@ -452,7 +453,7 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; min-width: var(--tap); height: var(--tap); padding: 0;
   border: 0; border-radius: 8px; background: var(--primary-5); color: var(--primary-1); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .icon-btn svg { flex: none; }
-.icon-btn:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; }
+.icon-btn:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; }
 .icon-btn--ghost { background: transparent; color: var(--primary-5); }
 /* A row of icon buttons that share the full width. */
 .action-row { display: flex; gap: var(--spacing-2-5); width: 100%; }
@@ -479,10 +480,10 @@ html:has(dialog:modal) { overflow: hidden; }
    the two tap areas overlap by 2px so the plates stand 6px apart. */
 .dialog__close { position: absolute; top: var(--spacing-4); right: var(--spacing-4); display: flex; align-items: center; justify-content: center;
   width: var(--tap); height: var(--tap); padding: 0; color: var(--primary-5); background: transparent; border: 1px solid transparent; border-radius: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.dialog__close:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: 2px; }
+.dialog__close:focus-visible { outline: 2px solid var(--primary-4); outline-offset: 2px; }
 .dialog__close svg { position: relative; }   /* above the plate */
 .dialog__close--save::before, .dialog__close--cancel::before { content: ""; position: absolute; inset: var(--spacing-1); border: 1px solid; border-radius: var(--spacing-1-5); }
-.dialog__close--save { color: light-dark(var(--primary-1), var(--primary-7)); }
+.dialog__close--save { color: var(--primary-1); }
 .dialog__close--save::before { background: var(--primary-4); border-color: var(--primary-4); }
 .dialog__close--cancel { right: calc(var(--spacing-4) + var(--tap) - 2px); color: var(--negative-5); }
 .dialog__close--cancel::before { border-color: var(--negative-5); }
@@ -536,7 +537,7 @@ html:has(.topbar) { scroll-padding-top: var(--topbar-h); }
 .menu-item { display: flex; align-items: center; gap: var(--spacing-3); width: 100%; min-height: var(--tap); margin: 0; padding: var(--spacing-2);
   border: 0; border-radius: 8px; background: none; font: inherit; text-align: left; text-decoration: none; color: var(--primary-5); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .menu-item + .menu-item { border-top: 1px solid var(--primary-3); border-top-left-radius: 0; border-top-right-radius: 0; }
-.menu-item:focus-visible { outline: 2px solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: -2px; }   /* inset, so the ring is not cut off by the panel */
+.menu-item:focus-visible { outline: 2px solid var(--primary-4); outline-offset: -2px; }   /* inset, so the ring is not cut off by the panel */
 .menu-item__icon, .menu-item__chevron { flex: none; }
 .menu-item__label { flex: 1; min-width: 0; }
 .menu-item__chevron { color: var(--primary-5); }
