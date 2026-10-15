@@ -41,6 +41,7 @@ Owner (Maikel, October 15, 2026): two new greys either side of the old -4. Old -
 - [x] Stylesheet header comment and README: nine steps, the new rows in both step tables, and a migration table for apps (old -> new, in apply order)
 - [x] The showcase's token list shows `--primary-4` and `--primary-6`
 - [x] Owner: "maak primary-5 ook een stuk grijzer" -- -5 takes 0.6 of its base chroma in every theme (hue and lightness kept), with the picker dots and the README theme table; -4 and -6 stay at 0.5, so -5 keeps a little more colour
+- [x] Owner: at most three tokens a row in the showcase's Tokens section, so -1..-3, -4..-6 and -7..-9 each read as one row (`.bb-swatches`)
 - [~] Victor's review: dropped, the change is a mechanical single-pass rename (no role changes value) plus two new values with no role yet; the lint gate checks every `var()` resolves
 
 ### TEST

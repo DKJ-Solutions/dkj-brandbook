@@ -128,7 +128,8 @@
 .bb-source code { white-space: pre-wrap; }
 
 /* Token swatches and scales */
-.bb-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: var(--spacing-4) var(--spacing-3); }
+/* at most three a row, so a nine-step scale reads as three rows of three (owner's request, October 15, 2026) */
+.bb-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(max(13rem, (100% - 2 * var(--spacing-3)) / 3), 1fr)); gap: var(--spacing-4) var(--spacing-3); }
 /* Name over value: the name in ink and semibold, the value smaller in ink-2, the chip aligned with the name. */
 .bb-swatch { display: flex; align-items: flex-start; gap: var(--spacing-2-5); }
 .bb-swatch-chip { flex: none; width: 2.25rem; height: 2.25rem; border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); }
