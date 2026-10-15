@@ -39,11 +39,12 @@
 - [x] House `.muted` and the table's `.dkj-muted` from `--primary-5` to `--primary-4`; a `<p>` stays `--primary-7`
 - [x] House `.hero .value` in `--primary-7`
 - [x] Figcaptions (the showcase demo label and the `Figure` caption) from `--primary-5` to `--primary-4`
+- [x] Everything in `.bb-swatch-text` (name, value, recipe) from `--primary-5` to `--primary-7`
 
 ### TEST
 
 - [x] Lint gate green
-- [ ] An owner has looked at the sidebar group labels in the showcase and the eyebrows and the muted text the hero values and the figcaptions, and approved them
+- [ ] An owner has looked at the sidebar group labels in the showcase and the eyebrows and the muted text the hero values the figcaptions and the swatch text, and approved them
 
 ### DEPLOY: feat/nav-group-primary-2
 
@@ -51,7 +52,7 @@
 
 ##### Tier 0
 
-The showcase sidebar's group labels now use `--primary-2` instead of `--primary-3`, and the eyebrows `--primary-4` instead of `--primary-7`. The house `.muted` class (and the table's `.dkj-muted`) is `--primary-4` instead of `--primary-5`; a paragraph keeps `--primary-7`. The hero figure (`.hero .value`) is set in `--primary-7`. Figcaptions (the showcase demo label and the `Figure` caption) are `--primary-4` instead of `--primary-5`.
+The showcase sidebar's group labels now use `--primary-2` instead of `--primary-3`, and the eyebrows `--primary-4` instead of `--primary-7`. The house `.muted` class (and the table's `.dkj-muted`) is `--primary-4` instead of `--primary-5`; a paragraph keeps `--primary-7`. The hero figure (`.hero .value`) is set in `--primary-7`. Figcaptions (the showcase demo label and the `Figure` caption) are `--primary-4` instead of `--primary-5`. The colour swatches' name, value and recipe are `--primary-7` instead of `--primary-5`.
 
 **Score:** 1
 
@@ -79,5 +80,5 @@ The brand book's own showcase is not a subscribed service.
 
 #### Pull Request
 
-Nav group labels in --primary-2, eyebrows and muted text in --primary-4, hero values in --primary-7, figcaptions in --primary-4
+Nav group labels in --primary-2, eyebrows and muted text in --primary-4, hero values in --primary-7, figcaptions in --primary-4, swatch text in --primary-7
 

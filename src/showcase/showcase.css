@@ -144,11 +144,11 @@
 /* Name over value: the name in ink and semibold, the value smaller in ink-2, the chip aligned with the name. */
 .bb-swatch { display: flex; align-items: flex-start; gap: var(--spacing-2-5); }
 .bb-swatch-chip { flex: none; width: 2.25rem; height: 2.25rem; border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); }
-.bb-swatch-text { display: flex; flex-direction: column; gap: var(--spacing-0-5); min-width: 0; }
-.bb-swatch-name { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); color: var(--primary-5); overflow-wrap: anywhere; }
-.bb-swatch-value { font-family: var(--dkj-font-mono); font-size: var(--text-xs); line-height: var(--dkj-lh-snug); color: var(--primary-5); }
+.bb-swatch-text { display: flex; flex-direction: column; gap: var(--spacing-0-5); min-width: 0; color: var(--primary-7); }
+.bb-swatch-name { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); overflow-wrap: anywhere; }
+.bb-swatch-value { font-family: var(--dkj-font-mono); font-size: var(--text-xs); line-height: var(--dkj-lh-snug); }
 /* A mix's recipe under its resolved colour: in the body face, each "over <colour>" step kept on one line. */
-.bb-swatch-recipe { font-size: var(--text-xs); line-height: var(--dkj-lh-snug); color: var(--primary-5); }
+.bb-swatch-recipe { font-size: var(--text-xs); line-height: var(--dkj-lh-snug); }
 .bb-swatch-recipe > span { white-space: nowrap; }
 .bb-scale { display: grid; gap: var(--spacing-2); }
 .bb-scale-row { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--spacing-3); align-items: center; font-size: var(--text-sm); color: var(--primary-5); }
