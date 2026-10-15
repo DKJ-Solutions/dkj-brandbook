@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**75 minor entries** <!-- pending-tally -->
+**76 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/114-h6-titles-sans · 20261015-120622Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Card and dialog titles are set in the body sans in the heading colour (`--primary-8`), like every other h3-h6, instead of a small serif in a grey that read faint on dark (#114).
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: the look of two component titles in the brand book.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet's rules are untouched; only its role prose for `-5` drops "card and dialog titles".
+
+**Score:** N/A
+
+#### Pull Request
+
+Card and dialog titles are sans in --primary-8, like every h6
+
+[PR #128](https://github.com/DKJ-Solutions/dkj-brandbook/pull/128)
+
+---
 
 ### DEPLOY: fix/110-button-sentence-case · 20261015-120532Z
 
