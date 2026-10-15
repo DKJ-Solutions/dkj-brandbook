@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**78 minor entries** <!-- pending-tally -->
+**79 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/131-gain-positive-3 · 20261015-162052Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A gain in a chart is now `--positive-3` instead of `--cat-1`, so `--cat-1` is only a series slot and a gain/loss chart can share a view with any series (#131).
+
+**Score:** 3
+
+##### Tier 1
+
+N/A: a colour rule inside the house style, not something a subscriber of a service deals with.
+
+**Score:** N/A
+
+##### Tier 2
+
+An app that draws gains takes `--positive-3` (the green of status) in its charts and legends; `--cat-1` keeps only its series meaning.
+
+**Score:** 3
+
+#### Pull Request
+
+A gain uses --positive-3, so --cat-1 is only a series slot
+
+[PR #134](https://github.com/DKJ-Solutions/dkj-brandbook/pull/134)
+
+---
 
 ### DEPLOY: feat/130-dev-preview-seam · 20261015-155633Z
 
