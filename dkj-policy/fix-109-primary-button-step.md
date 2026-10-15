@@ -53,8 +53,8 @@ moving the prose alone would leave the comment and the rule under it disagreeing
 
 ### TEST
 
-- [ ] An owner has looked at a primary button (e.g. "Sync playlists" in the Music library preview) beside a filled
-  IconButton (Mesowise), in light and dark across a few themes, and approved it.
+- [x] An owner has looked at a primary button (e.g. "Sync playlists" in the Music library preview) beside a filled
+  IconButton (Mesowise), in light and dark across a few themes, and approved it (maikel-bwj, October 15, 2026).
 
 ### DEPLOY: fix/109-primary-button-step
 
