@@ -32,14 +32,14 @@
 
 ### PLAN
 
-- [x] Owner's request (October 15, 2026): `--primary-5` as all text was no longer an accent (`.bb-scale` as the example); use `--primary-6` for text and keep `-5` for highlights, across the whole house style.
+- [x] Owner's request (October 15, 2026): `--primary-5` as all text was no longer an accent (`.bb-scale` as the example); use `--primary-6` for text, then `--primary-7` on the owner's second look, and keep `-5` for highlights, across the whole house style.
 
 ### CREATE
 
-- [x] Gwen: every non-paragraph text `color` (and the chart's SVG text `fill`) in `house-style.css`, `src/components/*.css` and `showcase.css` moves to `--primary-6`; states (hover, focus, `aria-pressed`, `aria-sort`, `aria-expanded`, `is-active`, today), `h1`/`h2`, `strong`, list markers, the accent dialog's title and `.dkj-inforow-value` stay `--primary-5`
+- [x] Gwen: every non-paragraph text `color` (and the chart's SVG text `fill`) in `house-style.css`, `src/components/*.css` and `showcase.css` moves to `--primary-7` (first `-6`, then `-7` on the owner's word); states (hover, focus, `aria-pressed`, `aria-sort`, `aria-expanded`, `is-active`, today), `h1`/`h2`, `strong`, list markers, the accent dialog's title and `.dkj-inforow-value` stay `--primary-5`
 - [x] Showcase inline colours and the comments that name the text step follow
 - [x] `house-style/README.md` and the `house-style.css` header state the new rule and the new contrast measurement
-- [x] Contrast measured in all twelve themes: `--primary-6` 13.5:1 or better on the page and 8.9:1 or better on `--primary-3`; the dark warn tag stays under 4.5:1 either way, added to #94
+- [x] Contrast measured in all twelve themes: `--primary-7` 17.4:1 or better on the page and 11.9:1 or better on `--primary-3`; the dark warn tag stays under 4.5:1 either way, added to #94
 
 ### TEST
 
@@ -52,7 +52,7 @@
 
 ##### Tier 0
 
-All text that is not a paragraph -- labels, table heads, legends, field labels, row names, quiet icons, the text on a tinted surface, the showcase's scale rows -- is now `--primary-6`, the calmer step beside the paragraph colour, so `--primary-5` is an accent again: it stays on `h1` and `h2`, every state (hover, focus, pressed, sorted, active, today), `strong`, list markers, the accent dialog's title and an InfoRows value, and on native controls through `accent-color`. Contrast rises in every theme (`--primary-6` reads 13.5:1 or better on the page).
+All text that is not a paragraph -- labels, table heads, legends, field labels, row names, quiet icons, the text on a tinted surface, the showcase's scale rows -- is now `--primary-7`, the paragraph colour, so `--primary-5` is an accent again: it stays on `h1` and `h2`, every state (hover, focus, pressed, sorted, active, today), `strong`, list markers, the accent dialog's title and an InfoRows value, and on native controls through `accent-color`. Contrast rises in every theme (`--primary-7` reads 17.4:1 or better on the page).
 
 **Score:** 3
 
