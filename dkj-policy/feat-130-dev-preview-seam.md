@@ -34,9 +34,13 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Define `Get-DevPreview` in `scripts/repo-config.ps1`: the showcase's `npm run dev` on ports 5173-5180, requiring `node_modules`, opened in VS Code.
+- [x] Remove the own `.claude/hooks/dev-server-link.ps1` and its SessionStart entry in `.claude/settings.json`, so two hooks never both start a server.
+- [x] Route `localhost:5173`..`5180` to VS Code's Simple Browser in `.vscode/settings.json`, and un-ignore that one file in `.gitignore` so it travels with the repo.
 
 ### TEST
+
+- [x] The plugin's `dev-preview-sessionstart.ps1`, run against this checkout with the showcase already up, printed `Showcase: http://localhost:5173/ (already running, opened in VS Code)`: it recognised the running server as this checkout's and started no second one.
 
 ### DEPLOY: feat/130-dev-preview-seam
 
@@ -44,25 +48,21 @@
 
 ##### Tier 0
 
-**Score:**
+The showcase is started at session start by the `dkj-solutions` plugin's dev-preview hook instead of this repo's own copy of it, and its link opens in VS Code's Simple Browser (#130).
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: how the brand book's own showcase is started on a developer's machine.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: nothing an app that takes the house style receives.
+
+**Score:** N/A
 
 #### Pull Request
 
