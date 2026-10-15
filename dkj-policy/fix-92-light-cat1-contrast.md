@@ -47,7 +47,7 @@ no new token; chart slot 1 on light moves with it.
 ### TEST
 
 - [x] `open-pr -GatesOnly` passes.
-- [ ] An owner has looked at the info tag (Surfaces -> TitleTag), the series Badge and Meter, and the charts in
+- [x] An owner has looked at the info tag (Surfaces -> TitleTag), the series Badge and Meter, and the charts in
   `--cat-1` (Metrics) on a light theme in the showcase, and approved it.
 
 ### DEPLOY: fix/92-light-cat1-contrast
