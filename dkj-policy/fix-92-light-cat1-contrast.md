@@ -32,11 +32,23 @@
 
 ### PLAN
 
+Resolves #92, on the owner's decision recorded there (maikel-bwj, October 15, 2026): darken the light value
+of `--cat-1` just enough that `--primary-1` on it reaches 4.5:1 on every light theme. A value change only,
+no new token; chart slot 1 on light moves with it.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Light `--cat-1` `#2a78d6` -> `#2574d1` in `house-style/house-style.css`: the same OKLCH hue and chroma,
+  lightness 0.575 -> 0.562, the first step that clears 4.5:1. `--primary-1` on it, WCAG relative luminance:
+  Magenta 4.51, Paars 4.53, Blauw 4.52, Petrol 4.55, Oker 4.51, Roest 4.51:1 (was 4.26-4.30:1). Dark is
+  untouched.
+- [x] The contrast note in `src/components/metrics.css` (the badge glyph) cites the new worst case.
 
 ### TEST
+
+- [x] `open-pr -GatesOnly` passes.
+- [ ] An owner has looked at the info tag (Surfaces -> TitleTag), the series Badge and Meter, and the charts in
+  `--cat-1` (Metrics) on a light theme in the showcase, and approved it.
 
 ### DEPLOY: fix/92-light-cat1-contrast
 
@@ -44,25 +56,21 @@
 
 ##### Tier 0
 
-**Score:**
+The light series blue `--cat-1` is a shade darker (`#2a78d6` -> `#2574d1`), so the text on the info tag reaches 4.5:1 on every light theme (#92).
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+The info tag, the series badge and meter, and chart series 1 and gains render in the darker blue on light; dark is unchanged.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 2
 
-**Score:**
+Every app on the house style takes the new light `--cat-1` with its next copy of `house-style.css`; no token is added or renamed.
+
+**Score:** 2
 
 #### Pull Request
 
