@@ -43,7 +43,7 @@ The owner wants one kind of class naming: the components used `dkj-`, the showca
 
 ### TEST
 
-- [ ] An owner has looked at the showcase and approved it
+- [x] An owner has looked at the showcase and approved it
 
 ### DEPLOY: feat/one-class-prefix
 
