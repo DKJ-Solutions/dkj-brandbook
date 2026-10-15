@@ -210,11 +210,11 @@ h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; 
 .meta { font-size: var(--text-sm); color: var(--primary-8); white-space: nowrap; }
 .note { font-size: var(--text-sm); color: var(--primary-5); margin-top: var(--spacing-1); }
 .footer-note { color: var(--primary-5); font-size: var(--text-sm); margin-top: var(--spacing-6); }
-/* Sub lines (.sub, .dialog__sub) and notes (.note, .footer-note) are --primary-5, on a <p> too (owner's decision,
-   October 15, 2026). Any other paragraph is --primary-9, the far end (owner's decision, October 14, 2026): .muted or .meta on a <p> takes
+/* Sub lines (.sub, .dialog__sub) , notes (.note, .footer-note) and .muted are --primary-5, on a <p> too (owner's decision,
+   October 15, 2026). Any other paragraph is --primary-9, the far end (owner's decision, October 14, 2026): .meta on a <p> takes
    it too, while the same class on a span or a div stays -7. A <p> in a status colour, or on a --primary-9 surface,
    sets its own. */
-p, p:is(.muted, .meta) { color: var(--primary-9); }
+p, p.meta { color: var(--primary-9); }
 .num { font-variant-numeric: tabular-nums; }                        /* aligned digits */
 .delta { font-weight: 600; }
 .delta--up, .pos { color: var(--positive-5); }
