@@ -47,7 +47,8 @@ token and no per-mode switch.
 
 ### TEST
 
-- [ ] An owner has looked at the warn TitleTag ("Sell") in light and dark, across a few themes, and approved it.
+- [x] An owner has looked at the warn TitleTag ("Sell") in light and dark, across a few themes, and approved it
+  (maikel-bwj, October 15, 2026).
 
 ### DEPLOY: fix/94-warn-tag-contrast
 
