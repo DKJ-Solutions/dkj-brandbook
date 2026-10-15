@@ -83,7 +83,7 @@
 
 /* Blockquote, links, rule, images */
 .dkj-prose blockquote { margin-inline: 0; padding-left: var(--spacing-4); border-left: 3px solid var(--primary-3); color: var(--primary-9); font-style: normal; }
-.dkj-prose a { color: var(--primary-5); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.dkj-prose a { color: var(--primary-7); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .dkj-prose a:hover { text-decoration-thickness: 2px; }
 .dkj-prose hr { border: 0; border-top: 1px solid var(--primary-3); margin-block: var(--spacing-6); }
 .dkj-prose > hr + * { margin-top: 0; }

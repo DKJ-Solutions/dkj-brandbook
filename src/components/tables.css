@@ -112,7 +112,7 @@
 .dkj-calc-row > * { padding: var(--spacing-2) 0; }
 .dkj-calc-row:has(+ .dkj-calc-result) { margin-bottom: var(--spacing-2); border-bottom: 0; }
 .dkj-calc-what { grid-column: what; padding-left: var(--spacing-3); font-size: var(--text-base); overflow-wrap: anywhere; }
-.dkj-calc-sub { display: block; font-size: var(--text-sm); color: var(--primary-9); }
+.dkj-calc-sub { display: block; font-size: var(--text-sm); color: var(--primary-5); }
 .dkj-calc-op { grid-column: op; min-width: 1rem; padding-inline: var(--spacing-2); font-size: var(--text-base); text-align: center; color: var(--primary-9); }
 .dkj-calc-num { grid-column: num; padding-inline: var(--spacing-3); text-align: right; font-size: var(--text-base); font-weight: var(--dkj-fw-semibold); white-space: nowrap; }
 .dkj-calc--boxed { --gutter: var(--spacing-1-5); grid-template-columns: [edge-l] var(--gutter) [what] minmax(0, 1fr) [op] auto [num] auto [edge-r] var(--gutter); }

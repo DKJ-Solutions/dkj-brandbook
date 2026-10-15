@@ -29,7 +29,7 @@
 .dkj-daterow-main { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--spacing-1) var(--spacing-3); min-width: 0; }
 .dkj-daterow-body { display: flex; flex-direction: column; flex: 1 1 10rem; min-width: 0; }
 .dkj-daterow-title { font-size: var(--text-base); color: var(--primary-9); overflow-wrap: anywhere; }
-.dkj-daterow-sub { font-size: var(--text-sm); color: var(--primary-9); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.dkj-daterow-sub { font-size: var(--text-sm); color: var(--primary-5); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .dkj-daterow-trailing { margin-left: auto; font-size: var(--text-sm); color: var(--primary-9); overflow-wrap: anywhere; }
 
 /* near / today: bar + tint + bold, plus the word beside the date. On --primary-3 the text is --primary-9. */

@@ -192,14 +192,14 @@
 
 /* "Used in" line under a component */
 .bb-used-in { margin: 0 0 var(--spacing-1-5); }
-.bb-used-in a { color: var(--primary-5); }
+.bb-used-in a { color: var(--primary-7); }
 
 /* Apps overview */
 .bb-app { grid-column: 1 / -1; display: grid; gap: var(--spacing-4); padding: var(--spacing-4); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-lg); background: var(--primary-2); scroll-margin-top: 5rem; }
 .bb-app-name { margin: 0; }
 .bb-app-desc { margin: var(--spacing-1) 0 var(--spacing-2); max-width: 46rem; color: var(--primary-9); }
 .bb-app-meta { display: flex; flex-wrap: wrap; gap: var(--spacing-1) var(--spacing-4); margin: 0; font-size: var(--text-sm); color: var(--primary-9); }
-.bb-app-meta a { color: var(--primary-5); }
+.bb-app-meta a { color: var(--primary-7); }
 .bb-kind { margin: 0 0 var(--spacing-2); }
 .bb-views { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); gap: var(--spacing-3); margin: 0; padding: 0; list-style: none; }
 .bb-view { display: grid; gap: var(--spacing-1-5); align-content: start; padding: var(--spacing-3); border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-md); background: color-mix(in srgb, var(--primary-5) 8%, var(--primary-2)); }   /* the theme's tint, a step deeper than the page and the app card around it */
@@ -213,7 +213,7 @@
 
 /* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */
 .bb-preview-back { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); }
-.bb-preview-back a { color: var(--primary-5); }
+.bb-preview-back a { color: var(--primary-7); }
 .bb-preview-meta { margin-bottom: var(--spacing-4); }
 .bb-preview-frame { border: 1px solid var(--primary-3); border-radius: var(--dkj-radius-lg); overflow: hidden; background: var(--primary-1); }
 .bb-preview-app--padded { padding: var(--spacing-5) var(--spacing-4) var(--spacing-6); }

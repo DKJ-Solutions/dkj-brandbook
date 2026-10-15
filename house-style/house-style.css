@@ -18,9 +18,9 @@
        dark, both with those house defaults.
      The dark token block therefore appears twice; keep both in sync.
 
-   How far a theme reaches: every use of --primary-5 (on dark a grey of the colour; text in the colour is -7 there:
+   How far a theme reaches: every use of --primary-5 (a grey of the colour; links and text in the colour are -7:
    links, titles, values) (the pressed .seg, .btn--primary,
-   .badge--info, .meter--info, the settings toggle, focus rings, links), the text caret and the selection;
+   .badge--info, .meter--info, the settings toggle, focus rings), the text caret and the selection;
    native checkboxes, radios, sliders and progress bars take --primary-7 through accent-color. Beyond that, by default: the page, the
    cards and tiles carry a tint of the primary (--primary-1, --primary-2), and every line and tinted surface
    is --primary-3, with --primary-9 as the text on it. There are no untinted neutrals: text is --primary-9, and --primary-7 is the highlight (h1, h2, a state, a value that stands out) (owner's decisions, October 14 and 15, 2026). Status, direction and categorical colours are never tinted. The
@@ -56,8 +56,8 @@
      below sets its own nine.
      -1 the page, and the text on a -5 fill; -2 the cards (tiles, tooltips); -3 every line (borders, row
      dividers, meter track, gridlines) and the tinted surfaces (an accent table head, a hover, a today row, the
-     accent dialog); -5 the fills (primary buttons, switches, info badges), focus rings, meters, links and text in
-     the colour (card and dialog titles, values), the picker's dot; -4 and -6 no role yet; -7 all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -8 h3-h6 (owner's decision, October 14, 2026; on -9 h1 and h2 are -3 and h3-h6 are -2); -9 the far end: every paragraph, and an inverted
+     accent dialog); -5 the fills (primary buttons, switches, info badges), focus rings, meters and text in
+     the colour (card and dialog titles, values), sub lines and notes, the picker's dot; -4 and -6 no role yet; -7 links (owner's decision, October 15, 2026) and all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -8 h3-h6 (owner's decision, October 14, 2026; on -9 h1 and h2 are -3 and h3-h6 are -2); -9 the far end: every paragraph, and an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -5 on the card 6.25:1
      on light (Oker), -1 on -5 6.54:1 on light (Oker) and 3.51:1 on dark (Roze), -5 on the card 3.38:1 on dark (Roze), -7 on -3 6.53:1 on light (Petrol);
      -7, all text, on -1 and -2 at 9.42:1 or better on light (Petrol) and 9.02:1 on dark (Roze), and 6.42:1 or better
@@ -205,25 +205,26 @@ h3 { font-size: var(--text-h3); margin: 0 0 var(--spacing-2); font-weight: 600; 
 h4 { font-size: var(--text-h4); margin: 0 0 var(--spacing-2); font-weight: 600; }
 h5 { font-size: var(--text-h5); margin: 0 0 var(--spacing-1-5); font-weight: 600; }
 h6 { font-size: var(--text-h6); margin: 0 0 var(--spacing-1); font-weight: 600; }
-.sub { color: var(--primary-9); font-size: var(--text-sm); margin: 0 0 var(--spacing-4); }   /* line under a heading */
+.sub { color: var(--primary-5); font-size: var(--text-sm); margin: 0 0 var(--spacing-4); }   /* line under a heading */
 .muted { color: var(--primary-5); font-size: var(--text-sm); }
 .meta { font-size: var(--text-sm); color: var(--primary-8); white-space: nowrap; }
-.note { font-size: var(--text-sm); color: var(--primary-9); margin-top: var(--spacing-1); }
-.footer-note { color: var(--primary-9); font-size: var(--text-sm); margin-top: var(--spacing-6); }
-/* A paragraph is --primary-9, the far end, always (owner's decision, October 14, 2026): a quiet class on a <p> takes
+.note { font-size: var(--text-sm); color: var(--primary-5); margin-top: var(--spacing-1); }
+.footer-note { color: var(--primary-5); font-size: var(--text-sm); margin-top: var(--spacing-6); }
+/* Sub lines (.sub, .dialog__sub) and notes (.note, .footer-note) are --primary-5, on a <p> too (owner's decision,
+   October 15, 2026). Any other paragraph is --primary-9, the far end (owner's decision, October 14, 2026): .muted or .meta on a <p> takes
    it too, while the same class on a span or a div stays -7. A <p> in a status colour, or on a --primary-9 surface,
    sets its own. */
-p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--primary-9); }
+p, p:is(.muted, .meta) { color: var(--primary-9); }
 .num { font-variant-numeric: tabular-nums; }                        /* aligned digits */
 .delta { font-weight: 600; }
 .delta--up, .pos { color: var(--positive-5); }
 .delta--down, .neg { color: var(--negative-5); }
 
 /* ---- Links and selection ---------------------------------------------------- */
-/* A link (an <a> with an href) takes the theme's primary as text (--primary-5), visited or not: it reaches 4.5:1
+/* A link (an <a> with an href) takes the theme's colour as text (--primary-7, owner's decision, October 15, 2026), visited or not: it reaches 6:1
    on the tinted page and surface in every theme. :where() keeps each rule at zero specificity, so any class on an
    <a> (a .btn, a .menu-item, an app's own) wins over it without an override. */
-:where(a:any-link) { color: var(--primary-5); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+:where(a:any-link) { color: var(--primary-7); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
 :where(a:any-link:hover) { text-decoration-thickness: 2px; }
 :where(a:any-link:focus-visible) { outline: 2px solid var(--primary-5); outline-offset: 2px; border-radius: 2px; }
 ::selection { background: color-mix(in srgb, var(--primary-5) 30%, transparent); }
@@ -474,7 +475,7 @@ html:has(dialog:modal) { overflow: hidden; }
    one-line title sits level with it. */
 .dialog__head { display: flex; align-items: center; min-height: var(--tap); padding-right: calc(var(--tap) + var(--spacing-2)); margin-bottom: var(--spacing-4); }
 .dialog__title { margin: 0; min-width: 0; font-size: var(--text-h6); font-weight: 600; overflow-wrap: anywhere; }
-.dialog__sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-sm); color: var(--primary-9); }
+.dialog__sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-sm); color: var(--primary-5); }
 /* The close button, top right, with no visible border. Variants: --save (a filled plate, the
    check that saves), --cancel (an outlined plate to the left of save, the undo arrow), --back
    (on the left instead, for a second panel). The plates are 36px, the tap area stays 44px, and
