@@ -230,7 +230,8 @@ out). Three more things follow it by default, in light and in dark (and a measur
   fill. On light it is a softened step of the colour (owner's decision, October 15, 2026, from the owner's example
   Petrol `#48878d`): each light theme takes that example's relative OKLCH chroma in its own hue, at the lightness
   that holds 4.5:1 as link text on the page and the card (Petrol `#437e84`). The owner then made Paars and Magenta greyer (`#5d458b`, `#954c7a`), and Blauw bluer (`#49498d`, a
-  hue of 281 where the derived one leaned to cyan): Oker and Roest follow Paars and Magenta at their mean OKLCH lightness (0.486), at their chroma (0.1135) or at their relative chroma (0.486)
+  hue of 281 where the derived one leaned to cyan; Blauw's other steps sit on `#0000ff`'s HSL hue 240 too,
+  each at its own saturation and luminance): Oker and Roest follow Paars and Magenta at their mean OKLCH lightness (0.486), at their chroma (0.1135) or at their relative chroma (0.486)
   where the hue holds less. The light `-1`, `-2` and `-3` follow
   the owner's Petrol examples too (`#faffff`, `#f2ffff`, `#9adae2`): `-3` at the same OKLCH lightness and
   relative chroma in each hue, `-1` and `-2` at the same chroma as light as each hue allows, `-2` never closer to
