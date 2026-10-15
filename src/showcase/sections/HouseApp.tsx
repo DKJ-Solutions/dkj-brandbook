@@ -313,7 +313,7 @@ export function HouseThemeReachDemo() {
       <div className="grid-2">
         <div className="card card--accent">
           <b>.card--accent</b>
-          <p className="muted">A rule in the primary across the top.</p>
+          <p className="muted">No longer draws a rule across the top.</p>
         </div>
         <div className="tile tile--accent">
           <div className="label">.tile--accent</div>

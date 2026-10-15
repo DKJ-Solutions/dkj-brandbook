@@ -357,7 +357,6 @@ p, p:is(.sub, .muted, .meta, .note, .footer-note, .dialog__sub) { color: var(--p
    house element; an app that does not keeps the base look. Text stays --primary-5, on a tinted
    surface (--primary-3) too. */
 .header--accent { padding-bottom: var(--spacing-3); border-bottom: 2px solid var(--primary-4); }   /* on the page header */
-.card--accent { border-top: 3px solid var(--primary-4); }
 .table--accent th { background: var(--primary-3); color: var(--primary-5); }
 
 /* ---- Theme picker (drawn by house-theme.js: DKJTheme.picker(el)) ------------ */
