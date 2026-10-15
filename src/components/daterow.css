@@ -24,15 +24,15 @@
   font-weight: var(--dkj-fw-semibold);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  color: var(--primary-5);
+  color: var(--primary-6);
 }
 .dkj-daterow-main { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--spacing-1) var(--spacing-3); min-width: 0; }
 .dkj-daterow-body { display: flex; flex-direction: column; flex: 1 1 10rem; min-width: 0; }
-.dkj-daterow-title { font-size: var(--text-base); color: var(--primary-5); overflow-wrap: anywhere; }
-.dkj-daterow-sub { font-size: var(--text-sm); color: var(--primary-5); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
-.dkj-daterow-trailing { margin-left: auto; font-size: var(--text-sm); color: var(--primary-5); overflow-wrap: anywhere; }
+.dkj-daterow-title { font-size: var(--text-base); color: var(--primary-6); overflow-wrap: anywhere; }
+.dkj-daterow-sub { font-size: var(--text-sm); color: var(--primary-6); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.dkj-daterow-trailing { margin-left: auto; font-size: var(--text-sm); color: var(--primary-6); overflow-wrap: anywhere; }
 
-/* near / today: bar + tint + bold, plus the word beside the date. On --primary-3 the text is --primary-5. */
+/* near / today: bar + tint + bold, plus the word beside the date. On --primary-3 the text is --primary-6. */
 .dkj-daterow--near,
 .dkj-daterow--today { background: var(--primary-3); box-shadow: inset 3px 0 0 var(--primary-4); }
 .dkj-daterow--near .dkj-daterow-when,

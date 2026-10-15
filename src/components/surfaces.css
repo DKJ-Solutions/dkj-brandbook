@@ -44,7 +44,7 @@
   border: 1px solid color-mix(in srgb, var(--part) 35%, var(--primary-3));
   border-radius: var(--dkj-radius-lg);
   background: color-mix(in srgb, var(--part) 7%, var(--primary-2));
-  color: var(--primary-5);
+  color: var(--primary-6);
 }
 .dkj-panel--accent { --part: var(--primary-4); }
 .dkj-panel--positive { --part: var(--positive-5); }
@@ -68,7 +68,7 @@
   font-weight: var(--dkj-fw-bold);
   letter-spacing: var(--dkj-tracking-caps);
   text-transform: uppercase;
-  color: var(--primary-5);
+  color: var(--primary-6);
 }
 .dkj-panel-value { font-size: var(--text-lg); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
@@ -77,7 +77,7 @@
   margin: 0;
   padding: var(--spacing-3) var(--spacing-4);
   line-height: var(--dkj-lh-snug);
-  color: var(--primary-5);
+  color: var(--primary-6);
   border: 1px solid var(--primary-3);
   border-radius: var(--dkj-radius-lg);
 }
@@ -94,7 +94,7 @@
 .dkj-banner--warn ul { margin: var(--spacing-1) 0 0; padding-left: var(--spacing-5); }
 
 /* ---------- Alert ---------- */
-.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-3); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-3) 8%, var(--primary-2)); color: var(--primary-5); }
+.dkj-alert { padding: var(--spacing-4); border: 2px solid var(--negative-3); border-radius: var(--dkj-radius-lg); background: color-mix(in srgb, var(--negative-3) 8%, var(--primary-2)); color: var(--primary-6); }
 .dkj-alert-title { display: flex; align-items: center; gap: var(--spacing-2); margin: 0 0 var(--spacing-1); font-size: var(--text-h5); color: var(--negative-5); }
 .dkj-alert-icon { flex: none; }
 .dkj-alert > :last-child { margin-bottom: 0; }
@@ -127,7 +127,7 @@
 }
 .dkj-chip--yes { background: var(--primary-4); border-color: var(--primary-4); color: var(--primary-1); }
 .dkj-chip--no { background: var(--primary-1); }
-.dkj-chip--todo, .dkj-chip--unknown { color: var(--primary-5); border-style: dashed; }
+.dkj-chip--todo, .dkj-chip--unknown { color: var(--primary-6); border-style: dashed; }
 
 /* ---------- TitleTag ---------- */
 .dkj-tag {
@@ -143,13 +143,13 @@
   border-radius: var(--dkj-radius-pill);
 }
 .dkj-tag--info { color: var(--primary-1); background: var(--cat-1); }
-.dkj-tag--warn { color: var(--primary-5); background: var(--warning-3); }
+.dkj-tag--warn { color: var(--primary-6); background: var(--warning-3); }
 
 /* ---------- Help and Disclosure ---------- */
 .dkj-help { display: flex; flex-direction: column; align-items: flex-end; }
 .dkj-help > .dkj-msg { align-self: stretch; margin-top: var(--spacing-2); }
 
-.dkj-disclosure summary { cursor: pointer; font-weight: var(--dkj-fw-bold); color: var(--primary-5); list-style: none; }
+.dkj-disclosure summary { cursor: pointer; font-weight: var(--dkj-fw-bold); color: var(--primary-6); list-style: none; }
 .dkj-disclosure summary::-webkit-details-marker { display: none; }
 /* The marker is decorative: the second declaration gives it an empty accessible name where the browser supports that. */
 .dkj-disclosure summary::after { content: ' \25BE'; content: ' \25BE' / ''; }
@@ -174,11 +174,11 @@
   min-height: var(--tap);
 }
 .dkj-disclosure--structured > summary::after { flex: none; order: 1; }
-.dkj-disclosure-title { flex: 1 1 12ch; min-width: 0; overflow-wrap: anywhere; font-weight: var(--dkj-fw-bold); color: var(--primary-5); }
+.dkj-disclosure-title { flex: 1 1 12ch; min-width: 0; overflow-wrap: anywhere; font-weight: var(--dkj-fw-bold); color: var(--primary-6); }
 .dkj-disclosure-meta,
 .dkj-disclosure-trailing { margin-inline-start: auto; white-space: nowrap; }
 .dkj-disclosure-meta + .dkj-disclosure-trailing { margin-inline-start: 0; }
-.dkj-disclosure-meta { font-size: var(--text-sm); font-weight: normal; color: var(--primary-5); font-variant-numeric: tabular-nums; }
+.dkj-disclosure-meta { font-size: var(--text-sm); font-weight: normal; color: var(--primary-6); font-variant-numeric: tabular-nums; }
 .dkj-disclosure-version { color: var(--primary-4); font-weight: var(--dkj-fw-bold); }
 /* Narrow row: the marker stays on the first line, meta and trailing drop under the title and left-align. */
 @container (max-width: 24rem) {
@@ -199,7 +199,7 @@
   font-weight: var(--dkj-fw-semibold);
   letter-spacing: var(--dkj-tracking-label);
   text-transform: uppercase;
-  color: var(--primary-5);
+  color: var(--primary-6);
 }
 .dkj-group-count { font-variant-numeric: tabular-nums; letter-spacing: 0; text-transform: none; white-space: nowrap; }
 .dkj-group-count--over { color: var(--negative-5); }

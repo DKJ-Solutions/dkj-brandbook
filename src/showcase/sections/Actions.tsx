@@ -163,7 +163,7 @@ export function Actions() {
             <IconButton icon="pencil" label="Edit" />
             <IconButton icon="pencil" label="Edit" data-demo-state="focus" />
             <IconButton icon="pencil" label="Edit" pressed={pressed} onClick={() => setPressed(!pressed)} />
-            <span style={{ fontSize: 'var(--text-sm)', color: 'var(--primary-5)' }}>tap the third to toggle</span>
+            <span style={{ fontSize: 'var(--text-sm)', color: 'var(--primary-6)' }}>tap the third to toggle</span>
           </div>
         </Demo>
         <Demo label="Ghost">
