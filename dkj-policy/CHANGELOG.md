@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**77 minor entries** <!-- pending-tally -->
+**78 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/130-dev-preview-seam · 20261015-155633Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The showcase is started at session start by the `dkj-solutions` plugin's dev-preview hook instead of this repo's own copy of it, and its link opens in VS Code's Simple Browser (#130).
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: how the brand book's own showcase is started on a developer's machine.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: nothing an app that takes the house style receives.
+
+**Score:** N/A
+
+#### Pull Request
+
+Replace the own dev-server hook with the plugin's dev-preview seam
+
+[PR #133](https://github.com/DKJ-Solutions/dkj-brandbook/pull/133)
+
+---
 
 ### DEPLOY: docs/129-readme-tag-pin · 20261015-155337Z
 
