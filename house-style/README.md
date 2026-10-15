@@ -19,8 +19,6 @@ a build to fetch, with `<tag>` the `house-style-v<N>` release the skill is pinne
 - `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/<tag>/house-style/house-style.css`
 - `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/<tag>/house-style/house-theme.js`
 
-Until the first tag is set and the skill is repointed to it, the skill still fetches `main`.
-
 **It reaches DKJ-Solutions and nothing else.** BWJ-Development has its own styling.
 
 ## How to use it

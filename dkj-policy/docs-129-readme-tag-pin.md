@@ -34,9 +34,11 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Remove the sentence in `house-style/README.md` saying the skill still fetches `main` until the first tag is set: the `house-style` skill is pinned to a `house-style-v<N>` tag (#129).
 
 ### TEST
+
+- [x] No other line in the repo claims the skill fetches `main` (grep for "fetches main" and "first tag").
 
 ### DEPLOY: docs/129-readme-tag-pin
 
@@ -44,25 +46,21 @@
 
 ##### Tier 0
 
-**Score:**
+The house-style README no longer claims the skill still fetches `main`; the skill has been pinned to a tagged release since the first tag (#129).
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 1
 
 ##### Tier 1
 
-**Score:**
+N/A: a stale sentence in the brand book's own documentation.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
