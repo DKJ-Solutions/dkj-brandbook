@@ -46,7 +46,7 @@
 - [x] Light themes' `--primary-1` lighter and more coloured: Petrol takes the owner's `#faffff`, the other five take its OKLCH chroma at the highest lightness their hue allows
 - [x] Light themes' `--primary-2` lighter: Petrol takes the owner's `#f2ffff`, the other five take its OKLCH chroma at the highest lightness their hue allows, never closer to `--primary-1` than Petrol's gap (which only Oker reaches)
 - [x] Light themes' `--primary-4` softened: the owner's Petrol `#48878d` fell to 4.06:1, so each light theme takes its relative chroma at the lightness that holds 4.5:1 on -1 and -2 (Petrol `#437e84`), then greyer from the owner's Paars `#5d458b` and Magenta `#954c7a` and Blauw `#49498d`, which Oker and Roest follow; picker dots and the stylesheet's measured worst cases updated
-- [x] Blauw's other steps moved to `#0000ff`'s HSL hue 240, each at its own saturation and luminance, so every contrast holds
+- [x] Blauw's other steps moved to `#0000ff`'s HSL hue 240, each at its own saturation and luminance, so every contrast holds; then `-7` a good deal darker, `#00002b`
 - [x] Everything in `.bb-swatch-text` (name, value, recipe) from `--primary-5` to `--primary-7`
 
 ### TEST
