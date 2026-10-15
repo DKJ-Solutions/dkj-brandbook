@@ -20,11 +20,11 @@
 
    How far a theme reaches: every use of --primary-4 (on dark a grey of the colour; text in the colour is -5 there:
    links, titles, values) (the pressed .seg, .btn--primary,
-   .badge--info, .meter--info, the settings toggle, focus rings, links), native checkboxes, radios and
-   sliders (accent-color), the text caret and the selection. Beyond that, by default: the page, the
+   .badge--info, .meter--info, the settings toggle, focus rings, links), the text caret and the selection;
+   native checkboxes, radios, sliders and progress bars take --primary-5 through accent-color. Beyond that, by default: the page, the
    cards and tiles carry a tint of the primary (--primary-1, --primary-2), and every line and tinted surface
    is --primary-3, with --primary-5 as the text on it. There are no untinted neutrals: text is --primary-5 (owner's decision, October 14, 2026). Status, direction and categorical colours are never tinted. The
-   --accent modifiers (header, card, tile, table) carry it further where an app opts in.
+   --accent modifiers (header, table) carry it further where an app opts in.
 
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
@@ -112,7 +112,7 @@
   --column-narrow: 512px;
 
   /* native controls (checkbox, radio, range, progress) and the text caret take the theme */
-  accent-color: var(--primary-4);
+  accent-color: var(--primary-5);
   caret-color: var(--primary-4);
 }
 

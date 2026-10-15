@@ -41,12 +41,13 @@
 - [x] House `.hero .value` in `--primary-7`
 - [x] Figcaptions (the showcase demo label and the `Figure` caption) from `--primary-5` to `--primary-6`
 - [x] `.tile--accent` and `.card--accent` lose their `border-top`; house README and the showcase demo updated
+- [x] Root `accent-color` (native checkboxes, radios, sliders, progress bars) from `--primary-4` to `--primary-5`; stylesheet comment and README updated
 - [x] Everything in `.bb-swatch-text` (name, value, recipe) from `--primary-5` to `--primary-7`
 
 ### TEST
 
 - [x] Lint gate green
-- [ ] An owner has looked at the sidebar group labels in the showcase and the eyebrows and the muted text the hero values the figcaptions and the swatch text `.meta` and the accent tile and card, and approved them
+- [ ] An owner has looked at the sidebar group labels in the showcase and the eyebrows and the muted text the hero values the figcaptions and the swatch text `.meta` the accent tile and card and the native controls, and approved them
 
 ### DEPLOY: feat/nav-group-primary-2
 
@@ -54,7 +55,7 @@
 
 ##### Tier 0
 
-The showcase sidebar's group labels now use `--primary-2` instead of `--primary-3`, and the eyebrows `--primary-4` instead of `--primary-7`. The house `.muted` class (and the table's `.dkj-muted`) is `--primary-4` instead of `--primary-5`; a paragraph keeps `--primary-7`. The house `.meta` class is `--primary-6` instead of `--primary-5`, again except on a paragraph. The hero figure (`.hero .value`) is set in `--primary-7`. Figcaptions (the showcase demo label and the `Figure` caption) are `--primary-6` instead of `--primary-5`. `.tile--accent` and `.card--accent` no longer draw a rule across their top. The colour swatches' name, value and recipe are `--primary-7` instead of `--primary-5`.
+The showcase sidebar's group labels now use `--primary-2` instead of `--primary-3`, and the eyebrows `--primary-4` instead of `--primary-7`. The house `.muted` class (and the table's `.dkj-muted`) is `--primary-4` instead of `--primary-5`; a paragraph keeps `--primary-7`. The house `.meta` class is `--primary-6` instead of `--primary-5`, again except on a paragraph. The hero figure (`.hero .value`) is set in `--primary-7`. Figcaptions (the showcase demo label and the `Figure` caption) are `--primary-6` instead of `--primary-5`. `.tile--accent` and `.card--accent` no longer draw a rule across their top. Native checkboxes, radios, sliders and progress bars take `--primary-5` instead of `--primary-4` through `accent-color`. The colour swatches' name, value and recipe are `--primary-7` instead of `--primary-5`.
 
 **Score:** 1
 
@@ -82,5 +83,5 @@ The brand book's own showcase is not a subscribed service.
 
 #### Pull Request
 
-Nav group labels in --primary-2, eyebrows and muted text in --primary-4, hero values in --primary-7, figcaptions in --primary-6, swatch text in --primary-7, .meta in --primary-6, no rule on the accent tile and card
+Nav group labels in --primary-2, eyebrows and muted text in --primary-4, hero values in --primary-7, figcaptions in --primary-6, swatch text in --primary-7, .meta in --primary-6, no rule on the accent tile and card, native controls in --primary-5
 

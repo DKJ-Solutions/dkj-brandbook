@@ -197,11 +197,11 @@ every theme. Now:
 
 - **By default**, with nothing for the app to do: every link takes the primary as text (`--primary-4`), visited or not, with
   a thicker underline on hover and a primary focus ring. Native checkboxes, radios, sliders and
-  progress bars take it through `accent-color`, the text caret through `caret-color`, and selected
+  progress bars take `--primary-5` through `accent-color`, the text caret through `caret-color`, and selected
   text gets a primary tint. The link rules sit in `:where()`, so they weigh nothing: any class on an
   `<a>` (a `.btn`, a `.menu-item`, an app's own) wins without an override. An `<a>` without an `href`
   is not a link and is left alone. `accent-color` and `caret-color` are set once on the root, so a
-  subtree that sets its own `--primary-4` keeps the page's theme on its native controls.
+  subtree that sets its own `--primary-4` or `--primary-5` keeps the page's theme on its native controls.
 - **Opt-in**, one modifier on a house element: `.header--accent` puts a primary rule under the page
   header and `.table--accent` a
   `--primary-3` table head, its text `--primary-5`, as all text. They are modifiers rather than defaults, so an app
