@@ -1,4 +1,5 @@
 import type { SVGProps } from 'react'
+import './buttons.css'
 
 /**
  * The stroke icon set: a 24-unit viewBox, 2px round strokes in currentColor, so an icon follows the
@@ -31,18 +32,18 @@ type IconProps = { name: IconName; size?: number } & Omit<SVGProps<SVGSVGElement
 
 export function Icon({ name, size = 20, ...rest }: IconProps) {
   if (name === 'info') {
-    // Filled disc in currentColor with the "i" cut out in --info-glyph (the surface below it).
+    // Filled disc in currentColor with the "i" cut out in the surface below it (.dkj-info-dot / .dkj-info-stem).
     return (
       <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" focusable="false" {...rest}>
         <circle cx="12" cy="12" r="10" fill="currentColor" />
-        <circle cx="12" cy="7.6" r="1.4" style={{ fill: 'var(--info-glyph, var(--primary-2))' }} />
+        <circle className="dkj-info-dot" cx="12" cy="7.6" r="1.4" />
         <path
+          className="dkj-info-stem"
           d="M10.4 10.8H12.4V16.6M10.2 16.6H14"
           fill="none"
           strokeWidth="1.8"
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{ stroke: 'var(--info-glyph, var(--primary-2))' }}
         />
       </svg>
     )

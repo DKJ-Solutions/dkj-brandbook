@@ -151,16 +151,13 @@ function PlaylistManager() {
             <SelectField label="Genre" options={[ALL, 'Genre one', 'Genre two', 'Genre three']} value={genre} onChange={(e) => setGenre(e.target.value)} />
           </div>
           <div className="dkj-preview-gap">
-            <GroupHeading level={3}>Colour</GroupHeading>
-            <FilterChips label="Colour" options={COLOURS} value={colours} onChange={setColours} />
+            <FilterChips showLabel label="Colour" options={COLOURS} value={colours} onChange={setColours} />
           </div>
           <div className="dkj-preview-gap">
-            <GroupHeading level={3}>Density</GroupHeading>
-            <FilterChips label="Density" options={DENSITIES} value={densities} onChange={setDensities} />
+            <FilterChips showLabel label="Density" options={DENSITIES} value={densities} onChange={setDensities} />
           </div>
           <div className="dkj-preview-gap">
-            <GroupHeading level={3}>BPM tier</GroupHeading>
-            <FilterChips label="BPM tier" options={BPM_TIERS} value={bpmTiers} onChange={setBpmTiers} />
+            <FilterChips showLabel label="BPM tier" options={BPM_TIERS} value={bpmTiers} onChange={setBpmTiers} />
           </div>
           <div className="dkj-preview-gap">
             <SegmentedChoice
