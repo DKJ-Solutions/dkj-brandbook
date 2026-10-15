@@ -32,11 +32,20 @@
 
 ### PLAN
 
+#102: vite only warns on a CSS syntax error, so the gate read green over a stray `}`. Parse every tracked
+stylesheet in a step of its own instead of reading the build's output, so the check does not depend on what
+the build imports.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `scripts/lint/check-css-syntax.mjs`: every `git ls-files '*.css'` parsed with esbuild (vite's own CSS
+  parser, already installed through vite); any warning fails
+- [x] `scripts/lint/lint-web.ps1`: the check is step 2 of 5, and the header lists it
 
 ### TEST
+
+- [x] A stray `}` appended to `src/index.css` fails the check with `src/index.css:19: Unexpected "}"
+  [css-syntax-error]` and exit 1; the 15 stylesheets on the branch pass
 
 ### DEPLOY: fix/102-gate-css-syntax
 
@@ -44,7 +53,11 @@
 
 ##### Tier 0
 
-**Score:**
+The lint gate fails when a stylesheet does not parse. vite's build only warned on a CSS syntax error, so a
+stray `}` shipped with the gate green (#102); a new step parses every tracked `.css` with esbuild and blocks on
+any warning.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +66,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a check in this repo's own gate.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +77,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: nothing an app takes changes.
+
+**Score:** N/A
 
 #### Pull Request
 
