@@ -260,7 +260,7 @@ export function Surfaces() {
         </Demo>
       </Section>
 
-      <Section id="TitleTag" title="TitleTag" intro="A small uppercase pill on its own line above a title. Warn is the warning fill with dark text in both modes.">
+      <Section id="TitleTag" title="TitleTag" intro="A small uppercase pill on its own line above a title. Warn is warning text (--warning-5) on the warning background (--warning-1), so it reads in both modes.">
         <Demo label="Accent / info / warn">
           <div className="dkj-demo-row">
             <TitleTag>Expected</TitleTag>

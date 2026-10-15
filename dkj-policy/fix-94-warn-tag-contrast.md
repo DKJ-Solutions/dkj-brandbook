@@ -32,11 +32,22 @@
 
 ### PLAN
 
+#### The decision
+
+Owner's decision on #94 (maikel-bwj, October 15, 2026): warning tags become `--warning-5` text on a
+`--warning-1` background. Both tokens already reverse per mode and neither moves per theme, so no new
+token and no per-mode switch.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.dkj-tag--warn` in `src/components/surfaces.css`: `--primary-9` on `--warning-3` becomes
+  `--warning-5` on `--warning-1`. Measured: 5.09:1 light (`#a84f00` on `#fff4e0`), 9.97:1 dark
+  (`#ffd75e` on `#3a2a10`), the same in all twelve themes.
+- [x] The TitleTag intro in the showcase (`Surfaces.tsx`) names the new pair instead of "the warning fill".
 
 ### TEST
+
+- [ ] An owner has looked at the warn TitleTag ("Sell") in light and dark, across a few themes, and approved it.
 
 ### DEPLOY: fix/94-warn-tag-contrast
 
@@ -44,25 +55,21 @@
 
 ##### Tier 0
 
-**Score:**
+The warning tag (`TitleTag tone="warn"`) is warning text on the warning background instead of dark text on the amber fill, so it reads at 5.1:1 in light mode and 10:1 in dark mode, where the old fill was under 2:1 (#94).
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: one component's colours in the brand book.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
