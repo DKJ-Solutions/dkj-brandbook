@@ -115,10 +115,10 @@ function RecipeList({ list, onOpen }: { list: readonly string[]; onOpen: (id: st
           <CardBody>
             <strong>{r.title}</strong>
             <Message>{[`${r.minutes} min`, countText(r.ingredients.length, 'ingredient', 'ingredients'), ...r.tags].join(' · ')}</Message>
-            <div className="dkj-preview-gap">
+            <div className="dkj-preview-gap dkj-demo-row">
               {r.tags.map((t) => (
                 <TitleTag key={t}>{t}</TitleTag>
-              ))}{' '}
+              ))}
               <Button variant="outline" size="compact" onClick={() => onOpen(r.id)}>
                 Open recipe{list.includes(r.id) ? ' (on the list)' : ''}
               </Button>
