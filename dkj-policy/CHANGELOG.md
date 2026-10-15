@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**66 minor entries** <!-- pending-tally -->
+**67 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/111-music-colour-labels · 20261015-103559Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The Music library preview's colour filter names the colour each dot shows, blue, orange and green (#111).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: placeholder labels in one preview.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Music library: the colour labels name the colour their dot shows
+
+[PR #119](https://github.com/DKJ-Solutions/dkj-brandbook/pull/119)
+
+---
 
 ### DEPLOY: fix/108-card-body-rule · 20261015-103033Z
 
