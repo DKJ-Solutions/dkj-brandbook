@@ -40,7 +40,9 @@
   /* the theme's seven steps, fixed values per theme (owner's decision, October 14, 2026). On light --primary-4 is
      a softened step of the colour (owner's decision, October 15, 2026, from the owner's example Petrol #48878d): each
      light theme takes that example's relative OKLCH chroma in its own hue, at the lightness that holds 4.5:1 on -1 and
-     -2 (Petrol #437e84); Paars, not grey enough that way, takes the owner's own #5d458b. -1, -2 and -3 follow the owner's Petrol examples too (#faffff, #f2ffff, #9adae2): -3 at the
+     -2 (Petrol #437e84). The owner then made Paars and Magenta greyer (#5d458b, #954c7a): Blauw, Oker and Roest follow
+     those two at their mean OKLCH lightness (0.486), at their chroma (0.1135) or at their relative chroma (0.486) where
+     the hue holds less. -1, -2 and -3 follow the owner's Petrol examples too (#faffff, #f2ffff, #9adae2): -3 at the
      same OKLCH lightness and relative chroma in each hue, -1 and -2 at the same chroma as light as each hue allows, -2
      never closer to -1 than in Petrol. On dark -4 is a grey of the colour and the colour moves to -5 and -6
      (owner's decision, October 14, 2026, from the owner's example Geel: -4 #91804c, -5 #ffce3f, -6 #ffe4a3; the other dark
@@ -59,7 +61,7 @@
      (Roest), -1 on -4 4.57:1 on light (Petrol) and 4.61:1 on dark (Roze), -5 on -3 5.10:1 on light (Roest);
      -5, all text, on -1 and -2 at 7.62:1 or better on light (Blauw) and 6.07:1 on dark (Lila), and 4.98:1 or better
      on a status background (Lila on dark). */
-  --primary-1: #f9fbff; --primary-2: #f0f6ff; --primary-3: #c1cee4; --primary-4: #3a6ecc;
+  --primary-1: #f9fbff; --primary-2: #f0f6ff; --primary-3: #c1cee4; --primary-4: #3d5e99;
   --primary-5: #0647b0; --primary-6: #193a75; --primary-7: #000d34;
 
   /* categorical palette (series slots) */
@@ -148,12 +150,12 @@
    two whose primary sits next to the warning colour move the warning away from it. No red and
    no green theme: those hues mean bad and good. Order: magenta, purple, blue, teal, ochre, rust (light);
    pink, lilac, sky, cyan, yellow, orange (dark). */
-:root[data-theme="magenta"] { --primary-1: #fffbfd; --primary-2: #fff4fa; --primary-3: #e5c1d4; --primary-4: #b6498e; --primary-5: #93006b; --primary-6: #67174c; --primary-7: #26001a; }
+:root[data-theme="magenta"] { --primary-1: #fffbfd; --primary-2: #fff4fa; --primary-3: #e5c1d4; --primary-4: #954c7a; --primary-5: #93006b; --primary-6: #67174c; --primary-7: #26001a; }
 :root[data-theme="purple"] { --primary-1: #fcfbff; --primary-2: #f7f5ff; --primary-3: #cfc9e4; --primary-4: #5d458b; --primary-5: #6421b9; --primary-6: #452878; --primary-7: #180036; }
-:root[data-theme="blue"] { --primary-1: #f9fbff; --primary-2: #f0f6ff; --primary-3: #c1cee4; --primary-4: #3a6ecc; --primary-5: #0647b0; --primary-6: #193a75; --primary-7: #000d34; }
+:root[data-theme="blue"] { --primary-1: #f9fbff; --primary-2: #f0f6ff; --primary-3: #c1cee4; --primary-4: #3d5e99; --primary-5: #0647b0; --primary-6: #193a75; --primary-7: #000d34; }
 :root[data-theme="teal"] { --primary-1: #faffff; --primary-2: #f2ffff; --primary-3: #9adae2; --primary-4: #437e84; --primary-5: #025860; --primary-6: #12454a; --primary-7: #001518; }
-:root[data-theme="ochre"] { --primary-1: #fffefa; --primary-2: #fefcf2; --primary-3: #d9cf92; --primary-4: #7f753e; --primary-5: #5b4f00; --primary-6: #453e0e; --primary-7: #161200; }
-:root[data-theme="rust"] { --primary-1: #fffbf9; --primary-2: #fff5ef; --primary-3: #e5c6b3; --primary-4: #9c653d; --primary-5: #7d3e01; --primary-6: #5c300b; --primary-7: #200b00; --warning-3: #b88a00; }
+:root[data-theme="ochre"] { --primary-1: #fffefa; --primary-2: #fefcf2; --primary-3: #d9cf92; --primary-4: #66603f; --primary-5: #5b4f00; --primary-6: #453e0e; --primary-7: #161200; }
+:root[data-theme="rust"] { --primary-1: #fffbf9; --primary-2: #fff5ef; --primary-3: #e5c6b3; --primary-4: #79573f; --primary-5: #7d3e01; --primary-6: #5c300b; --primary-7: #200b00; --warning-3: #b88a00; }
 :root[data-theme="pink"] { --primary-1: #23081b; --primary-2: #2d0621; --primary-3: #3f2b38; --primary-4: #a26f8a; --primary-5: #ffbee0; --primary-6: #ffdbed; --primary-7: #fff6f9; }
 :root[data-theme="lilac"] { --primary-1: #160f24; --primary-2: #1c132d; --primary-3: #342f3f; --primary-4: #8479a9; --primary-5: #ae8fff; --primary-6: #cfc0ff; --primary-7: #f9f7fd; }
 :root[data-theme="sky"] { --primary-1: #021624; --primary-2: #001a2e; --primary-3: #253440; --primary-4: #6782ae; --primary-5: #7aacff; --primary-6: #b1cfff; --primary-7: #f6f9fc; }

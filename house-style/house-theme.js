@@ -26,12 +26,12 @@
    ========================================================================== */
 (function () {
   var THEMES = [
-    { id: 'magenta', name: 'Magenta',     mode: 'light', hex: '#b6498e' },
+    { id: 'magenta', name: 'Magenta',     mode: 'light', hex: '#954c7a' },
     { id: 'purple',  name: 'Paars',       mode: 'light', hex: '#5d458b' },
-    { id: 'blue',    name: 'Blauw',       mode: 'light', hex: '#3a6ecc' },
+    { id: 'blue',    name: 'Blauw',       mode: 'light', hex: '#3d5e99' },
     { id: 'teal',    name: 'Petrol',      mode: 'light', hex: '#437e84' },
-    { id: 'ochre',   name: 'Oker',        mode: 'light', hex: '#7f753e' },
-    { id: 'rust',    name: 'Roest',       mode: 'light', hex: '#9c653d' },
+    { id: 'ochre',   name: 'Oker',        mode: 'light', hex: '#66603f' },
+    { id: 'rust',    name: 'Roest',       mode: 'light', hex: '#79573f' },
     { id: 'pink',    name: 'Roze',        mode: 'dark',  hex: '#ffbee0' },
     { id: 'lilac',   name: 'Lila',        mode: 'dark',  hex: '#ae8fff' },
     { id: 'sky',     name: 'Hemelsblauw', mode: 'dark',  hex: '#7aacff' },

@@ -133,7 +133,7 @@ primary colour (on light its `--primary-4`, on dark its `--primary-5`):
 
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
-| Light | `magenta` Magenta `#b6498e`, `purple` Paars `#5d458b`, `blue` Blauw `#3a6ecc`, `teal` Petrol `#437e84`, `ochre` Oker `#7f753e`, `rust` Roest `#9c653d` |
+| Light | `magenta` Magenta `#954c7a`, `purple` Paars `#5d458b`, `blue` Blauw `#3d5e99`, `teal` Petrol `#437e84`, `ochre` Oker `#66603f`, `rust` Roest `#79573f` |
 | Dark | `pink` Roze `#ffbee0`, `lilac` Lila `#ae8fff`, `sky` Hemelsblauw `#7aacff`, `cyan` Cyaan `#4aedff`, `yellow` Geel `#ffce3f`, `orange` Oranje `#ffc7a6` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
@@ -229,7 +229,9 @@ out). Three more things follow it by default, in light and in dark (and a measur
   and focus rings in both modes, and the links on light, with `--primary-1` as text on a
   fill. On light it is a softened step of the colour (owner's decision, October 15, 2026, from the owner's example
   Petrol `#48878d`): each light theme takes that example's relative OKLCH chroma in its own hue, at the lightness
-  that holds 4.5:1 as link text on the page and the card (Petrol `#437e84`); Paars, not grey enough that way, takes the owner's own `#5d458b`. The light `-1`, `-2` and `-3` follow
+  that holds 4.5:1 as link text on the page and the card (Petrol `#437e84`). The owner then made Paars and Magenta greyer (`#5d458b`, `#954c7a`): Blauw, Oker and Roest
+  follow those two at their mean OKLCH lightness (0.486), at their chroma (0.1135) or at their relative chroma (0.486)
+  where the hue holds less. The light `-1`, `-2` and `-3` follow
   the owner's Petrol examples too (`#faffff`, `#f2ffff`, `#9adae2`): `-3` at the same OKLCH lightness and
   relative chroma in each hue, `-1` and `-2` at the same chroma as light as each hue allows, `-2` never closer to
   `-1` than in Petrol.
