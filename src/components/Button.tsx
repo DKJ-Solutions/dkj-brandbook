@@ -2,6 +2,7 @@ import { useRef, type AnchorHTMLAttributes, type ButtonHTMLAttributes, type CSSP
 import { cx } from './cx'
 import { Icon, type IconName } from './Icon'
 import './buttons.css'
+import './forms.css'
 
 type Native = ButtonHTMLAttributes<HTMLButtonElement>
 type Anchor = AnchorHTMLAttributes<HTMLAnchorElement>
@@ -186,6 +187,8 @@ export function SegmentedChoice<T extends string>({
  * a literal where it is the user's content. The dot is decorative: the label carries the meaning. It is the one inline style here.
  * An on chip also shows a check mark, so the state is not colour alone.
  * label: the group name (required). A Clear button follows the chips while anything is chosen; clearLabel is its text.
+ * showLabel: also print the label above the chips, in the shape of a field label -- for a filter group inside a form,
+ * so it reads as one family with the fields beside it (#112).
  */
 export function FilterChips<T extends string>({
   options,
@@ -193,12 +196,14 @@ export function FilterChips<T extends string>({
   onChange,
   label,
   clearLabel = 'Clear',
+  showLabel = false,
 }: {
   options: readonly { value: T; label: string; color?: string }[]
   value: readonly T[]
   onChange: (value: T[]) => void
   label: string
   clearLabel?: string
+  showLabel?: boolean
 }) {
   const group = useRef<HTMLDivElement>(null)
   const toggle = (v: T) => onChange(value.includes(v) ? value.filter((x) => x !== v) : [...value, v])
@@ -207,7 +212,7 @@ export function FilterChips<T extends string>({
     // Focus moves synchronously, before Clear unmounts, to the first chip (a no-op when there are no options).
     group.current?.querySelector<HTMLButtonElement>('.dkj-filter-chip')?.focus()
   }
-  return (
+  const chips = (
     <div ref={group} className="dkj-filter-chips" role="group" aria-label={label}>
       {options.map((o) => {
         const on = value.includes(o.value)
@@ -233,6 +238,16 @@ export function FilterChips<T extends string>({
           {clearLabel}
         </button>
       )}
+    </div>
+  )
+  if (!showLabel) return chips
+  // The group already carries the label as its accessible name, so the printed one is hidden from assistive tech.
+  return (
+    <div className="dkj-field">
+      <span className="dkj-field-label" aria-hidden="true">
+        {label}
+      </span>
+      {chips}
     </div>
   )
 }

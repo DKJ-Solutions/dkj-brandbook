@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Owner's decision on #112 (Maikel, October 15, 2026): three roles, three shapes. A card title follows
+#114 (built there, not here); a group label is `GroupHeading`; a filter-group label inside a form takes
+the shape of the field labels. This branch does the third role.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `FilterChips` takes `showLabel`: the label printed above the chips as a `.dkj-field-label`
+- [x] Music library (Colour, Density, BPM tier) and Recipes (Tags) use it instead of a `GroupHeading`
+- [x] `registry.ts`: `GroupHeading` dropped from the playlist manager and the recipe list
 
 ### TEST
+
+- [x] Gates (`open-pr -GatesOnly`) pass
+- [ ] An owner has looked at the Music library filters and the Recipes tags and approved it
 
 ### DEPLOY: fix/112-filter-group-labels
 
@@ -44,7 +53,9 @@
 
 ##### Tier 0
 
-**Score:**
+A filter group inside a form is labelled like the fields beside it, in sentence case, instead of as an uppercase group label (Music library, Recipes; #112).
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: labels inside two previews.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet is untouched.
+
+**Score:** N/A
 
 #### Pull Request
 

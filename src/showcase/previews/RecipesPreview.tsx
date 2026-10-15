@@ -106,8 +106,7 @@ function RecipeList({ list, onOpen }: { list: readonly string[]; onOpen: (id: st
     <>
       <TextField label="Search" type="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search recipes" />
       <div>
-        <GroupHeading level={2}>Tags</GroupHeading>
-        <FilterChips label="Tags" options={ALL_TAGS.map((t) => ({ value: t, label: t }))} value={tags} onChange={setTags} />
+        <FilterChips showLabel label="Tags" options={ALL_TAGS.map((t) => ({ value: t, label: t }))} value={tags} onChange={setTags} />
       </div>
       {visible.length === 0 && <Message>No recipe found.</Message>}
       {visible.map((r) => (
