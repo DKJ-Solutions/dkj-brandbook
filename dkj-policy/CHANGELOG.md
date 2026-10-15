@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**71 minor entries** <!-- pending-tally -->
+**72 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/94-warn-tag-contrast · 20261015-120153Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The warning tag (`TitleTag tone="warn"`) is warning text on the warning background instead of dark text on the amber fill, so it reads at 5.1:1 in light mode and 10:1 in dark mode, where the old fill was under 2:1 (#94).
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: one component's colours in the brand book.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Warning tags read in both modes: --warning-5 on --warning-1
+
+[PR #125](https://github.com/DKJ-Solutions/dkj-brandbook/pull/125)
+
+---
 
 ### DEPLOY: fix/98-direct-token-reads · 20261015-115636Z
 
