@@ -34,7 +34,9 @@
 .dkj-card-title { display: block; margin: 0; font-family: var(--font-serif); font-size: var(--text-h6); font-weight: var(--dkj-fw-semibold); letter-spacing: -0.01em; color: var(--primary-5); }
 .dkj-card-title--icon { display: flex; align-items: center; justify-content: center; gap: var(--spacing-2); }
 .dkj-card-icon { flex-shrink: 0; color: var(--primary-5); }
-.dkj-card-body { padding: var(--spacing-1) var(--spacing-4) var(--spacing-4); border-top: 1px solid var(--primary-3); }
+.dkj-card-body { padding: var(--spacing-1) var(--spacing-4) var(--spacing-4); }
+/* The rule divides a head from the body, so a body with no head above it draws none (#108); :where() keeps the data card's border-top: 0 the stronger rule. */
+:where(.dkj-card-head) ~ .dkj-card-body { border-top: 1px solid var(--primary-3); }
 .dkj-card-body > :first-child { margin-top: var(--spacing-3-5); }
 
 /* ---------- TintedPanel ---------- */

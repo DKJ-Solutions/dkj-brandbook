@@ -68,7 +68,7 @@ export function CardHead({
   )
 }
 
-/** CardBody -- the card content under a rule. */
+/** CardBody -- the card content, under a rule when a CardHead sits above it. */
 export function CardBody({ children }: { children: ReactNode }) {
   return <div className="dkj-card-body">{children}</div>
 }

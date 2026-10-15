@@ -32,11 +32,19 @@
 
 ### PLAN
 
+#108: `.dkj-card-body` always drew a `border-top`, meant to divide a head from the body, so a card with only a
+body showed an empty line at its top (Recipes, Life hub).
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/components/surfaces.css`: the rule moves to `:where(.dkj-card-head) ~ .dkj-card-body`; `:where()` keeps
+  the data card's `border-top: 0` the stronger rule
+- [x] `Card.tsx`: CardBody's doc line says the rule only follows a head
 
 ### TEST
+
+- [x] Screenshot of the Recipes preview: the line inside each card's top edge is gone
+- [ ] An owner has looked at the cards in the previews and approved it
 
 ### DEPLOY: fix/108-card-body-rule
 
@@ -44,7 +52,10 @@
 
 ##### Tier 0
 
-**Score:**
+A card body draws its dividing rule only when a card head sits above it (#108), so a card with only a body no
+longer shows an empty line at its top.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a line inside the brand book's own component.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
