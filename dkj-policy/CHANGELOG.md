@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**57 minor entries** <!-- pending-tally -->
+**58 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/nav-group-primary-2 · 20261015-075434Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Every light theme now behaves the same and only its hue differs: each of the seven `--primary-*` steps has one OKLCH lightness and one chroma in all six, capped where a hue cannot hold it, taken from the owner's examples (Petrol for `-1` to `-3`, Paars, Magenta and Blauw for `-4`, Blauw for `-5` to `-7`). The page and card fills are lighter, lines and tinted surfaces carry more colour, the fills and links are a softer, greyer step of the colour, and text is darker; Blauw sits on the hue of `#0000ff` instead of leaning to cyan. The six dark themes follow the same rule, mirrored: `-4` is the greyest step in the middle of the scale (from the owner's Hemelsblauw `#4c4c8d`, a little lighter), `-5` and `-6` carry the colour, and no role switches step between light and dark any more: links, titles, rings, lines and meters are `-4` and the text on a `-4` fill is `-1` in every theme (about 3.3:1 on dark, accepted); dark `-4` follows the owner's Oranje `#8f6249`, and the picker's dot is `-4` in every theme, and Hemelsblauw is truly blue. The picker's dots follow. Native checkboxes, radios, sliders and progress bars take `--primary-5` through `accent-color`. The house `.muted` class is `--primary-4` and `.meta` is `--primary-6` (a paragraph keeps `--primary-7`), the hero figure is `--primary-7`, and `.card--accent` and `.tile--accent` no longer draw a rule across their top. In the showcase the nav group labels are `--primary-2`, eyebrows `--primary-4`, figcaptions `--primary-6` and the swatch text `--primary-7`.
+
+**Score:** 3
+
+##### Tier 1
+
+Every DKJ-Solutions app looks different, in every theme, once it takes this house style: lighter fills, a greyer primary and darker text.
+
+**Score:** 2
+
+##### Tier 2
+
+The brand book's own showcase is not a subscribed service.
+
+**Score:** N/A
+
+#### Pull Request
+
+Every theme on one rule, and a colour pass on the house text and the showcase
+
+[PR #101](https://github.com/DKJ-Solutions/dkj-brandbook/pull/101)
+
+---
 
 ### DEPLOY: feat/dark-themes-grey-anchor · 20261014-205224Z
 
