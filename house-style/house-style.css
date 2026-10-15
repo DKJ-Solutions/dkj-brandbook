@@ -66,7 +66,7 @@
   --primary-7: #0704c0; --primary-8: #181675; --primary-9: #000325;
 
   /* categorical palette (series slots) */
-  --cat-1: #2a78d6;
+  --cat-1: #2574d1;          /* dark enough for --primary-1 text on it at 4.5:1 in every light theme (4.51:1, worst Roest; #92) */
   --cat-2: #eb6834;
   --cat-3: #1baf7a;
 

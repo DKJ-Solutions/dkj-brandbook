@@ -2,7 +2,127 @@
 
 ## [Unreleased]
 
-**69 minor entries** <!-- pending-tally -->
+**73 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/92-light-cat1-contrast · 20261015-120300Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The light series blue `--cat-1` is a shade darker (`#2a78d6` -> `#2574d1`), so the text on the info tag reaches 4.5:1 on every light theme (#92).
+
+**Score:** 2
+
+##### Tier 1
+
+The info tag, the series badge and meter, and chart series 1 and gains render in the darker blue on light; dark is unchanged.
+
+**Score:** 2
+
+##### Tier 2
+
+Every app on the house style takes the new light `--cat-1` with its next copy of `house-style.css`; no token is added or renamed.
+
+**Score:** 2
+
+#### Pull Request
+
+Light --cat-1 is dark enough for text on the info tag
+
+[PR #124](https://github.com/DKJ-Solutions/dkj-brandbook/pull/124)
+
+---
+
+### DEPLOY: fix/94-warn-tag-contrast · 20261015-120153Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The warning tag (`TitleTag tone="warn"`) is warning text on the warning background instead of dark text on the amber fill, so it reads at 5.1:1 in light mode and 10:1 in dark mode, where the old fill was under 2:1 (#94).
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: one component's colours in the brand book.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Warning tags read in both modes: --warning-5 on --warning-1
+
+[PR #125](https://github.com/DKJ-Solutions/dkj-brandbook/pull/125)
+
+---
+
+### DEPLOY: fix/98-direct-token-reads · 20261015-115636Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The components read their `--primary` and `--cat-1` steps directly instead of through local aliases (`--box`, `--info-glyph`, and the component-side `--m` / `--b`); nothing renders differently (#98).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: an internal refactor of the showcase components.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and its `--m` / `--b` API are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Components read --primary steps directly instead of local colour aliases
+
+[PR #123](https://github.com/DKJ-Solutions/dkj-brandbook/pull/123)
+
+---
+
+### DEPLOY: fix/112-filter-group-labels · 20261015-115458Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A filter group inside a form is labelled like the fields beside it, in sentence case, instead of as an uppercase group label (Music library, Recipes; #112).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: labels inside two previews.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Filter-group labels inside a form take the shape of the field labels
+
+[PR #122](https://github.com/DKJ-Solutions/dkj-brandbook/pull/122)
+
+---
 
 ### DEPLOY: docs/90-group-heading-exempt · 20261015-114435Z
 

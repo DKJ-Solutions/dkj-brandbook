@@ -138,9 +138,12 @@
 
 .dkj-card-actions { display: flex; gap: var(--spacing-2-5); width: 100%; }
 
+/* ---------- Icon: the info glyph's "i" is cut out in the surface below it ---------- */
+.dkj-info-dot { fill: var(--primary-2); }
+.dkj-info-stem { stroke: var(--primary-2); }
+
 /* ---------- RoundToggle ---------- */
 .dkj-round-toggle {
-  --info-glyph: var(--primary-2);
   flex: none;
   width: var(--dkj-tap);
   height: var(--dkj-tap);
