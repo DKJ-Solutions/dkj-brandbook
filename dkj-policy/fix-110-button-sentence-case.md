@@ -46,7 +46,7 @@ case, sentence case. The compact size drops `text-transform: uppercase` and the 
 ### TEST
 
 - [x] `open-pr -GatesOnly` passes.
-- [ ] An owner has looked at Actions -> Button (the Compact demo) and the compact buttons in the app previews
+- [x] An owner has looked at Actions -> Button (the Compact demo) and the compact buttons in the app previews
   (Back, Open recipe, Open dossier, Clear filters, Shopping list) beside a default-size button, and approved it.
 
 ### DEPLOY: fix/110-button-sentence-case
