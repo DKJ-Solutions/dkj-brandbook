@@ -3,7 +3,7 @@
 .dkj-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dkj-tone-negative { color: var(--negative-5); }
 .dkj-tone-positive { color: var(--positive-5); }
-.dkj-muted { color: var(--primary-4); }
+.dkj-muted { color: light-dark(var(--primary-4), var(--primary-5)); }
 
 /* ---------- DefinitionList ---------- */
 .dkj-dl { margin: 0; font-variant-numeric: tabular-nums; }
@@ -25,7 +25,7 @@
 /* ---------- DataTable ---------- */
 /* The house .table does the layout, the sort buttons and the total row. The wrapper scrolls, so it is focusable (a
    keyboard can scroll it) and needs the ring. Cell tones are the shared .dkj-tone-* above. */
-.dkj-table-wrap:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); border-radius: var(--dkj-radius-xs); }
+.dkj-table-wrap:focus-visible { outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: var(--dkj-focus-offset); border-radius: var(--dkj-radius-xs); }
 
 /* ---------- BillTable ---------- */
 .dkj-bill { width: 100%; table-layout: fixed; border-collapse: collapse; }

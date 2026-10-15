@@ -14,7 +14,7 @@
   color: var(--primary-5);
 }
 .dkj-input:focus-visible, .dkj-input[data-demo-state='focus'] {
-  outline: var(--dkj-focus-w) solid var(--primary-4);
+  outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5));
   outline-offset: var(--dkj-focus-offset);
 }
 .dkj-input:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -56,8 +56,8 @@
   color: var(--primary-5);
   cursor: pointer;
 }
-.dkj-check input { flex: none; width: 1.5rem; height: 1.5rem; margin: var(--spacing-2-5) 0 0; accent-color: var(--primary-4); }
-.dkj-check input:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
+.dkj-check input { flex: none; width: 1.5rem; height: 1.5rem; margin: var(--spacing-2-5) 0 0; accent-color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-check input:focus-visible { outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: var(--dkj-focus-offset); }
 .dkj-check span { padding: var(--spacing-2) 0; }
 .dkj-check small { display: block; margin-top: var(--spacing-0-5); font-size: var(--text-sm); font-weight: var(--dkj-fw-regular); color: var(--primary-5); }
 
@@ -101,10 +101,10 @@
 .dkj-stepper button:active,
 .dkj-stepper button[data-demo-state='active'] {
   background: color-mix(in srgb, var(--primary-4) 16%, var(--primary-2));
-  border-color: var(--primary-4);
+  border-color: light-dark(var(--primary-4), var(--primary-5));
 }
 .dkj-stepper button:focus-visible, .dkj-stepper input:focus-visible {
-  outline: var(--dkj-focus-w) solid var(--primary-4);
+  outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5));
   outline-offset: var(--dkj-focus-offset);
 }
 
@@ -112,7 +112,7 @@
 .dkj-combo { display: grid; grid-template-columns: minmax(0, 1fr); }
 .dkj-combo-input, .dkj-combo-picked { grid-row: 1; grid-column: 1; min-height: var(--dkj-tap); }
 .dkj-combo-input--under { opacity: 0; pointer-events: none; }
-.dkj-combo-input:focus-visible { border-color: var(--primary-4); }
+.dkj-combo-input:focus-visible { border-color: light-dark(var(--primary-4), var(--primary-5)); }
 .dkj-combo-picked {
   z-index: 1;
   min-width: 0;
@@ -129,7 +129,7 @@
   border-radius: var(--dkj-radius-md);
   cursor: pointer;
 }
-.dkj-combo-picked:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-4); outline-offset: var(--dkj-focus-offset); }
+.dkj-combo-picked:focus-visible { outline: var(--dkj-focus-w) solid light-dark(var(--primary-4), var(--primary-5)); outline-offset: var(--dkj-focus-offset); }
 /* A magnifier on the right while there is something to tap; gone once typing starts. */
 .dkj-combo-input:not(:focus), .dkj-combo-picked { padding-right: 2.5rem; }
 .dkj-combo-glass {
@@ -169,7 +169,7 @@
 /* Active (hover, touch or keyboard via aria-activedescendant): a tint plus a bar on the left. */
 .dkj-combo-list li.is-active {
   background: color-mix(in srgb, var(--primary-4) 16%, var(--primary-2));
-  box-shadow: inset 3px 0 0 var(--primary-4);
+  box-shadow: inset 3px 0 0 light-dark(var(--primary-4), var(--primary-5));
 }
 .dkj-combo-list li.is-active .dkj-combo-name { font-weight: var(--dkj-fw-semibold); }
 .dkj-combo-list li.is-active .dkj-combo-meta { color: var(--primary-5); }
@@ -213,7 +213,7 @@
 .dkj-value-was { font-size: var(--text-sm); font-weight: var(--dkj-fw-regular); color: var(--primary-5); }
 .dkj-value-unit { font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); color: var(--primary-5); }
 .dkj-value--changed {
-  border: 2px solid var(--primary-4);
+  border: 2px solid light-dark(var(--primary-4), var(--primary-5));
   background: color-mix(in srgb, var(--primary-4) 10%, var(--primary-2));
 }
 .dkj-value--flush { padding-left: 0; padding-right: 0; }
@@ -254,7 +254,7 @@
 }
 
 /* A value the app changed for you flashes once in the accent. */
-@keyframes dkj-flash { from { background: var(--primary-4); color: var(--primary-1); } }
+@keyframes dkj-flash { from { background: var(--primary-4); color: light-dark(var(--primary-1), var(--primary-7)); } }
 .dkj-flash { animation: dkj-flash var(--dkj-duration-flash) var(--dkj-ease-out); }
 @media (prefers-reduced-motion: reduce) {
   .dkj-flash { animation: none; }

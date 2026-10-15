@@ -225,16 +225,18 @@ out). Three more things follow it by default, in light and in dark (and a measur
   |---|---|---|
   | `-1` | 0.19 | 0.035 |
   | `-2` | 0.21 | 0.045 |
-  | `-3` | 0.32 | 0.06, at most 0.6 relative |
-  | `-4` | 0.60, as dark as `-1` on it allows at 4.5:1 | 0.074, at most 0.30 relative |
+  | `-3` | 0.32 | 0.08, at most 0.6 relative |
+  | `-4` | 0.449 | 0.105, at most 0.39 relative (the owner's Hemelsblauw `#4c4c8d`) |
   | `-5` | 0.80 | 0.99 relative |
   | `-6` | 0.90 | 0.83 relative |
   | `-7` | 0.981 | 0.008 |
 
-  Hemelsblauw sits on `#0000ff`'s HSL hue 240, like Blauw. Text in the theme's colour (links, card and dialog titles, values) reads
+  Hemelsblauw sits on `#0000ff`'s HSL hue 240, like Blauw. `-1` is too close to that `-4` to read on it,
+  so on dark the text on a `-4` fill is `-7`, and every focus ring, line, meter fill and quiet text that is `-4`
+  on light is `-5` (`light-dark(-4, -5)`). Text in the theme's colour (links, card and dialog titles, values) reads
   `light-dark(var(--primary-4), var(--primary-5))`, and the picker's dot on dark is `-5`. The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). `-4` carries the fills
-  and focus rings in both modes, and the links on light, with `--primary-1` as text on a fill. **On light every
+  in both modes, and the focus rings and links on light, with `--primary-1` (on dark `-7`) as text on a fill. **On light every
   theme behaves the same and only the hue differs** (owner's decision, October 15, 2026): each step has one OKLCH
   lightness and one chroma in all six, capped at a share of what the hue can hold (relative chroma) where the hue
   holds less.
