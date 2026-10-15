@@ -33,17 +33,19 @@
 ### PLAN
 
 The owner asked for `--primary-4` to move a big step towards the ground: much darker on the dark themes,
-much lighter on the light themes. Each theme's `-4` keeps its OKLCH hue and chroma; only its lightness moves.
+much lighter on the light themes; and `--primary-6` much lighter on the dark themes. Each theme's `-4` keeps its OKLCH hue and chroma; only its lightness moves.
 
 ### CREATE
 
 - [x] `house-style.css`: `--primary-4` at L 0.70 on light (was 0.55) and L 0.38 on dark (was 0.458), in all
   twelve themes and both defaults; the token comment says so
+- [x] `house-style.css`: `--primary-6` at L 0.70 on dark (was 0.618) in the six dark themes and both dark
+  defaults; on the card (`-2`) it now reads at 6.58:1 or better (was 4.76:1)
 - [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
 
-- [ ] An owner has looked at `--primary-4` in the showcase, on light and dark themes, and approved it
+- [ ] An owner has looked at `--primary-4` and the dark `--primary-6` in the showcase, on light and dark themes, and approved it
 
 ### DEPLOY: feat/primary-4-further-from-5
 
@@ -53,9 +55,11 @@ much lighter on the light themes. Each theme's `-4` keeps its OKLCH hue and chro
 
 `--primary-4` moves a big step towards the ground in every theme: OKLCH lightness 0.70 on light (was 0.55)
 and 0.38 on dark (was 0.458), each theme keeping its hue and chroma. It has no role yet, so nothing in the
-house style changes on screen beyond the swatch.
+house style changes on screen beyond the swatch. On the dark themes `--primary-6` (sub lines, notes and
+`.muted`) moves lighter too, to L 0.70 (was 0.618), so that text reads at 6.58:1 or better on a card
+instead of 4.76:1.
 
-**Score:** 2
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -64,7 +68,7 @@ house style changes on screen beyond the swatch.
 
 ##### Tier 1
 
-N/A: a token with no role yet; management sees no difference.
+N/A: a swatch and a lighter grey for secondary text on dark; management sees no difference.
 
 **Score:** N/A
 
@@ -75,7 +79,7 @@ N/A: a token with no role yet; management sees no difference.
 
 ##### Tier 2
 
-N/A: no subscriber-facing surface uses `--primary-4`.
+N/A: the brand book has no subscribers; the apps that take the house style pick this up when they take a new copy.
 
 **Score:** N/A
 
