@@ -44,7 +44,7 @@ body showed an empty line at its top (Recipes, Life hub).
 ### TEST
 
 - [x] Screenshot of the Recipes preview: the line inside each card's top edge is gone
-- [ ] An owner has looked at the cards in the previews and approved it
+- [x] An owner has looked at the cards in the previews and approved it
 
 ### DEPLOY: fix/108-card-body-rule
 
