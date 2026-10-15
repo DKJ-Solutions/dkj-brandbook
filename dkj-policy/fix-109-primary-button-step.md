@@ -32,11 +32,29 @@
 
 ### PLAN
 
+#### The decision
+
+Owner's decision on #109 (maikel-bwj, October 15, 2026): a filled main action takes `--primary-7`, with
+`--primary-1` text, matching the filled IconButton; the scale prose moves "primary buttons" from `-5` to `-7`.
+
+#### Scope beyond the issue's wording
+
+The decision names `.dkj-btn--primary` and the scale prose. The house stylesheet's own `.btn--primary` and
+`.btn--touch.btn--primary` were `--primary-5` too, and the prose describes them, so they move with it:
+moving the prose alone would leave the comment and the rule under it disagreeing. The focus ring stays
+`--primary-5`, the step every focus ring takes.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.dkj-btn--primary` (`src/components/buttons.css`): `--primary-5` fill and border become `--primary-7`.
+- [x] `.btn--primary` and `.btn--touch.btn--primary` (`house-style/house-style.css`): the same.
+- [x] The scale prose in `house-style.css` (both comment blocks) and the Primary row of `house-style/README.md`
+  move the primary button from `-5` to `-7`.
 
 ### TEST
+
+- [ ] An owner has looked at a primary button (e.g. "Sync playlists" in the Music library preview) beside a filled
+  IconButton (Mesowise), in light and dark across a few themes, and approved it.
 
 ### DEPLOY: fix/109-primary-button-step
 
@@ -44,25 +62,21 @@
 
 ##### Tier 0
 
-**Score:**
+The primary button is filled with the theme's colour (`--primary-7`) instead of a grey (`--primary-5`), so it matches the filled icon button and reads as the main action again (#109).
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: the look of one button in the brand book and the house style.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+The house stylesheet's `.btn--primary` (and `.btn--touch.btn--primary`) moves to `--primary-7` too, so an app's primary buttons take the theme's colour once it takes the next house-style release.
+
+**Score:** 3
 
 #### Pull Request
 

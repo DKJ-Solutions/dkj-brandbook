@@ -19,9 +19,9 @@
      The dark token block therefore appears twice; keep both in sync.
 
    How far a theme reaches: every use of --primary-5 (a grey of the colour; links and text in the colour are -7:
-   links, titles, values) (the pressed .seg, .btn--primary,
+   links, titles, values) (the pressed .seg,
    .badge--info, .meter--info, the settings toggle, focus rings), the text caret and the selection;
-   native checkboxes, radios, sliders and progress bars take --primary-7 through accent-color. Beyond that, by default: the page, the
+   .btn--primary (a filled main action, owner's decision, October 15, 2026, #109) and native checkboxes, radios, sliders and progress bars take --primary-7 through accent-color. Beyond that, by default: the page, the
    cards and tiles carry a tint of the primary (--primary-1, --primary-2), and every line and tinted surface
    is --primary-3, with --primary-9 as the text on it. There are no untinted neutrals: text is --primary-9, and --primary-7 is the highlight (h1, h2, a state, a value that stands out) (owner's decisions, October 14 and 15, 2026). Status, direction and categorical colours are never tinted. The
    --accent modifiers (header, table) carry it further where an app opts in.
@@ -56,8 +56,8 @@
      below sets its own nine.
      -1 the page, and the text on a -5 fill; -2 the cards (tiles, tooltips); -3 every line (borders, row
      dividers, meter track, gridlines) and the tinted surfaces (an accent table head, a hover, a today row, the
-     accent dialog); -5 the fills (primary buttons, switches, info badges), focus rings, meters and text in
-     the colour (card and dialog titles, values), the picker's dot; -4 no role yet; -6 sub lines, notes and .muted; -7 the highlight: links (owner's decision, October 15, 2026), h1 and h2, the states (hover, focus outlines, sorted, pressed) and native controls through accent-color; -8 h3-h6 (owner's decision, October 14, 2026; on -9 h1 and h2 are -3 and h3-h6 are -2); -9 the far end: every paragraph, and an inverted
+     accent dialog); -5 the fills (switches, info badges), focus rings, meters and text in
+     the colour (card and dialog titles, values), the picker's dot; -4 no role yet; -6 sub lines, notes and .muted; -7 the highlight: links (owner's decision, October 15, 2026), the primary button's fill (#109), h1 and h2, the states (hover, focus outlines, sorted, pressed) and native controls through accent-color; -8 h3-h6 (owner's decision, October 14, 2026; on -9 h1 and h2 are -3 and h3-h6 are -2); -9 the far end: every paragraph, and an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -5 on the card 6.25:1
      on light (Oker), -1 on -5 6.54:1 on light (Oker) and 3.51:1 on dark (Roze), -5 on the card 3.38:1 on dark (Roze), -7 on -3 6.53:1 on light (Petrol);
      -7, the highlight, on -1 and -2 at 9.42:1 or better on light (Petrol) and 9.02:1 on dark (Roze), and 6.42:1 or better
@@ -355,7 +355,7 @@ p, p.meta { color: var(--primary-9); }
 .moretoggle:focus-visible { outline: 2px solid var(--primary-7); outline-offset: -2px; }
 
 /* ---- Primary button -------------------------------------------------------- */
-.btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--primary-1); font-weight: 600; }
+.btn--primary { background: var(--primary-7); border-color: var(--primary-7); color: var(--primary-1); font-weight: 600; }
 .btn--primary:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 /* Disabled: one rule for every .btn variant, so an app never adds its own on this reserved class. */
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -445,7 +445,7 @@ p, p.meta { color: var(--primary-9); }
 .btn--touch { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap);
   padding: var(--spacing-2-5) var(--spacing-4); font-size: var(--text-base); font-weight: 600; color: var(--primary-9);
   background: var(--primary-2); -webkit-tap-highlight-color: transparent; }
-.btn--touch.btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--primary-1); }
+.btn--touch.btn--primary { background: var(--primary-7); border-color: var(--primary-7); color: var(--primary-1); }
 .btn--touch:focus-visible { outline: 2px solid var(--primary-5); outline-offset: 2px; }
 .btn--block { width: 100%; }
 

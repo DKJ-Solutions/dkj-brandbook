@@ -38,7 +38,7 @@
 .dkj-btn svg { flex: none; }
 .dkj-btn:disabled, .dkj-btn[aria-disabled='true'] { opacity: 0.5; cursor: not-allowed; }
 .dkj-btn--block { display: flex; width: 100%; }
-.dkj-btn--primary { background: var(--primary-5); border-color: var(--primary-5); color: var(--primary-1); }
+.dkj-btn--primary { background: var(--primary-7); border-color: var(--primary-7); color: var(--primary-1); }
 /* Primary disabled: visible, colourless, inert -- "Save only becomes active when there is something to save". */
 .dkj-btn--primary:disabled, .dkj-btn--primary[aria-disabled='true'] {
   opacity: 1;
