@@ -226,7 +226,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   | `-1` | 0.19 | 0.035 |
   | `-2` | 0.21 | 0.045 |
   | `-3` | 0.32 | 0.08, at most 0.6 relative |
-  | `-4` | 0.449 | 0.105, at most 0.39 relative (the owner's Hemelsblauw `#4c4c8d`) |
+  | `-4` | 0.50 | 0.105, at most 0.39 relative (the owner's Hemelsblauw `#4c4c8d`, then a little lighter) |
   | `-5` | 0.80 | 0.99 relative |
   | `-6` | 0.90 | 0.83 relative |
   | `-7` | 0.981 | 0.008 |
