@@ -93,19 +93,19 @@ export function Overlap() {
       intro="A review of every component, its API and its CSS side by side, for pairs that render the same pattern under two names. A merge changes how something looks, so each one is decided per pair. Follow a link to compare the components."
     >
       {GROUPS.map((g) => (
-        <article key={g.verdict} className="bb-app">
-          <h3 className="bb-kind">{g.verdict}</h3>
-          <ul className="bb-views">
+        <article key={g.verdict} className="dkj-app">
+          <h3 className="dkj-kind">{g.verdict}</h3>
+          <ul className="dkj-views">
             {g.findings.map((f) => (
-              <li key={f.title} className="bb-view">
-                <h4 className="bb-view-title">{f.title}</h4>
+              <li key={f.title} className="dkj-view">
+                <h4 className="dkj-view-title">{f.title}</h4>
                 <p>{f.why}</p>
                 {f.proposal && (
                   <p>
                     <strong>Proposal:</strong> {f.proposal}
                   </p>
                 )}
-                <div className="bb-view-components">
+                <div className="dkj-view-components">
                   {f.components.map((c) => (
                     <a key={c} href={`#${c}`}>
                       {c}

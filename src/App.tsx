@@ -73,17 +73,17 @@ export default function App() {
   const controls = useWidth()
   const previewRepo = usePreviewRepo()
   return (
-    <div className="bb-shell">
-      <nav className="bb-nav" aria-labelledby="bb-nav-title">
-        <h2 className="bb-brand" id="bb-nav-title">Contents</h2>
-        <p className="bb-brand-sub">Jump to a section or an app preview</p>
+    <div className="dkj-shell">
+      <nav className="dkj-nav" aria-labelledby="dkj-nav-title">
+        <h2 className="dkj-brand" id="dkj-nav-title">Contents</h2>
+        <p className="dkj-brand-sub">Jump to a section or an app preview</p>
         {/* Group labels, not headings: each names its list (aria-labelledby), so the menu keeps its compact size. */}
         {NAV.map((g, n) => (
           <div key={g.group}>
-            <p className="bb-nav-group" id={`bb-nav-group-${n}`}>
+            <p className="dkj-nav-group" id={`dkj-nav-group-${n}`}>
               {g.group}
             </p>
-            <ul aria-labelledby={`bb-nav-group-${n}`}>
+            <ul aria-labelledby={`dkj-nav-group-${n}`}>
               {g.items.map((i) => (
                 <li key={i}>
                   <a href={`#${i}`}>{LABELS[i] ?? i}</a>
@@ -92,10 +92,10 @@ export default function App() {
             </ul>
           </div>
         ))}
-        <p className="bb-nav-group" id="bb-nav-group-repos">
+        <p className="dkj-nav-group" id="dkj-nav-group-repos">
           DKJ-Solutions
         </p>
-        <ul aria-labelledby="bb-nav-group-repos">
+        <ul aria-labelledby="dkj-nav-group-repos">
           {REPOS.map((r) => (
             <li key={r}>
               <a href={`#preview/${r}`} title={r} aria-current={r === previewRepo ? 'page' : undefined}>
@@ -105,9 +105,9 @@ export default function App() {
           ))}
         </ul>
       </nav>
-      <main className="bb-main">
+      <main className="dkj-main">
         <Toolbar controls={controls} />
-        <div className={cx('bb-content', controls.width === 'phone' && 'bb-content--phone')}>
+        <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
           {previewRepo ? (
             <RepoPreview repo={previewRepo} />
           ) : (

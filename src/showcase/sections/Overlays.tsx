@@ -27,7 +27,7 @@ export function Overlays() {
         intro="The browser's own modal dialog: focus stays inside, Escape and a tap on the backdrop close it, the page behind stops scrolling. A dialog opened from a dialog is 93% of the one below. With a change to save, the close cross becomes a check, and a red undo arrow cancels."
       >
         <Demo label="Open a variant">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Button onClick={() => setOpen('plain')}>Plain</Button>
             <Button
               onClick={() => {
@@ -113,12 +113,12 @@ export function Overlays() {
           </span>
         </Demo>
         <Demo label="Live -- short, on a text button">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Tooltip trigger={(a11y) => <Button size="compact" {...a11y}>Hover or focus me</Button>} title="A short title" paragraphs={['One line of detail.']} />
           </div>
         </Demo>
         <Demo label="How it looks open (static)">
-          <div className="tooltip tooltip--explain bb-tooltip-static">
+          <div className="tooltip tooltip--explain dkj-tooltip-static">
             <b>Total value</b>
             <p>What everything together is worth now: the holdings plus the money that is not invested.</p>
             <p>It moves with the prices every trading day.</p>

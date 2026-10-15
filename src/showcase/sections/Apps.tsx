@@ -10,13 +10,13 @@ export function Apps() {
       intro="Every DKJ-Solutions app that follows the house style, and the views it is made of. Each view lists the components it uses; follow a link to see the component. Change the theme above and everything follows."
     >
       {APPS.map((app) => (
-        <article key={app.id} className="bb-app" id={`app-${app.id}`} aria-labelledby={`app-${app.id}-title`}>
+        <article key={app.id} className="dkj-app" id={`app-${app.id}`} aria-labelledby={`app-${app.id}-title`}>
           <header>
-            <h3 className="bb-app-name" id={`app-${app.id}-title`}>
+            <h3 className="dkj-app-name" id={`app-${app.id}-title`}>
               {app.name}
             </h3>
-            <p className="bb-app-desc">{app.description}</p>
-            <p className="bb-app-meta">
+            <p className="dkj-app-desc">{app.description}</p>
+            <p className="dkj-app-meta">
               <span>
                 Repo: <a href={`https://github.com/${app.repo}`}>{app.repo}</a>
               </span>
@@ -34,13 +34,13 @@ export function Apps() {
             if (views.length === 0) return null
             return (
               <div key={kind}>
-                <h4 className="bb-kind">{label}</h4>
-                <ul className="bb-views">
+                <h4 className="dkj-kind">{label}</h4>
+                <ul className="dkj-views">
                   {views.map((v) => (
-                    <li key={v.id} className="bb-view">
+                    <li key={v.id} className="dkj-view">
                       <h5>{v.name}</h5>
                       <p>{v.description}</p>
-                      <div className="bb-view-components">
+                      <div className="dkj-view-components">
                         {v.components.map((c) => (
                           <a key={c} href={`#${c}`}>
                             {c}

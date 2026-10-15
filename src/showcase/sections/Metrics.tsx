@@ -103,7 +103,7 @@ export function Metrics() {
 
       <Section id="Delta" title="Delta" intro="A change in direction: a ▲ or ▼, then the figure with its sign. Green is up and red is down, in the text versions of the colours; the sign is in the text, so the colour is never the only signal.">
         <Demo label="Up / down">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Delta tone="up">+€ 1,150.00 (+9.2%)</Delta>
             <Delta tone="down">−€ 320.00 (−2.4%)</Delta>
           </div>
@@ -247,7 +247,7 @@ export function Metrics() {
 
       <Section id="Badge" title="Badge" intro="A small round status mark with a glyph. The colour is a status token (--positive-3, --warning-3, --negative-3, the primary, --cat-1), the glyph is --primary-1, and the status is also written next to it: the glyph alone is decorative.">
         <Demo label="Tones, 20px">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Badge tone="good">✓</Badge>
             <Badge tone="warn">!</Badge>
             <Badge tone="bad">✗</Badge>

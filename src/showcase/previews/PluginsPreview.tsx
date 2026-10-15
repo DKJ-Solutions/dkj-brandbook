@@ -124,7 +124,7 @@ function ReleaseNotes() {
 export function PluginsPreview() {
   const [view, setView] = useState<'issues' | 'releases'>('issues')
   return (
-    <div className="bb-preview-app bb-preview-app--padded">
+    <div className="dkj-preview-app dkj-preview-app--padded">
       <PageHeader title={view === 'issues' ? 'Issue dashboard — example-org/example-repo' : 'Release notes'}>
         <SegmentedChoice
           label="Page"
@@ -137,7 +137,7 @@ export function PluginsPreview() {
           ]}
         />
       </PageHeader>
-      <div className="bb-preview-column bb-preview-column--wide">
+      <div className="dkj-preview-column dkj-preview-column--wide">
         {view === 'issues' ? <IssueDashboard /> : <ReleaseNotes />}
         <FooterNote>
           A recreated preview with placeholder content. The real product of this repo is a plugin (policy, skills and scripts), not an app; these are its two generated pages.

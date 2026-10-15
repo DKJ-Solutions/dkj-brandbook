@@ -12,16 +12,16 @@ export function Section({ id, title, intro, children }: { id: ComponentId | 'tok
   const sources = isComponent ? SOURCES[id] : null
   const usages = isComponent ? usagesOf(id) : []
   return (
-    <section className="bb-section" id={id} aria-labelledby={`${id}-title`}>
-      <h2 className="bb-section-title" id={`${id}-title`}>
+    <section className="dkj-section" id={id} aria-labelledby={`${id}-title`}>
+      <h2 className="dkj-section-title" id={`${id}-title`}>
         {title}
       </h2>
-      {intro && <p className="bb-section-intro">{intro}</p>}
-      <div className="bb-demos">{children}</div>
+      {intro && <p className="dkj-section-intro">{intro}</p>}
+      <div className="dkj-demos">{children}</div>
       {sources && (
-        <footer className="bb-source">
+        <footer className="dkj-source">
           {usages.length > 0 && (
-            <p className="bb-used-in">
+            <p className="dkj-used-in">
               <strong>Used in:</strong>{' '}
               {usages.map(({ app, view }, i) => (
                 <span key={`${app.id}/${view.id}`}>
@@ -58,9 +58,9 @@ export function Section({ id, title, intro, children }: { id: ComponentId | 'tok
 /** One variant or state, with its label above it. wide: spans the full row. surface: sits on a card surface. */
 export function Demo({ label, children, wide, surface = true }: { label: string; children: ReactNode; wide?: boolean; surface?: boolean }) {
   return (
-    <figure className={cx('bb-demo', wide && 'bb-demo--wide')}>
+    <figure className={cx('dkj-demo', wide && 'dkj-demo--wide')}>
       <figcaption>{label}</figcaption>
-      <div className={cx('bb-demo-stage', surface && 'bb-demo-stage--surface')}>{children}</div>
+      <div className={cx('dkj-demo-stage', surface && 'dkj-demo-stage--surface')}>{children}</div>
     </figure>
   )
 }
@@ -86,8 +86,8 @@ export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> })
     )
   }, [])
   return (
-    <div className="bb-settings">
-      <div className="bb-settings-anchor" ref={ref} />
+    <div className="dkj-settings">
+      <div className="dkj-settings-anchor" ref={ref} />
       {slot && createPortal(<Toggle label="Width" value={width} onChange={setWidth} options={['fluid', 'phone']} />, slot)}
     </div>
   )
@@ -95,9 +95,9 @@ export function Toolbar({ controls }: { controls: ReturnType<typeof useWidth> })
 
 function Toggle<T extends string>({ label, value, onChange, options }: { label: string; value: T; onChange: (v: T) => void; options: readonly T[] }) {
   return (
-    <div className="bb-control">
+    <div className="dkj-control">
       <span className="theme-settings__label">{label}</span>
-      <div className="bb-toggle" role="group" aria-label={label}>
+      <div className="dkj-toggle" role="group" aria-label={label}>
         {options.map((o) => (
           <button key={o} type="button" aria-pressed={o === value} onClick={() => onChange(o)}>
             {o}

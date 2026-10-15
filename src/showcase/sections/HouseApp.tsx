@@ -40,7 +40,7 @@ export function HouseFieldDemo() {
 export function HouseButtonsDemo() {
   return (
     <>
-      <div className="bb-row">
+      <div className="dkj-demo-row">
         <button type="button" className="btn btn--touch">
           Touch
         </button>
@@ -78,7 +78,7 @@ export function HouseDialogsDemo() {
   const drawer = useRef<HTMLDialogElement>(null)
   return (
     <>
-      <div className="bb-row">
+      <div className="dkj-demo-row">
         <button type="button" className="btn btn--touch" onClick={() => plain.current?.showModal()}>
           .dialog
         </button>
@@ -239,7 +239,7 @@ export function HouseMenuDemo() {
 export function HouseFocusDemo() {
   return (
     <>
-      <div className="bb-row">
+      <div className="dkj-demo-row">
         <span className="seg" role="group" aria-label="View" style={{ height: '30px' }}>
           <button type="button" aria-pressed="true">
             Primary
@@ -300,7 +300,7 @@ export function HouseThemeReachDemo() {
       <p>
         A <a href="#tokens">plain link</a> takes the primary, visited or not. Select this text: the selection does too.
       </p>
-      <div className="bb-row">
+      <div className="dkj-demo-row">
         <label>
           <input type="checkbox" defaultChecked /> Checkbox
         </label>

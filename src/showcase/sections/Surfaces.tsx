@@ -251,7 +251,7 @@ export function Surfaces() {
 
       <Section id="Chip" title="Chip" intro="A verdict pill.">
         <Demo label="Tones">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Chip tone="yes">Yes</Chip>
             <Chip tone="no">No</Chip>
             <Chip tone="todo">To do</Chip>
@@ -262,7 +262,7 @@ export function Surfaces() {
 
       <Section id="TitleTag" title="TitleTag" intro="A small uppercase pill on its own line above a title. Warn is the warning fill with dark text in both modes.">
         <Demo label="Accent / info / warn">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <TitleTag>Expected</TitleTag>
             <TitleTag tone="info">Edit</TitleTag>
             <TitleTag tone="warn">Sell</TitleTag>
@@ -302,7 +302,7 @@ export function Surfaces() {
           </Disclosure>
         </Demo>
         <Demo label="Structured summary, 320px wide">
-          <div className="bb-narrow">
+          <div className="dkj-narrow">
             <Disclosure
               summary={
                 <>
@@ -353,7 +353,7 @@ export function Surfaces() {
 
       <Section id="Amount" title="Amount" intro="A tabular figure with a small icon at the height of the digits.">
         <Demo label="Amount">
-          <div className="bb-row">
+          <div className="dkj-demo-row">
             <Amount value="1,234" icon={<Icon name="coin" />} />
             <Amount value="98,765" icon={<Icon name="coin" />} />
           </div>
@@ -397,7 +397,7 @@ export function Surfaces() {
 
       <Section id="Figure" title="Figure" intro="A framed image with a fixed aspect ratio, an optional caption and a placeholder state: shown when there is no src, when placeholder is set (the src is then not rendered at all) or when the image fails to load. The frame fills its column; the parent sets the width. alt is required whenever a src is given; alt=&quot;&quot; marks a decorative image. For a bare markdown image, Prose styles the img itself; use a Figure for one that needs a ratio, a caption or a placeholder.">
         <Demo label="Ratios (placeholder): 16/9, 4/3, 1/1, 9/16" wide>
-          <div className="bb-figure-grid">
+          <div className="dkj-figure-grid">
             <Figure ratio="16/9" caption="16/9" />
             <Figure ratio="4/3" caption="4/3" />
             <Figure ratio="1/1" caption="1/1" />
@@ -405,7 +405,7 @@ export function Surfaces() {
           </div>
         </Demo>
         <Demo label="Real image: cover / contain (a 4:3 image in a 1/1 frame)">
-          <div className="bb-figure-grid">
+          <div className="dkj-figure-grid">
             <Figure src={SAMPLE_IMAGE} alt="A grey landscape with a pale sun" ratio="1/1" caption="cover" />
             <Figure src={SAMPLE_IMAGE} alt="A grey landscape with a pale sun" ratio="1/1" fit="contain" caption="contain" />
           </div>

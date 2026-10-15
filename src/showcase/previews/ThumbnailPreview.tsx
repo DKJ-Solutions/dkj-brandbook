@@ -152,7 +152,7 @@ function ContactSheet() {
     <>
       <Message>A generated image: four candidates side by side, then the ones to discard and to retain. The images below are placeholders.</Message>
       <TintedPanel>
-        <div className="bb-preview-candidates">
+        <div className="dkj-preview-candidates">
           {CANDIDATES.map((c) => (
             <Figure
               key={c.label}
@@ -187,7 +187,7 @@ function ContactSheet() {
 export function ThumbnailPreview() {
   const [view, setView] = useState<View>('report')
   return (
-    <div className="bb-preview-app bb-preview-app--padded">
+    <div className="dkj-preview-app dkj-preview-app--padded">
       <PageHeader title={view === 'report' ? 'Yardstick report' : 'Contact sheet'}>
         <SegmentedChoice
           label="Output"
@@ -200,7 +200,7 @@ export function ThumbnailPreview() {
           ]}
         />
       </PageHeader>
-      <div className="bb-preview-column">
+      <div className="dkj-preview-column">
         {view === 'report' ? <YardstickReport /> : <ContactSheet />}
         <FooterNote>A recreated preview; every round, value and image is invented. The real repo has no interface: these are its two generated outputs.</FooterNote>
       </div>
