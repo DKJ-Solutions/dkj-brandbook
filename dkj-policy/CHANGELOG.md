@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**63 minor entries** <!-- pending-tally -->
+**64 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/102-gate-css-syntax · 20261015-090514Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The lint gate fails when a stylesheet does not parse. vite's build only warned on a CSS syntax error, so a
+stray `}` shipped with the gate green (#102); a new step parses every tracked `.css` with esbuild and blocks on
+any warning.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a check in this repo's own gate.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: nothing an app takes changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+The lint gate fails on a CSS syntax error
+
+[PR #116](https://github.com/DKJ-Solutions/dkj-brandbook/pull/116)
+
+---
 
 ### DEPLOY: feat/one-token-per-colour · 20261015-090133Z
 
