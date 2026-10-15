@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**68 minor entries** <!-- pending-tally -->
+**69 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/90-group-heading-exempt · 20261015-114435Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house-style rules name section labels (`GroupHeading`) as the one exception to "a heading takes the token of its own level": they stay headings for the outline and render at `--text-base` at every level (#90).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: a documentation rule, nothing renders differently.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the stylesheet the apps take is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+GroupHeading: section labels are exempt from the heading-level rule
+
+[PR #121](https://github.com/DKJ-Solutions/dkj-brandbook/pull/121)
+
+---
 
 ### DEPLOY: fix/113-recipe-tag-gap · 20261015-103918Z
 
