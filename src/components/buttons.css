@@ -71,7 +71,7 @@
   font-weight: var(--dkj-fw-medium);
 }
 /* Accent outline (Button tone="accent"): accent text, the border and press of the Stepper beside it. */
-.dkj-btn--outline.dkj-btn--accent { color: light-dark(var(--primary-4), var(--primary-5)); border-color: var(--primary-3); }
+.dkj-btn--outline.dkj-btn--accent { color: var(--primary-4); border-color: var(--primary-3); }
 .dkj-btn--outline.dkj-btn--accent:active:not(:disabled):not([aria-disabled='true']),
 .dkj-btn--outline.dkj-btn--accent[data-demo-state='active'] {
   background: color-mix(in srgb, var(--primary-4) 16%, var(--primary-2));
@@ -123,7 +123,7 @@
   border: 1px solid var(--primary-3);
   border-radius: var(--dkj-radius-md);
 }
-.dkj-iconbtn--outline[aria-pressed='true'] { background: none; border-color: transparent; color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-iconbtn--outline[aria-pressed='true'] { background: none; border-color: transparent; color: var(--primary-4); }
 .dkj-iconbtn--ghost {
   flex: none;
   width: var(--dkj-tap);
@@ -157,7 +157,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 .dkj-round-toggle--info { color: var(--primary-5); }
-.dkj-round-toggle[aria-expanded='true'] { color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-round-toggle[aria-expanded='true'] { color: var(--primary-4); }
 .dkj-round-toggle:focus-visible, .dkj-round-toggle[data-demo-state='focus'] {
   outline: var(--dkj-focus-w) solid var(--primary-4);
   outline-offset: var(--dkj-focus-offset-inset);
@@ -184,7 +184,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 .dkj-badge-toggle::after { content: ''; position: absolute; inset: calc(-1 * var(--spacing-2)); }
-.dkj-badge-toggle[aria-expanded='true'] { color: light-dark(var(--primary-4), var(--primary-5)); border-color: var(--primary-4); }
+.dkj-badge-toggle[aria-expanded='true'] { color: var(--primary-4); border-color: var(--primary-4); }
 
 .dkj-inline-toggle {
   position: relative;
@@ -212,7 +212,7 @@
 /* The ring is 16px; the tap area is 44px high but only 8px wider on each side, so neighbouring toggles and the label text are not covered. */
 .dkj-inline-toggle::after { content: ''; position: absolute; inset: calc((var(--dkj-inline-toggle) - var(--dkj-tap)) / 2) calc(-1 * var(--spacing-2)); }
 .dkj-inline-toggle:hover { color: var(--primary-5); border-color: var(--primary-5); }
-.dkj-inline-toggle[aria-expanded='true'] { color: light-dark(var(--primary-4), var(--primary-5)); border-color: var(--primary-4); }
+.dkj-inline-toggle[aria-expanded='true'] { color: var(--primary-4); border-color: var(--primary-4); }
 
 /* ---------- SegmentedChoice ---------- */
 .dkj-choices--row {
@@ -230,7 +230,7 @@
 .dkj-choices--row .dkj-choice[aria-pressed='true'] {
   border-color: var(--primary-4);
   box-shadow: inset 0 0 0 1px var(--primary-4);
-  color: light-dark(var(--primary-4), var(--primary-5));
+  color: var(--primary-4);
 }
 .dkj-choices--list { display: flex; flex-direction: column; }
 .dkj-choices--list .dkj-choice {
@@ -248,7 +248,7 @@
   color: var(--primary-5);
 }
 .dkj-choices--list .dkj-choice + .dkj-choice { border-top: 1px solid var(--primary-3); }
-.dkj-choices--list .dkj-choice[aria-pressed='true'] { color: light-dark(var(--primary-4), var(--primary-5)); font-weight: var(--dkj-fw-semibold); }
+.dkj-choices--list .dkj-choice[aria-pressed='true'] { color: var(--primary-4); font-weight: var(--dkj-fw-semibold); }
 
 /* Joined: one capsule. The face is --dkj-control-dense high; ::after grows the tap area to 44px without moving anything.
    No overflow:hidden on the capsule (it would clip that area), so the end buttons round their own corners. */
@@ -322,7 +322,7 @@
   padding: 0 var(--spacing-2);
   border: 0;
   background: none;
-  color: light-dark(var(--primary-4), var(--primary-5));
+  color: var(--primary-4);
   font: inherit;
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-semibold);

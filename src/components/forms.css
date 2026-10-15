@@ -174,7 +174,7 @@
 .dkj-combo-list li.is-active .dkj-combo-name { font-weight: var(--dkj-fw-semibold); }
 .dkj-combo-list li.is-active .dkj-combo-meta { color: var(--primary-5); }
 .dkj-combo-list li.is-own { flex-direction: row; align-items: center; justify-content: flex-start; gap: var(--spacing-2); border: 1px dashed var(--primary-5); }
-.dkj-combo-list li.is-own::before { content: '+'; flex: none; font-weight: var(--dkj-fw-bold); color: light-dark(var(--primary-4), var(--primary-5)); }
+.dkj-combo-list li.is-own::before { content: '+'; flex: none; font-weight: var(--dkj-fw-bold); color: var(--primary-4); }
 .dkj-combo-list li.is-more {
   min-height: 0;
   padding-top: var(--spacing-1);
