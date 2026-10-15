@@ -45,7 +45,7 @@ token reads; the `--m`/`--b` set by `house-style/house-style.css` stay, so nothi
 ### TEST
 
 - [x] Gates (`open-pr -GatesOnly`) pass
-- [ ] An owner has looked at the InfoRows, RoundToggle, series Meter and series Badge in the showcase and approved it
+- [x] An owner has looked at the InfoRows, RoundToggle, series Meter and series Badge in the showcase and approved it
 
 ### DEPLOY: fix/98-direct-token-reads
 
