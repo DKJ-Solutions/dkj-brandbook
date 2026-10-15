@@ -32,11 +32,18 @@
 
 ### PLAN
 
+Owner's decision on #90 (Maikel, October 15, 2026): section labels stay headings (the outline entry
+from #48) and are exempted from the #77 level rule explicitly; the "h4 size" doc comment is corrected.
+No rendered output changes.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/README.md`: the Type row names the `GroupHeading` exemption
+- [x] `src/components/Content.tsx`: the doc comment says `--text-base` and cites the exemption
 
 ### TEST
+
+- [x] Gates run by `ship-pr` (no visible change: CSS and markup untouched)
 
 ### DEPLOY: docs/90-group-heading-exempt
 
@@ -44,7 +51,9 @@
 
 ##### Tier 0
 
-**Score:**
+The house-style rules name section labels (`GroupHeading`) as the one exception to "a heading takes the token of its own level": they stay headings for the outline and render at `--text-base` at every level (#90).
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +62,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a documentation rule, nothing renders differently.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +73,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the stylesheet the apps take is untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
