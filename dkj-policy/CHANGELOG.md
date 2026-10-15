@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**76 minor entries** <!-- pending-tally -->
+**77 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/129-readme-tag-pin · 20261015-155337Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house-style README no longer claims the skill still fetches `main`; the skill has been pinned to a tagged release since the first tag (#129).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: a stale sentence in the brand book's own documentation.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+house-style/README.md says the skill still fetches main, but it is pinned to a tag
+
+[PR #132](https://github.com/DKJ-Solutions/dkj-brandbook/pull/132)
+
+---
 
 ### DEPLOY: fix/114-h6-titles-sans · 20261015-120622Z
 
