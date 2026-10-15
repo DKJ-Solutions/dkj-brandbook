@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**61 minor entries** <!-- pending-tally -->
+**62 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/one-class-prefix · 20261015-084822Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The showcase's own classes take the `dkj-` prefix the components already used, so every class the brand
+book adds on top of the house style starts with `dkj-` instead of a mix of `bb-` and `dkj-`. The showcase's
+row of demo items, which would have clashed with the component `.dkj-row`, is `.dkj-demo-row`. Nothing changes
+on screen.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a rename inside the showcase; nobody outside the repo sees it.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+The showcase's classes take the dkj- prefix too, so every class in the brand book starts with dkj-
+
+[PR #107](https://github.com/DKJ-Solutions/dkj-brandbook/pull/107)
+
+---
 
 ### DEPLOY: feat/primary-4-further-from-5 · 20261015-083746Z
 
