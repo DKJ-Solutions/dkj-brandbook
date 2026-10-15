@@ -19,7 +19,7 @@ type LinkProps = Look & Anchor & { href: string }
  * default: surface fill with a border. primary: accent fill, as wide as its content (the most prominent button in a box).
  * positive: green gradient. outline: transparent with a muted border in the text colour (a quiet "back").
  * tone="accent" (outline only): accent text and border -- a quiet reset beside a Stepper.
- * size="compact": 36px, uppercase, tracked -- the tap area stays 44px.
+ * size="compact": 36px, bold, in sentence case like every button -- the tap area stays 44px.
  * block: full width; width is only ever set by this prop.
  * icon: a stroke icon before the label.
  * href: renders a link; pass download etc. as on an <a>. A disabled link (aria-disabled="true") is inert:

@@ -66,7 +66,7 @@ export function Actions() {
             <Button disabled>Disabled</Button>
           </div>
         </Demo>
-        <Demo label="Compact (uppercase)">
+        <Demo label="Compact">
           <div className="dkj-demo-row">
             <Button variant="outline" size="compact">Back</Button>
             <Button variant="positive" size="compact">Next</Button>

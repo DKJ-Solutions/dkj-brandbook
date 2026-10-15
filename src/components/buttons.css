@@ -86,8 +86,6 @@
   border-radius: var(--dkj-radius-xs);
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-bold);
-  letter-spacing: var(--dkj-tracking-caps);
-  text-transform: uppercase;
   white-space: nowrap;
 }
 .dkj-btn--compact::after { content: ''; position: absolute; inset: calc((var(--dkj-control-compact) - var(--dkj-tap)) / 2) 0; }

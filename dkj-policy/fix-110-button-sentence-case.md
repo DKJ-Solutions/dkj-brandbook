@@ -32,11 +32,22 @@
 
 ### PLAN
 
+Resolves #110, on the owner's decision recorded there (maikel-bwj, October 15, 2026): every button takes one
+case, sentence case. The compact size drops `text-transform: uppercase` and the caps tracking.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.dkj-btn--compact` (`src/components/buttons.css`) no longer sets `text-transform: uppercase` or
+  `letter-spacing: var(--dkj-tracking-caps)`; it keeps its 36px height, small bold type and 44px tap area.
+- [x] The comments that called compact buttons uppercase (`src/brand-layer.css`, `Button.tsx`) and the
+  showcase demo label (`Compact (uppercase)` -> `Compact`) say so no longer. `--dkj-tracking-caps` stays: the
+  panel label (`.dkj-panel-label`) still uses it.
 
 ### TEST
+
+- [x] `open-pr -GatesOnly` passes.
+- [ ] An owner has looked at Actions -> Button (the Compact demo) and the compact buttons in the app previews
+  (Back, Open recipe, Open dossier, Clear filters, Shopping list) beside a default-size button, and approved it.
 
 ### DEPLOY: fix/110-button-sentence-case
 
@@ -44,27 +55,22 @@
 
 ##### Tier 0
 
-**Score:**
+Compact buttons are in sentence case like every other button, so two sizes on one screen no longer read as two styles (#110).
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+Back, Open recipe, Clear filters and the other compact buttons render in sentence case instead of tracked capitals.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 2
 
-**Score:**
+N/A: the compact button lives in the brand book's own component layer; the house stylesheet the apps take is untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
 Buttons: every size is in sentence case
-
