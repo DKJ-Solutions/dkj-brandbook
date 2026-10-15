@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**72 minor entries** <!-- pending-tally -->
+**73 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/92-light-cat1-contrast · 20261015-120300Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The light series blue `--cat-1` is a shade darker (`#2a78d6` -> `#2574d1`), so the text on the info tag reaches 4.5:1 on every light theme (#92).
+
+**Score:** 2
+
+##### Tier 1
+
+The info tag, the series badge and meter, and chart series 1 and gains render in the darker blue on light; dark is unchanged.
+
+**Score:** 2
+
+##### Tier 2
+
+Every app on the house style takes the new light `--cat-1` with its next copy of `house-style.css`; no token is added or renamed.
+
+**Score:** 2
+
+#### Pull Request
+
+Light --cat-1 is dark enough for text on the info tag
+
+[PR #124](https://github.com/DKJ-Solutions/dkj-brandbook/pull/124)
+
+---
 
 ### DEPLOY: fix/94-warn-tag-contrast · 20261015-120153Z
 
