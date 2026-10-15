@@ -2,7 +2,38 @@
 
 ## [Unreleased]
 
-**65 minor entries** <!-- pending-tally -->
+**66 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/108-card-body-rule · 20261015-103033Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A card body draws its dividing rule only when a card head sits above it (#108), so a card with only a body no
+longer shows an empty line at its top.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a line inside the brand book's own component.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+A card body draws its rule only under a card head
+
+[PR #118](https://github.com/DKJ-Solutions/dkj-brandbook/pull/118)
+
+---
 
 ### DEPLOY: docs/104-scale-prose · 20261015-090836Z
 
