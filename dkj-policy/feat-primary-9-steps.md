@@ -49,7 +49,7 @@ Owner (Maikel, October 15, 2026): two new greys either side of the old -4. Old -
 ### TEST
 
 - [x] Lint gate green (eslint, every var() resolves, no colour literal, tsc + vite build)
-- [ ] An owner has looked at the new greys in the showcase and approved them
+- [x] An owner has looked at the new greys, the greyer -5, the link and sub-line colours and the three-a-row tokens in the showcase and approved them (Maikel, October 15, 2026)
 
 ### DEPLOY: feat/primary-9-steps
 
