@@ -75,6 +75,7 @@
 .dkj-btn--outline.dkj-btn--accent:active:not(:disabled):not([aria-disabled='true']),
 .dkj-btn--outline.dkj-btn--accent[data-demo-state='active'] {
   background: var(--primary-3);
+  color: var(--primary-7);
   border-color: var(--primary-5);
 }
 /* Compact: smaller to the eye, but the tap area stays 44px via ::after. */
