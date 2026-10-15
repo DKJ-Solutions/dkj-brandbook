@@ -58,7 +58,7 @@
      accent dialog); -4 the fills: primary buttons, switches, info badges and meters, focus rings, and on light
      links and the picker's dot (on dark text in the colour reads light-dark(-4, -5), and the dot is -5); -5 all text that is not a paragraph (labels, focus outlines, h1 and h2, and on a tinted surface); -6 h3-h6 (owner's decision, October 14, 2026; on -7 h1 and h2 are -3 and h3-h6 are -2); -7 the far end: every paragraph, and an inverted
      surface (the showcase's panel on dark). Measured (WCAG relative luminance) worst cases: -4 on the card 4.50:1
-     (Roest), -1 on -4 4.57:1 on light (Petrol) and 4.61:1 on dark (Roze), -5 on -3 5.10:1 on light (Roest);
+     (Petrol), -1 on -4 4.57:1 on light (Petrol) and 4.61:1 on dark (Roze), -5 on -3 5.10:1 on light (Roest);
      -5, all text, on -1 and -2 at 7.62:1 or better on light (Blauw) and 6.07:1 on dark (Lila), and 4.98:1 or better
      on a status background (Lila on dark). */
   --primary-1: #f9fbff; --primary-2: #f0f6ff; --primary-3: #c1cee4; --primary-4: #3d5e99;
