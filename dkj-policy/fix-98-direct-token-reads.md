@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Owner's decision on #98 (Maikel, October 15, 2026): convert only the `src/components` aliases to direct
+token reads; the `--m`/`--b` set by `house-style/house-style.css` stay, so nothing breaks for consumers.
+`--part` (named in the issue) no longer exists in `surfaces.css`. Intended to render identically.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `navigation.css`: `--box` removed; the InfoRows box reads `--primary-3` / `--primary-2` directly
+- [x] `Icon.tsx` + `buttons.css`: `--info-glyph` removed; the info glyph's cut-out is `.dkj-info-dot` / `.dkj-info-stem` (`--primary-2`), overridden to `--primary-3` in an accent InfoRows box
+- [x] `metrics.css`: the series meter and badge set `background: var(--cat-1)` instead of `--m` / `--b`
 
 ### TEST
+
+- [x] Gates (`open-pr -GatesOnly`) pass
+- [ ] An owner has looked at the InfoRows, RoundToggle, series Meter and series Badge in the showcase and approved it
 
 ### DEPLOY: fix/98-direct-token-reads
 
@@ -44,7 +53,9 @@
 
 ##### Tier 0
 
-**Score:**
+The components read their `--primary` and `--cat-1` steps directly instead of through local aliases (`--box`, `--info-glyph`, and the component-side `--m` / `--b`); nothing renders differently (#98).
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: an internal refactor of the showcase components.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and its `--m` / `--b` API are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
