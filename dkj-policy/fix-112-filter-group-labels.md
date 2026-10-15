@@ -1,4 +1,4 @@
-## fix/112-filter-group-labels
+﻿## fix/112-filter-group-labels
 
 > **How this file is read.** A step is `- [ ]` until it is resolved -- `- [x]` done, or
 > `- [~]` dropped with the reason, which exists so nobody ticks a box for work they did not do.
@@ -45,7 +45,7 @@ the shape of the field labels. This branch does the third role.
 ### TEST
 
 - [x] Gates (`open-pr -GatesOnly`) pass
-- [ ] An owner has looked at the Music library filters and the Recipes tags and approved it
+- [x] An owner has looked at the Music library filters and the Recipes tags and approved it
 
 ### DEPLOY: fix/112-filter-group-labels
 
