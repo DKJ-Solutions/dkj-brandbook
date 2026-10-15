@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**70 minor entries** <!-- pending-tally -->
+**71 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/98-direct-token-reads · 20261015-115636Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The components read their `--primary` and `--cat-1` steps directly instead of through local aliases (`--box`, `--info-glyph`, and the component-side `--m` / `--b`); nothing renders differently (#98).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: an internal refactor of the showcase components.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and its `--m` / `--b` API are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Components read --primary steps directly instead of local colour aliases
+
+[PR #123](https://github.com/DKJ-Solutions/dkj-brandbook/pull/123)
+
+---
 
 ### DEPLOY: fix/112-filter-group-labels · 20261015-115458Z
 
