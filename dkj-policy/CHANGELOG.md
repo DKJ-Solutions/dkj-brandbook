@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**62 minor entries** <!-- pending-tally -->
+**63 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/one-token-per-colour · 20261015-090133Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+Every colour in the components and the showcase points at one house token instead of a `color-mix()` of two:
+tinted surfaces are `--primary-3`, accent lines `--primary-4`, the alert `--negative-1`, the positive panel
+`--positive-1`, and the info dialog and info rows a `--cat-1` border on the card. Only the theme picker's
+swatches still mix, because each previews another theme.
+
+**Score:** 3
+
+##### Tier 1
+
+N/A: tints inside the brand book's own components; management sees no difference.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the apps see only the `::selection` change, when they take a new copy of the house style.
+
+**Score:** N/A
+
+#### Pull Request
+
+Every colour points at one house token: no more color-mix() between two
+
+[PR #115](https://github.com/DKJ-Solutions/dkj-brandbook/pull/115)
+
+---
 
 ### DEPLOY: feat/one-class-prefix · 20261015-084822Z
 
