@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**69 minor entries** <!-- pending-tally -->
+**70 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/112-filter-group-labels · 20261015-115458Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A filter group inside a form is labelled like the fields beside it, in sentence case, instead of as an uppercase group label (Music library, Recipes; #112).
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: labels inside two previews.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet is untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Filter-group labels inside a form take the shape of the field labels
+
+[PR #122](https://github.com/DKJ-Solutions/dkj-brandbook/pull/122)
+
+---
 
 ### DEPLOY: docs/90-group-heading-exempt · 20261015-114435Z
 
