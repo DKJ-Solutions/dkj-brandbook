@@ -32,11 +32,18 @@
 
 ### PLAN
 
+The owner asked for `--primary-4` to move a big step towards the ground: much darker on the dark themes,
+much lighter on the light themes. Each theme's `-4` keeps its OKLCH hue and chroma; only its lightness moves.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style.css`: `--primary-4` at L 0.70 on light (was 0.55) and L 0.38 on dark (was 0.458), in all
+  twelve themes and both defaults; the token comment says so
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 
 ### TEST
+
+- [ ] An owner has looked at `--primary-4` in the showcase, on light and dark themes, and approved it
 
 ### DEPLOY: feat/primary-4-further-from-5
 
@@ -44,7 +51,11 @@
 
 ##### Tier 0
 
-**Score:**
+`--primary-4` moves a big step towards the ground in every theme: OKLCH lightness 0.70 on light (was 0.55)
+and 0.38 on dark (was 0.458), each theme keeping its hue and chroma. It has no role yet, so nothing in the
+house style changes on screen beyond the swatch.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a token with no role yet; management sees no difference.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: no subscriber-facing surface uses `--primary-4`.
+
+**Score:** N/A
 
 #### Pull Request
 
