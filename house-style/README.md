@@ -50,7 +50,7 @@ Until the first tag is set and the skill is repointed to it, the skill still fet
 | Categorical | `--cat-1`, `--cat-2`, `--cat-3` | one series each. Never two meanings for one slot in a view |
 | Direction | `--negative-3` (also the loss in charts; a gain uses `--cat-1`, so a direction chart and a series in `--cat-1` never share a view), `--positive-5`, `--negative-5` (numbers in text) | result and direction, never a category. `--positive-5`/`--negative-5` are the text versions of `--positive-3`/`--negative-3`, a step more contrast so a number reads as text: darker on light, lighter on dark |
 | Status | `--positive-3`, `--warning-3`, `--negative-3`, `--warning-5`, `--warning-1`, `--negative-1`, `--positive-1` | badges, meters, notices. `--warning-1`, `--negative-1` and `--positive-1` are the backgrounds of a warning, negative or positive message. The mark inside a status icon (check, cross, "!") is `--primary-1` |
-| Primary | `--primary-3` … `--primary-9` | `--primary-4`, `-5` and `-6` are the greys: softened, greyer steps of the theme's colour in the middle of the scale, with `-5` in the middle (`-4` a step towards the ground, `-6` a step towards the far end; neither has a role yet), and the colour itself is `--primary-7` and `-8`. `-5` is the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links on light, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)); `--primary-1` is the text on it. `--primary-9` is **all text**, paragraphs and everything else: labels, table heads, legends, quiet icons, and the text on a tinted surface; `--primary-7` is **the highlight**, kept for `h1` and `h2`, a state (hover, focus, pressed, sorted, active, today), `strong`, list markers, a value meant to stand out, the accent dialog's title, and native controls through `accent-color` (owner's decision, October 15, 2026: as all text `-7` was no longer an accent, and `-9` was chosen over `-8`). `--primary-3` is also the tinted surface (an accent table head, a hover, the accent dialog). `--primary-8` is also `h3`–`h6`; `--primary-9` is the far end: **every paragraph** (`<p>`, a quiet class such as `.sub` or `.muted` on it included), and an inverted surface, where `h1` and `h2` take `--primary-3` and `h3`–`h6` take `--primary-2`. Never a status or a number |
+| Primary | `--primary-3` … `--primary-9` | `--primary-4`, `-5` and `-6` are the greys: softened, greyer steps of the theme's colour in the middle of the scale, with `-5` in the middle, a little more coloured than the other two (`-4` a step towards the ground, `-6` a step towards the far end; neither has a role yet), and the colour itself is `--primary-7` and `-8`. `-5` is the pressed `.seg` button, `.btn--primary`, `.badge--info`, `.meter--info`, links on light, and the `--accent` modifiers ([below](#how-far-a-theme-reaches)); `--primary-1` is the text on it. `--primary-9` is **all text**, paragraphs and everything else: labels, table heads, legends, quiet icons, and the text on a tinted surface; `--primary-7` is **the highlight**, kept for `h1` and `h2`, a state (hover, focus, pressed, sorted, active, today), `strong`, list markers, a value meant to stand out, the accent dialog's title, and native controls through `accent-color` (owner's decision, October 15, 2026: as all text `-7` was no longer an accent, and `-9` was chosen over `-8`). `--primary-3` is also the tinted surface (an accent table head, a hover, the accent dialog). `--primary-8` is also `h3`–`h6`; `--primary-9` is the far end: **every paragraph** (`<p>`, a quiet class such as `.sub` or `.muted` on it included), and an inverted surface, where `h1` and `h2` take `--primary-3` and `h3`–`h6` take `--primary-2`. Never a status or a number |
 | Elevation | `--shadow-pop` | tooltips |
 | Spacing | `--spacing-0-5` … `--spacing-96` | the spacing scale, same in both modes: `--spacing-N` is N × 4px, a half step (`-0-5`, `-1-5`, …) adds 2px. Every gap, margin and padding uses one, and a repo layer spaces its own components from the same scale |
 | Type | `--text-h0` … `--text-h6`, `--text-lg`, `--text-base`, `--text-sm`, `--text-xs`, `--font-serif` | the type scale, same in both modes: 48/40/32/24/22/18/16 for the headings, 18/14/12/11 for running text. `h1`–`h6` each take the token of their own level, body text is `--text-base`. `--font-serif` is the face of `h1` and `h2`, for a title that keeps it at another level |
@@ -148,8 +148,8 @@ primary colour, its `--primary-5` in either mode (the dot the picker draws):
 
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
-| Light | `magenta` Magenta `#804369`, `purple` Paars `#634b92`, `blue` Blauw `#515198`, `teal` Petrol `#406165`, `ochre` Oker `#615c3c`, `rust` Roest `#73533c` |
-| Dark | `pink` Roze `#99537a`, `lilac` Lila `#7261a5`, `sky` Hemelsblauw `#6565a9`, `cyan` Cyaan `#4e767a`, `yellow` Geel `#796e49`, `orange` Oranje `#8f6249` |
+| Light | `magenta` Magenta `#734e63`, `purple` Paars `#5f537d`, `blue` Blauw `#545680`, `teal` Petrol `#4c5e61`, `ochre` Oker `#5e5c49`, `rust` Roest `#6a5649` |
+| Dark | `pink` Roze `#895f75`, `lilac` Lila `#706790`, `sky` Hemelsblauw `#686a92`, `cyan` Cyaan `#5c7375`, `yellow` Geel `#756e59`, `orange` Oranje `#836759` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
   makes the number disappear. The status colours are the same in every theme.
@@ -241,9 +241,9 @@ out). Three more things follow it by default, in light and in dark (and a measur
   | `-1` | 0.19 | 0.035 |
   | `-2` | 0.21 | 0.045 |
   | `-3` | 0.32 | 0.08, at most 0.6 relative |
-  | `-4` | 0.458 | half of `-5`'s, in its hue (October 15, 2026: a step darker, extra grey) |
-  | `-5` | 0.538 | 0.105, at most 0.49 relative (the owner's Oranje `#8f6249`; at most the chroma of the owner's Hemelsblauw `#4c4c8d`) |
-  | `-6` | 0.618 | half of `-5`'s, in its hue (October 15, 2026: a step lighter, extra grey) |
+  | `-4` | 0.458 | half of `-5`'s base chroma, in its hue (October 15, 2026: a step darker, extra grey) |
+  | `-5` | 0.538 | 0.105, at most 0.49 relative (the owner's Oranje `#8f6249`; at most the chroma of the owner's Hemelsblauw `#4c4c8d`): its base chroma, taken at 0.6 (October 15, 2026: greyer) |
+  | `-6` | 0.618 | half of `-5`'s base chroma, in its hue (October 15, 2026: a step lighter, extra grey) |
   | `-7` | 0.80 | 0.99 relative |
   | `-8` | 0.90 | 0.83 relative |
   | `-9` | 0.981 | 0.008 |
@@ -253,7 +253,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   **A role takes the same step in both modes** (owner's decision, October 15, 2026): never `light-dark()` between
   two `--primary-*` steps, and no dark-only rule that picks another step. Text in the theme's colour (links, card and
   dialog titles, values), focus rings, lines and meters are `-5` everywhere, and the text on a `-5` fill is `-1`. On
-  dark that reads at about 3.3:1 (`-1` on `-5` 3.44:1, `-5` on the card 3.31:1, both Roze), which the owner accepted.
+  dark that reads at about 3.3:1 (`-1` on `-5` 3.51:1, `-5` on the card 3.38:1, both Roze), which the owner accepted.
   The picker's dot is `-5` in every theme. The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-8`, `-9`: darkest on light, whitest on dark). `-5` carries the fills
   in both modes, and the focus rings and links, with `--primary-1` as text on a fill. **On light every
@@ -266,9 +266,9 @@ out). Three more things follow it by default, in light and in dark (and a measur
   | `-1` | 0.989 | 0.0053 | Petrol `#faffff`, at the lightest lightness every hue holds |
   | `-2` | 0.972 | 0.0136 | Petrol `#f2ffff`, the same way |
   | `-3` | 0.848 | 0.066, at most 0.45 relative | Petrol `#9adae2` |
-  | `-4` | 0.55 | half of `-5`'s, in its hue | October 15, 2026: a step lighter than `-5`, extra grey |
-  | `-5` | 0.47 | 0.1135, at most 0.486 relative | Paars `#5d458b`, Magenta `#954c7a`, Blauw `#49498d` |
-  | `-6` | 0.39 | half of `-5`'s, in its hue | October 15, 2026: a step darker than `-5`, extra grey |
+  | `-4` | 0.55 | half of `-5`'s base chroma, in its hue | October 15, 2026: a step lighter than `-5`, extra grey |
+  | `-5` | 0.47 | 0.1135, at most 0.486 relative: its base chroma, taken at 0.6 (October 15, 2026: greyer) | Paars `#5d458b`, Magenta `#954c7a`, Blauw `#49498d` |
+  | `-6` | 0.39 | half of `-5`'s base chroma, in its hue | October 15, 2026: a step darker than `-5`, extra grey |
   | `-7` | 0.369 | 0.99 relative | Blauw `#0707bf` |
   | `-8` | 0.289 | 0.83 relative | Blauw `#181873` |
   | `-9` | 0.131 | 0.99 relative | Blauw `#00002b` |
