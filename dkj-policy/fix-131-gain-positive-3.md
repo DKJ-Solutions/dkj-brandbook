@@ -42,7 +42,7 @@ Owner's decision on #131 (maikel-bwj, October 15, 2026): option 1, a gain uses `
 
 ### TEST
 
-- [ ] An owner has looked at the gain/loss charts and legends in the showcase (Metrics: Legend, ColumnChart, BarChart by direction; the ETF preview) in light and dark and approved it
+- [x] An owner has looked at the gain/loss charts and legends in the showcase (Metrics: Legend, ColumnChart, BarChart by direction; the ETF preview) in light and dark and approved it
 
 ### DEPLOY: fix/131-gain-positive-3
 
