@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**58 minor entries** <!-- pending-tally -->
+**59 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/text-primary-6 · 20261015-080845Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+All text that is not a paragraph -- labels, table heads, legends, field labels, row names, quiet icons, the text on a tinted surface, the showcase's scale rows -- is now `--primary-7`, the paragraph colour, so `--primary-5` is an accent again: it stays on `h1` and `h2`, every state (hover, focus, pressed, sorted, active, today), `strong`, list markers, the accent dialog's title and an InfoRows value, and on native controls through `accent-color`. Contrast rises in every theme (`--primary-7` reads 17.4:1 or better on the page).
+
+**Score:** 3
+
+##### Tier 1
+
+Every DKJ-Solutions app that takes this house style shows calmer labels and keeps the theme's strong colour for what should stand out.
+
+**Score:** 2
+
+##### Tier 2
+
+The brand book's own showcase is not a subscribed service.
+
+**Score:** N/A
+
+#### Pull Request
+
+All text takes --primary-7; --primary-5 is for highlights only
+
+[PR #103](https://github.com/DKJ-Solutions/dkj-brandbook/pull/103)
+
+---
 
 ### DEPLOY: feat/nav-group-primary-2 · 20261015-075434Z
 
