@@ -203,9 +203,11 @@ every theme. Now:
   is not a link and is left alone. `accent-color` and `caret-color` are set once on the root, so a
   subtree that sets its own `--primary-4` keeps the page's theme on its native controls.
 - **Opt-in**, one modifier on a house element: `.header--accent` puts a primary rule under the page
-  header, `.card--accent` and `.tile--accent` a primary rule across the top, and `.table--accent` a
+  header, `.card--accent` a primary rule across the top, and `.table--accent` a
   `--primary-3` table head, its text `--primary-5`, as all text. They are modifiers rather than defaults, so an app
   that takes the update keeps its layout until it adds one.
+  `.tile--accent` drew the same rule on a tile and draws nothing now (owner's decision, October 15,
+  2026); an app that still carries the class loses the rule and nothing else.
 
 **What this changes for an app that takes the update:** its unstyled links, checkboxes, radios and
 sliders turn the theme's colour. Links an app already styles through a class keep their look.
