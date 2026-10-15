@@ -32,11 +32,17 @@
 
 ### PLAN
 
+Owner's decision on #131 (maikel-bwj, October 15, 2026): option 1, a gain uses `--positive-3`; no new token.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style.css` comment and the README's Direction row: gain `--positive-3`, loss `--negative-3`; the Direction-row rule is gone
+- [x] `ColumnChart` and `BarChart colorBy="direction"` fill a gain with `--positive-3`; `SeriesColor` takes `positive-3`
+- [x] Showcase legends and intros (Metrics section, ETF preview) follow
 
 ### TEST
+
+- [ ] An owner has looked at the gain/loss charts and legends in the showcase (Metrics: Legend, ColumnChart, BarChart by direction; the ETF preview) in light and dark and approved it
 
 ### DEPLOY: fix/131-gain-positive-3
 
@@ -44,7 +50,9 @@
 
 ##### Tier 0
 
-**Score:**
+A gain in a chart is now `--positive-3` instead of `--cat-1`, so `--cat-1` is only a series slot and a gain/loss chart can share a view with any series (#131).
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +61,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a colour rule inside the house style, not something a subscriber of a service deals with.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +72,9 @@
 
 ##### Tier 2
 
-**Score:**
+An app that draws gains takes `--positive-3` (the green of status) in its charts and legends; `--cat-1` keeps only its series meaning.
+
+**Score:** 3
 
 #### Pull Request
 

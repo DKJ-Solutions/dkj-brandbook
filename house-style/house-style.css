@@ -29,8 +29,8 @@
    Categorical colours: --cat-1 .. --cat-3 are series slots. Pick a slot per
    series in your own app; do not reuse one slot for two meanings in a view.
    Semantic colours (--negative-3/--positive-5/--negative-5) are for direction and result, never
-   for categories. The one exception: --cat-1 doubles as the gain colour in a
-   chart (there is no --gain); --negative-3 is the loss colour.
+   for categories. In a chart, a gain is --positive-3 and a loss --negative-3, so
+   --cat-1 is only a series slot (there is no --gain; owner's decision, October 15, 2026, #131).
    ========================================================================== */
 
 /* ---- Tokens: light (default) -------------------------------------------- */
