@@ -32,11 +32,22 @@
 
 ### PLAN
 
+#104: two passages describe the primary steps by an older numbering. Rewrite both against the current
+nine-step scale, with the contrast figures measured again rather than renumbered.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/README.md`, **How the values were made**: the six-step recipe replaced by the current rule
+  (one OKLCH lightness and chroma per step per mode, hue per theme) and a table of each step's lightness
+- [x] `house-style/README.md`, **Measured**: every figure measured again on the current tokens (worst theme
+  named), `--primary-7` described as the highlight
+- [x] `house-style/house-style.css`, the role list: `-7` is the highlight (links, h1 and h2, the states, native
+  controls), no longer "all text that is not a paragraph"; the measured line says the same
 
 ### TEST
+
+- [x] Contrast recomputed from the hex values in `house-style.css` for all twelve themes; the stylesheet
+  comment's existing figures matched and are unchanged
 
 ### DEPLOY: docs/104-scale-prose
 
@@ -44,7 +55,11 @@
 
 ##### Tier 0
 
-**Score:**
+The house style's README and the token comment describe the nine-step scale as it is (#104): the recipe gives
+each step's OKLCH lightness in light and dark, the contrast figures are measured again on the current tokens,
+and `--primary-7` is described as the highlight rather than as all text.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +68,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: documentation only.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +79,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: no value changes.
+
+**Score:** N/A
 
 #### Pull Request
 

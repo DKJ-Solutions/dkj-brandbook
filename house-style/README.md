@@ -281,20 +281,18 @@ out). Three more things follow it by default, in light and in dark (and a measur
   head, the hover of a joined choice and of the settings toggle, a near or today date row, a date row's hover,
   the accent dialog and an InfoRows box. The text on it is `--primary-9`, like all text, and not the colour
   (the colour is too close to `-3` on light to read).
-- **How the values were made.** `-1`, `-2` and `-3` from these recipe constants (not tokens): page base
-  `#fcfcfb` (light) or `#0d0d0d` (dark) plus 2% or 10% of the theme's colour; card base `#f9f9f7` or `#1a1a19`
-  plus 6% or 14%; the line `#d1d1d1` or `#333333` plus 15% or 8% (6% on light read as warm). The dark themes
-  then carry about twice that colour (owner's decision, October 14, 2026: they read grey): each step keeps its
-  OKLCH lightness and hue and multiplies its chroma by about 2.1, clipped to sRGB. `-5` takes `-3`'s hue and
-  chroma, at the first lightness on the far side where it reaches 4.5:1 on `-3`. On dark `-1`, `-2` and `-3` then
-  move 0.04 OKLCH lightness darker (`-2` another 0.05, owner's request, October 14, 2026: the card a
-  shade above the page, no more) and `-5` 0.12 lighter, hue and chroma kept (owner's decision, October 14,
-  2026: a deeper ground and brighter text). On light `-2` then carries 1.6 times its chroma at the same lightness (owner's
-  decision, October 14, 2026: a card with a little more colour), and `-5` takes `-4`'s
-  chroma and hue about 0.08 OKLCH lightness darker, further where it needs it to reach 4.5:1 on `-3` (owner's example,
-  October 14, 2026: Paars `#6421b9`). `-6` and `-7` are in the
-  colour's hue: on dark OKLCH lightness 0.95 and 0.98, near-white; on light 0.36 and 0.18 (`-7` was 0.26 until
-  the owner asked for it a lot darker, October 14, 2026).
+- **How the values were made.** Each step has one OKLCH lightness and one chroma in all six light themes, and
+  one pair in all six dark themes, so the themes differ only in hue (owner's decisions, October 15, 2026). Where
+  a hue cannot hold that chroma, the step takes a fixed share of what it can hold (relative chroma). The constants
+  are in the light token comment of `house-style.css`; the lightness of each step:
+
+  | | -1 | -2 | -3 | -4 | -5 | -6 | -7 | -8 | -9 |
+  |---|---|---|---|---|---|---|---|---|---|
+  | light | 0.989 | 0.972 | 0.848 | 0.70 | 0.47 | 0.39 | 0.369 | 0.289 | 0.131 |
+  | dark | 0.19 | 0.21 | 0.32 | 0.38 | 0.538 | 0.70 | 0.80 | 0.90 | 0.981 |
+
+  `-4`, `-5` and `-6` are the greys, `-7` and `-8` carry the colour. Blauw and Hemelsblauw sit on `#0000ff`'s HSL
+  hue 240.
 - **The page and the cards are tinted.** On light the page is the whitest layer and a card sits a shade off it;
   on dark the card is a shade lighter than the page. Either way the page is the ground end (owner's decision,
   October 14, 2026: it used to be the other way round on light).
@@ -303,11 +301,14 @@ out). Three more things follow it by default, in light and in dark (and a measur
 - **The theme picker previews it:** each swatch shows its own theme's page, with the primary as the dot.
 - **Links are the theme's colour**, as `--primary-7` (owner's decision, October 15, 2026: the step that carries the colour, where `-5` is a grey). **`h1` and `h2` are `--primary-7` and `h3`–`h6` are `--primary-8`**;
   on a `--primary-9` surface `h1` and `h2` are `--primary-3` and `h3`–`h6` are `--primary-2` (owner's decision, October 14, 2026).
-- **Measured:** `--primary-9`, all text, reaches 17.4:1 or better on the page and 11.9:1 or better on `--primary-3` in every theme (October 15, 2026). `--primary-7`, the highlight, reaches 6.9:1 or better on the page and card on light (Oker) and
-  6.07:1 on dark (Lila), and 4.98:1 or better on a warning, negative or positive background (Lila on dark); `--primary-5` reaches 4.5:1 or better on the card
-  (worst: Petrol, Roest) and `--primary-1` on `--primary-5` 4.88:1 on light (Petrol) and 4.61:1 on dark
-  (Roze); `--primary-7` on `--primary-3` 4.54:1 or better (Petrol). Status, direction and categorical
-  colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never tinted.
+- **Measured** (WCAG relative luminance, worst theme, October 15, 2026): `--primary-9`, all text, reaches
+  17.4:1 or better on the page and 11.9:1 or better on `--primary-3`. `--primary-7`, the highlight, reaches 9.42:1
+  or better on the page and the card on light (Petrol) and 9.02:1 on dark (Roze), 6.53:1 or better on
+  `--primary-3`, and 6.42:1 or better on a warning, negative or positive background (Roze on dark). `--primary-5`
+  reaches 6.25:1 on the card on light (Oker) and 3.38:1 on dark (Roze); `--primary-1` on a `--primary-5` fill
+  6.54:1 on light (Oker) and 3.51:1 on dark (Roze), which the owner accepted. Status, direction and categorical
+  colours (`--positive-3`, `--negative-3`, `--warning-3`, `--cat-*`, `--positive-5`, `--negative-5`) are never
+  tinted.
 
 **What this changes for an app that takes the update:** every page turns a light shade of its theme, and
 the headings take its tint (through `:where()`, so a heading inside a coloured container, or one the app colours itself, keeps that colour). An app that hard-codes a grey next to a house surface will show the seam.
