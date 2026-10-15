@@ -57,7 +57,7 @@
 ### TEST
 
 - [x] Lint gate green
-- [ ] An owner has looked at the showcase (nav group labels, eyebrows, muted and `.meta` text, hero values, figcaptions, swatch text, accent tile and card, native controls) and at all twelve themes, and approved them
+- [x] An owner has looked at the showcase (nav group labels, eyebrows, muted and `.meta` text, hero values, figcaptions, swatch text, accent tile and card, native controls) and at all twelve themes, and approved them
 
 ### DEPLOY: feat/nav-group-primary-2
 
