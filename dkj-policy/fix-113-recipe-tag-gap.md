@@ -32,11 +32,20 @@
 
 ### PLAN
 
+#113: the recipe tags in the Recipes preview sat edge to edge, because `.dkj-preview-gap` only sets a
+`margin-top` and the inline-block tags had no space between them. The row takes `.dkj-demo-row`, the flex row
+with a gap the showcase already lays its rows out with.
+
+The owner approved every visible branch of this sweep in advance ("Alles mag gemergd worden").
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `RecipesPreview.tsx`: the tag row is `dkj-preview-gap dkj-demo-row`, and the `{' '}` before the button goes
 
 ### TEST
+
+- [x] Screenshot of the Recipes preview: the tags and the Open recipe button sit apart at one even gap
+- [x] An owner has looked at the Recipes preview and approved it
 
 ### DEPLOY: fix/113-recipe-tag-gap
 
@@ -44,7 +53,9 @@
 
 ##### Tier 0
 
-**Score:**
+The recipe tags in the Recipes preview sit in a row with an even gap instead of edge to edge (#113).
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +64,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: spacing inside one preview.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +75,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house style the apps take is untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
