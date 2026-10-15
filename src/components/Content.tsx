@@ -4,11 +4,12 @@ import { Chip } from './Feedback'
 import './surfaces.css'
 
 /**
- * GroupHeading -- an uppercase, muted section label (h4 size), optionally with a counter on the right
+ * GroupHeading -- an uppercase, muted section label at --text-base, optionally with a counter on the right
  * that turns danger when it is over its limit.
  *
  * `level` is the heading element (2, 3 or 4; default 3) and only sets the document outline, never the
  * look: pick the level below the page or section heading it sits under (h2 under a page h1, h3 under an h2).
+ * Section labels are the one exemption from "a heading takes the token of its own level" (#90).
  */
 export function GroupHeading({
   children,
