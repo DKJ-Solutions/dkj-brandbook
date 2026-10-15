@@ -44,7 +44,7 @@
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the showcase in light and dark and approved it
+- [x] An owner has looked at the showcase in light and dark and approved it
 
 ### DEPLOY: feat/text-primary-6
 
