@@ -133,7 +133,7 @@ primary colour (on light its `--primary-4`, on dark its `--primary-5`):
 
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
-| Light | `magenta` Magenta `#c0258f`, `purple` Paars `#7a3fd6`, `blue` Blauw `#2563d0`, `teal` Petrol `#087983`, `ochre` Oker `#7a6b00`, `rust` Roest `#aa5703` |
+| Light | `magenta` Magenta `#b6498e`, `purple` Paars `#8259d2`, `blue` Blauw `#3a6ecc`, `teal` Petrol `#437e84`, `ochre` Oker `#7f753e`, `rust` Roest `#9c653d` |
 | Dark | `pink` Roze `#ffbee0`, `lilac` Lila `#ae8fff`, `sky` Hemelsblauw `#7aacff`, `cyan` Cyaan `#4aedff`, `yellow` Geel `#ffce3f`, `orange` Oranje `#ffc7a6` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
@@ -224,12 +224,15 @@ out). Three more things follow it by default, in light and in dark (and a measur
   chroma in their own hue; Lila, too pale that way, takes Geel's chroma itself at a lower lightness: `-5` `#ae8fff`,
   `-6` `#cfc0ff`; Hemelsblauw takes Cyaan's chroma the same way: `-5` `#7aacff`, `-6` `#b1cfff`). Text in the theme's colour (links, card and dialog titles, values) reads
   `light-dark(var(--primary-4), var(--primary-5))`, and the picker's dot on dark is `-5`. The scale runs from the ground (`-1` page, `-2` card:
-  lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). **`-3` is
-  the greyest step.** On light `-5` is the colour itself, `-4`'s chroma and hue a step darker. `-4` carries the fills
+  lightest on light, darkest on dark) to the far end (`-6`, `-7`: darkest on light, whitest on dark). On dark
+  **`-3` is the greyest step.** On light `-5` is the colour itself, `-4`'s hue a step darker. `-4` carries the fills
   and focus rings in both modes, and the links on light, with `--primary-1` as text on a
-  fill. On light it is held where it reaches 4.5:1 as link text on the card, which moved Petrol and Roest a
-  fraction darker (`#0f7c86` → `#087983`, `#ad5a0a` → `#aa5703`); Hemelsblauw moved to Blauw's hue
-  (`#5cb3ff` → `#6aa2ff`) to stand apart from Cyaan.
+  fill. On light it is a softened step of the colour (owner's decision, October 15, 2026, from the owner's example
+  Petrol `#48878d`): each light theme takes that example's relative OKLCH chroma in its own hue, at the lightness
+  that holds 4.5:1 as link text on the page and the card (Petrol `#437e84`). The light `-1`, `-2` and `-3` follow
+  the owner's Petrol examples too (`#faffff`, `#f2ffff`, `#9adae2`): `-3` at the same OKLCH lightness and
+  relative chroma in each hue, `-1` and `-2` at the same chroma as light as each hue allows, `-2` never closer to
+  `-1` than in Petrol.
 - **A tinted surface takes `-5`.** `--primary-3` is every line and also the surface of the `.table--accent`
   head, the hover of a joined choice and of the settings toggle, a near or today date row, a date row's hover,
   the accent dialog and an InfoRows box. The text on it is `--primary-5`, like all text, and not the colour
