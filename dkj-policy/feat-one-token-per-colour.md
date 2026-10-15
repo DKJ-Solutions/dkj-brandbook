@@ -50,7 +50,7 @@ takes the existing step it came closest to.
 
 ### TEST
 
-- [ ] An owner has looked at the showcase, on light and dark themes, and approved it
+- [x] An owner has looked at the showcase, on light and dark themes, and approved it
 
 ### DEPLOY: feat/one-token-per-colour
 
