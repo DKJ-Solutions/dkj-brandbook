@@ -587,3 +587,15 @@ function Get-PrMergeMethod {
     <# A merge commit per PR, as in the source repo. #>
     return 'merge'
 }
+
+function Get-DevPreview {
+    <# The showcase, started or reused at session start by the dkj-solutions plugin's dev-preview hook (#130).
+       Vite binds to localhost by default, and the showcase shows nothing private: this repo is public. #>
+    @{
+        Command      = 'npm run dev -- --port {port} --strictPort'
+        Ports        = 5173..5180
+        Requires     = 'node_modules'
+        Name         = 'Showcase'
+        OpenInVsCode = $true
+    }
+}
