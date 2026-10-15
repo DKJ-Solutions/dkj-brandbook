@@ -29,7 +29,7 @@
   --dkj-lh-snug: 1.35;
   --dkj-lh-prose: 1.55;          /* long text: looser than the house body 1.45 */
   --dkj-font-mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace; /* code */
-  --dkj-tracking-caps: 0.03em;   /* compact uppercase buttons */
+  --dkj-tracking-caps: 0.03em;   /* uppercase labels (.dkj-panel-label) */
   --dkj-tracking-label: 0.04em;  /* uppercase section and column labels */
   --dkj-tracking-tag: 0.06em;    /* pill tags */
 
@@ -37,7 +37,7 @@
   --dkj-tap: 44px;             /* minimum tap target, also where the visual is smaller */
   --dkj-control-h: 38px;       /* a value box and the pencil beside it: one height */
   --dkj-control-lg: 52px;      /* stepper in a dialog */
-  --dkj-control-compact: 36px; /* compact uppercase buttons (tap area stays 44px) */
+  --dkj-control-compact: 36px; /* compact buttons (tap area stays 44px) */
   --dkj-control-dense: 30px;   /* the joined segmented capsule: the house .controls row height (tap area stays 44px) */
   --dkj-inline-toggle: 16px;   /* the inline "?" circle inside a label or heading (tap area stays 44px) */
 
