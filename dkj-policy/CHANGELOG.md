@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**73 minor entries** <!-- pending-tally -->
+**74 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/109-primary-button-step · 20261015-120412Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The primary button is filled with the theme's colour (`--primary-7`) instead of a grey (`--primary-5`), so it matches the filled icon button and reads as the main action again (#109).
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: the look of one button in the brand book and the house style.
+
+**Score:** N/A
+
+##### Tier 2
+
+The house stylesheet's `.btn--primary` (and `.btn--touch.btn--primary`) moves to `--primary-7` too, so an app's primary buttons take the theme's colour once it takes the next house-style release.
+
+**Score:** 3
+
+#### Pull Request
+
+The primary button fill is --primary-7, like the filled IconButton
+
+[PR #126](https://github.com/DKJ-Solutions/dkj-brandbook/pull/126)
+
+---
 
 ### DEPLOY: fix/92-light-cat1-contrast · 20261015-120300Z
 
