@@ -105,7 +105,7 @@
 
 /* The intro: page title, hero card and type specimen at the top of the content. */
 .bb-intro { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }
-.bb-eyebrow { margin: 0 0 var(--spacing-1); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: light-dark(var(--primary-4), var(--primary-5)); }
+.bb-eyebrow { margin: 0 0 var(--spacing-1); font-size: var(--text-sm); font-weight: var(--dkj-fw-semibold); letter-spacing: var(--dkj-tracking-label); text-transform: uppercase; color: var(--primary-4); }
 .bb-lead { max-width: 46rem; margin: var(--spacing-2) 0 0; font-size: var(--text-lg); line-height: var(--dkj-lh-snug); color: var(--primary-7); }
 .bb-specimen { display: grid; gap: var(--spacing-3); }
 .bb-specimen > * { margin: 0; }

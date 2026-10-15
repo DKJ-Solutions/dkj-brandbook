@@ -49,7 +49,7 @@
 - [x] Blauw's other steps moved to `#0000ff`'s HSL hue 240, each at its own saturation and luminance, so every contrast holds; then `-5`, `-6` and `-7` a good deal darker (`#0707bf`, `#181873`, `#00002b`)
 - [x] Every light theme behaves the same, only the hue differs: one OKLCH lightness and one chroma per step (capped by relative chroma where a hue holds less), from the owner's examples; `-5` to `-7` at Blauw's darker level (owner's choice); picker dots, README table and the stylesheet's worst cases follow
 - [x] The dark themes follow the same rule, mirrored: one OKLCH lightness and chroma per step, `-4` the greyest step in the middle of the scale (as dark as 4.5:1 for `-1` on it allows), Hemelsblauw on `#0000ff`'s hue; the default dark blocks, picker dots, README and worst cases follow
-- [x] Dark `-4` down to the owner's Hemelsblauw `#4c4c8d` (L 0.449), `-3` a little more colour so `-4` stays the greyest; on dark the text on a `-4` fill is `-7` and every ring, line, meter fill and quiet text that was `-4` is `-5`
+- [x] Dark `-4` down to the owner's Hemelsblauw `#4c4c8d` (L 0.449), `-3` a little more colour so `-4` stays the greyest; on dark the text on a `-4` fill is `-7` and every ring, line, meter fill and quiet text that was `-4` is `-5`, except the showcase eyebrow, which stays `-4` everywhere (owner's choice)
 - [x] Everything in `.bb-swatch-text` (name, value, recipe) from `--primary-5` to `--primary-7`
 
 ### TEST
