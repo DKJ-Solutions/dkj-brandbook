@@ -40,7 +40,7 @@
   /* the theme's seven steps, fixed values per theme (owner's decision, October 14, 2026). On light --primary-4 is
      a softened step of the colour (owner's decision, October 15, 2026, from the owner's example Petrol #48878d): each
      light theme takes that example's relative OKLCH chroma in its own hue, at the lightness that holds 4.5:1 on -1 and
-     -2 (Petrol #437e84). -1, -2 and -3 follow the owner's Petrol examples too (#faffff, #f2ffff, #9adae2): -3 at the
+     -2 (Petrol #437e84); Paars, not grey enough that way, takes the owner's own #5d458b. -1, -2 and -3 follow the owner's Petrol examples too (#faffff, #f2ffff, #9adae2): -3 at the
      same OKLCH lightness and relative chroma in each hue, -1 and -2 at the same chroma as light as each hue allows, -2
      never closer to -1 than in Petrol. On dark -4 is a grey of the colour and the colour moves to -5 and -6
      (owner's decision, October 14, 2026, from the owner's example Geel: -4 #91804c, -5 #ffce3f, -6 #ffe4a3; the other dark
@@ -149,7 +149,7 @@
    no green theme: those hues mean bad and good. Order: magenta, purple, blue, teal, ochre, rust (light);
    pink, lilac, sky, cyan, yellow, orange (dark). */
 :root[data-theme="magenta"] { --primary-1: #fffbfd; --primary-2: #fff4fa; --primary-3: #e5c1d4; --primary-4: #b6498e; --primary-5: #93006b; --primary-6: #67174c; --primary-7: #26001a; }
-:root[data-theme="purple"] { --primary-1: #fcfbff; --primary-2: #f7f5ff; --primary-3: #cfc9e4; --primary-4: #8259d2; --primary-5: #6421b9; --primary-6: #452878; --primary-7: #180036; }
+:root[data-theme="purple"] { --primary-1: #fcfbff; --primary-2: #f7f5ff; --primary-3: #cfc9e4; --primary-4: #5d458b; --primary-5: #6421b9; --primary-6: #452878; --primary-7: #180036; }
 :root[data-theme="blue"] { --primary-1: #f9fbff; --primary-2: #f0f6ff; --primary-3: #c1cee4; --primary-4: #3a6ecc; --primary-5: #0647b0; --primary-6: #193a75; --primary-7: #000d34; }
 :root[data-theme="teal"] { --primary-1: #faffff; --primary-2: #f2ffff; --primary-3: #9adae2; --primary-4: #437e84; --primary-5: #025860; --primary-6: #12454a; --primary-7: #001518; }
 :root[data-theme="ochre"] { --primary-1: #fffefa; --primary-2: #fefcf2; --primary-3: #d9cf92; --primary-4: #7f753e; --primary-5: #5b4f00; --primary-6: #453e0e; --primary-7: #161200; }

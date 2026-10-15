@@ -27,7 +27,7 @@
 (function () {
   var THEMES = [
     { id: 'magenta', name: 'Magenta',     mode: 'light', hex: '#b6498e' },
-    { id: 'purple',  name: 'Paars',       mode: 'light', hex: '#8259d2' },
+    { id: 'purple',  name: 'Paars',       mode: 'light', hex: '#5d458b' },
     { id: 'blue',    name: 'Blauw',       mode: 'light', hex: '#3a6ecc' },
     { id: 'teal',    name: 'Petrol',      mode: 'light', hex: '#437e84' },
     { id: 'ochre',   name: 'Oker',        mode: 'light', hex: '#7f753e' },
