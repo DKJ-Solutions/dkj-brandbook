@@ -16,9 +16,9 @@ A gain in a chart is now `--positive-3` instead of `--cat-1`, so `--cat-1` is on
 
 ##### Tier 1
 
-N/A: a colour rule inside the house style, not something a subscriber of a service deals with.
+Gains in every DKJ-Solutions dashboard turn from blue to green once an app takes the new house style, and a gain/loss chart no longer has to be kept apart from a three-series chart.
 
-**Score:** N/A
+**Score:** 3
 
 ##### Tier 2
 
