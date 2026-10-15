@@ -34,9 +34,12 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.bb-nav-group` colour from `--primary-3` to `--primary-2` (`src/showcase/showcase.css`)
 
 ### TEST
+
+- [x] Lint gate green
+- [ ] An owner has looked at the sidebar group labels in the showcase and approved them
 
 ### DEPLOY: feat/nav-group-primary-2
 
@@ -44,7 +47,9 @@
 
 ##### Tier 0
 
-**Score:**
+The showcase sidebar's group labels now use `--primary-2` instead of `--primary-3`.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +58,9 @@
 
 ##### Tier 1
 
-**Score:**
+Showcase styling only; nothing management or a commissioner would notice.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +69,9 @@
 
 ##### Tier 2
 
-**Score:**
+The brand book's own showcase is not a subscribed service.
+
+**Score:** N/A
 
 #### Pull Request
 
