@@ -45,7 +45,7 @@ the house link style.
 ### TEST
 
 - [x] Gates (`open-pr -GatesOnly`) pass.
-- [ ] An owner has looked at the Facts demo on `/showcase#DefinitionList` and a repo card's "Register file" on `/dashboards/dkj-claude-plugins`, and approved them.
+- [x] An owner has looked at the Facts demo on `/showcase#DefinitionList` and a repo card's "Register file" on `/dashboards/dkj-claude-plugins`, and approved them.
 
 ### DEPLOY: feat/154-definitionlist-node-values
 
