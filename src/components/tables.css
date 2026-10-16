@@ -3,6 +3,7 @@
 .dkj-num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dkj-tone-negative { color: var(--negative-5); }
 .dkj-tone-positive { color: var(--positive-5); }
+.dkj-tone-warn { color: var(--warning-5); }
 .dkj-muted { color: var(--primary-6); }
 
 /* ---------- DefinitionList ---------- */
@@ -24,7 +25,8 @@
 
 /* ---------- DataTable ---------- */
 /* The house .table does the layout, the sort buttons and the total row. The wrapper scrolls, so it is focusable (a
-   keyboard can scroll it) and needs the ring. Cell tones are the shared .dkj-tone-* above. */
+   keyboard can scroll it) and needs the ring. Cell tones are the shared .dkj-tone-* above; a row tone tints the row
+   with the status background (the -1 step, as the house .notice uses --warning-1). */
 .dkj-table-wrap:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); border-radius: var(--dkj-radius-xs); }
 /* A low-priority column (DataColumn priority) drops out while the table is narrower than the house 760px breakpoint;
    the wrapper is the container, so a table in a narrow card drops it too. */
@@ -32,6 +34,13 @@
 @container (max-width: 760px) {
   .dkj-col-low { display: none; }
 }
+.table .dkj-row-negative { background: var(--negative-1); }
+.table .dkj-row-positive { background: var(--positive-1); }
+.table .dkj-row-warn { background: var(--warning-1); }
+/* A column's own alignment (DataColumn align), over the house default: first column left, the rest right. The
+   :first-child form outranks the house .table td:first-child. */
+.table .dkj-col-start { text-align: left; }
+.table .dkj-col-end, .table .dkj-col-end:first-child { text-align: right; }
 
 /* ---------- BillTable ---------- */
 .dkj-bill { width: 100%; table-layout: fixed; border-collapse: collapse; }

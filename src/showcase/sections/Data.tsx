@@ -5,7 +5,7 @@ import { Demo, Section } from '../Showcase'
 
 const COLUMNS: readonly DataColumn[] = [
   { key: 'name', label: 'Product', sortable: true },
-  { key: 'type', label: 'Type', sortable: true },
+  { key: 'type', label: 'Type', sortable: true, align: 'start' },
   { key: 'qty', label: 'Quantity', sortable: true, priority: 'low' },
   { key: 'value', label: 'Value', sortable: true },
   { key: 'result', label: 'Result', sortable: true },
@@ -86,12 +86,13 @@ export function Data() {
               { term: 'Label', value: 'Value' },
               { term: 'Another label', value: '1,234' },
               { term: 'Third', value: 'Yes' },
+              { term: 'A warning', value: '3 notes', tone: 'warn' },
             ]}
           />
         </Demo>
       </Section>
 
-      <Section id="DataTable" title="DataTable" intro="The house table in a sideways-scrolling wrapper: text first column, right-aligned tabular figures, sortable headers (tap one: aria-sort and the arrow follow), a muted sub-line under the first cell, toned figures and a bold total row. A low-priority column (Quantity here) drops out while the table is narrower than 760px. ComparisonTable stays the comparison variant.">
+      <Section id="DataTable" title="DataTable" intro="The house table in a sideways-scrolling wrapper: text first column, right-aligned tabular figures (a text column such as Type takes align start), sortable headers (tap one: aria-sort and the arrow follow), a muted sub-line under the first cell, toned figures and a bold total row. A low-priority column (Quantity here) drops out while the table is narrower than 760px. ComparisonTable stays the comparison variant.">
         <Demo label="Sortable, with sub-line, tones and total" wide>
           <DataTableDemo />
         </Demo>
@@ -105,6 +106,21 @@ export function Data() {
             ]}
             rows={[]}
             empty="No closed positions"
+          />
+        </Demo>
+        <Demo label="Row and cell tones" wide>
+          <DataTable
+            label="Checks"
+            columns={[
+              { key: 'name', label: 'Check' },
+              { key: 'errors', label: 'Errors' },
+              { key: 'notes', label: 'Notes' },
+            ]}
+            rows={[
+              { id: 'a', cells: { name: 'A failing check', errors: '2', notes: '0' }, tone: 'negative', tones: { errors: 'negative' } },
+              { id: 'b', cells: { name: 'A check with notes', errors: '0', notes: '3' }, tone: 'warn', tones: { notes: 'warn' } },
+              { id: 'c', cells: { name: 'A passing check', errors: '0', notes: '0' } },
+            ]}
           />
         </Demo>
       </Section>

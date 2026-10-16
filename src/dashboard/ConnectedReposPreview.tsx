@@ -178,9 +178,9 @@ export function ConnectedReposPreview() {
         <StatTile label="Registered repos" value={String(REPOS.length)} />
         <StatTile label="Checked out here" value={String(REPOS.filter((r) => r.git).length)} />
         <StatTile label="Errors" value={String(REPOS.reduce((n, r) => n + errorCount(r), 0))} tone="negative" />
-        <StatTile label="Notes" value={String(REPOS.reduce((n, r) => n + r.notes.length, 0))} />
+        <StatTile label="Notes" value={String(REPOS.reduce((n, r) => n + r.notes.length, 0))} tone="warn" />
       </StatTiles>
-      <Gap>a second row of tiles works, but the shell has no notion of grouping tiles by subject, and StatTile has no warn tone (only negative and positive).</Gap>
+      <Gap>a second row of tiles works, but the shell has no notion of grouping tiles by subject.</Gap>
 
       <InFlightCards data={IN_FLIGHT} repo={REPO} trunk={TRUNK} />
 
@@ -191,13 +191,13 @@ export function ConnectedReposPreview() {
             label="Overview of the connected repos"
             columns={[
               { key: 'repo', label: 'Repo' },
-              { key: 'status', label: 'Status' },
-              { key: 'visibility', label: 'Visibility', priority: 'low' },
+              { key: 'status', label: 'Status', align: 'start' },
+              { key: 'visibility', label: 'Visibility', align: 'start', priority: 'low' },
               { key: 'plugins', label: 'Plugins', priority: 'low' },
-              { key: 'installed', label: 'Installed', priority: 'low' },
+              { key: 'installed', label: 'Installed', align: 'start', priority: 'low' },
               { key: 'errors', label: 'Errors' },
               { key: 'notes', label: 'Notes' },
-              { key: 'checkout', label: 'Checkout', priority: 'low' },
+              { key: 'checkout', label: 'Checkout', align: 'start', priority: 'low' },
             ]}
             rows={REPOS.map((r) => ({
               id: r.name,
@@ -212,14 +212,11 @@ export function ConnectedReposPreview() {
                 checkout: gitLine(r.git),
               },
               tones: { errors: errorCount(r) > 0 ? 'negative' : undefined },
+              tone: r.status === 'bad' ? 'negative' : r.status === 'warn' ? 'warn' : undefined,
             }))}
           />
         </CardBody>
       </Card>
-      <Gap>
-        DataTable right-aligns every column but the first, so the text columns (Status, Visibility, Installed, Checkout) are right-aligned too; there is no per-column alignment. A row tone is negative or positive only, so a
-        warn row cannot be coloured.
-      </Gap>
 
       {REPOS.map((r) => (
         <RepoCard key={r.name} repo={r} />

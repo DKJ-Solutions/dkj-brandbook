@@ -2,7 +2,133 @@
 
 ## [Unreleased]
 
-**86 minor entries** <!-- pending-tally -->
+**90 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/151-datatable-warn-tone · 20261016-132625Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `DataTable` cell takes the tone `warn` (the warning colour), and a row takes a `tone` of its own (`negative`,
+`positive` or `warn`) that tints the whole row with the matching status background. A DefinitionList value takes warn too. The showcase has a demo of each,
+and the connector dashboard preview tints its failing and warning repos.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+DataTable takes a warn tone for a row or cell
+
+[PR #162](https://github.com/DKJ-Solutions/dkj-brandbook/pull/162)
+
+---
+
+### DEPLOY: feat/150-datatable-column-align · 20261016-132322Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `DataTable` column takes `align: 'start'` (text on the left) or `align: 'end'` (right-aligned); left out, the first
+column stays left and the rest right. The showcase's Type column and the connector dashboard preview's text columns
+(Status, Visibility, Installed, Checkout) now read from the left.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+DataTable takes a per-column alignment
+
+[PR #161](https://github.com/DKJ-Solutions/dkj-brandbook/pull/161)
+
+---
+
+### DEPLOY: feat/149-stattile-warn-tone · 20261016-132120Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+`StatTile` takes `tone="warn"`, which colours its figure in the warning colour (`--warning-5`), for a count of notes
+or warnings. The showcase shows one, and the connector dashboard preview's Notes tile uses it.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+StatTile takes a warn tone
+
+[PR #160](https://github.com/DKJ-Solutions/dkj-brandbook/pull/160)
+
+---
+
+### DEPLOY: fix/146-joined-choice-only-child · 20261016-131807Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A joined `SegmentedChoice` with a single option now has rounded corners on every side of its filled button,
+instead of square left corners inside the rounded capsule. The showcase shows that case.
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: a component's corner radius; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+SegmentedChoice joined: round all corners of a lone option
+
+[PR #159](https://github.com/DKJ-Solutions/dkj-brandbook/pull/159)
+
+---
 
 ### DEPLOY: fix/144-message-live-region · 20261016-130041Z
 
