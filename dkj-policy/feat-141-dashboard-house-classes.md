@@ -47,7 +47,7 @@ A change to the stylesheet every app copies: a visible result, so the branch is 
 ### TEST
 
 - [x] The gate (`open-pr -GatesOnly`) green
-- [ ] An owner has looked at http://localhost:5173/house-style/patterns/repo-dashboard.html next to http://localhost:5173/ and approved it
+- [x] An owner has looked at http://localhost:5173/house-style/patterns/repo-dashboard.html next to http://localhost:5173/ and approved it
 
 ### DEPLOY: feat/141-dashboard-house-classes
 
