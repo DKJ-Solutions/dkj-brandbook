@@ -39,8 +39,9 @@
     </div>
 
     <!-- 8. The loading line, or the warning that the lists could not be read. Shown here as the warning; a page
-         with its data in hand leaves it out. -->
-    <p class="msg msg--warn">What is in flight could not be read: this is the placeholder state of the reference page.</p>
+         with its data in hand leaves it out. The loading line takes role="status", the warning role="alert", so a
+         screen reader announces the line when it appears. -->
+    <p class="msg msg--warn" role="alert">What is in flight could not be read: this is the placeholder state of the reference page.</p>
 
     <!-- 9. One data card per in-flight list, in the tiles' order. -->
     <section class="card">

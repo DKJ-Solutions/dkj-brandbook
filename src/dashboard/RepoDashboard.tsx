@@ -71,8 +71,12 @@ export function RepoDashboard() {
 
       <InFlightTiles data={data} trunk={TRUNK} />
 
-      {load.status === 'loading' && <Message>Reading what is in flight from GitHub...</Message>}
-      {load.status === 'error' && <Message tone="warn">What is in flight could not be read: {load.reason}.</Message>}
+      {load.status === 'loading' && <Message live="status">Reading what is in flight from GitHub...</Message>}
+      {load.status === 'error' && (
+        <Message tone="warn" live="alert">
+          What is in flight could not be read: {load.reason}.
+        </Message>
+      )}
 
       {data && <InFlightCards data={data} repo={REPO} trunk={TRUNK} />}
 

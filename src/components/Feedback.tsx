@@ -49,9 +49,23 @@ export function Alert({ tone = 'danger', title, children }: { tone?: 'danger'; t
  * Message -- a line of supporting text.
  * hint: muted help. note: a hint with more space above. warn: bold warning colour. error: danger.
  * debug: developer info, dashed danger outline, so it never reads as help for the user.
+ * live: for a line that appears or changes after load, so a screen reader announces it -- 'status' for a loading or
+ * neutral line, 'alert' for a warning or an error. A line that is there from the start leaves it out.
  */
-export function Message({ tone = 'hint', children }: { tone?: 'hint' | 'note' | 'warn' | 'error' | 'debug'; children: ReactNode }) {
-  return <p className={cx('dkj-msg', `dkj-msg--${tone}`)}>{children}</p>
+export function Message({
+  tone = 'hint',
+  live,
+  children,
+}: {
+  tone?: 'hint' | 'note' | 'warn' | 'error' | 'debug'
+  live?: 'status' | 'alert'
+  children: ReactNode
+}) {
+  return (
+    <p className={cx('dkj-msg', `dkj-msg--${tone}`)} role={live}>
+      {children}
+    </p>
+  )
 }
 
 /** Chip -- a verdict pill. yes: accent fill. no: page fill. todo / unknown: muted and dashed. */
