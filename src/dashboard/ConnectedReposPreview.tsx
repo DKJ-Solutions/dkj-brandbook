@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { Button } from '../components/Button'
 import { Card, CardBody, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
@@ -109,9 +108,6 @@ const slug = (name: string) => name.replace(/[^a-z0-9]+/gi, '-')
 const gitLine = (g: Repo['git']) => (g ? `${g.branch}, ${g.uncommitted} uncommitted, ${g.ahead} ahead / ${g.behind} behind` : 'not checked out')
 const errorCount = (r: Repo) => r.signals.filter((s) => s.kind === 'error').length
 
-/** A visible marker of where the Repo dashboard's components do not fit this content. */
-const Gap = ({ children }: { children: ReactNode }) => <Message tone="debug">Gap: {children}</Message>
-
 function StatusBadge({ status }: { status: Status }) {
   const s = STATUS[status]
   return (
@@ -190,15 +186,20 @@ export function ConnectedReposPreview() {
 
       <InFlightTiles data={IN_FLIGHT} trunk={TRUNK} />
 
-      <StatTiles>
-        <StatTile label="Registered repos" value={String(REPOS.length)} />
-        <StatTile label="Checked out here" value={String(REPOS.filter((r) => r.git).length)} />
-        <StatTile label="Errors" value={String(REPOS.reduce((n, r) => n + errorCount(r), 0))} tone="negative" />
-        <StatTile label="Notes" value={String(REPOS.reduce((n, r) => n + r.notes.length, 0))} tone="warn" />
-      </StatTiles>
-      <Gap>a second row of tiles works, but the shell has no notion of grouping tiles by subject.</Gap>
-
       <InFlightCards data={IN_FLIGHT} repo={REPO} trunk={TRUNK} />
+
+      {/* The repo's own figures are grouped in their own data card, its head the group label, not in the shell (#158). */}
+      <Card variant="data">
+        <CardHead title="Register" subtitle="The connected repos at a glance" />
+        <CardBody>
+          <StatTiles>
+            <StatTile label="Registered repos" value={String(REPOS.length)} />
+            <StatTile label="Checked out here" value={String(REPOS.filter((r) => r.git).length)} />
+            <StatTile label="Errors" value={String(REPOS.reduce((n, r) => n + errorCount(r), 0))} tone="negative" />
+            <StatTile label="Notes" value={String(REPOS.reduce((n, r) => n + r.notes.length, 0))} tone="warn" />
+          </StatTiles>
+        </CardBody>
+      </Card>
 
       <div id="overview">
         <Card variant="data">
