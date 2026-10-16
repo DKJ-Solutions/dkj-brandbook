@@ -32,11 +32,29 @@
 
 ### PLAN
 
+#### The approach
+
+A cell tone gains `warn` (`--warning-5`, the text version `.msg--warn` uses), and a `DataRow` takes a `tone` of its
+own that tints the whole row with the status background: `--negative-1`, `--positive-1` or `--warning-1`, the step
+the house `.notice` uses. Every token exists in the light and dark themes; `house-style.css` stays untouched. The
+shared `Tone` type also reaches `DefinitionList`, which gains the warn value tone with it.
+
+#### Collision
+
+`feat/150-datatable-column-align` (parked for an owner's look) changes `Table.tsx` and the same Gap note in
+`ConnectedReposPreview.tsx`; whichever ships second merges the trunk in and keeps both changes.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/components/Table.tsx`: `Tone` takes `'warn'`; `DataRow` takes `tone`, rendered as `.dkj-row-<tone>` on its `<tr>`
+- [x] `src/components/tables.css`: `.dkj-tone-warn` and `.table .dkj-row-negative` / `-positive` / `-warn`
+- [x] The showcase's DataTable section has a "Row and cell tones" demo
+- [x] The connector dashboard preview's Overview tints a bad repo's row negative and a warn repo's row warn, and its Gap note drops the warn row
 
 ### TEST
+
+- [x] The lint gate (`open-pr -GatesOnly`)
+- [ ] An owner has looked at the "Row and cell tones" demo on `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins`, in a light and a dark theme, and approved it
 
 ### DEPLOY: feat/151-datatable-warn-tone
 
@@ -44,27 +62,24 @@
 
 ##### Tier 0
 
-**Score:**
+A `DataTable` cell takes the tone `warn` (the warning colour), and a row takes a `tone` of its own (`negative`,
+`positive` or `warn`) that tints the whole row with the matching status background. The showcase has a demo of both,
+and the connector dashboard preview tints its failing and warning repos.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
 DataTable takes a warn tone for a row or cell
-

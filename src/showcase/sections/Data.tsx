@@ -107,6 +107,21 @@ export function Data() {
             empty="No closed positions"
           />
         </Demo>
+        <Demo label="Row and cell tones" wide>
+          <DataTable
+            label="Checks"
+            columns={[
+              { key: 'name', label: 'Check' },
+              { key: 'errors', label: 'Errors' },
+              { key: 'notes', label: 'Notes' },
+            ]}
+            rows={[
+              { id: 'a', cells: { name: 'A failing check', errors: '2', notes: '0' }, tone: 'negative', tones: { errors: 'negative' } },
+              { id: 'b', cells: { name: 'A check with notes', errors: '0', notes: '3' }, tone: 'warn', tones: { notes: 'warn' } },
+              { id: 'c', cells: { name: 'A passing check', errors: '0', notes: '0' } },
+            ]}
+          />
+        </Demo>
       </Section>
 
       <Section id="BillTable" title="BillTable" intro="One table per invoice. Long names truncate on a 360px phone; empty slots show a muted dash; what you buy has its price in the accent. Groups close with a subtotal between stronger rules; the total sits under a rule in the accent.">

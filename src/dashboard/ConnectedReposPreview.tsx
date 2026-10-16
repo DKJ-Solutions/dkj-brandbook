@@ -212,13 +212,13 @@ export function ConnectedReposPreview() {
                 checkout: gitLine(r.git),
               },
               tones: { errors: errorCount(r) > 0 ? 'negative' : undefined },
+              tone: r.status === 'bad' ? 'negative' : r.status === 'warn' ? 'warn' : undefined,
             }))}
           />
         </CardBody>
       </Card>
       <Gap>
-        DataTable right-aligns every column but the first, so the text columns (Status, Visibility, Installed, Checkout) are right-aligned too; there is no per-column alignment. A row tone is negative or positive only, so a
-        warn row cannot be coloured. Eight columns scroll sideways on a phone with no column priority.
+        DataTable right-aligns every column but the first, so the text columns (Status, Visibility, Installed, Checkout) are right-aligned too; there is no per-column alignment. Eight columns scroll sideways on a phone with no column priority.
       </Gap>
 
       {REPOS.map((r) => (
