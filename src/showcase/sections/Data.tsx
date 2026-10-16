@@ -91,7 +91,7 @@ export function Data() {
         </Demo>
       </Section>
 
-      <Section id="DataTable" title="DataTable" intro="The house table in a sideways-scrolling wrapper: text first column, right-aligned tabular figures (a text column such as Type takes align="start"), sortable headers (tap one: aria-sort and the arrow follow), a muted sub-line under the first cell, toned figures and a bold total row. ComparisonTable stays the comparison variant.">
+      <Section id="DataTable" title="DataTable" intro="The house table in a sideways-scrolling wrapper: text first column, right-aligned tabular figures (a text column such as Type takes align start), sortable headers (tap one: aria-sort and the arrow follow), a muted sub-line under the first cell, toned figures and a bold total row. ComparisonTable stays the comparison variant.">
         <Demo label="Sortable, with sub-line, tones and total" wide>
           <DataTableDemo />
         </Demo>
