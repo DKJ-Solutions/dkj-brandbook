@@ -45,7 +45,7 @@ back to the Overview table that links to it.
 ### TEST
 
 - [x] Gates (`open-pr -GatesOnly`) pass.
-- [ ] An owner has looked at `/dashboards/dkj-claude-plugins` (a repo link in the Overview table, then "Back to overview") and approved it.
+- [x] An owner has looked at `/dashboards/dkj-claude-plugins` (a repo link in the Overview table, then "Back to overview") and approved it.
 
 ### DEPLOY: fix/156-dashboard-anchor-offset
 
