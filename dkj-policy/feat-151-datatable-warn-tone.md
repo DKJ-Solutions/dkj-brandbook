@@ -55,7 +55,7 @@ shared `Tone` type also reaches `DefinitionList`, which gains the warn value ton
 ### TEST
 
 - [x] The lint gate (`open-pr -GatesOnly`)
-- [ ] An owner has looked at the "Row and cell tones" demo on `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins`, in a light and a dark theme, and approved it
+- [x] An owner has looked at the "Row and cell tones" demo on `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins`, in a light and a dark theme, and approved it
 
 ### DEPLOY: feat/151-datatable-warn-tone
 
