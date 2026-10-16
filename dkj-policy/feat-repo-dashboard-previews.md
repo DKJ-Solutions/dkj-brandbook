@@ -45,6 +45,7 @@ Owner's choice A: start with dkj-claude-plugins only (its connector dashboard); 
 - [x] Owner's look, round 3: a new `Breadcrumbs` component (brand-book original, in the showcase under Overlays & navigation) on both pages
 - [x] Owner's look, round 4: the breadcrumbs as a full-width `--primary-2` bar (`Breadcrumbs bar`) above the page, no shadow
 - [x] Owner's look, round 5: a "DKJ-Solutions repos" card on the Repo dashboard, every repo with its GitHub, app preview and dashboard preview links (the repo list moved to `src/repos.ts`, the preview registry to `src/dashboard/previews.ts`)
+- [x] Owner's look, round 6: the preview page drops its hint, eyebrow and frame; the breadcrumbs bar separates it from the page
 
 ### TEST
 

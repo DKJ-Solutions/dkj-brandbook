@@ -33,7 +33,7 @@ export function DashboardIndex() {
   )
 }
 
-/** One repo's dashboard, framed apart from the page around it; an unknown id says so and links back to the menu. */
+/** One repo's dashboard preview; an unknown id says so, and the breadcrumbs lead back to the menu. */
 export function DashboardPreviewPage({ id }: { id: string }) {
   const preview = PREVIEWS.find((p) => p.id === id)
 
@@ -46,19 +46,7 @@ export function DashboardPreviewPage({ id }: { id: string }) {
       <main className="dkj-dashboard">
         <Toolbar />
         {preview ? (
-          <>
-            <Message>
-              Preview of another repo's dashboard in this repo's dashboard shape, to see where the shape does not fit yet. Placeholder data only:
-              the repos, plugins and notes below are invented.
-            </Message>
-            <p className="dkj-eyebrow">{preview.label}</p>
-            {/* The showcase's frame for a recreated app: everything inside it is the preview, everything above it is this page. */}
-            <div className="dkj-preview-frame">
-              <div className="dkj-dashboard dkj-preview-app--padded">
-                <preview.Component />
-              </div>
-            </div>
-          </>
+          <preview.Component />
         ) : (
           <Message>There is no dashboard preview for this repo.</Message>
         )}
