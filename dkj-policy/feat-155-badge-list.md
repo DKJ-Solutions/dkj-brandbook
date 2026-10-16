@@ -32,11 +32,21 @@
 
 ### PLAN
 
+Issue #155: the connector preview renders its signals as one `BadgeRow` `<div>` per line, with no list
+semantics. (The issue also names missing spacing; that part does not hold -- `.badge-row` already carries a
+`--spacing-2` top margin.) A `BadgeList` renders a `<ul>` of `.badge-row` items, on a new house class.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] House `.badge-list`: a bare `<ul>`; its `.badge-row` items align on the baseline, so a wrapped text keeps its badge on the first line.
+- [x] `BadgeList` in `src/components/Metrics.tsx`, with a demo under the showcase's Badge section.
+- [x] The connector preview's signals use it; its Gap note no longer lists this.
+- [x] `house-style/README.md` names `.badge-list` in the class list.
 
 ### TEST
+
+- [x] Gates (`open-pr -GatesOnly`) pass.
+- [ ] An owner has looked at the BadgeList demo on `/showcase#Badge` and the repo cards' checks on `/dashboards/dkj-claude-plugins`, and approved them.
 
 ### DEPLOY: feat/155-badge-list
 
@@ -44,25 +54,24 @@
 
 ##### Tier 0
 
-**Score:**
+A `BadgeList` component and a house `.badge-list` class: several badged items as a real list (`<ul>`), with a
+wrapped item keeping its badge on the first line. The dkj-claude-plugins connector preview lists its checks
+with it.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+An app that takes this release can mark up a list of status lines as `.badge-list`, and a screen reader then
+announces it as a list; an app with its own class named `.badge-list` renames it.
+
+**Score:** 1
 
 #### Pull Request
 

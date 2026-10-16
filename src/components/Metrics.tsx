@@ -135,3 +135,20 @@ export function BadgeRow({ badge, children }: { badge: ReactNode; children: Reac
     </div>
   )
 }
+
+/**
+ * BadgeList -- several badged items as a list (the house .badge-list): a <ul> of .badge-row items, so a screen reader
+ * hears a list and how long it is. A wrapped text keeps its badge on the first line.
+ */
+export function BadgeList({ label, items }: { label?: string; items: readonly { id: string; badge: ReactNode; text: ReactNode }[] }) {
+  return (
+    <ul className="badge-list" aria-label={label}>
+      {items.map((i) => (
+        <li key={i.id} className="badge-row">
+          {i.badge}
+          <span>{i.text}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
