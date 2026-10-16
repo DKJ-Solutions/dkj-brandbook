@@ -3,13 +3,13 @@ import { cx } from './cx'
 import './tables.css'
 
 type Tone = 'negative' | 'positive' | 'warn'
-type DefinitionRow = { term: string; value: string; tone?: Tone; weight?: 'bold' | 'regular'; info?: ReactNode }
+type DefinitionRow = { term: string; value: ReactNode; tone?: Tone; weight?: 'bold' | 'regular'; info?: ReactNode }
 
 /**
  * DefinitionList -- label left, value right (bold, tabular), a rule between rows; a detail line small and muted under
  * the label; an optional total row in bold without a rule under it. variant="facts": the label is muted.
  * A value takes the ValueBox props: tone (negative red, positive green, warn the warning colour) and weight ("regular" for a secondary figure).
- * info: a slot right after the label, for an inline RoundToggle or a Tooltip.
+ * info: a slot right after the label, for an inline RoundToggle or a Tooltip. A value is a node, so it can be a link.
  */
 export function DefinitionList({
   items,
