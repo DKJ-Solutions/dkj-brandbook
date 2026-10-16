@@ -78,22 +78,24 @@ export function RepoDashboard() {
 
       <Card variant="data">
         <CardHead title="DKJ-Solutions repos" subtitle="Every repo that follows the brand book, with its app preview and, where one exists, its dashboard preview." />
-        <DataTable
-          label="DKJ-Solutions repos"
-          columns={[
-            { key: 'repo', label: 'Repo' },
-            { key: 'app', label: 'App preview' },
-            { key: 'dashboard', label: 'Dashboard preview' },
-          ]}
-          rows={REPOS.map((r) => ({
-            id: r,
-            cells: {
-              repo: <a href={`https://github.com/${ORG}/${r}`}>{r}</a>,
-              app: <a href={appPreviewPath(r)}>Open</a>,
-              dashboard: PREVIEWS.some((p) => p.id === r) ? <a href={dashboardPreviewPath(r)}>Open</a> : '--',
-            },
-          }))}
-        />
+        <CardBody>
+          <DataTable
+            label="DKJ-Solutions repos"
+            columns={[
+              { key: 'repo', label: 'Repo' },
+              { key: 'app', label: 'App preview' },
+              { key: 'dashboard', label: 'Dashboard preview' },
+            ]}
+            rows={REPOS.map((r) => ({
+              id: r,
+              cells: {
+                repo: <a href={`https://github.com/${ORG}/${r}`}>{r}</a>,
+                app: <a href={appPreviewPath(r)}>Open</a>,
+                dashboard: PREVIEWS.some((p) => p.id === r) ? <a href={dashboardPreviewPath(r)}>Open</a> : '--',
+              },
+            }))}
+          />
+        </CardBody>
       </Card>
 
       <Card variant="data">
