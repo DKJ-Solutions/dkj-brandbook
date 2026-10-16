@@ -584,7 +584,7 @@ function Get-TestCommands {
 }
 
 function Get-ReleaseAudienceTier {
-    <# Tier 2: the readers of a release are the DKJ-Solutions apps that take a house-style-v<N> tag and
+    <# Tier 2: the readers of a release are the DKJ-Solutions apps that take a house-style release tag and
        rely on what it ships -- not a commissioner, so not tier 1. The same answer as the other
        DKJ-Solutions repos. #>
     return 2
