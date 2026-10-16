@@ -123,7 +123,7 @@ function RepoCard({ repo }: { repo: Repo }) {
   return (
     <div id={slug(repo.name)}>
       <Card variant="data">
-        <CardHead title={repo.name} subtitle={`${s.word} · ${repo.visibility}`} />
+        <CardHead title={repo.name} badge={<Badge tone={s.tone}>{s.glyph}</Badge>} subtitle={`${s.word} · ${repo.visibility}`} />
         <CardBody>
           <DefinitionList
             variant="facts"
@@ -225,7 +225,7 @@ export function ConnectedReposPreview() {
         <RepoCard key={r.name} repo={r} />
       ))}
       <Gap>
-        a per-repo card has no status mark in its title (CardHead title takes a node, but the house has no heading-with-badge pattern), DefinitionList values are plain strings, so a GitHub link cannot sit in one, and the signal list is one
+        DefinitionList values are plain strings, so a GitHub link cannot sit in one, and the signal list is one
         BadgeRow per line with no list component or spacing between them. There is no in-page anchor offset or "back to overview" link.
       </Gap>
 

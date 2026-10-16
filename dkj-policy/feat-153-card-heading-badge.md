@@ -32,11 +32,22 @@
 
 ### PLAN
 
+Issue #153: the house has no pattern for a card heading led by a status badge, so the connector preview's repo
+cards put the status in the sub line only. `CardHead` gets a `badge` slot before the title text, and the house
+`.card__title > .badge` the same spacing, so both forms have the pattern. The badge stays decorative; the sub
+line still says the status in words.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `CardHead`: a `badge` prop, rendered before the title; `.dkj-card-title > .badge` and the house `.card__title > .badge` take a `--spacing-2` right margin.
+- [x] Showcase Card section: a data card with a badged title.
+- [x] Connector preview: each repo card's title is led by its status badge; its Gap note no longer lists this.
+- [x] `house-style/README.md`: the card head parts name the badge.
 
 ### TEST
+
+- [x] Gates (`open-pr -GatesOnly`) pass.
+- [ ] An owner has looked at the badged data card on `/showcase#Card` and the repo cards on `/dashboards/dkj-claude-plugins`, and approved them.
 
 ### DEPLOY: feat/153-card-heading-badge
 
@@ -44,7 +55,10 @@
 
 ##### Tier 0
 
-**Score:**
+A card heading can be led by a status badge: `CardHead badge` in React, a `.badge` before the text in a house
+`.card__title`. The dkj-claude-plugins connector preview's repo cards use it.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +67,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +78,10 @@
 
 ##### Tier 2
 
-**Score:**
+An app that takes this release can put a `.badge` before the text of a `.card__title` and it is spaced from the
+title; an app that already does so loses its own spacing rule's need.
+
+**Score:** 1
 
 #### Pull Request
 
