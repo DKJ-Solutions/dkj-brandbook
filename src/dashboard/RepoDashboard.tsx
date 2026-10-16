@@ -67,7 +67,8 @@ export function RepoDashboard() {
   return (
     <main className="dkj-dashboard">
       <Toolbar />
-      <header className="dkj-intro">
+      {/* A div, not a header: the house style makes main > header the flex page-header row. */}
+      <div className="dkj-intro">
         <p className="dkj-eyebrow">{REPO}</p>
         <h1>Repo dashboard</h1>
         <p className="dkj-lead">
@@ -79,7 +80,7 @@ export function RepoDashboard() {
             Open the brand book
           </Button>
         </p>
-      </header>
+      </div>
 
       <StatTiles>
         <StatTile label="Open pull requests" value={count(data?.pulls.length)} />
