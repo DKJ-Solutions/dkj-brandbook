@@ -168,6 +168,9 @@ export function Overlays() {
         <Demo label="Three levels">
           <Breadcrumbs items={[{ label: 'Home', href: '#Breadcrumbs' }, { label: 'Section', href: '#Breadcrumbs' }, { label: 'Current page' }]} />
         </Demo>
+        <Demo label="As a bar (on a page it spans the full screen width, above main)" wide>
+          <Breadcrumbs bar items={[{ label: 'Home', href: '#Breadcrumbs' }, { label: 'Section', href: '#Breadcrumbs' }, { label: 'Current page' }]} />
+        </Demo>
       </Section>
 
       <Section id="MenuRow" title="MenuRow" intro="A label, the chosen value right-aligned, and a pencil centred under the drawer's close button.">

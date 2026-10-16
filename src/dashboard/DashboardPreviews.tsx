@@ -29,21 +29,23 @@ const PREVIEWS: readonly DashboardPreview[] = [
  */
 export function DashboardIndex() {
   return (
-    <main className="dkj-dashboard">
-      <Toolbar />
-      <Breadcrumbs items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews' }]} />
-      <div className="dkj-intro">
-        <h1>Repo dashboard previews</h1>
-        <p className="dkj-lead">
-          Other repos' Repo dashboards in this repo's dashboard shape, to see where the shape does not fit yet. Placeholder data only.
-        </p>
-      </div>
-      {PREVIEWS.map((p) => (
-        <Card key={p.id}>
-          <CardHead title={p.label} subtitle={p.description} actions={<Button href={dashboardPreviewPath(p.id)}>Open preview</Button>} />
-        </Card>
-      ))}
-    </main>
+    <>
+      <Breadcrumbs bar items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews' }]} />
+      <main className="dkj-dashboard">
+        <Toolbar />
+        <div className="dkj-intro">
+          <h1>Repo dashboard previews</h1>
+          <p className="dkj-lead">
+            Other repos' Repo dashboards in this repo's dashboard shape, to see where the shape does not fit yet. Placeholder data only.
+          </p>
+        </div>
+        {PREVIEWS.map((p) => (
+          <Card key={p.id}>
+            <CardHead title={p.label} subtitle={p.description} actions={<Button href={dashboardPreviewPath(p.id)}>Open preview</Button>} />
+          </Card>
+        ))}
+      </main>
+    </>
   )
 }
 
@@ -52,28 +54,31 @@ export function DashboardPreviewPage({ id }: { id: string }) {
   const preview = PREVIEWS.find((p) => p.id === id)
 
   return (
-    <main className="dkj-dashboard">
-      <Toolbar />
+    <>
       <Breadcrumbs
+        bar
         items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews', href: DASHBOARDS_PATH }, { label: preview?.label ?? id }]}
       />
-      {preview ? (
-        <>
-          <Message>
-            Preview of another repo's dashboard in this repo's dashboard shape, to see where the shape does not fit yet. Placeholder data only:
-            the repos, plugins and notes below are invented.
-          </Message>
-          <p className="dkj-eyebrow">{preview.label}</p>
-          {/* The showcase's frame for a recreated app: everything inside it is the preview, everything above it is this page. */}
-          <div className="dkj-preview-frame">
-            <div className="dkj-dashboard dkj-preview-app--padded">
-              <preview.Component />
+      <main className="dkj-dashboard">
+        <Toolbar />
+        {preview ? (
+          <>
+            <Message>
+              Preview of another repo's dashboard in this repo's dashboard shape, to see where the shape does not fit yet. Placeholder data only:
+              the repos, plugins and notes below are invented.
+            </Message>
+            <p className="dkj-eyebrow">{preview.label}</p>
+            {/* The showcase's frame for a recreated app: everything inside it is the preview, everything above it is this page. */}
+            <div className="dkj-preview-frame">
+              <div className="dkj-dashboard dkj-preview-app--padded">
+                <preview.Component />
+              </div>
             </div>
-          </div>
-        </>
-      ) : (
-        <Message>There is no dashboard preview for this repo.</Message>
-      )}
-    </main>
+          </>
+        ) : (
+          <Message>There is no dashboard preview for this repo.</Message>
+        )}
+      </main>
+    </>
   )
 }
