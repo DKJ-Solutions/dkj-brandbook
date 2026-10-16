@@ -101,5 +101,5 @@
 .dkj-breadcrumbs-sep { color: var(--primary-5); }
 .dkj-breadcrumbs [aria-current='page'] { color: var(--primary-9); font-weight: var(--dkj-fw-semibold); }
 /* The bar: full screen width on a tinted background, the trail aligned with the house page column (.container). */
-.dkj-breadcrumbs-bar { background: var(--primary-3); box-shadow: 0 1px 0 var(--primary-4); }
+.dkj-breadcrumbs-bar { background: var(--primary-2); }
 .dkj-breadcrumbs-bar > .container { padding-top: var(--spacing-2-5); padding-bottom: var(--spacing-2-5); }
