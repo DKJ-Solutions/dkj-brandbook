@@ -48,7 +48,7 @@ The house stylesheet has `.pos` / `.neg` but no warn text class, so the colour l
 ### TEST
 
 - [x] The lint gate (`open-pr -GatesOnly`)
-- [ ] An owner has looked at the warn tile on `/showcase#StatTile` and the Notes tile on `/dashboards/dkj-claude-plugins`, in a light and a dark theme, and approved it
+- [x] An owner has looked at the warn tile on `/showcase#StatTile` and the Notes tile on `/dashboards/dkj-claude-plugins`, in a light and a dark theme, and approved it
 
 ### DEPLOY: feat/149-stattile-warn-tone
 
