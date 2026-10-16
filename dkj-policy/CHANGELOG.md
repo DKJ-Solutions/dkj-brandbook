@@ -2,7 +2,41 @@
 
 ## [Unreleased]
 
-**83 minor entries** <!-- pending-tally -->
+**84 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/141-dashboard-house-classes · 20261016-123635Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house style has classes for every block of the Repo dashboard (`.eyebrow`, `.lead`, `.card__head`, `.card__title`,
+`.card__sub`, `.facts`, `.msg`, `.page-column`, `.page-cta`), so a repo without React builds the approved form from
+`house-style.css` alone, and `house-style/patterns/repo-dashboard.html` is the reference page that does it. A `.btn` on a
+link no longer draws an underline.
+
+**Score:** 3
+
+##### Tier 1
+
+A repo without a build, such as a generated page or a Worker, can now show the same Repo dashboard as the React repos.
+
+**Score:** 2
+
+##### Tier 2
+
+An app that takes this release gets nine new house classes (renaming any of its own that share a name) and loses the
+underline on its link buttons.
+
+**Score:** 3
+
+#### Pull Request
+
+House style: house classes for the Repo dashboard's intro, data-card head, facts list, message and column
+
+[PR #145](https://github.com/DKJ-Solutions/dkj-brandbook/pull/145)
+
+---
 
 ### DEPLOY: fix/142-tier1-score · 20261016-122601Z
 
