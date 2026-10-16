@@ -32,11 +32,22 @@
 
 ### PLAN
 
+#141: give the six brand-book-only parts of the Repo dashboard form a house class, so a repo without React can build the
+approved form from `house-style.css` alone, and prove it with a stylesheet-only reference page (the optional item of #139).
+A change to the stylesheet every app copies: a visible result, so the branch is parked for an owner's look, no PR.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style.css`: `.eyebrow`, `.lead`, `.card__head` / `.card__title` / `.card__sub`, `.facts`, `.msg` / `.msg--warn`, `.page-column`, `.page-cta`, each with the values the approved dashboard renders (Gwen)
+- [x] `house-style.css`: `.btn` draws no underline on an `<a>` (Gwen)
+- [x] `house-style/patterns/repo-dashboard.html`: the stylesheet-only reference page (Gwen)
+- [x] `house-style/README.md`: the dashboard table names a house class per block, the closing paragraph, the reserved names, the `.btn` underline note
+- [x] Code review (Victor): one bug fixed (the facts list lost its gap under the card head: the head rule is now `.card > .card__head + *`); the settings button moved out of `<main>`; the mirrored brand-book values commented. The missing live region on the message is a component issue, filed as #144
 
 ### TEST
+
+- [x] The gate (`open-pr -GatesOnly`) green
+- [ ] An owner has looked at http://localhost:5173/house-style/patterns/repo-dashboard.html next to http://localhost:5173/ and approved it
 
 ### DEPLOY: feat/141-dashboard-house-classes
 
@@ -44,25 +55,25 @@
 
 ##### Tier 0
 
-**Score:**
+The house style has classes for every block of the Repo dashboard (`.eyebrow`, `.lead`, `.card__head`, `.card__title`,
+`.card__sub`, `.facts`, `.msg`, `.page-column`, `.page-cta`), so a repo without React builds the approved form from
+`house-style.css` alone, and `house-style/patterns/repo-dashboard.html` is the reference page that does it. A `.btn` on a
+link no longer draws an underline.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 3
 
 ##### Tier 1
 
-**Score:**
+A repo without a build, such as a generated page or a Worker, can now show the same Repo dashboard as the React repos.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 2
 
-**Score:**
+An app that takes this release gets nine new house classes (renaming any of its own that share a name) and loses the
+underline on its link buttons.
+
+**Score:** 3
 
 #### Pull Request
 
