@@ -19,7 +19,7 @@ const REPO = 'DKJ-Solutions/dkj-brandbook'
 const TRUNK = 'main'
 const API = `https://api.github.com/repos/${REPO}`
 
-type Pull = { number: number; title: string; html_url: string; draft: boolean; updated_at: string; head: { ref: string } }
+type Pull = { number: number; title: string; html_url: string; draft: boolean; created_at: string; head: { ref: string } }
 type Issue = { number: number; title: string; html_url: string; updated_at: string; labels: { name: string }[]; assignees: { login: string }[]; pull_request?: unknown }
 type Branch = { name: string }
 type InFlight = { pulls: Pull[]; issues: Issue[]; branches: Branch[] }
@@ -51,7 +51,7 @@ function useInFlight() {
 }
 
 const day = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short' })
-const updated = (iso: string) => day.format(new Date(iso))
+const date = (iso: string) => day.format(new Date(iso))
 
 /** The issue's prio-N label as a number, or Infinity without one, so unprioritised issues sort last. */
 function prio(issue: Issue) {
@@ -100,11 +100,11 @@ export function RepoDashboard() {
                 columns={[
                   { key: 'title', label: 'Pull request' },
                   { key: 'number', label: 'Number' },
-                  { key: 'updated', label: 'Updated' },
+                  { key: 'opened', label: 'Opened' },
                 ]}
                 rows={data.pulls.map((p) => ({
                   id: String(p.number),
-                  cells: { title: <a href={p.html_url}>{p.title}</a>, number: `#${p.number}`, updated: updated(p.updated_at) },
+                  cells: { title: <a href={p.html_url}>{p.title}</a>, number: `#${p.number}`, opened: date(p.created_at) },
                   sub: p.draft ? `${p.head.ref} (draft)` : p.head.ref,
                 }))}
                 empty="No open pull requests."

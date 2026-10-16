@@ -5,13 +5,14 @@ import './brand-layer.css'
 import './index.css'
 import App from './App.tsx'
 import { RepoDashboard } from './dashboard/RepoDashboard.tsx'
-import { DASHBOARD_PATH, SHOWCASE_PATH, isShowcasePath } from './routes'
+import { SHOWCASE_PATH, isDashboardPath, isShowcasePath } from './routes'
 
-// A link from before the showcase moved off the index (/#tokens, /#preview/<repo>) still lands on its section.
-if (window.location.pathname === DASHBOARD_PATH && window.location.hash.length > 1) {
-  window.location.replace(`${SHOWCASE_PATH}${window.location.hash}`)
+const { pathname, hash } = window.location
+
+// A link from before the showcase moved off the index (/#tokens, /#preview/<repo>) still lands on its section;
+// nothing renders meanwhile, so the dashboard neither flashes nor spends GitHub requests on the way.
+if (isDashboardPath(pathname) && hash.length > 1) {
+  window.location.replace(`${SHOWCASE_PATH}${hash}`)
+} else {
+  createRoot(document.getElementById('root')!).render(<StrictMode>{isShowcasePath(pathname) ? <App /> : <RepoDashboard />}</StrictMode>)
 }
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>{isShowcasePath(window.location.pathname) ? <App /> : <RepoDashboard />}</StrictMode>,
-)
