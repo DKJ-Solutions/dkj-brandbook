@@ -32,11 +32,19 @@
 
 ### PLAN
 
+Issue #146: a lone button in a joined `SegmentedChoice` matches both `:first-child` and `:last-child`
+in `src/components/buttons.css`, and the later `:last-child` rule squares its left corners. An
+`:only-child` rule after both rounds all four.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/components/buttons.css`: `.dkj-choices--joined .dkj-choice:only-child` rounds all four corners.
+- [x] Showcase `SegmentedChoice` section: a joined example with a single option, so the fix can be seen.
 
 ### TEST
+
+- [x] Gates (`open-pr -GatesOnly`) pass.
+- [ ] An owner has looked at the single-option joined example on `/showcase#SegmentedChoice` and approved it.
 
 ### DEPLOY: fix/146-joined-choice-only-child
 
@@ -44,25 +52,22 @@
 
 ##### Tier 0
 
-**Score:**
+A joined `SegmentedChoice` with a single option now has rounded corners on every side of its filled button,
+instead of square left corners inside the rounded capsule. The showcase shows that case.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 1
 
 ##### Tier 1
 
-**Score:**
+N/A: a component's corner radius; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
