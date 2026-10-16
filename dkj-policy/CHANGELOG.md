@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**93 minor entries** <!-- pending-tally -->
+**94 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/155-badge-list · 20261016-133650Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `BadgeList` component and a house `.badge-list` class: several badged items as a real list (`<ul>`), with a
+wrapped item keeping its badge on the first line. The dkj-claude-plugins connector preview lists its checks
+with it.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+An app that takes this release can mark up a list of status lines as `.badge-list`, and a screen reader then
+announces it as a list; an app with its own class named `.badge-list` renames it.
+
+**Score:** 1
+
+#### Pull Request
+
+BadgeList: a list of badged items
+
+[PR #167](https://github.com/DKJ-Solutions/dkj-brandbook/pull/167)
+
+---
 
 ### DEPLOY: feat/154-definitionlist-node-values · 20261016-133424Z
 
