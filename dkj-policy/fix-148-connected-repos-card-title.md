@@ -32,11 +32,20 @@
 
 ### PLAN
 
+#### Decision
+
+Owner's decision on #148 (maikel-bwj, October 16, 2026): option (b). The shell stays unchanged; a
+repo's own title and source-commit line go in a data card's head.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/dashboard/ConnectedReposPreview.tsx`: the overview card is titled "Connected repos" with the
+  source commit in its sub line, and the "Gap:" note about the missing title slot is removed
 
 ### TEST
+
+- [x] Lint gate (`scripts/lint/lint-web.ps1`) green
+- [ ] An owner has looked at the Connected repos preview and approved it
 
 ### DEPLOY: fix/148-connected-repos-card-title
 
@@ -44,7 +53,11 @@
 
 ##### Tier 0
 
-**Score:**
+The Connected repos preview now shows a repo's own title and source commit as a data card's head
+("Connected repos", with the source commit in its sub line), as decided on #148; the Repo dashboard
+shell is unchanged and the preview's "Gap:" note for it is gone.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +66,9 @@
 
 ##### Tier 1
 
-**Score:**
+A preview inside the brand book; management sees no difference.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +77,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing service changes.
+
+**Score:** N/A
 
 #### Pull Request
 
