@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { cx } from './components/cx'
+import { DASHBOARD_PATH } from './routes'
 import { Toolbar } from './showcase/Showcase'
 import { Intro } from './showcase/sections/Intro'
 import { RepoPreview } from './showcase/previews/RepoPreview'
@@ -77,6 +78,9 @@ export default function App() {
       <nav className="dkj-nav" aria-labelledby="dkj-nav-title">
         <h2 className="dkj-brand" id="dkj-nav-title">Contents</h2>
         <p className="dkj-brand-sub">Jump to a section or an app preview</p>
+        <a className="dkj-nav-home" href={DASHBOARD_PATH}>
+          &larr; Repo dashboard
+        </a>
         {/* Group labels, not headings: each names its list (aria-labelledby), so the menu keeps its compact size. */}
         {NAV.map((g, n) => (
           <div key={g.group}>

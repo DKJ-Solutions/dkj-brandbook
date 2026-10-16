@@ -32,11 +32,23 @@
 
 ### PLAN
 
+Issue #137: the index of the dev server is the Repo dashboard (DKJ-Solutions/dkj-claude-plugins#3064), and the showcase
+moves to `/showcase`. Routing by path in `src/main.tsx`, no router dependency; in-flight data is read live from the public
+GitHub API.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/routes.ts`: the two paths; `src/main.tsx` renders the dashboard on `/` and the showcase on `/showcase`, and sends an old `/#section` link on to `/showcase#section`
+- [x] `src/dashboard/RepoDashboard.tsx` + `dashboard.css`: summary, a button to the showcase, counts and tables of open PRs, open issues (by priority) and branches off `main`, built from the house components
+- [x] The showcase nav links back to the Repo dashboard; `Toolbar` works without the width controls
+- [x] `Get-DevPreview` label is `Repo dashboard`; README and `.claude/rules/this-repo.md` name both routes
+- [~] A `ProductPath`-style field: dropped here, because #3064 is not released yet; tracked in #138
 
 ### TEST
+
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
+- [x] The dev server serves `/`, `/showcase` and `/showcase/`; the GitHub API answers with CORS open
+- [ ] An owner has looked at the Repo dashboard and the moved showcase and approved it
 
 ### DEPLOY: feat/137-repo-dashboard-index
 
@@ -44,7 +56,10 @@
 
 ##### Tier 0
 
-**Score:**
+The dev server's index is now the Repo dashboard: what this repo is for, the open pull requests, issues and branches, and a
+button to the brand book, which moved to `/showcase` (#137). Old `/#section` links still land on their section.
+
+**Score:** 3
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +68,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +79,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
