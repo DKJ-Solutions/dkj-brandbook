@@ -34,9 +34,11 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/components/Table.tsx`: the `DataRow.tone` JSDoc's literal `\n   *` replaced by a real line break
 
 ### TEST
+
+- [x] Lint gate (`scripts/lint/lint-web.ps1`) green
 
 ### DEPLOY: fix/163-table-tone-comment-newline
 
@@ -44,7 +46,9 @@
 
 ##### Tier 0
 
-**Score:**
+The JSDoc on `DataRow.tone` in `Table.tsx` is now a real two-line comment, so hover docs no longer show a literal `\n   *`. Comment only, no runtime change.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +57,9 @@
 
 ##### Tier 1
 
-**Score:**
+A source comment; management sees no difference.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +68,9 @@
 
 ##### Tier 2
 
-**Score:**
+Nothing a user of the brand book can see changes.
+
+**Score:** N/A
 
 #### Pull Request
 
