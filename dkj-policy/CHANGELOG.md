@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**94 minor entries** <!-- pending-tally -->
+**95 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/156-dashboard-anchor-offset · 20261016-134049Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+On a Repo dashboard, a card reached by an in-page link lands 5rem below the top, clear of the settings
+button, in the React shell and in the stylesheet-only `.page-column` alike. On the dkj-claude-plugins
+connector preview each repo card has a "Back to overview" button to the Overview table.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+An app that takes this release and puts `.page-column` on its `<main>` gets `scroll-margin-top: 5rem` on
+every element with an `id` in it, so an in-page link no longer lands under its settings button.
+
+**Score:** 1
+
+#### Pull Request
+
+Dashboard: anchors land clear of the settings button, and a card links back to the overview
+
+[PR #168](https://github.com/DKJ-Solutions/dkj-brandbook/pull/168)
+
+---
 
 ### DEPLOY: feat/155-badge-list · 20261016-133650Z
 
