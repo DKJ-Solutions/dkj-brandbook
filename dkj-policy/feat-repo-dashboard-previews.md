@@ -36,9 +36,15 @@ Owner's choice A: start with dkj-claude-plugins only (its connector dashboard); 
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Extract the shared dashboard shell (intro, in-flight tiles and cards) from `RepoDashboard.tsx` into `DashboardShell.tsx`
+- [x] New route `/dashboards` (`DashboardPreviews.tsx`) with a repo selector, and a button to it on the Repo dashboard
+- [x] `ConnectedReposPreview.tsx`: dkj-claude-plugins' connector dashboard recreated in the shell with placeholder data, each misfit marked "Gap: ..."
+- [x] Code review (Victor): no bugs; four cleanups applied
 
 ### TEST
+
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at `/dashboards` and approved it
 
 ### DEPLOY: feat/repo-dashboard-previews
 
@@ -46,25 +52,23 @@ Owner's choice A: start with dkj-claude-plugins only (its connector dashboard); 
 
 ##### Tier 0
 
-**Score:**
+The Repo dashboard has a button to `/dashboards`, a page that previews another repo's Repo dashboard in this repo's dashboard
+shape, starting with dkj-claude-plugins' connector dashboard. The data is placeholder data, and every place where the content does
+not fit the shape is marked on the page as a gap.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 3
 
 ##### Tier 1
 
-**Score:**
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 

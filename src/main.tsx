@@ -5,7 +5,8 @@ import './brand-layer.css'
 import './index.css'
 import App from './App.tsx'
 import { RepoDashboard } from './dashboard/RepoDashboard.tsx'
-import { SHOWCASE_PATH, isDashboardPath, isShowcasePath } from './routes'
+import { DashboardPreviews } from './dashboard/DashboardPreviews.tsx'
+import { SHOWCASE_PATH, isDashboardPath, isDashboardsPath, isShowcasePath } from './routes'
 
 const { pathname, hash } = window.location
 
@@ -14,5 +15,5 @@ const { pathname, hash } = window.location
 if (isDashboardPath(pathname) && hash.length > 1) {
   window.location.replace(`${SHOWCASE_PATH}${hash}`)
 } else {
-  createRoot(document.getElementById('root')!).render(<StrictMode>{isShowcasePath(pathname) ? <App /> : <RepoDashboard />}</StrictMode>)
+  createRoot(document.getElementById('root')!).render(<StrictMode>{isShowcasePath(pathname) ? <App /> : isDashboardsPath(pathname) ? <DashboardPreviews /> : <RepoDashboard />}</StrictMode>)
 }

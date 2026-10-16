@@ -3,10 +3,10 @@ import { Button } from '../components/Button'
 import { Card, CardBody, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { Message } from '../components/Feedback'
-import { StatTile, StatTiles } from '../components/Metrics'
-import { DataTable, DefinitionList } from '../components/Table'
-import { SHOWCASE_PATH } from '../routes'
+import { DefinitionList } from '../components/Table'
+import { DASHBOARDS_PATH, SHOWCASE_PATH } from '../routes'
 import { Toolbar } from '../showcase/Showcase'
+import { DashboardIntro, InFlightCards, InFlightTiles, type Branch, type InFlight, type Issue, type Pull } from './DashboardShell'
 import './dashboard.css'
 
 /**
@@ -19,10 +19,6 @@ const REPO = 'DKJ-Solutions/dkj-brandbook'
 const TRUNK = 'main'
 const API = `https://api.github.com/repos/${REPO}`
 
-type Pull = { number: number; title: string; html_url: string; draft: boolean; created_at: string; head: { ref: string } }
-type Issue = { number: number; title: string; html_url: string; updated_at: string; labels: { name: string }[]; assignees: { login: string }[]; pull_request?: unknown }
-type Branch = { name: string }
-type InFlight = { pulls: Pull[]; issues: Issue[]; branches: Branch[] }
 type Load = { status: 'loading' } | { status: 'error'; reason: string } | { status: 'ready'; data: InFlight }
 
 async function get<T>(path: string, signal: AbortSignal): Promise<T> {
@@ -50,110 +46,33 @@ function useInFlight() {
   return load
 }
 
-const day = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short' })
-const date = (iso: string) => day.format(new Date(iso))
-
-/** The issue's prio-N label as a number, or Infinity without one, so unprioritised issues sort last. */
-function prio(issue: Issue) {
-  const m = issue.labels.map((l) => /^prio-(\d+)$/.exec(l.name)).find(Boolean)
-  return m ? Number(m[1]) : Infinity
-}
-
 export function RepoDashboard() {
   const load = useInFlight()
   const data = load.status === 'ready' ? load.data : null
-  const count = (n: number | undefined) => (n === undefined ? '--' : String(n))
 
   return (
     <main className="dkj-dashboard">
       <Toolbar />
-      {/* A div, not a header: the house style makes main > header the flex page-header row. */}
-      <div className="dkj-intro">
-        <p className="dkj-eyebrow">{REPO}</p>
-        <h1>Repo dashboard</h1>
-        <p className="dkj-lead">
-          The single source of the DKJ-Solutions brand: the design principles, the tokens, the twelve themes and every component the
-          DKJ-Solutions apps share, in one place.
-        </p>
-        <p className="dkj-dashboard-cta">
-          <Button variant="primary" href={SHOWCASE_PATH}>
-            Open the brand book
-          </Button>
-        </p>
-      </div>
+      <DashboardIntro
+        eyebrow={REPO}
+        title="Repo dashboard"
+        lead="The single source of the DKJ-Solutions brand: the design principles, the tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place."
+        actions={
+          <>
+            <Button variant="primary" href={SHOWCASE_PATH}>
+              Open the brand book
+            </Button>{' '}
+            <Button href={DASHBOARDS_PATH}>Preview other repo dashboards</Button>
+          </>
+        }
+      />
 
-      <StatTiles>
-        <StatTile label="Open pull requests" value={count(data?.pulls.length)} />
-        <StatTile label="Open issues" value={count(data?.issues.length)} />
-        <StatTile label={`Branches off ${TRUNK}`} value={count(data?.branches.length)} />
-      </StatTiles>
+      <InFlightTiles data={data} trunk={TRUNK} />
 
       {load.status === 'loading' && <Message>Reading what is in flight from GitHub...</Message>}
       {load.status === 'error' && <Message tone="warn">What is in flight could not be read: {load.reason}.</Message>}
 
-      {data && (
-        <>
-          <Card variant="data">
-            <CardHead title="Pull requests" subtitle="Open, newest first" />
-            <CardBody>
-              <DataTable
-                label="Open pull requests"
-                columns={[
-                  { key: 'title', label: 'Pull request' },
-                  { key: 'number', label: 'Number' },
-                  { key: 'opened', label: 'Opened' },
-                ]}
-                rows={data.pulls.map((p) => ({
-                  id: String(p.number),
-                  cells: { title: <a href={p.html_url}>{p.title}</a>, number: `#${p.number}`, opened: date(p.created_at) },
-                  sub: p.draft ? `${p.head.ref} (draft)` : p.head.ref,
-                }))}
-                empty="No open pull requests."
-              />
-            </CardBody>
-          </Card>
-
-          <Card variant="data">
-            <CardHead title="Issues" subtitle="Open, by priority" />
-            <CardBody>
-              <DataTable
-                label="Open issues"
-                columns={[
-                  { key: 'title', label: 'Issue' },
-                  { key: 'number', label: 'Number' },
-                  { key: 'prio', label: 'Priority' },
-                ]}
-                rows={[...data.issues]
-                  .sort((a, b) => prio(a) - prio(b) || b.number - a.number)
-                  .map((i) => ({
-                    id: String(i.number),
-                    cells: { title: <a href={i.html_url}>{i.title}</a>, number: `#${i.number}`, prio: Number.isFinite(prio(i)) ? String(prio(i)) : '--' },
-                    sub: i.assignees.length ? `Claimed by ${i.assignees.map((a) => a.login).join(', ')}` : 'Unclaimed',
-                  }))}
-                empty="No open issues."
-              />
-            </CardBody>
-          </Card>
-
-          <Card variant="data">
-            <CardHead title="Branches" subtitle={`Every branch off ${TRUNK}, with its pull request where one is open`} />
-            <CardBody>
-              <DataTable
-                label={`Branches off ${TRUNK}`}
-                columns={[
-                  { key: 'name', label: 'Branch' },
-                  { key: 'pull', label: 'Pull request' },
-                ]}
-                rows={data.branches.map((b) => {
-                  const pull = data.pulls.find((p) => p.head.ref === b.name)
-                  return { id: b.name, cells: { name: <a href={`https://github.com/${REPO}/tree/${b.name}`}>{b.name}</a>, pull: pull ? `#${pull.number}` : 'none yet' } }
-                })}
-                empty={`No branches off ${TRUNK}.`}
-              />
-            </CardBody>
-          </Card>
-        </>
-      )}
+      {data && <InFlightCards data={data} repo={REPO} trunk={TRUNK} />}
 
       <Card variant="data">
         <CardHead title="About this repo" />
