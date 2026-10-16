@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**90 minor entries** <!-- pending-tally -->
+**91 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/152-datatable-column-priority · 20261016-132939Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `DataTable` column takes `priority: 'low'`, and such a column drops out while the table is narrower than 760px, so a
+wide table fits a phone without scrolling sideways. The showcase's Quantity column and four of the connector
+dashboard preview's eight Overview columns use it.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+DataTable takes a column priority for a narrow screen
+
+[PR #164](https://github.com/DKJ-Solutions/dkj-brandbook/pull/164)
+
+---
 
 ### DEPLOY: feat/151-datatable-warn-tone · 20261016-132625Z
 
