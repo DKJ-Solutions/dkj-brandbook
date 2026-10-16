@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**97 minor entries** <!-- pending-tally -->
+**98 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/158-connected-repos-tile-group · 20261016-143600Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The Connected repos preview now groups the repo's own figures in a "Register" data card, its head the
+group label, as decided on #158; the Repo dashboard shell is unchanged and the preview carries no "Gap:"
+notes any more.
+
+**Score:** 2
+
+##### Tier 1
+
+A preview inside the brand book; management sees no difference.
+
+**Score:** N/A
+
+##### Tier 2
+
+No subscriber-facing service changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+Connected repos preview: the repo's own tiles grouped in a data card
+
+[PR #171](https://github.com/DKJ-Solutions/dkj-brandbook/pull/171)
+
+---
 
 ### DEPLOY: fix/148-connected-repos-card-title · 20261016-143259Z
 
