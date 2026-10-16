@@ -32,11 +32,23 @@
 
 ### PLAN
 
+Write the approved Repo dashboard (#137, merged in #140) down in `house-style/README.md` as the binding form, per #139.
+A doc change: the stylesheet is untouched, so it ships on the gates. The optional standalone HTML reference page is left
+out, because it would be a visible result and the README section is what #139 asks for.
+
+Measured while writing: six parts of the form render brand-book classes `house-style.css` does not define, so a repo
+without React cannot build it from the stylesheet alone yet. The section names that gap per block; lifting those classes
+into the house style is a stylesheet change, filed as #141.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/README.md`: a "Page patterns" chapter with "The Repo dashboard": the eleven blocks in order, the React component and the house class per block, what is fixed and what is per repo, the in-flight lists, the `main > header` pitfall, and the gap to #141
+- [x] Copy edit (Edith)
 
 ### TEST
+
+- [x] Every block, class and behaviour the section names checked against `src/dashboard/RepoDashboard.tsx`, the components and `house-style.css` on `main`
+- [x] The gate (`scripts/lint/lint-web.ps1`) runs in `ship-pr`
 
 ### DEPLOY: docs/139-repo-dashboard-pattern
 
@@ -44,25 +56,25 @@
 
 ##### Tier 0
 
-**Score:**
+The house style now fixes the form of a Repo dashboard, the index of a repo's dev server: eleven blocks in a fixed order
+(eyebrow, `h1` "Repo dashboard", lead, product button, stat tiles, one data card per in-flight list, "About this repo",
+footer note), each named by its brand book component and its house class, and what each repo fills in itself. See
+"Page patterns" in `house-style/README.md`.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 3
 
 ##### Tier 1
 
-**Score:**
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+An app that has or builds a Repo dashboard follows this form. The house stylesheet is untouched, so an app without
+React cannot match the form fully from it yet: the section names which blocks still come from the brand book (#141).
+
+**Score:** 3
 
 #### Pull Request
 
