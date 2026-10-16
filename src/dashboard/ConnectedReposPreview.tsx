@@ -123,7 +123,15 @@ function RepoCard({ repo }: { repo: Repo }) {
   return (
     <div id={slug(repo.name)}>
       <Card variant="data">
-        <CardHead title={repo.name} subtitle={`${s.word} · ${repo.visibility}`} />
+        <CardHead
+          title={repo.name}
+          subtitle={`${s.word} · ${repo.visibility}`}
+          actions={
+            <Button href="#overview" variant="outline" size="compact">
+              Back to overview
+            </Button>
+          }
+        />
         <CardBody>
           <DefinitionList
             variant="facts"
@@ -184,38 +192,40 @@ export function ConnectedReposPreview() {
 
       <InFlightCards data={IN_FLIGHT} repo={REPO} trunk={TRUNK} />
 
-      <Card variant="data">
-        <CardHead title="Overview" subtitle="Every registered repo, worst first" />
-        <CardBody>
-          <DataTable
-            label="Overview of the connected repos"
-            columns={[
-              { key: 'repo', label: 'Repo' },
-              { key: 'status', label: 'Status' },
-              { key: 'visibility', label: 'Visibility' },
-              { key: 'plugins', label: 'Plugins' },
-              { key: 'installed', label: 'Installed' },
-              { key: 'errors', label: 'Errors' },
-              { key: 'notes', label: 'Notes' },
-              { key: 'checkout', label: 'Checkout' },
-            ]}
-            rows={REPOS.map((r) => ({
-              id: r.name,
-              cells: {
-                repo: <a href={`#${slug(r.name)}`}>{r.name}</a>,
-                status: <StatusBadge status={r.status} />,
-                visibility: r.visibility,
-                plugins: String(r.plugins.length),
-                installed: r.installed,
-                errors: String(errorCount(r)),
-                notes: String(r.notes.length),
-                checkout: gitLine(r.git),
-              },
-              tones: { errors: errorCount(r) > 0 ? 'negative' : undefined },
-            }))}
-          />
-        </CardBody>
-      </Card>
+      <div id="overview">
+        <Card variant="data">
+          <CardHead title="Overview" subtitle="Every registered repo, worst first" />
+          <CardBody>
+            <DataTable
+              label="Overview of the connected repos"
+              columns={[
+                { key: 'repo', label: 'Repo' },
+                { key: 'status', label: 'Status' },
+                { key: 'visibility', label: 'Visibility' },
+                { key: 'plugins', label: 'Plugins' },
+                { key: 'installed', label: 'Installed' },
+                { key: 'errors', label: 'Errors' },
+                { key: 'notes', label: 'Notes' },
+                { key: 'checkout', label: 'Checkout' },
+              ]}
+              rows={REPOS.map((r) => ({
+                id: r.name,
+                cells: {
+                  repo: <a href={`#${slug(r.name)}`}>{r.name}</a>,
+                  status: <StatusBadge status={r.status} />,
+                  visibility: r.visibility,
+                  plugins: String(r.plugins.length),
+                  installed: r.installed,
+                  errors: String(errorCount(r)),
+                  notes: String(r.notes.length),
+                  checkout: gitLine(r.git),
+                },
+                tones: { errors: errorCount(r) > 0 ? 'negative' : undefined },
+              }))}
+            />
+          </CardBody>
+        </Card>
+      </div>
       <Gap>
         DataTable right-aligns every column but the first, so the text columns (Status, Visibility, Installed, Checkout) are right-aligned too; there is no per-column alignment. A row tone is negative or positive only, so a
         warn row cannot be coloured. Eight columns scroll sideways on a phone with no column priority.
@@ -226,7 +236,7 @@ export function ConnectedReposPreview() {
       ))}
       <Gap>
         a per-repo card has no status mark in its title (CardHead title takes a node, but the house has no heading-with-badge pattern), DefinitionList values are plain strings, so a GitHub link cannot sit in one, and the signal list is one
-        BadgeRow per line with no list component or spacing between them. There is no in-page anchor offset or "back to overview" link.
+        BadgeRow per line with no list component or spacing between them.
       </Gap>
 
       <FooterNote>Checked 13 October 2026, 09:00 (placeholder).</FooterNote>

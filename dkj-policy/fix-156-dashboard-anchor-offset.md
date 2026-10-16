@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Issue #156: on a dashboard page the settings button is sticky at the top right, so a card reached by an
+in-page anchor scrolls flush to the top edge, under it; and a repo card on the connector preview has no way
+back to the Overview table that links to it.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/dashboard/dashboard.css` and the house `.page-column`: every `[id]` in the column takes `scroll-margin-top: 5rem` (the showcase's offset).
+- [x] Connector preview: the Overview card is `#overview`, and each repo card head carries a compact outline "Back to overview" button; its Gap note no longer lists this.
+- [x] `house-style/README.md`: the anchor offset and the back button in the Repo dashboard section.
 
 ### TEST
+
+- [x] Gates (`open-pr -GatesOnly`) pass.
+- [ ] An owner has looked at `/dashboards/dkj-claude-plugins` (a repo link in the Overview table, then "Back to overview") and approved it.
 
 ### DEPLOY: fix/156-dashboard-anchor-offset
 
@@ -44,25 +53,24 @@
 
 ##### Tier 0
 
-**Score:**
+On a Repo dashboard, a card reached by an in-page link lands 5rem below the top, clear of the settings
+button, in the React shell and in the stylesheet-only `.page-column` alike. On the dkj-claude-plugins
+connector preview each repo card has a "Back to overview" button to the Overview table.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+An app that takes this release and puts `.page-column` on its `<main>` gets `scroll-margin-top: 5rem` on
+every element with an `id` in it, so an in-page link no longer lands under its settings button.
+
+**Score:** 1
 
 #### Pull Request
 

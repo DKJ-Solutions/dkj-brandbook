@@ -1,4 +1,6 @@
 /* The Repo dashboard: the house <main> column, its blocks stacked with one gap. */
 .dkj-dashboard { display: grid; gap: var(--spacing-5); align-content: start; }
 .dkj-dashboard .dkj-intro { margin-bottom: 0; }
+/* An in-page anchor lands with room above it, clear of the sticky settings button (#156); the showcase's offset. */
+.dkj-dashboard [id] { scroll-margin-top: 5rem; }
 .dkj-dashboard-cta { margin: var(--spacing-4) 0 0; }

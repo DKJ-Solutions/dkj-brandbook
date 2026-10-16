@@ -182,6 +182,8 @@ body > header, main > header { display: flex; justify-content: space-between; al
    the button). */
 .page-column { display: grid; gap: var(--spacing-5); align-content: start; }
 .page-column > .card, .page-column > .tiles, .page-column > .notice, .page-column > .footer-note { margin-top: 0; }
+/* An in-page anchor in the column lands with room above it, clear of the settings button (#156). */
+.page-column [id] { scroll-margin-top: 5rem; }
 .page-cta { margin: var(--spacing-4) 0 0; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); }
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--spacing-3); margin-top: var(--spacing-4); }
