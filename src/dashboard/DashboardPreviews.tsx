@@ -25,7 +25,12 @@ export function DashboardPreviews() {
       <p>
         <Button href={DASHBOARD_PATH}>Back to the Repo dashboard</Button>
       </p>
-      <SegmentedChoice label="Repo" layout="joined" options={PREVIEWS.map((p) => ({ value: p.id, label: p.label }))} value={id} onChange={setId} />
+      {/* A choice of one is no choice: the selector appears once a second repo is added. */}
+      {PREVIEWS.length > 1 ? (
+        <SegmentedChoice label="Repo" layout="joined" options={PREVIEWS.map((p) => ({ value: p.id, label: p.label }))} value={id} onChange={setId} />
+      ) : (
+        <p className="dkj-eyebrow">{PREVIEWS[0].label}</p>
+      )}
       <Message>Preview of another repo's dashboard in this repo's dashboard shape, to see where the shape does not fit yet. Placeholder data only: the repos, plugins and notes below are invented.</Message>
       <Component />
     </main>
