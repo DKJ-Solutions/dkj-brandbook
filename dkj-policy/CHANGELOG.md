@@ -2,7 +2,41 @@
 
 ## [Unreleased]
 
-**81 minor entries** <!-- pending-tally -->
+**82 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/139-repo-dashboard-pattern · 20261016-122405Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The house style now fixes the form of a Repo dashboard, the index of a repo's dev server: eleven parts in a fixed order
+(the settings button, the intro with its eyebrow, `h1` "Repo dashboard", lead and product button, stat tiles, a loading
+or warning line, one data card per in-flight list, "About this repo", footer note), each named by its brand book component and its house class, and what each repo fills in itself. See
+"Page patterns" in `house-style/README.md`.
+
+**Score:** 3
+
+##### Tier 1
+
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+An app that has or builds a Repo dashboard follows this form. The house stylesheet is untouched, so an app without
+React cannot match the form fully from it yet: the section names which blocks still come from the brand book (#141).
+
+**Score:** 3
+
+#### Pull Request
+
+House style: the Repo dashboard form as a binding pattern
+
+[PR #142](https://github.com/DKJ-Solutions/dkj-brandbook/pull/142)
+
+---
 
 ### DEPLOY: feat/137-repo-dashboard-index · 20261016-120043Z
 
