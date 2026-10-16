@@ -14,7 +14,8 @@ fetches a tagged release, never `main`** (owner's decision on
 [#3](https://github.com/DKJ-Solutions/dkj-brandbook/issues/3), October 13, 2026): `house-theme.js` is
 executable and runs with the origin of every page it is inlined into, and `main` is a moving ref that an
 admin can push to past the review. A tag is a version somebody chose to release. Raw URLs for a session or
-a build to fetch, with `<tag>` the `house-style-v<N>` release the skill is pinned to:
+a build to fetch, with `<tag>` the release tag the skill is pinned to (`house-style-v1` to
+`house-style-v4`, then `vX.Y.Z`):
 
 - `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/<tag>/house-style/house-style.css`
 - `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/<tag>/house-style/house-theme.js`
@@ -451,10 +452,14 @@ A change here reaches every DKJ-Solutions app the next time it takes a copy, so 
 result**: the branch stops for the owner's look instead of merging. Bring a consumer's improvement here
 as an issue on this repo. Don't make a local edit and hope it travels.
 
-**A merged change reaches nobody until it is released.** A release is a tag on `main`, named
-`house-style-v<N>` with `N` counting up from 1 (`house-style-v1`, `house-style-v2`, ...), and it is set only
-on the owner's explicit request, like any tag. The tag is never moved or reused: a fix is the next number.
-Then the `house-style` skill in the `dkj-solutions` plugin
+**A merged change reaches nobody until it is released.** A release is a tag on `main`, and it is set only
+on the owner's explicit request, like any tag. The first four releases were set by hand as
+`house-style-v1` to `house-style-v4`. From the next release on, every release is cut with the
+`dkj-policy` plugin's `cut-release` and tagged `vX.Y.Z`, numbered on from `house-style-v4`, so the first
+is at least `5.0.0` (#172). The cut also writes the release's changelog notes and its row in
+[`dkj-policy/releases/history.md`](../dkj-policy/releases/history.md), which lists the four earlier tags
+too. A tag is never moved or reused: a fix is a new release. Then the `house-style` skill in the
+`dkj-solutions` plugin
 ([DKJ-Solutions/dkj-claude-plugins](https://github.com/DKJ-Solutions/dkj-claude-plugins)) is repointed to
 the new tag, through an inbound issue there, and the apps get it with that plugin release. So one house-style
 change costs one tag here and one pointer update there, and that second step is the point: nothing reaches

@@ -22,7 +22,7 @@ that plugin's `house-style` skill now only points here.
 - **Every change to the house style is a visible result** under the constitution's safety rules: it
   reaches every DKJ-Solutions app the next time it takes a copy, so the branch stops for the owner's
   look and stays checked out instead of merging. Moving a file unchanged is not a change to it.
-- **A merged house-style change is not yet a released one.** The apps fetch a `house-style-v<N>` tag,
+- **A merged house-style change is not yet a released one.** The apps fetch a release tag,
   never `main`, so her change reaches them only once the owner asks for the next tag and the plugin's
   skill is repointed to it ([`house-style/README.md`](../../../house-style/README.md#changing-the-house-style)).
 - **The spacing and type scales are Figma's, not hers.** They are copied from the *Shopify Theme -
