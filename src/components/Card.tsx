@@ -40,16 +40,19 @@ export function Card({
  * CardHead -- a centred title (optionally with an accent icon), and below it the card's actions over the full width.
  * The title is an <h6> (--text-h6), or an <h2> (--text-h2) in a data card: a heading takes the token of its own level.
  * subtitle: a muted line under the title. info: a slot after the title text, for an inline RoundToggle.
+ * badge: a status Badge before the title text (#153). The Badge is decorative, so say the status in the subtitle too.
  */
 export function CardHead({
   title,
   icon,
+  badge,
   subtitle,
   info,
   actions,
 }: {
   title: ReactNode
   icon?: IconName
+  badge?: ReactNode
   subtitle?: ReactNode
   info?: ReactNode
   actions?: ReactNode
@@ -59,6 +62,7 @@ export function CardHead({
     <div className="dkj-card-head">
       <Title className={cx('dkj-card-title', icon && 'dkj-card-title--icon')}>
         {icon && <Icon name={icon} className="dkj-card-icon" />}
+        {badge}
         {title}
         {info}
       </Title>

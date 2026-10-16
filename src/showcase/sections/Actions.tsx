@@ -123,10 +123,11 @@ export function Actions() {
         <Demo label="List (in a drawer)">
           <SegmentedChoice label="Choose an option" layout="list" options={OPTIONS} value={listChoice} onChange={setListChoice} />
         </Demo>
-        <Demo label="Joined -- two options / nothing chosen">
+        <Demo label="Joined -- two options / nothing chosen / a single option">
           <div className="dkj-demo-row">
             <SegmentedChoice label="View" layout="joined" options={VIEWS} value={view} onChange={setView} />
             <SegmentedChoice label="Choose an option" layout="joined" options={OPTIONS.slice(0, 3)} value={undefined} onChange={setChoice} />
+            <SegmentedChoice label="View" layout="joined" options={VIEWS.slice(0, 1)} value="primary" onChange={setView} />
           </div>
         </Demo>
       </Section>

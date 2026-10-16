@@ -13,16 +13,17 @@ export function StatTiles({ children }: { children: ReactNode }) {
 
 /**
  * StatTile -- a bordered tile: a small muted label (with an optional info slot after it, e.g. an inline RoundToggle)
- * and one figure under it. tone colours the figure: negative red, positive green.
+ * and one figure under it. tone colours the figure: negative red, positive green, warn the warning colour (a count of
+ * notes or warnings).
  */
-export function StatTile({ label, value, info, tone }: { label: string; value: ReactNode; info?: ReactNode; tone?: 'negative' | 'positive' }) {
+export function StatTile({ label, value, info, tone }: { label: string; value: ReactNode; info?: ReactNode; tone?: 'negative' | 'positive' | 'warn' }) {
   return (
     <div className="tile">
       <div className="label">
         {label}
         {info}
       </div>
-      <div className={cx('v', tone === 'negative' && 'neg', tone === 'positive' && 'pos')}>{value}</div>
+      <div className={cx('v', tone === 'negative' && 'neg', tone === 'positive' && 'pos', tone === 'warn' && 'dkj-v--warn')}>{value}</div>
     </div>
   )
 }
@@ -133,5 +134,22 @@ export function BadgeRow({ badge, children }: { badge: ReactNode; children: Reac
       {badge}
       {children}
     </div>
+  )
+}
+
+/**
+ * BadgeList -- several badged items as a list (the house .badge-list): a <ul> of .badge-row items, so a screen reader
+ * hears a list and how long it is. A wrapped text keeps its badge on the first line.
+ */
+export function BadgeList({ label, items }: { label?: string; items: readonly { id: string; badge: ReactNode; text: ReactNode }[] }) {
+  return (
+    <ul className="badge-list" aria-label={label}>
+      {items.map((i) => (
+        <li key={i.id} className="badge-row">
+          {i.badge}
+          <span>{i.text}</span>
+        </li>
+      ))}
+    </ul>
   )
 }

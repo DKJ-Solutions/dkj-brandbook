@@ -315,10 +315,10 @@ the headings take its tint (through `:where()`, so a heading inside a coloured c
 
 **The complete list of reserved names**, so a repo layer knows what not to redefine:
 the page header (`body > header`, `main > header`, with `.header--accent`) and its `.controls` row, `main`/`.container`,
-`.hero`, `.tiles`/`.tile` (with `--accent`), `.card` (with `--accent`, and the head parts `__head`, `__title`, `__sub`), `.grid-2`, `.table-wrap`/`.table` (with `--accent`, `.row-total`, and
+`.hero`, `.tiles`/`.tile` (with `--accent`), `.card` (with `--accent`, and the head parts `__head`, `__title`, `__sub`, with a `.badge` before the title text), `.grid-2`, `.table-wrap`/`.table` (with `--accent`, `.row-total`, and
 sortable headers via `.sort`/`.arrow` on `aria-sort`), `.seg` (a segmented switch), `.legend`/`.legend__item` (with
 `--line`), `.swatch`, `.badge` (with `--good`, `--warn`, `--bad`, `--info`, `--neutral`, `--sm`),
-`.badge-row`, `.meter` (with `--good`, `--warn`, `--bad`, `--info`), `.mini-cards`/`.mini-card` (with
+`.badge-row`, `.badge-list` (a `<ul>` of `.badge-row` items), `.meter` (with `--good`, `--warn`, `--bad`, `--info`), `.mini-cards`/`.mini-card` (with
 `--highlight`), `.item-grid`/`.item`, `.notice`, `.note`, `.meta`, `.muted`, `.sub`, `.eyebrow`, `.lead`, `.msg` (with `--warn`), `.facts`, `.page-column`, `.page-cta`, `.num` (tabular
 numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with `--primary`, and a `:disabled` state for both), `.info-button`, `.tooltip`
 (with `--explain`, and `--open` for one anchored to a trigger), `.more` (a disclosure), `.moretoggle` (a full-width read-more button), `.chart` (the SVG chart scope),

@@ -1,6 +1,6 @@
 import { RoundToggle } from '../../components/Button'
 import { Card, CardHead } from '../../components/Card'
-import { Badge, BadgeRow, Delta, HeroRow, HeroValue, Legend, LegendItem, Meter, MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
+import { Badge, BadgeList, BadgeRow, Delta, HeroRow, HeroValue, Legend, LegendItem, Meter, MiniCard, MiniCards, StatTile, StatTiles } from '../../components/Metrics'
 import { Demo, Section } from '../Showcase'
 import { BarChart, ColumnChart, LineChart, type BarDatum, type ColumnDatum, type LinePoint, type LineSeries } from '../../components/Chart'
 
@@ -80,7 +80,7 @@ export function Metrics() {
             <StatTile label="Label two" value="€ 1,250.00" info={info("Label two")} />
             <StatTile label="A gain" value="+€ 340.50" tone="positive" info={info("A gain")} />
             <StatTile label="A loss" value="−€ 42.10" tone="negative" info={info("A loss")} />
-            <StatTile label="Label five" value="€ 18.75" />
+            <StatTile label="Warnings" value="3" tone="warn" info={info("Warnings")} />
             <StatTile label="Label six" value="€ 9.00" />
           </StatTiles>
         </Demo>
@@ -259,6 +259,16 @@ export function Metrics() {
         <Demo label="Small, 18px, with its text">
           <BadgeRow badge={<Badge tone="good" size="sm">✓</Badge>}>Doing well (3)</BadgeRow>
           <BadgeRow badge={<Badge tone="warn" size="sm">!</Badge>}>Pay attention (2)</BadgeRow>
+        </Demo>
+        <Demo label="BadgeList -- several badged items as a list; a long item wraps with its badge on the first line">
+          <BadgeList
+            label="Checks"
+            items={[
+              { id: 'e', badge: <Badge tone="bad" size="sm">!</Badge>, text: 'Error: the lens for specialist 05-05 is missing.' },
+              { id: 'i', badge: <Badge tone="info" size="sm">i</Badge>, text: 'Info: a newer release is available; this checkout runs the one before it, which still works but no longer receives fixes.' },
+              { id: 's', badge: <Badge tone="neutral" size="sm">-</Badge>, text: 'Skip: no CI workflow to check.' },
+            ]}
+          />
         </Demo>
       </Section>
     </>

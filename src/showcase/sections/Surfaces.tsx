@@ -4,6 +4,7 @@ import { Card, CardBody, CardHead, TintedPanel } from '../../components/Card'
 import { Amount, FooterNote, GroupHeading, QuestionBlock } from '../../components/Content'
 import { Alert, Banner, Chip, Disclosure, Help, Message, ReadMoreToggle, TitleTag } from '../../components/Feedback'
 import { Figure } from '../../components/Figure'
+import { Badge } from '../../components/Metrics'
 import { Prose } from '../../components/Prose'
 import { Icon } from '../../components/Icon'
 import { StatRow, RowList, ValueBox } from '../../components/Row'
@@ -180,6 +181,9 @@ export function Surfaces() {
           </Card>
           <Card variant="data" invalid>
             <CardHead title="Invalid" subtitle="This value is out of range" />
+          </Card>
+          <Card variant="data">
+            <CardHead title="example-repo" badge={<Badge tone="warn">!</Badge>} subtitle="warn · public -- the badge is decorative, so the sub line says the status too" />
           </Card>
         </Demo>
       </Section>
