@@ -315,11 +315,11 @@ the headings take its tint (through `:where()`, so a heading inside a coloured c
 
 **The complete list of reserved names**, so a repo layer knows what not to redefine:
 the page header (`body > header`, `main > header`, with `.header--accent`) and its `.controls` row, `main`/`.container`,
-`.hero`, `.tiles`/`.tile` (with `--accent`), `.card` (with `--accent`), `.grid-2`, `.table-wrap`/`.table` (with `--accent`, `.row-total`, and
+`.hero`, `.tiles`/`.tile` (with `--accent`), `.card` (with `--accent`, and the head parts `__head`, `__title`, `__sub`), `.grid-2`, `.table-wrap`/`.table` (with `--accent`, `.row-total`, and
 sortable headers via `.sort`/`.arrow` on `aria-sort`), `.seg` (a segmented switch), `.legend`/`.legend__item` (with
 `--line`), `.swatch`, `.badge` (with `--good`, `--warn`, `--bad`, `--info`, `--neutral`, `--sm`),
 `.badge-row`, `.meter` (with `--good`, `--warn`, `--bad`, `--info`), `.mini-cards`/`.mini-card` (with
-`--highlight`), `.item-grid`/`.item`, `.notice`, `.note`, `.meta`, `.muted`, `.sub`, `.num` (tabular
+`--highlight`), `.item-grid`/`.item`, `.notice`, `.note`, `.meta`, `.muted`, `.sub`, `.eyebrow`, `.lead`, `.msg` (with `--warn`), `.facts`, `.page-column`, `.page-cta`, `.num` (tabular
 numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with `--primary`, and a `:disabled` state for both), `.info-button`, `.tooltip`
 (with `--explain`, and `--open` for one anchored to a trigger), `.more` (a disclosure), `.moretoggle` (a full-width read-more button), `.chart` (the SVG chart scope),
 `.theme-picker` (with `__row`, `__label`, `__swatches`), `.theme-swatch` (with `--light`, `--dark`) and
@@ -385,19 +385,21 @@ implementation is this repo's own [`RepoDashboard.tsx`](../src/dashboard/RepoDas
 |---|---|---|---|---|
 | 1 | The settings button | `Toolbar` (showcase; the settings button only) | `DKJTheme.settings(el)` from `house-theme.js` (`.theme-settings`) | fixed |
 | 2 | The intro, wrapping 3 to 6: a `<div>`, never a `<header>` (below) | `<div className="dkj-intro">` | a plain `<div>` | fixed |
-| 3 | Eyebrow: `<owner>/<repo>` | `<p className="dkj-eyebrow">` | none yet | fixed form, the repo's own slug |
+| 3 | Eyebrow: `<owner>/<repo>` | `<p className="dkj-eyebrow">` | `.eyebrow` | fixed form, the repo's own slug |
 | 4 | `h1`: **Repo dashboard** | `<h1>` | `h1` | fixed, word for word |
-| 5 | Lead: one paragraph on what the repo is for | `<p className="dkj-lead">` | none yet | the repo's own text |
-| 6 | A primary button to the product | `Button variant="primary"` | `.btn.btn--primary` | product repos only, with the repo's own label. The product has its own route and is never the page on `/` |
+| 5 | Lead: one paragraph on what the repo is for | `<p className="dkj-lead">` | `.lead` | the repo's own text |
+| 6 | A primary button to the product | `Button variant="primary"` | `.btn.btn--touch.btn--primary`, in a `<p class="page-cta">` | product repos only, with the repo's own label. The product has its own route and is never the page on `/` |
 | 7 | One stat tile per in-flight list, counting it | `StatTiles` / `StatTile` | `.tiles` / `.tile`, with `.label` and `.v` | the repo's own lists. A count not read yet shows `--` |
-| 8 | A loading line, or a warning that the lists could not be read | `Message` (loading) / `Message tone="warn"` (error) | none yet | fixed |
-| 9 | One data card per in-flight list, in the tiles' order | `Card variant="data"` with `CardHead` (title, sub line) and `DataTable` | `.card` around `.table-wrap` / `.table`; the card head has none yet | the repo's own lists |
-| 10 | **About this repo**: a facts card | `Card variant="data"` with `DefinitionList variant="facts"` | `.card`; the facts list has none yet | fixed title, the repo's own facts |
+| 8 | A loading line, or a warning that the lists could not be read | `Message` (loading) / `Message tone="warn"` (error) | `.msg` / `.msg.msg--warn` | fixed |
+| 9 | One data card per in-flight list, in the tiles' order | `Card variant="data"` with `CardHead` (title, sub line) and `DataTable` | `.card` around `.table-wrap` / `.table`; the card head is `.card__head` with `.card__title` (an `h2`) and `.card__sub` | the repo's own lists |
+| 10 | **About this repo**: a facts card | `Card variant="data"` with `DefinitionList variant="facts"` | `.card` with `.card__head`; the facts list is `.facts` (a `<dl>`) | fixed title, the repo's own facts |
 | 11 | A footer note naming where the data comes from | `FooterNote` | `.footer-note` | the repo's own source |
 
 `Button` and `Card` render the brand-book classes `.dkj-btn` and `.dkj-card`; the house `.btn--primary` and
 `.card` are the stylesheet's own classes for the same blocks. In the reference the blocks stack in the page
-column with one `--spacing-5` gap between them (`.dkj-dashboard`, a grid on `<main>`).
+column with one `--spacing-5` gap between them (`.dkj-dashboard`, a grid on `<main>`); the stylesheet-only
+equivalent is `.page-column` on `<main>`, which also takes the top margin of its direct `.card`, `.tiles`,
+`.notice` and `.footer-note` so the gap stays one `--spacing-5`.
 
 **The in-flight lists, where a repo has them:** open pull requests, newest first, with the branch as the
 sub line (and "(draft)" on a draft); open issues by their `prio-N` label, unprioritised last and the highest
@@ -414,13 +416,21 @@ a public repo can do; a private repo reads them some other way and says which in
 page-header row, a flex row with its controls beside the title, so a `<header>` there lays the eyebrow, the
 `h1`, the lead and the button out side by side. #137 hit exactly this; a `<div>` keeps them stacked.
 
-**Without React, the form is not complete from `house-style.css` yet.** The house classes cover the settings
-button, the `h1`, the product button, the tiles, the card surface, the tables and the footer note. The
-eyebrow, the lead, the loading line, the data-card head, the facts list and the page gap are brand-book
-classes (the "none yet" rows above), so a page built from the stylesheet alone does not match the approved
-form there. The house `.card`, `.tiles` and `.footer-note` also carry a top margin of their own, which adds
-to the gap. [#141](https://github.com/DKJ-Solutions/dkj-brandbook/issues/141) brings them into the house
-style; until it is released, such a page takes those values from the reference.
+**Without React, the form is complete from `house-style.css`** ([#141](https://github.com/DKJ-Solutions/dkj-brandbook/issues/141)).
+Every block in the table has a house class: the eyebrow (`.eyebrow`), the lead (`.lead`), the loading line
+(`.msg`, `.msg--warn`), the data-card head (`.card__head`, `.card__title`, `.card__sub`), the facts list
+(`.facts`) and the page column (`.page-column`, with `.page-cta` for the button's spacing). The house
+`.card`, `.tiles`, `.notice` and `.footer-note` carry a top margin of their own, and `.page-column` zeroes it
+for its direct children, so the rhythm is the reference's. A repo without a build copies
+[`patterns/repo-dashboard.html`](patterns/repo-dashboard.html), the stylesheet-only reference page: it links
+`house-style.css` and `house-theme.js` and carries no CSS of its own. It differs from the React page in two
+places: the settings button is fixed at the top right of the screen (`theme-settings--floating`) instead of
+sitting in the showcase's sticky wrapper, and the product button is the house `.btn--touch` (44px, the
+brand-book button's height).
+
+**`.btn` draws no underline on a link any more** (#141): a `.btn` on an `<a>` showed the browser's underline,
+because the house link rules set its thickness and not whether it shows. An app with link buttons loses that
+underline when it takes this update; a `<button class="btn">` is unchanged.
 
 ## What was deliberately left out
 
