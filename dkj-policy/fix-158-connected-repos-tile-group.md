@@ -45,7 +45,7 @@ repo's extra figures go in their own data card, whose `CardHead` title is the gr
 ### TEST
 
 - [x] Lint gate (`scripts/lint/lint-web.ps1`) green
-- [ ] An owner has looked at the Connected repos preview and approved it
+- [x] An owner has looked at the Connected repos preview and approved it (maikel-bwj, October 16, 2026)
 
 ### DEPLOY: fix/158-connected-repos-tile-group
 
