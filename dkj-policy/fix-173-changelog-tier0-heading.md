@@ -41,19 +41,26 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Add the missing `##### Tier 0` heading to the `feat/mesowise-components` entry (PR #5) in `CHANGELOG.md`
+- [~] Drop the doubled trailing `---` -- dropped: the file ends in one separator, at 1ff37d9 as on `main` (99 entries, 99 separators), so that half of #173 does not stand
 
 ### TEST
 
+- [x] Every old-shape entry now carries `##### Tier 0`; the one entry without it is #174's, written in the new tier-heading-less shape on purpose
+
 ### DEPLOY: fix/173-changelog-tier0-heading
 
-**Score:**
+The `feat/mesowise-components` changelog entry gets the `##### Tier 0` heading every other entry of its shape carries, so its tier-0 text and score are read as tier 0.
+
+**Score:** 1
 
 #### What makes this deploy extra special
 
-**Score:**
+Not relevant to a subscriber: only the changelog's internal structure changes.
+
+**Score:** N/A
 
 #### Pull Request
 
-Repair the changelog's missing Tier 0 heading and doubled closing separator
+Add the missing Tier 0 heading to the feat/mesowise-components changelog entry
 

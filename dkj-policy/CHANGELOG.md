@@ -3046,6 +3046,8 @@ Pin the house style to a release tag
 
 #### What does the change on this branch deploy to main?
 
+##### Tier 0
+
 The brand book gets its first content. The design tokens are split into a shared base layer and a
 colour-only `mesowise` theme, and both are usable from React and from a Claude Artifact. Around them
 sit 35 presentational React components, mirrored from the Mesowise app's UI without its content, and
