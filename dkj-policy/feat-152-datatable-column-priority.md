@@ -55,7 +55,7 @@ lines of `Table.tsx`, `tables.css` and the same Gap note; whichever ships later 
 ### TEST
 
 - [x] The lint gate (`open-pr -GatesOnly`)
-- [ ] An owner has looked at `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins` on a phone-width window, and approved it
+- [x] An owner has looked at `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins` on a phone-width window, and approved it
 
 ### DEPLOY: feat/152-datatable-column-priority
 
