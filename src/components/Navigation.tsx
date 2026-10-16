@@ -160,3 +160,37 @@ export function PageHeader({ title, asOf, children }: { title: string; asOf?: st
     </header>
   )
 }
+
+/**
+ * Breadcrumbs -- where this page sits: each ancestor a link, the current page last and unlinked (aria-current), a muted
+ * slash between them. The trail wraps on a narrow screen. As a `bar` it spans the full screen width on a tinted background.
+ */
+export function Breadcrumbs({ items, bar = false }: { items: readonly { label: string; href?: string }[]; bar?: boolean }) {
+  const trail = (
+    <nav className="dkj-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        {items.map((item, i) => {
+          const current = i === items.length - 1
+          return (
+            <li key={i}>
+              {i > 0 && (
+                <span className="dkj-breadcrumbs-sep" aria-hidden="true">
+                  /
+                </span>
+              )}
+              {current || !item.href ? <span aria-current={current ? 'page' : undefined}>{item.label}</span> : <a href={item.href}>{item.label}</a>}
+            </li>
+          )
+        })}
+      </ol>
+    </nav>
+  )
+  // The bar spans the full screen width, so it goes above <main>; its trail aligns with the house page column.
+  return bar ? (
+    <div className="dkj-breadcrumbs-bar">
+      <div className="container">{trail}</div>
+    </div>
+  ) : (
+    trail
+  )
+}

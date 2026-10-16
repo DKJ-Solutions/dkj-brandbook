@@ -3,7 +3,7 @@ import { Button, RoundToggle, SegmentedChoice } from '../../components/Button'
 import { Dialog, DialogActions, DialogLabel } from '../../components/Dialog'
 import { Disclosure, Message, Tooltip } from '../../components/Feedback'
 import { Stepper } from '../../components/Field'
-import { DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, StepHeader, TopBar } from '../../components/Navigation'
+import { Breadcrumbs, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, StepHeader, TopBar } from '../../components/Navigation'
 import { RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
 import { HouseDialogsDemo, HouseMenuDemo, HouseSettingsDemo, HouseTopBarDemo } from './HouseApp'
@@ -161,6 +161,15 @@ export function Overlays() {
               ]}
             />
           </PageHeader>
+        </Demo>
+      </Section>
+
+      <Section id="Breadcrumbs" title="Breadcrumbs" intro="Where the page sits: each ancestor a link, a muted slash between them, and the current page last, unlinked and strongest. The trail wraps on a narrow screen.">
+        <Demo label="Three levels">
+          <Breadcrumbs items={[{ label: 'Home', href: '#Breadcrumbs' }, { label: 'Section', href: '#Breadcrumbs' }, { label: 'Current page' }]} />
+        </Demo>
+        <Demo label="As a bar (on a page it spans the full screen width, above main)" wide>
+          <Breadcrumbs bar items={[{ label: 'Home', href: '#Breadcrumbs' }, { label: 'Section', href: '#Breadcrumbs' }, { label: 'Current page' }]} />
         </Demo>
       </Section>
 

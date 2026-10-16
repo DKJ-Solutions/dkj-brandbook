@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { cx } from './components/cx'
+import { REPOS } from './repos'
 import { DASHBOARD_PATH } from './routes'
 import { Toolbar } from './showcase/Showcase'
 import { Intro } from './showcase/sections/Intro'
@@ -22,23 +23,13 @@ const NAV = [
   { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Alert', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'ReadMoreToggle', 'GroupHeading', 'QuestionBlock', 'Amount', 'Prose', 'Figure', 'FooterNote'] },
   { group: 'Metrics', items: ['StatTile', 'HeroValue', 'Delta', 'Legend', 'ColumnChart', 'BarChart', 'LineChart', 'MiniCard', 'Meter', 'Badge'] },
   { group: 'Forms & rows', items: ['Field', 'Checkbox', 'Stepper', 'SearchCombobox', 'ValueBox', 'StatRow', 'FormulaRow', 'DateRow'] },
-  { group: 'Overlays & navigation', items: ['Dialog', 'Tooltip', 'Drawer', 'TopBar', 'PageHeader', 'MenuRow', 'StepHeader', 'InfoRow'] },
+  { group: 'Overlays & navigation', items: ['Dialog', 'Tooltip', 'Drawer', 'TopBar', 'PageHeader', 'Breadcrumbs', 'MenuRow', 'StepHeader', 'InfoRow'] },
   { group: 'Data', items: ['DefinitionList', 'DataTable', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },
   { group: 'Apps', items: ['apps', 'overlap'] },
 ] as const
 
 const LABELS: Record<string, string> = { apps: 'Overview', overlap: 'Overlap', tokens: 'Tokens' }
 
-/** The repos in the DKJ-Solutions GitHub organisation as of October 13, 2026, except this brand book itself; each opens its recreated preview (#preview/<repo>). */
-const REPOS = [
-  'dkj-claude-plugins',
-  'dkj-etf-tracker',
-  'dkj-maplestory-classic-mesowise',
-  'dkj-music-library',
-  'dkj-recipes',
-  'dkj-thumbnail-generator',
-  'life-hub',
-] as const
 
 /** The repo whose preview the hash asks for, or null for the brand book itself. */
 function usePreviewRepo() {

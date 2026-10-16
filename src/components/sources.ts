@@ -80,6 +80,7 @@ export const SOURCES = {
   Prose: [],
   FilterChips: [],
   Figure: [],
+  Breadcrumbs: [],
   DateRow: [],
 } as const satisfies Record<string, SourceRef[]>
 
