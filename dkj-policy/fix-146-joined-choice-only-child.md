@@ -44,7 +44,7 @@ in `src/components/buttons.css`, and the later `:last-child` rule squares its le
 ### TEST
 
 - [x] Gates (`open-pr -GatesOnly`) pass.
-- [ ] An owner has looked at the single-option joined example on `/showcase#SegmentedChoice` and approved it.
+- [x] An owner has looked at the single-option joined example on `/showcase#SegmentedChoice` and approved it.
 
 ### DEPLOY: fix/146-joined-choice-only-child
 
