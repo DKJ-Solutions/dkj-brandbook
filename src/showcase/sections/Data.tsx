@@ -86,6 +86,7 @@ export function Data() {
               { term: 'Label', value: 'Value' },
               { term: 'Another label', value: '1,234' },
               { term: 'Third', value: 'Yes' },
+              { term: 'A warning', value: '3 notes', tone: 'warn' },
             ]}
           />
         </Demo>

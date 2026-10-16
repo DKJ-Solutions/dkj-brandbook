@@ -49,6 +49,7 @@ shared `Tone` type also reaches `DefinitionList`, which gains the warn value ton
 - [x] `src/components/Table.tsx`: `Tone` takes `'warn'`; `DataRow` takes `tone`, rendered as `.dkj-row-<tone>` on its `<tr>`
 - [x] `src/components/tables.css`: `.dkj-tone-warn` and `.table .dkj-row-negative` / `-positive` / `-warn`
 - [x] The showcase's DataTable section has a "Row and cell tones" demo
+- [x] Review: the DefinitionList doc names the warn tone, the Facts demo shows one, and the row-tone doc says a cell names the state in text
 - [x] The connector dashboard preview's Overview tints a bad repo's row negative and a warn repo's row warn, and its Gap note drops the warn row
 
 ### TEST
@@ -63,7 +64,7 @@ shared `Tone` type also reaches `DefinitionList`, which gains the warn value ton
 ##### Tier 0
 
 A `DataTable` cell takes the tone `warn` (the warning colour), and a row takes a `tone` of its own (`negative`,
-`positive` or `warn`) that tints the whole row with the matching status background. The showcase has a demo of both,
+`positive` or `warn`) that tints the whole row with the matching status background. A DefinitionList value takes warn too. The showcase has a demo of each,
 and the connector dashboard preview tints its failing and warning repos.
 
 **Score:** 2

@@ -8,7 +8,7 @@ type DefinitionRow = { term: string; value: string; tone?: Tone; weight?: 'bold'
 /**
  * DefinitionList -- label left, value right (bold, tabular), a rule between rows; a detail line small and muted under
  * the label; an optional total row in bold without a rule under it. variant="facts": the label is muted.
- * A value takes the ValueBox props: tone (negative red, positive green) and weight ("regular" for a secondary figure).
+ * A value takes the ValueBox props: tone (negative red, positive green, warn the warning colour) and weight ("regular" for a secondary figure).
  * info: a slot right after the label, for an inline RoundToggle or a Tooltip.
  */
 export function DefinitionList({
@@ -129,7 +129,7 @@ export type DataRow = {
   sub?: ReactNode
   /** Column key -> tone: negative in red, positive in green, warn in the warning colour. */
   tones?: Readonly<Record<string, Tone | undefined>>
-  /** The whole row's state: a tinted background (--negative-1, --positive-1 or --warning-1). */
+  /** The whole row's state: a tinted background (--negative-1, --positive-1 or --warning-1). The colour alone says nothing\n   * to a screen reader, so a cell names the same state in text (a Status column). */
   tone?: Tone
 }
 export type DataSort = { key: string; direction: 'ascending' | 'descending' }
