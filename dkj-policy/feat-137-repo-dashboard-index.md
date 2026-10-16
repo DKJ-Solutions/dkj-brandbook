@@ -48,7 +48,7 @@ GitHub API.
 
 - [x] Lint gate green (`scripts/lint/lint-web.ps1`)
 - [x] The dev server serves `/`, `/showcase` and `/showcase/`; the GitHub API answers with CORS open
-- [ ] An owner has looked at the Repo dashboard and the moved showcase and approved it
+- [x] An owner has looked at the Repo dashboard and the moved showcase and approved it
 
 ### DEPLOY: feat/137-repo-dashboard-index
 
