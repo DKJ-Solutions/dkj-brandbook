@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**95 minor entries** <!-- pending-tally -->
+**96 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/163-table-tone-comment-newline · 20261016-142301Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The JSDoc on `DataRow.tone` in `Table.tsx` is now a real two-line comment, so hover docs no longer show a literal `\n   *`. Comment only, no runtime change.
+
+**Score:** 1
+
+##### Tier 1
+
+A source comment; management sees no difference.
+
+**Score:** N/A
+
+##### Tier 2
+
+Nothing a user of the brand book can see changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+Split the DataRow.tone doc comment into two real lines
+
+[PR #169](https://github.com/DKJ-Solutions/dkj-brandbook/pull/169)
+
+---
 
 ### DEPLOY: fix/156-dashboard-anchor-offset · 20261016-134049Z
 
