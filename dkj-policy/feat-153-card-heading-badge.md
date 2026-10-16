@@ -78,8 +78,7 @@ N/A: a developer's page on localhost; nothing a commissioner sees changes.
 
 ##### Tier 2
 
-An app that takes this release can put a `.badge` before the text of a `.card__title` and it is spaced from the
-title; an app that already does so loses its own spacing rule's need.
+An app that takes this release can lead a `.card__title` with a `.badge`, spaced from the title text.
 
 **Score:** 1
 
