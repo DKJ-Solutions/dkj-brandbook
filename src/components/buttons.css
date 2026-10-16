@@ -277,6 +277,7 @@
 .dkj-choices--joined .dkj-choice + .dkj-choice { border-left: 1px solid var(--primary-3); }
 .dkj-choices--joined .dkj-choice:first-child { border-radius: calc(var(--dkj-radius-md) - 1px) 0 0 calc(var(--dkj-radius-md) - 1px); }
 .dkj-choices--joined .dkj-choice:last-child { border-radius: 0 calc(var(--dkj-radius-md) - 1px) calc(var(--dkj-radius-md) - 1px) 0; }
+.dkj-choices--joined .dkj-choice:only-child { border-radius: calc(var(--dkj-radius-md) - 1px); }
 .dkj-choices--joined .dkj-choice[aria-pressed='true'] { background: var(--primary-5); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
 .dkj-choices--joined .dkj-choice:hover:not([aria-pressed='true']) { background: var(--primary-3); color: var(--primary-7); }
 /* The ring sits above the neighbouring button, which would otherwise paint over half of it. */
