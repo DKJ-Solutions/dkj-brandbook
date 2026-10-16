@@ -17,7 +17,7 @@ every DKJ-Solutions app renders with, and the rules for using them. It is the si
 
 ```bash
 npm ci
-npm run dev       # the showcase, at http://localhost:5173
+npm run dev       # the Repo dashboard at http://localhost:5173/, the showcase at /showcase
 npm run build     # tsc -b && vite build
 npm run lint
 ```
