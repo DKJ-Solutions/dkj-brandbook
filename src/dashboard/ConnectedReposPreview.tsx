@@ -123,7 +123,7 @@ function RepoCard({ repo }: { repo: Repo }) {
   return (
     <div id={slug(repo.name)}>
       <Card variant="data">
-        <CardHead title={repo.name} subtitle={`${s.word} · ${repo.visibility}`} />
+        <CardHead title={repo.name} badge={<Badge tone={s.tone}>{s.glyph}</Badge>} subtitle={`${s.word} · ${repo.visibility}`} />
         <CardBody>
           <DefinitionList
             variant="facts"
@@ -178,9 +178,9 @@ export function ConnectedReposPreview() {
         <StatTile label="Registered repos" value={String(REPOS.length)} />
         <StatTile label="Checked out here" value={String(REPOS.filter((r) => r.git).length)} />
         <StatTile label="Errors" value={String(REPOS.reduce((n, r) => n + errorCount(r), 0))} tone="negative" />
-        <StatTile label="Notes" value={String(REPOS.reduce((n, r) => n + r.notes.length, 0))} />
+        <StatTile label="Notes" value={String(REPOS.reduce((n, r) => n + r.notes.length, 0))} tone="warn" />
       </StatTiles>
-      <Gap>a second row of tiles works, but the shell has no notion of grouping tiles by subject, and StatTile has no warn tone (only negative and positive).</Gap>
+      <Gap>a second row of tiles works, but the shell has no notion of grouping tiles by subject.</Gap>
 
       <InFlightCards data={IN_FLIGHT} repo={REPO} trunk={TRUNK} />
 
@@ -191,13 +191,13 @@ export function ConnectedReposPreview() {
             label="Overview of the connected repos"
             columns={[
               { key: 'repo', label: 'Repo' },
-              { key: 'status', label: 'Status' },
-              { key: 'visibility', label: 'Visibility' },
-              { key: 'plugins', label: 'Plugins' },
-              { key: 'installed', label: 'Installed' },
+              { key: 'status', label: 'Status', align: 'start' },
+              { key: 'visibility', label: 'Visibility', align: 'start', priority: 'low' },
+              { key: 'plugins', label: 'Plugins', priority: 'low' },
+              { key: 'installed', label: 'Installed', align: 'start', priority: 'low' },
               { key: 'errors', label: 'Errors' },
               { key: 'notes', label: 'Notes' },
-              { key: 'checkout', label: 'Checkout' },
+              { key: 'checkout', label: 'Checkout', align: 'start', priority: 'low' },
             ]}
             rows={REPOS.map((r) => ({
               id: r.name,
@@ -212,20 +212,17 @@ export function ConnectedReposPreview() {
                 checkout: gitLine(r.git),
               },
               tones: { errors: errorCount(r) > 0 ? 'negative' : undefined },
+              tone: r.status === 'bad' ? 'negative' : r.status === 'warn' ? 'warn' : undefined,
             }))}
           />
         </CardBody>
       </Card>
-      <Gap>
-        DataTable right-aligns every column but the first, so the text columns (Status, Visibility, Installed, Checkout) are right-aligned too; there is no per-column alignment. A row tone is negative or positive only, so a
-        warn row cannot be coloured. Eight columns scroll sideways on a phone with no column priority.
-      </Gap>
 
       {REPOS.map((r) => (
         <RepoCard key={r.name} repo={r} />
       ))}
       <Gap>
-        a per-repo card has no status mark in its title (CardHead title takes a node, but the house has no heading-with-badge pattern), and the signal list is one
+        the signal list is one
         BadgeRow per line with no list component or spacing between them. There is no in-page anchor offset or "back to overview" link.
       </Gap>
 
