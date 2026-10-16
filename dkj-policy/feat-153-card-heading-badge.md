@@ -47,7 +47,7 @@ line still says the status in words.
 ### TEST
 
 - [x] Gates (`open-pr -GatesOnly`) pass.
-- [ ] An owner has looked at the badged data card on `/showcase#Card` and the repo cards on `/dashboards/dkj-claude-plugins`, and approved them.
+- [x] An owner has looked at the badged data card on `/showcase#Card` and the repo cards on `/dashboards/dkj-claude-plugins`, and approved them.
 
 ### DEPLOY: feat/153-card-heading-badge
 
