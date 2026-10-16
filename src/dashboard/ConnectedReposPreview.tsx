@@ -13,6 +13,7 @@ import { DashboardIntro, InFlightCards, InFlightTiles, type InFlight } from './D
  */
 const REPO = 'example-org/example-plugins'
 const TRUNK = 'main'
+const SOURCE_COMMIT = 'f0e1d2c'
 
 const IN_FLIGHT: InFlight = {
   pulls: [
@@ -186,7 +187,6 @@ export function ConnectedReposPreview() {
           </Button>
         }
       />
-      <Gap>the real dashboard has a title "Connected repos" with a subtitle (the source commit) next to its own button; the shell has one h1, "Repo dashboard", and one lead.</Gap>
 
       <InFlightTiles data={IN_FLIGHT} trunk={TRUNK} />
 
@@ -202,7 +202,8 @@ export function ConnectedReposPreview() {
 
       <div id="overview">
         <Card variant="data">
-          <CardHead title="Overview" subtitle="Every registered repo, worst first" />
+          {/* The repo's own title and source-commit line live in a data card's head, not in the shell (#148). */}
+          <CardHead title="Connected repos" subtitle={`Source commit ${SOURCE_COMMIT} · every registered repo, worst first`} />
           <CardBody>
             <DataTable
               label="Overview of the connected repos"
