@@ -49,7 +49,7 @@ stays untouched.
 ### TEST
 
 - [x] The lint gate (`open-pr -GatesOnly`)
-- [ ] An owner has looked at the Type column on `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins`, and approved it
+- [x] An owner has looked at the Type column on `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins`, and approved it
 
 ### DEPLOY: feat/150-datatable-column-align
 
