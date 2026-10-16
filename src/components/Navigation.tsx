@@ -160,3 +160,29 @@ export function PageHeader({ title, asOf, children }: { title: string; asOf?: st
     </header>
   )
 }
+
+/**
+ * Breadcrumbs -- where this page sits: each ancestor a link, the current page last and unlinked (aria-current), a muted
+ * slash between them. The trail wraps on a narrow screen.
+ */
+export function Breadcrumbs({ items }: { items: readonly { label: string; href?: string }[] }) {
+  return (
+    <nav className="dkj-breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        {items.map((item, i) => {
+          const current = i === items.length - 1
+          return (
+            <li key={i}>
+              {i > 0 && (
+                <span className="dkj-breadcrumbs-sep" aria-hidden="true">
+                  /
+                </span>
+              )}
+              {current || !item.href ? <span aria-current={current ? 'page' : undefined}>{item.label}</span> : <a href={item.href}>{item.label}</a>}
+            </li>
+          )
+        })}
+      </ol>
+    </nav>
+  )
+}

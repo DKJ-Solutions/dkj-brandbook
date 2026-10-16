@@ -40,6 +40,9 @@ Owner's choice A: start with dkj-claude-plugins only (its connector dashboard); 
 - [x] New route `/dashboards` (`DashboardPreviews.tsx`) with a repo selector, and a button to it on the Repo dashboard
 - [x] `ConnectedReposPreview.tsx`: dkj-claude-plugins' connector dashboard recreated in the shell with placeholder data, each misfit marked "Gap: ..."
 - [x] Code review (Victor): no bugs; four cleanups applied
+- [x] Owner's look, round 1: the one-option selector is gone (its corner bug filed as #146), the preview is framed apart from the page
+- [x] Owner's look, round 2: `/dashboards` is a menu of every preview, each on `/dashboards/<repo>`
+- [x] Owner's look, round 3: a new `Breadcrumbs` component (brand-book original, in the showcase under Overlays & navigation) on both pages
 
 ### TEST
 
@@ -52,8 +55,8 @@ Owner's choice A: start with dkj-claude-plugins only (its connector dashboard); 
 
 ##### Tier 0
 
-The Repo dashboard has a button to `/dashboards`, a page that previews another repo's Repo dashboard in this repo's dashboard
-shape, starting with dkj-claude-plugins' connector dashboard. The data is placeholder data, and every place where the content does
+The Repo dashboard has a button to `/dashboards`, a menu of previews of other repos' Repo dashboards in this repo's dashboard
+shape, each on `/dashboards/<repo>`, starting with dkj-claude-plugins' connector dashboard. A new `Breadcrumbs` component links the pages. The data is placeholder data, and every place where the content does
 not fit the shape is marked on the page as a gap.
 
 **Score:** 3

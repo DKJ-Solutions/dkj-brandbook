@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 import { Button } from '../components/Button'
 import { Card, CardHead } from '../components/Card'
 import { Message } from '../components/Feedback'
+import { Breadcrumbs } from '../components/Navigation'
 import { DASHBOARD_PATH, DASHBOARDS_PATH, dashboardPreviewPath } from '../routes'
 import { Toolbar } from '../showcase/Showcase'
 import { ConnectedReposPreview } from './ConnectedReposPreview'
@@ -30,9 +31,7 @@ export function DashboardIndex() {
   return (
     <main className="dkj-dashboard">
       <Toolbar />
-      <p>
-        <Button href={DASHBOARD_PATH}>Back to the Repo dashboard</Button>
-      </p>
+      <Breadcrumbs items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews' }]} />
       <div className="dkj-intro">
         <h1>Repo dashboard previews</h1>
         <p className="dkj-lead">
@@ -55,9 +54,9 @@ export function DashboardPreviewPage({ id }: { id: string }) {
   return (
     <main className="dkj-dashboard">
       <Toolbar />
-      <p>
-        <Button href={DASHBOARDS_PATH}>All dashboard previews</Button>
-      </p>
+      <Breadcrumbs
+        items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews', href: DASHBOARDS_PATH }, { label: preview?.label ?? id }]}
+      />
       {preview ? (
         <>
           <Message>
