@@ -19,9 +19,9 @@ or warning line, one data card per in-flight list, "About this repo", footer not
 
 ##### Tier 1
 
-N/A: a developer's page on localhost; nothing a commissioner sees changes.
+Every DKJ-Solutions repo's dev server opens on the same Repo dashboard, so what a repo is for and what is in flight read the same way in each of them.
 
-**Score:** N/A
+**Score:** 2
 
 ##### Tier 2
 

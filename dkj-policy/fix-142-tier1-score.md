@@ -34,7 +34,7 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Tier 1 of the folded `docs/139-repo-dashboard-pattern` entry scored 2; it was N/A while tier 2 was scored (ship-pr's impact warning on #142)
 
 ### TEST
 
@@ -44,7 +44,9 @@
 
 ##### Tier 0
 
-**Score:**
+The `docs/139-repo-dashboard-pattern` changelog entry now scores tier 1, so the ladder is cumulative again and the release cut accepts it.
+
+**Score:** 1
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +55,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a correction to the changelog's own bookkeeping.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +66,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
