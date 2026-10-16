@@ -86,6 +86,7 @@ export function Data() {
               { term: 'Label', value: 'Value' },
               { term: 'Another label', value: '1,234' },
               { term: 'Third', value: 'Yes' },
+              { term: 'A warning', value: '3 notes', tone: 'warn' },
             ]}
           />
         </Demo>
@@ -105,6 +106,21 @@ export function Data() {
             ]}
             rows={[]}
             empty="No closed positions"
+          />
+        </Demo>
+        <Demo label="Row and cell tones" wide>
+          <DataTable
+            label="Checks"
+            columns={[
+              { key: 'name', label: 'Check' },
+              { key: 'errors', label: 'Errors' },
+              { key: 'notes', label: 'Notes' },
+            ]}
+            rows={[
+              { id: 'a', cells: { name: 'A failing check', errors: '2', notes: '0' }, tone: 'negative', tones: { errors: 'negative' } },
+              { id: 'b', cells: { name: 'A check with notes', errors: '0', notes: '3' }, tone: 'warn', tones: { notes: 'warn' } },
+              { id: 'c', cells: { name: 'A passing check', errors: '0', notes: '0' } },
+            ]}
           />
         </Demo>
       </Section>

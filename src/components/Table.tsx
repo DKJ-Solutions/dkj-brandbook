@@ -2,13 +2,13 @@ import type { ReactNode } from 'react'
 import { cx } from './cx'
 import './tables.css'
 
-type Tone = 'negative' | 'positive'
+type Tone = 'negative' | 'positive' | 'warn'
 type DefinitionRow = { term: string; value: string; tone?: Tone; weight?: 'bold' | 'regular'; info?: ReactNode }
 
 /**
  * DefinitionList -- label left, value right (bold, tabular), a rule between rows; a detail line small and muted under
  * the label; an optional total row in bold without a rule under it. variant="facts": the label is muted.
- * A value takes the ValueBox props: tone (negative red, positive green) and weight ("regular" for a secondary figure).
+ * A value takes the ValueBox props: tone (negative red, positive green, warn the warning colour) and weight ("regular" for a secondary figure).
  * info: a slot right after the label, for an inline RoundToggle or a Tooltip.
  */
 export function DefinitionList({
@@ -133,8 +133,10 @@ export type DataRow = {
   cells: Readonly<Record<string, ReactNode>>
   /** A muted line under the first cell, e.g. an ISIN. */
   sub?: ReactNode
-  /** Column key -> tone: negative in red, positive in green. */
+  /** Column key -> tone: negative in red, positive in green, warn in the warning colour. */
   tones?: Readonly<Record<string, Tone | undefined>>
+  /** The whole row's state: a tinted background (--negative-1, --positive-1 or --warning-1). The colour alone says nothing\n   * to a screen reader, so a cell names the same state in text (a Status column). */
+  tone?: Tone
 }
 export type DataSort = { key: string; direction: 'ascending' | 'descending' }
 
@@ -142,7 +144,7 @@ export type DataSort = { key: string; direction: 'ascending' | 'descending' }
  * DataTable -- the house .table in a horizontally scrolling wrapper. The first column is text on the left, every other
  * column is right-aligned tabular figures; a column's `align` overrides that, for a text column. A sortable header is a button inside its <th aria-sort> with the house
  * up/down arrow; the caller owns the sort (`sort`, `onSort`) and the order of `rows`. A row may carry a muted sub-line
- * under its first cell, cells a tone, and `total` closes the table with a bold row. `empty` is the one muted row for no data.
+ * under its first cell, cells a tone, the row itself a tone (a tinted background), and `total` closes the table with a bold row. `empty` is the one muted row for no data.
  */
 export function DataTable({
   label,
@@ -203,7 +205,7 @@ export function DataTable({
             </tr>
           )}
           {rows.map((r) => (
-            <tr key={r.id}>
+            <tr key={r.id} className={r.tone && `dkj-row-${r.tone}`}>
               {columns.map((c) =>
                 c.key === first && r.sub
                   ? cell(
