@@ -2,7 +2,37 @@
 
 ## [Unreleased]
 
-**82 minor entries** <!-- pending-tally -->
+**83 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/142-tier1-score · 20261016-122601Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The `docs/139-repo-dashboard-pattern` changelog entry now scores tier 1, so the ladder is cumulative again and the release cut accepts it.
+
+**Score:** 1
+
+##### Tier 1
+
+N/A: a correction to the changelog's own bookkeeping.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Score tier 1 of the docs/139 changelog entry
+
+[PR #143](https://github.com/DKJ-Solutions/dkj-brandbook/pull/143)
+
+---
 
 ### DEPLOY: docs/139-repo-dashboard-pattern · 20261016-122405Z
 
