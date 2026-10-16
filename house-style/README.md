@@ -390,7 +390,7 @@ implementation is this repo's own [`RepoDashboard.tsx`](../src/dashboard/RepoDas
 | 5 | Lead: one paragraph on what the repo is for | `<p className="dkj-lead">` | `.lead` | the repo's own text |
 | 6 | A primary button to the product | `Button variant="primary"` | `.btn.btn--touch.btn--primary`, in a `<p class="page-cta">` | product repos only, with the repo's own label. The product has its own route and is never the page on `/` |
 | 7 | One stat tile per in-flight list, counting it | `StatTiles` / `StatTile` | `.tiles` / `.tile`, with `.label` and `.v` | the repo's own lists. A count not read yet shows `--` |
-| 8 | A loading line, or a warning that the lists could not be read | `Message` (loading) / `Message tone="warn"` (error) | `.msg` / `.msg.msg--warn` | fixed |
+| 8 | A loading line, or a warning that the lists could not be read | `Message live="status"` (loading) / `Message tone="warn" live="alert"` (error) | `.msg` with `role="status"` / `.msg.msg--warn` with `role="alert"` | fixed. The role makes a screen reader announce the line when it appears |
 | 9 | One data card per in-flight list, in the tiles' order | `Card variant="data"` with `CardHead` (title, sub line) and `DataTable` | `.card` around `.table-wrap` / `.table`; the card head is `.card__head` with `.card__title` (an `h2`) and `.card__sub` | the repo's own lists |
 | 10 | **About this repo**: a facts card | `Card variant="data"` with `DefinitionList variant="facts"` | `.card` with `.card__head`; the facts list is `.facts` (a `<dl>`) | fixed title, the repo's own facts |
 | 11 | A footer note naming where the data comes from | `FooterNote` | `.footer-note` | the repo's own source |

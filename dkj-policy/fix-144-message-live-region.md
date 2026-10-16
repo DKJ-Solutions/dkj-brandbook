@@ -32,11 +32,23 @@
 
 ### PLAN
 
+#### The approach
+
+Live-region semantics on `Message` are opt-in through a `live` prop (`'status' | 'alert'`) rather than a default
+per tone: most `Message`s are static text present at load, and a `role="alert"` on a static warning would be
+announced on every page load. Only a line that appears or changes after load takes the prop.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `Message` (`src/components/Feedback.tsx`) takes `live?: 'status' | 'alert'`, rendered as the `role` of its `<p>`
+- [x] The Repo dashboard's loading line takes `live="status"`, its warning `live="alert"`
+- [x] The reference page `house-style/patterns/repo-dashboard.html` gives its `.msg--warn` line `role="alert"` and says which role the loading line takes
+- [x] Row 8 of the Repo dashboard table in `house-style/README.md` names the roles
 
 ### TEST
+
+- [x] The lint gate (`scripts/lint/lint-web.ps1`), run by `ship-pr` before the push
+- [~] No owner's look: the change adds ARIA roles only and nothing on screen changes
 
 ### DEPLOY: fix/144-message-live-region
 
@@ -44,27 +56,25 @@
 
 ##### Tier 0
 
-**Score:**
+`Message` takes a `live` prop (`"status"` or `"alert"`) that gives it a live-region role, and the Repo dashboard
+uses it, so a screen reader announces the loading line and the "could not be read" warning when they appear. The
+reference page `house-style/patterns/repo-dashboard.html` and row 8 of the Repo dashboard table in
+`house-style/README.md` name the same roles for the stylesheet-only form.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: an accessibility attribute on a developer's page; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
 Message has no live-region role
-
