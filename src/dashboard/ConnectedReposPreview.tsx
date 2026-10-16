@@ -3,7 +3,7 @@ import { Button } from '../components/Button'
 import { Card, CardBody, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { Disclosure, Message } from '../components/Feedback'
-import { Badge, BadgeRow, StatTile, StatTiles, type StatusTone } from '../components/Metrics'
+import { Badge, BadgeList, BadgeRow, StatTile, StatTiles, type StatusTone } from '../components/Metrics'
 import { DataTable, DefinitionList } from '../components/Table'
 import { DashboardIntro, InFlightCards, InFlightTiles, type InFlight } from './DashboardShell'
 
@@ -138,11 +138,18 @@ function RepoCard({ repo }: { repo: Repo }) {
           {repo.signals.length === 0 ? (
             <Message>All checks pass.</Message>
           ) : (
-            repo.signals.map((sig, i) => (
-              <BadgeRow key={i} badge={<Badge tone={SIGNAL[sig.kind].tone} size="sm">{SIGNAL[sig.kind].glyph}</Badge>}>
-                {sig.plugin ? `${sig.plugin}: ${sig.text}` : sig.text}
-              </BadgeRow>
-            ))
+            <BadgeList
+              label={`Checks for ${repo.name}`}
+              items={repo.signals.map((sig, i) => ({
+                id: String(i),
+                badge: (
+                  <Badge tone={SIGNAL[sig.kind].tone} size="sm">
+                    {SIGNAL[sig.kind].glyph}
+                  </Badge>
+                ),
+                text: sig.plugin ? `${sig.plugin}: ${sig.text}` : sig.text,
+              }))}
+            />
           )}
           {repo.notes.length > 0 && (
             <Disclosure summary="Register notes">
@@ -222,8 +229,7 @@ export function ConnectedReposPreview() {
         <RepoCard key={r.name} repo={r} />
       ))}
       <Gap>
-        the signal list is one
-        BadgeRow per line with no list component or spacing between them. There is no in-page anchor offset or "back to overview" link.
+        there is no in-page anchor offset or "back to overview" link.
       </Gap>
 
       <FooterNote>Checked 13 October 2026, 09:00 (placeholder).</FooterNote>
