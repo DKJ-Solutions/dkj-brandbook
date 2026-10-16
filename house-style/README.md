@@ -369,6 +369,59 @@ with a house name, and renames its class or adopts the house one.
 **What stayed in the app, because it is domain:** MesoWise's tinted "advised" and "profile" dialogs, the
 level-up colours, the equipment lists, the stat lines, the chips and the download button.
 
+## Page patterns
+
+### The Repo dashboard
+
+**Every DKJ-Solutions repo's Repo dashboard has this one form, and only its content differs** (owner's
+decision, October 16, 2026, [#139](https://github.com/DKJ-Solutions/dkj-brandbook/issues/139)). The Repo
+dashboard is the index (`/`) of a repo's dev server: what the repo is for and what is in flight. The form is
+the one approved in [#137](https://github.com/DKJ-Solutions/dkj-brandbook/issues/137), and its reference
+implementation is this repo's own [`RepoDashboard.tsx`](../src/dashboard/RepoDashboard.tsx).
+
+**The blocks, top to bottom, in this order:**
+
+| # | Block | Brand book component (React) | House class (the stylesheet-only equivalent) | Fixed, or the repo's own |
+|---|---|---|---|---|
+| 1 | The settings button | `Toolbar` (showcase; the settings button only) | `DKJTheme.settings(el)` from `house-theme.js` (`.theme-settings`) | fixed |
+| 2 | The intro, wrapping 3 to 6: a `<div>`, never a `<header>` (below) | `<div className="dkj-intro">` | a plain `<div>` | fixed |
+| 3 | Eyebrow: `<owner>/<repo>` | `<p className="dkj-eyebrow">` | none yet | fixed form, the repo's own slug |
+| 4 | `h1`: **Repo dashboard** | `<h1>` | `h1` | fixed, word for word |
+| 5 | Lead: one paragraph on what the repo is for | `<p className="dkj-lead">` | none yet | the repo's own text |
+| 6 | A primary button to the product | `Button variant="primary"` | `.btn.btn--primary` | product repos only, with the repo's own label. The product has its own route and is never the page on `/` |
+| 7 | One stat tile per in-flight list, counting it | `StatTiles` / `StatTile` | `.tiles` / `.tile`, with `.label` and `.v` | the repo's own lists. A count not read yet shows `--` |
+| 8 | A loading line, or a warning that the lists could not be read | `Message` (loading) / `Message tone="warn"` (error) | none yet | fixed |
+| 9 | One data card per in-flight list, in the tiles' order | `Card variant="data"` with `CardHead` (title, sub line) and `DataTable` | `.card` around `.table-wrap` / `.table`; the card head has none yet | the repo's own lists |
+| 10 | **About this repo**: a facts card | `Card variant="data"` with `DefinitionList variant="facts"` | `.card`; the facts list has none yet | fixed title, the repo's own facts |
+| 11 | A footer note naming where the data comes from | `FooterNote` | `.footer-note` | the repo's own source |
+
+`Button` and `Card` render the brand-book classes `.dkj-btn` and `.dkj-card`; the house `.btn--primary` and
+`.card` are the stylesheet's own classes for the same blocks. In the reference the blocks stack in the page
+column with one `--spacing-5` gap between them (`.dkj-dashboard`, a grid on `<main>`).
+
+**The in-flight lists, where a repo has them:** open pull requests, newest first, with the branch as the
+sub line (and "(draft)" on a draft); open issues by their `prio-N` label, unprioritised last and the highest
+number first within a priority, with who claimed it as the sub line; every branch off the trunk, with its pull
+request where one is open. A repo leaves out a list it has no use for and adds one it needs, each as a tile
+and a card. An empty list keeps its card and says so in the table ("No open issues.").
+
+**What is fixed:** the order, the components, the `h1`, the intro's form and the "About this repo" title.
+**What is the repo's own:** the slug, the lead, the product button and its label, which lists appear, the
+facts, and the data source. The reference reads its lists live from the GitHub API, unauthenticated, which
+a public repo can do; a private repo reads them some other way and says which in the footer note.
+
+**The intro is not a `<header>` directly inside `<main>`.** The house style makes `main > header` the
+page-header row, a flex row with its controls beside the title, so a `<header>` there lays the eyebrow, the
+`h1`, the lead and the button out side by side. #137 hit exactly this; a `<div>` keeps them stacked.
+
+**Without React, the form is not complete from `house-style.css` yet.** The house classes cover the settings
+button, the `h1`, the product button, the tiles, the card surface, the tables and the footer note. The
+eyebrow, the lead, the loading line, the data-card head, the facts list and the page gap are brand-book
+classes (the "none yet" rows above), so a page built from the stylesheet alone does not match the approved
+form there. The house `.card`, `.tiles` and `.footer-note` also carry a top margin of their own, which adds
+to the gap. [#141](https://github.com/DKJ-Solutions/dkj-brandbook/issues/141) brings them into the house
+style; until it is released, such a page takes those values from the reference.
+
 ## What was deliberately left out
 
 The parts of the ETF dashboard that only make sense there stayed there: the hazard-striped advice zone
