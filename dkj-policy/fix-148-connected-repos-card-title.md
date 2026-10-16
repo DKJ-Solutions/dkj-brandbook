@@ -45,7 +45,7 @@ repo's own title and source-commit line go in a data card's head.
 ### TEST
 
 - [x] Lint gate (`scripts/lint/lint-web.ps1`) green
-- [ ] An owner has looked at the Connected repos preview and approved it
+- [x] An owner has looked at the Connected repos preview and approved it (maikel-bwj, October 16, 2026)
 
 ### DEPLOY: fix/148-connected-repos-card-title
 
