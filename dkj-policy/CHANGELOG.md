@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**88 minor entries** <!-- pending-tally -->
+**89 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/150-datatable-column-align · 20261016-132322Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `DataTable` column takes `align: 'start'` (text on the left) or `align: 'end'` (right-aligned); left out, the first
+column stays left and the rest right. The showcase's Type column and the connector dashboard preview's text columns
+(Status, Visibility, Installed, Checkout) now read from the left.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+DataTable takes a per-column alignment
+
+[PR #161](https://github.com/DKJ-Solutions/dkj-brandbook/pull/161)
+
+---
 
 ### DEPLOY: feat/149-stattile-warn-tone · 20261016-132120Z
 
