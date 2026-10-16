@@ -124,7 +124,7 @@ export type DataColumn = {
   key: string
   label: string
   sortable?: boolean
-  /** low: the column drops out while the table is narrower than 760px, so a wide table fits a phone. */
+  /** low: the column drops out while the table is narrower than 760px, so a wide table fits a phone. The first column ignores it. */
   priority?: 'low'
 }
 export type DataRow = {
@@ -165,7 +165,7 @@ export function DataTable({
 }) {
   if (columns.length === 0) return null
   const first = columns[0].key
-  const low = (c: DataColumn) => c.priority === 'low' && 'dkj-col-low'
+  const low = (c: DataColumn) => c.key !== first && c.priority === 'low' && 'dkj-col-low' // the row labels always stay
   const cell = (c: DataColumn, r: Pick<DataRow, 'cells' | 'tones'>, content: ReactNode = r.cells[c.key]) => (
     <td key={c.key} className={cx(low(c), r.tones?.[c.key] && `dkj-tone-${r.tones[c.key]}`)}>
       {content}

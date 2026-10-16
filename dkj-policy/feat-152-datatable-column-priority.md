@@ -48,6 +48,7 @@ lines of `Table.tsx`, `tables.css` and the same Gap note; whichever ships later 
 
 - [x] `src/components/Table.tsx`: `DataColumn` takes `priority`, rendered as `.dkj-col-low` on the column's cells
 - [x] `src/components/tables.css`: `.dkj-table-wrap` is an inline-size container; `.dkj-col-low` drops out below 760px
+- [x] Review: the first column ignores priority, so the row labels always stay
 - [x] The showcase's sortable demo gives Quantity `priority: 'low'`, and the section intro says so
 - [x] The connector dashboard preview's Overview drops Visibility, Plugins, Installed and Checkout on a narrow screen, and its Gap note drops the column priority
 
