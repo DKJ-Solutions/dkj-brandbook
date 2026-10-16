@@ -137,7 +137,8 @@ export type DataRow = {
   sub?: ReactNode
   /** Column key -> tone: negative in red, positive in green, warn in the warning colour. */
   tones?: Readonly<Record<string, Tone | undefined>>
-  /** The whole row's state: a tinted background (--negative-1, --positive-1 or --warning-1). The colour alone says nothing\n   * to a screen reader, so a cell names the same state in text (a Status column). */
+  /** The whole row's state: a tinted background (--negative-1, --positive-1 or --warning-1). The colour alone says nothing
+   * to a screen reader, so a cell names the same state in text (a Status column). */
   tone?: Tone
 }
 export type DataSort = { key: string; direction: 'ascending' | 'descending' }
