@@ -26,6 +26,12 @@
 /* The house .table does the layout, the sort buttons and the total row. The wrapper scrolls, so it is focusable (a
    keyboard can scroll it) and needs the ring. Cell tones are the shared .dkj-tone-* above. */
 .dkj-table-wrap:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); border-radius: var(--dkj-radius-xs); }
+/* A low-priority column (DataColumn priority) drops out while the table is narrower than the house 760px breakpoint;
+   the wrapper is the container, so a table in a narrow card drops it too. */
+.dkj-table-wrap { container-type: inline-size; }
+@container (max-width: 760px) {
+  .dkj-col-low { display: none; }
+}
 
 /* ---------- BillTable ---------- */
 .dkj-bill { width: 100%; table-layout: fixed; border-collapse: collapse; }

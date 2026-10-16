@@ -192,12 +192,12 @@ export function ConnectedReposPreview() {
             columns={[
               { key: 'repo', label: 'Repo' },
               { key: 'status', label: 'Status' },
-              { key: 'visibility', label: 'Visibility' },
-              { key: 'plugins', label: 'Plugins' },
-              { key: 'installed', label: 'Installed' },
+              { key: 'visibility', label: 'Visibility', priority: 'low' },
+              { key: 'plugins', label: 'Plugins', priority: 'low' },
+              { key: 'installed', label: 'Installed', priority: 'low' },
               { key: 'errors', label: 'Errors' },
               { key: 'notes', label: 'Notes' },
-              { key: 'checkout', label: 'Checkout' },
+              { key: 'checkout', label: 'Checkout', priority: 'low' },
             ]}
             rows={REPOS.map((r) => ({
               id: r.name,
@@ -218,7 +218,7 @@ export function ConnectedReposPreview() {
       </Card>
       <Gap>
         DataTable right-aligns every column but the first, so the text columns (Status, Visibility, Installed, Checkout) are right-aligned too; there is no per-column alignment. A row tone is negative or positive only, so a
-        warn row cannot be coloured. Eight columns scroll sideways on a phone with no column priority.
+        warn row cannot be coloured.
       </Gap>
 
       {REPOS.map((r) => (

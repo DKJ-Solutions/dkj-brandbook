@@ -32,11 +32,29 @@
 
 ### PLAN
 
+#### The approach
+
+`DataColumn` takes `priority?: 'low'`; a low column's `<th>` and `<td>`s carry `.dkj-col-low`, which a container
+query on `.dkj-table-wrap` hides while the table is narrower than 760px, the house breakpoint `.grid-2` uses. The
+wrapper is the container, so a table in a narrow card drops the column too, not only on a phone. `house-style.css`
+stays untouched.
+
+#### Collision
+
+`feat/150-datatable-column-align` and `feat/151-datatable-warn-tone` (both parked for an owner's look) change the same
+lines of `Table.tsx`, `tables.css` and the same Gap note; whichever ships later merges the trunk in and keeps every change.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/components/Table.tsx`: `DataColumn` takes `priority`, rendered as `.dkj-col-low` on the column's cells
+- [x] `src/components/tables.css`: `.dkj-table-wrap` is an inline-size container; `.dkj-col-low` drops out below 760px
+- [x] The showcase's sortable demo gives Quantity `priority: 'low'`, and the section intro says so
+- [x] The connector dashboard preview's Overview drops Visibility, Plugins, Installed and Checkout on a narrow screen, and its Gap note drops the column priority
 
 ### TEST
+
+- [x] The lint gate (`open-pr -GatesOnly`)
+- [ ] An owner has looked at `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins` on a phone-width window, and approved it
 
 ### DEPLOY: feat/152-datatable-column-priority
 
@@ -44,27 +62,24 @@
 
 ##### Tier 0
 
-**Score:**
+A `DataTable` column takes `priority: 'low'`, and such a column drops out while the table is narrower than 760px, so a
+wide table fits a phone without scrolling sideways. The showcase's Quantity column and four of the connector
+dashboard preview's eight Overview columns use it.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
 DataTable takes a column priority for a narrow screen
-
