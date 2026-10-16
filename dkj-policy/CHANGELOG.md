@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**89 minor entries** <!-- pending-tally -->
+**90 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/151-datatable-warn-tone · 20261016-132625Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `DataTable` cell takes the tone `warn` (the warning colour), and a row takes a `tone` of its own (`negative`,
+`positive` or `warn`) that tints the whole row with the matching status background. A DefinitionList value takes warn too. The showcase has a demo of each,
+and the connector dashboard preview tints its failing and warning repos.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+DataTable takes a warn tone for a row or cell
+
+[PR #162](https://github.com/DKJ-Solutions/dkj-brandbook/pull/162)
+
+---
 
 ### DEPLOY: feat/150-datatable-column-align · 20261016-132322Z
 
