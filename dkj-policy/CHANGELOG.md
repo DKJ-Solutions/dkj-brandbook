@@ -2,7 +2,38 @@
 
 ## [Unreleased]
 
-**92 minor entries** <!-- pending-tally -->
+**93 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/154-definitionlist-node-values · 20261016-133424Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A `DefinitionList` value can be a link (any React node), shown in the showcase's Facts demo and on the dkj-claude-plugins
+connector preview's register-file rows.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+DefinitionList: a value can be a link
+
+[PR #166](https://github.com/DKJ-Solutions/dkj-brandbook/pull/166)
+
+---
 
 ### DEPLOY: feat/153-card-heading-badge · 20261016-133138Z
 
