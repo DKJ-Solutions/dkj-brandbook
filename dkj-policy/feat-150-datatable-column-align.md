@@ -32,11 +32,24 @@
 
 ### PLAN
 
+#### The approach
+
+`DataColumn` takes `align?: 'start' | 'end'`; left out, the house default holds (first column left, the rest
+right-aligned figures), so no existing table changes. The classes `.dkj-col-start` / `.dkj-col-end` live in the brand
+book's own `tables.css`; the `:first-child` form outranks the house `.table td:first-child`, and `house-style.css`
+stays untouched.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `DataColumn` (`src/components/Table.tsx`) takes `align`, set on the column's `<th>` and every `<td>`, the total row included
+- [x] `src/components/tables.css`: `.table .dkj-col-start` and `.table .dkj-col-end`
+- [x] The showcase's sortable DataTable demo gives its Type column `align: 'start'`, and the section intro names the option
+- [x] The connector dashboard preview's Overview gives Status, Visibility, Installed and Checkout `align: 'start'`, and its Gap note drops the alignment
 
 ### TEST
+
+- [x] The lint gate (`open-pr -GatesOnly`)
+- [ ] An owner has looked at the Type column on `/showcase#DataTable` and the Overview table on `/dashboards/dkj-claude-plugins`, and approved it
 
 ### DEPLOY: feat/150-datatable-column-align
 
@@ -44,27 +57,24 @@
 
 ##### Tier 0
 
-**Score:**
+A `DataTable` column takes `align: 'start'` (text on the left) or `align: 'end'` (right-aligned); left out, the first
+column stays left and the rest right. The showcase's Type column and the connector dashboard preview's text columns
+(Status, Visibility, Installed, Checkout) now read from the left.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
 DataTable takes a per-column alignment
-

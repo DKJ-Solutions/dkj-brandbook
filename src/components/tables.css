@@ -26,6 +26,10 @@
 /* The house .table does the layout, the sort buttons and the total row. The wrapper scrolls, so it is focusable (a
    keyboard can scroll it) and needs the ring. Cell tones are the shared .dkj-tone-* above. */
 .dkj-table-wrap:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); border-radius: var(--dkj-radius-xs); }
+/* A column's own alignment (DataColumn align), over the house default: first column left, the rest right. The
+   :first-child form outranks the house .table td:first-child. */
+.table .dkj-col-start { text-align: left; }
+.table .dkj-col-end, .table .dkj-col-end:first-child { text-align: right; }
 
 /* ---------- BillTable ---------- */
 .dkj-bill { width: 100%; table-layout: fixed; border-collapse: collapse; }

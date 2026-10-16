@@ -191,13 +191,13 @@ export function ConnectedReposPreview() {
             label="Overview of the connected repos"
             columns={[
               { key: 'repo', label: 'Repo' },
-              { key: 'status', label: 'Status' },
-              { key: 'visibility', label: 'Visibility' },
+              { key: 'status', label: 'Status', align: 'start' },
+              { key: 'visibility', label: 'Visibility', align: 'start' },
               { key: 'plugins', label: 'Plugins' },
-              { key: 'installed', label: 'Installed' },
+              { key: 'installed', label: 'Installed', align: 'start' },
               { key: 'errors', label: 'Errors' },
               { key: 'notes', label: 'Notes' },
-              { key: 'checkout', label: 'Checkout' },
+              { key: 'checkout', label: 'Checkout', align: 'start' },
             ]}
             rows={REPOS.map((r) => ({
               id: r.name,
@@ -217,8 +217,7 @@ export function ConnectedReposPreview() {
         </CardBody>
       </Card>
       <Gap>
-        DataTable right-aligns every column but the first, so the text columns (Status, Visibility, Installed, Checkout) are right-aligned too; there is no per-column alignment. A row tone is negative or positive only, so a
-        warn row cannot be coloured. Eight columns scroll sideways on a phone with no column priority.
+        A row tone is negative or positive only, so a warn row cannot be coloured. Eight columns scroll sideways on a phone with no column priority.
       </Gap>
 
       {REPOS.map((r) => (

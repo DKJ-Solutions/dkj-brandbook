@@ -120,7 +120,13 @@ export function BillTable({
   )
 }
 
-export type DataColumn = { key: string; label: string; sortable?: boolean }
+export type DataColumn = {
+  key: string
+  label: string
+  sortable?: boolean
+  /** start: text on the left, for a text column. end: right-aligned. Left out, the first column is start and the rest end. */
+  align?: 'start' | 'end'
+}
 export type DataRow = {
   id: string
   /** Column key -> cell content. */
@@ -134,7 +140,7 @@ export type DataSort = { key: string; direction: 'ascending' | 'descending' }
 
 /**
  * DataTable -- the house .table in a horizontally scrolling wrapper. The first column is text on the left, every other
- * column is right-aligned tabular figures. A sortable header is a button inside its <th aria-sort> with the house
+ * column is right-aligned tabular figures; a column's `align` overrides that, for a text column. A sortable header is a button inside its <th aria-sort> with the house
  * up/down arrow; the caller owns the sort (`sort`, `onSort`) and the order of `rows`. A row may carry a muted sub-line
  * under its first cell, cells a tone, and `total` closes the table with a bold row. `empty` is the one muted row for no data.
  */
@@ -158,8 +164,9 @@ export function DataTable({
 }) {
   if (columns.length === 0) return null
   const first = columns[0].key
+  const align = (c: DataColumn) => c.align && `dkj-col-${c.align}`
   const cell = (c: DataColumn, r: Pick<DataRow, 'cells' | 'tones'>, content: ReactNode = r.cells[c.key]) => (
-    <td key={c.key} className={cx(r.tones?.[c.key] && `dkj-tone-${r.tones[c.key]}`)}>
+    <td key={c.key} className={cx(align(c), r.tones?.[c.key] && `dkj-tone-${r.tones[c.key]}`)}>
       {content}
     </td>
   )
@@ -169,7 +176,7 @@ export function DataTable({
         <thead>
           <tr>
             {columns.map((c) => (
-              <th key={c.key} scope="col" aria-sort={c.sortable ? (sort?.key === c.key ? sort.direction : 'none') : undefined}>
+              <th key={c.key} scope="col" className={align(c)} aria-sort={c.sortable ? (sort?.key === c.key ? sort.direction : 'none') : undefined}>
                 {c.sortable ? (
                   <button type="button" className="sort" onClick={() => onSort?.(c.key)}>
                     {c.label}
