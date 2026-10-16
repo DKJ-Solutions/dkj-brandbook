@@ -31,6 +31,10 @@
 .table .dkj-row-negative { background: var(--negative-1); }
 .table .dkj-row-positive { background: var(--positive-1); }
 .table .dkj-row-warn { background: var(--warning-1); }
+/* A column's own alignment (DataColumn align), over the house default: first column left, the rest right. The
+   :first-child form outranks the house .table td:first-child. */
+.table .dkj-col-start { text-align: left; }
+.table .dkj-col-end, .table .dkj-col-end:first-child { text-align: right; }
 
 /* ---------- BillTable ---------- */
 .dkj-bill { width: 100%; table-layout: fixed; border-collapse: collapse; }
