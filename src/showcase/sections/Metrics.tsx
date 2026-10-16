@@ -80,7 +80,7 @@ export function Metrics() {
             <StatTile label="Label two" value="€ 1,250.00" info={info("Label two")} />
             <StatTile label="A gain" value="+€ 340.50" tone="positive" info={info("A gain")} />
             <StatTile label="A loss" value="−€ 42.10" tone="negative" info={info("A loss")} />
-            <StatTile label="Label five" value="€ 18.75" />
+            <StatTile label="Warnings" value="3" tone="warn" info={info("Warnings")} />
             <StatTile label="Label six" value="€ 9.00" />
           </StatTiles>
         </Demo>
