@@ -46,7 +46,7 @@ semantics. (The issue also names missing spacing; that part does not hold -- `.b
 ### TEST
 
 - [x] Gates (`open-pr -GatesOnly`) pass.
-- [ ] An owner has looked at the BadgeList demo on `/showcase#Badge` and the repo cards' checks on `/dashboards/dkj-claude-plugins`, and approved them.
+- [x] An owner has looked at the BadgeList demo on `/showcase#Badge` and the repo cards' checks on `/dashboards/dkj-claude-plugins`, and approved them.
 
 ### DEPLOY: feat/155-badge-list
 
