@@ -2,7 +2,39 @@
 
 ## [Unreleased]
 
-**84 minor entries** <!-- pending-tally -->
+**85 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/repo-dashboard-previews · 20261016-125542Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The Repo dashboard has a button to `/dashboards`, a menu of previews of other repos' Repo dashboards in this repo's dashboard
+shape, each on `/dashboards/<repo>`, starting with dkj-claude-plugins' connector dashboard. A new `Breadcrumbs` component links the pages, and a "DKJ-Solutions repos" card on the Repo dashboard lists every repo that follows the brand book with links to its previews. The data is placeholder data, and every place where the content does
+not fit the shape is marked on the page as a gap.
+
+**Score:** 3
+
+##### Tier 1
+
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Preview other repos' Repo dashboards in the brand book's dashboard shape
+
+[PR #147](https://github.com/DKJ-Solutions/dkj-brandbook/pull/147)
+
+---
 
 ### DEPLOY: feat/141-dashboard-house-classes · 20261016-123635Z
 
