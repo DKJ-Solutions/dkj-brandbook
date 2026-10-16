@@ -56,9 +56,9 @@ into the house style is a stylesheet change, filed as #141.
 
 ##### Tier 0
 
-The house style now fixes the form of a Repo dashboard, the index of a repo's dev server: eleven blocks in a fixed order
-(eyebrow, `h1` "Repo dashboard", lead, product button, stat tiles, one data card per in-flight list, "About this repo",
-footer note), each named by its brand book component and its house class, and what each repo fills in itself. See
+The house style now fixes the form of a Repo dashboard, the index of a repo's dev server: eleven parts in a fixed order
+(the settings button, the intro with its eyebrow, `h1` "Repo dashboard", lead and product button, stat tiles, a loading
+or warning line, one data card per in-flight list, "About this repo", footer note), each named by its brand book component and its house class, and what each repo fills in itself. See
 "Page patterns" in `house-style/README.md`.
 
 **Score:** 3
