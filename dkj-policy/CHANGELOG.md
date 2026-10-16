@@ -2,7 +2,29 @@
 
 ## [Unreleased]
 
-**98 minor entries** <!-- pending-tally -->
+**17 / 99 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/release-audience-tier-2 · 20261016-144206Z
+
+The repo now states its release audience as tier 2, so `new-branch` scaffolds an entry with tier 0
+under the DEPLOY heading and one `What makes this deploy extra special` section, and the changelog tally
+counts how many pending entries reach that audience. Entries already in the changelog keep their shape.
+
+**Score:** 2
+
+#### What makes this deploy extra special
+
+N/A: the house stylesheet and theme script are untouched; no app that takes a release notices this.
+
+**Score:** N/A
+
+#### Pull Request
+
+Release audience tier stated as 2
+
+[PR #174](https://github.com/DKJ-Solutions/dkj-brandbook/pull/174)
+
+---
 
 ### DEPLOY: fix/158-connected-repos-tile-group · 20261016-143600Z
 
