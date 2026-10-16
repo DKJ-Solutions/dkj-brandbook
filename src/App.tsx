@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { cx } from './components/cx'
+import { REPOS } from './repos'
 import { DASHBOARD_PATH } from './routes'
 import { Toolbar } from './showcase/Showcase'
 import { Intro } from './showcase/sections/Intro'
@@ -29,16 +30,6 @@ const NAV = [
 
 const LABELS: Record<string, string> = { apps: 'Overview', overlap: 'Overlap', tokens: 'Tokens' }
 
-/** The repos in the DKJ-Solutions GitHub organisation as of October 13, 2026, except this brand book itself; each opens its recreated preview (#preview/<repo>). */
-const REPOS = [
-  'dkj-claude-plugins',
-  'dkj-etf-tracker',
-  'dkj-maplestory-classic-mesowise',
-  'dkj-music-library',
-  'dkj-recipes',
-  'dkj-thumbnail-generator',
-  'life-hub',
-] as const
 
 /** The repo whose preview the hash asks for, or null for the brand book itself. */
 function usePreviewRepo() {

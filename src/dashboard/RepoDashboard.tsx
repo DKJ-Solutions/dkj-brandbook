@@ -3,10 +3,12 @@ import { Button } from '../components/Button'
 import { Card, CardBody, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { Message } from '../components/Feedback'
-import { DefinitionList } from '../components/Table'
-import { DASHBOARDS_PATH, SHOWCASE_PATH } from '../routes'
+import { DataTable, DefinitionList } from '../components/Table'
+import { ORG, REPOS, appPreviewPath } from '../repos'
+import { DASHBOARDS_PATH, SHOWCASE_PATH, dashboardPreviewPath } from '../routes'
 import { Toolbar } from '../showcase/Showcase'
 import { DashboardIntro, InFlightCards, InFlightTiles, type Branch, type InFlight, type Issue, type Pull } from './DashboardShell'
+import { PREVIEWS } from './previews'
 import './dashboard.css'
 
 /**
@@ -73,6 +75,26 @@ export function RepoDashboard() {
       {load.status === 'error' && <Message tone="warn">What is in flight could not be read: {load.reason}.</Message>}
 
       {data && <InFlightCards data={data} repo={REPO} trunk={TRUNK} />}
+
+      <Card variant="data">
+        <CardHead title="DKJ-Solutions repos" subtitle="Every repo that follows the brand book, with its app preview and, where one exists, its dashboard preview." />
+        <DataTable
+          label="DKJ-Solutions repos"
+          columns={[
+            { key: 'repo', label: 'Repo' },
+            { key: 'app', label: 'App preview' },
+            { key: 'dashboard', label: 'Dashboard preview' },
+          ]}
+          rows={REPOS.map((r) => ({
+            id: r,
+            cells: {
+              repo: <a href={`https://github.com/${ORG}/${r}`}>{r}</a>,
+              app: <a href={appPreviewPath(r)}>Open</a>,
+              dashboard: PREVIEWS.some((p) => p.id === r) ? <a href={dashboardPreviewPath(r)}>Open</a> : '--',
+            },
+          }))}
+        />
+      </Card>
 
       <Card variant="data">
         <CardHead title="About this repo" />

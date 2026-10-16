@@ -1,27 +1,11 @@
-import type { ComponentType } from 'react'
 import { Button } from '../components/Button'
 import { Card, CardHead } from '../components/Card'
 import { Message } from '../components/Feedback'
 import { Breadcrumbs } from '../components/Navigation'
 import { DASHBOARD_PATH, DASHBOARDS_PATH, dashboardPreviewPath } from '../routes'
 import { Toolbar } from '../showcase/Showcase'
-import { ConnectedReposPreview } from './ConnectedReposPreview'
+import { PREVIEWS } from './previews'
 import './dashboard.css'
-
-type DashboardPreview = { id: string; label: string; description: string; Component: ComponentType }
-
-/**
- * The repos whose dashboard can be previewed, each on /dashboards/<id>. Add an entry to preview another repo; its data
- * stays placeholder data.
- */
-const PREVIEWS: readonly DashboardPreview[] = [
-  {
-    id: 'dkj-claude-plugins',
-    label: 'dkj-claude-plugins',
-    description: 'The connector dashboard: every repo that runs the plugins, its status, installed version and checkout.',
-    Component: ConnectedReposPreview,
-  },
-]
 
 /**
  * The menu of every repo dashboard that can be previewed in this brand book's dashboard shape, to see whether what
