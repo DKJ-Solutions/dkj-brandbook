@@ -178,9 +178,9 @@ export function ConnectedReposPreview() {
         <StatTile label="Registered repos" value={String(REPOS.length)} />
         <StatTile label="Checked out here" value={String(REPOS.filter((r) => r.git).length)} />
         <StatTile label="Errors" value={String(REPOS.reduce((n, r) => n + errorCount(r), 0))} tone="negative" />
-        <StatTile label="Notes" value={String(REPOS.reduce((n, r) => n + r.notes.length, 0))} />
+        <StatTile label="Notes" value={String(REPOS.reduce((n, r) => n + r.notes.length, 0))} tone="warn" />
       </StatTiles>
-      <Gap>a second row of tiles works, but the shell has no notion of grouping tiles by subject, and StatTile has no warn tone (only negative and positive).</Gap>
+      <Gap>a second row of tiles works, but the shell has no notion of grouping tiles by subject.</Gap>
 
       <InFlightCards data={IN_FLIGHT} repo={REPO} trunk={TRUNK} />
 
