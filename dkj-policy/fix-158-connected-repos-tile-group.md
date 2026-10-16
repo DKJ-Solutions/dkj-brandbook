@@ -32,11 +32,20 @@
 
 ### PLAN
 
+#### Decision
+
+Owner's decision on #158 (maikel-bwj, October 16, 2026): option (b). The shell stays unchanged; a
+repo's extra figures go in their own data card, whose `CardHead` title is the group label.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/dashboard/ConnectedReposPreview.tsx`: the repo's four tiles moved into a "Register" data card
+  after the in-flight cards, and the last "Gap:" note and its helper removed
 
 ### TEST
+
+- [x] Lint gate (`scripts/lint/lint-web.ps1`) green
+- [ ] An owner has looked at the Connected repos preview and approved it
 
 ### DEPLOY: fix/158-connected-repos-tile-group
 
@@ -44,7 +53,11 @@
 
 ##### Tier 0
 
-**Score:**
+The Connected repos preview now groups the repo's own figures in a "Register" data card, its head the
+group label, as decided on #158; the Repo dashboard shell is unchanged and the preview carries no "Gap:"
+notes any more.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +66,9 @@
 
 ##### Tier 1
 
-**Score:**
+A preview inside the brand book; management sees no difference.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +77,9 @@
 
 ##### Tier 2
 
-**Score:**
+No subscriber-facing service changes.
+
+**Score:** N/A
 
 #### Pull Request
 
