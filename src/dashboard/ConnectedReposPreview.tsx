@@ -123,7 +123,16 @@ function RepoCard({ repo }: { repo: Repo }) {
   return (
     <div id={slug(repo.name)}>
       <Card variant="data">
-        <CardHead title={repo.name} badge={<Badge tone={s.tone}>{s.glyph}</Badge>} subtitle={`${s.word} · ${repo.visibility}`} />
+        <CardHead
+          title={repo.name}
+          badge={<Badge tone={s.tone}>{s.glyph}</Badge>}
+          subtitle={`${s.word} · ${repo.visibility}`}
+          actions={
+            <Button href="#overview" variant="outline" size="compact">
+              Back to overview
+            </Button>
+          }
+        />
         <CardBody>
           <DefinitionList
             variant="facts"
@@ -191,46 +200,45 @@ export function ConnectedReposPreview() {
 
       <InFlightCards data={IN_FLIGHT} repo={REPO} trunk={TRUNK} />
 
-      <Card variant="data">
-        <CardHead title="Overview" subtitle="Every registered repo, worst first" />
-        <CardBody>
-          <DataTable
-            label="Overview of the connected repos"
-            columns={[
-              { key: 'repo', label: 'Repo' },
-              { key: 'status', label: 'Status', align: 'start' },
-              { key: 'visibility', label: 'Visibility', align: 'start', priority: 'low' },
-              { key: 'plugins', label: 'Plugins', priority: 'low' },
-              { key: 'installed', label: 'Installed', align: 'start', priority: 'low' },
-              { key: 'errors', label: 'Errors' },
-              { key: 'notes', label: 'Notes' },
-              { key: 'checkout', label: 'Checkout', align: 'start', priority: 'low' },
-            ]}
-            rows={REPOS.map((r) => ({
-              id: r.name,
-              cells: {
-                repo: <a href={`#${slug(r.name)}`}>{r.name}</a>,
-                status: <StatusBadge status={r.status} />,
-                visibility: r.visibility,
-                plugins: String(r.plugins.length),
-                installed: r.installed,
-                errors: String(errorCount(r)),
-                notes: String(r.notes.length),
-                checkout: gitLine(r.git),
-              },
-              tones: { errors: errorCount(r) > 0 ? 'negative' : undefined },
-              tone: r.status === 'bad' ? 'negative' : r.status === 'warn' ? 'warn' : undefined,
-            }))}
-          />
-        </CardBody>
-      </Card>
+      <div id="overview">
+        <Card variant="data">
+          <CardHead title="Overview" subtitle="Every registered repo, worst first" />
+          <CardBody>
+            <DataTable
+              label="Overview of the connected repos"
+              columns={[
+                { key: 'repo', label: 'Repo' },
+                { key: 'status', label: 'Status', align: 'start' },
+                { key: 'visibility', label: 'Visibility', align: 'start', priority: 'low' },
+                { key: 'plugins', label: 'Plugins', priority: 'low' },
+                { key: 'installed', label: 'Installed', align: 'start', priority: 'low' },
+                { key: 'errors', label: 'Errors' },
+                { key: 'notes', label: 'Notes' },
+                { key: 'checkout', label: 'Checkout', align: 'start', priority: 'low' },
+              ]}
+              rows={REPOS.map((r) => ({
+                id: r.name,
+                cells: {
+                  repo: <a href={`#${slug(r.name)}`}>{r.name}</a>,
+                  status: <StatusBadge status={r.status} />,
+                  visibility: r.visibility,
+                  plugins: String(r.plugins.length),
+                  installed: r.installed,
+                  errors: String(errorCount(r)),
+                  notes: String(r.notes.length),
+                  checkout: gitLine(r.git),
+                },
+                tones: { errors: errorCount(r) > 0 ? 'negative' : undefined },
+                tone: r.status === 'bad' ? 'negative' : r.status === 'warn' ? 'warn' : undefined,
+              }))}
+            />
+          </CardBody>
+        </Card>
+      </div>
 
       {REPOS.map((r) => (
         <RepoCard key={r.name} repo={r} />
       ))}
-      <Gap>
-        there is no in-page anchor offset or "back to overview" link.
-      </Gap>
 
       <FooterNote>Checked 13 October 2026, 09:00 (placeholder).</FooterNote>
     </>

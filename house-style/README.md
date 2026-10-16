@@ -399,7 +399,10 @@ implementation is this repo's own [`RepoDashboard.tsx`](../src/dashboard/RepoDas
 `.card` are the stylesheet's own classes for the same blocks. In the reference the blocks stack in the page
 column with one `--spacing-5` gap between them (`.dkj-dashboard`, a grid on `<main>`); the stylesheet-only
 equivalent is `.page-column` on `<main>`, which also takes the top margin of its direct `.card`, `.tiles`,
-`.notice` and `.footer-note` so the gap stays one `--spacing-5`.
+`.notice` and `.footer-note` so the gap stays one `--spacing-5`. An in-page anchor (an element with an `id`
+in the column) scrolls to `5rem` below the top, clear of the settings button, in both forms; a card a table
+links down to carries a compact outline "Back to overview" button in its card head
+([#156](https://github.com/DKJ-Solutions/dkj-brandbook/issues/156)).
 
 **The in-flight lists, where a repo has them:** open pull requests, newest first, with the branch as the
 sub line (and "(draft)" on a draft); open issues by their `prio-N` label, unprioritised last and the highest
