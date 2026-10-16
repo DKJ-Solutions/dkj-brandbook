@@ -2,7 +2,38 @@
 
 ## [Unreleased]
 
-**80 minor entries** <!-- pending-tally -->
+**81 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/137-repo-dashboard-index · 20261016-120043Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+The dev server's index is now the Repo dashboard: what this repo is for, the open pull requests, issues and branches, and a
+button to the brand book, which moved to `/showcase` (#137). Old `/#section` links still land on their section.
+
+**Score:** 3
+
+##### Tier 1
+
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Repo dashboard on the index, showcase on its own route
+
+[PR #140](https://github.com/DKJ-Solutions/dkj-brandbook/pull/140)
+
+---
 
 ### DEPLOY: fix/135-tier1-score · 20261015-162316Z
 
