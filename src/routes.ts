@@ -19,6 +19,16 @@ export function isDashboardsPath(pathname: string) {
   return normalise(pathname) === normalise(DASHBOARDS_PATH)
 }
 
+/** One repo's dashboard preview: /dashboards/<id>. */
+export const dashboardPreviewPath = (id: string) => `${DASHBOARDS_PATH}/${id}`
+
+/** The id in /dashboards/<id>, or null for any other path. Ids are plain ASCII repo names, so nothing is decoded. */
+export function dashboardPreviewId(pathname: string) {
+  const prefix = `${DASHBOARDS_PATH}/`
+  const path = normalise(pathname)
+  return path.startsWith(prefix) && path.length > prefix.length ? path.slice(prefix.length) : null
+}
+
 export function isDashboardPath(pathname: string) {
   return normalise(pathname) === normalise(DASHBOARD_PATH)
 }
