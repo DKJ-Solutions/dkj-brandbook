@@ -2,7 +2,38 @@
 
 ## [Unreleased]
 
-**91 minor entries** <!-- pending-tally -->
+**92 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/153-card-heading-badge · 20261016-133138Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+A card heading can be led by a status badge: `CardHead badge` in React, a `.badge` before the text in a house
+`.card__title`. The dkj-claude-plugins connector preview's repo cards use it.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+An app that takes this release can lead a `.card__title` with a `.badge`, spaced from the title text.
+
+**Score:** 1
+
+#### Pull Request
+
+CardHead: a title led by a status badge
+
+[PR #165](https://github.com/DKJ-Solutions/dkj-brandbook/pull/165)
+
+---
 
 ### DEPLOY: feat/152-datatable-column-priority · 20261016-132939Z
 
