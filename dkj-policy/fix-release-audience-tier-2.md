@@ -32,37 +32,30 @@
 
 ### PLAN
 
+`Get-ReleaseAudienceTier` was never answered here, so every branch document was scaffolded in the
+older per-tier shape and the changelog tally dropped its fraction. An owner chose tier 2.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `scripts/repo-config.ps1`: `Get-ReleaseAudienceTier` returns 2
 
 ### TEST
 
+- [x] This document's own DEPLOY section is in the tier-2 shape, and the lint gate passes
+
 ### DEPLOY: fix/release-audience-tier-2
 
-#### What does the change on this branch deploy to main?
+The repo now states its release audience as tier 2, so `new-branch` scaffolds an entry with tier 0
+under the DEPLOY heading and one `What makes this deploy extra special` section, and the changelog tally
+counts how many pending entries reach that audience. Entries already in the changelog keep their shape.
 
-##### Tier 0
+**Score:** 2
 
-**Score:**
+#### What makes this deploy extra special
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+N/A: the house stylesheet and theme script are untouched; no app that takes a release notices this.
 
-##### Tier 1
-
-**Score:**
-
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
-
-##### Tier 2
-
-**Score:**
+**Score:** N/A
 
 #### Pull Request
 
