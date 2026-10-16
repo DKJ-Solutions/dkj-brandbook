@@ -32,11 +32,20 @@
 
 ### PLAN
 
+Issue #154: `DefinitionList` rows take `value: string` (`src/components/Table.tsx`), so a fact cannot be a
+link. A `ReactNode` value allows it; the house `.facts` needs nothing, since a link in a `<dd>` already takes
+the house link style.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `DefinitionList`: `value` is a `ReactNode`.
+- [x] Showcase: the Facts demo has a link row.
+- [x] Connector preview: each repo card's register file is a link; its Gap note no longer lists this.
 
 ### TEST
+
+- [x] Gates (`open-pr -GatesOnly`) pass.
+- [ ] An owner has looked at the Facts demo on `/showcase#DefinitionList` and a repo card's "Register file" on `/dashboards/dkj-claude-plugins`, and approved them.
 
 ### DEPLOY: feat/154-definitionlist-node-values
 
@@ -44,7 +53,10 @@
 
 ##### Tier 0
 
-**Score:**
+A `DefinitionList` value can be a link (any React node), shown in the showcase's Facts demo and on the dkj-claude-plugins
+connector preview's register-file rows.
+
+**Score:** 2
 
 <!--
      Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
@@ -53,7 +65,9 @@
 
 ##### Tier 1
 
-**Score:**
+N/A: a developer's page on localhost; nothing a commissioner sees changes.
+
+**Score:** N/A
 
 <!--
      Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
@@ -62,7 +76,9 @@
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 

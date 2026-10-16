@@ -130,7 +130,7 @@ function RepoCard({ repo }: { repo: Repo }) {
             items={[
               { term: 'Checkout', value: gitLine(repo.git) },
               { term: 'Last commit', value: repo.lastCommit || '--' },
-              { term: 'Register file', value: `connectors/${slug(repo.name)}.json` },
+              { term: 'Register file', value: <a href={`https://github.com/${REPO}/blob/main/connectors/${slug(repo.name)}.json`}>connectors/{slug(repo.name)}.json</a> },
               { term: 'Plugins', value: repo.plugins.length ? repo.plugins.map((p) => `${p.id} · ${p.lenses} lenses`).join('; ') : 'none' },
               ...(repo.drift ? [{ term: 'Drift', value: repo.drift }] : []),
             ]}
@@ -225,7 +225,7 @@ export function ConnectedReposPreview() {
         <RepoCard key={r.name} repo={r} />
       ))}
       <Gap>
-        a per-repo card has no status mark in its title (CardHead title takes a node, but the house has no heading-with-badge pattern), DefinitionList values are plain strings, so a GitHub link cannot sit in one, and the signal list is one
+        a per-repo card has no status mark in its title (CardHead title takes a node, but the house has no heading-with-badge pattern), and the signal list is one
         BadgeRow per line with no list component or spacing between them. There is no in-page anchor offset or "back to overview" link.
       </Gap>
 

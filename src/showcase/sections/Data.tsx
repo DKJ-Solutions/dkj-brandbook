@@ -58,7 +58,7 @@ function DataTableDemo() {
 export function Data() {
   return (
     <>
-      <Section id="DefinitionList" title="DefinitionList" intro="Label left, a bold tabular value right, a rule between; a detail line under a label; a bold total. The facts variant mutes the labels. A value can take a tone and a weight (the ValueBox props), and a label an info slot.">
+      <Section id="DefinitionList" title="DefinitionList" intro="Label left, a bold tabular value right, a rule between; a detail line under a label; a bold total. The facts variant mutes the labels. A value can take a tone and a weight (the ValueBox props), and a label an info slot. A value can be a link.">
         <Demo label="Breakdown with total">
           <DefinitionList
             items={[
@@ -86,6 +86,7 @@ export function Data() {
               { term: 'Label', value: 'Value' },
               { term: 'Another label', value: '1,234' },
               { term: 'Third', value: 'Yes' },
+              { term: 'A link', value: <a href="#DefinitionList">connectors/example.json</a> },
             ]}
           />
         </Demo>
