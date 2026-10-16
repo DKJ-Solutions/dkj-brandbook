@@ -32,11 +32,23 @@
 
 ### PLAN
 
+#### The approach
+
+`StatTile` takes `tone="warn"`, coloured `--warning-5` (the text version `.msg--warn` already uses; no new token).
+The house stylesheet has `.pos` / `.neg` but no warn text class, so the colour lives in the brand book's own
+`metrics.css` as `.dkj-v--warn`, and `house-style.css` stays untouched.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `StatTile` (`src/components/Metrics.tsx`) takes `tone?: 'negative' | 'positive' | 'warn'`
+- [x] `src/components/metrics.css`: `.tile .v.dkj-v--warn` in `--warning-5`
+- [x] The showcase's StatTile grid shows a warn tile ("Warnings")
+- [x] The connector dashboard preview's Notes tile takes `tone="warn"`, and its Gap note keeps only the tile grouping, filed as #158
 
 ### TEST
+
+- [x] The lint gate (`open-pr -GatesOnly`)
+- [ ] An owner has looked at the warn tile on `/showcase#StatTile` and the Notes tile on `/dashboards/dkj-claude-plugins`, in a light and a dark theme, and approved it
 
 ### DEPLOY: feat/149-stattile-warn-tone
 
@@ -44,27 +56,23 @@
 
 ##### Tier 0
 
-**Score:**
+`StatTile` takes `tone="warn"`, which colours its figure in the warning colour (`--warning-5`), for a count of notes
+or warnings. The showcase shows one, and the connector dashboard preview's Notes tile uses it.
 
-<!--
-     Is this change also relevant to management and the employer/commissioner? Then continue to Tier 1.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** 2
 
 ##### Tier 1
 
-**Score:**
+N/A: a component of the brand book's React layer; nothing a commissioner sees changes.
 
-<!--
-     Is this change also relevant to a subscriber of the service? Then continue to Tier 2.
-     If not, say so there in one line and put N/A in its Score.
--->
+**Score:** N/A
 
 ##### Tier 2
 
-**Score:**
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
 
 #### Pull Request
 
 StatTile takes a warn tone
-
