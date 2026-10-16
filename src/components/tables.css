@@ -28,6 +28,12 @@
    keyboard can scroll it) and needs the ring. Cell tones are the shared .dkj-tone-* above; a row tone tints the row
    with the status background (the -1 step, as the house .notice uses --warning-1). */
 .dkj-table-wrap:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); border-radius: var(--dkj-radius-xs); }
+/* A low-priority column (DataColumn priority) drops out while the table is narrower than the house 760px breakpoint;
+   the wrapper is the container, so a table in a narrow card drops it too. */
+.dkj-table-wrap { container-type: inline-size; }
+@container (max-width: 760px) {
+  .dkj-col-low { display: none; }
+}
 .table .dkj-row-negative { background: var(--negative-1); }
 .table .dkj-row-positive { background: var(--positive-1); }
 .table .dkj-row-warn { background: var(--warning-1); }

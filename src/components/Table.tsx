@@ -124,6 +124,8 @@ export type DataColumn = {
   key: string
   label: string
   sortable?: boolean
+  /** low: the column drops out while the table is narrower than 760px, so a wide table fits a phone. The first column ignores it. */
+  priority?: 'low'
   /** start: text on the left, for a text column. end: right-aligned. Left out, the first column is start and the rest end. */
   align?: 'start' | 'end'
 }
@@ -144,7 +146,8 @@ export type DataSort = { key: string; direction: 'ascending' | 'descending' }
  * DataTable -- the house .table in a horizontally scrolling wrapper. The first column is text on the left, every other
  * column is right-aligned tabular figures; a column's `align` overrides that, for a text column. A sortable header is a button inside its <th aria-sort> with the house
  * up/down arrow; the caller owns the sort (`sort`, `onSort`) and the order of `rows`. A row may carry a muted sub-line
- * under its first cell, cells a tone, the row itself a tone (a tinted background), and `total` closes the table with a bold row. `empty` is the one muted row for no data.
+ * under its first cell, cells a tone, the row itself a tone (a tinted background), and `total` closes the table with a bold row. `empty` is the one muted row for no data. A column with
+ * priority="low" drops out while the table is narrower than 760px (a container query on the wrapper).
  */
 export function DataTable({
   label,
@@ -166,9 +169,10 @@ export function DataTable({
 }) {
   if (columns.length === 0) return null
   const first = columns[0].key
+  const low = (c: DataColumn) => c.key !== first && c.priority === 'low' && 'dkj-col-low' // the row labels always stay
   const align = (c: DataColumn) => c.align && `dkj-col-${c.align}`
   const cell = (c: DataColumn, r: Pick<DataRow, 'cells' | 'tones'>, content: ReactNode = r.cells[c.key]) => (
-    <td key={c.key} className={cx(align(c), r.tones?.[c.key] && `dkj-tone-${r.tones[c.key]}`)}>
+    <td key={c.key} className={cx(low(c), align(c), r.tones?.[c.key] && `dkj-tone-${r.tones[c.key]}`)}>
       {content}
     </td>
   )
@@ -178,7 +182,7 @@ export function DataTable({
         <thead>
           <tr>
             {columns.map((c) => (
-              <th key={c.key} scope="col" className={align(c)} aria-sort={c.sortable ? (sort?.key === c.key ? sort.direction : 'none') : undefined}>
+              <th key={c.key} scope="col" className={cx(low(c), align(c)) || undefined} aria-sort={c.sortable ? (sort?.key === c.key ? sort.direction : 'none') : undefined}>
                 {c.sortable ? (
                   <button type="button" className="sort" onClick={() => onSort?.(c.key)}>
                     {c.label}

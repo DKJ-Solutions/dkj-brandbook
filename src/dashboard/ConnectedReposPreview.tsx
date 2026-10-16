@@ -192,12 +192,12 @@ export function ConnectedReposPreview() {
             columns={[
               { key: 'repo', label: 'Repo' },
               { key: 'status', label: 'Status', align: 'start' },
-              { key: 'visibility', label: 'Visibility', align: 'start' },
-              { key: 'plugins', label: 'Plugins' },
-              { key: 'installed', label: 'Installed', align: 'start' },
+              { key: 'visibility', label: 'Visibility', align: 'start', priority: 'low' },
+              { key: 'plugins', label: 'Plugins', priority: 'low' },
+              { key: 'installed', label: 'Installed', align: 'start', priority: 'low' },
               { key: 'errors', label: 'Errors' },
               { key: 'notes', label: 'Notes' },
-              { key: 'checkout', label: 'Checkout', align: 'start' },
+              { key: 'checkout', label: 'Checkout', align: 'start', priority: 'low' },
             ]}
             rows={REPOS.map((r) => ({
               id: r.name,
@@ -217,9 +217,6 @@ export function ConnectedReposPreview() {
           />
         </CardBody>
       </Card>
-      <Gap>
-        Eight columns scroll sideways on a phone with no column priority.
-      </Gap>
 
       {REPOS.map((r) => (
         <RepoCard key={r.name} repo={r} />
