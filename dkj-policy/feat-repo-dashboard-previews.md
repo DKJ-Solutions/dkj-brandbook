@@ -50,7 +50,7 @@ Owner's choice A: start with dkj-claude-plugins only (its connector dashboard); 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at `/dashboards` and approved it
+- [x] An owner has looked at `/dashboards` and approved it
 
 ### DEPLOY: feat/repo-dashboard-previews
 
