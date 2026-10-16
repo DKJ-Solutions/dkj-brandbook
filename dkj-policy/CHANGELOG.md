@@ -2,7 +2,40 @@
 
 ## [Unreleased]
 
-**85 minor entries** <!-- pending-tally -->
+**86 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/144-message-live-region · 20261016-130041Z
+
+#### What does the change on this branch deploy to main?
+
+##### Tier 0
+
+`Message` takes a `live` prop (`"status"` or `"alert"`) that gives it a live-region role, and the Repo dashboard
+uses it, so a screen reader announces the loading line and the "could not be read" warning when they appear. The
+reference page `house-style/patterns/repo-dashboard.html` and row 8 of the Repo dashboard table in
+`house-style/README.md` name the same roles for the stylesheet-only form.
+
+**Score:** 2
+
+##### Tier 1
+
+N/A: an accessibility attribute on a developer's page; nothing a commissioner sees changes.
+
+**Score:** N/A
+
+##### Tier 2
+
+N/A: the house stylesheet and theme script are untouched.
+
+**Score:** N/A
+
+#### Pull Request
+
+Message has no live-region role
+
+[PR #157](https://github.com/DKJ-Solutions/dkj-brandbook/pull/157)
+
+---
 
 ### DEPLOY: feat/repo-dashboard-previews · 20261016-125542Z
 
