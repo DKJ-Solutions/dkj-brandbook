@@ -18,6 +18,17 @@
   <script src="../house-theme.js"></script>
 </head>
 <body>
+  <!-- 0. The breadcrumb bar, first in <body> on every page; on the Repo dashboard its trail is this one crumb. -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><span aria-current="page">Repo dashboard</span></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
   <!-- 1. The settings button: house-theme.js draws it and fixes it at the top right, outside <main>. -->
   <div id="settings" class="theme-settings--floating"></div>
 

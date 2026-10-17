@@ -569,6 +569,21 @@ html:has(dialog:modal) { overflow: hidden; }
 .topbar__name { flex: none; font-size: var(--text-lg); font-weight: 700; }
 html:has(.topbar) { scroll-padding-top: var(--topbar-h); }
 
+/* ---- Breadcrumbs ---------------------------------------------------------------- */
+/* Where the page sits, on every page a dev server serves: the first thing in <body>, above <main>.
+   <div class="breadcrumbs-bar"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><ol>
+   <li><a href="/">Repo dashboard</a></li><li><span class="breadcrumbs__sep" aria-hidden="true">/</span>
+   <span aria-current="page">Current page</span></li></ol></nav></div></div>.
+   The trail wraps on a narrow screen; the slash is muted, the ancestors are links, the current page is the strongest.
+   The bar spans the full width on the surface tint; its trail lines up with the page column (.container). */
+.breadcrumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-1-5); margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); }
+.breadcrumbs li { display: inline-flex; align-items: center; gap: var(--spacing-1-5); }
+.breadcrumbs a { color: var(--primary-7); text-underline-offset: 2px; }
+.breadcrumbs__sep { color: var(--primary-5); }
+.breadcrumbs [aria-current='page'] { color: var(--primary-9); font-weight: 600; }
+.breadcrumbs-bar { background: var(--primary-2); }
+.breadcrumbs-bar > .container { padding-top: var(--spacing-2-5); padding-bottom: var(--spacing-2-5); }
+
 /* ---- Menu list and menu item ---------------------------------------------------- */
 /* Settings as rows: <ul class="menu-list"><li class="menu-row"><span class="menu-row__label">..</span>
    <span class="menu-row__value">..</span> an .icon-btn</li></ul>. A line between rows, not above or below. */

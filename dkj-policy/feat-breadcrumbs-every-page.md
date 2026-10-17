@@ -39,19 +39,37 @@
 
 ### PLAN
 
+Owner's request (October 17, 2026): breadcrumbs across every page the preview browser shows, in this repo and
+in every repo that follows the house style.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style.css`: the breadcrumbs as house classes (`.breadcrumbs`, `__sep`, `.breadcrumbs-bar`)
+- [x] `house-style/README.md`: the rule "Every page: the breadcrumb bar", the reserved names, block 0 of the Repo dashboard
+- [x] `patterns/repo-dashboard.html`: the bar as block 0
+- [x] The Repo dashboard and the showcase (and its repo previews) render the bar; the sidebar's own back link is gone
 
 ### TEST
 
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at the bar on `/`, `/showcase`, `/showcase#preview/<repo>` and `/dashboards` and approved it
+
 ### DEPLOY: feat/breadcrumbs-every-page
 
-**Score:**
+Every page of the dev server now opens with the same breadcrumb bar: the Repo dashboard, the showcase and
+its repo previews, next to the dashboard previews that already had one. The showcase sidebar's "Repo
+dashboard" link went, because the bar is now the way back.
+
+**Score:** 3
 
 #### What makes this deploy extra special
 
-**Score:**
+A house rule for every DKJ-Solutions app: each page a dev server serves opens with a breadcrumb bar starting
+at **Repo dashboard**. The house stylesheet carries it as `.breadcrumbs-bar` / `.breadcrumbs`, so an app
+without React gets it too; the Repo dashboard pattern shows it as block 0. An app that takes the update adds
+the bar to its pages; nothing that exists changes.
+
+**Score:** 3
 
 #### Pull Request
 

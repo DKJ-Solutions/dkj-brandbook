@@ -3,6 +3,7 @@ import { Button } from '../components/Button'
 import { Card, CardBody, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { Message } from '../components/Feedback'
+import { Breadcrumbs } from '../components/Navigation'
 import { DataTable, DefinitionList } from '../components/Table'
 import { ORG, REPOS, appPreviewPath } from '../repos'
 import { DASHBOARDS_PATH, SHOWCASE_PATH, dashboardPreviewPath } from '../routes'
@@ -53,73 +54,76 @@ export function RepoDashboard() {
   const data = load.status === 'ready' ? load.data : null
 
   return (
-    <main className="dkj-dashboard">
-      <Toolbar />
-      <DashboardIntro
-        eyebrow={REPO}
-        title="Repo dashboard"
-        lead="The single source of the DKJ-Solutions brand: the design principles, the tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place."
-        actions={
-          <>
-            <Button variant="primary" href={SHOWCASE_PATH}>
-              Open the brand book
-            </Button>{' '}
-            <Button href={DASHBOARDS_PATH}>Preview other repo dashboards</Button>
-          </>
-        }
-      />
+    <>
+      <Breadcrumbs bar items={[{ label: 'Repo dashboard' }]} />
+      <main className="dkj-dashboard">
+        <Toolbar />
+        <DashboardIntro
+          eyebrow={REPO}
+          title="Repo dashboard"
+          lead="The single source of the DKJ-Solutions brand: the design principles, the tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place."
+          actions={
+            <>
+              <Button variant="primary" href={SHOWCASE_PATH}>
+                Open the brand book
+              </Button>{' '}
+              <Button href={DASHBOARDS_PATH}>Preview other repo dashboards</Button>
+            </>
+          }
+        />
 
-      <InFlightTiles data={data} trunk={TRUNK} />
+        <InFlightTiles data={data} trunk={TRUNK} />
 
-      {load.status === 'loading' && <Message live="status">Reading what is in flight from GitHub...</Message>}
-      {load.status === 'error' && (
-        <Message tone="warn" live="alert">
-          What is in flight could not be read: {load.reason}.
-        </Message>
-      )}
+        {load.status === 'loading' && <Message live="status">Reading what is in flight from GitHub...</Message>}
+        {load.status === 'error' && (
+          <Message tone="warn" live="alert">
+            What is in flight could not be read: {load.reason}.
+          </Message>
+        )}
 
-      {data && <InFlightCards data={data} repo={REPO} trunk={TRUNK} />}
+        {data && <InFlightCards data={data} repo={REPO} trunk={TRUNK} />}
 
-      <Card variant="data">
-        <CardHead title="DKJ-Solutions repos" subtitle="Every repo that follows the brand book, with its app preview and, where one exists, its dashboard preview." />
-        <CardBody>
-          <DataTable
-            label="DKJ-Solutions repos"
-            columns={[
-              { key: 'repo', label: 'Repo' },
-              { key: 'app', label: 'App preview' },
-              { key: 'dashboard', label: 'Dashboard preview' },
-            ]}
-            rows={REPOS.map((r) => ({
-              id: r,
-              cells: {
-                repo: <a href={`https://github.com/${ORG}/${r}`}>{r}</a>,
-                app: <a href={appPreviewPath(r)}>Open</a>,
-                dashboard: PREVIEWS.some((p) => p.id === r) ? <a href={dashboardPreviewPath(r)}>Open</a> : '--',
-              },
-            }))}
-          />
-        </CardBody>
-      </Card>
+        <Card variant="data">
+          <CardHead title="DKJ-Solutions repos" subtitle="Every repo that follows the brand book, with its app preview and, where one exists, its dashboard preview." />
+          <CardBody>
+            <DataTable
+              label="DKJ-Solutions repos"
+              columns={[
+                { key: 'repo', label: 'Repo' },
+                { key: 'app', label: 'App preview' },
+                { key: 'dashboard', label: 'Dashboard preview' },
+              ]}
+              rows={REPOS.map((r) => ({
+                id: r,
+                cells: {
+                  repo: <a href={`https://github.com/${ORG}/${r}`}>{r}</a>,
+                  app: <a href={appPreviewPath(r)}>Open</a>,
+                  dashboard: PREVIEWS.some((p) => p.id === r) ? <a href={dashboardPreviewPath(r)}>Open</a> : '--',
+                },
+              }))}
+            />
+          </CardBody>
+        </Card>
 
-      <Card variant="data">
-        <CardHead title="About this repo" />
-        <CardBody>
-          <DefinitionList
-            variant="facts"
-            items={[
-              { term: 'Stack', value: 'React 19 + TypeScript + Vite' },
-              { term: 'Trunk', value: TRUNK },
-              { term: 'Gate', value: 'scripts/lint/lint-web.ps1' },
-              { term: 'Showcase', value: SHOWCASE_PATH },
-            ]}
-          />
-        </CardBody>
-      </Card>
+        <Card variant="data">
+          <CardHead title="About this repo" />
+          <CardBody>
+            <DefinitionList
+              variant="facts"
+              items={[
+                { term: 'Stack', value: 'React 19 + TypeScript + Vite' },
+                { term: 'Trunk', value: TRUNK },
+                { term: 'Gate', value: 'scripts/lint/lint-web.ps1' },
+                { term: 'Showcase', value: SHOWCASE_PATH },
+              ]}
+            />
+          </CardBody>
+        </Card>
 
-      <FooterNote>
-        In flight is read live from the GitHub API for <a href={`https://github.com/${REPO}`}>{REPO}</a> each time this page opens.
-      </FooterNote>
-    </main>
+        <FooterNote>
+          In flight is read live from the GitHub API for <a href={`https://github.com/${REPO}`}>{REPO}</a> each time this page opens.
+        </FooterNote>
+      </main>
+    </>
   )
 }

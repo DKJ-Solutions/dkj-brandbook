@@ -28,8 +28,6 @@
   color: var(--primary-2);
 }
 .dkj-nav ul { margin: 0; padding: 0; list-style: none; }
-/* The way back to the index (the Repo dashboard), above the contents. */
-.dkj-nav .dkj-nav-home { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); color: var(--primary-3); }
 .dkj-nav a {
   display: block;
   padding: var(--spacing-1) var(--spacing-2);
