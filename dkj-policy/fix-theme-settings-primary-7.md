@@ -39,19 +39,30 @@
 
 ### PLAN
 
+An owner noted that `--primary-7`, the theme's most striking step, does not appear in the settings panel at all. The open toggle used `--primary-5`, against the README's own rule that a state is `--primary-7`; the title was `--primary-9`.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `.theme-settings__toggle[aria-expanded="true"]`: colour and border `--primary-7` (a state)
+- [x] `.theme-settings__title`: `--primary-7` (the highlight, as an h2)
+- [x] README: the settings panel's title added to the `--primary-7` roles
 
 ### TEST
 
+- [x] Lint gate green
+- [ ] An owner has looked at the settings panel (open toggle and title) in the dev preview and approved it
+
 ### DEPLOY: fix/theme-settings-primary-7
 
-**Score:**
+The settings panel now carries the theme's colour: the open toggle (a state) and the panel title take `--primary-7`, where they were the grey `--primary-5` and the text colour `--primary-9`.
+
+**Score:** 2
 
 #### What makes this deploy extra special
 
-**Score:**
+Every app using `DKJTheme.settings()` shows its settings panel in the theme's colour once it takes the new copy.
+
+**Score:** 2
 
 #### Pull Request
 
