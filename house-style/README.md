@@ -454,9 +454,9 @@ as an issue on this repo. Don't make a local edit and hope it travels.
 
 **A merged change reaches nobody until it is released.** A release is a tag on `main`, and it is set only
 on the owner's explicit request, like any tag. The first four releases were set by hand as
-`house-style-v1` to `house-style-v4`. From the next release on, every release is cut with the
-`dkj-policy` plugin's `cut-release` and tagged `vX.Y.Z`, numbered on from `house-style-v4`, so the first
-is at least `5.0.0` (#172). The cut also writes the release's changelog notes and its row in
+`house-style-v1` to `house-style-v4`. The owner brought those four together as `v0.1.0`, the first
+`vX.Y.Z` release (#172, #178), and every release since is cut with the `dkj-policy` plugin's
+`cut-release` and tagged `vX.Y.Z`. The cut also writes the release's changelog notes and its row in
 [`dkj-policy/releases/history.md`](../dkj-policy/releases/history.md), which lists the four earlier tags
 too. A tag is never moved or reused: a fix is a new release. Then the `house-style` skill in the
 `dkj-solutions` plugin

@@ -39,19 +39,31 @@
 
 ### PLAN
 
+Resolves #178: `house-style/README.md` still said the first `vX.Y.Z` release would be at least
+`5.0.0`, while the owner released the four `house-style-v*` tags together as `v0.1.0`.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Rewrite the release passage under "Changing the house style" in `house-style/README.md`: the
+  four hand-set tags were brought together as `v0.1.0`, the first `vX.Y.Z` release.
 
 ### TEST
 
+- [x] The passage now agrees with `dkj-policy/releases/history.md`; no other `5.0.0` reference is left
+  in the repo's READMEs.
+
 ### DEPLOY: fix/178-readme-first-release-v0-1-0
 
-**Score:**
+The house-style README now says the first `vX.Y.Z` release is `v0.1.0`, which brings together
+`house-style-v1` to `house-style-v4`, instead of promising a first release of at least `5.0.0` (#178).
+
+**Score:** 1
 
 #### What makes this deploy extra special
 
-**Score:**
+N/A
+
+**Score:** N/A
 
 #### Pull Request
 
