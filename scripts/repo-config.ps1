@@ -602,7 +602,6 @@ function Get-DevPreview {
         Command      = 'npm run dev -- --port {port} --strictPort'
         Ports        = 5173..5180
         Requires     = 'node_modules'
-        Name         = 'Repo dashboard'
         OpenInVsCode = $true
     }
 }
