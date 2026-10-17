@@ -33,16 +33,11 @@ export function useThemeId() {
   return id
 }
 
-type Pair = { light: string | null; dark: string | null }
-
-/** Sets (or, for null, removes) the page's default theme attributes; a viewer's own stored pick always wins. */
-function applyDefaultPair(pair: Pair) {
+/** Sets (or, for null, removes) the page's default theme; a viewer's own stored pick always wins. */
+function applyDefaultTheme(id: string | null) {
   const root = document.documentElement
-  for (const mode of ['light', 'dark'] as const) {
-    const id = pair[mode]
-    if (id) root.setAttribute(`data-theme-${mode}`, id)
-    else root.removeAttribute(`data-theme-${mode}`)
-  }
+  if (id) root.setAttribute('data-theme-default', id)
+  else root.removeAttribute('data-theme-default')
   // The storage key as house-theme.js derives it; a stored value counts as a pick only if it is a known theme.
   let picked = false
   try {
@@ -51,20 +46,19 @@ function applyDefaultPair(pair: Pair) {
   } catch {
     // storage unavailable: nothing is stored, so the default applies
   }
-  // With no pick, reset only makes the house script resolve the theme again from the attributes.
+  // With no pick, reset only makes the house script resolve the theme again from the attribute.
   if (!picked) window.DKJTheme.reset()
 }
 
 /**
- * While the calling page is open, the repo's default theme pair is the page default (an unknown repo gets the brand
- * book's own pair); leaving restores what <html> declared before (index.html). A viewer's own pick is never overridden.
+ * While the calling page is open, the repo's default theme is the page default (an unknown repo gets the brand
+ * book's own); leaving restores what <html> declared before (index.html). A viewer's own pick is never overridden.
  */
 export function useRepoDefaultTheme(repo: string) {
-  const pair = defaultThemeOf(repo) ?? DEFAULT_THEMES['dkj-brandbook']
+  const id = defaultThemeOf(repo) ?? DEFAULT_THEMES['dkj-brandbook']
   useEffect(() => {
-    const root = document.documentElement
-    const before = { light: root.getAttribute('data-theme-light'), dark: root.getAttribute('data-theme-dark') }
-    applyDefaultPair(pair)
-    return () => applyDefaultPair(before)
-  }, [pair])
+    const before = document.documentElement.getAttribute('data-theme-default')
+    applyDefaultTheme(id)
+    return () => applyDefaultTheme(before)
+  }, [id])
 }

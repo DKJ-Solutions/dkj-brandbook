@@ -27,7 +27,7 @@ const PREVIEWS: Partial<Record<string, ComponentType>> = {
 export function RepoPreview({ repo }: { repo: string }) {
   const Preview = PREVIEWS[repo]
   const app = APPS.find((a) => a.repo === `DKJ-Solutions/${repo}`)
-  const pair = defaultThemeOf(repo)
+  const theme = defaultThemeOf(repo)
   useRepoDefaultTheme(repo)
   return (
     <section className="dkj-section" aria-labelledby="preview-title">
@@ -39,16 +39,16 @@ export function RepoPreview({ repo }: { repo: string }) {
       </h2>
       <p className="dkj-section-intro">
         {Preview
-          ? "A recreated preview, built from the brand-book components with placeholder content. It opens in the repo's own default theme pair; pick another theme or change the width above and it follows."
+          ? "A recreated preview, built from the brand-book components with placeholder content. It opens in the repo's own default theme; pick another theme or change the width above and it follows."
           : 'No recreated preview yet.'}
       </p>
       <p className="dkj-app-meta dkj-preview-meta">
         <span>
           Repo: <a href={`https://github.com/DKJ-Solutions/${repo}`}>DKJ-Solutions/{repo}</a>
         </span>
-        {pair && (
+        {theme && (
           <span>
-            Default theme: {themeName(pair.light)} / {themeName(pair.dark)}
+            Default theme: {themeName(theme)}
           </span>
         )}
         {app?.url && (

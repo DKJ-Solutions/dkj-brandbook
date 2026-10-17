@@ -9,7 +9,7 @@ import { ORG, REPOS, DEFAULT_THEMES, appPreviewPath } from '../repos'
 import { DASHBOARDS_PATH, SHOWCASE_PATH, dashboardPreviewPath } from '../routes'
 import { DashboardIntro, DashboardMain, InFlightCards, InFlightTiles, type Branch, type InFlight, type Issue, type Pull } from './DashboardShell'
 import { PREVIEWS } from './previews'
-import { ThemePairLabel } from './ThemePairLabel'
+import { ThemeLabel } from './ThemeLabel'
 import './dashboard.css'
 
 /**
@@ -97,7 +97,7 @@ export function RepoDashboard() {
                 id: r,
                 cells: {
                   repo: <a href={`https://github.com/${ORG}/${r}`}>{r}</a>,
-                  theme: <ThemePairLabel pair={DEFAULT_THEMES[r]} />,
+                  theme: <ThemeLabel id={DEFAULT_THEMES[r]} />,
                   app: <a href={appPreviewPath(r)}>Open</a>,
                   dashboard: PREVIEWS.some((p) => p.id === r) ? <a href={dashboardPreviewPath(r)}>Open</a> : '--',
                 },
