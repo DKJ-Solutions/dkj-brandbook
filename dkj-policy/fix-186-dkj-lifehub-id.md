@@ -52,7 +52,7 @@ the other apps' (`thumbnail-generator`), and stays.
 ### TEST
 
 - [x] Lint gate green
-- [ ] An owner has looked at the Repo dashboard's repo list, `/dashboards/dkj-lifehub` and `#preview/dkj-lifehub` in the dev preview and approved it
+- [x] An owner has looked at the Repo dashboard's repo list, `/dashboards/dkj-lifehub` and `#preview/dkj-lifehub` in the dev preview and approved it
 
 ### DEPLOY: fix/186-dkj-lifehub-id
 
