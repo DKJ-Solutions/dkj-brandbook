@@ -2,6 +2,7 @@ import { Button } from '../components/Button'
 import { Card, CardBody, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { Disclosure, Message } from '../components/Feedback'
+import { PageLinks } from '../components/Navigation'
 import { Badge, BadgeList, BadgeRow, StatTile, StatTiles, type StatusTone } from '../components/Metrics'
 import { DataTable, DefinitionList } from '../components/Table'
 import { DashboardIntro, InFlightCards, InFlightTiles, type InFlight } from './DashboardShell'
@@ -25,6 +26,14 @@ const IN_FLIGHT: InFlight = {
   ],
   branches: [{ name: 'feat/example-skill' }, { name: 'fix/example-script' }, { name: 'docs/example-page' }],
 }
+
+/** The repo's own pages, as inert placeholder links (the preview has no routes). */
+const PAGES = [
+  { label: 'Connected repos', href: '#', description: 'Every registered repo and its checks, worst first' },
+  { label: 'Release notes', href: '#', description: 'What each plugin release changed' },
+  { label: 'SessionStart measurements', href: '#', description: 'What a session loads before the first assignment' },
+  { label: 'Test-gate measurements', href: '#', description: 'How long the test gate runs, over time' },
+] as const
 
 type Status = 'bad' | 'warn' | 'good' | 'skip'
 type Signal = { kind: 'error' | 'info' | 'skip'; plugin?: string; text: string }
@@ -183,6 +192,8 @@ export function ConnectedReposPreview() {
           </Button>
         }
       />
+
+      <PageLinks pages={PAGES} />
 
       <InFlightTiles data={IN_FLIGHT} trunk={TRUNK} />
 

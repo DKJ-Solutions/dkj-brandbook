@@ -441,11 +441,40 @@ implementation is this repo's own [`RepoDashboard.tsx`](../src/dashboard/RepoDas
 | 4 | `h1`: **Repo hub** | `<h1>` | `h1` | fixed, word for word |
 | 5 | Lead: one paragraph on what the repo is for | `<p className="dkj-lead">` | `.lead` | the repo's own text |
 | 6 | A primary button to the product | `Button variant="primary"` | `.btn.btn--touch.btn--primary`, in a `<p class="page-cta">` | product repos only, with the repo's own label. The product has its own route and is never the page on `/` |
-| 7 | One stat tile per in-flight list, counting it | `StatTiles` / `StatTile` | `.tiles` / `.tile`, with `.label` and `.v` | the repo's own lists. A count not read yet shows `--` |
-| 8 | A loading line, or a warning that the lists could not be read | `Message live="status"` (loading) / `Message tone="warn" live="alert"` (error) | `.msg` with `role="status"` / `.msg.msg--warn` with `role="alert"` | fixed. The role makes a screen reader announce the line when it appears |
-| 9 | One data card per in-flight list, in the tiles' order | `Card variant="data"` with `CardHead` (title, sub line) and `DataTable` | `.card` around `.table-wrap` / `.table`; the card head is `.card__head` with `.card__title` (an `h2`) and `.card__sub` | the repo's own lists |
-| 10 | **About this repo**: a facts card | `Card variant="data"` with `DefinitionList variant="facts"` | `.card` with `.card__head`; the facts list is `.facts` (a `<dl>`) | fixed title, the repo's own facts |
-| 11 | A footer note naming where the data comes from | `FooterNote` | `.footer-note` | the repo's own source |
+| 7 | **Pages**: links to the repo's own pages, one row per page (below the table) | `PageLinks` (a `Card variant="data"` around a `<nav>` of house `.menu-item` link rows) | `.card` with `.card__head`; the list is a `<nav class="menu-list">` of `<a class="menu-item">` rows, each with `.menu-item__label`, optionally `.menu-item__sub`, and `.menu-item__chevron` | optional: any repo with a page of its own besides `/` and the product. Fixed title and form, the repo's own pages |
+| 8 | One stat tile per in-flight list, counting it | `StatTiles` / `StatTile` | `.tiles` / `.tile`, with `.label` and `.v` | the repo's own lists. A count not read yet shows `--` |
+| 9 | A loading line, or a warning that the lists could not be read | `Message live="status"` (loading) / `Message tone="warn" live="alert"` (error) | `.msg` with `role="status"` / `.msg.msg--warn` with `role="alert"` | fixed. The role makes a screen reader announce the line when it appears |
+| 10 | One data card per in-flight list, in the tiles' order | `Card variant="data"` with `CardHead` (title, sub line) and `DataTable` | `.card` around `.table-wrap` / `.table`; the card head is `.card__head` with `.card__title` (an `h2`) and `.card__sub` | the repo's own lists |
+| 11 | **About this repo**: a facts card | `Card variant="data"` with `DefinitionList variant="facts"` | `.card` with `.card__head`; the facts list is `.facts` (a `<dl>`) | fixed title, the repo's own facts |
+| 12 | A footer note naming where the data comes from | `FooterNote` | `.footer-note` | the repo's own source |
+
+**The Pages block (7)**, added in [#200](https://github.com/DKJ-Solutions/dkj-brandbook/issues/200). Four decisions, each with its reason:
+
+- **Where: block 7, directly under the intro and above the stat tiles.** The hub's job is to get you to the
+  page you want, so the way on comes before the status, and it does not depend on the lists having loaded,
+  so it never moves or waits while they are read.
+- **What it looks like: a card titled "Pages" holding a navigation list, the house `.menu-item` row as an
+  `<a>`** (label, optional one-line description beneath it, a chevron at the end; a line between rows). The
+  `.menu-item` is already the house's "this goes somewhere" row, so nothing is invented but the description
+  line (`.menu-item__sub`, the muted `--text-sm` line, as `.card__sub`). A row is a full-width, `--tap`-high
+  link that tints on hover; a `.tile` is a figure that does not respond, so the two cannot be mistaken for
+  each other, which is the separation the action buttons already have from the tiles. The card title is an
+  `h2` at its own `--text-h2`.
+- **Fixed or optional: optional, with a fixed form.** A repo with no page of its own besides `/` and the
+  product leaves it out; a repo with at least one more page carries it, and its rows are the repo's own
+  (label in the app's language, short, the page's own name as the breadcrumb uses it; the description is one
+  line or nothing, and each link is a route on the same dev server, never an external site).
+- **Relation to block 6: the product button stays the single primary action and is not repeated as a row.**
+  The button is the one thing most visitors came for; the rows are everything else. A repo with a product
+  and other pages has both; a repo with several pages and no product has no block 6 and the Pages card is
+  the first thing under the lead. What used to be a second, outline button next to the product button moves
+  into this list, so the intro keeps one button.
+
+Without React, the block is `.card` > `.card__head` (`h2.card__title`) + `nav.menu-list[aria-label="Pages"]` >
+one `a.menu-item[href]` per page (direct siblings, so the house rule `.menu-item + .menu-item` draws the line
+between rows) > `span.menu-item__label` (the label, then optionally `span.menu-item__sub`) + the
+`.menu-item__chevron` svg; [`patterns/repo-dashboard.html`](patterns/repo-dashboard.html) carries it. A
+description sits inside the label span so the chevron stays aligned at the end of the row.
 
 `Button` and `Card` render the brand-book classes `.dkj-btn` and `.dkj-card`; the house `.btn--primary` and
 `.card` are the stylesheet's own classes for the same blocks. In the reference the blocks stack in the page
@@ -462,8 +491,9 @@ number first within a priority, with who claimed it as the sub line; every branc
 request where one is open. A repo leaves out a list it has no use for and adds one it needs, each as a tile
 and a card. An empty list keeps its card and says so in the table ("No open issues.").
 
-**What is fixed:** the order, the components, the `h1`, the intro's form and the "About this repo" title.
-**What is the repo's own:** the slug, the lead, the product button and its label, which lists appear, the
+**What is fixed:** the order, the components, the `h1`, the intro's form, the "Pages" and "About this repo"
+titles. **What is the repo's own:** the slug, the lead, the product button and its label, whether the Pages
+block appears and which pages it links (with their labels and descriptions), which lists appear, the
 facts, and the data source. The reference reads its lists live from the GitHub API, unauthenticated, which
 a public repo can do; a private repo reads them some other way and says which in the footer note.
 
@@ -472,7 +502,8 @@ page-header row, a flex row with its controls beside the title, so a `<header>` 
 `h1`, the lead and the button out side by side. #137 hit exactly this; a `<div>` keeps them stacked.
 
 **Without React, the form is complete from `house-style.css`** ([#141](https://github.com/DKJ-Solutions/dkj-brandbook/issues/141)).
-Every block in the table has a house class: the eyebrow (`.eyebrow`), the lead (`.lead`), the loading line
+Every block in the table has a house class: the eyebrow (`.eyebrow`), the lead (`.lead`), the page links
+(`.menu-list`, `.menu-item`, `.menu-item__label`, `.menu-item__sub`), the loading line
 (`.msg`, `.msg--warn`), the data-card head (`.card__head`, `.card__title`, `.card__sub`), the facts list
 (`.facts`) and the page column (`.page-column`, with `.page-cta` for the button's spacing). The house
 `.card`, `.tiles`, `.notice` and `.footer-note` carry a top margin of their own, and `.page-column` zeroes it

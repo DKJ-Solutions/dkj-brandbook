@@ -3,7 +3,7 @@ import { Button } from '../components/Button'
 import { Card, CardBody, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { Message } from '../components/Feedback'
-import { Breadcrumbs } from '../components/Navigation'
+import { Breadcrumbs, PageLinks } from '../components/Navigation'
 import { DataTable, DefinitionList } from '../components/Table'
 import { ORG, REPOS, DEFAULT_THEMES, appPreviewPath } from '../repos'
 import { DASHBOARDS_PATH, SHOWCASE_PATH, dashboardPreviewPath } from '../routes'
@@ -62,14 +62,13 @@ export function RepoDashboard() {
           title="Repo hub"
           lead="The single source of the DKJ-Solutions brand: the design principles, the tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place."
           actions={
-            <>
-              <Button variant="primary" href={SHOWCASE_PATH}>
-                Open the brand book
-              </Button>{' '}
-              <Button variant="outline" href={DASHBOARDS_PATH}>Preview other repo hubs</Button>
-            </>
+            <Button variant="primary" href={SHOWCASE_PATH}>
+              Open the brand book
+            </Button>
           }
         />
+
+        <PageLinks pages={[{ label: 'Preview other repo hubs', href: DASHBOARDS_PATH, description: 'How the other DKJ-Solutions repos’ hubs look in this form' }]} />
 
         <InFlightTiles data={data} trunk={TRUNK} />
 
