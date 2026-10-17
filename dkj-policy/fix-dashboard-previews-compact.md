@@ -39,19 +39,30 @@
 
 ### PLAN
 
+The previews menu showed every repo as its own card with a button; the owner wants it compact. It takes the
+shape the dashboard already uses for a list: one data card with a `DataTable`, the repo name as the link.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `DashboardIndex` renders one `Card variant="data"` with a two-column `DataTable` (Repo, What it shows)
 
 ### TEST
 
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at `/dashboards` and approved it
+
 ### DEPLOY: fix/dashboard-previews-compact
 
-**Score:**
+The Repo dashboard previews page lists the seven previews in one table, a row per repo with its name as the
+link, instead of seven cards each with an Open preview button -- the whole menu now fits on one screen.
+
+**Score:** 2
 
 #### What makes this deploy extra special
 
-**Score:**
+N/A -- the brand book's own preview menu; no repo that takes the house style sees it.
+
+**Score:** N/A
 
 #### Pull Request
 

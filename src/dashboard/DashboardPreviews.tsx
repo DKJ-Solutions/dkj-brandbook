@@ -1,14 +1,14 @@
-import { Button } from '../components/Button'
-import { Card, CardHead } from '../components/Card'
+import { Card, CardBody } from '../components/Card'
 import { Message } from '../components/Feedback'
 import { Breadcrumbs } from '../components/Navigation'
+import { DataTable } from '../components/Table'
 import { DASHBOARD_PATH, DASHBOARDS_PATH, dashboardPreviewPath } from '../routes'
 import { Toolbar } from '../showcase/Showcase'
 import { PREVIEWS } from './previews'
 import './dashboard.css'
 
 /**
- * The menu of every repo dashboard that can be previewed in this brand book's dashboard shape, to see whether what
+ * The menu of every repo dashboard, one table row per repo, that can be previewed in this brand book's dashboard shape, to see whether what
  * those repos will put in theirs fits. The data is invented placeholder data (the repo is public) and nothing is fetched.
  */
 export function DashboardIndex() {
@@ -23,11 +23,21 @@ export function DashboardIndex() {
             Other repos' Repo dashboards in this repo's dashboard shape, to see where the shape does not fit yet. Placeholder data only.
           </p>
         </div>
-        {PREVIEWS.map((p) => (
-          <Card key={p.id}>
-            <CardHead title={p.label} subtitle={p.description} actions={<Button href={dashboardPreviewPath(p.id)}>Open preview</Button>} />
-          </Card>
-        ))}
+        <Card variant="data">
+          <CardBody>
+            <DataTable
+              label="Dashboard previews"
+              columns={[
+                { key: 'repo', label: 'Repo' },
+                { key: 'shows', label: 'What it shows', align: 'start' },
+              ]}
+              rows={PREVIEWS.map((p) => ({
+                id: p.id,
+                cells: { repo: <a href={dashboardPreviewPath(p.id)}>{p.label}</a>, shows: p.description },
+              }))}
+            />
+          </CardBody>
+        </Card>
       </main>
     </>
   )
