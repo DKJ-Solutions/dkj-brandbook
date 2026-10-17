@@ -106,39 +106,6 @@ export default function App() {
         ]}
       />
       <div className={cx('dkj-shell', open && 'dkj-shell--open')}>
-        <main className="dkj-main">
-          <Toolbar
-            controls={controls}
-            menu={
-              <IconButton
-                variant="ghost"
-                icon={open ? 'close' : 'menu'}
-                label={open ? 'Close contents' : 'Open contents'}
-                aria-controls="dkj-contents"
-                aria-expanded={open}
-                onClick={() => setOpen(!open)}
-              />
-            }
-          />
-          <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
-            {previewRepo ? (
-              <RepoPreview repo={previewRepo} />
-            ) : (
-              <>
-                <Intro />
-                <Foundations />
-                <Actions />
-                <Surfaces />
-                <Metrics />
-                <Forms />
-                <Overlays />
-                <Data />
-                <Apps />
-                <Overlap />
-              </>
-            )}
-          </div>
-        </main>
         {/* Closed, the panel is inert: out of the tab order and hidden from a screen reader while it slides shut. */}
         <aside className="dkj-contents" id="dkj-contents" aria-labelledby="dkj-contents-title" inert={!open}>
           <div className="dkj-contents-inner">
@@ -179,6 +146,39 @@ export default function App() {
             </nav>
           </div>
         </aside>
+        <main className="dkj-main">
+          <Toolbar
+            controls={controls}
+            menu={
+              <IconButton
+                variant="ghost"
+                icon={open ? 'close' : 'menu'}
+                label={open ? 'Close contents' : 'Open contents'}
+                aria-controls="dkj-contents"
+                aria-expanded={open}
+                onClick={() => setOpen(!open)}
+              />
+            }
+          />
+          <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
+            {previewRepo ? (
+              <RepoPreview repo={previewRepo} />
+            ) : (
+              <>
+                <Intro />
+                <Foundations />
+                <Actions />
+                <Surfaces />
+                <Metrics />
+                <Forms />
+                <Overlays />
+                <Data />
+                <Apps />
+                <Overlap />
+              </>
+            )}
+          </div>
+        </main>
       </div>
     </>
   )

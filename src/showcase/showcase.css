@@ -1,11 +1,11 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
-/* The page and its contents panel side by side. The panel sits on the right and stays open or closed until the
+/* The contents panel and the page side by side. The panel sits on the left and stays open or closed until the
    menu button toggles it; open, it takes --dkj-drawer-w from the page, so <main> moves aside rather than being
    covered. It slides open and shut with the panel duration. */
-.dkj-shell { display: grid; grid-template-columns: minmax(0, 1fr) 0; transition: grid-template-columns var(--dkj-duration-panel) var(--dkj-ease-out); }
-.dkj-shell--open { grid-template-columns: minmax(0, 1fr) var(--dkj-drawer-w); }
-/* The panel: the drawer's surface (--primary-2) with a rule on its left, sticky under the breadcrumb bar and as tall
+.dkj-shell { display: grid; grid-template-columns: 0 minmax(0, 1fr); transition: grid-template-columns var(--dkj-duration-panel) var(--dkj-ease-out); }
+.dkj-shell--open { grid-template-columns: var(--dkj-drawer-w) minmax(0, 1fr); }
+/* The panel: the drawer's surface (--primary-2) with a rule on its right, sticky under the breadcrumb bar and as tall
    as the screen below it; a long list scrolls inside it. The inner box keeps its width, so nothing reflows while it
    slides. Every colour is a --primary step read directly, no local alias (owner's correction, October 14, 2026). */
 .dkj-contents {
@@ -15,14 +15,14 @@
   height: calc(100dvh - var(--tap));
   overflow: hidden;
   background: var(--primary-2);
-  border-left: 1px solid var(--primary-3);
+  border-right: 1px solid var(--primary-3);
 }
-.dkj-shell:not(.dkj-shell--open) .dkj-contents { border-left-color: transparent; }
+.dkj-shell:not(.dkj-shell--open) .dkj-contents { border-right-color: transparent; }
 .dkj-contents-inner { width: var(--dkj-drawer-w); height: 100%; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; padding: var(--spacing-5) var(--spacing-4); }
 .dkj-contents-title { margin: 0; font-size: var(--text-h5); font-weight: var(--dkj-fw-bold); color: var(--primary-8); }
 .dkj-contents-sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-base); color: var(--primary-6); }
 .dkj-nav { margin-top: var(--spacing-2); }
-@media (prefers-reduced-motion: reduce) { .dkj-shell, .dkj-contents { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { .dkj-shell, .dkj-contents, .dkj-breadcrumbs-bar > .container { transition: none !important; } }
 .dkj-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);
   font-size: var(--text-sm);
@@ -54,8 +54,10 @@
 /* <main>: the house style gives it a centred 1080px column; the showcase fills the full width. */
 .dkj-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
 /* The breadcrumb trail above it lines up with it: the same full width and the same side padding, so the trail and
-   the content start on one line (on the dashboard pages both are the house column already). */
-.dkj-breadcrumbs-bar:has(+ .dkj-shell) > .container { max-width: none; padding-left: var(--spacing-6); padding-right: var(--spacing-6); }
+   the content start on one line (on the dashboard pages both are the house column already). With the contents panel
+   open, <main> starts after it, and the trail moves along with it. */
+.dkj-breadcrumbs-bar:has(+ .dkj-shell) > .container { max-width: none; padding-left: var(--spacing-6); padding-right: var(--spacing-6); transition: padding-left var(--dkj-duration-panel) var(--dkj-ease-out); }
+.dkj-breadcrumbs-bar:has(+ .dkj-shell--open) > .container { padding-left: calc(var(--dkj-drawer-w) + var(--spacing-6)); }
 /* The preview settings: the house settings button (.theme-settings), placed top right in a sticky
    wrapper with no height, so its panel lies over the page and nothing in the flow moves. It sticks under the
    breadcrumb bar. */
@@ -196,11 +198,11 @@
   .dkj-main { padding: var(--spacing-4) var(--spacing-4) var(--spacing-8); }
   /* No room to push on a narrow screen: the open panel lies over the page instead, below the breadcrumb bar. */
   .dkj-shell, .dkj-shell--open { grid-template-columns: minmax(0, 1fr); }
-  .dkj-contents { position: fixed; top: var(--tap); right: 0; z-index: 3; width: min(var(--dkj-drawer-w), calc(100% - 3rem)); box-shadow: var(--shadow-pop);
-    transform: translateX(100%); visibility: hidden; transition: transform var(--dkj-duration-panel) var(--dkj-ease-out), visibility 0s var(--dkj-duration-panel); }
+  .dkj-contents { position: fixed; top: var(--tap); left: 0; z-index: 3; width: min(var(--dkj-drawer-w), calc(100% - 3rem)); box-shadow: var(--shadow-pop);
+    transform: translateX(-100%); visibility: hidden; transition: transform var(--dkj-duration-panel) var(--dkj-ease-out), visibility 0s var(--dkj-duration-panel); }
   .dkj-shell--open .dkj-contents { transform: none; visibility: visible; transition: transform var(--dkj-duration-panel) var(--dkj-ease-out); }
   .dkj-contents-inner { width: 100%; }
-  .dkj-breadcrumbs-bar:has(+ .dkj-shell) > .container { padding-left: var(--spacing-4); padding-right: var(--spacing-4); }
+  .dkj-breadcrumbs-bar:has(+ .dkj-shell) > .container, .dkj-breadcrumbs-bar:has(+ .dkj-shell--open) > .container { padding-left: var(--spacing-4); padding-right: var(--spacing-4); }
   .dkj-settings { margin: 0 calc(-1 * var(--spacing-4)); }
   .dkj-settings-anchor, .dkj-menu-anchor { right: var(--spacing-4); }
   .dkj-settings--menu .dkj-settings-anchor { right: calc(var(--spacing-4) + var(--tap) + var(--spacing-2)); }
