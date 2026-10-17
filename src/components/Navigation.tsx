@@ -1,6 +1,7 @@
 import { useRef, useState, type ReactNode } from 'react'
 import { cx } from './cx'
 import { Button, IconButton, RoundToggle } from './Button'
+import { Card, CardBody, CardHead } from './Card'
 import { Dialog } from './Dialog'
 import { Icon } from './Icon'
 import './navigation.css'
@@ -192,5 +193,34 @@ export function Breadcrumbs({ items, bar = false }: { items: readonly { label: s
     </div>
   ) : (
     trail
+  )
+}
+
+/**
+ * PageLinks -- a data card titled "Pages" around a navigation list: one link row per page (label, an optional one-line
+ * description beneath it, a chevron at the end), a line between rows. It uses the house `.menu-item` rows
+ * (house-style.css, loaded globally) and renders nothing for an empty list.
+ */
+export function PageLinks({ pages, title = 'Pages' }: { pages: readonly { label: string; href: string; description?: string }[]; title?: string }) {
+  if (pages.length === 0) return null
+  return (
+    <Card variant="data">
+      <CardHead title={title} />
+      <CardBody>
+        <nav aria-label={title} className="menu-list">
+          {pages.map((page) => (
+            <a key={page.href + page.label} className="menu-item" href={page.href}>
+              <span className="menu-item__label">
+                {page.label}
+                {page.description && <span className="menu-item__sub">{page.description}</span>}
+              </span>
+              <svg className="menu-item__chevron" viewBox="0 0 24 24" width={20} height={20} aria-hidden="true" focusable="false">
+                <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          ))}
+        </nav>
+      </CardBody>
+    </Card>
   )
 }

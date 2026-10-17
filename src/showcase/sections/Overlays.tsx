@@ -3,7 +3,7 @@ import { Button, RoundToggle, SegmentedChoice } from '../../components/Button'
 import { Dialog, DialogActions, DialogLabel } from '../../components/Dialog'
 import { Disclosure, Message, Tooltip } from '../../components/Feedback'
 import { Stepper } from '../../components/Field'
-import { Breadcrumbs, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, StepHeader, TopBar } from '../../components/Navigation'
+import { Breadcrumbs, DrawerFooter, InfoRow, InfoRows, MenuList, MenuRow, PageHeader, PageLinks, StepHeader, TopBar } from '../../components/Navigation'
 import { RowList, StatRow, ValueBox } from '../../components/Row'
 import { Demo, Section } from '../Showcase'
 import { HouseDialogsDemo, HouseMenuDemo, HouseSettingsDemo, HouseTopBarDemo } from './HouseApp'
@@ -170,6 +170,17 @@ export function Overlays() {
         </Demo>
         <Demo label="As a bar (on a page it spans the full screen width, above main)" wide>
           <Breadcrumbs bar items={[{ label: 'Home', href: '#Breadcrumbs' }, { label: 'Section', href: '#Breadcrumbs' }, { label: 'Current page' }]} />
+        </Demo>
+      </Section>
+
+      <Section id="PageLinks" title="PageLinks" intro="The Repo hub's Pages block: a data card titled Pages around a list of link rows, each with a label, an optional one-line description and a chevron. It is the house .menu-item as a link, so a row tints on hover; it renders nothing for an empty list.">
+        <Demo label="Two pages, one with a description">
+          <PageLinks
+            pages={[
+              { label: 'Release history', href: '#PageLinks', description: 'Every release, newest first' },
+              { label: 'Roadmap', href: '#PageLinks' },
+            ]}
+          />
         </Demo>
       </Section>
 

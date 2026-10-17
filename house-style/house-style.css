@@ -609,6 +609,10 @@ html:has(.breadcrumbs-bar) .theme-settings--floating { top: calc(var(--tap) + va
 .menu-item__icon, .menu-item__chevron { flex: none; }
 .menu-item__label { flex: 1; min-width: 0; }
 .menu-item__chevron { color: var(--primary-9); }
+/* A navigation row that is a link (#200): <nav class="menu-list"><a class="menu-item" href>..</a><a class="menu-item"..>,
+   optionally with a one-line description under the label: <span class="menu-item__label">Label<span class="menu-item__sub">..</span></span>. */
+.menu-item__sub { display: block; font-size: var(--text-sm); font-weight: 400; color: var(--primary-6); }
+a.menu-item:hover { background: var(--primary-3); }
 
 /* ---- Screen readers only --------------------------------------------------------- */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }

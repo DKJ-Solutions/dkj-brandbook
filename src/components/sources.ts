@@ -81,6 +81,7 @@ export const SOURCES = {
   FilterChips: [],
   Figure: [],
   Breadcrumbs: [],
+  PageLinks: [],
   DateRow: [],
 } as const satisfies Record<string, SourceRef[]>
 

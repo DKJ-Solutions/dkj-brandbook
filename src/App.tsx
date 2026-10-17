@@ -25,7 +25,7 @@ const NAV = [
   { group: 'Surfaces & content', items: ['Card', 'TintedPanel', 'Banner', 'Alert', 'Message', 'Chip', 'TitleTag', 'Help', 'Disclosure', 'ReadMoreToggle', 'GroupHeading', 'QuestionBlock', 'Amount', 'Prose', 'Figure', 'FooterNote'] },
   { group: 'Metrics', items: ['StatTile', 'HeroValue', 'Delta', 'Legend', 'ColumnChart', 'BarChart', 'LineChart', 'MiniCard', 'Meter', 'Badge'] },
   { group: 'Forms & rows', items: ['Field', 'Checkbox', 'Stepper', 'SearchCombobox', 'ValueBox', 'StatRow', 'FormulaRow', 'DateRow'] },
-  { group: 'Overlays & navigation', items: ['Dialog', 'Tooltip', 'Drawer', 'TopBar', 'PageHeader', 'Breadcrumbs', 'MenuRow', 'StepHeader', 'InfoRow'] },
+  { group: 'Overlays & navigation', items: ['Dialog', 'Tooltip', 'Drawer', 'TopBar', 'PageHeader', 'Breadcrumbs', 'PageLinks', 'MenuRow', 'StepHeader', 'InfoRow'] },
   { group: 'Data', items: ['DefinitionList', 'DataTable', 'BillTable', 'ComparisonTable', 'CalcTable', 'AnswerBox'] },
   { group: 'Apps', items: ['apps', 'overlap'] },
 ] as const
