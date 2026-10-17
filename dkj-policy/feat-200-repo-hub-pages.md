@@ -39,19 +39,38 @@
 
 ### PLAN
 
+#200: the Repo hub form gets a block for links to the repo's own pages, so a repo with several pages and no
+product has a house-sanctioned way to list them. Designed by Gwen (position, look, fixed or optional, relation
+to block 6, all reasoned in `house-style/README.md`), built by Cody.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/README.md`: block 7 "Pages" in the Repo hub form, the blocks after it renumbered (Gwen)
+- [x] `house-style/house-style.css`: `.menu-item__sub` and the hover of a link `.menu-item`, existing tokens only (Gwen)
+- [x] `house-style/patterns/repo-dashboard.html`: the block with example pages (Gwen)
+- [x] `PageLinks` in `src/components/Navigation.tsx`, its source entry and showcase demo; this repo's hub and the dkj-claude-plugins preview use it (Cody)
 
 ### TEST
 
+- [ ] An owner has looked at the Pages block on the Repo hub (`/`), on the dkj-claude-plugins hub preview and in the showcase, and approved it
+
 ### DEPLOY: feat/200-repo-hub-pages
 
-**Score:**
+The Repo hub form has a new, optional block 7, **Pages** (#200): a data card titled "Pages", right under the
+intro, with one link row per page of the repo's own (a label, an optional one-line description, a chevron).
+It is built from the house `.menu-item` row, which gains `.menu-item__sub` and a hover on a link row, so a page
+link never looks like a stat tile. The product button stays the intro's one button; the brand book's own
+"Preview other repo hubs" moved from the intro into the block. React gets `PageLinks`; without React the
+pattern page carries the markup. The blocks after it are renumbered 8 to 12.
+
+**Score:** 3
 
 #### What makes this deploy extra special
 
-**Score:**
+A repo's hub can now list the repo's own pages in the house form, with a `PageLinks` component (React) or the
+`.menu-item` markup (without React); a repo with no page besides `/` and its product leaves the block out.
+
+**Score:** 3
 
 #### Pull Request
 
