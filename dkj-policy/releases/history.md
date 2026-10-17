@@ -8,9 +8,11 @@
 
 ### house-style
 
-The releases cut before this repo released through `cut-release`. Each is a `house-style-v<N>` tag set
+The releases cut before this repo released through `cut-release`. Each was a `house-style-v<N>` tag set
 by hand on a fold commit, and its changelog was split out of `[Unreleased]` afterwards (#172). The
-owner brought the four together as `v0.1.0`, the first `vX.Y.Z` release (October 17, 2026); every
+owner brought the four together as `v0.1.0`, the first `vX.Y.Z` release (October 17, 2026), and had
+the tags `house-style-v1` to `house-style-v3` deleted the same day; `house-style-v4` goes once the
+`house-style` skill no longer pins it (#177). Every
 release since is a `vX.Y.Z` tag cut with `cut-release`, listed in its own `<X>.x` section above this one.
 
 | Tag | Date | Title |
