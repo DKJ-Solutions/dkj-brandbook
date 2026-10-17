@@ -58,7 +58,9 @@
 /* The closed strip: a click opens the panel, and it lightens under the pointer, as a link in the panel does. */
 .dkj-shell:not(.dkj-shell--open) .dkj-contents { cursor: pointer; }
 .dkj-shell:not(.dkj-shell--open) .dkj-contents:hover { background: var(--primary-8); }
-.dkj-contents-inner { width: 230px; height: 100%; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; padding: var(--spacing-5) var(--spacing-4); }
+.dkj-contents-inner { width: 230px; height: 100%; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; padding: var(--spacing-5) var(--spacing-4);
+  /* Its scrollbar is the panel's too: a --primary-6 thumb on the panel's own --primary-9, so it is not read as <main>'s. */
+  scrollbar-color: var(--primary-6) var(--primary-9); }
 .dkj-contents-title { margin: 0; font-size: var(--text-h5); font-weight: var(--dkj-fw-bold); color: var(--primary-3); }
 .dkj-contents-sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-base); color: var(--primary-3); }
 .dkj-nav { margin-top: var(--spacing-2); }
