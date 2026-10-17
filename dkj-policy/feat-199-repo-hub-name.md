@@ -54,7 +54,7 @@ link `patterns/repo-dashboard.html` by path.
 
 ### TEST
 
-- [ ] An owner has looked at the Repo hub (`/`), the hub previews (`/dashboards`) and the showcase crumb, and approved them
+- [x] An owner has looked at the Repo hub (`/`), the hub previews (`/dashboards`) and the showcase crumb, and approved them
 
 ### DEPLOY: feat/199-repo-hub-name
 
