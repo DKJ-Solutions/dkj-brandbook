@@ -146,12 +146,12 @@ small text → 12, a mini-card value 20 → 18, the info button's mark 10 → 11
 
 **Every DKJ-Solutions app has the same form, and a colour of its own that the user picks** (Maikel,
 October 12, 2026). The house style carries twelve themes. Each one is a mode, light or dark, plus a
-primary colour, its `--primary-5` in either mode (the dot the picker draws):
+primary colour, its `--primary-7` in either mode (the dot the picker draws):
 
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
-| Light | `magenta` Magenta `#734e63`, `purple` Paars `#5f537d`, `blue` Blauw `#545680`, `teal` Petrol `#4c5e61`, `ochre` Oker `#5e5c49`, `rust` Roest `#6a5649` |
-| Dark | `pink` Roze `#895f75`, `lilac` Lila `#706790`, `sky` Hemelsblauw `#686a92`, `cyan` Cyaan `#5c7375`, `yellow` Geel `#756e59`, `orange` Oranje `#836759` |
+| Light | `magenta` Magenta `#720252`, `purple` Paars `#4f0399`, `blue` Blauw `#0704c0`, `teal` Petrol `#02494f`, `ochre` Oker `#494001`, `rust` Roest `#633001` |
+| Dark | `pink` Roze `#fe97d0`, `lilac` Lila `#c2affe`, `sky` Hemelsblauw `#b5b5fe`, `cyan` Cyaan `#0fd6e8`, `yellow` Geel `#e8b70c`, `orange` Oranje `#fea56e` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
   makes the number disappear. The status colours are the same in every theme.
@@ -243,9 +243,9 @@ out). Three more things follow it by default, in light and in dark (and a measur
   | `-1` | 0.19 | 0.035 |
   | `-2` | 0.21 | 0.045 |
   | `-3` | 0.32 | 0.08, at most 0.6 relative |
-  | `-4` | 0.458 | half of `-5`'s base chroma, in its hue (October 15, 2026: a step darker, extra grey) |
-  | `-5` | 0.538 | 0.105, at most 0.49 relative (the owner's Oranje `#8f6249`; at most the chroma of the owner's Hemelsblauw `#4c4c8d`): its base chroma, taken at 0.6 (October 15, 2026: greyer) |
-  | `-6` | 0.618 | half of `-5`'s base chroma, in its hue (October 15, 2026: a step lighter, extra grey) |
+  | `-4` | 0.458 | a quarter of `-5`'s base chroma, in its hue (October 15, 2026: a step darker, extra grey; October 17, 2026: halved again, greyer) |
+  | `-5` | 0.538 | 0.105, at most 0.49 relative (the owner's Oranje `#8f6249`; at most the chroma of the owner's Hemelsblauw `#4c4c8d`): its base chroma, taken at 0.3 (October 15, 2026: greyer, at 0.6; October 17, 2026: halved again) |
+  | `-6` | 0.618 | a quarter of `-5`'s base chroma, in its hue (October 15, 2026: a step lighter, extra grey; October 17, 2026: halved again, greyer) |
   | `-7` | 0.80 | 0.99 relative |
   | `-8` | 0.90 | 0.83 relative |
   | `-9` | 0.981 | 0.008 |
@@ -256,7 +256,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   two `--primary-*` steps, and no dark-only rule that picks another step. Text in the theme's colour (values),
   focus rings, lines and meters are `-5` everywhere, and the text on a `-5` fill is `-1`. On
   dark that reads at about 3.3:1 (`-1` on `-5` 3.51:1, `-5` on the card 3.38:1, both Roze), which the owner accepted.
-  The picker's dot is `-5` in every theme. The scale runs from the ground (`-1` page, `-2` card:
+  The picker's dot is `-7` in every theme, on its theme's `-1` (October 17, 2026). The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-8`, `-9`: darkest on light, whitest on dark). `-5` carries the fills
   in both modes, and the focus rings, with `--primary-1` as text on a fill. **On light every
   theme behaves the same and only the hue differs** (owner's decision, October 15, 2026): each step has one OKLCH
@@ -268,9 +268,9 @@ out). Three more things follow it by default, in light and in dark (and a measur
   | `-1` | 0.989 | 0.0053 | Petrol `#faffff`, at the lightest lightness every hue holds |
   | `-2` | 0.972 | 0.0136 | Petrol `#f2ffff`, the same way |
   | `-3` | 0.848 | 0.066, at most 0.45 relative | Petrol `#9adae2` |
-  | `-4` | 0.55 | half of `-5`'s base chroma, in its hue | October 15, 2026: a step lighter than `-5`, extra grey |
-  | `-5` | 0.47 | 0.1135, at most 0.486 relative: its base chroma, taken at 0.6 (October 15, 2026: greyer) | Paars `#5d458b`, Magenta `#954c7a`, Blauw `#49498d` |
-  | `-6` | 0.39 | half of `-5`'s base chroma, in its hue | October 15, 2026: a step darker than `-5`, extra grey |
+  | `-4` | 0.55 | a quarter of `-5`'s base chroma, in its hue | October 15, 2026: a step lighter than `-5`, extra grey; October 17, 2026: halved again |
+  | `-5` | 0.47 | 0.1135, at most 0.486 relative: its base chroma, taken at 0.3 (October 15, 2026: greyer, at 0.6; October 17, 2026: halved again) | Paars `#5d458b`, Magenta `#954c7a`, Blauw `#49498d` |
+  | `-6` | 0.39 | a quarter of `-5`'s base chroma, in its hue | October 15, 2026: a step darker than `-5`, extra grey; October 17, 2026: halved again |
   | `-7` | 0.369 | 0.99 relative | Blauw `#0707bf` |
   | `-8` | 0.289 | 0.83 relative | Blauw `#181873` |
   | `-9` | 0.131 | 0.99 relative | Blauw `#00002b` |
