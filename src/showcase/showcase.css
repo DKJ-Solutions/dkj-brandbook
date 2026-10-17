@@ -2,11 +2,11 @@
 
 /* The rail, the contents panel and the page column side by side, the rail and the panel over the full height of
    the screen; the breadcrumb bar sits in the page column, above <main>. The rail (one --tap wide) is always there;
-   the panel beside it stays open or closed until the rail toggles it, and open it takes --dkj-drawer-w from the page
+   the panel beside it stays open or closed until the rail toggles it, and open it takes 230px (its maximum width) from the page
    column, so the bar and <main> move aside rather than being covered. It slides open and shut with the panel
    duration. */
 .dkj-shell { display: grid; grid-template-columns: var(--tap) 0 minmax(0, 1fr); transition: grid-template-columns var(--dkj-duration-panel) var(--dkj-ease-out); }
-.dkj-shell--open { grid-template-columns: var(--tap) var(--dkj-drawer-w) minmax(0, 1fr); }
+.dkj-shell--open { grid-template-columns: var(--tap) 230px minmax(0, 1fr); }
 .dkj-page { min-width: 0; }
 /* The rail: sticky over the full height of the screen, on the surface with a rule on its right; the icon sits at
    the top, centred in the first --tap so it is level with the breadcrumb trail. The whole rail is the target. */
@@ -42,7 +42,7 @@
   border-right: 1px solid var(--primary-3);
 }
 .dkj-shell:not(.dkj-shell--open) .dkj-contents { border-right-color: transparent; }
-.dkj-contents-inner { width: var(--dkj-drawer-w); height: 100%; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; padding: var(--spacing-5) var(--spacing-4); }
+.dkj-contents-inner { width: 230px; height: 100%; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; padding: var(--spacing-5) var(--spacing-4); }
 .dkj-contents-title { margin: 0; font-size: var(--text-h5); font-weight: var(--dkj-fw-bold); color: var(--primary-8); }
 .dkj-contents-sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-base); color: var(--primary-6); }
 .dkj-nav { margin-top: var(--spacing-2); }
@@ -214,7 +214,7 @@
   .dkj-main { padding: var(--spacing-4) var(--spacing-4) var(--spacing-8); }
   /* No room to push on a narrow screen: the open panel lies over the page instead, beside the rail. */
   .dkj-shell, .dkj-shell--open { grid-template-columns: var(--tap) minmax(0, 1fr); }
-  .dkj-contents { position: fixed; top: 0; left: var(--tap); z-index: 5; width: min(var(--dkj-drawer-w), calc(100% - var(--tap) - 3rem)); box-shadow: var(--shadow-pop);
+  .dkj-contents { position: fixed; top: 0; left: var(--tap); z-index: 5; width: min(230px, calc(100% - var(--tap) - 3rem)); box-shadow: var(--shadow-pop);
     transform: translateX(calc(-100% - var(--tap))); visibility: hidden; transition: transform var(--dkj-duration-panel) var(--dkj-ease-out), visibility 0s var(--dkj-duration-panel); }
   .dkj-shell--open .dkj-contents { transform: none; visibility: visible; transition: transform var(--dkj-duration-panel) var(--dkj-ease-out); }
   .dkj-contents-inner { width: 100%; }

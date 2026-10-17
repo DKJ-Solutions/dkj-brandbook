@@ -50,7 +50,7 @@ in every repo that follows the house style.
 - [x] The Repo dashboard and the showcase (and its repo previews) render the bar; the sidebar's own back link is gone
 - [x] Owner's follow-up: the bar sticks to the top and is always visible; one `--tap` high, one line; the settings button, the showcase sidebar and in-page anchors sit under it
 - [x] Owner's follow-up: the showcase's contents (`.dkj-nav`) is a panel on the left that a vertical rail, always visible at the left edge, opens and closes, and that stays as it is (remembered per viewer); open, it pushes `.dkj-main` aside, and on a narrow screen it lies over the page
-- [x] Owner's follow-up: in the showcase the breadcrumb trail and `.dkj-main` start on one line (same width, same side padding), and the trail moves along when the contents panel opens; the rail and the panel take the full height, the bar sits beside them above `.dkj-main`
+- [x] Owner's follow-up: in the showcase the breadcrumb trail and `.dkj-main` start on one line (same width, same side padding), and the trail moves along when the contents panel opens; the rail and the panel take the full height, the bar sits beside them above `.dkj-main`; the panel is at most 230px wide
 
 ### TEST
 
