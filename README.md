@@ -18,7 +18,7 @@ until the plugin repins to `v0.1.0`, then `vX.Y.Z`).
 
 ```bash
 npm ci
-npm run dev       # the Repo dashboard at http://localhost:5173/, the showcase at /showcase
+npm run dev       # the Repo hub at http://localhost:5173/, the showcase at /showcase
 npm run build     # tsc -b && vite build
 npm run lint
 ```

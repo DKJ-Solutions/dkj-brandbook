@@ -9,24 +9,24 @@ import { PREVIEWS } from './previews'
 import './dashboard.css'
 
 /**
- * The menu of every repo dashboard, one table row per repo, that can be previewed in this brand book's dashboard shape, to see whether what
+ * The menu of every repo hub, one table row per repo, that can be previewed in this brand book's hub shape, to see whether what
  * those repos will put in theirs fits. The data is invented placeholder data (the repo is public) and nothing is fetched.
  */
 export function DashboardIndex() {
   return (
     <>
-      <Breadcrumbs bar items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews' }]} />
+      <Breadcrumbs bar items={[{ label: 'Repo hub', href: DASHBOARD_PATH }, { label: 'Hub previews' }]} />
       <DashboardMain>
         <div className="dkj-intro">
-          <h1>Repo dashboard previews</h1>
+          <h1>Repo hub previews</h1>
           <p className="dkj-lead">
-            Other repos' Repo dashboards in this repo's dashboard shape, to see where the shape does not fit yet. Placeholder data only.
+            Other repos' Repo hubs in this repo's hub shape, to see where the shape does not fit yet. Placeholder data only.
           </p>
         </div>
         <Card variant="data">
           <CardBody>
             <DataTable
-              label="Dashboard previews"
+              label="Hub previews"
               columns={[
                 { key: 'repo', label: 'Repo' },
                 { key: 'shows', label: 'What it shows', align: 'start' },
@@ -52,7 +52,7 @@ export function DashboardPreviewPage({ id }: { id: string }) {
     <>
       <Breadcrumbs
         bar
-        items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews', href: DASHBOARDS_PATH }, { label: preview?.label ?? id }]}
+        items={[{ label: 'Repo hub', href: DASHBOARD_PATH }, { label: 'Hub previews', href: DASHBOARDS_PATH }, { label: preview?.label ?? id }]}
       />
       <DashboardMain>
         {preview ? (

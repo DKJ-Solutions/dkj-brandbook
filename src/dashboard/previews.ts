@@ -13,7 +13,7 @@ export type DashboardPreview = { id: string; label: string; description: string;
 
 /**
  * The repos whose dashboard can be previewed, each on /dashboards/<id> (the id is the repo name in src/repos.ts). Add an
- * entry to preview another repo; its data stays placeholder data. The Repo dashboard's repo list links every entry here.
+ * entry to preview another repo; its data stays placeholder data. The Repo hub's repo list links every entry here.
  */
 export const PREVIEWS: readonly DashboardPreview[] = [
   {

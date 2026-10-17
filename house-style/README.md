@@ -394,7 +394,7 @@ level-up colours, the equipment lists, the stat lines, the chips and the downloa
 ### Every page: the breadcrumb bar
 
 **Every page a DKJ-Solutions dev server serves opens with a breadcrumb bar** (owner's request, October 17,
-2026). That is every page you can open in the preview browser: the Repo dashboard, the product, and any
+2026). That is every page you can open in the preview browser: the Repo hub, the product, and any
 page below either. The bar says where the page sits and is the way back, so no page needs a "back" link of
 its own.
 
@@ -404,9 +404,9 @@ its own.
   (44px) high and one line: a trail longer than the screen scrolls sideways inside the bar instead of
   wrapping, so the height never changes. Whatever else sticks to the top sits under it, at `top: var(--tap)`;
   the house style already does that for the floating settings button and for in-page anchors.
-- **The trail:** it always starts at **Repo dashboard**, linking to `/`. Each further crumb is one level
+- **The trail:** it always starts at **Repo hub**, linking to `/`. Each further crumb is one level
   down: the product (under its own name), then a page inside it. The last crumb is the current page,
-  unlinked, with `aria-current="page"`. On the Repo dashboard itself the trail is that one crumb: the bar is
+  unlinked, with `aria-current="page"`. On the Repo hub itself the trail is that one crumb: the bar is
   still there, so it sits in the same place on every page.
 - **The labels** are the pages' own names, short, in the app's language. A crumb names a page, never a
   section on a page: an in-page anchor is not a level.
@@ -420,11 +420,13 @@ without the bar does not break, but it does not follow the house style until it 
 own sticky element at `top: 0` (a sidebar, a toolbar) moves it to `top: var(--tap)` when it adds the bar,
 or the bar covers it.
 
-### The Repo dashboard
+### The Repo hub
 
-**Every DKJ-Solutions repo's Repo dashboard has this one form, and only its content differs** (owner's
+It is called a hub, not a dashboard (owner's call, October 17, 2026, [#199](https://github.com/DKJ-Solutions/dkj-brandbook/issues/199)): the index's job is to get you to the page you want quickly, while a dashboard is a page that shows how something stands, and the pages below the index can be dashboards.
+
+**Every DKJ-Solutions repo's Repo hub has this one form, and only its content differs** (owner's
 decision, October 16, 2026, [#139](https://github.com/DKJ-Solutions/dkj-brandbook/issues/139)). The Repo
-dashboard is the index (`/`) of a repo's dev server: what the repo is for and what is in flight. The form is
+hub is the index (`/`) of a repo's dev server: what the repo is for and what is in flight. The form is
 the one approved in [#137](https://github.com/DKJ-Solutions/dkj-brandbook/issues/137), and its reference
 implementation is this repo's own [`RepoDashboard.tsx`](../src/dashboard/RepoDashboard.tsx).
 
@@ -432,11 +434,11 @@ implementation is this repo's own [`RepoDashboard.tsx`](../src/dashboard/RepoDas
 
 | # | Block | Brand book component (React) | House class (the stylesheet-only equivalent) | Fixed, or the repo's own |
 |---|---|---|---|---|
-| 0 | The breadcrumb bar, above `<main>`: the one crumb **Repo dashboard** ([above](#every-page-the-breadcrumb-bar)) | `Breadcrumbs bar` | `.breadcrumbs-bar` / `.breadcrumbs` | fixed |
+| 0 | The breadcrumb bar, above `<main>`: the one crumb **Repo hub** ([above](#every-page-the-breadcrumb-bar)) | `Breadcrumbs bar` | `.breadcrumbs-bar` / `.breadcrumbs` | fixed |
 | 1 | The settings button | `Toolbar` (showcase; the settings button only) | `DKJTheme.settings(el)` from `house-theme.js` (`.theme-settings`) | fixed |
 | 2 | The intro, wrapping 3 to 6: a `<div>`, never a `<header>` (below) | `<div className="dkj-intro">` | a plain `<div>` | fixed |
 | 3 | Eyebrow: `<owner>/<repo>` | `<p className="dkj-eyebrow">` | `.eyebrow` | fixed form, the repo's own slug |
-| 4 | `h1`: **Repo dashboard** | `<h1>` | `h1` | fixed, word for word |
+| 4 | `h1`: **Repo hub** | `<h1>` | `h1` | fixed, word for word |
 | 5 | Lead: one paragraph on what the repo is for | `<p className="dkj-lead">` | `.lead` | the repo's own text |
 | 6 | A primary button to the product | `Button variant="primary"` | `.btn.btn--touch.btn--primary`, in a `<p class="page-cta">` | product repos only, with the repo's own label. The product has its own route and is never the page on `/` |
 | 7 | One stat tile per in-flight list, counting it | `StatTiles` / `StatTile` | `.tiles` / `.tile`, with `.label` and `.v` | the repo's own lists. A count not read yet shows `--` |

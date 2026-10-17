@@ -13,7 +13,7 @@ import { ThemeLabel } from './ThemeLabel'
 import './dashboard.css'
 
 /**
- * The Repo dashboard: the index of this repo's dev server (DKJ-Solutions/dkj-claude-plugins#3064, #137). A welcome page
+ * The Repo hub: the index of this repo's dev server (DKJ-Solutions/dkj-claude-plugins#3064, #137). A welcome page
  * with what this repo is for and what is in flight -- open pull requests, open issues and the branches off the trunk --
  * and a button to the product, the brand book showcase, which has a route of its own.
  * In-flight data is read live from the GitHub API: the repo is public, so no token is needed (60 requests an hour).
@@ -55,18 +55,18 @@ export function RepoDashboard() {
 
   return (
     <>
-      <Breadcrumbs bar items={[{ label: 'Repo dashboard' }]} />
+      <Breadcrumbs bar items={[{ label: 'Repo hub' }]} />
       <DashboardMain>
         <DashboardIntro
           eyebrow={REPO}
-          title="Repo dashboard"
+          title="Repo hub"
           lead="The single source of the DKJ-Solutions brand: the design principles, the tokens, the twelve themes and every component the DKJ-Solutions apps share, in one place."
           actions={
             <>
               <Button variant="primary" href={SHOWCASE_PATH}>
                 Open the brand book
               </Button>{' '}
-              <Button variant="outline" href={DASHBOARDS_PATH}>Preview other repo dashboards</Button>
+              <Button variant="outline" href={DASHBOARDS_PATH}>Preview other repo hubs</Button>
             </>
           }
         />

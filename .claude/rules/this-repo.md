@@ -11,7 +11,7 @@ constitution or a lens says "the owner", either of them can give that word here.
   (`DaveKJohn/djcylow-react`), so the brand book neither lists nor previews it and the house style does
   not apply to it. One brand, several themes: the shared base
   (typography, spacing, radius, motion, component behaviour, tone) is fixed; colours may differ per theme.
-- **Stack:** React 19 + TypeScript + Vite. `npm run dev` runs the Repo dashboard on `/` and the showcase on `/showcase`; `npm run build` builds it.
+- **Stack:** React 19 + TypeScript + Vite. `npm run dev` runs the Repo hub on `/` and the showcase on `/showcase`; `npm run build` builds it.
   Node version is pinned in `.nvmrc`.
 - **The trunk is `main`.** All changes go via a `feat/`, `fix/` or `docs/` branch and a PR
   (`scripts/lib/branch-info.ps1`). The gate is `scripts/lint/lint-web.ps1` (eslint + a check that every

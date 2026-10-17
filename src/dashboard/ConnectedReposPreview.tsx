@@ -7,7 +7,7 @@ import { DataTable, DefinitionList } from '../components/Table'
 import { DashboardIntro, InFlightCards, InFlightTiles, type InFlight } from './DashboardShell'
 
 /**
- * Preview of the "Connected repos" dashboard of a plugin-source repo, rendered in the Repo dashboard's shape: the shared
+ * Preview of the "Connected repos" dashboard of a plugin-source repo, rendered in the Repo hub's shape: the shared
  * shell first, then the repo-specific sections, then "About this repo" and the footer note. Placeholder data only: invented repos, plugins and notes.
  */
 const REPO = 'example-org/example-plugins'
@@ -175,7 +175,7 @@ export function ConnectedReposPreview() {
     <>
       <DashboardIntro
         eyebrow={REPO}
-        title="Repo dashboard"
+        title="Repo hub"
         lead="The source of the shared plugins, and the check of every repo that has them installed."
         actions={
           <Button variant="primary" aria-disabled="true">

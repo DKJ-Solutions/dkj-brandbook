@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
-  The Repo dashboard, the stylesheet-only reference (#141).
+  The Repo hub, the stylesheet-only reference (#141).
 
   This is the reference for a repo WITHOUT a build: the whole page is built from ../house-style.css and
   ../house-theme.js, linked and not inlined, and from nothing else (no other CSS, no external request).
   A repo with React builds the same form from the brand book components (src/dashboard/RepoDashboard.tsx);
-  the form, its eleven blocks and their order are in house-style/README.md, "The Repo dashboard".
+  the form, its eleven blocks and their order are in house-style/README.md, "The Repo hub".
   The data below is static placeholder data. A real page reads its own lists, or writes them in when it is built.
   When a repo copies this file, the two links take the vendored copies of the stylesheet and the script.
 -->
@@ -13,17 +13,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Repo dashboard</title>
+  <title>Repo hub</title>
   <link rel="stylesheet" href="../house-style.css">
   <script src="../house-theme.js"></script>
 </head>
 <body>
-  <!-- 0. The breadcrumb bar, first in <body> on every page; on the Repo dashboard its trail is this one crumb. -->
+  <!-- 0. The breadcrumb bar, first in <body> on every page; on the Repo hub its trail is this one crumb. -->
   <div class="breadcrumbs-bar">
     <div class="container">
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <ol>
-          <li><span aria-current="page">Repo dashboard</span></li>
+          <li><span aria-current="page">Repo hub</span></li>
         </ol>
       </nav>
     </div>
@@ -37,8 +37,8 @@
     <!-- 2 to 6. The intro: a <div>, never a <header> (the house style makes main > header a flex row). -->
     <div>
       <p class="eyebrow">DKJ-Solutions/example-repo</p>
-      <h1>Repo dashboard</h1>
-      <p class="lead">An example repo, with a few lists in flight, to show how the Repo dashboard is built from the house style alone.</p>
+      <h1>Repo hub</h1>
+      <p class="lead">An example repo, with a few lists in flight, to show how the Repo hub is built from the house style alone.</p>
       <p class="page-cta"><a class="btn btn--touch btn--primary" href="#">Open the product</a></p>
     </div>
 
