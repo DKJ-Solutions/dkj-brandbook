@@ -8,7 +8,7 @@ import { DashboardIntro, InFlightCards, InFlightTiles, type InFlight } from './D
 
 /**
  * Preview of the "Connected repos" dashboard of a plugin-source repo, rendered in the Repo dashboard's shape: the shared
- * shell first, then the repo-specific sections. Placeholder data only: invented repos, plugins and notes.
+ * shell first, then the repo-specific sections, then "About this repo" and the footer note. Placeholder data only: invented repos, plugins and notes.
  */
 const REPO = 'example-org/example-plugins'
 const TRUNK = 'main'
@@ -241,6 +241,20 @@ export function ConnectedReposPreview() {
       {REPOS.map((r) => (
         <RepoCard key={r.name} repo={r} />
       ))}
+
+      <Card variant="data">
+        <CardHead title="About this repo" />
+        <CardBody>
+          <DefinitionList
+            variant="facts"
+            items={[
+              { term: 'Stack', value: 'Claude Code plugins: skills, hooks and PowerShell scripts' },
+              { term: 'Gate', value: 'Pester' },
+              { term: 'Trunk', value: TRUNK },
+            ]}
+          />
+        </CardBody>
+      </Card>
 
       <FooterNote>Checked 13 October 2026, 09:00 (placeholder).</FooterNote>
     </>
