@@ -14,8 +14,9 @@ fetches a tagged release, never `main`** (owner's decision on
 [#3](https://github.com/DKJ-Solutions/dkj-brandbook/issues/3), October 13, 2026): `house-theme.js` is
 executable and runs with the origin of every page it is inlined into, and `main` is a moving ref that an
 admin can push to past the review. A tag is a version somebody chose to release. Raw URLs for a session or
-a build to fetch, with `<tag>` the release tag the skill is pinned to (`house-style-v1` to
-`house-style-v4`, then `vX.Y.Z`):
+a build to fetch, with `<tag>` the release tag the skill is pinned to (`house-style-v4` until
+the plugin repins to `v0.1.0`, then `vX.Y.Z`; `house-style-v1` to `house-style-v3` were deleted on
+October 17, 2026, #177):
 
 - `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/<tag>/house-style/house-style.css`
 - `https://raw.githubusercontent.com/DKJ-Solutions/dkj-brandbook/<tag>/house-style/house-theme.js`
@@ -457,7 +458,7 @@ on the owner's explicit request, like any tag. The first four releases were set 
 `house-style-v1` to `house-style-v4`. The owner brought those four together as `v0.1.0`, the first
 `vX.Y.Z` release (#172, #178), and every release since is cut with the `dkj-policy` plugin's
 `cut-release` and tagged `vX.Y.Z`. The cut also writes the release's changelog notes and its row in
-[`dkj-policy/releases/history.md`](../dkj-policy/releases/history.md), which lists the four earlier tags
+[`dkj-policy/releases/history.md`](../dkj-policy/releases/history.md), which lists the four earlier releases
 too. A tag is never moved or reused: a fix is a new release. Then the `house-style` skill in the
 `dkj-solutions` plugin
 ([DKJ-Solutions/dkj-claude-plugins](https://github.com/DKJ-Solutions/dkj-claude-plugins)) is repointed to

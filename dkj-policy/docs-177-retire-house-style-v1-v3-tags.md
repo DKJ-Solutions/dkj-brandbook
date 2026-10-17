@@ -39,19 +39,32 @@
 
 ### PLAN
 
+Owner's decision (October 17, 2026): delete `house-style-v1` to `house-style-v3` now; `house-style-v4`
+waits until a dkj-claude-plugins release carries #3085, which repins the skill to `v0.1.0`. #177 stays
+open for v4. This branch makes the docs stop saying that the deleted tags exist.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `README.md`, `house-style/README.md`: the tag the skill pins is `house-style-v4`, then `vX.Y.Z`.
+- [x] `dkj-policy/releases/history.md`: the four were tags; v1 to v3 deleted, v4 follows.
 
 ### TEST
 
+- [ ] The tags `house-style-v1` to `house-style-v3` are gone from origin (`git ls-remote --tags origin`).
+
 ### DEPLOY: docs/177-retire-house-style-v1-v3-tags
 
-**Score:**
+The tags `house-style-v1` to `house-style-v3` are deleted. Their release notes stay in the tree and
+`history.md` still lists them. The docs now name `house-style-v4` as the tag the `house-style` skill
+pins until it repins to `v0.1.0`; that tag is deleted once that happens (#177).
+
+**Score:** 1
 
 #### What makes this deploy extra special
 
-**Score:**
+N/A -- no release the plugin pins today goes away.
+
+**Score:** N/A
 
 #### Pull Request
 
