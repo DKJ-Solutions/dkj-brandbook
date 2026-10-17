@@ -2,7 +2,32 @@
 
 ## [Unreleased]
 
-**1 / 5 minor entries** <!-- pending-tally -->
+**1 / 6 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/dashboard-previews-all-repos · 20261017-124127Z
+
+Every DKJ-Solutions repo now has a dashboard preview on `/dashboards/<repo>`, not only dkj-claude-plugins. The six new
+ones (etf-tracker, mesowise, music-library, recipes, thumbnail-generator, lifehub) each propose what that repo's own
+Repo dashboard would show, in the one fixed form: the in-flight tiles and cards, one or two cards of the repo's own
+(a last run, game data, syncs, the recipe collection, rounds, content checks), "About this repo" and a footer note
+naming the data source. The data is invented placeholder data; three of the repos are private. The form with placeholder
+data is one component, `PlaceholderDashboard`, so a further preview is one entry.
+
+**Score:** 3
+
+#### What makes this deploy extra special
+
+N/A: the previews live on this repo's own dev server and change nothing a repo that takes the house style receives.
+
+**Score:** N/A
+
+#### Pull Request
+
+Dashboard previews for every DKJ-Solutions repo
+
+[PR #188](https://github.com/DKJ-Solutions/dkj-brandbook/pull/188)
+
+---
 
 ### DEPLOY: fix/184-release-consumer-bumps · 20261017-115949Z
 
