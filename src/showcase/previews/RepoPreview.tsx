@@ -18,7 +18,7 @@ const PREVIEWS: Partial<Record<string, ComponentType>> = {
   'dkj-music-library': MusicLibraryPreview,
   'dkj-recipes': RecipesPreview,
   'dkj-thumbnail-generator': ThumbnailPreview,
-  'life-hub': LifeHubPreview,
+  'dkj-lifehub': LifeHubPreview,
 }
 
 /** A repo's page behind the navigation list: its links, then the recreated app in a frame, or a placeholder. */

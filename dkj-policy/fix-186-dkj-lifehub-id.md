@@ -39,19 +39,33 @@
 
 ### PLAN
 
+#186: the repo was renamed from `DKJ-Solutions/life-hub` to `DKJ-Solutions/dkj-lifehub` on October 13, 2026, while
+the brand book still names it `life-hub`. The repo name is the route id (`#preview/<repo>`, `/dashboards/<repo>`), so
+the id follows the rename. The apps registry's own `id` (`life-hub`) is the apps overview's anchor, a short name like
+the other apps' (`thumbnail-generator`), and stays.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/repos.ts`, `src/dashboard/previews.ts` and `src/showcase/previews/RepoPreview.tsx` name the repo `dkj-lifehub`
+- [x] `src/apps/registry.ts` points the Life hub app at `DKJ-Solutions/dkj-lifehub`
 
 ### TEST
 
+- [x] Lint gate green
+- [ ] An owner has looked at the Repo dashboard's repo list, `/dashboards/dkj-lifehub` and `#preview/dkj-lifehub` in the dev preview and approved it
+
 ### DEPLOY: fix/186-dkj-lifehub-id
 
-**Score:**
+The Life hub repo is named `dkj-lifehub` everywhere, after its rename on October 13, 2026: the Repo dashboard links
+`DKJ-Solutions/dkj-lifehub`, and its previews moved to `/dashboards/dkj-lifehub` and `#preview/dkj-lifehub` (#186).
+
+**Score:** 1
 
 #### What makes this deploy extra special
 
-**Score:**
+N/A
+
+**Score:** N/A
 
 #### Pull Request
 
