@@ -48,7 +48,7 @@
 
 ### TEST
 
-- [ ] An owner has looked at the Repo dashboard and approved it.
+- [x] An owner has looked at the Repo dashboard and approved it.
 
 ### DEPLOY: fix/dashboard-secondary-button-outline
 
