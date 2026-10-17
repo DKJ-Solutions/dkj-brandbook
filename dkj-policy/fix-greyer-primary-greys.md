@@ -55,7 +55,7 @@ and hue and loses half its chroma, in all twelve themes, so contrast is unchange
 
 - [x] `scripts/lint/lint-web.ps1` green
 - [x] An owner has looked at the greys in light and dark themes and approved it
-- [ ] An owner has looked at the theme picker's dots and approved them
+- [x] An owner has looked at the theme picker's dots and approved them
 
 ### DEPLOY: fix/greyer-primary-greys
 
