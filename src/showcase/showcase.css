@@ -40,23 +40,26 @@
 .dkj-panel-toggle:hover { background: var(--primary-3); color: var(--primary-7); }
 .dkj-panel-toggle:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: 2px; }
 @media (hover: none) { .dkj-panel-toggle { opacity: 1; } }
-/* The panel: the drawer's surface (--primary-2) with a rule on its right, sticky over the full height of the screen; a long list scrolls inside it. The inner box keeps its width, so nothing reflows while it
-   slides. Every colour is a --primary step read directly, no local alias (owner's correction, October 14, 2026). */
+/* The panel: sticky over the full height of the screen; a long list scrolls inside it, and the inner box keeps its
+   width, so nothing reflows while it slides. Its colours mirror the page's, by the scale itself: the panel is
+   --primary-9, the far end (near-black in the theme's hue on light, near-white on dark), and its text the opposite
+   end, --primary-1 as ink and --primary-3 as the quieter ink. One step per role in both modes; every colour is a
+   --primary step read directly, no local alias (owner's correction, October 14, 2026). */
 .dkj-contents {
   position: sticky;
   top: 0;
   align-self: start;
   height: 100dvh;
   overflow: hidden;
-  background: var(--primary-2);
-  border-right: 1px solid var(--primary-3);
+  background: var(--primary-9);
+  color: var(--primary-1);
 }
-/* The closed strip: a click opens the panel, and it tints under the pointer like the toggle does. */
+/* The closed strip: a click opens the panel, and it lightens under the pointer, as a link in the panel does. */
 .dkj-shell:not(.dkj-shell--open) .dkj-contents { cursor: pointer; }
-.dkj-shell:not(.dkj-shell--open) .dkj-contents:hover { background: var(--primary-3); }
+.dkj-shell:not(.dkj-shell--open) .dkj-contents:hover { background: var(--primary-8); }
 .dkj-contents-inner { width: 230px; height: 100%; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; padding: var(--spacing-5) var(--spacing-4); }
-.dkj-contents-title { margin: 0; font-size: var(--text-h5); font-weight: var(--dkj-fw-bold); color: var(--primary-8); }
-.dkj-contents-sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-base); color: var(--primary-6); }
+.dkj-contents-title { margin: 0; font-size: var(--text-h5); font-weight: var(--dkj-fw-bold); color: var(--primary-3); }
+.dkj-contents-sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-base); color: var(--primary-3); }
 .dkj-nav { margin-top: var(--spacing-2); }
 @media (prefers-reduced-motion: reduce) { .dkj-shell, .dkj-contents, .dkj-panel-toggle { transition: none !important; } }
 .dkj-nav-group {
@@ -65,7 +68,7 @@
   font-weight: var(--dkj-fw-semibold);
   letter-spacing: var(--dkj-tracking-label);
   text-transform: uppercase;
-  color: var(--primary-6);
+  color: var(--primary-2);
 }
 .dkj-nav ul { margin: 0; padding: 0; list-style: none; }
 .dkj-nav a {
@@ -73,15 +76,15 @@
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--dkj-radius-sm);
   font-size: var(--text-base);
-  color: var(--primary-9);
+  color: var(--primary-1);
   text-decoration: none;
-  /* One line per link: a name too long for the drawer is cut off with an ellipsis (the full name is its title). */
+  /* One line per link: a name too long for the panel is cut off with an ellipsis (the full name is its title). */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.dkj-nav a:hover { background: var(--primary-3); }
-.dkj-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset-inset); }
+.dkj-nav a:hover { background: var(--primary-8); }
+.dkj-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-3); outline-offset: var(--dkj-focus-offset-inset); }
 /* The current page: a --primary-5 fill, the same step in both modes. Its focus ring takes --primary-1, because the
    usual ring would vanish on the current fill. */
 .dkj-nav a[aria-current='page'], .dkj-nav a[aria-current='page']:hover { background: var(--primary-5); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
