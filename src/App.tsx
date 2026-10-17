@@ -98,16 +98,16 @@ export default function App() {
   }
   return (
     <div className={cx('dkj-shell', open && 'dkj-shell--open')}>
-      {/* The rail: always visible on the left, the whole of it one button that opens and closes the panel. */}
+      {/* The toggle: half over the panel's edge, shown on hover or keyboard focus (always where there is no hover). */}
       <button
         type="button"
-        className="dkj-rail"
+        className="dkj-panel-toggle"
         aria-label={open ? 'Close contents' : 'Open contents'}
         aria-controls="dkj-contents"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
       >
-        <Icon name={open ? 'close' : 'menu'} size={24} />
+        <Icon name={open ? 'close' : 'menu'} />
       </button>
       {/* Closed, the panel is inert: out of the tab order and hidden from a screen reader while it slides shut. */}
       <aside className="dkj-contents" id="dkj-contents" aria-labelledby="dkj-contents-title" inert={!open}>
@@ -149,7 +149,7 @@ export default function App() {
           </nav>
         </div>
       </aside>
-      {/* The page column: the breadcrumb bar over <main>, beside the rail and the panel, which take the full height. */}
+      {/* The page column: the breadcrumb bar over <main>, beside the panel, which takes the full height. */}
       <div className="dkj-page">
         <Breadcrumbs
           bar
