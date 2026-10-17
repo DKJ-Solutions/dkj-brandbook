@@ -141,6 +141,9 @@
 /* Phone width: everything renders in a 360px column, like the source app on the smallest phone it supports. */
 .dkj-content--phone { max-width: 360px; }
 .dkj-content--phone .dkj-demos { grid-template-columns: minmax(0, 1fr); }
+/* Full width: everything takes 100% of the page column -- the app columns a preview keeps in fluid width (and the
+   phone-first .dkj-column) lose their maximum, so a recreated app stretches edge to edge. */
+.dkj-content--full .dkj-preview-column, .dkj-content--full .dkj-column { max-width: none; }
 
 /* The intro: page title, hero card and type specimen at the top of the content. */
 .dkj-intro { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }

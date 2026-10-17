@@ -161,7 +161,7 @@ export default function App() {
         />
         <main className="dkj-main">
           <Toolbar controls={controls} />
-          <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
+          <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone', controls.width === 'full' && 'dkj-content--full')}>
             {previewRepo ? (
               <RepoPreview repo={previewRepo} />
             ) : (

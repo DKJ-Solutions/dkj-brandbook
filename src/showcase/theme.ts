@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-type Width = 'fluid' | 'phone'
+type Width = 'fluid' | 'phone' | 'full'
 
 /** Preview width, remembered on this device. The colour theme itself is owned by the house script (window.DKJTheme). */
 export function useWidth() {

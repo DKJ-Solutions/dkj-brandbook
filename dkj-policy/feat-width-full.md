@@ -41,17 +41,26 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `full` joins the Width toggle (`theme.ts`, `Showcase.tsx`), and `App.tsx` gives the content `dkj-content--full`
+- [x] `showcase.css`: under `full` the preview column and `.dkj-column` lose their maximum width
 
 ### TEST
 
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
+- [ ] An owner has looked at the `full` width on the showcase and a repo preview and approved it
+
 ### DEPLOY: feat/width-full
 
-**Score:**
+The preview settings get a third width, `full`, next to `fluid` and `phone`: the content takes 100% of the page
+column, so a repo preview that keeps its own app column in `fluid` now stretches edge to edge.
+
+**Score:** 2
 
 #### What makes this deploy extra special
 
-**Score:**
+A reader of the brand book can now judge a component or a recreated app at the full width of their screen.
+
+**Score:** 2
 
 #### Pull Request
 

@@ -88,7 +88,7 @@ export function Toolbar({ controls }: { controls?: ReturnType<typeof useWidth> }
   return (
     <div className="dkj-settings">
       <div className="dkj-settings-anchor" ref={ref} />
-      {slot && controls && createPortal(<Toggle label="Width" value={controls.width} onChange={controls.setWidth} options={['fluid', 'phone']} />, slot)}
+      {slot && controls && createPortal(<Toggle label="Width" value={controls.width} onChange={controls.setWidth} options={['fluid', 'phone', 'full']} />, slot)}
     </div>
   )
 }
