@@ -50,7 +50,7 @@ built on `PlaceholderDashboard` carry it, but `ConnectedReposPreview` did not. T
 ### TEST
 
 - [x] Lint gate green
-- [ ] An owner has looked at `/dashboards/dkj-claude-plugins` in the dev preview and approved it
+- [x] An owner has looked at `/dashboards/dkj-claude-plugins` in the dev preview and approved it
 
 ### DEPLOY: fix/187-plugins-about-card
 
