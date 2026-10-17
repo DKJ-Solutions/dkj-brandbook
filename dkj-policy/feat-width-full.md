@@ -49,7 +49,7 @@
 ### TEST
 
 - [x] Lint gate green (`scripts/lint/lint-web.ps1`)
-- [ ] An owner has looked at the `full` width on the showcase, a repo preview and the Repo dashboard and approved it
+- [x] An owner has looked at the `full` width on the showcase, a repo preview and the Repo dashboard and approved it
 
 ### DEPLOY: feat/width-full
 
