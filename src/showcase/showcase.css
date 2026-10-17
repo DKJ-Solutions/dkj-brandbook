@@ -8,13 +8,13 @@
 .dkj-shell { display: grid; grid-template-columns: var(--spacing-3) minmax(0, 1fr); transition: grid-template-columns var(--dkj-duration-panel) var(--dkj-ease-out); }
 .dkj-shell--open { grid-template-columns: 230px minmax(0, 1fr); }
 .dkj-page { min-width: 0; }
-/* The toggle: a round button centred on the panel's right edge, so half of it lies over the panel, just below the
-   breadcrumb bar so it never covers the trail, at the settings button's height on the other side. It takes no room of its own, so nothing stands beside the open panel: it is hidden until the
+/* The toggle: a round button centred on the panel's right edge, so half of it lies over the panel, halfway down
+   the screen, clear of the breadcrumb trail. It takes no room of its own, so nothing stands beside the open panel: it is hidden until the
    pointer is over the panel (open, or its closed strip) or over the button, and on keyboard focus. Where there is
    no hover (a touch screen) it is always shown. */
 .dkj-panel-toggle {
   position: fixed;
-  top: calc(var(--tap) + var(--spacing-3));
+  top: 50%;
   left: var(--spacing-3);
   z-index: 6;
   display: inline-flex;
@@ -24,7 +24,7 @@
   height: var(--tap);
   margin: 0;
   padding: 0;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   /* The panel's own colours, so it reads as part of the panel it opens and closes. */
   color: var(--primary-1);
   background: var(--primary-9);
