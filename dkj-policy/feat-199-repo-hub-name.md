@@ -39,19 +39,40 @@
 
 ### PLAN
 
+#199: the index page of a repo's dev server is renamed from Repo dashboard to Repo hub, everywhere the
+house style fixes the name. Name only: file names (`patterns/repo-dashboard.html`, `RepoDashboard.tsx`),
+identifiers, CSS classes and URL paths keep theirs, and historical changelog and release files are not
+rewritten. The issue leaves the file names to the owner; keeping them is the default here, because consumers
+link `patterns/repo-dashboard.html` by path.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/README.md`: the section "The Repo hub" (block 0 crumb, block 4 `h1`), the breadcrumb trail, the reason (Gwen)
+- [x] `house-style/patterns/repo-dashboard.html` and the comments in `house-style.css` (Gwen)
+- [x] `src/` (the index, the crumbs, the previews page and the preview titles), root `README.md`, `scripts/repo-config.ps1` (Cody)
+- [x] `.claude/rules/this-repo.md` (Tessa)
 
 ### TEST
 
+- [ ] An owner has looked at the Repo hub (`/`), the hub previews (`/dashboards`) and the showcase crumb, and approved them
+
 ### DEPLOY: feat/199-repo-hub-name
 
-**Score:**
+The index of a repo's dev server is now called the Repo hub instead of the Repo dashboard (#199): the index
+gets you to the page you want, and the pages below it can be dashboards. The house style fixes the new name
+word for word as the `h1`, the one crumb on the index and the first crumb on every other page;
+`house-style/README.md`, `patterns/repo-dashboard.html`, this repo's own index, its previews page ("Repo hub
+previews") and the previews follow. File names, components, classes and URL paths are unchanged.
+
+**Score:** 3
 
 #### What makes this deploy extra special
 
-**Score:**
+The index page of a DKJ-Solutions dev server is now called **Repo hub**. An app that takes this house-style
+version changes its index `h1`, its `<title>` and the first crumb of its breadcrumb bar from "Repo dashboard"
+to "Repo hub"; nothing else changes.
+
+**Score:** 3
 
 #### Pull Request
 
