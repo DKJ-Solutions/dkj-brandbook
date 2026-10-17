@@ -50,7 +50,7 @@ An owner noted that `--primary-7`, the theme's most striking step, does not appe
 ### TEST
 
 - [x] Lint gate green
-- [ ] An owner has looked at the settings panel (open toggle and title) in the dev preview and approved it
+- [x] An owner has looked at the settings panel (open toggle and title) in the dev preview and approved it
 
 ### DEPLOY: fix/theme-settings-primary-7
 
