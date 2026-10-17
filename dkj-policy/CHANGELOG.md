@@ -2,7 +2,29 @@
 
 ## [Unreleased]
 
-**0 / 2 patch entries** <!-- pending-tally -->
+**0 / 3 patch entries** <!-- pending-tally -->
+
+### DEPLOY: docs/177-retire-house-style-v1-v3-tags · 20261017-103519Z
+
+The tags `house-style-v1` to `house-style-v3` are deleted. Their release notes stay in the tree and
+`history.md` still lists them. The docs now name `house-style-v4` as the tag the `house-style` skill
+pins until it repins to `v0.1.0`; that tag is deleted once that happens (#177).
+
+**Score:** 1
+
+#### What makes this deploy extra special
+
+N/A -- no release the plugin pins today goes away.
+
+**Score:** N/A
+
+#### Pull Request
+
+Say that house-style-v1 to v3 are deleted and v4 follows
+
+[PR #182](https://github.com/DKJ-Solutions/dkj-brandbook/pull/182)
+
+---
 
 ### DEPLOY: fix/138-drop-dev-preview-name · 20261017-091905Z
 
