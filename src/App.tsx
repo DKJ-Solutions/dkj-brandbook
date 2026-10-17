@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { IconButton } from './components/Button'
 import { cx } from './components/cx'
+import { Dialog } from './components/Dialog'
 import { Breadcrumbs } from './components/Navigation'
 import { REPOS } from './repos'
 import { DASHBOARD_PATH, SHOWCASE_PATH } from './routes'
@@ -65,6 +67,10 @@ function usePreviewRepo() {
 export default function App() {
   const controls = useWidth()
   const previewRepo = usePreviewRepo()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuButton = useRef<HTMLButtonElement>(null)
+  // A link in the drawer closes it; the hash change then scrolls to the section (usePreviewRepo).
+  const close = () => setMenuOpen(false)
   return (
     <>
       <Breadcrumbs
@@ -74,60 +80,83 @@ export default function App() {
           ...(previewRepo ? [{ label: 'Brand book', href: SHOWCASE_PATH }, { label: previewRepo }] : [{ label: 'Brand book' }]),
         ]}
       />
-      <div className="dkj-shell">
-        <nav className="dkj-nav" aria-labelledby="dkj-nav-title">
-          <h2 className="dkj-brand" id="dkj-nav-title">Contents</h2>
-          <p className="dkj-brand-sub">Jump to a section or an app preview</p>
-          {/* Group labels, not headings: each names its list (aria-labelledby), so the menu keeps its compact size. */}
-          {NAV.map((g, n) => (
-            <div key={g.group}>
-              <p className="dkj-nav-group" id={`dkj-nav-group-${n}`}>
-                {g.group}
-              </p>
-              <ul aria-labelledby={`dkj-nav-group-${n}`}>
-                {g.items.map((i) => (
-                  <li key={i}>
-                    <a href={`#${i}`}>{LABELS[i] ?? i}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <p className="dkj-nav-group" id="dkj-nav-group-repos">
-            DKJ-Solutions
-          </p>
-          <ul aria-labelledby="dkj-nav-group-repos">
-            {REPOS.map((r) => (
-              <li key={r}>
-                <a href={`#preview/${r}`} title={r} aria-current={r === previewRepo ? 'page' : undefined}>
-                  {r}
-                </a>
-              </li>
+      <main className="dkj-main">
+        <Toolbar
+          controls={controls}
+          menu={
+            <IconButton
+              ref={menuButton}
+              variant="ghost"
+              icon="menu"
+              label="Contents"
+              aria-haspopup="dialog"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(true)}
+            />
+          }
+        />
+        <Dialog
+          open={menuOpen}
+          variant="drawer"
+          heading="plain"
+          title="Contents"
+          subtitle="Jump to a section or an app preview"
+          onClose={() => {
+            close()
+            menuButton.current?.focus()
+          }}
+        >
+          <nav className="dkj-nav" aria-label="Contents">
+            {/* Group labels, not headings: each names its list (aria-labelledby), so the menu keeps its compact size. */}
+            {NAV.map((g, n) => (
+              <div key={g.group}>
+                <p className="dkj-nav-group" id={`dkj-nav-group-${n}`}>
+                  {g.group}
+                </p>
+                <ul aria-labelledby={`dkj-nav-group-${n}`}>
+                  {g.items.map((i) => (
+                    <li key={i}>
+                      <a href={`#${i}`} onClick={close}>
+                        {LABELS[i] ?? i}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
-        </nav>
-        <main className="dkj-main">
-          <Toolbar controls={controls} />
-          <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
-            {previewRepo ? (
-              <RepoPreview repo={previewRepo} />
-            ) : (
-              <>
-                <Intro />
-                <Foundations />
-                <Actions />
-                <Surfaces />
-                <Metrics />
-                <Forms />
-                <Overlays />
-                <Data />
-                <Apps />
-                <Overlap />
-              </>
-            )}
-          </div>
-        </main>
-      </div>
+            <p className="dkj-nav-group" id="dkj-nav-group-repos">
+              DKJ-Solutions
+            </p>
+            <ul aria-labelledby="dkj-nav-group-repos">
+              {REPOS.map((r) => (
+                <li key={r}>
+                  <a href={`#preview/${r}`} title={r} aria-current={r === previewRepo ? 'page' : undefined} onClick={close}>
+                    {r}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </Dialog>
+        <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
+          {previewRepo ? (
+            <RepoPreview repo={previewRepo} />
+          ) : (
+            <>
+              <Intro />
+              <Foundations />
+              <Actions />
+              <Surfaces />
+              <Metrics />
+              <Forms />
+              <Overlays />
+              <Data />
+              <Apps />
+              <Overlap />
+            </>
+          )}
+        </div>
+      </main>
     </>
   )
 }

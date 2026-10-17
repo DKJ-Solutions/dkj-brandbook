@@ -1,32 +1,17 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
-.dkj-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
-/* The sidebar contrasts with the page, mirrored per mode by the scale itself: its panel is --primary-9, the far
-   end (near-black in the theme's hue on light, near-white on dark). The text is the opposite end of the scale in
-   both modes: --primary-1 (the theme's page colour) as ink, --primary-3 (the line colour) as the quieter ink.
-   Every colour is a --primary step read directly, no local alias (owner's correction, October 14, 2026). */
-/* It sticks under the breadcrumb bar (one --tap high), so the bar stays visible above it. */
-.dkj-nav {
-  position: sticky;
-  top: var(--tap);
-  align-self: start;
-  max-height: calc(100dvh - var(--tap));
-  overflow-y: auto;
-  padding: var(--spacing-5) var(--spacing-4);
-  background: var(--primary-9);
-  color: var(--primary-1);
-}
-/* The menu's heading ("Contents"): an <h2>, so it keeps the house h2 size and face; only its colour follows the nav. */
-.dkj-nav :where(h1, h2) { color: var(--primary-3); }   /* h1 and h2 on --primary-9 take -3 */
-.dkj-nav :where(h3, h4, h5, h6) { color: var(--primary-2); }   /* h3-h6 on --primary-9 take -2 */
-.dkj-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--primary-3); }
+/* The contents: a drawer (Dialog variant="drawer") opened from the menu button beside the settings button, so the
+   page has the full width. Inside, it is the drawer's own surface (--primary-2): links in the text colour, a
+   --primary-3 hover, and the current repo preview filled with the theme colour (--primary-5). Every colour is a
+   --primary step read directly, no local alias (owner's correction, October 14, 2026). */
+.dkj-nav { margin-top: var(--spacing-2); }
 .dkj-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);
   font-size: var(--text-sm);
   font-weight: var(--dkj-fw-semibold);
   letter-spacing: var(--dkj-tracking-label);
   text-transform: uppercase;
-  color: var(--primary-2);
+  color: var(--primary-6);
 }
 .dkj-nav ul { margin: 0; padding: 0; list-style: none; }
 .dkj-nav a {
@@ -34,21 +19,21 @@
   padding: var(--spacing-1) var(--spacing-2);
   border-radius: var(--dkj-radius-sm);
   font-size: var(--text-base);
-  color: var(--primary-1);
+  color: var(--primary-9);
   text-decoration: none;
-  /* One line per link: a name too long for the column is cut off with an ellipsis (the full name is its title). */
+  /* One line per link: a name too long for the drawer is cut off with an ellipsis (the full name is its title). */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.dkj-nav a:hover { background: var(--primary-8); }
-.dkj-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-3); outline-offset: var(--dkj-focus-offset-inset); }
+.dkj-nav a:hover { background: var(--primary-3); }
+.dkj-nav a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset-inset); }
 /* The current page: a --primary-5 fill, the same step in both modes. Its focus ring takes --primary-1, because the
    usual ring would vanish on the current fill. */
 .dkj-nav a[aria-current='page'], .dkj-nav a[aria-current='page']:hover { background: var(--primary-5); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
 .dkj-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-1); }
 
-/* <main>: the house style gives it a centred 1080px column; the showcase fills the space beside the nav. */
+/* <main>: the house style gives it a centred 1080px column; the showcase fills the full width. */
 .dkj-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
 /* The preview settings: the house settings button (.theme-settings), placed top right in a sticky
    wrapper with no height, so its panel lies over the page and nothing in the flow moves. It sticks under the
@@ -61,6 +46,12 @@
   margin: 0 calc(-1 * var(--spacing-6));
 }
 .dkj-settings-anchor { position: absolute; top: var(--spacing-3); right: var(--spacing-6); }
+/* With the contents button: that one takes the far right and the settings button moves one button and a gap left. */
+.dkj-menu-anchor { position: absolute; top: var(--spacing-3); right: var(--spacing-6); }
+.dkj-settings--menu .dkj-settings-anchor { right: calc(var(--spacing-6) + var(--tap) + var(--spacing-2)); }
+/* The contents button looks like the settings button beside it: round, on the surface, with the pop shadow. */
+.dkj-menu-anchor .dkj-iconbtn { width: var(--tap); height: var(--tap); border: 1px solid var(--primary-3); border-radius: 50%; background: var(--primary-2); box-shadow: var(--shadow-pop); }
+.dkj-menu-anchor .dkj-iconbtn:hover { background: var(--primary-3); color: var(--primary-7); }
 .dkj-control { display: flex; flex-direction: column; gap: var(--spacing-1); font-size: var(--text-sm); color: var(--primary-9); }
 .dkj-control select {
   min-height: var(--dkj-control-compact);
@@ -181,12 +172,10 @@
 .dkj-radius { width: 3rem; height: 3rem; background: var(--primary-3); border: 1px solid var(--primary-5); }
 
 @media (max-width: 52rem) {
-  .dkj-shell { grid-template-columns: minmax(0, 1fr); }
-  .dkj-nav { position: static; max-height: none; }
-  .dkj-nav ul { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
   .dkj-main { padding: var(--spacing-4) var(--spacing-4) var(--spacing-8); }
   .dkj-settings { margin: 0 calc(-1 * var(--spacing-4)); }
-  .dkj-settings-anchor { right: var(--spacing-4); }
+  .dkj-settings-anchor, .dkj-menu-anchor { right: var(--spacing-4); }
+  .dkj-settings--menu .dkj-settings-anchor { right: calc(var(--spacing-4) + var(--tap) + var(--spacing-2)); }
 }
 
 /* A tooltip drawn in place, to show how it looks open: the house .tooltip is fixed and hidden until a script shows it. */

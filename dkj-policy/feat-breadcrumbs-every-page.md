@@ -49,17 +49,19 @@ in every repo that follows the house style.
 - [x] `patterns/repo-dashboard.html`: the bar as block 0
 - [x] The Repo dashboard and the showcase (and its repo previews) render the bar; the sidebar's own back link is gone
 - [x] Owner's follow-up: the bar sticks to the top and is always visible; one `--tap` high, one line; the settings button, the showcase sidebar and in-page anchors sit under it
+- [x] Owner's follow-up: the showcase's contents (`.dkj-nav`) is a drawer, opened from a round menu button beside the settings button; a link closes it, and the page takes the full width
 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the bar on `/`, `/showcase`, `/showcase#preview/<repo>` and `/dashboards` and approved it
+- [ ] An owner has looked at the bar on `/`, `/showcase`, `/showcase#preview/<repo>` and `/dashboards`, and the contents drawer, and approved it
 
 ### DEPLOY: feat/breadcrumbs-every-page
 
 Every page of the dev server now opens with the same breadcrumb bar, stuck to the top so it is always visible: the Repo dashboard, the showcase and
-its repo previews, next to the dashboard previews that already had one. The showcase sidebar's "Repo
-dashboard" link went, because the bar is now the way back.
+its repo previews, next to the dashboard previews that already had one. The showcase's
+contents moved from a fixed sidebar into a drawer, opened from a menu button beside the settings button, so
+the showcase has the full width; its "Repo dashboard" link went, because the bar is now the way back.
 
 **Score:** 3
 

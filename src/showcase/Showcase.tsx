@@ -69,8 +69,9 @@ export function Demo({ label, children, wide, surface = true }: { label: string;
  * The preview settings: the house settings button (DKJTheme.settings) -- a round toggle whose panel holds
  * the theme picker and a reset -- with the brand book's own width toggle rendered into the panel's slot.
  * Without controls (the Repo dashboard) the panel holds the theme picker and the reset only.
+ * With a menu (the showcase's contents button) that sits on the far right and the settings button moves left of it.
  */
-export function Toolbar({ controls }: { controls?: ReturnType<typeof useWidth> }) {
+export function Toolbar({ controls, menu }: { controls?: ReturnType<typeof useWidth>; menu?: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null)
   const [slot, setSlot] = useState<HTMLElement | null>(null)
   useEffect(() => {
@@ -86,8 +87,9 @@ export function Toolbar({ controls }: { controls?: ReturnType<typeof useWidth> }
     )
   }, [])
   return (
-    <div className="dkj-settings">
+    <div className={cx('dkj-settings', menu !== undefined && 'dkj-settings--menu')}>
       <div className="dkj-settings-anchor" ref={ref} />
+      {menu && <div className="dkj-menu-anchor">{menu}</div>}
       {slot && controls && createPortal(<Toggle label="Width" value={controls.width} onChange={controls.setWidth} options={['fluid', 'phone']} />, slot)}
     </div>
   )
