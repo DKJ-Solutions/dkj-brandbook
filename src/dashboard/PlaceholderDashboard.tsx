@@ -53,7 +53,7 @@ export function PlaceholderDashboard({ repo, children }: { repo: PlaceholderRepo
         lead={repo.lead}
         actions={
           repo.product && (
-            <Button variant="primary" aria-disabled="true">
+            <Button variant="primary" href="#" aria-disabled="true">
               {repo.product}
             </Button>
           )

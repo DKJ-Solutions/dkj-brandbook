@@ -25,7 +25,7 @@ function CheckBadge({ check, word }: { check: Check; word?: string }) {
   )
 }
 
-const rowTone = (check: Check) => (check === 'bad' ? 'negative' : check === 'warn' ? 'warn' : undefined)
+const rowTone = (check: Check): 'negative' | 'warn' | undefined => (check === 'bad' ? 'negative' : check === 'warn' ? 'warn' : undefined)
 
 // ETF tracker: a Python generator that turns a ledger into one static dashboard page.
 const ETF: PlaceholderRepo = {
@@ -39,7 +39,6 @@ const ETF: PlaceholderRepo = {
   },
   facts: [
     { term: 'Stack', value: 'Python, generating static HTML' },
-    { term: 'Output', value: 'data/processed/dashboard.html' },
     { term: 'Gate', value: 'pytest' },
   ],
   source: PRIVATE_SOURCE,
@@ -230,7 +229,7 @@ const RECIPES: PlaceholderRepo = {
   facts: [
     { term: 'Stack', value: 'Astro static site; installable PWA' },
     { term: 'Live', value: 'GitHub Pages' },
-    { term: 'Recipes', value: 'recipes/, one Markdown file each, from recipes/_SJABLOON.md' },
+    { term: 'Recipes', value: 'One Markdown file each, from a template' },
   ],
   source: PUBLIC_SOURCE,
 }
@@ -283,8 +282,7 @@ const THUMBNAIL: PlaceholderRepo = {
   },
   facts: [
     { term: 'Stack', value: 'Node scripts; local only' },
-    { term: 'How a round works', value: 'dossier/' },
-    { term: 'Paid steps', value: 'scripts/lib (two calls per candidate)' },
+    { term: 'Output', value: 'A measurement report and a contact sheet per round' },
   ],
   source: PRIVATE_SOURCE,
 }
@@ -345,7 +343,7 @@ const LIFE_HUB: PlaceholderRepo = {
   },
   facts: [
     { term: 'Stack', value: 'Next.js (React) + TypeScript; runs locally, read-only' },
-    { term: 'Content', value: 'Brains/, one folder per area' },
+    { term: 'Content', value: 'Markdown folders in the repo' },
     { term: 'Gate', value: 'eslint + vitest + next build' },
   ],
   source: PRIVATE_SOURCE,
