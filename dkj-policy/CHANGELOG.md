@@ -2,7 +2,33 @@
 
 ## [Unreleased]
 
-**3 / 3 minor entries** <!-- pending-tally -->
+**4 / 4 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/200-repo-hub-pages · 20261017-220647Z
+
+The Repo hub form has a new, optional block 7, **Pages** (#200): a data card titled "Pages", right under the
+intro, with one link row per page of the repo's own (a label, an optional one-line description, a chevron).
+It is built from the house `.menu-item` row, which gains `.menu-item__sub` and a hover on a link row, so a page
+link never looks like a stat tile. The product button stays the intro's one button; the brand book's own
+"Preview other repo hubs" moved from the intro into the block. React gets `PageLinks`; without React the
+pattern page carries the markup. The blocks after it are renumbered 8 to 12.
+
+**Score:** 3
+
+#### What makes this deploy extra special
+
+A repo's hub can now list the repo's own pages in the house form, with a `PageLinks` component (React) or the
+`.menu-item` markup (without React); a repo with no page besides `/` and its product leaves the block out.
+
+**Score:** 3
+
+#### Pull Request
+
+Repo hub: a block linking to the repo's own pages
+
+[PR #202](https://github.com/DKJ-Solutions/dkj-brandbook/pull/202)
+
+---
 
 ### DEPLOY: feat/199-repo-hub-name · 20261017-215754Z
 
