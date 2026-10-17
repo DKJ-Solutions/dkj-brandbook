@@ -7,8 +7,7 @@ import { Breadcrumbs } from '../components/Navigation'
 import { DataTable, DefinitionList } from '../components/Table'
 import { ORG, REPOS, appPreviewPath } from '../repos'
 import { DASHBOARDS_PATH, SHOWCASE_PATH, dashboardPreviewPath } from '../routes'
-import { Toolbar } from '../showcase/Showcase'
-import { DashboardIntro, InFlightCards, InFlightTiles, type Branch, type InFlight, type Issue, type Pull } from './DashboardShell'
+import { DashboardIntro, DashboardMain, InFlightCards, InFlightTiles, type Branch, type InFlight, type Issue, type Pull } from './DashboardShell'
 import { PREVIEWS } from './previews'
 import './dashboard.css'
 
@@ -56,8 +55,7 @@ export function RepoDashboard() {
   return (
     <>
       <Breadcrumbs bar items={[{ label: 'Repo dashboard' }]} />
-      <main className="dkj-dashboard">
-        <Toolbar />
+      <DashboardMain>
         <DashboardIntro
           eyebrow={REPO}
           title="Repo dashboard"
@@ -123,7 +121,7 @@ export function RepoDashboard() {
         <FooterNote>
           In flight is read live from the GitHub API for <a href={`https://github.com/${REPO}`}>{REPO}</a> each time this page opens.
         </FooterNote>
-      </main>
+      </DashboardMain>
     </>
   )
 }

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 
-type Width = 'fluid' | 'phone'
+type Width = 'fluid' | 'phone' | 'full'
 
-/** Preview width, remembered on this device. The colour theme itself is owned by the house script (window.DKJTheme). */
+/** Preview width, remembered on this device; full until one is picked. The colour theme itself is owned by the house script (window.DKJTheme). */
 export function useWidth() {
   const [width, setWidth] = useState<Width>(() => {
     try {
-      return (localStorage.getItem('dkj-width') as Width | null) ?? 'fluid'
+      return (localStorage.getItem('dkj-width') as Width | null) ?? 'full'
     } catch {
-      return 'fluid'
+      return 'full'
     }
   })
   useEffect(() => {
