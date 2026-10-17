@@ -39,19 +39,31 @@
 
 ### PLAN
 
+DKJ-Solutions/dkj-claude-plugins#3064 shipped in v5.22.0 (PR #3065): the dev-preview line always reads
+`Repo dashboard:`, and a `Name` in `Get-DevPreview` is ignored. The release added no `ProductPath`-style
+field, so the dashboard keeps its own "Open the brand book" button and only `Name` goes.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `scripts/repo-config.ps1`: drop `Name` from `Get-DevPreview`.
 
 ### TEST
 
+- [x] Lint gate green (run by open-pr).
+
 ### DEPLOY: fix/138-drop-dev-preview-name
 
-**Score:**
+`Get-DevPreview` no longer states a `Name`: since dkj-claude-plugins v5.22.0 the dev-preview hook labels
+every repo's page `Repo dashboard` itself and ignores the field. The session-start line reads the same as
+before.
+
+**Score:** 1
 
 #### What makes this deploy extra special
 
-**Score:**
+N/A -- nothing a user of the brand book sees changes.
+
+**Score:** N/A
 
 #### Pull Request
 
