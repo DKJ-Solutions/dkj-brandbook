@@ -52,7 +52,7 @@ dashboard"): the shared shell, the repo's own cards, "About this repo" and the f
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
-- [ ] An owner has looked at /dashboards and the six new previews and approved them
+- [x] An owner has looked at /dashboards and the six new previews and approved them
 
 ### DEPLOY: feat/dashboard-previews-all-repos
 
