@@ -53,7 +53,7 @@ export const PREVIEWS: readonly DashboardPreview[] = [
     Component: ThumbnailDashboardPreview,
   },
   {
-    id: 'life-hub',
+    id: 'dkj-lifehub',
     label: 'dkj-lifehub',
     description: 'The content folders, and the checks the local app relies on.',
     Component: LifeHubDashboardPreview,

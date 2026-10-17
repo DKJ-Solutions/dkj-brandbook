@@ -11,7 +11,7 @@ export const REPOS = [
   'dkj-music-library',
   'dkj-recipes',
   'dkj-thumbnail-generator',
-  'life-hub',
+  'dkj-lifehub',
 ] as const
 
 export const ORG = 'DKJ-Solutions'

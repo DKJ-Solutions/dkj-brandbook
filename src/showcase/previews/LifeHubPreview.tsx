@@ -232,7 +232,7 @@ function DossierDetail({ dossier, onBack, onOpen }: { dossier: Dossier; onBack: 
   )
 }
 
-/** A recreation of the two screens of life-hub (the hub and a dossier page), with placeholder content. */
+/** A recreation of the two screens of dkj-lifehub (the hub and a dossier page), with placeholder content. */
 export function LifeHubPreview() {
   const [view, setView] = useState<View>('hub')
   const [openId, setOpenId] = useState(DOSSIERS[0].id)

@@ -169,7 +169,7 @@ export const APPS: readonly App[] = [
   {
     id: 'life-hub',
     name: 'Life hub',
-    repo: 'DKJ-Solutions/life-hub',
+    repo: 'DKJ-Solutions/dkj-lifehub',
     description:
       'A start page: key figures, what is coming up, links to the other local apps and a set of dossiers, each opening as a rendered document with subfolders.',
     stack: 'Next.js (React) + TypeScript; runs locally, no deployment',
