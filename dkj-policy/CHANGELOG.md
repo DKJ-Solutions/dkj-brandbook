@@ -2,7 +2,31 @@
 
 ## [Unreleased]
 
-**0 / 4 patch entries** <!-- pending-tally -->
+**1 / 5 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/184-release-consumer-bumps · 20261017-115949Z
+
+Every minor and major release now gets a hand-written audience note under
+`dkj-policy/releases/audience/<X>.x/`, next to the changelog record and the GitHub body. Until now
+`Get-ReleaseConsumerBumps` was not defined, so `cut-release` fell back to writing no audience note for
+any bump. A patch is still announced by the generated GitHub body alone.
+
+**Score:** 2
+
+#### What makes this deploy extra special
+
+From the next minor release on, the repos that take a house-style release get a note written for them
+instead of only the per-PR record.
+
+**Score:** 3
+
+#### Pull Request
+
+Write the audience release note for minor and major releases
+
+[PR #185](https://github.com/DKJ-Solutions/dkj-brandbook/pull/185)
+
+---
 
 ### DEPLOY: docs/fold-house-style-notes-into-v0-1-0 · 20261017-115112Z
 
