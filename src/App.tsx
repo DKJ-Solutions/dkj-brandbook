@@ -107,7 +107,7 @@ export default function App() {
         aria-expanded={open}
         onClick={() => setOpen(!open)}
       >
-        <Icon name={open ? 'close' : 'menu'} />
+        <Icon name={open ? 'arrow-left' : 'arrow-right'} />
       </button>
       {/* Closed, the panel is a strip at the left edge: a click on it opens the panel (the toggle is the accessible
           control), and its content is inert -- out of the tab order and hidden from a screen reader. */}
