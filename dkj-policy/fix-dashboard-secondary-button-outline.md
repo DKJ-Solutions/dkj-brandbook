@@ -39,19 +39,29 @@
 
 ### PLAN
 
+- [x] Compare `.dkj-btn--default` and `.tile` and pick the fix: the secondary button takes the existing outline variant, no token or class added.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Give the "Preview other repo dashboards" button `variant="outline"` in `src/dashboard/RepoDashboard.tsx`.
 
 ### TEST
 
+- [ ] An owner has looked at the Repo dashboard and approved it.
+
 ### DEPLOY: fix/dashboard-secondary-button-outline
 
-**Score:**
+The secondary action on the Repo dashboard ("Preview other repo dashboards") used the default button, which looked identical to the information tiles below it. It now uses the existing outline variant, so an action reads as an action and a tile as a tile.
+
+Only the Repo dashboard of this repo changes; no house token, class or stylesheet is touched.
+
+**Score:** 2
 
 #### What makes this deploy extra special
 
-**Score:**
+No app that takes the brand book as its house style sees a difference: the change is one prop on one page of this repo, and the house stylesheet and the button's definition are unchanged.
+
+**Score:** N/A
 
 #### Pull Request
 

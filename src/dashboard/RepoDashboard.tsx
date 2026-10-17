@@ -67,7 +67,7 @@ export function RepoDashboard() {
               <Button variant="primary" href={SHOWCASE_PATH}>
                 Open the brand book
               </Button>{' '}
-              <Button href={DASHBOARDS_PATH}>Preview other repo dashboards</Button>
+              <Button variant="outline" href={DASHBOARDS_PATH}>Preview other repo dashboards</Button>
             </>
           }
         />
