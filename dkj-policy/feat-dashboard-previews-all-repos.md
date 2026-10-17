@@ -39,19 +39,37 @@
 
 ### PLAN
 
+Every other DKJ-Solutions repo gets a dashboard preview on /dashboards/<repo>, like dkj-claude-plugins has. None of
+them has a Repo dashboard of its own yet, so each preview proposes one in the fixed form (house-style README, "The Repo
+dashboard"): the shared shell, the repo's own cards, "About this repo" and the footer note, with invented data only.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/dashboard/PlaceholderDashboard.tsx`: the fixed form with placeholder data, shared by the new previews
+- [x] `src/dashboard/RepoPreviews.tsx`: six previews (etf-tracker, mesowise, music-library, recipes, thumbnail-generator, lifehub), each with its own cards
+- [x] `src/dashboard/previews.ts`: the six registered, so the Repo dashboard's repo list links every one
 
 ### TEST
 
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, build)
+- [ ] An owner has looked at /dashboards and the six new previews and approved them
+
 ### DEPLOY: feat/dashboard-previews-all-repos
 
-**Score:**
+Every DKJ-Solutions repo now has a dashboard preview on `/dashboards/<repo>`, not only dkj-claude-plugins. The six new
+ones (etf-tracker, mesowise, music-library, recipes, thumbnail-generator, lifehub) each propose what that repo's own
+Repo dashboard would show, in the one fixed form: the in-flight tiles and cards, one or two cards of the repo's own
+(a last run, game data, syncs, the recipe collection, rounds, content checks), "About this repo" and a footer note
+naming the data source. The data is invented placeholder data; three of the repos are private. The form with placeholder
+data is one component, `PlaceholderDashboard`, so a further preview is one entry.
+
+**Score:** 3
 
 #### What makes this deploy extra special
 
-**Score:**
+N/A: the previews live on this repo's own dev server and change nothing a repo that takes the house style receives.
+
+**Score:** N/A
 
 #### Pull Request
 
