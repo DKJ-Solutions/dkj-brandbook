@@ -2,7 +2,28 @@
 
 ## [Unreleased]
 
-**4 / 11 minor entries** <!-- pending-tally -->
+**4 / 12 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/186-dkj-lifehub-id · 20261017-142420Z
+
+The Life hub repo is named `dkj-lifehub` everywhere, after its rename on October 13, 2026: the Repo dashboard links
+`DKJ-Solutions/dkj-lifehub`, and its previews moved to `/dashboards/dkj-lifehub` and `#preview/dkj-lifehub` (#186).
+
+**Score:** 1
+
+#### What makes this deploy extra special
+
+N/A
+
+**Score:** N/A
+
+#### Pull Request
+
+The life-hub route id and repo name follow the rename to dkj-lifehub
+
+[PR #194](https://github.com/DKJ-Solutions/dkj-brandbook/pull/194)
+
+---
 
 ### DEPLOY: fix/theme-settings-primary-7 · 20261017-141709Z
 
