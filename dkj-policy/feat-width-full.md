@@ -44,6 +44,7 @@
 - [x] `full` joins the Width toggle (`theme.ts`, `Showcase.tsx`), and `App.tsx` gives the content `dkj-content--full`
 - [x] `showcase.css`: under `full` the preview column and `.dkj-column` lose their maximum width
 - [x] The dashboard pages get the Width toggle too, through one `DashboardMain` (`DashboardShell.tsx`): fluid keeps the house column, phone narrows it to 360px, full lifts its maximum and the breadcrumb trail follows
+- [x] `full` is the default width until one is picked (`theme.ts`)
 
 ### TEST
 
@@ -55,7 +56,7 @@
 The preview settings get a third width, `full`, next to `fluid` and `phone`: the content takes 100% of the page
 column, so a repo preview that keeps its own app column in `fluid` now stretches edge to edge. The Repo dashboard
 and the dashboard previews carry the Width toggle as well, which they did not before: there `fluid` is the house
-column, `phone` a 360px column and `full` the whole width.
+column, `phone` a 360px column and `full` the whole width. `full` is the default until a reader picks another width.
 
 **Score:** 2
 
