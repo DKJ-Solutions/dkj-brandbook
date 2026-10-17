@@ -39,19 +39,31 @@
 
 ### PLAN
 
+#187: the house-style README makes block 10, **About this repo**, fixed in every Repo dashboard, and the six previews
+built on `PlaceholderDashboard` carry it, but `ConnectedReposPreview` did not. The card goes where
+`PlaceholderDashboard` puts it: after the repo's own cards, before the footer note.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `src/dashboard/ConnectedReposPreview.tsx` renders an About this repo facts card (stack, gate, trunk; placeholder data)
 
 ### TEST
 
+- [x] Lint gate green
+- [ ] An owner has looked at `/dashboards/dkj-claude-plugins` in the dev preview and approved it
+
 ### DEPLOY: fix/187-plugins-about-card
 
-**Score:**
+The dkj-claude-plugins dashboard preview ends with the About this repo facts card, like every other dashboard preview,
+so it shows the Repo dashboard form in full (#187).
+
+**Score:** 1
 
 #### What makes this deploy extra special
 
-**Score:**
+N/A
+
+**Score:** N/A
 
 #### Pull Request
 
