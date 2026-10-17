@@ -43,16 +43,19 @@
 
 - [x] `full` joins the Width toggle (`theme.ts`, `Showcase.tsx`), and `App.tsx` gives the content `dkj-content--full`
 - [x] `showcase.css`: under `full` the preview column and `.dkj-column` lose their maximum width
+- [x] The dashboard pages get the Width toggle too, through one `DashboardMain` (`DashboardShell.tsx`): fluid keeps the house column, phone narrows it to 360px, full lifts its maximum and the breadcrumb trail follows
 
 ### TEST
 
 - [x] Lint gate green (`scripts/lint/lint-web.ps1`)
-- [ ] An owner has looked at the `full` width on the showcase and a repo preview and approved it
+- [ ] An owner has looked at the `full` width on the showcase, a repo preview and the Repo dashboard and approved it
 
 ### DEPLOY: feat/width-full
 
 The preview settings get a third width, `full`, next to `fluid` and `phone`: the content takes 100% of the page
-column, so a repo preview that keeps its own app column in `fluid` now stretches edge to edge.
+column, so a repo preview that keeps its own app column in `fluid` now stretches edge to edge. The Repo dashboard
+and the dashboard previews carry the Width toggle as well, which they did not before: there `fluid` is the house
+column, `phone` a 360px column and `full` the whole width.
 
 **Score:** 2
 

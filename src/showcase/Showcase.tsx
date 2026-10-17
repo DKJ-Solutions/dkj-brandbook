@@ -68,7 +68,7 @@ export function Demo({ label, children, wide, surface = true }: { label: string;
 /**
  * The preview settings: the house settings button (DKJTheme.settings) -- a round toggle whose panel holds
  * the theme picker and a reset -- with the brand book's own width toggle rendered into the panel's slot.
- * Without controls (the Repo dashboard) the panel holds the theme picker and the reset only.
+ * Without controls the panel holds the theme picker and the reset only.
  */
 export function Toolbar({ controls }: { controls?: ReturnType<typeof useWidth> }) {
   const ref = useRef<HTMLDivElement>(null)

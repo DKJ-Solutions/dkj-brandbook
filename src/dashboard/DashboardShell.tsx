@@ -1,7 +1,10 @@
 import type { ReactNode } from 'react'
 import { Card, CardBody, CardHead } from '../components/Card'
+import { cx } from '../components/cx'
 import { StatTile, StatTiles } from '../components/Metrics'
 import { DataTable } from '../components/Table'
+import { Toolbar } from '../showcase/Showcase'
+import { useWidth } from '../showcase/theme'
 
 /**
  * The shell every repo's Repo dashboard shares: the intro (eyebrow, title, lead, buttons), the in-flight tiles and the
@@ -19,6 +22,18 @@ const date = (iso: string) => day.format(new Date(iso))
 function prio(issue: Issue) {
   const m = issue.labels.map((l) => /^prio-(\d+)$/.exec(l.name)).find(Boolean)
   return m ? Number(m[1]) : Infinity
+}
+
+/** A dashboard page's <main>: the preview settings, with the width toggle, over the page's blocks. In fluid width it keeps
+ * the house column, in phone width a 360px column, and in full width it takes the whole width. */
+export function DashboardMain({ children }: { children: ReactNode }) {
+  const controls = useWidth()
+  return (
+    <main className={cx('dkj-dashboard', controls.width === 'phone' && 'dkj-dashboard--phone', controls.width === 'full' && 'dkj-dashboard--full')}>
+      <Toolbar controls={controls} />
+      {children}
+    </main>
+  )
 }
 
 /** The intro block. A div, not a header: the house style makes main > header the flex page-header row. */

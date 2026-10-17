@@ -3,7 +3,7 @@ import { Message } from '../components/Feedback'
 import { Breadcrumbs } from '../components/Navigation'
 import { DataTable } from '../components/Table'
 import { DASHBOARD_PATH, DASHBOARDS_PATH, dashboardPreviewPath } from '../routes'
-import { Toolbar } from '../showcase/Showcase'
+import { DashboardMain } from './DashboardShell'
 import { PREVIEWS } from './previews'
 import './dashboard.css'
 
@@ -15,8 +15,7 @@ export function DashboardIndex() {
   return (
     <>
       <Breadcrumbs bar items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews' }]} />
-      <main className="dkj-dashboard">
-        <Toolbar />
+      <DashboardMain>
         <div className="dkj-intro">
           <h1>Repo dashboard previews</h1>
           <p className="dkj-lead">
@@ -38,7 +37,7 @@ export function DashboardIndex() {
             />
           </CardBody>
         </Card>
-      </main>
+      </DashboardMain>
     </>
   )
 }
@@ -53,14 +52,13 @@ export function DashboardPreviewPage({ id }: { id: string }) {
         bar
         items={[{ label: 'Repo dashboard', href: DASHBOARD_PATH }, { label: 'Dashboard previews', href: DASHBOARDS_PATH }, { label: preview?.label ?? id }]}
       />
-      <main className="dkj-dashboard">
-        <Toolbar />
+      <DashboardMain>
         {preview ? (
           <preview.Component />
         ) : (
           <Message>There is no dashboard preview for this repo.</Message>
         )}
-      </main>
+      </DashboardMain>
     </>
   )
 }
