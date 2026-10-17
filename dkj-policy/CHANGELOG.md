@@ -2,7 +2,33 @@
 
 ## [Unreleased]
 
-**1 / 6 minor entries** <!-- pending-tally -->
+**2 / 7 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/breadcrumbs-every-page · 20261017-133612Z
+
+Every page of the dev server now opens with the same breadcrumb bar, stuck to the top so it is always visible: the Repo dashboard, the showcase and
+its repo previews, next to the dashboard previews that already had one. The showcase's
+contents moved from a fixed sidebar into a panel on the left, opened and closed by a round toggle half over its
+edge that shows on hover; it stays as it was left, and open it pushes the page aside; its "Repo dashboard" link went, because the bar is now the way back.
+
+**Score:** 3
+
+#### What makes this deploy extra special
+
+A house rule for every DKJ-Solutions app: each page a dev server serves opens with a breadcrumb bar starting
+at **Repo dashboard** and stuck to the top of the screen. The house stylesheet carries it as `.breadcrumbs-bar` / `.breadcrumbs`, so an app
+without React gets it too; the Repo dashboard pattern shows it as block 0. An app that takes the update adds
+the bar to its pages and moves any sticky element of its own from `top: 0` to `top: var(--tap)`.
+
+**Score:** 3
+
+#### Pull Request
+
+A breadcrumb bar on every page of the dev server, as a house rule
+
+[PR #189](https://github.com/DKJ-Solutions/dkj-brandbook/pull/189)
+
+---
 
 ### DEPLOY: feat/dashboard-previews-all-repos · 20261017-124127Z
 
