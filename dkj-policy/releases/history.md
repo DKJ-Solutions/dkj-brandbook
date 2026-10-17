@@ -2,8 +2,9 @@
 
 ### 0.x
 
-| Tag | Date | Bump | Title |
+| Version | Date | Type | Title |
 |---|---|---|---|
+| [0.2.0](audience/0.x/0.2.0.md) | 2026-10-17 | Minor | Dashboard previews for every repo, breadcrumbs on every page, and greyer primary greys |
 | [0.1.0](changelog/0.x/0.1.0.md) | 2026-10-17 | Minor | The four house-style tags brought together as the first X.Y.Z release |
 
 ### house-style
