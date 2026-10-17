@@ -163,7 +163,7 @@ export function PageHeader({ title, asOf, children }: { title: string; asOf?: st
 
 /**
  * Breadcrumbs -- where this page sits: each ancestor a link, the current page last and unlinked (aria-current), a muted
- * slash between them. The trail wraps on a narrow screen. As a `bar` it spans the full screen width on a tinted background.
+ * slash between them, on one line. As a `bar` it spans the full screen width on a tinted background and sticks to the top.
  */
 export function Breadcrumbs({ items, bar = false }: { items: readonly { label: string; href?: string }[]; bar?: boolean }) {
   const trail = (

@@ -48,6 +48,7 @@ in every repo that follows the house style.
 - [x] `house-style/README.md`: the rule "Every page: the breadcrumb bar", the reserved names, block 0 of the Repo dashboard
 - [x] `patterns/repo-dashboard.html`: the bar as block 0
 - [x] The Repo dashboard and the showcase (and its repo previews) render the bar; the sidebar's own back link is gone
+- [x] Owner's follow-up: the bar sticks to the top and is always visible; one `--tap` high, one line; the settings button, the showcase sidebar and in-page anchors sit under it
 
 ### TEST
 
@@ -56,7 +57,7 @@ in every repo that follows the house style.
 
 ### DEPLOY: feat/breadcrumbs-every-page
 
-Every page of the dev server now opens with the same breadcrumb bar: the Repo dashboard, the showcase and
+Every page of the dev server now opens with the same breadcrumb bar, stuck to the top so it is always visible: the Repo dashboard, the showcase and
 its repo previews, next to the dashboard previews that already had one. The showcase sidebar's "Repo
 dashboard" link went, because the bar is now the way back.
 
@@ -65,9 +66,9 @@ dashboard" link went, because the bar is now the way back.
 #### What makes this deploy extra special
 
 A house rule for every DKJ-Solutions app: each page a dev server serves opens with a breadcrumb bar starting
-at **Repo dashboard**. The house stylesheet carries it as `.breadcrumbs-bar` / `.breadcrumbs`, so an app
+at **Repo dashboard** and stuck to the top of the screen. The house stylesheet carries it as `.breadcrumbs-bar` / `.breadcrumbs`, so an app
 without React gets it too; the Repo dashboard pattern shows it as block 0. An app that takes the update adds
-the bar to its pages; nothing that exists changes.
+the bar to its pages and moves any sticky element of its own from `top: 0` to `top: var(--tap)`.
 
 **Score:** 3
 

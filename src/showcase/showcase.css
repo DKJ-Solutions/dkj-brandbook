@@ -5,11 +5,12 @@
    end (near-black in the theme's hue on light, near-white on dark). The text is the opposite end of the scale in
    both modes: --primary-1 (the theme's page colour) as ink, --primary-3 (the line colour) as the quieter ink.
    Every colour is a --primary step read directly, no local alias (owner's correction, October 14, 2026). */
+/* It sticks under the breadcrumb bar (one --tap high), so the bar stays visible above it. */
 .dkj-nav {
   position: sticky;
-  top: 0;
+  top: var(--tap);
   align-self: start;
-  max-height: 100dvh;
+  max-height: calc(100dvh - var(--tap));
   overflow-y: auto;
   padding: var(--spacing-5) var(--spacing-4);
   background: var(--primary-9);
@@ -50,10 +51,11 @@
 /* <main>: the house style gives it a centred 1080px column; the showcase fills the space beside the nav. */
 .dkj-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
 /* The preview settings: the house settings button (.theme-settings), placed top right in a sticky
-   wrapper with no height, so its panel lies over the page and nothing in the flow moves. */
+   wrapper with no height, so its panel lies over the page and nothing in the flow moves. It sticks under the
+   breadcrumb bar. */
 .dkj-settings {
   position: sticky;
-  top: 0;
+  top: var(--tap);
   z-index: 3;
   height: 0;
   margin: 0 calc(-1 * var(--spacing-6));
@@ -224,3 +226,6 @@
 .dkj-preview-candidates { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--spacing-3); }
 .dkj-preview-gap { margin-top: var(--spacing-4); }
 .dkj-preview-done { text-decoration: line-through; }
+
+/* The Breadcrumbs demo shows the bar where it stands, not stuck to the screen. */
+.dkj-demos .dkj-breadcrumbs-bar { position: static; }

@@ -94,12 +94,14 @@
 .dkj-page-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-3); }
 
 /* ---------- Breadcrumbs ---------- */
-/* The trail wraps on a narrow screen; the slash is muted, the ancestors are links, the current page is the strongest. */
-.dkj-breadcrumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-1-5); margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); }
+/* One line; the slash is muted, the ancestors are links, the current page is the strongest. */
+.dkj-breadcrumbs ol { display: flex; align-items: center; gap: var(--spacing-1-5); margin: 0; padding: 0; list-style: none; font-size: var(--text-sm); white-space: nowrap; }
 .dkj-breadcrumbs li { display: inline-flex; align-items: center; gap: var(--spacing-1-5); }
 .dkj-breadcrumbs a { color: var(--primary-7); text-underline-offset: 2px; }
 .dkj-breadcrumbs-sep { color: var(--primary-5); }
 .dkj-breadcrumbs [aria-current='page'] { color: var(--primary-9); font-weight: var(--dkj-fw-semibold); }
-/* The bar: full screen width on a tinted background, the trail aligned with the house page column (.container). */
-.dkj-breadcrumbs-bar { background: var(--primary-2); }
-.dkj-breadcrumbs-bar > .container { padding-top: var(--spacing-2-5); padding-bottom: var(--spacing-2-5); }
+/* The bar: full screen width on a tinted background, sticky at the top and one --tap high, the trail aligned with the
+   house page column (.container). A trail longer than the screen scrolls sideways, so the height never changes. */
+.dkj-breadcrumbs-bar { position: sticky; top: 0; z-index: 4; background: var(--primary-2); box-shadow: 0 1px 0 var(--primary-3); }
+.dkj-breadcrumbs-bar > .container { display: flex; align-items: center; height: var(--tap); padding-top: 0; padding-bottom: 0; overflow-x: auto; }
+html:has(.dkj-breadcrumbs-bar) { scroll-padding-top: var(--tap); }

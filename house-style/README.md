@@ -383,6 +383,10 @@ its own.
 
 - **Place:** the first element in `<body>` (in React, the first thing the page renders), above `<main>` and
   outside it, so it spans the full width. Its trail lines up with the page column.
+- **Always visible:** the bar sticks to the top of the screen while the page scrolls. It is one `--tap`
+  (44px) high and one line: a trail longer than the screen scrolls sideways inside the bar instead of
+  wrapping, so the height never changes. Whatever else sticks to the top sits under it, at `top: var(--tap)`;
+  the house style already does that for the floating settings button and for in-page anchors.
 - **The trail:** it always starts at **Repo dashboard**, linking to `/`. Each further crumb is one level
   down: the product (under its own name), then a page inside it. The last crumb is the current page,
   unlinked, with `aria-current="page"`. On the Repo dashboard itself the trail is that one crumb: the bar is
@@ -395,7 +399,9 @@ its own.
   the brand book's `Breadcrumbs` component with `bar` renders the same.
 
 **What this changes for an app that takes the update:** nothing that exists, only an addition. A page
-without the bar does not break, but it does not follow the house style until it has one.
+without the bar does not break, but it does not follow the house style until it has one. An app with its
+own sticky element at `top: 0` (a sidebar, a toolbar) moves it to `top: var(--tap)` when it adds the bar,
+or the bar covers it.
 
 ### The Repo dashboard
 
