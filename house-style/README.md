@@ -331,7 +331,8 @@ numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with 
 (with `__error`), `.btn--touch`, `.btn--block`, `.icon-btn` (with `--ghost`), `.action-row`, `.dialog`
 (with `__body`, `__head` (with `--two`, `--back`), `__title`, `__sub`, `__close` (with `--save`,
 `--cancel`, `--back`), and `--drawer`), `.topbar` (with `__inner`, `__brand`, `__name`), `.menu-list`,
-`.menu-row` (with `__label`, `__value`), `.menu-item` (with `__icon`, `__label`, `__chevron`) and
+`.menu-row` (with `__label`, `__value`), `.menu-item` (with `__icon`, `__label`, `__chevron`),
+`.breadcrumbs` (with `__sep`), `.breadcrumbs-bar` ([below](#every-page-the-breadcrumb-bar)) and
 `.sr-only`. Each is commented in the file.
 
 **Focus and targets.** Every interactive house class shows a visible focus ring on keyboard focus (an SVG
@@ -373,6 +374,35 @@ level-up colours, the equipment lists, the stat lines, the chips and the downloa
 
 ## Page patterns
 
+### Every page: the breadcrumb bar
+
+**Every page a DKJ-Solutions dev server serves opens with a breadcrumb bar** (owner's request, October 17,
+2026). That is every page you can open in the preview browser: the Repo dashboard, the product, and any
+page below either. The bar says where the page sits and is the way back, so no page needs a "back" link of
+its own.
+
+- **Place:** the first element in `<body>` (in React, the first thing the page renders), above `<main>` and
+  outside it, so it spans the full width. Its trail lines up with the page column.
+- **Always visible:** the bar sticks to the top of the screen while the page scrolls. It is one `--tap`
+  (44px) high and one line: a trail longer than the screen scrolls sideways inside the bar instead of
+  wrapping, so the height never changes. Whatever else sticks to the top sits under it, at `top: var(--tap)`;
+  the house style already does that for the floating settings button and for in-page anchors.
+- **The trail:** it always starts at **Repo dashboard**, linking to `/`. Each further crumb is one level
+  down: the product (under its own name), then a page inside it. The last crumb is the current page,
+  unlinked, with `aria-current="page"`. On the Repo dashboard itself the trail is that one crumb: the bar is
+  still there, so it sits in the same place on every page.
+- **The labels** are the pages' own names, short, in the app's language. A crumb names a page, never a
+  section on a page: an in-page anchor is not a level.
+- **Without React:** `.breadcrumbs-bar` > `.container` > `nav.breadcrumbs[aria-label="Breadcrumb"]` > `ol`,
+  one `li` per crumb, and a `<span class="breadcrumbs__sep" aria-hidden="true">/</span>` at the start of every
+  `li` but the first. [`patterns/repo-dashboard.html`](patterns/repo-dashboard.html) carries it. With React,
+  the brand book's `Breadcrumbs` component with `bar` renders the same.
+
+**What this changes for an app that takes the update:** nothing that exists, only an addition. A page
+without the bar does not break, but it does not follow the house style until it has one. An app with its
+own sticky element at `top: 0` (a sidebar, a toolbar) moves it to `top: var(--tap)` when it adds the bar,
+or the bar covers it.
+
 ### The Repo dashboard
 
 **Every DKJ-Solutions repo's Repo dashboard has this one form, and only its content differs** (owner's
@@ -385,6 +415,7 @@ implementation is this repo's own [`RepoDashboard.tsx`](../src/dashboard/RepoDas
 
 | # | Block | Brand book component (React) | House class (the stylesheet-only equivalent) | Fixed, or the repo's own |
 |---|---|---|---|---|
+| 0 | The breadcrumb bar, above `<main>`: the one crumb **Repo dashboard** ([above](#every-page-the-breadcrumb-bar)) | `Breadcrumbs bar` | `.breadcrumbs-bar` / `.breadcrumbs` | fixed |
 | 1 | The settings button | `Toolbar` (showcase; the settings button only) | `DKJTheme.settings(el)` from `house-theme.js` (`.theme-settings`) | fixed |
 | 2 | The intro, wrapping 3 to 6: a `<div>`, never a `<header>` (below) | `<div className="dkj-intro">` | a plain `<div>` | fixed |
 | 3 | Eyebrow: `<owner>/<repo>` | `<p className="dkj-eyebrow">` | `.eyebrow` | fixed form, the repo's own slug |

@@ -1,24 +1,71 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
-.dkj-shell { display: grid; grid-template-columns: 15rem minmax(0, 1fr); min-height: 100dvh; }
-/* The sidebar contrasts with the page, mirrored per mode by the scale itself: its panel is --primary-9, the far
-   end (near-black in the theme's hue on light, near-white on dark). The text is the opposite end of the scale in
-   both modes: --primary-1 (the theme's page colour) as ink, --primary-3 (the line colour) as the quieter ink.
-   Every colour is a --primary step read directly, no local alias (owner's correction, October 14, 2026). */
-.dkj-nav {
+/* The contents panel and the page column side by side, the panel over the full height of the screen; the
+   breadcrumb bar sits in the page column, above <main>. The panel stays open or closed until its toggle switches it.
+   Closed, a strip of it (--spacing-3) stays visible at the left edge, to point at and to click; open, it takes 230px
+   (its maximum width) from the page column, so the bar and <main> move aside rather than being covered. It slides
+   open and shut with the panel duration. */
+.dkj-shell { display: grid; grid-template-columns: var(--spacing-3) minmax(0, 1fr); transition: grid-template-columns var(--dkj-duration-panel) var(--dkj-ease-out); }
+.dkj-shell--open { grid-template-columns: 230px minmax(0, 1fr); }
+.dkj-page { min-width: 0; }
+/* The toggle: a round button centred on the panel's right edge, so half of it lies over the panel, halfway down
+   the screen, clear of the breadcrumb trail. It takes no room of its own, so nothing stands beside the open panel: it is hidden until the
+   pointer is over the panel (open, or its closed strip) or over the button, and on keyboard focus. Where there is
+   no hover (a touch screen) it is always shown. */
+.dkj-panel-toggle {
+  position: fixed;
+  top: 50%;
+  left: var(--spacing-3);
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap);
+  height: var(--tap);
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  /* The panel's own colours, so it reads as part of the panel it opens and closes. */
+  color: var(--primary-1);
+  background: var(--primary-9);
+  border: 1px solid var(--primary-8);
+  border-radius: 50%;
+  box-shadow: var(--shadow-pop);
+  cursor: pointer;
+  opacity: 0;
+  transition: left var(--dkj-duration-panel) var(--dkj-ease-out), opacity var(--dkj-duration-panel) var(--dkj-ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+.dkj-shell--open .dkj-panel-toggle { left: 230px; }
+.dkj-panel-toggle:hover, .dkj-panel-toggle:focus-visible, .dkj-shell:has(.dkj-contents:hover) .dkj-panel-toggle { opacity: 1; }
+.dkj-panel-toggle:hover { background: var(--primary-8); }
+.dkj-panel-toggle:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: 2px; }
+@media (hover: none) { .dkj-panel-toggle { opacity: 1; } }
+/* The panel: sticky over the full height of the screen; a long list scrolls inside it, and the inner box keeps its
+   width, so nothing reflows while it slides. Its colours mirror the page's, by the scale itself: the panel is
+   --primary-9, the far end (near-black in the theme's hue on light, near-white on dark), and its text the opposite
+   end, --primary-1 as ink and --primary-3 as the quieter ink. One step per role in both modes; every colour is a
+   --primary step read directly, no local alias (owner's correction, October 14, 2026). */
+.dkj-contents {
   position: sticky;
   top: 0;
   align-self: start;
-  max-height: 100dvh;
-  overflow-y: auto;
-  padding: var(--spacing-5) var(--spacing-4);
+  height: 100dvh;
+  overflow: hidden;
   background: var(--primary-9);
   color: var(--primary-1);
 }
-/* The menu's heading ("Contents"): an <h2>, so it keeps the house h2 size and face; only its colour follows the nav. */
-.dkj-nav :where(h1, h2) { color: var(--primary-3); }   /* h1 and h2 on --primary-9 take -3 */
-.dkj-nav :where(h3, h4, h5, h6) { color: var(--primary-2); }   /* h3-h6 on --primary-9 take -2 */
-.dkj-brand-sub { margin: 0 0 var(--spacing-5); font-size: var(--text-sm); color: var(--primary-3); }
+/* The closed strip: a click opens the panel, and it lightens under the pointer, as a link in the panel does. */
+.dkj-shell:not(.dkj-shell--open) .dkj-contents { cursor: pointer; }
+.dkj-shell:not(.dkj-shell--open) .dkj-contents:hover { background: var(--primary-8); }
+.dkj-contents-inner { width: 230px; height: 100%; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; padding: var(--spacing-5) var(--spacing-4);
+  /* Its scrollbar is the panel's too: a --primary-6 thumb on the panel's own --primary-9, so it is not read as <main>'s. */
+  scrollbar-color: var(--primary-6) var(--primary-9); }
+/* The panel's heading ("Contents"): an <h2>, so it keeps the house h2 size and face; only its colour follows the panel. */
+.dkj-contents-title { margin: 0; color: var(--primary-3); }
+.dkj-contents-sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-base); color: var(--primary-3); }
+.dkj-nav { margin-top: var(--spacing-2); }
+@media (prefers-reduced-motion: reduce) { .dkj-shell, .dkj-contents, .dkj-panel-toggle { transition: none !important; } }
 .dkj-nav-group {
   margin: var(--spacing-4) 0 var(--spacing-1);
   font-size: var(--text-sm);
@@ -28,8 +75,6 @@
   color: var(--primary-2);
 }
 .dkj-nav ul { margin: 0; padding: 0; list-style: none; }
-/* The way back to the index (the Repo dashboard), above the contents. */
-.dkj-nav .dkj-nav-home { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); color: var(--primary-3); }
 .dkj-nav a {
   display: block;
   padding: var(--spacing-1) var(--spacing-2);
@@ -37,7 +82,7 @@
   font-size: var(--text-base);
   color: var(--primary-1);
   text-decoration: none;
-  /* One line per link: a name too long for the column is cut off with an ellipsis (the full name is its title). */
+  /* One line per link: a name too long for the panel is cut off with an ellipsis (the full name is its title). */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,13 +94,17 @@
 .dkj-nav a[aria-current='page'], .dkj-nav a[aria-current='page']:hover { background: var(--primary-5); color: var(--primary-1); font-weight: var(--dkj-fw-semibold); }
 .dkj-nav a[aria-current='page']:focus-visible { outline-color: var(--primary-1); }
 
-/* <main>: the house style gives it a centred 1080px column; the showcase fills the space beside the nav. */
+/* <main>: the house style gives it a centred 1080px column; the showcase fills the full width. */
 .dkj-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
+/* The breadcrumb trail above it lines up with it: the same full width and the same side padding, so the trail and
+   the content start on one line (on the dashboard pages both are the house column already). */
+.dkj-page > .dkj-breadcrumbs-bar > .container { max-width: none; padding-left: var(--spacing-6); padding-right: var(--spacing-6); }
 /* The preview settings: the house settings button (.theme-settings), placed top right in a sticky
-   wrapper with no height, so its panel lies over the page and nothing in the flow moves. */
+   wrapper with no height, so its panel lies over the page and nothing in the flow moves. It sticks under the
+   breadcrumb bar. */
 .dkj-settings {
   position: sticky;
-  top: 0;
+  top: var(--tap);
   z-index: 3;
   height: 0;
   margin: 0 calc(-1 * var(--spacing-6));
@@ -181,10 +230,15 @@
 .dkj-radius { width: 3rem; height: 3rem; background: var(--primary-3); border: 1px solid var(--primary-5); }
 
 @media (max-width: 52rem) {
-  .dkj-shell { grid-template-columns: minmax(0, 1fr); }
-  .dkj-nav { position: static; max-height: none; }
-  .dkj-nav ul { display: flex; flex-wrap: wrap; gap: var(--spacing-1); }
   .dkj-main { padding: var(--spacing-4) var(--spacing-4) var(--spacing-8); }
+  /* No room to push on a narrow screen: the open panel lies over the page instead; closed, its strip still shows. */
+  .dkj-shell, .dkj-shell--open { grid-template-columns: var(--spacing-3) minmax(0, 1fr); }
+  .dkj-contents { position: fixed; top: 0; left: 0; z-index: 5; width: min(230px, calc(100% - 3rem));
+    transform: translateX(calc(-100% + var(--spacing-3))); transition: transform var(--dkj-duration-panel) var(--dkj-ease-out); }
+  .dkj-shell--open .dkj-contents { transform: none; box-shadow: var(--shadow-pop); }
+  .dkj-contents-inner { width: 100%; }
+  .dkj-shell--open .dkj-panel-toggle { left: min(230px, calc(100% - 3rem)); }
+  .dkj-page > .dkj-breadcrumbs-bar > .container { padding-left: var(--spacing-4); padding-right: var(--spacing-4); }
   .dkj-settings { margin: 0 calc(-1 * var(--spacing-4)); }
   .dkj-settings-anchor { right: var(--spacing-4); }
 }
@@ -226,3 +280,6 @@
 .dkj-preview-candidates { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--spacing-3); }
 .dkj-preview-gap { margin-top: var(--spacing-4); }
 .dkj-preview-done { text-decoration: line-through; }
+
+/* The Breadcrumbs demo shows the bar where it stands, not stuck to the screen. */
+.dkj-demos .dkj-breadcrumbs-bar { position: static; }
