@@ -2,7 +2,33 @@
 
 ## [Unreleased]
 
-**2 / 2 minor entries** <!-- pending-tally -->
+**3 / 3 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/199-repo-hub-name · 20261017-215754Z
+
+The index of a repo's dev server is now called the Repo hub instead of the Repo dashboard (#199): the index
+gets you to the page you want, and the pages below it can be dashboards. The house style fixes the new name
+word for word as the `h1`, the one crumb on the index and the first crumb on every other page;
+`house-style/README.md`, `patterns/repo-dashboard.html`, this repo's own index, its previews page ("Repo hub
+previews") and the previews follow. File names, components, classes and URL paths are unchanged.
+
+**Score:** 3
+
+#### What makes this deploy extra special
+
+The index page of a DKJ-Solutions dev server is now called **Repo hub**. An app that takes this house-style
+version changes its index `h1`, its `<title>` and the first crumb of its breadcrumb bar from "Repo dashboard"
+to "Repo hub"; nothing else changes.
+
+**Score:** 3
+
+#### Pull Request
+
+Repo hub: rename the index page
+
+[PR #201](https://github.com/DKJ-Solutions/dkj-brandbook/pull/201)
+
+---
 
 ### DEPLOY: feat/repo-default-themes · 20261017-212325Z
 
