@@ -49,7 +49,7 @@
 ### TEST
 
 - [x] Lint gate green (`scripts/lint/lint-web.ps1`)
-- [ ] An owner has looked at the Default theme column and a repo preview in its own default theme and approved it
+- [x] An owner has looked at the Default theme column and a repo preview in its own default theme and approved it
 
 ### DEPLOY: feat/repo-default-themes
 
