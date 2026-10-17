@@ -164,10 +164,27 @@ primary colour, its `--primary-7` in either mode (the dot the picker draws):
 `<html data-theme="…">`:
 
 1. the user's own choice, remembered per app on the device;
-2. otherwise the app's own default for the OS mode, declared on the page:
-   `<html data-theme-light="purple" data-theme-dark="cyan">`. Each app picks its own pair, so apps are
-   told apart before anyone has chosen;
-3. otherwise the house defaults, Blauw (light) and Cyaan (dark).
+2. otherwise the app's own default theme, declared on the page: `<html data-theme-default="teal">`. Each
+   app picks its own, so apps are told apart before anyone has chosen. The theme fixes the mode: a light
+   default stays light for a viewer whose OS is dark, until they pick;
+3. otherwise, for an app that has not moved to that yet, its default for the OS mode:
+   `<html data-theme-light="purple" data-theme-dark="lilac">`;
+4. otherwise the house defaults, Blauw (light) and Cyaan (dark).
+
+**Each repo has one default theme of its own** (the owner's decision, October 17, 2026). Twelve themes,
+eight repos: all eight differ, four light and four dark. The brand book is the source of the assignment,
+and `src/repos.ts` carries it in code. Each repo declares its theme on its own `<html>`, as above.
+
+| Repo | Default theme |
+|---|---|
+| `dkj-brandbook` | `blue` Blauw (light) |
+| `dkj-lifehub` | `teal` Petrol (light) |
+| `dkj-recipes` | `rust` Roest (light) |
+| `dkj-thumbnail-generator` | `purple` Paars (light) |
+| `dkj-etf-tracker` | `sky` Hemelsblauw (dark) |
+| `dkj-claude-plugins` | `lilac` Lila (dark) |
+| `dkj-music-library` | `pink` Roze (dark) |
+| `dkj-maplestory-classic-mesowise` | `yellow` Geel (dark) |
 
 Load it in `<head>` so nothing flashes, and call `DKJTheme.picker(element)` where the setting goes: it
 draws the twelve swatches in two rows, light and dark. `DKJTheme.set(id)`, `DKJTheme.reset()` and
@@ -187,7 +204,7 @@ The panel lies over the page, so nothing moves when it opens. Every text is opti
 Dutch-language, and the names are the ones their users read. An app in another language passes its own
 row labels, `DKJTheme.picker(el, { light: 'Light', dark: 'Dark' })`. A page that ships
 `data-theme="light"` or `"dark"` keeps that mode under the script: the script picks that mode's default
-instead of following the OS.
+instead of following the OS, and ignores a `data-theme-default` of the other mode.
 
 **Without the script the stylesheet still works.** No `data-theme` follows the OS with the house defaults,
 and `data-theme="light"` / `"dark"` force a mode the way they always did. The dark block therefore appears

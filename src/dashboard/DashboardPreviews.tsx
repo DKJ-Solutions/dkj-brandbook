@@ -2,6 +2,7 @@ import { Card, CardBody } from '../components/Card'
 import { Message } from '../components/Feedback'
 import { Breadcrumbs } from '../components/Navigation'
 import { DataTable } from '../components/Table'
+import { useRepoDefaultTheme } from '../showcase/theme'
 import { DASHBOARD_PATH, DASHBOARDS_PATH, dashboardPreviewPath } from '../routes'
 import { DashboardMain } from './DashboardShell'
 import { PREVIEWS } from './previews'
@@ -45,6 +46,7 @@ export function DashboardIndex() {
 /** One repo's dashboard preview; an unknown id says so, and the breadcrumbs lead back to the menu. */
 export function DashboardPreviewPage({ id }: { id: string }) {
   const preview = PREVIEWS.find((p) => p.id === id)
+  useRepoDefaultTheme(id)
 
   return (
     <>
