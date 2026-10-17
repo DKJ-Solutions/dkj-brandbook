@@ -52,7 +52,7 @@ to block 6, all reasoned in `house-style/README.md`), built by Cody.
 
 ### TEST
 
-- [ ] An owner has looked at the Pages block on the Repo hub (`/`), on the dkj-claude-plugins hub preview and in the showcase, and approved it
+- [x] An owner has looked at the Pages block on the Repo hub (`/`), on the dkj-claude-plugins hub preview and in the showcase, and approved it
 
 ### DEPLOY: feat/200-repo-hub-pages
 
