@@ -35,6 +35,9 @@
 
 /* <main>: the house style gives it a centred 1080px column; the showcase fills the full width. */
 .dkj-main { min-width: 0; max-width: none; margin: 0; padding: var(--spacing-5) var(--spacing-6) var(--spacing-8); }
+/* The breadcrumb trail above it lines up with it: the same full width and the same side padding, so the trail and
+   the content start on one line (on the dashboard pages both are the house column already). */
+.dkj-breadcrumbs-bar:has(+ .dkj-main) > .container { max-width: none; padding-left: var(--spacing-6); padding-right: var(--spacing-6); }
 /* The preview settings: the house settings button (.theme-settings), placed top right in a sticky
    wrapper with no height, so its panel lies over the page and nothing in the flow moves. It sticks under the
    breadcrumb bar. */
@@ -173,6 +176,7 @@
 
 @media (max-width: 52rem) {
   .dkj-main { padding: var(--spacing-4) var(--spacing-4) var(--spacing-8); }
+  .dkj-breadcrumbs-bar:has(+ .dkj-main) > .container { padding-left: var(--spacing-4); padding-right: var(--spacing-4); }
   .dkj-settings { margin: 0 calc(-1 * var(--spacing-4)); }
   .dkj-settings-anchor, .dkj-menu-anchor { right: var(--spacing-4); }
   .dkj-settings--menu .dkj-settings-anchor { right: calc(var(--spacing-4) + var(--tap) + var(--spacing-2)); }
