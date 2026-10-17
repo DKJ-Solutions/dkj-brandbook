@@ -2,7 +2,29 @@
 
 ## [Unreleased]
 
-**0 / 1 patch entry** <!-- pending-tally -->
+**0 / 2 patch entries** <!-- pending-tally -->
+
+### DEPLOY: fix/138-drop-dev-preview-name · 20261017-091905Z
+
+`Get-DevPreview` no longer states a `Name`: since dkj-claude-plugins v5.22.0 the dev-preview hook labels
+every repo's page `Repo dashboard` itself and ignores the field. The session-start line reads the same as
+before.
+
+**Score:** 1
+
+#### What makes this deploy extra special
+
+N/A -- nothing a user of the brand book sees changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+Drop the Name the dev-preview hook no longer reads
+
+[PR #180](https://github.com/DKJ-Solutions/dkj-brandbook/pull/180)
+
+---
 
 ### DEPLOY: fix/178-readme-first-release-v0-1-0 · 20261017-091602Z
 
