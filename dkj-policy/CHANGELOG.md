@@ -2,7 +2,28 @@
 
 ## [Unreleased]
 
-**4 / 12 minor entries** <!-- pending-tally -->
+**4 / 13 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/187-plugins-about-card · 20261017-142911Z
+
+The dkj-claude-plugins dashboard preview ends with the About this repo facts card, like every other dashboard preview,
+so it shows the Repo dashboard form in full (#187).
+
+**Score:** 1
+
+#### What makes this deploy extra special
+
+N/A
+
+**Score:** N/A
+
+#### Pull Request
+
+The dkj-claude-plugins dashboard preview carries the About this repo card
+
+[PR #195](https://github.com/DKJ-Solutions/dkj-brandbook/pull/195)
+
+---
 
 ### DEPLOY: fix/186-dkj-lifehub-id · 20261017-142420Z
 
