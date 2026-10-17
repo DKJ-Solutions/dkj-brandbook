@@ -44,6 +44,7 @@
 ### CREATE
 
 - [x] Give the "Preview other repo dashboards" button `variant="outline"` in `src/dashboard/RepoDashboard.tsx`.
+- [x] Give the primary, outline and positive buttons a hover and press in `src/components/buttons.css`, following the default variant's pattern (existing `--primary-*` and `--positive-*` steps only).
 
 ### TEST
 
@@ -53,13 +54,15 @@
 
 The secondary action on the Repo dashboard ("Preview other repo dashboards") used the default button, which looked identical to the information tiles below it. It now uses the existing outline variant, so an action reads as an action and a tile as a tile.
 
-Only the Repo dashboard of this repo changes; no house token, class or stylesheet is touched.
+The primary, outline and positive buttons also answer a hover and a press now, as the default button already did: primary and positive deepen their fill by one step, outline gets the tinted hover surface.
+
+Only this repo's own pages change (the Repo dashboard and the showcase's buttons); no house token, class or house stylesheet is touched.
 
 **Score:** 2
 
 #### What makes this deploy extra special
 
-No app that takes the brand book as its house style sees a difference: the change is one prop on one page of this repo, and the house stylesheet and the button's definition are unchanged.
+No app that takes the brand book as its house style sees a difference: the change is one prop on one page and the hover states of the showcase's buttons, both in this repo, and the house stylesheet is unchanged.
 
 **Score:** N/A
 

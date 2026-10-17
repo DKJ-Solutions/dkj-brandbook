@@ -33,7 +33,7 @@
   cursor: pointer;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
-  transition: border-color var(--dkj-duration-base) var(--dkj-ease-out), transform var(--dkj-duration-fast) var(--dkj-ease-out);
+  transition: border-color var(--dkj-duration-base) var(--dkj-ease-out), background-color var(--dkj-duration-base) var(--dkj-ease-out), transform var(--dkj-duration-fast) var(--dkj-ease-out);
 }
 .dkj-btn svg { flex: none; }
 .dkj-btn:disabled, .dkj-btn[aria-disabled='true'] { opacity: 0.5; cursor: not-allowed; }
@@ -77,6 +77,35 @@
   background: var(--primary-3);
   color: var(--primary-7);
   border-color: var(--primary-5);
+}
+/* Hover and press for the other fills, the same pattern as the default look (hover only where a pointer hovers, never on a
+   disabled button or a .dkj-choice; [data-demo-state] pins it in the showcase). Every role keeps ONE step in light and dark:
+   - primary: the fill goes one step towards the far end, -7 to -8 (darker on light, lighter on dark), border with it;
+   - outline: the tinted surface -3 (the house "hover" surface) behind the same text and border; the accent outline keeps its own press;
+   - positive: the fill settles on --positive-5, the step that is darker on light and lighter on dark, like -7 to -8. */
+.dkj-btn--primary:not(.dkj-choice):active:not(:disabled):not([aria-disabled='true']),
+.dkj-btn--primary:not(.dkj-choice)[data-demo-state='active'],
+.dkj-btn--primary:not(.dkj-choice)[data-demo-state='hover'] { background: var(--primary-8); border-color: var(--primary-8); }
+.dkj-btn--outline:not(.dkj-btn--accent):not(.dkj-choice):active:not(:disabled):not([aria-disabled='true']),
+.dkj-btn--outline:not(.dkj-btn--accent):not(.dkj-choice)[data-demo-state='active'],
+.dkj-btn--outline:not(.dkj-btn--accent):not(.dkj-choice)[data-demo-state='hover'] { background: var(--primary-3); }
+.dkj-btn--positive:not(.dkj-choice):active:not(:disabled):not([aria-disabled='true']),
+.dkj-btn--positive:not(.dkj-choice)[data-demo-state='active'],
+.dkj-btn--positive:not(.dkj-choice)[data-demo-state='hover'] { background: linear-gradient(180deg, var(--positive-5), var(--positive-5)) border-box; }
+.dkj-btn--primary:not(.dkj-choice):active:not(:disabled):not([aria-disabled='true']),
+.dkj-btn--primary:not(.dkj-choice)[data-demo-state='active'],
+.dkj-btn--outline:not(.dkj-btn--accent):not(.dkj-choice):active:not(:disabled):not([aria-disabled='true']),
+.dkj-btn--outline:not(.dkj-btn--accent):not(.dkj-choice)[data-demo-state='active'],
+.dkj-btn--positive:not(.dkj-choice):active:not(:disabled):not([aria-disabled='true']),
+.dkj-btn--positive:not(.dkj-choice)[data-demo-state='active'] { transform: translateY(1px); }
+@media (hover: hover) {
+  .dkj-btn--primary:not(.dkj-choice):hover:not(:disabled):not([aria-disabled='true']) { background: var(--primary-8); border-color: var(--primary-8); }
+  .dkj-btn--outline:not(.dkj-btn--accent):not(.dkj-choice):hover:not(:disabled):not([aria-disabled='true']) { background: var(--primary-3); }
+  .dkj-btn--positive:not(.dkj-choice):hover:not(:disabled):not([aria-disabled='true']) { background: linear-gradient(180deg, var(--positive-5), var(--positive-5)) border-box; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dkj-btn--primary:active, .dkj-btn--outline:active, .dkj-btn--positive:active,
+  .dkj-btn--primary[data-demo-state='active'], .dkj-btn--outline[data-demo-state='active'], .dkj-btn--positive[data-demo-state='active'] { transform: none; }
 }
 /* Compact: smaller to the eye, but the tap area stays 44px via ::after. */
 .dkj-btn--compact {
