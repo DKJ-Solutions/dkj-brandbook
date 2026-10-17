@@ -1,11 +1,17 @@
 # Release history
 
+### 0.x
+
+| Tag | Date | Bump | Title |
+|---|---|---|---|
+| [0.1.0](changelog/0.x/0.1.0.md) | 2026-10-17 | Minor | The four house-style tags brought together as the first X.Y.Z release |
+
 ### house-style
 
 The releases cut before this repo released through `cut-release`. Each is a `house-style-v<N>` tag set
-by hand on a fold commit, and its changelog was split out of `[Unreleased]` afterwards (#172). The tags
-stay and are never moved. Every later release is a `vX.Y.Z` tag numbered on from `house-style-v4`, so
-the first is at least `5.0.0`, and is listed in its own `<X>.x` section above this one.
+by hand on a fold commit, and its changelog was split out of `[Unreleased]` afterwards (#172). The
+owner brought the four together as `v0.1.0`, the first `vX.Y.Z` release (October 17, 2026); every
+release since is a `vX.Y.Z` tag cut with `cut-release`, listed in its own `<X>.x` section above this one.
 
 | Tag | Date | Title |
 |---|---|---|
