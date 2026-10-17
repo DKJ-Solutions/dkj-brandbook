@@ -39,19 +39,31 @@
 
 ### PLAN
 
+Owner's decision (October 17, 2026): the `changelog/house-style/` folder goes, and its four release
+notes become sections of the `v0.1.0` notes, which already brought those tags together.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Append `house-style-v4` to `v1` (newest first) to `changelog/0.x/0.1.0.md` and remove the folder.
+- [x] `0.1.0.md` intro and `history.md`: the per-tag history now sits in the `0.1.0` notes.
 
 ### TEST
 
+- [x] Every relative link in `0.1.0.md` resolves.
+
 ### DEPLOY: docs/fold-house-style-notes-into-v0-1-0
 
-**Score:**
+The `house-style-v1` to `house-style-v4` release notes are no longer four separate files: they are
+sections of the [`0.1.0`](releases/changelog/0.x/0.1.0.md) notes, newest first, below that release's own
+section. The release history still lists the four tags and points to the `0.1.0` notes.
+
+**Score:** 1
 
 #### What makes this deploy extra special
 
-**Score:**
+N/A -- no released file changes.
+
+**Score:** N/A
 
 #### Pull Request
 
