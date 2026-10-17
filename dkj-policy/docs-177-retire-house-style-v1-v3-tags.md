@@ -50,7 +50,7 @@ open for v4. This branch makes the docs stop saying that the deleted tags exist.
 
 ### TEST
 
-- [ ] The tags `house-style-v1` to `house-style-v3` are gone from origin (`git ls-remote --tags origin`).
+- [x] The tags `house-style-v1` to `house-style-v3` are gone from origin (`git ls-remote --tags origin`).
 
 ### DEPLOY: docs/177-retire-house-style-v1-v3-tags
 
