@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IconButton } from './components/Button'
 import { cx } from './components/cx'
-import { Dialog } from './components/Dialog'
 import { Breadcrumbs } from './components/Navigation'
 import { REPOS } from './repos'
 import { DASHBOARD_PATH, SHOWCASE_PATH } from './routes'
@@ -64,13 +63,39 @@ function usePreviewRepo() {
   return repo
 }
 
+const CONTENTS_KEY = 'dkj-brandbook-contents-open'
+const NARROW = '(max-width: 52rem)'
+
+/** Whether the contents panel is open; remembered per viewer, and open by default on a wide screen. */
+function useContentsOpen() {
+  const [open, setOpen] = useState(() => {
+    try {
+      const saved = window.localStorage.getItem(CONTENTS_KEY)
+      if (saved !== null) return saved === 'true'
+    } catch {
+      // No storage (a private window, blocked site data): fall back to the default.
+    }
+    return !window.matchMedia(NARROW).matches
+  })
+  const set = (next: boolean) => {
+    setOpen(next)
+    try {
+      window.localStorage.setItem(CONTENTS_KEY, String(next))
+    } catch {
+      // Not remembered, but the panel still opens and closes.
+    }
+  }
+  return [open, set] as const
+}
+
 export default function App() {
   const controls = useWidth()
   const previewRepo = usePreviewRepo()
-  const [menuOpen, setMenuOpen] = useState(false)
-  const menuButton = useRef<HTMLButtonElement>(null)
-  // A link in the drawer closes it; the hash change then scrolls to the section (usePreviewRepo).
-  const close = () => setMenuOpen(false)
+  const [open, setOpen] = useContentsOpen()
+  // On a narrow screen the panel lies over the page, so a link there closes it; on a wide one it stays open.
+  const follow = () => {
+    if (window.matchMedia(NARROW).matches) setOpen(false)
+  }
   return (
     <>
       <Breadcrumbs
@@ -80,83 +105,81 @@ export default function App() {
           ...(previewRepo ? [{ label: 'Brand book', href: SHOWCASE_PATH }, { label: previewRepo }] : [{ label: 'Brand book' }]),
         ]}
       />
-      <main className="dkj-main">
-        <Toolbar
-          controls={controls}
-          menu={
-            <IconButton
-              ref={menuButton}
-              variant="ghost"
-              icon="menu"
-              label="Contents"
-              aria-haspopup="dialog"
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(true)}
-            />
-          }
-        />
-        <Dialog
-          open={menuOpen}
-          variant="drawer"
-          heading="plain"
-          title="Contents"
-          subtitle="Jump to a section or an app preview"
-          onClose={() => {
-            close()
-            menuButton.current?.focus()
-          }}
-        >
-          <nav className="dkj-nav" aria-label="Contents">
-            {/* Group labels, not headings: each names its list (aria-labelledby), so the menu keeps its compact size. */}
-            {NAV.map((g, n) => (
-              <div key={g.group}>
-                <p className="dkj-nav-group" id={`dkj-nav-group-${n}`}>
-                  {g.group}
-                </p>
-                <ul aria-labelledby={`dkj-nav-group-${n}`}>
-                  {g.items.map((i) => (
-                    <li key={i}>
-                      <a href={`#${i}`} onClick={close}>
-                        {LABELS[i] ?? i}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            <p className="dkj-nav-group" id="dkj-nav-group-repos">
-              DKJ-Solutions
-            </p>
-            <ul aria-labelledby="dkj-nav-group-repos">
-              {REPOS.map((r) => (
-                <li key={r}>
-                  <a href={`#preview/${r}`} title={r} aria-current={r === previewRepo ? 'page' : undefined} onClick={close}>
-                    {r}
-                  </a>
-                </li>
+      <div className={cx('dkj-shell', open && 'dkj-shell--open')}>
+        <main className="dkj-main">
+          <Toolbar
+            controls={controls}
+            menu={
+              <IconButton
+                variant="ghost"
+                icon={open ? 'close' : 'menu'}
+                label={open ? 'Close contents' : 'Open contents'}
+                aria-controls="dkj-contents"
+                aria-expanded={open}
+                onClick={() => setOpen(!open)}
+              />
+            }
+          />
+          <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
+            {previewRepo ? (
+              <RepoPreview repo={previewRepo} />
+            ) : (
+              <>
+                <Intro />
+                <Foundations />
+                <Actions />
+                <Surfaces />
+                <Metrics />
+                <Forms />
+                <Overlays />
+                <Data />
+                <Apps />
+                <Overlap />
+              </>
+            )}
+          </div>
+        </main>
+        {/* Closed, the panel is inert: out of the tab order and hidden from a screen reader while it slides shut. */}
+        <aside className="dkj-contents" id="dkj-contents" aria-labelledby="dkj-contents-title" inert={!open}>
+          <div className="dkj-contents-inner">
+            <h2 className="dkj-contents-title" id="dkj-contents-title">
+              Contents
+            </h2>
+            <p className="dkj-contents-sub">Jump to a section or an app preview</p>
+            <nav className="dkj-nav" aria-labelledby="dkj-contents-title">
+              {/* Group labels, not headings: each names its list (aria-labelledby), so the menu keeps its compact size. */}
+              {NAV.map((g, n) => (
+                <div key={g.group}>
+                  <p className="dkj-nav-group" id={`dkj-nav-group-${n}`}>
+                    {g.group}
+                  </p>
+                  <ul aria-labelledby={`dkj-nav-group-${n}`}>
+                    {g.items.map((i) => (
+                      <li key={i}>
+                        <a href={`#${i}`} onClick={follow}>
+                          {LABELS[i] ?? i}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
-          </nav>
-        </Dialog>
-        <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
-          {previewRepo ? (
-            <RepoPreview repo={previewRepo} />
-          ) : (
-            <>
-              <Intro />
-              <Foundations />
-              <Actions />
-              <Surfaces />
-              <Metrics />
-              <Forms />
-              <Overlays />
-              <Data />
-              <Apps />
-              <Overlap />
-            </>
-          )}
-        </div>
-      </main>
+              <p className="dkj-nav-group" id="dkj-nav-group-repos">
+                DKJ-Solutions
+              </p>
+              <ul aria-labelledby="dkj-nav-group-repos">
+                {REPOS.map((r) => (
+                  <li key={r}>
+                    <a href={`#preview/${r}`} title={r} aria-current={r === previewRepo ? 'page' : undefined} onClick={follow}>
+                      {r}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </aside>
+      </div>
     </>
   )
 }
