@@ -1,20 +1,21 @@
 /* The brand book's own chrome. Styled on the house tokens, so it switches theme with the components. */
 
 /* The contents panel and the page column side by side, the panel over the full height of the screen; the
-   breadcrumb bar sits in the page column, above <main>. The panel stays open or closed until its toggle switches it,
-   and open it takes 230px (its maximum width) from the page column, so the bar and <main> move aside rather than
-   being covered. It slides open and shut with the panel duration. */
-.dkj-shell { display: grid; grid-template-columns: 0 minmax(0, 1fr); transition: grid-template-columns var(--dkj-duration-panel) var(--dkj-ease-out); }
+   breadcrumb bar sits in the page column, above <main>. The panel stays open or closed until its toggle switches it.
+   Closed, a strip of it (--spacing-3) stays visible at the left edge, to point at and to click; open, it takes 230px
+   (its maximum width) from the page column, so the bar and <main> move aside rather than being covered. It slides
+   open and shut with the panel duration. */
+.dkj-shell { display: grid; grid-template-columns: var(--spacing-3) minmax(0, 1fr); transition: grid-template-columns var(--dkj-duration-panel) var(--dkj-ease-out); }
 .dkj-shell--open { grid-template-columns: 230px minmax(0, 1fr); }
 .dkj-page { min-width: 0; }
 /* The toggle: a round button centred on the panel's right edge, so half of it lies over the panel, level with the
-   breadcrumb trail. It takes no room of its own: it is hidden until the pointer is over the panel or the button
-   (closed, its right half shows at the screen's left edge to be found), and on keyboard focus. Where there is no
-   hover (a touch screen) it is always shown. */
+   breadcrumb trail. It takes no room of its own, so nothing stands beside the open panel: it is hidden until the
+   pointer is over the panel (open, or its closed strip) or over the button, and on keyboard focus. Where there is
+   no hover (a touch screen) it is always shown. */
 .dkj-panel-toggle {
   position: fixed;
   top: 0;
-  left: 0;
+  left: var(--spacing-3);
   z-index: 6;
   display: inline-flex;
   align-items: center;
@@ -50,7 +51,9 @@
   background: var(--primary-2);
   border-right: 1px solid var(--primary-3);
 }
-.dkj-shell:not(.dkj-shell--open) .dkj-contents { border-right-color: transparent; }
+/* The closed strip: a click opens the panel, and it tints under the pointer like the toggle does. */
+.dkj-shell:not(.dkj-shell--open) .dkj-contents { cursor: pointer; }
+.dkj-shell:not(.dkj-shell--open) .dkj-contents:hover { background: var(--primary-3); }
 .dkj-contents-inner { width: 230px; height: 100%; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; padding: var(--spacing-5) var(--spacing-4); }
 .dkj-contents-title { margin: 0; font-size: var(--text-h5); font-weight: var(--dkj-fw-bold); color: var(--primary-8); }
 .dkj-contents-sub { margin: var(--spacing-0-5) 0 0; font-size: var(--text-base); color: var(--primary-6); }
@@ -221,11 +224,11 @@
 
 @media (max-width: 52rem) {
   .dkj-main { padding: var(--spacing-4) var(--spacing-4) var(--spacing-8); }
-  /* No room to push on a narrow screen: the open panel lies over the page instead. */
-  .dkj-shell, .dkj-shell--open { grid-template-columns: minmax(0, 1fr); }
-  .dkj-contents { position: fixed; top: 0; left: 0; z-index: 5; width: min(230px, calc(100% - 3rem)); box-shadow: var(--shadow-pop);
-    transform: translateX(-100%); visibility: hidden; transition: transform var(--dkj-duration-panel) var(--dkj-ease-out), visibility 0s var(--dkj-duration-panel); }
-  .dkj-shell--open .dkj-contents { transform: none; visibility: visible; transition: transform var(--dkj-duration-panel) var(--dkj-ease-out); }
+  /* No room to push on a narrow screen: the open panel lies over the page instead; closed, its strip still shows. */
+  .dkj-shell, .dkj-shell--open { grid-template-columns: var(--spacing-3) minmax(0, 1fr); }
+  .dkj-contents { position: fixed; top: 0; left: 0; z-index: 5; width: min(230px, calc(100% - 3rem));
+    transform: translateX(calc(-100% + var(--spacing-3))); transition: transform var(--dkj-duration-panel) var(--dkj-ease-out); }
+  .dkj-shell--open .dkj-contents { transform: none; box-shadow: var(--shadow-pop); }
   .dkj-contents-inner { width: 100%; }
   .dkj-shell--open .dkj-panel-toggle { left: min(230px, calc(100% - 3rem)); }
   .dkj-page > .dkj-breadcrumbs-bar > .container { padding-left: var(--spacing-4); padding-right: var(--spacing-4); }

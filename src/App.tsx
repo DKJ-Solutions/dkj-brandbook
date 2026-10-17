@@ -109,9 +109,10 @@ export default function App() {
       >
         <Icon name={open ? 'close' : 'menu'} />
       </button>
-      {/* Closed, the panel is inert: out of the tab order and hidden from a screen reader while it slides shut. */}
-      <aside className="dkj-contents" id="dkj-contents" aria-labelledby="dkj-contents-title" inert={!open}>
-        <div className="dkj-contents-inner">
+      {/* Closed, the panel is a strip at the left edge: a click on it opens the panel (the toggle is the accessible
+          control), and its content is inert -- out of the tab order and hidden from a screen reader. */}
+      <aside className="dkj-contents" id="dkj-contents" aria-labelledby="dkj-contents-title" onClick={open ? undefined : () => setOpen(true)}>
+        <div className="dkj-contents-inner" inert={!open}>
           <h2 className="dkj-contents-title" id="dkj-contents-title">
             Contents
           </h2>
