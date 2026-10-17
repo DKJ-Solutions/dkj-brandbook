@@ -2,7 +2,28 @@
 
 ## [Unreleased]
 
-**2 / 8 minor entries** <!-- pending-tally -->
+**2 / 9 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/dashboard-previews-compact · 20261017-135803Z
+
+The Repo dashboard previews page lists the seven previews in one table, a row per repo with its name as the
+link, instead of seven cards each with an Open preview button -- the whole menu now fits on one screen.
+
+**Score:** 2
+
+#### What makes this deploy extra special
+
+N/A -- the brand book's own preview menu; no repo that takes the house style sees it.
+
+**Score:** N/A
+
+#### Pull Request
+
+the dashboard previews menu is one compact table instead of seven cards
+
+[PR #191](https://github.com/DKJ-Solutions/dkj-brandbook/pull/191)
+
+---
 
 ### DEPLOY: fix/dashboard-secondary-button-outline · 20261017-135122Z
 
