@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { IconButton } from './components/Button'
 import { cx } from './components/cx'
+import { Icon } from './components/Icon'
 import { Breadcrumbs } from './components/Navigation'
 import { REPOS } from './repos'
 import { DASHBOARD_PATH, SHOWCASE_PATH } from './routes'
@@ -106,6 +106,17 @@ export default function App() {
         ]}
       />
       <div className={cx('dkj-shell', open && 'dkj-shell--open')}>
+        {/* The rail: always visible on the left, the whole of it one button that opens and closes the panel. */}
+        <button
+          type="button"
+          className="dkj-rail"
+          aria-label={open ? 'Close contents' : 'Open contents'}
+          aria-controls="dkj-contents"
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+        >
+          <Icon name={open ? 'close' : 'menu'} size={24} />
+        </button>
         {/* Closed, the panel is inert: out of the tab order and hidden from a screen reader while it slides shut. */}
         <aside className="dkj-contents" id="dkj-contents" aria-labelledby="dkj-contents-title" inert={!open}>
           <div className="dkj-contents-inner">
@@ -147,19 +158,7 @@ export default function App() {
           </div>
         </aside>
         <main className="dkj-main">
-          <Toolbar
-            controls={controls}
-            menu={
-              <IconButton
-                variant="ghost"
-                icon={open ? 'close' : 'menu'}
-                label={open ? 'Close contents' : 'Open contents'}
-                aria-controls="dkj-contents"
-                aria-expanded={open}
-                onClick={() => setOpen(!open)}
-              />
-            }
-          />
+          <Toolbar controls={controls} />
           <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone')}>
             {previewRepo ? (
               <RepoPreview repo={previewRepo} />
