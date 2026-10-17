@@ -6,7 +6,7 @@ import { DefinitionList } from '../components/Table'
 import { DashboardIntro, InFlightCards, InFlightTiles, type InFlight, type Issue, type Pull } from './DashboardShell'
 
 /**
- * A repo's Repo dashboard in the one form the house-style README lays down ("The Repo dashboard"), filled with
+ * A repo's Repo hub in the one form the house-style README lays down ("The Repo hub"), filled with
  * placeholder data: the intro, the in-flight tiles and cards, the repo's own cards, "About this repo" and the footer
  * note. A preview only: nothing is fetched and the product button goes nowhere.
  */
@@ -49,7 +49,7 @@ export function PlaceholderDashboard({ repo, children }: { repo: PlaceholderRepo
     <>
       <DashboardIntro
         eyebrow={repo.slug}
-        title="Repo dashboard"
+        title="Repo hub"
         lead={repo.lead}
         actions={
           repo.product && (

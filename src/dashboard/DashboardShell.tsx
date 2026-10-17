@@ -7,7 +7,7 @@ import { Toolbar } from '../showcase/Showcase'
 import { useWidth } from '../showcase/theme'
 
 /**
- * The shell every repo's Repo dashboard shares: the intro (eyebrow, title, lead, buttons), the in-flight tiles and the
+ * The shell every repo's Repo hub shares: the intro (eyebrow, title, lead, buttons), the in-flight tiles and the
  * three in-flight cards. RepoDashboard fills it with live GitHub data, the preview page with placeholder data.
  */
 export type Pull = { number: number; title: string; html_url: string; draft: boolean; created_at: string; head: { ref: string } }

@@ -1,4 +1,4 @@
-/* The Repo dashboard: the house <main> column, its blocks stacked with one gap. */
+/* The Repo hub: the house <main> column, its blocks stacked with one gap. */
 .dkj-dashboard { display: grid; gap: var(--spacing-5); align-content: start; }
 /* The width toggle: phone width narrows the house column to 360px; full width lifts its maximum, and the breadcrumb
    trail above it follows, so the trail and the content still start on one line. */

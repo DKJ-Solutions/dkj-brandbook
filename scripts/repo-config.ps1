@@ -603,7 +603,7 @@ function Get-PrMergeMethod {
 }
 
 function Get-DevPreview {
-    <# The Repo dashboard (the index; the showcase is on /showcase, #137), started or reused at session start by the dkj-solutions plugin's dev-preview hook (#130).
+    <# The Repo hub (the index; the showcase is on /showcase, #137), started or reused at session start by the dkj-solutions plugin's dev-preview hook (#130).
        Vite binds to localhost by default, and the showcase shows nothing private: this repo is public. #>
     @{
         Command      = 'npm run dev -- --port {port} --strictPort'
