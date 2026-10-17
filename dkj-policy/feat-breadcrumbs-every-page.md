@@ -51,7 +51,7 @@ in every repo that follows the house style.
 - [x] Owner's follow-up: the bar sticks to the top and is always visible; one `--tap` high, one line; the settings button, the showcase sidebar and in-page anchors sit under it
 - [x] Owner's follow-up: the showcase's contents (`.dkj-nav`) is a panel on the left that a toggle half over its edge opens and closes, and that stays as it is (remembered per viewer); open, it pushes `.dkj-main` aside, and on a narrow screen it lies over the page
 - [x] Owner's follow-up: the rail is gone; the toggle is a round button half over the panel's edge, below the breadcrumb bar, shown on hover over the panel or the button (and on keyboard focus, and always on a touch screen); closed, a strip of the panel stays visible at the left edge to point at and click, open, nothing stands beside it
-- [x] Owner's follow-up: the panel's colours mirror the page's (`--primary-9` panel, `--primary-1`/`-3` ink): dark on a light theme, light on a dark one
+- [x] Owner's follow-up: the panel's colours mirror the page's (`--primary-9` panel, `--primary-1`/`-3` ink): dark on a light theme, light on a dark one; the toggle takes the same colours
 - [x] Owner's follow-up: in the showcase the breadcrumb trail and `.dkj-main` start on one line (same width, same side padding), and the trail moves along when the contents panel opens; the panel takes the full height, the bar sits beside it above `.dkj-main`; the panel is at most 230px wide
 
 ### TEST

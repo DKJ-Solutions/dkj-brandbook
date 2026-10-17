@@ -25,9 +25,10 @@
   margin: 0;
   padding: 0;
   transform: translateX(-50%);
-  color: var(--primary-9);
-  background: var(--primary-2);
-  border: 1px solid var(--primary-3);
+  /* The panel's own colours, so it reads as part of the panel it opens and closes. */
+  color: var(--primary-1);
+  background: var(--primary-9);
+  border: 1px solid var(--primary-8);
   border-radius: 50%;
   box-shadow: var(--shadow-pop);
   cursor: pointer;
@@ -37,7 +38,7 @@
 }
 .dkj-shell--open .dkj-panel-toggle { left: 230px; }
 .dkj-panel-toggle:hover, .dkj-panel-toggle:focus-visible, .dkj-shell:has(.dkj-contents:hover) .dkj-panel-toggle { opacity: 1; }
-.dkj-panel-toggle:hover { background: var(--primary-3); color: var(--primary-7); }
+.dkj-panel-toggle:hover { background: var(--primary-8); }
 .dkj-panel-toggle:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: 2px; }
 @media (hover: none) { .dkj-panel-toggle { opacity: 1; } }
 /* The panel: sticky over the full height of the screen; a long list scrolls inside it, and the inner box keeps its
