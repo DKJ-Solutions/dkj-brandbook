@@ -590,6 +590,13 @@ function Get-ReleaseAudienceTier {
     return 2
 }
 
+function Get-ReleaseConsumerBumps {
+    <# Minor and major releases get the hand-written audience note in Get-ReleaseNoteRoot; a patch is
+       announced by the generated GitHub body alone (owner's decision, October 17, 2026, #184). Undefined,
+       cut-release falls back to @() and writes no audience note for any bump. #>
+    return @('minor', 'major')
+}
+
 function Get-PrMergeMethod {
     <# A merge commit per PR, as in the source repo. #>
     return 'merge'

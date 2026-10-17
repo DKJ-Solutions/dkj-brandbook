@@ -39,19 +39,32 @@
 
 ### PLAN
 
+`cut-release` writes the audience note only for bump types in `Get-ReleaseConsumerBumps`, which this
+repo never defined, so the fallback `@()` switched the note off (#184). Owner's answer: minor and major.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `scripts/repo-config.ps1`: define `Get-ReleaseConsumerBumps` returning `@('minor', 'major')`.
 
 ### TEST
 
+- [x] Dot-sourcing `scripts/repo-config.ps1` and calling `Get-ReleaseConsumerBumps` returns `minor`, `major`.
+
 ### DEPLOY: fix/184-release-consumer-bumps
 
-**Score:**
+Every minor and major release now gets a hand-written audience note under
+`dkj-policy/releases/audience/<X>.x/`, next to the changelog record and the GitHub body. Until now
+`Get-ReleaseConsumerBumps` was not defined, so `cut-release` fell back to writing no audience note for
+any bump. A patch is still announced by the generated GitHub body alone.
+
+**Score:** 2
 
 #### What makes this deploy extra special
 
-**Score:**
+From the next minor release on, the repos that take a house-style release get a note written for them
+instead of only the per-PR record.
+
+**Score:** 3
 
 #### Pull Request
 
