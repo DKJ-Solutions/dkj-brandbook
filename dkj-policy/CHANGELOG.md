@@ -2,7 +2,27 @@
 
 ## [Unreleased]
 
-**3 / 10 minor entries** <!-- pending-tally -->
+**4 / 11 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/theme-settings-primary-7 · 20261017-141709Z
+
+The settings panel now carries the theme's colour: the open toggle (a state) and the panel title take `--primary-7`, where they were the grey `--primary-5` and the text colour `--primary-9`.
+
+**Score:** 2
+
+#### What makes this deploy extra special
+
+Every app using `DKJTheme.settings()` shows its settings panel in the theme's colour once it takes the new copy.
+
+**Score:** 2
+
+#### Pull Request
+
+the settings panel shows the theme's colour: the open toggle and the title are --primary-7
+
+[PR #193](https://github.com/DKJ-Solutions/dkj-brandbook/pull/193)
+
+---
 
 ### DEPLOY: fix/greyer-primary-greys · 20261017-140820Z
 
