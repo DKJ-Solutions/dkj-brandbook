@@ -2,7 +2,29 @@
 
 ## [Unreleased]
 
-**0 / 3 patch entries** <!-- pending-tally -->
+**0 / 4 patch entries** <!-- pending-tally -->
+
+### DEPLOY: docs/fold-house-style-notes-into-v0-1-0 · 20261017-115112Z
+
+The `house-style-v1` to `house-style-v4` release notes are no longer four separate files: they are
+sections of the [`0.1.0`](releases/changelog/0.x/0.1.0.md) notes, newest first, below that release's own
+section. The release history still lists the four tags and points to the `0.1.0` notes.
+
+**Score:** 1
+
+#### What makes this deploy extra special
+
+N/A -- no released file changes.
+
+**Score:** N/A
+
+#### Pull Request
+
+Fold the four house-style release notes into the v0.1.0 notes
+
+[PR #183](https://github.com/DKJ-Solutions/dkj-brandbook/pull/183)
+
+---
 
 ### DEPLOY: docs/177-retire-house-style-v1-v3-tags · 20261017-103519Z
 
