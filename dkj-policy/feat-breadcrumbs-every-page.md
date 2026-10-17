@@ -57,7 +57,7 @@ in every repo that follows the house style.
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the bar on `/`, `/showcase`, `/showcase#preview/<repo>` and `/dashboards`, and the contents panel, and approved it
+- [x] An owner has looked at the bar on `/`, `/showcase`, `/showcase#preview/<repo>` and `/dashboards`, and the contents panel, and approved it
 
 ### DEPLOY: feat/breadcrumbs-every-page
 
