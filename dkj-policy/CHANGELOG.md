@@ -2,7 +2,31 @@
 
 ## [Unreleased]
 
-**2 / 7 minor entries** <!-- pending-tally -->
+**2 / 8 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/dashboard-secondary-button-outline · 20261017-135122Z
+
+The secondary action on the Repo dashboard ("Preview other repo dashboards") used the default button, which looked identical to the information tiles below it. It now uses the existing outline variant, so an action reads as an action and a tile as a tile.
+
+The primary, outline and positive buttons also answer a hover and a press now, as the default button already did: on hover the button lifts 1px, primary and positive take a shadow and a different fill step (a grey of the colour on primary, a flat deeper green on positive), and outline gets the tinted hover surface; a press sinks it back.
+
+Only this repo's own pages change (the Repo dashboard and the showcase's buttons); no house token, class or house stylesheet is touched.
+
+**Score:** 2
+
+#### What makes this deploy extra special
+
+No app that takes the brand book as its house style sees a difference: the change is one prop on one page and the hover states of the showcase's buttons, both in this repo, and the house stylesheet is unchanged.
+
+**Score:** N/A
+
+#### Pull Request
+
+The dashboard's secondary button no longer looks like a tile
+
+[PR #190](https://github.com/DKJ-Solutions/dkj-brandbook/pull/190)
+
+---
 
 ### DEPLOY: feat/breadcrumbs-every-page · 20261017-133612Z
 
