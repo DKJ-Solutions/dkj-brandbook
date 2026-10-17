@@ -49,7 +49,7 @@ shape the dashboard already uses for a list: one data card with a `DataTable`, t
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at `/dashboards` and approved it
+- [x] An owner has looked at `/dashboards` and approved it
 
 ### DEPLOY: fix/dashboard-previews-compact
 
