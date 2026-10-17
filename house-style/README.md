@@ -146,12 +146,12 @@ small text → 12, a mini-card value 20 → 18, the info button's mark 10 → 11
 
 **Every DKJ-Solutions app has the same form, and a colour of its own that the user picks** (Maikel,
 October 12, 2026). The house style carries twelve themes. Each one is a mode, light or dark, plus a
-primary colour, its `--primary-5` in either mode (the dot the picker draws):
+primary colour, its `--primary-7` in either mode (the dot the picker draws):
 
 | Mode | Themes (`data-theme`), in hue order |
 |---|---|
-| Light | `magenta` Magenta `#68555f`, `purple` Paars `#5d576c`, `blue` Blauw `#57596e`, `teal` Petrol `#535c5e`, `ochre` Oker `#5c5c52`, `rust` Roest `#635852` |
-| Dark | `pink` Roze `#7c6771`, `lilac` Lila `#6f6b7f`, `sky` Hemelsblauw `#6b6c80`, `cyan` Cyaan `#657171`, `yellow` Geel `#726e64`, `orange` Oranje `#796b64` |
+| Light | `magenta` Magenta `#720252`, `purple` Paars `#4f0399`, `blue` Blauw `#0704c0`, `teal` Petrol `#02494f`, `ochre` Oker `#494001`, `rust` Roest `#633001` |
+| Dark | `pink` Roze `#fe97d0`, `lilac` Lila `#c2affe`, `sky` Hemelsblauw `#b5b5fe`, `cyan` Cyaan `#0fd6e8`, `yellow` Geel `#e8b70c`, `orange` Oranje `#fea56e` |
 
 - **No red and no green theme.** Those hues mean bad and good, and a primary colour beside a red "−1,1%"
   makes the number disappear. The status colours are the same in every theme.
@@ -256,7 +256,7 @@ out). Three more things follow it by default, in light and in dark (and a measur
   two `--primary-*` steps, and no dark-only rule that picks another step. Text in the theme's colour (values),
   focus rings, lines and meters are `-5` everywhere, and the text on a `-5` fill is `-1`. On
   dark that reads at about 3.3:1 (`-1` on `-5` 3.51:1, `-5` on the card 3.38:1, both Roze), which the owner accepted.
-  The picker's dot is `-5` in every theme. The scale runs from the ground (`-1` page, `-2` card:
+  The picker's dot is `-7` in every theme, on its theme's `-1` (October 17, 2026). The scale runs from the ground (`-1` page, `-2` card:
   lightest on light, darkest on dark) to the far end (`-8`, `-9`: darkest on light, whitest on dark). `-5` carries the fills
   in both modes, and the focus rings, with `--primary-1` as text on a fill. **On light every
   theme behaves the same and only the hue differs** (owner's decision, October 15, 2026): each step has one OKLCH

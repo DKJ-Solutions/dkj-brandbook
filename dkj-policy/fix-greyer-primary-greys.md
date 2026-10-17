@@ -47,17 +47,23 @@ and hue and loses half its chroma, in all twelve themes, so contrast is unchange
 - [x] `house-style.css`: the 36 values (12 themes x 3 steps, plus the `:root` defaults) at half their chroma
 - [x] `house-theme.js` and the README's picker table: the picker dots follow the new `-5`
 - [x] README: the chroma rule rows read 0.3 (was 0.6) for `-5` and a quarter (was half) for `-4` and `-6`
+- [x] The theme picker's dot is `--primary-7`, not `--swatch` (owner's request, the same turn): each theme block also
+  matches `.theme-swatch[data-id]`, so a swatch carries its own theme's tokens; it shows its `-1` as the page and
+  its `-7` as the dot. `house-theme.js` no longer sets `--swatch`; `DKJTheme.themes[].hex` stays, now the `-7` value
 
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green
-- [ ] An owner has looked at the greys in light and dark themes and approved it
+- [x] An owner has looked at the greys in light and dark themes and approved it
+- [ ] An owner has looked at the theme picker's dots and approved them
 
 ### DEPLOY: fix/greyer-primary-greys
 
 In every theme the grey steps `--primary-4`, `-5` and `-6` carry half the colour they had, at the same lightness and
 hue: sub lines, notes, the pressed segment, the info badge and meter and the picker's dots read as grey with a
-hint of the theme instead of a muted colour. Contrast is unchanged.
+hint of the theme instead of a muted colour. Contrast is unchanged. The theme picker's dots show each theme's
+colour itself (`--primary-7`) on that theme's own page colour (`--primary-1`), read from the theme blocks instead of
+a `--swatch` value the script set.
 
 **Score:** 3
 

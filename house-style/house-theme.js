@@ -26,18 +26,18 @@
    ========================================================================== */
 (function () {
   var THEMES = [
-    { id: 'magenta', name: 'Magenta',     mode: 'light', hex: '#68555f' },
-    { id: 'purple',  name: 'Paars',       mode: 'light', hex: '#5d576c' },
-    { id: 'blue',    name: 'Blauw',       mode: 'light', hex: '#57596e' },
-    { id: 'teal',    name: 'Petrol',      mode: 'light', hex: '#535c5e' },
-    { id: 'ochre',   name: 'Oker',        mode: 'light', hex: '#5c5c52' },
-    { id: 'rust',    name: 'Roest',       mode: 'light', hex: '#635852' },
-    { id: 'pink',    name: 'Roze',        mode: 'dark',  hex: '#7c6771' },
-    { id: 'lilac',   name: 'Lila',        mode: 'dark',  hex: '#6f6b7f' },
-    { id: 'sky',     name: 'Hemelsblauw', mode: 'dark',  hex: '#6b6c80' },
-    { id: 'cyan',    name: 'Cyaan',       mode: 'dark',  hex: '#657171' },
-    { id: 'yellow',  name: 'Geel',        mode: 'dark',  hex: '#726e64' },
-    { id: 'orange',  name: 'Oranje',      mode: 'dark',  hex: '#796b64' }
+    { id: 'magenta', name: 'Magenta',     mode: 'light', hex: '#720252' },
+    { id: 'purple',  name: 'Paars',       mode: 'light', hex: '#4f0399' },
+    { id: 'blue',    name: 'Blauw',       mode: 'light', hex: '#0704c0' },
+    { id: 'teal',    name: 'Petrol',      mode: 'light', hex: '#02494f' },
+    { id: 'ochre',   name: 'Oker',        mode: 'light', hex: '#494001' },
+    { id: 'rust',    name: 'Roest',       mode: 'light', hex: '#633001' },
+    { id: 'pink',    name: 'Roze',        mode: 'dark',  hex: '#fe97d0' },
+    { id: 'lilac',   name: 'Lila',        mode: 'dark',  hex: '#c2affe' },
+    { id: 'sky',     name: 'Hemelsblauw', mode: 'dark',  hex: '#b5b5fe' },
+    { id: 'cyan',    name: 'Cyaan',       mode: 'dark',  hex: '#0fd6e8' },
+    { id: 'yellow',  name: 'Geel',        mode: 'dark',  hex: '#e8b70c' },
+    { id: 'orange',  name: 'Oranje',      mode: 'dark',  hex: '#fea56e' }
   ];
   var HOUSE_DEFAULT = { light: 'blue', dark: 'cyan' };
   var root = document.documentElement;
@@ -92,9 +92,7 @@
     });
     el.classList.add('theme-picker');
     el.innerHTML = html;
-    /* the colour goes in through the CSSOM, so a strict style-src policy does not block it */
-    var buttons = el.querySelectorAll('.theme-swatch');
-    for (var i = 0; i < buttons.length; i++) buttons[i].style.setProperty('--swatch', byId(buttons[i].getAttribute('data-id')).hex);
+    /* the colours come from house-style.css: each theme block also matches .theme-swatch[data-id] */
     if (pickers.indexOf(el) < 0) { el.addEventListener('click', onPick); pickers.push(el); }
     render();
   }
