@@ -2,7 +2,32 @@
 
 ## [Unreleased]
 
-**2 / 9 minor entries** <!-- pending-tally -->
+**3 / 10 minor entries** <!-- pending-tally -->
+
+### DEPLOY: fix/greyer-primary-greys · 20261017-140820Z
+
+In every theme the grey steps `--primary-4`, `-5` and `-6` carry half the colour they had, at the same lightness and
+hue: sub lines, notes, the pressed segment, the info badge and meter and the picker's dots read as grey with a
+hint of the theme instead of a muted colour. Contrast is unchanged. The theme picker's dots show each theme's
+colour itself (`--primary-7`) on that theme's own page colour (`--primary-1`), read from the theme blocks instead of
+a `--swatch` value the script set.
+
+**Score:** 3
+
+#### What makes this deploy extra special
+
+Every DKJ-Solutions app that takes the next house-style copy shows greyer sub lines, notes and info accents; no
+token is renamed, so nothing has to be migrated.
+
+**Score:** 2
+
+#### Pull Request
+
+the grey steps --primary-4, -5 and -6 are greyer in every theme
+
+[PR #192](https://github.com/DKJ-Solutions/dkj-brandbook/pull/192)
+
+---
 
 ### DEPLOY: fix/dashboard-previews-compact · 20261017-135803Z
 
