@@ -165,9 +165,29 @@ primary colour, its `--primary-7` in either mode (the dot the picker draws):
 
 1. the user's own choice, remembered per app on the device;
 2. otherwise the app's own default for the OS mode, declared on the page:
-   `<html data-theme-light="purple" data-theme-dark="cyan">`. Each app picks its own pair, so apps are
-   told apart before anyone has chosen;
+   `<html data-theme-light="purple" data-theme-dark="lilac">`. Each app picks its own pair, so apps are
+   told apart by their pair before anyone has chosen;
 3. otherwise the house defaults, Blauw (light) and Cyaan (dark).
+
+**Each repo has a default pair of its own** (the owner's request, October 17, 2026). The brand book is the
+source of the assignment, and `src/repos.ts` carries it in code. Each repo declares its pair on its own
+`<html>`, as above. Twelve themes cannot make eight pairs all unique per mode, so two themes repeat in
+each mode (Blauw and Paars in light, Cyaan and Oranje in dark). Repeats happen in one mode only: no two
+repos share a pair. Where a repo keeps one hue in both modes it uses the hue siblings (Magenta and Roze,
+Paars and Lila, Blauw and Hemelsblauw, Petrol and Cyaan, Oker and Geel, Roest and Oranje).
+
+The table lists theme ids; the Dutch names are in the picker.
+
+| Repo | Light | Dark |
+|---|---|---|
+| `dkj-brandbook` | `blue` | `cyan` |
+| `dkj-etf-tracker` | `blue` | `sky` |
+| `dkj-lifehub` | `teal` | `cyan` |
+| `dkj-claude-plugins` | `purple` | `lilac` |
+| `dkj-music-library` | `magenta` | `pink` |
+| `dkj-recipes` | `rust` | `orange` |
+| `dkj-maplestory-classic-mesowise` | `ochre` | `yellow` |
+| `dkj-thumbnail-generator` | `purple` | `orange` |
 
 Load it in `<head>` so nothing flashes, and call `DKJTheme.picker(element)` where the setting goes: it
 draws the twelve swatches in two rows, light and dark. `DKJTheme.set(id)`, `DKJTheme.reset()` and

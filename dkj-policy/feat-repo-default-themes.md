@@ -41,17 +41,31 @@
 
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] Gwen: one default pair per repo, documented in `house-style/README.md` ("Which theme applies")
+- [x] Cody: `DEFAULT_THEMES` in `src/repos.ts`, a Default theme column in the Repo dashboard, and `useRepoDefaultTheme` so `#preview/<repo>` and `/dashboards/<repo>` open in that repo's pair (a viewer's own pick still wins)
+- [x] Victor and Edith reviewed; their points are applied
 
 ### TEST
 
+- [x] Lint gate green (`scripts/lint/lint-web.ps1`)
+- [ ] An owner has looked at the Default theme column and a repo preview in its own pair and approved it
+
 ### DEPLOY: feat/repo-default-themes
 
-**Score:**
+Every DKJ-Solutions repo has a default theme pair of its own, so the apps are told apart before anyone picks a
+theme. `src/repos.ts` carries the pairs (`DEFAULT_THEMES`, typed so a missing repo fails `tsc`) and
+`house-style/README.md` lists them. The Repo dashboard shows each repo's pair, and a repo's app preview and
+dashboard preview open in that pair unless the viewer has picked a theme. Each repo still declares its pair on
+its own `<html>` (`data-theme-light` / `data-theme-dark`).
+
+**Score:** 3
 
 #### What makes this deploy extra special
 
-**Score:**
+A reader of the brand book sees which colours each DKJ-Solutions app opens in, and every app gets a pair that
+sets it apart from the others.
+
+**Score:** 3
 
 #### Pull Request
 

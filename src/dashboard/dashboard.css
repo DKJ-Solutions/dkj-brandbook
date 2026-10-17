@@ -8,3 +8,9 @@
 /* An in-page anchor lands with room above it, clear of the sticky settings button (#156); the showcase's offset. */
 .dkj-dashboard [id] { scroll-margin-top: 5rem; }
 .dkj-dashboard-cta { margin: var(--spacing-4) 0 0; }
+
+/* A repo's default theme pair in the repos table: the house swatch (it carries its own theme's colours), shrunk to a dot. */
+.dkj-theme-pair { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-1) var(--spacing-2); white-space: nowrap; }
+.dkj-theme-pair__theme { display: inline-flex; align-items: center; gap: var(--spacing-2); }
+.dkj-theme-pair__swatch { width: 20px; height: 20px; cursor: default; }
+.dkj-theme-pair__swatch i { width: 10px; height: 10px; }

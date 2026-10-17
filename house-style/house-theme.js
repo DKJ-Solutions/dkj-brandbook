@@ -7,7 +7,7 @@
    Which theme applies, in this order:
      1. the user's own choice, remembered per app on this device;
      2. otherwise the app's own default for the OS mode, declared on <html>:
-        <html data-theme-light="purple" data-theme-dark="cyan">
+        <html data-theme-light="purple" data-theme-dark="lilac">
         (an app picks its own pair, so apps are told apart before anyone chooses);
      3. otherwise the house defaults, Blauw (light) and Cyaan (dark).
    Without this script the stylesheet still works: no data-theme follows the
