@@ -54,7 +54,7 @@
 
 The secondary action on the Repo dashboard ("Preview other repo dashboards") used the default button, which looked identical to the information tiles below it. It now uses the existing outline variant, so an action reads as an action and a tile as a tile.
 
-The primary, outline and positive buttons also answer a hover and a press now, as the default button already did: primary and positive deepen their fill by one step, outline gets the tinted hover surface.
+The primary, outline and positive buttons also answer a hover and a press now, as the default button already did: on hover the button lifts 1px, primary and positive take a shadow and a different fill step (a grey of the colour on primary, a flat deeper green on positive), and outline gets the tinted hover surface; a press sinks it back.
 
 Only this repo's own pages change (the Repo dashboard and the showcase's buttons); no house token, class or house stylesheet is touched.
 
