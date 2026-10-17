@@ -39,19 +39,34 @@
 
 ### PLAN
 
+The owner finds the grey steps `--primary-4`, `-5` and `-6` not grey enough. Each value keeps its OKLCH lightness
+and hue and loses half its chroma, in all twelve themes, so contrast is unchanged and only the tint drops.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style.css`: the 36 values (12 themes x 3 steps, plus the `:root` defaults) at half their chroma
+- [x] `house-theme.js` and the README's picker table: the picker dots follow the new `-5`
+- [x] README: the chroma rule rows read 0.3 (was 0.6) for `-5` and a quarter (was half) for `-4` and `-6`
 
 ### TEST
 
+- [x] `scripts/lint/lint-web.ps1` green
+- [ ] An owner has looked at the greys in light and dark themes and approved it
+
 ### DEPLOY: fix/greyer-primary-greys
 
-**Score:**
+In every theme the grey steps `--primary-4`, `-5` and `-6` carry half the colour they had, at the same lightness and
+hue: sub lines, notes, the pressed segment, the info badge and meter and the picker's dots read as grey with a
+hint of the theme instead of a muted colour. Contrast is unchanged.
+
+**Score:** 3
 
 #### What makes this deploy extra special
 
-**Score:**
+Every DKJ-Solutions app that takes the next house-style copy shows greyer sub lines, notes and info accents; no
+token is renamed, so nothing has to be migrated.
+
+**Score:** 2
 
 #### Pull Request
 
