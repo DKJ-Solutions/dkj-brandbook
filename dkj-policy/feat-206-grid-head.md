@@ -55,7 +55,7 @@ into This repo and General. The house adopts that form, so the consumer can drop
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, vite build)
 - [~] Automated component tests -- dropped: this repo has no component test suite, and the change is a layout the gates cannot judge
-- [ ] An owner has looked at `/`, `/showcase#PageLinks` and `house-style/patterns/repo-dashboard.html` and approved it
+- [x] An owner has looked at `/`, `/showcase#PageLinks` and `house-style/patterns/repo-dashboard.html` and approved it
 
 ### DEPLOY: feat/206-grid-head
 
