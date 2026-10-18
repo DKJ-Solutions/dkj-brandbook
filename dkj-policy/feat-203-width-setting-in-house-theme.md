@@ -61,7 +61,7 @@ without redefining house classes. Ship it in the house style, on by default in t
 ### TEST
 
 - [x] `scripts/lint/lint-web.ps1` green (eslint, undefined-var check, `tsc -b`, vite build)
-- [ ] An owner has looked at the settings panel's width group on the showcase and on the Repo hub, in all three
+- [x] An owner has looked at the settings panel's width group on the showcase and on the Repo hub, in all three
       widths, and approved it
 
 ### DEPLOY: feat/203-width-setting-in-house-theme
