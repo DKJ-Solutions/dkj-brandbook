@@ -191,14 +191,33 @@ draws the twelve swatches in two rows, light and dark. `DKJTheme.set(id)`, `DKJT
 `DKJTheme.current()` cover everything else. Copy it unchanged, like the stylesheet.
 
 **Or give the app the settings button, and the setting is done** ([#70](https://github.com/DKJ-Solutions/dkj-brandbook/issues/70)).
-`DKJTheme.settings(element)` draws a round toggle that opens a panel with the picker and a reset, and
-returns the panel's slot (`.theme-settings__extra`), where the app puts settings of its own: the brand book
-puts its width toggle there. The script owns the behaviour, so an app writes none of it: the toggle opens
+`DKJTheme.settings(element)` draws a round toggle that opens a panel with the picker, the page width
+(below) and a reset, and returns the panel's slot (`.theme-settings__extra`), where the app puts settings of
+its own. The script owns the behaviour, so an app writes none of it: the toggle opens
 and closes the panel, Escape closes it and puts focus back on the toggle, and a click outside it or focus
 leaving it closes it. A click inside never does. The element is inline by default, for a place such as a
 `.topbar`. Give it `theme-settings--floating` and it is fixed at the top right of the screen instead.
 The panel lies over the page, so nothing moves when it opens. Every text is optional and Dutch by default:
-`DKJTheme.settings(el, { label: 'Settings', title: 'Settings', theme: 'Theme', reset: 'Reset theme', light: 'Light', dark: 'Dark' })`.
+`DKJTheme.settings(el, { label: 'Settings', title: 'Settings', theme: 'Theme', reset: 'Reset theme', light: 'Light', dark: 'Dark', width: 'Width', fluid: 'Fluid', phone: 'Phone', full: 'Full' })`.
+
+**The page width is part of the settings panel** ([#203](https://github.com/DKJ-Solutions/dkj-brandbook/issues/203)).
+The panel has a width group with three choices, and the script sets the one that applies as
+`<html data-width="fluid|phone|full">` in `<head>`, before the page paints, like the theme. The
+stylesheet sizes `main` and `.container` from it, so the breadcrumb bar's trail keeps lining up with the
+column, and `.container--narrow` / `main.narrow` follow too:
+
+- `fluid`: the house column (1080px, or the narrow column where a page uses it);
+- `phone`: a 360px column, the smallest phone an app supports;
+- `full`: no maximum, the whole width.
+
+Which width applies: the user's own choice, remembered per app on the device (`dkj-width`, with the same
+`data-theme-key` suffix as the theme); otherwise the app's own default, `<html data-width-default="full">`;
+otherwise `fluid`. `DKJTheme.setWidth('phone')` and `DKJTheme.width()` set and read it from code. An app
+whose layout has no page column to widen leaves the group out with `widths: false`. The attribute sits
+inside `:where()`, so a column class of the app's own still decides its own width. Every `main` and
+`.container` without such a class follows the width, a footer's or a demo's too. The top bar's inner row
+(`.topbar__inner`) deliberately does not: it stays the narrow column, the width of the app's own controls.
+Without the script there is no `data-width`, and the column is fluid.
 
 **The theme names and the picker's row labels are Dutch on purpose**: DKJ-Solutions apps are
 Dutch-language, and the names are the ones their users read. An app in another language passes its own
@@ -343,7 +362,7 @@ numerals), `.delta` (with `--up`/`--down`, aliased `.pos`/`.neg`), `.btn` (with 
 (with `--explain`, and `--open` for one anchored to a trigger), `.more` (a disclosure), `.moretoggle` (a full-width read-more button), `.chart` (the SVG chart scope),
 `.theme-picker` (with `__row`, `__label`, `__swatches`), `.theme-swatch` (with `--light`, `--dark`) and
 `.theme-settings` (with `--floating`, `__toggle`, `__open`, `__close`, `__panel`, `__title`, `__group`,
-`__label`, `__picker`, `__foot`, `__extra`, `__reset`), which `house-theme.js` draws, and `.footer-note`. The app components
+`__label`, `__picker`, `__width`, `__foot`, `__extra`, `__reset`), which `house-theme.js` draws, and `.footer-note`. The app components
 ([below](#app-components-from-mesowise)) reserve these too: `.container--narrow`/`main.narrow`, `.field`
 (with `__error`), `.btn--touch`, `.btn--block`, `.icon-btn` (with `--ghost`), `.action-row`, `.dialog`
 (with `__body`, `__head` (with `--two`, `--back`), `__title`, `__sub`, `__close` (with `--save`,

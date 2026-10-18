@@ -7,7 +7,6 @@ import { DASHBOARD_PATH, SHOWCASE_PATH } from './routes'
 import { Toolbar } from './showcase/Showcase'
 import { Intro } from './showcase/sections/Intro'
 import { RepoPreview } from './showcase/previews/RepoPreview'
-import { useWidth } from './showcase/theme'
 import { Apps } from './showcase/sections/Apps'
 import { Actions } from './showcase/sections/Actions'
 import { Data } from './showcase/sections/Data'
@@ -89,7 +88,6 @@ function useContentsOpen() {
 }
 
 export default function App() {
-  const controls = useWidth()
   const previewRepo = usePreviewRepo()
   const [open, setOpen] = useContentsOpen()
   // On a narrow screen the panel lies over the page, so a link there closes it; on a wide one it stays open.
@@ -160,8 +158,8 @@ export default function App() {
           ]}
         />
         <main className="dkj-main">
-          <Toolbar controls={controls} />
-          <div className={cx('dkj-content', controls.width === 'phone' && 'dkj-content--phone', controls.width === 'full' && 'dkj-content--full')}>
+          <Toolbar />
+          <div className="dkj-content">
             {previewRepo ? (
               <RepoPreview repo={previewRepo} />
             ) : (
