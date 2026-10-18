@@ -39,19 +39,33 @@
 
 ### PLAN
 
+`.card` carries `margin-top: var(--spacing-4)`, and inside a `.grid-2` that comes on top of the grid's own
+`gap`, so rows sit 32px apart and the first row 16px below the grid's top (#207). `.page-column` already
+zeroes the same margins for its direct children; `.grid-2` gets the same rule.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style.css`: `.grid-2 > .card, .grid-2 > .tiles, .grid-2 > .notice { margin-top: 0; }`
+- [x] `house-style/README.md`: the page-column paragraph names `.grid-2` too
 
 ### TEST
 
+- [x] Gates green (`open-pr -GatesOnly`)
+- [ ] An owner has looked at a `.grid-2` of cards (the showcase's house-app section) and approved it
+
 ### DEPLOY: fix/207-grid-card-margin
 
-**Score:**
+Inside the brand book itself nothing a reader relies on changes beyond the house stylesheet.
+
+**Score:** N/A
 
 #### What makes this deploy extra special
 
-**Score:**
+A `.card`, `.tiles` or `.notice` directly inside a `.grid-2` no longer adds its own top margin to the grid's
+gap: rows of cards sit one `--spacing-4` apart instead of two, and the first row starts at the grid's top. A
+repo that zeroed it in its own page layer can drop that rule.
+
+**Score:** 2
 
 #### Pull Request
 

@@ -526,7 +526,9 @@ Every block in the table has a house class: the eyebrow (`.eyebrow`), the lead (
 (`.msg`, `.msg--warn`), the data-card head (`.card__head`, `.card__title`, `.card__sub`), the facts list
 (`.facts`) and the page column (`.page-column`, with `.page-cta` for the button's spacing). The house
 `.card`, `.tiles`, `.notice` and `.footer-note` carry a top margin of their own, and `.page-column` zeroes it
-for its direct children, so the rhythm is the reference's. A repo without a build copies
+for its direct children, so the rhythm is the reference's. `.grid-2` does the same for a direct `.card`,
+`.tiles` or `.notice`, so its rows sit one `--spacing-4` gap apart
+([#207](https://github.com/DKJ-Solutions/dkj-brandbook/issues/207)). A repo without a build copies
 [`patterns/repo-dashboard.html`](patterns/repo-dashboard.html), the stylesheet-only reference page: it links
 `house-style.css` and `house-theme.js` and carries no CSS of its own. It differs from the React page in two
 places: the settings button is fixed at the top right of the screen (`theme-settings--floating`) instead of
