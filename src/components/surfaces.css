@@ -17,6 +17,7 @@
 .dkj-card--data { padding: var(--spacing-5); }
 .dkj-card--data .dkj-card-head { gap: 0; padding: 0; text-align: left; }
 .dkj-card--data > .dkj-card-head > .dkj-card-title { display: flex; align-items: center; justify-content: flex-start; font-size: var(--text-h2); }
+.dkj-card-head > h3 { margin: 0; }   /* a plain h3 title (CardHead level={3}): the sub line supplies the space under it, as in the house .card__head > h3 */
 .dkj-card-sub { margin: var(--spacing-1) 0 0; font-size: var(--text-sm); color: var(--primary-6); }
 .dkj-card--data .dkj-card-head ~ * { margin-top: var(--spacing-4); }
 .dkj-card--data .dkj-card-body { padding: 0; border-top: 0; }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Button } from '../components/Button'
-import { Card, CardBody, CardHead } from '../components/Card'
+import { Card, CardBody, CardGroup, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { Message } from '../components/Feedback'
 import { Breadcrumbs, PageLinks } from '../components/Navigation'
@@ -68,7 +68,13 @@ export function RepoDashboard() {
           }
         />
 
-        <PageLinks pages={[{ label: 'Preview other repo hubs', href: DASHBOARDS_PATH, description: 'How the other DKJ-Solutions repos’ hubs look in this form' }]} />
+        <PageLinks
+          pages={[{ label: 'Preview other repo hubs', href: DASHBOARDS_PATH, description: 'How the other DKJ-Solutions repos’ hubs look in this form' }]}
+          generalPages={[
+            { label: 'Issues', href: `https://github.com/${REPO}/issues`, description: 'Open and closed, on GitHub' },
+            { label: 'Release notes', href: `https://github.com/${REPO}/releases`, description: 'What each release changed' },
+          ]}
+        />
 
         <InFlightTiles data={data} trunk={TRUNK} />
 
@@ -105,20 +111,21 @@ export function RepoDashboard() {
           </CardBody>
         </Card>
 
-        <Card variant="data">
-          <CardHead title="About this repo" />
-          <CardBody>
-            <DefinitionList
-              variant="facts"
-              items={[
-                { term: 'Stack', value: 'React 19 + TypeScript + Vite' },
-                { term: 'Trunk', value: TRUNK },
-                { term: 'Gate', value: 'scripts/lint/lint-web.ps1' },
-                { term: 'Showcase', value: SHOWCASE_PATH },
-              ]}
-            />
-          </CardBody>
-        </Card>
+        <CardGroup title="About this repo" subtitle="What this repo is">
+          <Card variant="data" className="grid__full">
+            <CardBody>
+              <DefinitionList
+                variant="facts"
+                items={[
+                  { term: 'Stack', value: 'React 19 + TypeScript + Vite' },
+                  { term: 'Trunk', value: TRUNK },
+                  { term: 'Gate', value: 'scripts/lint/lint-web.ps1' },
+                  { term: 'Showcase', value: SHOWCASE_PATH },
+                ]}
+              />
+            </CardBody>
+          </Card>
+        </CardGroup>
 
         <FooterNote>
           In flight is read live from the GitHub API for <a href={`https://github.com/${REPO}`}>{REPO}</a> each time this page opens.

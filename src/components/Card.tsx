@@ -41,6 +41,7 @@ export function Card({
  * The title is an <h6> (--text-h6), or an <h2> (--text-h2) in a data card: a heading takes the token of its own level.
  * subtitle: a muted line under the title. info: a slot after the title text, for an inline RoundToggle.
  * badge: a status Badge before the title text (#153). The Badge is decorative, so say the status in the subtitle too.
+ * level={3}: a plain <h3>, for a card whose <h2> stands above a group of cards in a CardGroup (#206).
  */
 export function CardHead({
   title,
@@ -49,18 +50,22 @@ export function CardHead({
   subtitle,
   info,
   actions,
+  level,
 }: {
   title: ReactNode
+  level?: 3
   icon?: IconName
   badge?: ReactNode
   subtitle?: ReactNode
   info?: ReactNode
   actions?: ReactNode
 }) {
-  const Title = useContext(CardVariant) === 'data' ? 'h2' : 'h6'
+  const variant = useContext(CardVariant)
+  const plainH3 = level === 3
+  const Title = plainH3 ? 'h3' : variant === 'data' ? 'h2' : 'h6'
   return (
     <div className="dkj-card-head">
-      <Title className={cx('dkj-card-title', icon && 'dkj-card-title--icon')}>
+      <Title className={plainH3 ? undefined : cx('dkj-card-title', icon && 'dkj-card-title--icon')}>
         {icon && <Icon name={icon} className="dkj-card-icon" />}
         {badge}
         {title}
@@ -68,6 +73,22 @@ export function CardHead({
       </Title>
       {subtitle && <p className="dkj-card-sub">{subtitle}</p>}
       {actions}
+    </div>
+  )
+}
+
+/**
+ * CardGroup -- an <h2> with its sub line standing ABOVE the card(s) it heads, not inside them (#206): the house `.grid-2`
+ * with a `.grid__head`. Put the cards inside: two sit side by side, one with className="grid__full" takes the whole row.
+ */
+export function CardGroup({ title, subtitle, children }: { title: ReactNode; subtitle: ReactNode; children: ReactNode }) {
+  return (
+    <div className="grid-2">
+      <div className="grid__head">
+        <h2>{title}</h2>
+        <p className="card__sub">{subtitle}</p>
+      </div>
+      {children}
     </div>
   )
 }

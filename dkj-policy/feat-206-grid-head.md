@@ -39,19 +39,39 @@
 
 ### PLAN
 
+#206 was parked on DKJ-Solutions/dkj-claude-plugins#3121, which merged on October 18, 2026: the owner approved
+a Repo hub where a block's h2 stands above its card(s) in a `.grid-2` > `.grid__head`, with the Pages block split
+into This repo and General. The house adopts that form, so the consumer can drop its local page-layer rules.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style.css`: house `.grid__head` and `.grid__full` (span every column), the head's h2 without margin, and `.card__head > h3` without margin for a card titled one level below a grid heading (Gwen)
+- [x] `house-style/README.md`: blocks 7 and 11 in the new form -- two groups under a Pages heading with h3 card titles, one group alone the single card; About this repo's h2 above its card, its sub line the repo's own; reserved names and the "What is fixed" paragraph (Gwen)
+- [x] `patterns/repo-dashboard.html`: the stylesheet-only reference in the two-group form and the new block 11 (Gwen)
+- [x] React: `CardHead level={3}`, a `CardGroup` (`.grid-2` > `.grid__head`), `PageLinks generalPages`, block 11 as a `CardGroup` in the three hubs, a two-group demo in the showcase (Cody)
+- [x] Review findings applied: Victor's (block 11 sub line claimed a commit the facts do not show; a lone group renders the single card) and Edith's (README passages that still described one card only, re-wraps, reserved names)
 
 ### TEST
 
+- [x] `scripts/lint/lint-web.ps1` green (eslint, var check, tsc, vite build)
+- [~] Automated component tests -- dropped: this repo has no component test suite, and the change is a layout the gates cannot judge
+- [ ] An owner has looked at `/`, `/showcase#PageLinks` and `house-style/patterns/repo-dashboard.html` and approved it
+
 ### DEPLOY: feat/206-grid-head
 
-**Score:**
+The house stylesheet, the README and the pattern page carry the Repo hub's "heading above the cards" form, and
+the brand book's own hubs and showcase render it.
+
+**Score:** 2
 
 #### What makes this deploy extra special
 
-**Score:**
+A Repo hub can split its Pages block into **This repo** and **General** (the pages every DKJ-Solutions repo
+serves): one **Pages** heading above two cards, each titled one level lower. **About this repo** takes the same
+shape, its heading above its card. The house now defines `.grid__head` and `.grid__full`, so a repo that defined
+them in its own page layer (dkj-claude-plugins) can drop those rules once it takes this version.
+
+**Score:** 3
 
 #### Pull Request
 

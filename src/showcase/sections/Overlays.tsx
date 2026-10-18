@@ -173,12 +173,24 @@ export function Overlays() {
         </Demo>
       </Section>
 
-      <Section id="PageLinks" title="PageLinks" intro="The Repo hub's Pages block: a data card titled Pages around a list of link rows, each with a label, an optional one-line description and a chevron. It is the house .menu-item as a link, so a row tints on hover; it renders nothing for an empty list.">
+      <Section id="PageLinks" title="PageLinks" intro="The Repo hub's Pages block: a data card titled Pages around a list of link rows, each with a label, an optional one-line description and a chevron. It is the house .menu-item as a link, so a row tints on hover; it renders nothing for an empty list. With generalPages too (Issues, Release notes: the pages every DKJ-Solutions repo serves) the h2 stands above two cards side by side, This repo and General.">
         <Demo label="Two pages, one with a description">
           <PageLinks
             pages={[
               { label: 'Release history', href: '#PageLinks', description: 'Every release, newest first' },
               { label: 'Roadmap', href: '#PageLinks' },
+            ]}
+          />
+        </Demo>
+        <Demo label="Two groups: This repo and General">
+          <PageLinks
+            pages={[
+              { label: 'Release history', href: '#PageLinks', description: 'Every release, newest first' },
+              { label: 'Roadmap', href: '#PageLinks' },
+            ]}
+            generalPages={[
+              { label: 'Issues', href: '#PageLinks', description: 'Open and closed, on GitHub' },
+              { label: 'Release notes', href: '#PageLinks', description: 'What each release changed' },
             ]}
           />
         </Demo>

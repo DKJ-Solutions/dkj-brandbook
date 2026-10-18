@@ -1,5 +1,5 @@
 import { Button } from '../components/Button'
-import { Card, CardBody, CardHead } from '../components/Card'
+import { Card, CardBody, CardGroup, CardHead } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { Disclosure, Message } from '../components/Feedback'
 import { PageLinks } from '../components/Navigation'
@@ -30,9 +30,14 @@ const IN_FLIGHT: InFlight = {
 /** The repo's own pages, as inert placeholder links (the preview has no routes). */
 const PAGES = [
   { label: 'Connected repos', href: '#', description: 'Every registered repo and its checks, worst first' },
-  { label: 'Release notes', href: '#', description: 'What each plugin release changed' },
   { label: 'SessionStart measurements', href: '#', description: 'What a session loads before the first assignment' },
   { label: 'Test-gate measurements', href: '#', description: 'How long the test gate runs, over time' },
+] as const
+
+/** The pages every DKJ-Solutions repo serves: the General group of the Pages block (#206). */
+const GENERAL_PAGES = [
+  { label: 'Issues', href: '#', description: 'Open and closed, on GitHub' },
+  { label: 'Release notes', href: '#', description: 'What each plugin release changed' },
 ] as const
 
 type Status = 'bad' | 'warn' | 'good' | 'skip'
@@ -193,7 +198,7 @@ export function ConnectedReposPreview() {
         }
       />
 
-      <PageLinks pages={PAGES} />
+      <PageLinks pages={PAGES} generalPages={GENERAL_PAGES} />
 
       <InFlightTiles data={IN_FLIGHT} trunk={TRUNK} />
 
@@ -253,19 +258,20 @@ export function ConnectedReposPreview() {
         <RepoCard key={r.name} repo={r} />
       ))}
 
-      <Card variant="data">
-        <CardHead title="About this repo" />
-        <CardBody>
-          <DefinitionList
-            variant="facts"
-            items={[
-              { term: 'Stack', value: 'Claude Code plugins: skills, hooks and PowerShell scripts' },
-              { term: 'Gate', value: 'Pester' },
-              { term: 'Trunk', value: TRUNK },
-            ]}
-          />
-        </CardBody>
-      </Card>
+      <CardGroup title="About this repo" subtitle="What this repo is">
+        <Card variant="data" className="grid__full">
+          <CardBody>
+            <DefinitionList
+              variant="facts"
+              items={[
+                { term: 'Stack', value: 'Claude Code plugins: skills, hooks and PowerShell scripts' },
+                { term: 'Gate', value: 'Pester' },
+                { term: 'Trunk', value: TRUNK },
+              ]}
+            />
+          </CardBody>
+        </Card>
+      </CardGroup>
 
       <FooterNote>Checked 13 October 2026, 09:00 (placeholder).</FooterNote>
     </>

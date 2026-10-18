@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Button } from '../components/Button'
-import { Card, CardBody, CardHead } from '../components/Card'
+import { Card, CardBody, CardGroup } from '../components/Card'
 import { FooterNote } from '../components/Content'
 import { DefinitionList } from '../components/Table'
 import { DashboardIntro, InFlightCards, InFlightTiles, type InFlight, type Issue, type Pull } from './DashboardShell'
@@ -66,12 +66,13 @@ export function PlaceholderDashboard({ repo, children }: { repo: PlaceholderRepo
 
       {children}
 
-      <Card variant="data">
-        <CardHead title="About this repo" />
-        <CardBody>
-          <DefinitionList variant="facts" items={[...repo.facts, { term: 'Trunk', value: trunk }]} />
-        </CardBody>
-      </Card>
+      <CardGroup title="About this repo" subtitle="What this repo is">
+        <Card variant="data" className="grid__full">
+          <CardBody>
+            <DefinitionList variant="facts" items={[...repo.facts, { term: 'Trunk', value: trunk }]} />
+          </CardBody>
+        </Card>
+      </CardGroup>
 
       <FooterNote>{repo.source} Placeholder data only.</FooterNote>
     </>
