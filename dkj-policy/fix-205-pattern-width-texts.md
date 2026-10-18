@@ -52,7 +52,7 @@ showcase passes.
 
 ### TEST
 
-- [ ] An owner has looked at the pattern's settings panel and approved the English width group.
+- [x] An owner has looked at the pattern's settings panel and approved the English width group.
 
 ### DEPLOY: fix/205-pattern-width-texts
 
