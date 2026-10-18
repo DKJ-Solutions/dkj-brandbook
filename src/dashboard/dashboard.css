@@ -1,9 +1,5 @@
 /* The Repo hub: the house <main> column, its blocks stacked with one gap. */
 .dkj-dashboard { display: grid; gap: var(--spacing-5); align-content: start; }
-/* The width toggle: phone width narrows the house column to 360px; full width lifts its maximum, and the breadcrumb
-   trail above it follows, so the trail and the content still start on one line. */
-.dkj-dashboard--phone { max-width: 360px; }
-.dkj-dashboard--full, .dkj-breadcrumbs-bar:has(+ .dkj-dashboard--full) > .container { max-width: none; }
 .dkj-dashboard .dkj-intro { margin-bottom: 0; }
 /* An in-page anchor lands with room above it, clear of the sticky settings button (#156); the showcase's offset. */
 .dkj-dashboard [id] { scroll-margin-top: 5rem; }

@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { createPortal } from 'react-dom'
+import { useEffect, useRef, type ReactNode } from 'react'
 import { SOURCES, type ComponentId } from '../components/sources'
 import { cx } from '../components/cx'
 import { usagesOf } from '../apps/registry'
-import type { useWidth } from './theme'
 import './showcase.css'
 
 /** A labelled group of demos for one component, with its origin printed underneath. */
@@ -67,43 +65,27 @@ export function Demo({ label, children, wide, surface = true }: { label: string;
 
 /**
  * The preview settings: the house settings button (DKJTheme.settings) -- a round toggle whose panel holds
- * the theme picker and a reset -- with the brand book's own width toggle rendered into the panel's slot.
- * Without controls the panel holds the theme picker and the reset only.
+ * the theme picker, the page width (fluid, phone, full; set as <html data-width>) and a reset.
  */
-export function Toolbar({ controls }: { controls?: ReturnType<typeof useWidth> }) {
+export function Toolbar() {
   const ref = useRef<HTMLDivElement>(null)
-  const [slot, setSlot] = useState<HTMLElement | null>(null)
   useEffect(() => {
-    // The house API has no destroy, and settings() returns the existing slot on a second call (StrictMode runs this twice safely).
-    setSlot(
-      window.DKJTheme.settings(ref.current, {
-        label: 'Preview settings',
-        theme: 'Theme',
-        reset: 'Reset theme',
-        light: 'Light',
-        dark: 'Dark',
-      }),
-    )
+    // The house API has no destroy, and settings() leaves an element it has drawn alone (StrictMode runs this twice safely).
+    window.DKJTheme.settings(ref.current, {
+      label: 'Preview settings',
+      theme: 'Theme',
+      reset: 'Reset theme',
+      light: 'Light',
+      dark: 'Dark',
+      width: 'Width',
+      fluid: 'Fluid',
+      phone: 'Phone',
+      full: 'Full',
+    })
   }, [])
   return (
     <div className="dkj-settings">
       <div className="dkj-settings-anchor" ref={ref} />
-      {slot && controls && createPortal(<Toggle label="Width" value={controls.width} onChange={controls.setWidth} options={['fluid', 'phone', 'full']} />, slot)}
-    </div>
-  )
-}
-
-function Toggle<T extends string>({ label, value, onChange, options }: { label: string; value: T; onChange: (v: T) => void; options: readonly T[] }) {
-  return (
-    <div className="dkj-control">
-      <span className="theme-settings__label">{label}</span>
-      <div className="dkj-toggle" role="group" aria-label={label}>
-        {options.map((o) => (
-          <button key={o} type="button" aria-pressed={o === value} onClick={() => onChange(o)}>
-            {o}
-          </button>
-        ))}
-      </div>
     </div>
   )
 }

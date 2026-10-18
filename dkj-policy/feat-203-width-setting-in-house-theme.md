@@ -39,19 +39,45 @@
 
 ### PLAN
 
+Issue #203: the fluid/phone/full width choice existed only in the brand book's own showcase (a React toggle in the
+settings panel's slot), so a consumer calling `DKJTheme.settings()` had no width choice and could not build one
+without redefining house classes. Ship it in the house style, on by default in the panel, and let the showcase use it.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-theme.js`: a width group in the `settings()` panel (a `.seg`, on by default, `widths: false` leaves it
+      out), remembered per app on the device as `dkj-width` (with the theme's `data-theme-key` suffix), resolved
+      from the stored choice, then `<html data-width-default>`, then `fluid`, and set as `<html data-width>` before
+      first paint; `DKJTheme.setWidth()`, `DKJTheme.width()` and `DKJTheme.widths`
+- [x] `house-style.css`: `phone` (360px) and `full` (no maximum) on `main`, `.container`, `main.narrow` and
+      `.container--narrow`, keyed off `data-width` inside `:where()`; `.theme-settings__width` at tap height
+- [x] Showcase and Repo hub: the brand book's own `useWidth` and `Toggle` removed; `Toolbar` passes English labels to
+      the house panel, `index.html` declares `data-width-default="full"` (the old default), the showcase's content
+      rules and the dashboard's column key off `data-width` (the dashboard's own width classes are gone, the house
+      rule sizes its `<main>` and breadcrumb `.container`)
+- [x] `vite-env.d.ts` and `house-style/README.md` describe the new options and the width rules
 
 ### TEST
 
+- [x] `scripts/lint/lint-web.ps1` green (eslint, undefined-var check, `tsc -b`, vite build)
+- [ ] An owner has looked at the settings panel's width group on the showcase and on the Repo hub, in all three
+      widths, and approved it
+
 ### DEPLOY: feat/203-width-setting-in-house-theme
 
-**Score:**
+The brand book's showcase and Repo hub now use the shipped width setting instead of their own toggle; the stored
+choice (`dkj-width`) carries over.
+
+**Score:** 2
 
 #### What makes this deploy extra special
 
-**Score:**
+Every app that draws `DKJTheme.settings(el)` now offers a page width in its settings panel -- fluid (the house
+column), phone (360px) or full (the whole width) -- remembered per device and set as `<html data-width>` before
+the page paints; `main`, `.container` and the breadcrumb bar's trail follow it. An app declares its own default
+with `<html data-width-default="full">`, or leaves the group out with `widths: false`.
+
+**Score:** 3
 
 #### Pull Request
 

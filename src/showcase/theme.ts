@@ -1,27 +1,6 @@
 import { useEffect, useState } from 'react'
 import { DEFAULT_THEMES, defaultThemeOf } from '../repos'
 
-type Width = 'fluid' | 'phone' | 'full'
-
-/** Preview width, remembered on this device; full until one is picked. The colour theme itself is owned by the house script (window.DKJTheme). */
-export function useWidth() {
-  const [width, setWidth] = useState<Width>(() => {
-    try {
-      return (localStorage.getItem('dkj-width') as Width | null) ?? 'full'
-    } catch {
-      return 'full'
-    }
-  })
-  useEffect(() => {
-    try {
-      localStorage.setItem('dkj-width', width)
-    } catch {
-      /* storage unavailable: the choice simply is not remembered */
-    }
-  }, [width])
-  return { width, setWidth }
-}
-
 /** The active house theme id (e.g. "blue"), kept in sync with data-theme so token readouts can re-read on a change. */
 export function useThemeId() {
   const [id, setId] = useState(() => document.documentElement.dataset.theme ?? '')

@@ -110,40 +110,15 @@
   margin: 0 calc(-1 * var(--spacing-6));
 }
 .dkj-settings-anchor { position: absolute; top: var(--spacing-3); right: var(--spacing-6); }
-.dkj-control { display: flex; flex-direction: column; gap: var(--spacing-1); font-size: var(--text-sm); color: var(--primary-9); }
-.dkj-control select {
-  min-height: var(--dkj-control-compact);
-  padding: 0 var(--spacing-2);
-  font: inherit;
-  font-size: var(--text-base);
-  color: var(--primary-9);
-  background: var(--primary-2);
-  border: 1px solid var(--primary-3);
-  border-radius: var(--dkj-radius-md);
-}
-.dkj-toggle { display: flex; }
-.dkj-toggle button {
-  min-height: var(--dkj-control-compact);
-  padding: 0 var(--spacing-3);
-  font: inherit;
-  font-size: var(--text-base);
-  color: var(--primary-9);
-  background: var(--primary-2);
-  border: 1px solid var(--primary-3);
-  cursor: pointer;
-}
-.dkj-toggle button + button { border-left: 0; }
-.dkj-toggle button:first-child { border-radius: var(--dkj-radius-md) 0 0 var(--dkj-radius-md); }
-.dkj-toggle button:last-child { border-radius: 0 var(--dkj-radius-md) var(--dkj-radius-md) 0; }
-.dkj-toggle button[aria-pressed='true'] { background: var(--primary-5); border-color: var(--primary-5); color: var(--primary-1); }
-.dkj-toggle button:focus-visible, .dkj-control select:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
 
-/* Phone width: everything renders in a 360px column, like the source app on the smallest phone it supports. */
-.dkj-content--phone { max-width: 360px; }
-.dkj-content--phone .dkj-demos { grid-template-columns: minmax(0, 1fr); }
+/* The page width from the settings panel (house-theme.js sets <html data-width>). <main> keeps the full width here, so the
+   showcase sizes its content itself. Phone width: everything renders in a 360px column, like the source app on the
+   smallest phone it supports. */
+:root[data-width='phone'] .dkj-content { max-width: 360px; }
+:root[data-width='phone'] .dkj-content .dkj-demos { grid-template-columns: minmax(0, 1fr); }
 /* Full width: everything takes 100% of the page column -- the app columns a preview keeps in fluid width (and the
    phone-first .dkj-column) lose their maximum, so a recreated app stretches edge to edge. */
-.dkj-content--full .dkj-preview-column, .dkj-content--full .dkj-column { max-width: none; }
+:root[data-width='full'] .dkj-content .dkj-preview-column, :root[data-width='full'] .dkj-content .dkj-column { max-width: none; }
 
 /* The intro: page title, hero card and type specimen at the top of the content. */
 .dkj-intro { margin-bottom: var(--spacing-8); scroll-margin-top: 5rem; }
@@ -270,7 +245,7 @@
 .dkj-view-components a:hover { background: var(--primary-3); color: var(--primary-7); }
 .dkj-view-components a:focus-visible { outline: var(--dkj-focus-w) solid var(--primary-5); outline-offset: var(--dkj-focus-offset); }
 
-/* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the width toggle. */
+/* Repo previews (#preview/<repo>): a recreated app in a frame, on the page colour, sized by the page width in the settings panel. */
 .dkj-preview-back { margin: 0 0 var(--spacing-3); font-size: var(--text-sm); }
 .dkj-preview-back a { color: var(--primary-7); }
 .dkj-preview-meta { margin-bottom: var(--spacing-4); }
