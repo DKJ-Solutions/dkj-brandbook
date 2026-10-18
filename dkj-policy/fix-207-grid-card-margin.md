@@ -55,9 +55,10 @@ zeroes the same margins for its direct children; `.grid-2` gets the same rule.
 
 ### DEPLOY: fix/207-grid-card-margin
 
-Inside the brand book itself nothing a reader relies on changes beyond the house stylesheet.
+The house stylesheet's `.grid-2` now zeroes the same top margins `.page-column` already did, and the README
+says so next to it.
 
-**Score:** N/A
+**Score:** 1
 
 #### What makes this deploy extra special
 
