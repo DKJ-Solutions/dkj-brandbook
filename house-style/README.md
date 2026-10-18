@@ -214,8 +214,10 @@ Which width applies: the user's own choice, remembered per app on the device (`d
 `data-theme-key` suffix as the theme); otherwise the app's own default, `<html data-width-default="full">`;
 otherwise `fluid`. `DKJTheme.setWidth('phone')` and `DKJTheme.width()` set and read it from code. An app
 whose layout has no page column to widen leaves the group out with `widths: false`. The attribute sits
-inside `:where()`, so a column class of the app's own still decides its own width. Without the script
-there is no `data-width`, and the column is fluid.
+inside `:where()`, so a column class of the app's own still decides its own width. Every `main` and
+`.container` without such a class follows the width, a footer's or a demo's too. The top bar's inner row
+(`.topbar__inner`) deliberately does not: it stays the narrow column, the width of the app's own controls.
+Without the script there is no `data-width`, and the column is fluid.
 
 **The theme names and the picker's row labels are Dutch on purpose**: DKJ-Solutions apps are
 Dutch-language, and the names are the ones their users read. An app in another language passes its own

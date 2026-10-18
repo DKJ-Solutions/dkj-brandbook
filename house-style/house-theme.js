@@ -141,8 +141,8 @@
      reset. settings(el, { label, title, theme, reset, light, dark, width, fluid, phone, full }) --
      every text is optional (Dutch by default, like the picker) and goes in as HTML, like the
      picker's labels: pass the app's own texts, never user input. widths: false leaves the width
-     group out, for an app whose layout has no page column to widen. Returns the panel's .theme-settings__extra element, where an app
-     adds controls of its own. The panel closes on the toggle, Escape (focus goes back to the
+     group out, for an app whose layout has no page column to widen. Returns the panel's
+     .theme-settings__extra element, where an app adds controls of its own. The panel closes on the toggle, Escape (focus goes back to the
      toggle), a click outside it and focus leaving it -- never on a click inside it. Drawing the
      same element twice returns the existing slot. */
   var ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"';

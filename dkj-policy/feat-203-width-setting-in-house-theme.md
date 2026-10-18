@@ -56,6 +56,7 @@ without redefining house classes. Ship it in the house style, on by default in t
       rules and the dashboard's column key off `data-width` (the dashboard's own width classes are gone, the house
       rule sizes its `<main>` and breadcrumb `.container`)
 - [x] `vite-env.d.ts` and `house-style/README.md` describe the new options and the width rules
+- [x] Code review (Victor): no blocking findings; the long doc-comment line re-wrapped, and the README now says every plain `main`/`.container` follows the width and `.topbar__inner` deliberately does not
 
 ### TEST
 
