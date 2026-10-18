@@ -39,19 +39,34 @@
 
 ### PLAN
 
+#### Resolves #205
+
+The repo-dashboard pattern's `DKJTheme.settings` call passes no width texts, so its English panel shows the
+Dutch defaults (`Breedte`, `Vloeiend`, `Telefoon`, `Volledig`) since #203. Pass the same four texts the
+showcase passes.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `house-style/patterns/repo-dashboard.html`: the settings call passes `width`, `fluid`, `phone` and
+  `full` in English, matching `src/showcase/Showcase.tsx`.
 
 ### TEST
 
+- [ ] An owner has looked at the pattern's settings panel and approved the English width group.
+
 ### DEPLOY: fix/205-pattern-width-texts
 
-**Score:**
+The repo-dashboard pattern's settings panel now shows its width group in English.
+
+**Score:** 1
 
 #### What makes this deploy extra special
 
-**Score:**
+A repo that copies the repo-dashboard pattern's `DKJTheme.settings` call now gets an English width group
+(Width: Fluid, Phone, Full) instead of the Dutch defaults, as the showcase shows it. A repo that already
+copied the old call adds those four texts itself.
+
+**Score:** 2
 
 #### Pull Request
 
