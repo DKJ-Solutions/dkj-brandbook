@@ -2,7 +2,31 @@
 
 ## [Unreleased]
 
-**2 / 2 minor entries** <!-- pending-tally -->
+**3 / 3 minor entries** <!-- pending-tally -->
+
+### DEPLOY: feat/206-grid-head · 20261018-205258Z
+
+The house stylesheet, the README and the pattern page carry the Repo hub's "heading above the cards" form, and
+the brand book's own hubs and showcase render it.
+
+**Score:** 2
+
+#### What makes this deploy extra special
+
+A Repo hub can split its Pages block into **This repo** and **General** (the pages every DKJ-Solutions repo
+serves): one **Pages** heading above two cards, each titled one level lower. **About this repo** takes the same
+shape, its heading above its card. The house now defines `.grid__head` and `.grid__full`, so a repo that defined
+them in its own page layer (dkj-claude-plugins) can drop those rules once it takes this version.
+
+**Score:** 3
+
+#### Pull Request
+
+A house grid heading: a block's h2 stands above its card(s)
+
+[PR #210](https://github.com/DKJ-Solutions/dkj-brandbook/pull/210)
+
+---
 
 ### DEPLOY: fix/205-pattern-width-texts · 20261018-184757Z
 
