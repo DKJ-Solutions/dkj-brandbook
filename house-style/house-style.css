@@ -186,6 +186,9 @@ body > header, main > header { display: flex; justify-content: space-between; al
 .page-column [id] { scroll-margin-top: 5rem; }
 .page-cta { margin: var(--spacing-4) 0 0; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); }
+/* The grid's gap is the spacing between its rows, so a direct .card, .tiles or .notice gives up its own top
+   margin here too, as in .page-column (#207). */
+.grid-2 > .card, .grid-2 > .tiles, .grid-2 > .notice { margin-top: 0; }
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--spacing-3); margin-top: var(--spacing-4); }
 .item-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); column-gap: var(--spacing-4); }
 .mini-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: var(--spacing-2-5); margin-top: var(--spacing-3); }
