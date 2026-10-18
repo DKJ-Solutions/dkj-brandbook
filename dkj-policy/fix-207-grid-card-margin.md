@@ -51,7 +51,7 @@ zeroes the same margins for its direct children; `.grid-2` gets the same rule.
 ### TEST
 
 - [x] Gates green (`open-pr -GatesOnly`)
-- [ ] An owner has looked at a `.grid-2` of cards (the showcase's house-app section) and approved it
+- [x] An owner has looked at a `.grid-2` of cards (the showcase's house-app section) and approved it
 
 ### DEPLOY: fix/207-grid-card-margin
 
