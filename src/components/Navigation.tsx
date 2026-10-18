@@ -1,7 +1,7 @@
 import { useRef, useState, type ReactNode } from 'react'
 import { cx } from './cx'
 import { Button, IconButton, RoundToggle } from './Button'
-import { Card, CardBody, CardHead } from './Card'
+import { Card, CardBody, CardGroup, CardHead } from './Card'
 import { Dialog } from './Dialog'
 import { Icon } from './Icon'
 import './navigation.css'
@@ -196,31 +196,59 @@ export function Breadcrumbs({ items, bar = false }: { items: readonly { label: s
   )
 }
 
-/**
- * PageLinks -- a data card titled "Pages" around a navigation list: one link row per page (label, an optional one-line
- * description beneath it, a chevron at the end), a line between rows. It uses the house `.menu-item` rows
- * (house-style.css, loaded globally) and renders nothing for an empty list.
- */
-export function PageLinks({ pages, title = 'Pages' }: { pages: readonly { label: string; href: string; description?: string }[]; title?: string }) {
-  if (pages.length === 0) return null
+type Page = { label: string; href: string; description?: string }
+
+function PageRows({ pages, label }: { pages: readonly Page[]; label: string }) {
   return (
-    <Card variant="data">
-      <CardHead title={title} />
-      <CardBody>
-        <nav aria-label={title} className="menu-list">
-          {pages.map((page) => (
-            <a key={page.href + page.label} className="menu-item" href={page.href}>
-              <span className="menu-item__label">
-                {page.label}
-                {page.description && <span className="menu-item__sub">{page.description}</span>}
-              </span>
-              <svg className="menu-item__chevron" viewBox="0 0 24 24" width={20} height={20} aria-hidden="true" focusable="false">
-                <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
-          ))}
-        </nav>
-      </CardBody>
-    </Card>
+    <nav aria-label={label} className="menu-list">
+      {pages.map((page) => (
+        <a key={page.href + page.label} className="menu-item" href={page.href}>
+          <span className="menu-item__label">
+            {page.label}
+            {page.description && <span className="menu-item__sub">{page.description}</span>}
+          </span>
+          <svg className="menu-item__chevron" viewBox="0 0 24 24" width={20} height={20} aria-hidden="true" focusable="false">
+            <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
+      ))}
+    </nav>
+  )
+}
+
+/**
+ * PageLinks -- the Repo hub's Pages block: one link row per page (label, an optional one-line description beneath it, a
+ * chevron at the end), a line between rows. It uses the house `.menu-item` rows (house-style.css, loaded globally) and
+ * renders nothing without pages.
+ * One group only (either): one data card titled "Pages". With both pages and generalPages (the pages every DKJ-Solutions repo serves, #206): the
+ * h2 "Pages" and its sub line stand above two cards side by side, "This repo" (pages) and "General" (generalPages).
+ */
+export function PageLinks({ pages, generalPages = [], title = 'Pages' }: { pages: readonly Page[]; generalPages?: readonly Page[]; title?: string }) {
+  const groups = [
+    { group: 'This repo', sub: 'Specific to this repo', rows: pages },
+    { group: 'General', sub: 'Not specific to this repo: every DKJ-Solutions repo has them', rows: generalPages },
+  ].filter((g) => g.rows.length > 0)
+  if (groups.length === 0) return null
+  if (groups.length === 1) {
+    return (
+      <Card variant="data">
+        <CardHead title={title} />
+        <CardBody>
+          <PageRows pages={groups[0].rows} label={title} />
+        </CardBody>
+      </Card>
+    )
+  }
+  return (
+    <CardGroup title={title} subtitle="Every page this dev server serves">
+      {groups.map((g) => (
+        <Card key={g.group} variant="data">
+          <CardHead level={3} title={g.group} subtitle={g.sub} />
+          <CardBody>
+            <PageRows pages={g.rows} label={`${g.group} pages`} />
+          </CardBody>
+        </Card>
+      ))}
+    </CardGroup>
   )
 }
