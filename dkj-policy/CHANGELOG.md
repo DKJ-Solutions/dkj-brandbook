@@ -2,7 +2,28 @@
 
 ## [Unreleased]
 
-**3 / 3 minor entries** <!-- pending-tally -->
+**4 / 4 minor entries** <!-- pending-tally -->
+
+### DEPLOY: docs/moved-to-dkj-claude-plugins · 20261019-131024Z
+
+The README now says the brand book has moved to `DKJ-Solutions/dkj-claude-plugins` and that this repo is archived.
+
+**Score:** 2
+
+#### What makes this deploy extra special
+
+This is the last change here: the house style, its rules and the Repo hub are maintained in
+dkj-claude-plugins from now on, and a change is asked for there.
+
+**Score:** 2
+
+#### Pull Request
+
+The brand book has moved to dkj-claude-plugins
+
+[PR #211](https://github.com/DKJ-Solutions/dkj-brandbook/pull/211)
+
+---
 
 ### DEPLOY: feat/206-grid-head · 20261018-205258Z
 
