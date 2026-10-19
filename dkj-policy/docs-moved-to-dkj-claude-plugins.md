@@ -39,19 +39,29 @@
 
 ### PLAN
 
+The last change before this repo is archived (dkj-claude-plugins#3134, step 5 of #3130, owner's word
+October 19, 2026): the README says where the brand book went.
+
 ### CREATE
 
-- [ ] TODO: the first step of this branch
+- [x] `README.md` opens with a notice that the repo has moved and is archived, linking the house style and the `brandbook/` app in `DKJ-Solutions/dkj-claude-plugins`
 
 ### TEST
 
+- [x] The two links resolve on `DKJ-Solutions/dkj-claude-plugins` `main`
+
 ### DEPLOY: docs/moved-to-dkj-claude-plugins
 
-**Score:**
+The README now says the brand book has moved to `DKJ-Solutions/dkj-claude-plugins` and that this repo is archived.
+
+**Score:** 2
 
 #### What makes this deploy extra special
 
-**Score:**
+This is the last change here: the house style, its rules and the Repo hub are maintained in
+dkj-claude-plugins from now on, and a change is asked for there.
+
+**Score:** 2
 
 #### Pull Request
 
