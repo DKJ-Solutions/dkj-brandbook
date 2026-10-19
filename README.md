@@ -1,5 +1,13 @@
 # dkj-brandbook
 
+> **This repository has moved and is archived.** The brand book, the house style and the Repo hub now
+> live in [`DKJ-Solutions/dkj-claude-plugins`](https://github.com/DKJ-Solutions/dkj-claude-plugins):
+> the house style in
+> [`plugins/dkj-policy/dkj-solutions/assets/house-style/`](https://github.com/DKJ-Solutions/dkj-claude-plugins/tree/main/plugins/dkj-policy/dkj-solutions/assets/house-style),
+> the app in [`brandbook/`](https://github.com/DKJ-Solutions/dkj-claude-plugins/tree/main/brandbook)
+> ([dkj-claude-plugins#3130](https://github.com/DKJ-Solutions/dkj-claude-plugins/issues/3130), October
+> 2026). Everything below describes this repo as it was; a change is asked for there, not here.
+
 The central brand book for every DKJ-Solutions repo: design principles, brand guidelines, design tokens
 and themes, plus an overview of the components built across DKJ-Solutions repos.
 
